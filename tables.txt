@@ -1,0 +1,56 @@
+table resumes
+  id , номер
+  name , имя
+  lang , язык
+  region_id , регион
+  job_opportunity ,название 
+  job_place , место работы
+  phone_numbers_text ,телефоны
+  resume_introduction  интро introduction
+  
+table resume_footers
+  id , номер
+  resume_id, номер резюме
+  footer_header , название футера 
+  footer_text ,   текст футера
+  footer_order порядок (1,2,3,4)
+
+table experiences
+  id ,
+  resume_id , номер резюме
+  template_id , номер шаблона
+  position ,должность
+  start_date , дата начала
+  end_date ,дата увольнения
+  employer ,работодатель компания
+  responsibilities ,обязанности
+  benefits ,преимущества
+  leave_reason причина увольнения
+
+table skill_show_lists 
+  skill_id ,
+  experience_id  
+
+table skills 
+  id ,
+  skill ,умение
+  category_id  
+  
+table skills_categories 
+  id ,
+  category категория
+  
+table tags
+  id
+  tag  тег
+  
+table regions
+  id ,
+  region_name , название региона
+  date_mask ,маска даты
+  orderby   порядок
+  
+table languages 
+  lang ,язык
+  language ,язык полное название
+  orderby  порядок 
