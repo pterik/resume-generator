@@ -118,9 +118,9 @@ procedure TFormListResumes.BitBtnNewTranslationClick(Sender: TObject);
 begin
 if FormNewResumeTranslation=nil then Application.CreateForm(TFormNewResumeTranslation, FormNewResumeTranslation);
 FormNewResumeTranslation.SetFormValues;
-FormNewResumeTranslation.SetEmptyResumeUA;
-FormNewResumeTranslation.SetEmptyResumeTR;
-FormNewResumeTranslation.SetValuesFromResume(UniResumes['id']);
+FormNewResumeTranslation.SetEmptyUA;
+FormNewResumeTranslation.SetEmptyTR;
+FormNewResumeTranslation.GetValuesFromResume(UniResumes['id']);
 FormNewResumeTranslation.ShowModal;
 UniResumes.Refresh;
 end;

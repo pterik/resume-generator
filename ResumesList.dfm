@@ -24,7 +24,7 @@ object FormListResumes: TFormListResumes
   object DBGrid1: TDBGrid
     Left = 0
     Top = 8
-    Width = 985
+    Width = 980
     Height = 346
     DataSource = UniDSResumes
     ReadOnly = True
@@ -104,6 +104,7 @@ object FormListResumes: TFormListResumes
     Top = 565
     Width = 121
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -148,6 +149,7 @@ object FormListResumes: TFormListResumes
     Top = 614
     Width = 121
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1042#1080#1076#1072#1083#1080#1090#1080
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -192,6 +194,7 @@ object FormListResumes: TFormListResumes
     Top = 565
     Width = 185
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1053#1086#1074#1077' '#1091#1082#1088#1072#1111#1085#1089#1100#1082#1077' '#1088#1077#1079#1102#1084#1077
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
@@ -328,7 +331,7 @@ object FormListResumes: TFormListResumes
     OnClick = BitBtnNewUkrResumeClick
   end
   object BitBtnClose: TBitBtn
-    Left = 823
+    Left = 843
     Top = 612
     Width = 137
     Height = 40
@@ -337,14 +340,13 @@ object FormListResumes: TFormListResumes
     NumGlyphs = 2
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 839
-    ExplicitTop = 614
   end
   object BitBtnNewTranslation: TBitBtn
     Left = 7
     Top = 616
     Width = 186
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1053#1086#1074#1080#1081' '#1087#1077#1088#1077#1082#1083#1072#1076' '#1088#1077#1079#1102#1084#1077
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
@@ -496,7 +498,7 @@ object FormListResumes: TFormListResumes
     Caption = #1042#1110#1076#1082#1088#1080#1090#1080' '#1088#1077#1079#1102#1084#1077' DOCX'
     TabOrder = 7
     OnClick = BitBtnCheckClick
-    ExplicitTop = 565
+    ExplicitTop = 562
   end
   object BitBtnCV: TBitBtn
     Left = 691
@@ -507,7 +509,7 @@ object FormListResumes: TFormListResumes
     Caption = #1042#1110#1076#1082#1088#1080#1090#1080' CV DOCX'
     TabOrder = 8
     OnClick = BitBtnCVClick
-    ExplicitTop = 565
+    ExplicitTop = 562
   end
   object BitBtnLetter: TBitBtn
     Left = 691
@@ -518,18 +520,18 @@ object FormListResumes: TFormListResumes
     Caption = #1042#1110#1076#1082#1088#1080#1090#1080' CL DOCX'
     TabOrder = 9
     OnClick = BitBtnLetterClick
-    ExplicitTop = 614
+    ExplicitTop = 611
   end
   object BitBtnPDF: TBitBtn
     Left = 843
     Top = 563
     Width = 137
     Height = 40
-    Anchors = [akLeft, akBottom]
+    Anchors = [akRight, akBottom]
     Caption = #1057#1090#1074#1086#1088#1080#1090#1080' PDF '#1088#1077#1079#1102#1084#1077
     TabOrder = 10
     OnClick = BitBtnPDFClick
-    ExplicitTop = 565
+    ExplicitTop = 562
   end
   object BitBtnOpenTmpl: TBitBtn
     Left = 533
@@ -540,7 +542,7 @@ object FormListResumes: TFormListResumes
     Caption = #1042#1110#1076#1082#1088#1080#1090#1080' '#1096#1072#1073#1083#1086#1085
     TabOrder = 11
     OnClick = BitBtnOpenTmplClick
-    ExplicitTop = 614
+    ExplicitTop = 611
   end
   object BitBtnGo: TBitBtn
     Left = 342
@@ -551,7 +553,7 @@ object FormListResumes: TFormListResumes
     Caption = #1047#1073#1077#1088#1077#1075#1090#1080' '#1088#1077#1079#1102#1084#1077' '#1103#1082' '#1092#1072#1081#1083#1080
     TabOrder = 12
     OnClick = BitBtnGoClick
-    ExplicitTop = 565
+    ExplicitTop = 562
   end
   object CheckBoxExtraComment: TCheckBox
     Left = 8
@@ -561,13 +563,14 @@ object FormListResumes: TFormListResumes
     Anchors = [akLeft, akBottom]
     Caption = #1041#1110#1083#1100#1096#1077' '#1082#1086#1084#1077#1085#1090#1072#1088#1110#1074
     TabOrder = 13
-    ExplicitTop = 488
+    ExplicitTop = 486
   end
   object BitBtnArchive: TBitBtn
     Left = 342
     Top = 614
     Width = 174
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1042' '#1072#1088#1093#1080#1074
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
@@ -721,8 +724,9 @@ object FormListResumes: TFormListResumes
       '  created ,'
       '  updated from resumes'
       'where lang = :p_lang'
-      'and is_active = 1')
+      'and archived = 0')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Active = True
     Left = 288
     Top = 112
     ParamData = <

@@ -11,6 +11,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnCreate = FormCreate
+  OnKeyUp = FormKeyUp
   DesignSize = (
     988
     680)
@@ -175,7 +176,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 8
     Width = 980
     Height = 273
-    ActivePage = TabSheetMainUA
+    ActivePage = TabSheetJob2UA
     Style = tsButtons
     TabOrder = 2
     OnChange = PageControlUAChange
@@ -1118,7 +1119,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 287
     Width = 980
     Height = 338
-    ActivePage = TabSheetFooterTR
+    ActivePage = TabSheetJob1TR
     Style = tsButtons
     TabOrder = 3
     OnChange = PageControlTRChange
@@ -1373,7 +1374,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE1TRChange
+        OnCloseUp = CalendarPickerB1TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -1400,7 +1401,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE1TRChange
+        OnCloseUp = CalendarPickerE1TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -2532,14 +2533,14 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       
         '(name,  lang, job_opportunity, job_place, cv_docx_url, cv_pdf_ur' +
         'l,'
-      'phone_numbers_text, resume_introduction, is_active)'
+      'phone_numbers_text, resume_introduction, archived)'
       'VALUES '
       
         '(:p_name, :p_lang, :p_job_opportunity, :p_job_place, :p_cv_docx_' +
         'url, :p_cv_pdf_url,'
-      ':p_phone_numbers_text, :p_resume_introduction, :p_is_active)')
-    Left = 72
-    Top = 512
+      ':p_phone_numbers_text, :p_resume_introduction, :p_archived)')
+    Left = 168
+    Top = 536
     ParamData = <
       item
         DataType = ftString
@@ -2590,13 +2591,12 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Value = '0'
       end
       item
-        DataType = ftBoolean
-        Name = 'p_is_active'
-        ParamType = ptInput
-        Value = True
+        DataType = ftUnknown
+        Name = 'p_archived'
+        Value = nil
       end>
   end
-  object UniGetTranslation: TUniQuery
+  object UniGetResume: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2620,7 +2620,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  cv_docx_url ,'
       '  cv_pdf_url ,'
       '  resume_introduction ,'
-      '  is_active ,'
+      '  archived ,'
       '  created,'
       '  updated '
       'from resumes WHERE id = :p_id'
@@ -2640,53 +2640,53 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ParamType = ptInput
         Value = 'EN'
       end>
-    object UniGetTranslationid: TIntegerField
+    object UniGetResumeid: TIntegerField
       FieldName = 'id'
     end
-    object UniGetTranslationname: TStringField
+    object UniGetResumename: TStringField
       FieldName = 'name'
       Size = 50
     end
-    object UniGetTranslationlang: TStringField
+    object UniGetResumelang: TStringField
       FieldName = 'lang'
       Size = 3
     end
-    object UniGetTranslationregion_id: TStringField
+    object UniGetResumeregion_id: TStringField
       FieldName = 'region_id'
       Size = 2
     end
-    object UniGetTranslationjob_opportunity: TStringField
+    object UniGetResumejob_opportunity: TStringField
       FieldName = 'job_opportunity'
       Required = True
       Size = 255
     end
-    object UniGetTranslationjob_place: TStringField
+    object UniGetResumejob_place: TStringField
       FieldName = 'job_place'
       Size = 255
     end
-    object UniGetTranslationphone_numbers_text: TStringField
+    object UniGetResumephone_numbers_text: TStringField
       FieldName = 'phone_numbers_text'
       Size = 255
     end
-    object UniGetTranslationcv_docx_url: TStringField
+    object UniGetResumecv_docx_url: TStringField
       FieldName = 'cv_docx_url'
       Size = 255
     end
-    object UniGetTranslationcv_pdf_url: TStringField
+    object UniGetResumecv_pdf_url: TStringField
       FieldName = 'cv_pdf_url'
       Size = 255
     end
-    object UniGetTranslationresume_introduction: TStringField
+    object UniGetResumeresume_introduction: TStringField
       FieldName = 'resume_introduction'
       Size = 1000
     end
-    object UniGetTranslationis_active: TBooleanField
-      FieldName = 'is_active'
+    object UniGetResumearchived: TBooleanField
+      FieldName = 'archived'
     end
-    object UniGetTranslationcreated: TDateTimeField
+    object UniGetResumecreated: TDateTimeField
       FieldName = 'created'
     end
-    object UniGetTranslationupdated: TDateTimeField
+    object UniGetResumeupdated: TDateTimeField
       FieldName = 'updated'
     end
   end
@@ -2731,7 +2731,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       'order by orderby')
     UniDirectional = True
     Left = 720
-    Top = 109
+    Top = 101
     object UniLanguageslang: TStringField
       FieldName = 'lang'
       Required = True
@@ -2751,7 +2751,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       FieldName = 'updated'
     end
   end
-  object UniGetUAResumeFooters: TUniQuery
+  object UniGetFooters: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2771,8 +2771,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       'and r.lang = :p_lang'
       'and f.resume_id = :p_resume_id'
       'ORDER BY f.footer_order')
-    Left = 328
-    Top = 88
+    Left = 136
+    Top = 216
     ParamData = <
       item
         DataType = ftString
@@ -2786,32 +2786,32 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ParamType = ptInput
         Value = 0
       end>
-    object UniGetUAResumeFootersid: TIntegerField
+    object UniGetFootersid: TIntegerField
       FieldName = 'id'
     end
-    object UniGetUAResumeFootersresume_id: TIntegerField
+    object UniGetFootersresume_id: TIntegerField
       FieldName = 'resume_id'
       Required = True
     end
-    object UniGetUAResumeFootersfooter_header: TStringField
+    object UniGetFootersfooter_header: TStringField
       FieldName = 'footer_header'
       Size = 255
     end
-    object UniGetUAResumeFootersfooter_text: TStringField
+    object UniGetFootersfooter_text: TStringField
       FieldName = 'footer_text'
       Size = 1000
     end
-    object UniGetUAResumeFootersfooter_order: TIntegerField
+    object UniGetFootersfooter_order: TIntegerField
       FieldName = 'footer_order'
     end
-    object UniGetUAResumeFooterscreated: TDateTimeField
+    object UniGetFooterscreated: TDateTimeField
       FieldName = 'created'
     end
-    object UniGetUAResumeFootersupdated: TDateTimeField
+    object UniGetFootersupdated: TDateTimeField
       FieldName = 'updated'
     end
   end
-  object UniInsertResumeFooters: TUniQuery
+  object UniInsertFooters: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2828,12 +2828,14 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  (resume_id, '
       '  footer_header ,'
       '  footer_text ,'
-      '  footer_order)'
+      '  footer_order, '
+      '  archived)'
       '  values ('
       '  :p_resume_id, '
       '  :p_footer_header ,'
       '  :p_footer_text ,'
-      '  :p_footer_order)')
+      '  :p_footer_order, '
+      '  :p_archived)')
     Left = 184
     Top = 360
     ParamData = <
@@ -2860,9 +2862,15 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Name = 'p_footer_order'
         ParamType = ptInput
         Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_archived'
+        ParamType = ptInput
+        Value = nil
       end>
   end
-  object UniInsertSkills: TUniQuery
+  object UniInsertJobs: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2877,7 +2885,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     SQL.Strings = (
       'insert into experiences('
       '  resume_id ,'
-      '  position ,'
+      '  job_position ,'
       '  start_date ,'
       '  end_date ,'
       '  employer ,'
@@ -2886,14 +2894,14 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  leave_reason)'
       'values ('
       '  :p_resume_id ,'
-      '  :p_position ,'
+      '  :p_job_position ,'
       '  :p_start_date ,'
       '  :p_end_date ,'
       '  :p_employer ,'
       '  :p_responsibilities ,'
       '  :p_benefits ,'
       '  :p_leave_reason)')
-    Left = 360
+    Left = 336
     Top = 368
     ParamData = <
       item
@@ -2904,7 +2912,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       end
       item
         DataType = ftString
-        Name = 'p_position'
+        Name = 'p_job_position'
         ParamType = ptInput
         Value = nil
       end
@@ -3068,7 +3076,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'SELECT * from templates WHERE id = :p_id')
-    Left = 712
+    Left = 720
     Top = 368
     ParamData = <
       item
@@ -3159,21 +3167,20 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       ReadOnly = True
     end
   end
-  object UniGetExperiences: TUniQuery
+  object UniGetJobs: TUniQuery
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'select id, '
-      
-        'position, start_date, end_date, employer, responsibilities, bene' +
-        'fits, leave_reason, '
-      'created, updated'
+      'job_position, start_date, end_date, employer, responsibilities, '
+      'benefits, leave_reason, created, updated, '
+      'ROW_NUMBER() OVER () AS order_position'
       'from experiences e'
       'where e.resume_id = :p_resume_id'
       'order by start_date')
     UniDirectional = True
-    Left = 280
-    Top = 205
+    Left = 288
+    Top = 213
     ParamData = <
       item
         DataType = ftInteger
@@ -3181,123 +3188,47 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ParamType = ptInput
         Value = nil
       end>
-    object UniGetExperiencesid: TIntegerField
+    object UniGetJobsid: TIntegerField
       FieldName = 'id'
     end
-    object UniGetExperiencesposition: TStringField
-      FieldName = 'position'
+    object UniGetJobsjob_position: TStringField
+      FieldName = 'job_position'
       Size = 255
     end
-    object UniGetExperiencesstart_date: TDateField
+    object UniGetJobsorder_position: TLargeintField
+      FieldName = 'order_position'
+      ReadOnly = True
+      Required = True
+    end
+    object UniGetJobsstart_date: TDateField
       FieldName = 'start_date'
       Required = True
     end
-    object UniGetExperiencesend_date: TDateField
+    object UniGetJobsend_date: TDateField
       FieldName = 'end_date'
     end
-    object UniGetExperiencesemployer: TStringField
+    object UniGetJobsemployer: TStringField
       FieldName = 'employer'
       Size = 255
     end
-    object UniGetExperiencesresponsibilities: TStringField
+    object UniGetJobsresponsibilities: TStringField
       FieldName = 'responsibilities'
       Size = 1000
     end
-    object UniGetExperiencesbenefits: TStringField
+    object UniGetJobsbenefits: TStringField
       FieldName = 'benefits'
       Size = 1000
     end
-    object UniGetExperiencesleave_reason: TStringField
+    object UniGetJobsleave_reason: TStringField
       FieldName = 'leave_reason'
       Size = 255
     end
-    object UniGetExperiencescreated: TDateTimeField
+    object UniGetJobscreated: TDateTimeField
       FieldName = 'created'
     end
-    object UniGetExperiencesupdated: TDateTimeField
+    object UniGetJobsupdated: TDateTimeField
       FieldName = 'updated'
     end
-  end
-  object UniDeleteResume: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'INSERT INTO resumes '
-      
-        '(name, lang, region_id, job_opportunity, job_place, cv_docx_url,' +
-        ' cv_pdf_url,'
-      'phone_numbers_text, resume_introduction)'
-      'VALUES '
-      
-        '(:p_name, :p_lang, :p_region_id, :p_job_opportunity, :p_job_plac' +
-        'e, :p_cv_docx_url, :p_cv_pdf_url,'
-      ':p_phone_numbers_text, :p_resume_introduction)')
-    Left = 528
-    Top = 376
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_name'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_lang'
-        ParamType = ptInput
-        Value = 'UA'
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_region_id'
-        ParamType = ptInput
-        Value = 1
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_opportunity'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_place'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_docx_url'
-        ParamType = ptInput
-        Value = #39#39
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_pdf_url'
-        ParamType = ptInput
-        Value = #39#39
-      end
-      item
-        DataType = ftString
-        Name = 'p_phone_numbers_text'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_resume_introduction'
-        ParamType = ptInput
-        Value = '0'
-      end>
   end
   object UniArchiveResume: TUniQuery
     SQLUpdate.Strings = (
@@ -3406,5 +3337,154 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ParamType = ptInput
         Value = nil
       end>
+  end
+  object UniInsertSkillList: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'insert into skill_show_lists '
+      '(skill_id, experience_id) '
+      'values '
+      '(:p_skill_id, :p_experience_id) ')
+    Left = 448
+    Top = 368
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_skill_id'
+        ParamType = ptInput
+        Value = 1
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = 1
+      end>
+  end
+  object UniLastJobID: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT ID from resumes '
+      'WHERE name = :p_name')
+    Left = 688
+    Top = 216
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_name'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object IntegerField1: TIntegerField
+      FieldName = 'ID'
+    end
+  end
+  object UniGetSkillID: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'select id, skill from skills'
+      'where skill = :p_skill')
+    Left = 544
+    Top = 368
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_skill'
+        ParamType = ptInput
+        Value = 'Python'
+      end>
+  end
+  object UniInsertSkill: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'insert into skills (skill) values (:p_skill) ')
+    Left = 632
+    Top = 368
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_skill'
+        ParamType = ptInput
+        Value = '11'
+      end>
+  end
+  object UniGetSkillList: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'select count(*) as cntr from skill_show_lists'
+      
+        'where skill_id = :p_skill_id and experience_id = :p_experience_i' +
+        'd'
+      '')
+    Left = 448
+    Top = 424
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_skill_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object UniGetSkillListcntr: TLargeintField
+      FieldName = 'cntr'
+      ReadOnly = True
+      Required = True
+    end
   end
 end
