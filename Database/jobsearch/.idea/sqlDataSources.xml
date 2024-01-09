@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="e441e46f-9683-486e-924d-cbe18e7f2a9d" name="jobsearch@localhost Mapping">
+      <data-sources db="148e68ef-162b-4963-9bca-f8c9b0fedbee" ddl="5d0b887e-a7fd-49f4-851c-193f80dbe0a1" />
+    </mapping>
+  </component>
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="5d0b887e-a7fd-49f4-851c-193f80dbe0a1" />
+          <option name="name" value="jobsearch@localhost (DDL)" />
+          <option name="dbmsName" value="MYSQL" />
+          <option name="parent" value="148e68ef-162b-4963-9bca-f8c9b0fedbee" />
+          <option name="urls">
+            <array />
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
