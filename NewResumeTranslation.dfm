@@ -17,7 +17,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     680)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 857
+    Left = 853
     Top = 640
     Width = 98
     Height = 36
@@ -25,7 +25,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 853
+    ExplicitLeft = 849
     ExplicitTop = 639
   end
   object BitBtnSave: TBitBtn
@@ -1119,7 +1119,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 287
     Width = 980
     Height = 338
-    ActivePage = TabSheetJob1TR
+    ActivePage = TabSheetJob10TR
     Style = tsButtons
     TabOrder = 3
     OnChange = PageControlTRChange
@@ -1494,7 +1494,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE2TRChange
+        OnCloseUp = CalendarPickerB2TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -1521,7 +1521,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE2TRChange
+        OnCloseUp = CalendarPickerE2TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -1613,7 +1613,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE3TRChange
+        OnCloseUp = CalendarPickerB3TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -1640,7 +1640,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE3TRChange
+        OnCloseUp = CalendarPickerE3TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -1732,7 +1732,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE4TRChange
+        OnCloseUp = CalendarPickerB4TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -1759,7 +1759,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE4TRChange
+        OnCloseUp = CalendarPickerE4TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -1851,7 +1851,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE5TRChange
+        OnCloseUp = CalendarPickerB5TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -1878,7 +1878,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE5TRChange
+        OnCloseUp = CalendarPickerE5TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -1996,7 +1996,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE6TRChange
+        OnCloseUp = CalendarPickerB6TRCloseUp
         ParentFont = False
         TabOrder = 6
         TextHint = 'select a date'
@@ -2023,7 +2023,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE6TRChange
+        OnCloseUp = CalendarPickerE6TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -2090,7 +2090,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE7TRChange
+        OnCloseUp = CalendarPickerB7TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -2117,7 +2117,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE7TRChange
+        OnCloseUp = CalendarPickerE7TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -2209,7 +2209,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE8TRChange
+        OnCloseUp = CalendarPickerB8TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -2236,7 +2236,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE8TRChange
+        OnCloseUp = CalendarPickerE8TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -2337,7 +2337,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE9TRChange
+        OnCloseUp = CalendarPickerB9TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -2364,7 +2364,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE9TRChange
+        OnCloseUp = CalendarPickerE9TRCloseUp
         ParentFont = False
         TabOrder = 5
         TextHint = 'select a date'
@@ -2447,7 +2447,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE10TRChange
+        OnCloseUp = CalendarPickerB10TRCloseUp
         ParentFont = False
         TabOrder = 3
         TextHint = 'select a date'
@@ -2474,7 +2474,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE10TRChange
+        OnCloseUp = CalendarPickerE10TRCloseUp
         ParentFont = False
         TabOrder = 4
         TextHint = 'select a date'
@@ -3119,10 +3119,10 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
-      'select id, experience_id, skill, '
+      'select id, experience_id, ifnull(skill,'#39#39') skill, '
       
-        '(select min(category) from skills_categories where id = category' +
-        '_id) category,'
+        '(select ifnull(min(category),'#39#39') from skills_categories where id' +
+        ' = category_id) category,'
       'category_id, '
       'sl.created, sl.updated'
       'from skills s, skill_show_lists sl'
@@ -3148,6 +3148,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     end
     object UniGetSkillsskill: TStringField
       FieldName = 'skill'
+      ReadOnly = True
+      Required = True
       Size = 255
     end
     object UniGetSkillscategory: TStringField
@@ -3172,8 +3174,13 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'select id, '
-      'job_position, start_date, end_date, employer, responsibilities, '
-      'benefits, leave_reason, created, updated, '
+      
+        'ifnull(job_position,'#39#39') job_position, start_date, end_date, ifnu' +
+        'll(employer,'#39#39') employer, ifnull(responsibilities,'#39#39') responsibi' +
+        'lities, '
+      
+        'ifnull(benefits,'#39#39') benefits, ifnull(leave_reason,'#39#39') leave_reas' +
+        'on, created, updated, '
       'ROW_NUMBER() OVER () AS order_position'
       'from experiences e'
       'where e.resume_id = :p_resume_id'

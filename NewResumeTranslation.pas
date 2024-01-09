@@ -299,11 +299,9 @@ type
     UniGetJobsupdated: TDateTimeField;
     UniGetSkillsid: TIntegerField;
     UniGetSkillsexperience_id: TIntegerField;
-    UniGetSkillscategory: TStringField;
     UniGetSkillscategory_id: TIntegerField;
     UniGetSkillscreated: TDateTimeField;
     UniGetSkillsupdated: TDateTimeField;
-    UniGetSkillsskill: TStringField;
     Label11: TLabel;
     UniArchiveResume: TUniQuery;
     UniArchiveFooters: TUniQuery;
@@ -319,12 +317,33 @@ type
     UniGetSkillList: TUniQuery;
     UniGetSkillListcntr: TLargeintField;
     UniGetResumearchived: TBooleanField;
+    UniGetSkillsskill: TStringField;
+    UniGetSkillscategory: TStringField;
     procedure PageControlTRChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure CalendarPickerB1TRCloseUp(Sender: TObject);
     procedure CalendarPickerE1TRCloseUp(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure CalendarPickerB2TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE2TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB3TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE3TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB4TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE4TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB5TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE5TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB6TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE6TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB7TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE7TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB8TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE8TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB9TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE9TRCloseUp(Sender: TObject);
+    procedure CalendarPickerB10TRCloseUp(Sender: TObject);
+    procedure CalendarPickerE10TRCloseUp(Sender: TObject);
   private
     ComboBoxLang_First_Value, ComboBoxRegion_First_Value:string;
 //    ResumeIDTR, ResumeFooterIDTR:integer;
@@ -333,7 +352,7 @@ type
     procedure SetComboBoxLanguages;
     procedure SetComboBoxRegions;
     procedure GetMonthRegionByMask(const D: TDatetime; Region:string; var FullMonthYear, ShortMonthYear:string );
-    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+//    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     function  IsEmpty(const S: String): boolean;
     procedure SetEmptyResume;
     procedure SetJobsValues(FResumeID: integer);
@@ -360,17 +379,16 @@ type
     procedure SetEmptyJobsUA;
     procedure SetEmptySkillsTR;
     procedure SetEmptySkillsUA;
-    procedure CalendarPickerB1TRChange(Sender: TObject);
-    procedure CalendarPickerE10TRChange(Sender: TObject);
-    procedure CalendarPickerE2TRChange(Sender: TObject);
-    procedure CalendarPickerE3TRChange(Sender: TObject);
-    procedure CalendarPickerE4TRChange(Sender: TObject);
-    procedure CalendarPickerE5TRChange(Sender: TObject);
-    procedure CalendarPickerE6TRChange(Sender: TObject);
-    procedure CalendarPickerE7TRChange(Sender: TObject);
-    procedure CalendarPickerE8TRChange(Sender: TObject);
-    procedure CalendarPickerE9TRChange(Sender: TObject);
     procedure ChangeDates1;
+    procedure ChangeDates2;
+    procedure ChangeDates10;
+    procedure ChangeDates3;
+    procedure ChangeDates4;
+    procedure ChangeDates5;
+    procedure ChangeDates6;
+    procedure ChangeDates7;
+    procedure ChangeDates8;
+    procedure ChangeDates9;
   public
     UniInsertFooters: TUniQuery;
     UniInsertJobs: TUniQuery;
@@ -414,6 +432,12 @@ begin
 PageControlTR.ActivePage:=TabSheetMainTR;
 SetComboBoxLanguages;
 SetComboBoxRegions;
+end;
+
+procedure TFormNewResumeTranslation.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key=VK_F2 then BitBtnSave.Click;
 end;
 
 procedure TFormNewResumeTranslation.GetMonthRegionByMask(const D: TDatetime; Region:string; var FullMonthYear, ShortMonthYear:string );
@@ -730,6 +754,7 @@ then
         UniGetFooters.Next;
         end;
 end;
+
 procedure TFormNewResumeTranslation.SetJobsValues(FResumeID:integer);
 var FullMonthYearStart, ShortMonthYearStart, FullMonthYearEnd, ShortMonthYearEnd:string;
 begin
@@ -739,10 +764,14 @@ UniGetJobs.Open;
 while not UniGetJobs.Eof do
   begin
   case UniGetJobs['order_position'] of
-  1: begin
+  1:begin
     GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
-    GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
-    Edit1DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+    if VarIsNull(UniGetJobs['end_date']) then Edit1DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+        begin
+        GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit1DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+        end;
     Edit1NameUA.Text:=UniGetJobs['job_position'];
     Memo1RespUA.Text:=UniGetJobs['responsibilities'];
     Edit1CompanyUA.Text:=UniGetJobs['employer'];
@@ -758,8 +787,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    2:begin
-    Edit2DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+  2:begin
+    GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
+    if VarIsNull(UniGetJobs['end_date']) then Edit2DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+      begin
+       GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit1DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+      end;
     Edit2NameUA.Text:=UniGetJobs['job_position'];
     Memo2RespUA.Text:=UniGetJobs['responsibilities'];
     Edit2CompanyUA.Text:=UniGetJobs['employer'];
@@ -775,8 +810,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    3:begin
-    Edit3DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+  3:begin
+    GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
+    if VarIsNull(UniGetJobs['end_date']) then Edit3DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+      begin
+        GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit3DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+      end;
     Edit3NameUA.Text:=UniGetJobs['job_position'];
     Memo3RespUA.Text:=UniGetJobs['responsibilities'];
     Edit3CompanyUA.Text:=UniGetJobs['employer'];
@@ -792,8 +833,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    4:begin
-    Edit4DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+  4:begin
+    GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
+    if VarIsNull(UniGetJobs['end_date']) then Edit4DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+      begin
+      GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+      Edit4DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+      end;
     Edit4NameUA.Text:=UniGetJobs['job_position'];
     Memo4RespUA.Text:=UniGetJobs['responsibilities'];
     Edit4CompanyUA.Text:=UniGetJobs['employer'];
@@ -809,10 +856,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    5:begin
+  5:begin
     GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
-    GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
-    Edit5DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+    if VarIsNull(UniGetJobs['end_date']) then Edit5DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+      begin
+        GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit5DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+      end;
     Edit5NameUA.Text:=UniGetJobs['job_position'];
     Memo5RespUA.Text:=UniGetJobs['responsibilities'];
     Edit5CompanyUA.Text:=UniGetJobs['employer'];
@@ -828,10 +879,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    6:begin
+  6:begin
     GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
-    GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
-    Edit6DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+    if VarIsNull(UniGetJobs['end_date']) then Edit6DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+        begin
+        GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit6DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+        end;
     Edit6NameUA.Text:=UniGetJobs['job_position'];
     Memo6RespUA.Text:=UniGetJobs['responsibilities'];
     Edit6CompanyUA.Text:=UniGetJobs['employer'];
@@ -847,10 +902,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    7:begin
+  7:begin
     GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
-    GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
-    Edit7DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+      if VarIsNull(UniGetJobs['end_date']) then Edit7DatesUA.Text:=FullMonthYearStart+'- Now'
+      else
+        begin
+        GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit7DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+        end;
     Edit7NameUA.Text:=UniGetJobs['job_position'];
     Memo7RespUA.Text:=UniGetJobs['responsibilities'];
     Edit7CompanyUA.Text:=UniGetJobs['employer'];
@@ -866,10 +925,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    8:begin
+  8:begin
     GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
-    GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
-    Edit8DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+    if VarIsNull(UniGetJobs['end_date']) then Edit8DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+        begin
+        GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit8DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+        end;
     Edit8NameUA.Text:=UniGetJobs['job_position'];
     Memo8RespUA.Text:=UniGetJobs['responsibilities'];
     Edit8CompanyUA.Text:=UniGetJobs['employer'];
@@ -885,10 +948,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    9:begin
+  9:begin
     GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
-    GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
-    Edit9DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+    if VarIsNull(UniGetJobs['end_date']) then Edit9DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+        begin
+        GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+        Edit9DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+        end;
     Edit9NameUA.Text:=UniGetJobs['job_position'];
     Memo9RespUA.Text:=UniGetJobs['responsibilities'];
     Edit9CompanyUA.Text:=UniGetJobs['employer'];
@@ -904,10 +971,14 @@ while not UniGetJobs.Eof do
         UniGetSkills.Next;
       end;
     end;
-    10:begin
+  10:begin
     GetMonthRegionByMask(UniGetJobs['start_date'], 'UA', FullMonthYearStart, ShortMonthYearStart);
-    GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
-    Edit10DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+    if VarIsNull(UniGetJobs['end_date']) then Edit10DatesUA.Text:=FullMonthYearStart+'- Now'
+    else
+      begin
+      GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd, ShortMonthYearEnd);
+      Edit10DatesUA.Text:=FullMonthYearStart+'-'+FullMonthYearEnd;
+      end;
     Edit10NameUA.Text:=UniGetJobs['job_position'];
     Memo10RespUA.Text:=UniGetJobs['responsibilities'];
     Edit10CompanyUA.Text:=UniGetJobs['employer'];
@@ -1740,12 +1811,6 @@ then
 Result:=true;
 end;
 
-procedure TFormNewResumeTranslation.FormKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-if Key=VK_F2 then BitBtnSave.Click;
-end;
-
 procedure TFormNewResumeTranslation.SetEmptyFooterTR;
 begin
 EditArticle1TR.Text:='';
@@ -1967,31 +2032,15 @@ if TemplateID>0 then
   end;
 end;
 
-
-procedure TFormNewResumeTranslation.CalendarPickerB1TRChange(Sender: TObject);
-begin
-end;
-
-
-procedure TFormNewResumeTranslation.CalendarPickerB1TRCloseUp(Sender: TObject);
-begin
-ChangeDates1;
-end;
-
-procedure TFormNewResumeTranslation.CalendarPickerE10TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates1;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
-GetMonthRegionByMask(CalendarPickerB10TR.Date, 'EN', FullMBYear, ShortMBYear);
-GetMonthRegionByMask(CalendarPickerE10TR.Date, 'EN', FullMEYear, ShortMEYear);
-Edit10DatesTR.Text:=FullMBYear+'-'+FullMEYear;
+GetMonthRegionByMask(CalendarPickerB1TR.Date, 'EN', FullMBYear, ShortMBYear);
+GetMonthRegionByMask(CalendarPickerE1TR.Date, 'EN', FullMEYear, ShortMEYear);
+Edit1DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE1TRCloseUp(Sender: TObject);
-begin
-ChangeDates1;
-end;
-
-procedure TFormNewResumeTranslation.CalendarPickerE2TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates2;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB2TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -1999,7 +2048,7 @@ GetMonthRegionByMask(CalendarPickerE2TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit2DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE3TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates3;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB3TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -2007,7 +2056,7 @@ GetMonthRegionByMask(CalendarPickerE3TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit3DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE4TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates4;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB4TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -2015,7 +2064,7 @@ GetMonthRegionByMask(CalendarPickerE4TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit4DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE5TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates5;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB5TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -2023,8 +2072,7 @@ GetMonthRegionByMask(CalendarPickerE5TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit5DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-
-procedure TFormNewResumeTranslation.CalendarPickerE6TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates6;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB6TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -2032,8 +2080,7 @@ GetMonthRegionByMask(CalendarPickerE6TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit6DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-
-procedure TFormNewResumeTranslation.CalendarPickerE7TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates7;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB7TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -2041,8 +2088,7 @@ GetMonthRegionByMask(CalendarPickerE7TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit7DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-
-procedure TFormNewResumeTranslation.CalendarPickerE8TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates8;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB8TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -2050,7 +2096,7 @@ GetMonthRegionByMask(CalendarPickerE8TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit8DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE9TRChange(Sender: TObject);
+procedure TFormNewResumeTranslation.ChangeDates9;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
 GetMonthRegionByMask(CalendarPickerB9TR.Date, 'EN', FullMBYear, ShortMBYear);
@@ -2058,12 +2104,113 @@ GetMonthRegionByMask(CalendarPickerE9TR.Date, 'EN', FullMEYear, ShortMEYear);
 Edit9DatesTR.Text:=FullMBYear+'-'+FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates1;
+procedure TFormNewResumeTranslation.ChangeDates10;
 var FullMBYear, ShortMBYear, FullMEYear, ShortMEYear:string;
 begin
-GetMonthRegionByMask(CalendarPickerB1TR.Date, 'EN', FullMBYear, ShortMBYear);
-GetMonthRegionByMask(CalendarPickerE1TR.Date, 'EN', FullMEYear, ShortMEYear);
-Edit1DatesTR.Text:=FullMBYear+'-'+FullMEYear;
+GetMonthRegionByMask(CalendarPickerB10TR.Date, 'EN', FullMBYear, ShortMBYear);
+GetMonthRegionByMask(CalendarPickerE10TR.Date, 'EN', FullMEYear, ShortMEYear);
+Edit10DatesTR.Text:=FullMBYear+'-'+FullMEYear;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB10TRCloseUp(Sender: TObject);
+begin
+ChangeDates10;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB1TRCloseUp(Sender: TObject);
+begin
+ChangeDates1;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB2TRCloseUp(Sender: TObject);
+begin
+ChangeDates2;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB3TRCloseUp(Sender: TObject);
+begin
+ChangeDates3;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB4TRCloseUp(Sender: TObject);
+begin
+ChangeDates4;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB5TRCloseUp(Sender: TObject);
+begin
+ChangeDates5;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB6TRCloseUp(Sender: TObject);
+begin
+ChangeDates6;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB7TRCloseUp(Sender: TObject);
+begin
+ChangeDates7;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB8TRCloseUp(Sender: TObject);
+begin
+ChangeDates8;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerB9TRCloseUp(Sender: TObject);
+begin
+ChangeDates9;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE10TRCloseUp(Sender: TObject);
+begin
+ChangeDates10;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE1TRCloseUp(Sender: TObject);
+begin
+ChangeDates1;
+end;
+
+
+procedure TFormNewResumeTranslation.CalendarPickerE2TRCloseUp(Sender: TObject);
+begin
+ChangeDates2;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE3TRCloseUp(Sender: TObject);
+begin
+ChangeDates3;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE4TRCloseUp(Sender: TObject);
+begin
+ChangeDates4;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE5TRCloseUp(Sender: TObject);
+begin
+ChangeDates5;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE6TRCloseUp(Sender: TObject);
+begin
+ChangeDates6;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE7TRCloseUp(Sender: TObject);
+begin
+ChangeDates7;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE8TRCloseUp(Sender: TObject);
+begin
+ChangeDates8;
+end;
+
+procedure TFormNewResumeTranslation.CalendarPickerE9TRCloseUp(Sender: TObject);
+begin
+ChangeDates9;
 end;
 
 end.

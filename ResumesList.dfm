@@ -143,6 +143,7 @@ object FormListResumes: TFormListResumes
       E2D34848E4C327277D2400000000000000000000000000000000}
     TabOrder = 1
     OnClick = BitBtnEditResumeClick
+    ExplicitTop = 564
   end
   object BitBtnDeleteResume: TBitBtn
     Left = 204
@@ -188,6 +189,7 @@ object FormListResumes: TFormListResumes
       EFDB4B4BDE992F2F8B3200000000000000000000000000000000}
     TabOrder = 2
     OnClick = BitBtnDeleteResumeClick
+    ExplicitTop = 613
   end
   object BitBtnNewUkrResume: TBitBtn
     Left = 3
@@ -329,9 +331,10 @@ object FormListResumes: TFormListResumes
       0000000000000000000000000000000000000000000000000000}
     TabOrder = 3
     OnClick = BitBtnNewUkrResumeClick
+    ExplicitTop = 564
   end
   object BitBtnClose: TBitBtn
-    Left = 843
+    Left = 839
     Top = 612
     Width = 137
     Height = 40
@@ -340,6 +343,8 @@ object FormListResumes: TFormListResumes
     NumGlyphs = 2
     TabOrder = 4
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 835
+    ExplicitTop = 611
   end
   object BitBtnNewTranslation: TBitBtn
     Left = 7
@@ -481,6 +486,7 @@ object FormListResumes: TFormListResumes
       0000000000000000000000000000000000000000000000000000}
     TabOrder = 5
     OnClick = BitBtnNewTranslationClick
+    ExplicitTop = 615
   end
   object EditCopyNumber: TEdit
     Left = 8
@@ -523,7 +529,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 611
   end
   object BitBtnPDF: TBitBtn
-    Left = 843
+    Left = 839
     Top = 563
     Width = 137
     Height = 40
@@ -531,6 +537,7 @@ object FormListResumes: TFormListResumes
     Caption = #1057#1090#1074#1086#1088#1080#1090#1080' PDF '#1088#1077#1079#1102#1084#1077
     TabOrder = 10
     OnClick = BitBtnPDFClick
+    ExplicitLeft = 835
     ExplicitTop = 562
   end
   object BitBtnOpenTmpl: TBitBtn
@@ -705,6 +712,7 @@ object FormListResumes: TFormListResumes
       0000000000000000000000000000000000000000000000000000}
     TabOrder = 14
     OnClick = BitBtnArchiveClick
+    ExplicitTop = 613
   end
   object UniResumes: TUniQuery
     UpdatingTable = 'resumes'
