@@ -214,7 +214,6 @@ type
     Edit10CompanyTR: TEdit;
     EditLangUA: TEdit;
     EditRegionUA: TEdit;
-    StaticText2: TStaticText;
     UniRegions: TUniQuery;
     UniRegionsregion_name: TStringField;
     UniRegionsorderby: TIntegerField;
@@ -308,6 +307,11 @@ type
     UniGetSkillsupdated: TDateTimeField;
     UniGetSkillsskill: TStringField;
     UniDeleteResume: TUniQuery;
+    Label11: TLabel;
+    UniArchiveResume: TUniQuery;
+    UniArchiveFooters: TUniQuery;
+    UniArchiveJobs: TUniQuery;
+    UniArchiveSkills: TUniQuery;
     procedure PageControlTRChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -326,31 +330,40 @@ type
   private
     ComboBoxLang_First_Value, ComboBoxRegion_First_Value:string;
     ResumeIDTR, ResumeFooterIDTR:integer;
-    function  CheckInsertValues:boolean;
-    function  SaveInsertValues:boolean;
-    procedure PresetJobValues;
     procedure SetComboBoxLanguages;
     procedure SetComboBoxRegions;
     procedure GetMonthRegionByMask(const D: TDatetime; Region:string; var FullMonthYear, ShortMonthYear:string );
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     function  IsEmpty(const S: String): boolean;
     procedure SetEmptyResume;
-    procedure SetExperienceValues(FResumeID: integer);
+    procedure SetJobsValues(FResumeID: integer);
     procedure SetResumeFooterValues(FResumeID:integer);
+    function  CheckInsertValues:boolean;
+    function SaveInsertValues:boolean;
     function SaveInsertResume: boolean;
-    function SaveInsertResumeFooter(FResumeID:integer): boolean;
-    function SaveInsertExperience: boolean;
+    function SaveInsertFooters(FResumeID:integer): boolean;
+    function SaveInsertJobs: boolean;
     function SaveInsertSkills: boolean;
     function ArchiveResume:boolean;
-    { Private declarations }
+    function ArchiveFooters(FResumeID:integer):boolean;
+    function ArchiveJobs(FResumeID:integer): boolean;
+    function ArchiveSkills(FExperienceID:integer):boolean;
+    procedure SetEmptyResumeTR;
+    procedure SetEmptyResumeUA;
+    procedure SetEmptyFooterTR;
+    procedure SetEmptyFooterUA;
+    procedure SetEmptyJobsTR;
+    procedure SetEmptyJobsUA;
+    procedure SetEmptySkillsTR;
+    procedure SetEmptySkillsUA;
   public
     UniInsertResumeFooters: TUniQuery;
-    UniInsertExperiences: TUniQuery;
+    UniInsertSkills: TUniQuery;
     UniInsertResume: TUniQuery;
     UniLastInsertID: TUniQuery;
     UniLastInsertIDID: TIntegerField;
-    procedure SetEmptyResumeTR;
-    procedure SetEmptyResumeUA;
+    procedure SetEmptyTR;
+    procedure SetEmptyUA;
     procedure SetFormValues;
     procedure SetValuesFromResume(Resumeid: integer);
     procedure SetValuesFromTemplate(TemplateId: integer);
@@ -533,197 +546,60 @@ EditPhonesTR.Clear;
 MemoIntroTR.Clear;
 ComboBoxLangTR.Text:='EN';
 ComboBoxRegionTR.Text:='England';
-
-MemoArticle1TR.Clear;
-EditArticle1TR.Clear;
-MemoArticle2TR.Clear;
-EditArticle3TR.Clear;
-MemoArticle3TR.Clear;
-EditArticle3TR.Clear;
-MemoArticle4TR.Clear;
-EditArticle4TR.Clear;
-
-Edit1DatesTR.Text:='';
-Edit1NameTR.Text:='';
-Edit1CompanyTR.Text:='';
-Memo1RespTR.Text:='';
-Edit1BenefitsTR.Text:='';
-Edit1BottomTR.Text:='';
-Memo1SkillsTR.Clear;
-
-Edit2DatesTR.Text:='';
-Edit2NameTR.Text:='';
-Edit2CompanyTR.Text:='';
-Memo2RespTR.Text:='';
-Edit2BenefitsTR.Text:='';
-Edit2BottomTR.Text:='';
-Memo2SkillsTR.Text:='';
-
-Edit3DatesTR.Text:='';
-Edit3NameTR.Text:='';
-Edit3CompanyTR.Text:='';
-Memo3RespTR.Text:='';
-Edit3BenefitsTR.Text:='';
-Edit3BottomTR.Text:='';
-Memo3SkillsTR.Text:='';
-
-Edit4DatesTR.Text:='';
-Edit4NameTR.Text:='';
-Edit4CompanyTR.Text:='';
-Memo4RespTR.Text:='';
-Edit4BenefitsTR.Text:='';
-Edit4BottomTR.Text:='';
-Memo4SkillsTR.Text:='';
-
-Edit5DatesTR.Text:='';
-Edit5NameTR.Text:='';
-Edit5CompanyTR.Text:='';
-Memo5RespTR.Text:='';
-Edit5BenefitsTR.Text:='';
-Edit5BottomTR.Text:='';
-Memo5SkillsTR.Text:='';
-
-Edit6DatesTR.Text:='';
-Edit6NameTR.Text:='';
-Edit6CompanyTR.Text:='';
-Memo6RespTR.Text:='';
-Edit6BenefitsTR.Text:='';
-Edit6BottomTR.Text:='';
-Memo6SkillsTR.Text:='';
-
-Edit7DatesTR.Text:='';
-Edit7NameTR.Text:='';
-Edit7CompanyTR.Text:='';
-Memo7RespTR.Text:='';
-Edit7BenefitsTR.Text:='';
-Edit7BottomTR.Text:='';
-Memo7SkillsTR.Text:='';
-
-Edit8DatesTR.Text:='';
-Edit8NameTR.Text:='';
-Edit8CompanyTR.Text:='';
-Memo8RespTR.Text:='';
-Edit8BenefitsTR.Text:='';
-Edit8BottomTR.Text:='';
-Memo8SkillsTR.Text:='';
-
-Edit9DatesTR.Text:='';
-Edit9NameTR.Text:='';
-Edit9CompanyTR.Text:='';
-Memo9RespTR.Text:='';
-Edit9BenefitsTR.Text:='';
-Edit9BottomTR.Text:='';
-Memo9SkillsTR.Text:='';
-
-Edit10DatesTR.Text:='';
-Edit10NameTR.Text:='';
-Edit10CompanyTR.Text:='';
-Memo10RespTR.Text:='';
-Edit10BenefitsTR.Text:='';
-Edit10BottomTR.Text:='';
-Memo10SkillsTR.Text:='';
 end;
 
 
 procedure TFormNewResumeTranslation.SetEmptyResumeUA;
 begin
-//resume_id:=-1;
-//resume_footer_id:=-1;
-
 EditNameUA.Clear;
 EditOpportunityUA.Clear;
 EditPlaceUA.Clear;
 EditPhonesUA.Clear;
 MemoIntroUA.Clear;
+EditLangUA.Text:='UA';
+EditRegionUA.Text:='Ukraine';
+end;
 
-MemoArticle1UA.Clear;
-EditArticle1UA.Clear;
-MemoArticle2UA.Clear;
-EditArticle2UA.Clear;
-MemoArticle3UA.Clear;
-EditArticle3UA.Clear;
-MemoArticle4UA.Clear;
-EditArticle4UA.Clear;
+procedure TFormNewResumeTranslation.SetEmptySkillsTR;
+begin
+Memo1SkillsTR.Text:='';
+Memo2SkillsTR.Text:='';
+Memo3SkillsTR.Text:='';
+Memo4SkillsTR.Text:='';
+Memo5SkillsTR.Text:='';
+Memo6SkillsTR.Text:='';
+Memo7SkillsTR.Text:='';
+Memo8SkillsTR.Text:='';
+Memo9SkillsTR.Text:='';
+Memo10SkillsTR.Text:='';
+end;
 
-Edit1DatesUA.Text:='';
-Edit1NameUA.Text:='';
-Edit1CompanyUA.Text:='';
-Memo1RespUA.Text:='';
-Edit1BenefitsUA.Text:='';
+procedure TFormNewResumeTranslation.SetEmptySkillsUA;
+begin
 Memo1SkillsUA.Text:='';
-Edit1BottomUA.Text:='';
-
-Edit2DatesUA.Text:='';
-Edit2NameUA.Text:='';
-Edit2CompanyUA.Text:='';
-Memo2RespUA.Text:='';
-Edit2BenefitsUA.Text:='';
 Memo2SkillsUA.Text:='';
-Edit2BottomUA.Text:='';
-
-Edit3DatesUA.Text:='';
-Edit3NameUA.Text:='';
-Edit3CompanyUA.Text:='';
-Memo3RespUA.Text:='';
-Edit3BenefitsUA.Text:='';
 Memo3SkillsUA.Text:='';
-Edit3BottomUA.Text:='';
-
-Edit4DatesUA.Text:='';
-Edit4NameUA.Text:='';
-Edit4CompanyUA.Text:='';
-Memo4RespUA.Text:='';
-Edit4BenefitsUA.Text:='';
 Memo4SkillsUA.Text:='';
-Edit4BottomUA.Text:='';
-
-Edit5DatesUA.Text:='';
-Edit5NameUA.Text:='';
-Edit5CompanyUA.Text:='';
-Memo5RespUA.Text:='';
-Edit5BenefitsUA.Text:='';
 Memo5SkillsUA.Text:='';
-Edit5BottomUA.Text:='';
-
-Edit6DatesUA.Text:='';
-Edit6NameUA.Text:='';
-Edit6CompanyUA.Text:='';
-Memo6RespUA.Text:='';
-Edit6BenefitsUA.Text:='';
 Memo6SkillsUA.Text:='';
-Edit6BottomUA.Text:='';
-
-Edit7DatesUA.Text:='';
-Edit7NameUA.Text:='';
-Edit7CompanyUA.Text:='';
-Memo7RespUA.Text:='';
-Edit7BenefitsUA.Text:='';
 Memo7SkillsUA.Text:='';
-Edit7BottomUA.Text:='';
-
-Edit8DatesUA.Text:='';
-Edit8NameUA.Text:='';
-Edit8CompanyUA.Text:='';
-Memo8RespUA.Text:='';
-Edit8BenefitsUA.Text:='';
 Memo8SkillsUA.Text:='';
-Edit8BottomUA.Text:='';
-
-Edit9DatesUA.Text:='';
-Edit9NameUA.Text:='';
-Edit9CompanyUA.Text:='';
-Memo9RespUA.Text:='';
-Edit9BenefitsUA.Text:='';
 Memo9SkillsUA.Text:='';
-Edit9BottomUA.Text:='';
-
-Edit10DatesUA.Text:='';
-Edit10NameUA.Text:='';
-Edit10CompanyUA.Text:='';
-Memo10RespUA.Text:='';
-Edit10BenefitsUA.Text:='';
 Memo10SkillsUA.Text:='';
-Edit10BottomUA.Text:='';
+end;
+
+procedure TFormNewResumeTranslation.SetEmptyTR;
+begin
+SetEmptyResumeTR;
+SetEmptyFooterTR;
+SetEmptySkillsTR;
+end;
+
+procedure TFormNewResumeTranslation.SetEmptyUA;
+begin
+SetEmptyResumeUA;
+SetEmptyFooterUA;
+SetEmptySkillsUA;
 end;
 
 procedure TFormNewResumeTranslation.SetValuesFromResume(ResumeId:integer);
@@ -762,7 +638,7 @@ if ResumeID>0 then
         else MemoIntroUA.Text:=UniGetTranslation['resume_introduction'];
       end;
       SetResumeFooterValues(ResumeID);
-      SetExperienceValues(ResumeID);
+      SetJobsValues(ResumeID);
   end;
 end;
 
@@ -835,7 +711,7 @@ then
         UniGetUAResumeFooters.Next;
         end;
 end;
-procedure TFormNewResumeTranslation.SetExperienceValues(FResumeID:integer);
+procedure TFormNewResumeTranslation.SetJobsValues(FResumeID:integer);
 var ExperienceNum:integer;
 FullMonthBYear, ShortMonthBYear, FullMonthEYear, ShortMonthEYear:string;
 begin
@@ -871,143 +747,20 @@ while not UniGetExperiences.Eof do
   end;
 end;
 
-procedure TFormNewResumeTranslation.PresetJobValues;
+function TFormNewResumeTranslation.ArchiveSkills(FExperienceID:integer): boolean;
 begin
-//Edit1Name.Text:='IT support specialist';
-//Edit1Dates.Text:='Sep 2022 – Aug 2023';
-//Edit1Company.Text:='Freelance websites';
-//Memo1Resp.Lines.Clear;
-//Memo1Resp.Lines.Add('Responsibilities:');
-//Memo1Resp.Lines.Add('On freelance sites, I find jobs to develop and maintain websites and databases. '+
-//  'The most popular technologies in such projects are Python and Java, MySQL and Postgres databases.'+
-//  ' The main advantage of such projects is concrete and quick results. It is necessary to complete the '+
-//  'task within a few days and correctly understand the requirements of the Customer.');
-//Edit1Benefits.Text:='';
-//Edit1Skills.Text:='';
-//Memo1Footer.Lines.Clear;
-//Memo1Footer.Lines.Add('========================================================');
-//
-//Edit2Name.Text:='ETL Database developer (remote)';
-//Edit2Dates.Text:='Oct 2021 – Aug 2022';
-//Edit2Company.Text:='Company Codegenix (USA, Texas). Outsource person for company GlueUp.';
-//Memo2Resp.Lines.Clear;
-//Memo2Resp.Lines.Add('Responsibilities:');
-//Memo2Resp.Lines.Add('Several heterogeneous databases of the company are in Production use (Oracle, MySQL,'+
-//  ' MongoDB). To create analytical and financial reports, it is necessary to expand DWH database and create'+
-//  ' several workflows for constant data transfer to the DWH storage. My responsibility was to create and'+
-//  ' implement ETL workflows. Some workflows were created using ETL Talend, as well as using Python scripts.'+
-//  ' After several months of implementation, the workflows were created and tested. They fulfill all the'+
-//  ' necessary requirements, and the leaders were satisfied with the work performed.');
-//Edit2Benefits.Text:='Benefits: Experience with NoSQL database (MongoDB, JSON structures). ';
-//Edit2Skills.Text:='Skills: Data Migration · Database Development · SQL Tuning · Mongo database · Business Intelligence (BI) · Python · Talend · Java · SQL · ETL';
-//Memo2Footer.Lines.Clear;
-//Memo2Footer.Lines.Add('Recommendation letter: https://bit.ly/3ITcypl');
-//Memo2Footer.Lines.Add('Reason for leaving: War in Ukraine.');
-//Memo2Footer.Lines.Add('========================================================');
-//
-//Edit3Name.Text:='BI analyst, DWH developer (remote)';
-//Edit3Dates.Text:='April 2019 – March 2021';
-//Edit3Company.Text:='Company Emergn (Ukraine).  Outsource Person for company Mercer (USA).';
-//Memo3Resp.Lines.Clear;
-//Memo3Resp.Lines.Add('Responsibilities:');
-//Memo3Resp.Lines.Add('The customer of the project is the insurance company Mercer, USA.'+
-//  ' Emergn is a outsourcing company based in Ukraine. My responsibilities in the project'+
-//  ' - database developer and BI analyst. The goal of the project is the daily data workflows'+
-//  ' from the Oracle Premise database to the Azure cloud, the Microsoft SQL database.'+
-//  ' This database was a DWH, and analytical reports were run in it. Talend workflows'+
-//  ' were used to transfer data and generate reports. At the initial stages, SQL queries'+
-//  ' had problems with low SQL performance, they were successfully eliminated. ');
-//Edit3Benefits.Text:='';
-//Edit3Skills.Text:='Skills: Microsoft Azure · MS SQL Server · Oracle · Talend';
-//Memo3Footer.Lines.Clear;
-//Memo3Footer.Text:='========================================================';
-//
-//Edit4Name.Text:='Database developer';
-//Edit4Dates.Text:='May 2018 – January 2019';
-//Edit4Company.Text:='Company Mede Analytics (Ukraine)';
-//Memo4Resp.Lines.Clear;
-//Memo4Resp.Lines.Add('Responsibilities:');
-//Memo4Resp.Lines.Add('Company Mede-Analytics develops software for US health insurance'+
-//  ' payments. The company clients are MEDICARE, MEDICAID, about 200 companies in the USA.'+
-//  ' Health insurance documents go through a full financial cycle: uploading, checking,'+
-//  ' storing in a storage system, displaying financial documents and other reports on websites.'+
-//  ' This cycle is based on MS SQL, SSIS and OLAP Cube (MDX) technology. I was part of the'+
-//  ' development team. The team was engaged in DWH support, development of analytical reports.');
-//Edit4Benefits.Text:='Skills: Microsoft Azure · MS SQL Server · Oracle · Informatica Power Center';
-//Edit4Skills.Text:='';
-//Memo4Footer.Lines.Clear;
-//Memo4Footer.Lines.Add('========================================================');
-//
-//Edit5Name.Text:='IT Support Engineer (remote)';
-//Edit5Dates.Text:='January 2016 – February 2018';
-//Edit5Company.Text:='Company Jaspersoft (owned by Tibco USA)';
-//Memo5Resp.Lines.Clear;
-//Memo5Resp.Lines.Add('Responsibilities:');
-//Memo5Resp.Lines.Add('Technical support for Jaspersoft Java applications - JasperReport'+
-//  ' Server and ETL Talend Studio. Jaspersoft servers can work with different databases'+
-//  ' with data sources from different databases - Postgres, Oracle, MS SQL, and MySQL.'+
-//  ' My responsibility is to assist users in installing and configuring Jaspersoft & and'+
-//  ' Talend Java applications and assist in finding and managing found errors.');
-//Edit5Benefits.Text:='Benefits: These Java applications work on all platforms (Windows, Unix, MacOS)'+
-//  ' and with different databases. I have gained hands-on experience with different OS'+
-//  ' as well as all relational databases.';
-//Edit5Skills.Text:='Skills: Jasper Reports · Talend Studio · Oracle · MS SQL · MySQL · CentOS · Ubuntu · Bash scripts';
-//Memo5Footer.Lines.Clear;
-//Memo5Footer.Text:='========================================================';
-//
-//Edit6Name.Text:='ETL database consultant';
-//Edit6Dates.Text:='May 2013– April 2015';
-//Edit6Company.Text:='Company Miratech (Poland)';
-//Memo6Resp.Lines.Clear;
-//Memo6Resp.Lines.Add('Responsibilities:');
-//Memo6Resp.Lines.Add('Development of ETL workflows for Lindorff (Sweden). Data migration'+
-//  ' project from Oracle DWH to Microsoft SQL. My responsibilities were to analyze,'+
-//  ' create and deploy the newest requirements for DWH by using Informatica Power Center. ');
-//Edit6Benefits.Text:='';
-//Edit6Skills.Text:='Skills: Informatica Power Center · Microsoft SQL server · Visual Studio · SQL Management Studio.';
-//Memo6Footer.Lines.Clear;
-//Memo6Footer.Lines.Add('========================================================');
-//
-//Edit7Name.Text:='Oracle Database developer';
-//Edit7Dates.Text:='May 2011– Mar 2013';
-//Edit7Company.Text:='Company Luxoft (Ukraine). Technical support for European bank.';
-//Memo7Resp.Lines.Clear;
-//Memo7Resp.Lines.Add('Responsibilities:');
-//Memo7Resp.Lines.Add('Part of the Team for supporting the huge DWH at an investment bank,'+
-//  ' an Oracle database. The source code was written in Java and PL/SQL, and workflows'+
-//  ' use Informatica PC. Our team supported the daily runs for workflows, we supported'+
-//  ' the generation of reports for the external bank audit. The software in the banks'+
-//  ' must be free of errors and failures, and therefore the entire program code was'+
-//  ' checked several times, including QA automated tests.');
-//Edit7Benefits.Text:='';
-//Edit7Skills.Text:='Skills: Oracle · DWH · Database Development · SQL Tuning · Java · PL/SQL · Performance Tuning · Oracle SQL Developer · Informatica PowerCenter';
-//Memo7Footer.Lines.Clear;
-//
-//Edit8Name.Text:='';
-//Edit8Dates.Text:='';
-//Edit8Company.Text:='';
-//Memo8Resp.Lines.Clear;
-//Edit8Benefits.Text:='';
-//Edit8Skills.Text:='';
-//Memo8Footer.Lines.Clear;
-//
-//Edit9Name.Text:='';
-//Edit9Dates.Text:='';
-//Edit9Company.Text:='';
-//Edit9Benefits.Text:='';
-//Edit9Skills.Text:='';
-//Memo9Resp.Lines.Clear;
-//Memo9Footer.Lines.Clear;
-//
-//Edit10Name.Text:='';
-//Edit10Dates.Text:='';
-//Edit10Company.Text:='';
-//Edit10Benefits.Text:='';
-//Edit10Skills.Text:='';
-//Memo10Resp.Lines.Clear;
-//Memo10Footer.Lines.Clear;
+try
+UniArchiveSkills.Close;
+UniArchiveSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
+UniArchiveSkills.ExecSQL;
+except on E:Exception do
+  begin
+    ShowMessage('Error во время архивирования skill_show_lists: '+E.Message);
+    Result:=false;
+  end;
 end;
 
+end;
 
 procedure TFormNewResumeTranslation.BitBtnSaveClick(Sender: TObject);
 begin
@@ -1028,23 +781,45 @@ else
 end;
 
 
+function TFormNewResumeTranslation.ArchiveFooters(FResumeID:integer): boolean;
+begin
+try
+UniArchiveFooters.Close;
+UniArchiveFooters.ParamByName('p_resume_id').AsInteger:=FResumeID;
+UniArchiveFooters.ExecSQL;
+except on E:Exception do
+  begin
+    ShowMessage('Error во время архивирования resume_footers: '+E.Message);
+    Result:=false;
+  end;
+end;
+end;
+
+function TFormNewResumeTranslation.ArchiveJobs(FResumeID:integer): boolean;
+begin
+try
+UniArchiveJobs.Close;
+UniArchiveJobs.ParamByName('p_resume_id').AsInteger:=FResumeID;
+UniArchiveJobs.ExecSQL;
+except on E:Exception do
+  begin
+    ShowMessage('Error во время архивирования experiences: '+E.Message);
+    Result:=false;
+  end;
+end;
+end;
+
 function TFormNewResumeTranslation.ArchiveResume:boolean;
 begin
 try
-UniDeleteResume.Close;
-UniDeleteResume.ParamByName('p_name').AsString:=EditNameTR.Text;
-UniDeleteResume.ParamByName('p_region_id').AsString:=ComboBoxRegionTR.Text;
-UniDeleteResume.ParamByName('p_lang').AsString:=ComboBoxLangTR.Text;
-UniDeleteResume.ExecSQL;
-
-UniDeleteResume.Close;
-UniDeleteResume.ParamByName('p_name').AsString:=EditNameTR.Text;
-UniDeleteResume.ParamByName('p_region_id').AsString:=ComboBoxRegionTR.Text;
-UniDeleteResume.ParamByName('p_lang').AsString:=ComboBoxLangTR.Text;
-UniDeleteResume.ExecSQL;
+UniArchiveResume.Close;
+UniArchiveResume.ParamByName('p_name').AsString:=EditNameTR.Text;
+UniArchiveResume.ParamByName('p_region_id').AsString:=ComboBoxRegionTR.Text;
+UniArchiveResume.ParamByName('p_lang').AsString:=ComboBoxLangTR.Text;
+UniArchiveResume.ExecSQL;
 except on E:Exception do
   begin
-    ShowMessage('Error во время архивирования: '+E.Message);
+    ShowMessage('Error во время архивирования resumes: '+E.Message);
     Result:=false;
   end;
 
@@ -1055,6 +830,12 @@ end;
 function TFormNewResumeTranslation.SaveInsertResume:boolean;
 begin
 try
+UniArchiveResume.Prepare;
+UniArchiveResume.ParamByName('p_name').AsString:=EditNameTR.Text;
+UniArchiveResume.ParamByName('p_region_id').AsString:=ComboBoxRegionTR.Text;
+UniArchiveResume.ParamByName('p_lang').AsString:=ComboBoxLangTR.Text;
+UniArchiveResume.ExecSQL;
+
 UniInsertResume.Prepare;
 UniInsertResume.ParamByName('p_name').AsString:=EditNameTR.Text;
 UniInsertResume.ParamByName('p_region_id').AsString:=ComboBoxRegionTR.Text;
@@ -1075,12 +856,12 @@ except on E:Exception do
 end;
 end;
 
-function TFormNewResumeTranslation.SaveInsertResumeFooter(FResumeID:integer):boolean;
+function TFormNewResumeTranslation.SaveInsertFooters(FResumeID:integer):boolean;
 begin
 
 end;
 
-function TFormNewResumeTranslation.SaveInsertExperience:boolean;
+function TFormNewResumeTranslation.SaveInsertJobs: boolean;
 begin
 
 end;
@@ -1114,16 +895,16 @@ then
   end
 else FResumeId:=UniLastInsertID['id'];
 
-if not SaveInsertResumeFooter(FResumeID) then
+if not SaveInsertFooters(FResumeID) then
   begin
   FormMain.Warning('Сбой при сохранении resume_footers');
   Result:=false;
   exit;
   end;
 
-if not SaveInsertExperience then
+if not SaveInsertJobs then
   begin
-  FormMain.Warning('Сбой при сохранении experiences');
+  FormMain.Warning('Сбой при сохранении jobs (experiences)');
   Result:=false;
   exit;
   end;
@@ -1181,151 +962,151 @@ then
 if length(Trim(Edit1DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit1NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit1CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB1TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE1TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo1RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit1BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit1NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit1CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB1TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE1TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo1RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit1BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit2DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit2NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit2CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB2TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE2TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo2RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit2BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit2NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit2CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB2TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE2TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo2RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit2BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit3DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit3NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit3CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB3TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE3TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo3RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit3BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit3NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit3CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB3TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE3TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo3RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit3BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit4DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit4NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit4CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB4TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE4TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo4RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit4BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit4NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit4CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB4TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE4TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo4RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit4BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit5DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit5NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit5CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB5TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE5TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo5RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit5BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit5NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit5CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB5TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE5TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo5RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit5BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit6DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit6NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit6CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB6TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE6TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo6RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit6BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit6NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit6CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB6TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE6TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo6RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit6BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit7DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit7NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit7CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB7TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE7TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo7RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit7BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit7NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit7CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB7TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE7TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo7RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit7BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit8DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit8NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit8CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB8TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE8TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo8RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit8BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit8NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit8CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB8TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE8TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo8RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit8BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit9DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit9NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit9CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB9TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE9TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo9RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit9BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit9NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit9CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB9TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE9TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo9RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit9BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 ///////
 if length(Trim(Edit10DatesTR.Text))>0
 then
   begin
-  UniInsertExperiences.Prepare;
-  UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit10NameTR.Text);
-  UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit10CompanyTR.Text);
-  UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB10TR.Date;
-  UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE10TR.Date;
-  UniInsertExperiences.ParamByName('p_responsibilities').AsString:=Trim(Memo10RespTR.Text);
-  UniInsertExperiences.ParamByName('p_benefits').AsString:=Trim(Edit10BenefitsTR.Text);
-  UniInsertExperiences.ParamByName('p_leave_reason').AsString:='';
-  UniInsertExperiences.ExecSQL;
+  UniInsertSkills.Prepare;
+  UniInsertSkills.ParamByName('p_resume_id').AsInteger:=FResumeID;
+  UniInsertSkills.ParamByName('p_position').AsString:=Trim(Edit10NameTR.Text);
+  UniInsertSkills.ParamByName('p_employer').AsString:=Trim(Edit10CompanyTR.Text);
+  UniInsertSkills.ParamByName('p_start_date').AsDateTime:=CalendarPickerB10TR.Date;
+  UniInsertSkills.ParamByName('p_end_date').AsDateTime:=CalendarPickerE10TR.Date;
+  UniInsertSkills.ParamByName('p_responsibilities').AsString:=Trim(Memo10RespTR.Text);
+  UniInsertSkills.ParamByName('p_benefits').AsString:=Trim(Edit10BenefitsTR.Text);
+  UniInsertSkills.ParamByName('p_leave_reason').AsString:='';
+  UniInsertSkills.ExecSQL;
   end;
 /////
 except on E:Exception do
@@ -1820,16 +1601,8 @@ begin
 if Key=VK_F2 then BitBtnSave.Click;
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyResume;
+procedure TFormNewResumeTranslation.SetEmptyFooterTR;
 begin
-EditNameTR.Clear;
-EditOpportunityTR.Clear;
-EditPlaceTR.Text:='Віддалена (за кордоном)';
-EditPhonesTR.Text:='+380 (93)1775176 (WhatsApp, Viber)';
-MemoIntroTR.Clear;
-ComboBoxLangTR.Text:='UA';
-ComboBoxRegionTR.Text:='Ukraine';
-
 EditArticle1TR.Text:='';
 MemoArticle1TR.Text:='';
 EditArticle2TR.Text:='';
@@ -1839,13 +1612,28 @@ MemoArticle3TR.Text:='';
 EditArticle4TR.Text:='';
 MemoArticle4TR.Text:='';
 
+end;
+
+procedure TFormNewResumeTranslation.SetEmptyFooterUA;
+begin
+MemoArticle1UA.Text:='';
+EditArticle1UA.Text:='';
+MemoArticle2UA.Text:='';
+EditArticle2UA.Text:='';
+MemoArticle3UA.Text:='';
+EditArticle3UA.Text:='';
+MemoArticle4UA.Text:='';
+EditArticle4UA.Text:='';
+end;
+
+procedure TFormNewResumeTranslation.SetEmptyJobsTR;
+begin
 Edit1DatesTR.Text:='';
 Edit1NameTR.Text:='';
 Edit1CompanyTR.Text:='';
 Memo1RespTR.Text:='';
 Edit1BenefitsTR.Text:='';
 Edit1BottomTR.Text:='';
-Memo1SkillsTR.Text:='';
 
 Edit2DatesTR.Text:='';
 Edit2NameTR.Text:='';
@@ -1853,7 +1641,6 @@ Edit2CompanyTR.Text:='';
 Memo2RespTR.Text:='';
 Edit2BenefitsTR.Text:='';
 Edit2BottomTR.Text:='';
-Memo2SkillsTR.Text:='';
 
 Edit3DatesTR.Text:='';
 Edit3NameTR.Text:='';
@@ -1861,7 +1648,6 @@ Edit3CompanyTR.Text:='';
 Memo3RespTR.Text:='';
 Edit3BenefitsTR.Text:='';
 Edit3BottomTR.Text:='';
-Memo3SkillsTR.Text:='';
 
 Edit4DatesTR.Text:='';
 Edit4NameTR.Text:='';
@@ -1869,7 +1655,6 @@ Edit4CompanyTR.Text:='';
 Memo4RespTR.Text:='';
 Edit4BenefitsTR.Text:='';
 Edit4BottomTR.Text:='';
-Memo4SkillsTR.Text:='';
 
 Edit5DatesTR.Text:='';
 Edit5NameTR.Text:='';
@@ -1877,7 +1662,6 @@ Edit5CompanyTR.Text:='';
 Memo5RespTR.Text:='';
 Edit5BenefitsTR.Text:='';
 Edit5BottomTR.Text:='';
-Memo5SkillsTR.Text:='';
 
 Edit6DatesTR.Text:='';
 Edit6NameTR.Text:='';
@@ -1885,7 +1669,6 @@ Edit6CompanyTR.Text:='';
 Memo6RespTR.Text:='';
 Edit6BenefitsTR.Text:='';
 Edit6BottomTR.Text:='';
-Memo6SkillsTR.Text:='';
 
 Edit7DatesTR.Text:='';
 Edit7NameTR.Text:='';
@@ -1893,7 +1676,6 @@ Edit7CompanyTR.Text:='';
 Memo7RespTR.Text:='';
 Edit7BenefitsTR.Text:='';
 Edit7BottomTR.Text:='';
-Memo7SkillsTR.Text:='';
 
 Edit8DatesTR.Text:='';
 Edit8NameTR.Text:='';
@@ -1901,7 +1683,6 @@ Edit8CompanyTR.Text:='';
 Memo8RespTR.Text:='';
 Edit8BenefitsTR.Text:='';
 Edit8BottomTR.Text:='';
-Memo8SkillsTR.Text:='';
 
 Edit9DatesTR.Text:='';
 Edit9NameTR.Text:='';
@@ -1909,7 +1690,6 @@ Edit9CompanyTR.Text:='';
 Memo9RespTR.Text:='';
 Edit9BenefitsTR.Text:='';
 Edit9BottomTR.Text:='';
-Memo9SkillsTR.Text:='';
 
 Edit10DatesTR.Text:='';
 Edit10NameTR.Text:='';
@@ -1917,7 +1697,99 @@ Edit10CompanyTR.Text:='';
 Memo10RespTR.Text:='';
 Edit10BenefitsTR.Text:='';
 Edit10BottomTR.Text:='';
-Memo10SkillsTR.Text:='';
+end;
+
+procedure TFormNewResumeTranslation.SetEmptyJobsUA;
+begin
+Edit1DatesUA.Text:='';
+Edit1NameUA.Text:='';
+Edit1CompanyUA.Text:='';
+Memo1RespUA.Text:='';
+Edit1BenefitsUA.Text:='';
+Edit1BottomUA.Text:='';
+
+Edit2DatesUA.Text:='';
+Edit2NameUA.Text:='';
+Edit2CompanyUA.Text:='';
+Memo2RespUA.Text:='';
+Edit2BenefitsUA.Text:='';
+Memo2SkillsUA.Text:='';
+Edit2BottomUA.Text:='';
+
+Edit3DatesUA.Text:='';
+Edit3NameUA.Text:='';
+Edit3CompanyUA.Text:='';
+Memo3RespUA.Text:='';
+Edit3BenefitsUA.Text:='';
+Memo3SkillsUA.Text:='';
+Edit3BottomUA.Text:='';
+
+Edit4DatesUA.Text:='';
+Edit4NameUA.Text:='';
+Edit4CompanyUA.Text:='';
+Memo4RespUA.Text:='';
+Edit4BenefitsUA.Text:='';
+Memo4SkillsUA.Text:='';
+Edit4BottomUA.Text:='';
+
+Edit5DatesUA.Text:='';
+Edit5NameUA.Text:='';
+Edit5CompanyUA.Text:='';
+Memo5RespUA.Text:='';
+Edit5BenefitsUA.Text:='';
+Memo5SkillsUA.Text:='';
+Edit5BottomUA.Text:='';
+
+Edit6DatesUA.Text:='';
+Edit6NameUA.Text:='';
+Edit6CompanyUA.Text:='';
+Memo6RespUA.Text:='';
+Edit6BenefitsUA.Text:='';
+Memo6SkillsUA.Text:='';
+Edit6BottomUA.Text:='';
+
+Edit7DatesUA.Text:='';
+Edit7NameUA.Text:='';
+Edit7CompanyUA.Text:='';
+Memo7RespUA.Text:='';
+Edit7BenefitsUA.Text:='';
+Memo7SkillsUA.Text:='';
+Edit7BottomUA.Text:='';
+
+Edit8DatesUA.Text:='';
+Edit8NameUA.Text:='';
+Edit8CompanyUA.Text:='';
+Memo8RespUA.Text:='';
+Edit8BenefitsUA.Text:='';
+Memo8SkillsUA.Text:='';
+Edit8BottomUA.Text:='';
+
+Edit9DatesUA.Text:='';
+Edit9NameUA.Text:='';
+Edit9CompanyUA.Text:='';
+Memo9RespUA.Text:='';
+Edit9BenefitsUA.Text:='';
+Memo9SkillsUA.Text:='';
+Edit9BottomUA.Text:='';
+
+Edit10DatesUA.Text:='';
+Edit10NameUA.Text:='';
+Edit10CompanyUA.Text:='';
+Memo10RespUA.Text:='';
+Edit10BenefitsUA.Text:='';
+Memo10SkillsUA.Text:='';
+Edit10BottomUA.Text:='';
+end;
+
+procedure TFormNewResumeTranslation.SetEmptyResume;
+begin
+EditNameTR.Clear;
+EditOpportunityTR.Clear;
+EditPlaceTR.Text:='Віддалена (за кордоном)';
+EditPhonesTR.Text:='+380 (93)1775176 (WhatsApp, Viber)';
+MemoIntroTR.Clear;
+ComboBoxLangTR.Text:='UA';
+ComboBoxRegionTR.Text:='Ukraine';
 end;
 
 procedure TFormNewResumeTranslation.SetValuesFromTemplate(TemplateID:integer);

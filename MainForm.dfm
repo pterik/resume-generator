@@ -4899,7 +4899,6 @@ object FormMain: TFormMain
       'from regions'
       'order by orderby')
     UniDirectional = True
-    Active = True
     Left = 448
     Top = 61
     object UniRegionsid: TStringField

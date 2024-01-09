@@ -16,7 +16,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     680)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 861
+    Left = 857
     Top = 640
     Width = 98
     Height = 36
@@ -24,7 +24,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 857
+    ExplicitLeft = 853
     ExplicitTop = 639
   end
   object BitBtnSave: TBitBtn
@@ -175,7 +175,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 8
     Width = 980
     Height = 273
-    ActivePage = TabSheetJob1UA
+    ActivePage = TabSheetMainUA
     Style = tsButtons
     TabOrder = 2
     OnChange = PageControlUAChange
@@ -230,6 +230,13 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Height = 15
         Caption = 'LabelFooterID'
       end
+      object Label11: TLabel
+        Left = 3
+        Top = 62
+        Width = 51
+        Height = 15
+        Caption = #1042#1074#1077#1076#1077#1085#1085#1103
+      end
       object EditNameUA: TEdit
         Left = 198
         Top = 3
@@ -267,10 +274,10 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Text = 'EditPhonesUA'
       end
       object MemoIntroUA: TMemo
-        Left = 3
-        Top = 60
-        Width = 970
-        Height = 177
+        Left = 57
+        Top = 59
+        Width = 912
+        Height = 160
         Lines.Strings = (
           
             'Total experience 10+ years in development, implementation, and t' +
@@ -305,7 +312,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       end
     end
     object TabSheetFooterUA: TTabSheet
-      Caption = 'Header'
+      Caption = 'Footer'
       ImageIndex = 11
       DesignSize = (
         972
@@ -1111,15 +1118,12 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 287
     Width = 980
     Height = 338
-    ActivePage = TabSheetMainTR
+    ActivePage = TabSheetFooterTR
     Style = tsButtons
     TabOrder = 3
     OnChange = PageControlTRChange
     object TabSheetMainTR: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
-      DesignSize = (
-        972
-        305)
       object Label1: TLabel
         Left = 163
         Top = 2
@@ -1205,7 +1209,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 60
         Top = 60
         Width = 909
-        Height = 118
+        Height = 160
         Lines.Strings = (
           'MemoIntroTR')
         ScrollBars = ssVertical
@@ -1227,28 +1231,9 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         TabOrder = 6
         Text = 'ComboBoxLang'
       end
-      object MemoFooterTR: TMemo
-        Left = 61
-        Top = 184
-        Width = 908
-        Height = 120
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoFooterTR')
-        ScrollBars = ssVertical
-        TabOrder = 7
-      end
-      object StaticText2: TStaticText
-        Left = 3
-        Top = 197
-        Width = 52
-        Height = 19
-        Caption = #1053#1072#1074#1080#1095#1082#1080
-        TabOrder = 8
-      end
     end
     object TabSheetFooterTR: TTabSheet
-      Caption = 'Header'
+      Caption = 'Footer'
       ImageIndex = 11
       DesignSize = (
         972
@@ -1308,9 +1293,9 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Text = 'EditArticle4TR'
       end
       object MemoArticle3TR: TMemo
-        Left = 6
+        Left = 3
         Top = 170
-        Width = 476
+        Width = 479
         Height = 100
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -2553,8 +2538,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         '(:p_name, :p_lang, :p_job_opportunity, :p_job_place, :p_cv_docx_' +
         'url, :p_cv_pdf_url,'
       ':p_phone_numbers_text, :p_resume_introduction, :p_is_active)')
-    Left = 584
-    Top = 88
+    Left = 72
+    Top = 512
     ParamData = <
       item
         DataType = ftString
@@ -2849,8 +2834,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  :p_footer_header ,'
       '  :p_footer_text ,'
       '  :p_footer_order)')
-    Left = 256
-    Top = 376
+    Left = 184
+    Top = 360
     ParamData = <
       item
         DataType = ftInteger
@@ -2877,7 +2862,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Value = nil
       end>
   end
-  object UniInsertExperiences: TUniQuery
+  object UniInsertSkills: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2908,8 +2893,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  :p_responsibilities ,'
       '  :p_benefits ,'
       '  :p_leave_reason)')
-    Left = 424
-    Top = 376
+    Left = 360
+    Top = 368
     ParamData = <
       item
         DataType = ftInteger
@@ -2983,8 +2968,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         '(:p_name, :p_lang, :p_region_id, :p_job_opportunity, :p_job_plac' +
         'e, :p_cv_docx_url, :p_cv_pdf_url,'
       ':p_phone_numbers_text, :p_resume_introduction)')
-    Left = 536
-    Top = 376
+    Left = 64
+    Top = 368
     ParamData = <
       item
         DataType = ftString
@@ -3256,8 +3241,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         '(:p_name, :p_lang, :p_region_id, :p_job_opportunity, :p_job_plac' +
         'e, :p_cv_docx_url, :p_cv_pdf_url,'
       ':p_phone_numbers_text, :p_resume_introduction)')
-    Left = 536
-    Top = 440
+    Left = 528
+    Top = 376
     ParamData = <
       item
         DataType = ftString
@@ -3312,6 +3297,114 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Name = 'p_resume_introduction'
         ParamType = ptInput
         Value = '0'
+      end>
+  end
+  object UniArchiveResume: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'update resumes '
+      'set archived = 1'
+      'where name =:p_name and lang=:p_lang')
+    Left = 832
+    Top = 328
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_name'
+        ParamType = ptInput
+        Value = '0'
+      end
+      item
+        DataType = ftString
+        Name = 'p_lang'
+        ParamType = ptInput
+        Value = 'EN'
+      end>
+  end
+  object UniArchiveFooters: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'update resume_footers '
+      'set archived = 1'
+      'where resume_id = :p_resume_id')
+    Left = 832
+    Top = 384
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'p_resume_id'
+        Value = nil
+      end>
+  end
+  object UniArchiveJobs: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'update experiences'
+      'set archived = 1'
+      'where resume_id = :p_resume_id')
+    Left = 832
+    Top = 440
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'p_resume_id'
+        Value = nil
+      end>
+  end
+  object UniArchiveSkills: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'update skill_show_lists'
+      'set archived = 1'
+      'where experience_id = :p_experience_id')
+    Left = 832
+    Top = 496
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = nil
       end>
   end
 end
