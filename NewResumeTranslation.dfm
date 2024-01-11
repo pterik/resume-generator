@@ -17,7 +17,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     680)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 853
+    Left = 849
     Top = 640
     Width = 98
     Height = 36
@@ -25,7 +25,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 849
+    ExplicitLeft = 845
     ExplicitTop = 639
   end
   object BitBtnSave: TBitBtn
@@ -176,7 +176,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 8
     Width = 980
     Height = 273
-    ActivePage = TabSheetJob2UA
+    ActivePage = TabSheetMainUA
     Style = tsButtons
     TabOrder = 2
     OnChange = PageControlUAChange
@@ -1119,7 +1119,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 287
     Width = 980
     Height = 338
-    ActivePage = TabSheetJob10TR
+    ActivePage = TabSheetMainTR
     Style = tsButtons
     TabOrder = 3
     OnChange = PageControlTRChange
@@ -2516,85 +2516,78 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       end
     end
   end
-  object UniInsertTranslation: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'INSERT INTO resumes '
-      
-        '(name,  lang, job_opportunity, job_place, cv_docx_url, cv_pdf_ur' +
-        'l,'
-      'phone_numbers_text, resume_introduction, archived)'
-      'VALUES '
-      
-        '(:p_name, :p_lang, :p_job_opportunity, :p_job_place, :p_cv_docx_' +
-        'url, :p_cv_pdf_url,'
-      ':p_phone_numbers_text, :p_resume_introduction, :p_archived)')
-    Left = 168
-    Top = 536
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_name'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_lang'
-        ParamType = ptInput
-        Value = 'UA'
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_opportunity'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_place'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_docx_url'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_pdf_url'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftString
-        Name = 'p_phone_numbers_text'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_resume_introduction'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftUnknown
-        Name = 'p_archived'
-        Value = nil
-      end>
+  object BitBtnCopy: TBitBtn
+    Left = 184
+    Top = 640
+    Width = 137
+    Height = 36
+    Anchors = [akLeft, akBottom]
+    Caption = 'Copy from UA'
+    Glyph.Data = {
+      B6070000424DB60700000000000036040000280000001E0000001C0000000100
+      0800000000008003000000000000000000000001000000000000040204008482
+      84005CC2A400ACE2D40044464400C4F2E400C4C2C40034B28C0074D2B400A4A2
+      A4006462640024222400DCE2DC00E4F2EC00F4FAF40044BA9C0094D6C4007472
+      7400BCEADC00A4DACC009492940074C6AC003432340014121400B4B2B400D4D2
+      D4006CCEAC0054565400D4EEE400E4F6F400BCE6D40044BA940084D2BC00646A
+      6C00ECFEFC0054BEA40094DECC007C7A7C000C0A0C008C8A8C0064C6AC003CB6
+      9400ACAAAC002C2A2C0054BE9C00BCEEE400ACDED4009C9A9C003C3A3C00F4F2
+      F400FCFAFC004C4E4C00DCF2EC00E4E2E4004CBE9C009CDACC0074767400A4DE
+      CC001C1A1C00BCBABC00DCDADC005C5E5C00ECEAEC00BCE6DC0084D6BC006C6E
+      6C00040604008486840064C2A400B4E2D400CCF2E400CCCECC003CB28C007CD2
+      B400A4A6A4006466640024262400E4F6EC004CBA9C009CDAC400C4EADC009496
+      940084CEB4003436340014161400D4D6D4006CCEB4005C5A5C00ECF6F4008CD2
+      BC006C6A6C00F4FEFC009CDECC00847A7C000C0E0C008C8E8C006CC6AC0044B6
+      9400ACAEAC002C2E2C00CCEAE4009C9E9C003C3E3C00F4F6F400FCFEFC005452
+      5400E4E6E4007C767400ACDECC00BCBEBC00ECEEEC00C4E6DC00700067003B00
+      29007C002A002E006A007000650067003B002A002E006A00700067003B007C00
+      4700490046002000670072006100700068006900630073002000660072006F00
+      6D0020004400650076004500780070007200650073007300200028002A002E00
+      6700690066003B0029007C002A002E006700690066003B007C00540049004600
+      46002000670072006100700068006900630073002000660072006F006D002000
+      4400650076004500780070007200650073007300200028002A002E0074006900
+      660066003B002A002E007400690066003B0029007C002A002E00740069006600
+      66003B002A002E007400690066003B007C0050004E0047002000670072006100
+      700068006900630073002000660072006F006D00200044006500760045007800
+      70007200650073007300200028002A002E0070006E0067003B0029007C002A00
+      2E0070006E0067003B007C0042004D0050002000670072006100700068006900
+      630073002000660072006F006D00200044006500760045007800700072006500
+      73007300200028002A002E0062006D0070003B0029007C002A002E0062006D00
+      70003B007C0050006F0072007400610062006C00650020006E00650074007700
+      6F0072006B002000670072006100700068006900630073002000280041006C00
+      70006800610043006F006E00740072006F006C0073002900200028002A002E00
+      70006E00670029007C002A002E0070006E0067007C004200690074006D006100
+      70007300200028002A002E0062006D00700029007C002A002E00686868686868
+      6868686868686868686868686868686868686868686868680000686868686868
+      6868683541111111111111111111111111111111114B18680000686868686868
+      6832684717175E5E5E5E5E5E5E5E5E5E5E5E5E5E544225680000686868686868
+      686868193A3D47471947191947191947191947192F2643680000686868686868
+      6832681917416868686868686868686868686868064227680000686810446028
+      28024019175A32094C30305330533053306357681826016800006868200F4428
+      44234055174B68094C53161653165316536357683B42436800006868594E3468
+      68686819174168686868686868686868686868683B42276800003268594E0D68
+      34341D55175A683E471919191919191919473C683B42436800006868590F4D68
+      23071A555E5A685F0017265E265E265E5E0066683B42276800006868594E3468
+      4F5903191721686D4B11411111413811114127683B26016800006868590F0D68
+      68686855174168686868686868686868686868683B42436800003268594E4D68
+      45131219175A68475F2F14512F51512F51144A683B26016800006868591F1D68
+      4E071A55175A68270026424242002642420053683B42436800006868100F3468
+      643F1C19174B683C2A6218181818621818623B686D26016800003268204E0D68
+      68686855174168686868686868686868686868682A42436800006868590F0D68
+      2015375517216818041B6969333C320A69696969161701680000686859611D68
+      440F0819175A6814170B0B0B3A556863543A0B4C4C17096800003268100F0D68
+      325832555E4168316A6A3E6A6A323253306A3E3D17536E6800006868204E3468
+      0E580E55175A326868686868686831166668385E1655683200006868594E4D68
+      28610855174168686868686868686853305A26161968686800006868204E3468
+      20602419540A5547191919191919622B4C1716556832686800006868594E3468
+      686868471717175E5E5E5E5E5E172654175355686868686800006868204E3468
+      68323235414111115D255D2538111111516E68686868686800006868594E5868
+      68686868686868222D462D2D6868686868686868686868680000686859364F03
+      2E45032E6C2E6C44616161453232683268686868686868680000686820616161
+      2929611F2929294E2C44646868686868686868686868686800006868641E3F50
+      3F501E3F6F3F6F3F6F0E68686868686868686868686868680000}
+    TabOrder = 4
+    OnClick = BitBtnCopyClick
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (
@@ -2836,8 +2829,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  :p_footer_text ,'
       '  :p_footer_order, '
       '  :p_archived)')
-    Left = 184
-    Top = 360
+    Left = 208
+    Top = 368
     ParamData = <
       item
         DataType = ftInteger
@@ -2951,87 +2944,6 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Name = 'p_leave_reason'
         ParamType = ptInput
         Value = nil
-      end>
-  end
-  object UniInsertResume: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'INSERT INTO resumes '
-      
-        '(name, lang, region_id, job_opportunity, job_place, cv_docx_url,' +
-        ' cv_pdf_url,'
-      'phone_numbers_text, resume_introduction)'
-      'VALUES '
-      
-        '(:p_name, :p_lang, :p_region_id, :p_job_opportunity, :p_job_plac' +
-        'e, :p_cv_docx_url, :p_cv_pdf_url,'
-      ':p_phone_numbers_text, :p_resume_introduction)')
-    Left = 64
-    Top = 368
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_name'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_lang'
-        ParamType = ptInput
-        Value = 'UA'
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_region_id'
-        ParamType = ptInput
-        Value = 1
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_opportunity'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_place'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_docx_url'
-        ParamType = ptInput
-        Value = #39#39
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_pdf_url'
-        ParamType = ptInput
-        Value = #39#39
-      end
-      item
-        DataType = ftString
-        Name = 'p_phone_numbers_text'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_resume_introduction'
-        ParamType = ptInput
-        Value = '0'
       end>
   end
   object UniLastInsertID: TUniQuery
@@ -3493,5 +3405,102 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       ReadOnly = True
       Required = True
     end
+  end
+  object UniInsertResume: TUniQuery
+    SQLInsert.Strings = (
+      'INSERT INTO resumes '
+      
+        '(name, lang, region_id, job_opportunity, job_place, cv_docx_url,' +
+        ' cv_pdf_url,'
+      'phone_numbers_text, resume_introduction)'
+      'VALUES '
+      
+        '(:p_name, :p_lang, :p_region_id, :p_job_opportunity, :p_job_plac' +
+        'e, :p_cv_docx_url, :p_cv_pdf_url,'
+      ':p_phone_numbers_text, :p_resume_introduction)')
+    SQLDelete.Strings = (
+      'delete from resumes '
+      'where id =:p_id')
+    SQLUpdate.Strings = (
+      'update resumes '
+      'set name= :p_name,'
+      'lang = :p_lang,'
+      'region_id = p_region_id,'
+      'job_opportunity = :p_job_opportunity,'
+      'job_place = :p_job_place,'
+      'cv_docx_url = :p_cv_docx_url,'
+      'cv_pdf_url = :p_cv_pdf_url,'
+      'phone_numbers_text = :p_phone_numbers_text,'
+      'resume_introduction = :p_resume_introduction'
+      'where id =:p_id')
+    Connection = FormMain.UniConnection
+    SQL.Strings = (
+      'INSERT INTO resumes '
+      
+        '(name, lang, region_id, job_opportunity, job_place, cv_docx_url,' +
+        ' cv_pdf_url,'
+      'phone_numbers_text, resume_introduction)'
+      'VALUES '
+      
+        '(:p_name, :p_lang, :p_region_id, :p_job_opportunity, :p_job_plac' +
+        'e, :p_cv_docx_url, :p_cv_pdf_url,'
+      ':p_phone_numbers_text, :p_resume_introduction)')
+    Left = 94
+    Top = 364
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_name'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_lang'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_region_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_job_opportunity'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_job_place'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_cv_docx_url'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_cv_pdf_url'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_phone_numbers_text'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_resume_introduction'
+        ParamType = ptInput
+        Value = nil
+      end>
   end
 end

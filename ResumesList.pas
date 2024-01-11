@@ -116,10 +116,16 @@ end;
 
 procedure TFormListResumes.BitBtnNewTranslationClick(Sender: TObject);
 begin
+if VarisNull(UniResumes['id']) then
+  begin
+    ShowMessage('Выберите резме из списка');
+    exit;
+  end;
 if FormNewResumeTranslation=nil then Application.CreateForm(TFormNewResumeTranslation, FormNewResumeTranslation);
 FormNewResumeTranslation.SetFormValues;
 FormNewResumeTranslation.SetEmptyUA;
 FormNewResumeTranslation.SetEmptyTR;
+FormMain.Warning('Форма ResumeList обьект UniResumes[id] = '+IntToStr(UniResumes['id']));
 FormNewResumeTranslation.GetValuesFromResume(UniResumes['id']);
 FormNewResumeTranslation.ShowModal;
 UniResumes.Refresh;

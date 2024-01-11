@@ -21,7 +21,5 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFormMain, FormMain);
-  Application.CreateForm(TFormUpdateResume, FormUpdateResume);
-  Application.CreateForm(TFormCheckMailboxes, FormCheckMailboxes);
   Application.Run;
 end.
