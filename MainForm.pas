@@ -158,7 +158,14 @@ end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
-UniConnection.Connected:=true;
+UniConnection.ProviderName := 'MySQL';
+UniConnection.Server := 'localhost';
+UniConnection.Port := 3306;
+UniConnection.Username := 'jobreport';
+UniConnection.Password := 'jobreport123';
+UniConnection.database := 'jobsearch';
+//UniConnection.SpecificOptions.Values['Schema'] := 'jobsearch';
+UniConnection.Open;
 end;
 
 procedure TFormMain.FormDestroy(Sender: TObject);

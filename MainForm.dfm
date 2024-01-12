@@ -4870,7 +4870,7 @@ object FormMain: TFormMain
     LoginPrompt = False
     Left = 728
     Top = 85
-    EncryptedPassword = 'ACFF94FF96FF8DFF9EFFCEFF88FF8DFF90FF9CFF93FF9EFF88FF'
+    EncryptedPassword = '95FF90FF9DFF8DFF9AFF8FFF90FF8DFF8BFFCEFFCDFFCCFF'
   end
   object MySQLUniProvider1: TMySQLUniProvider
     Left = 584
