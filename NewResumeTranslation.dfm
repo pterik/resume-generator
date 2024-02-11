@@ -17,7 +17,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     680)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 849
+    Left = 833
     Top = 640
     Width = 98
     Height = 36
@@ -25,7 +25,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 845
+    ExplicitLeft = 829
     ExplicitTop = 639
   end
   object BitBtnSave: TBitBtn
@@ -331,6 +331,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Top = 2
         Width = 421
         Height = 23
+        ReadOnly = True
         TabOrder = 1
         Text = 'EditArticle1UA'
       end
@@ -339,6 +340,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Top = 3
         Width = 464
         Height = 23
+        ReadOnly = True
         TabOrder = 2
         Text = 'EditArticle2UA'
       end
@@ -350,6 +352,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle1UA')
+        ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 3
       end
@@ -361,6 +364,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle2UA')
+        ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 4
       end
@@ -369,6 +373,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Top = 140
         Width = 462
         Height = 23
+        ReadOnly = True
         TabOrder = 5
         Text = 'EditArticle3UA'
       end
@@ -377,6 +382,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Top = 140
         Width = 464
         Height = 23
+        ReadOnly = True
         TabOrder = 6
         Text = 'EditArticle4UA'
       end
@@ -388,6 +394,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle3UA')
+        ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 7
       end
@@ -399,6 +406,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle4UA')
+        ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 8
       end
@@ -1119,7 +1127,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 287
     Width = 980
     Height = 338
-    ActivePage = TabSheetMainTR
+    ActivePage = TabSheetJob1TR
     Style = tsButtons
     TabOrder = 3
     OnChange = PageControlTRChange
@@ -2588,6 +2596,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       3F501E3F6F3F6F3F6F0E68686868686868686868686868680000}
     TabOrder = 4
     OnClick = BitBtnCopyClick
+    ExplicitTop = 639
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (
@@ -2946,34 +2955,6 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Value = nil
       end>
   end
-  object UniLastInsertID: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'SELECT ID from resumes '
-      'WHERE name = :p_name')
-    Left = 800
-    Top = 208
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_name'
-        ParamType = ptInput
-        Value = nil
-      end>
-    object UniLastInsertIDID: TIntegerField
-      FieldName = 'ID'
-    end
-  end
   object UniGetTemplate: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
@@ -3303,7 +3284,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
-      'SELECT ID from resumes '
+      'SELECT max(ID) from resumes '
       'WHERE name = :p_name')
     Left = 688
     Top = 216
@@ -3406,7 +3387,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       Required = True
     end
   end
-  object UniInsertResume: TUniQuery
+  object UniInsertResume2: TUniQuery
     SQLInsert.Strings = (
       'INSERT INTO resumes '
       
@@ -3501,6 +3482,162 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Name = 'p_resume_introduction'
         ParamType = ptInput
         Value = nil
+      end>
+  end
+  object UniSPInsertResume: TUniStoredProc
+    StoredProcName = 'insert_resume'
+    SQL.Strings = (
+      
+        'CALL insert_resume(:p_name, :p_lang, :p_region_id, :p_job_opport' +
+        'unity, :p_job_place, :p_phone_numbers_text, :p_resume_introducti' +
+        'on, :p_footer_1_header, :p_footer_1_text, :p_footer_2_header, :p' +
+        '_footer_2_text, :p_footer_3_header, :p_footer_3_text, :p_footer_' +
+        '4_header, :p_footer_4_text, :p_archived, @p_resume_id, @p_result' +
+        '); SELECT CAST(@p_resume_id AS SIGNED) AS '#39'@p_resume_id'#39', CAST(@' +
+        'p_result AS SIGNED) AS '#39'@p_result'#39)
+    Connection = FormMain.UniConnection
+    Left = 214
+    Top = 484
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_name'
+        ParamType = ptInput
+        Size = 50
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_lang'
+        ParamType = ptInput
+        Size = 3
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_region_id'
+        ParamType = ptInput
+        Size = 2
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_job_opportunity'
+        ParamType = ptInput
+        Size = 255
+        Value = '1111'
+      end
+      item
+        DataType = ftString
+        Name = 'p_job_place'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_phone_numbers_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_resume_introduction'
+        ParamType = ptInput
+        Size = 1000
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_1_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_1_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_2_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_2_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_3_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_3_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_4_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_4_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftShortint
+        Name = 'p_archived'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptOutput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_result'
+        ParamType = ptOutput
+        Value = nil
+      end>
+    CommandStoredProcName = 'insert_resume'
+  end
+  object UniLastInsertID: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT max(ID) from resumes '
+      'WHERE name = :p_name')
+    Left = 134
+    Top = 101
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_name'
+        ParamType = ptInput
+        Value = 'sssss'
       end>
   end
 end

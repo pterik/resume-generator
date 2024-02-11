@@ -19,7 +19,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
     658)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 869
+    Left = 865
     Top = 616
     Width = 99
     Height = 34
@@ -29,7 +29,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 865
+    ExplicitLeft = 861
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -178,18 +178,18 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
   object PageControl1: TPageControl
     Left = 0
     Top = 8
-    Width = 970
+    Width = 966
     Height = 596
     ActivePage = TabSheetJob1
     Anchors = [akLeft, akTop, akRight, akBottom]
     Style = tsButtons
     TabOrder = 1
-    ExplicitWidth = 966
+    ExplicitWidth = 962
     ExplicitHeight = 595
     object TabSheetMain: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       DesignSize = (
-        962
+        958
         563)
       object Label1: TLabel
         Left = 7
@@ -318,7 +318,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter1: TMemo
         Left = 31
         Top = 299
-        Width = 438
+        Width = 434
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -382,7 +382,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter2: TMemo
         Left = 502
         Top = 299
-        Width = 438
+        Width = 434
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -408,7 +408,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter3: TMemo
         Left = 31
         Top = 451
-        Width = 438
+        Width = 434
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -434,7 +434,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter4: TMemo
         Left = 502
         Top = 451
-        Width = 438
+        Width = 434
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -2262,7 +2262,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
     SQL.Strings = (
       'insert into experiences('
       '  resume_id ,'
-      '  position ,'
+      '  job_position ,'
       '  start_date ,'
       '  end_date ,'
       '  employer ,'
@@ -2271,7 +2271,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       '  leave_reason)'
       'values ('
       '  :p_resume_id ,'
-      '  :p_position ,'
+      '  :p_job_position ,'
       '  :p_start_date ,'
       '  :p_end_date ,'
       '  :p_employer ,'
@@ -2288,9 +2288,8 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Value = nil
       end
       item
-        DataType = ftString
-        Name = 'p_position'
-        ParamType = ptInput
+        DataType = ftUnknown
+        Name = 'p_job_position'
         Value = nil
       end
       item

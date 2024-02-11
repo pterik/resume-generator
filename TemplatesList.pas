@@ -16,7 +16,6 @@ type
     UniTemplatesjob_opportunity: TStringField;
     UniTemplatesjob_place: TStringField;
     UniTemplatesphone_numbers_text: TStringField;
-    UniTemplatesresume_introduction: TStringField;
     UniTemplatescreated: TDateTimeField;
     UniTemplatesupdated: TDateTimeField;
     UniDSTemplates: TUniDataSource;
@@ -26,11 +25,17 @@ type
     BitBtnDeleteTemplate: TBitBtn;
     UniDeleteTemplate: TUniQuery;
     BitBtnNewResume: TBitBtn;
+    UniTemplatestemplate_introduction: TStringField;
+    UniTemplatesarchived: TBooleanField;
+    UniTemplatesarchive: TStringField;
+    UniTemplatescntr_exp: TLargeintField;
+    UniTemplatescntr_skills: TLargeintField;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtnDeleteTemplateClick(Sender: TObject);
     procedure BitBtnNewTemplateClick(Sender: TObject);
     procedure BitBtnEditTemplateClick(Sender: TObject);
+    procedure UniTemplatesCalcFields(DataSet: TDataSet);
   private
   {}
   public
@@ -48,12 +53,10 @@ uses NewTemplate, UpdateTemplate, NewUkrainianResume;
 
 procedure TFormTemplatesList.BitBtnNewTemplateClick(Sender: TObject);
 begin
-if FormNewUkrainianResume=nil then Application.CreateForm(TFormNewUkrainianResume, FormNewUkrainianResume);
-FormNewUkrainianResume.SetFormValues;
-if not VarIsNull(UniTemplates['id'])
-  then FormNewUkrainianResume.SetValuesFromTemplate(UniTemplates['id'])
-  else FormNewUkrainianResume.SetEmptyResume;
-FormNewUkrainianResume.ShowModal;
+if FormNewTemplate=nil then Application.CreateForm(TFormNewTemplate, FormNewTemplate);
+FormNewTemplate.SetFormValues;
+FormNewTemplate.ShowModal;
+UniTemplates.Refresh;
 end;
 
 procedure TFormTemplatesList.BitBtnDeleteTemplateClick(Sender: TObject);
@@ -71,7 +74,7 @@ end;
 
 procedure TFormTemplatesList.BitBtnEditTemplateClick(Sender: TObject);
 begin
-if VarIsNull(Unitemplates['id']) then ShowMessage('Выберите запись')
+if VarIsNull(UniTemplates['id']) then ShowMessage('Выберите запись')
   else
     begin
     if FormUpdateTemplate=nil then Application.CreateForm(TFormUpdateTemplate, FormUpdateTemplate);
@@ -94,6 +97,11 @@ end;
 procedure TFormTemplatesList.SetFormValues;
 begin
 UniTemplates.Open;
+end;
+
+procedure TFormTemplatesList.UniTemplatesCalcFields(DataSet: TDataSet);
+begin
+if UniTemplates['archived']=0 then UniTemplates['archive']:='Ні' else UniTemplates['archive']:='Так';
 end;
 
 end.

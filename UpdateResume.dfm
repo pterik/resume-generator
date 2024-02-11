@@ -1,7 +1,7 @@
 object FormUpdateResume: TFormUpdateResume
   Left = 0
   Top = 0
-  Caption = 'FormUpdateResume'
+  Caption = #1060#1086#1088#1084#1072' '#1086#1085#1086#1074#1083#1077#1085#1085#1103' '#1088#1077#1079#1102#1084#1077
   ClientHeight = 662
   ClientWidth = 988
   Color = clBtnFace
@@ -16,7 +16,7 @@ object FormUpdateResume: TFormUpdateResume
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 905
+    Left = 901
     Top = 614
     Width = 75
     Height = 40
@@ -25,6 +25,8 @@ object FormUpdateResume: TFormUpdateResume
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 897
+    ExplicitTop = 613
   end
   object BitBtnSave: TBitBtn
     Left = 9

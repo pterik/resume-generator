@@ -320,7 +320,9 @@ type
     UniGetSkillsskill: TStringField;
     UniGetSkillscategory: TStringField;
     BitBtnCopy: TBitBtn;
-    UniInsertResume: TUniQuery;
+    UniInsertResume2: TUniQuery;
+    UniSPInsertResume: TUniStoredProc;
+    UniLastInsertID: TUniQuery;
     procedure PageControlTRChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -349,21 +351,17 @@ type
     procedure BitBtnCopyClick(Sender: TObject);
   private
     ComboBoxLang_First_Value, ComboBoxRegion_First_Value: string;
-    // ResumeIDTR, ResumeFooterIDTR:integer;
     FootersAreActive: array [1 .. 4] of boolean;
     JobsAreActive: array [1 .. 10] of boolean;
     procedure SetComboBoxLanguages;
     procedure SetComboBoxRegions;
-    procedure GetMonthRegionByMask(const D: TDatetime; Region: string;
-      var FullMonthYear, ShortMonthYear: string);
-    // procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     function IsEmpty(const S: String): boolean;
     procedure SetEmptyResume;
     procedure SetJobsValues(FResumeID: integer);
     procedure SetFooterValues(FResumeID: integer);
     function CheckValues: boolean;
     function SaveValues: boolean;
-    function SaveResume: boolean;
+    function SaveResume(var FResumeid:integer) : boolean;
     function SaveFooters(const FResumeID: integer;
       const FFooterHeader, FFooterText: string;
       const FFooterOrder: integer): boolean;
@@ -402,8 +400,6 @@ type
   public
     UniInsertFooters: TUniQuery;
     UniInsertJobs: TUniQuery;
-    UniLastInsertID: TUniQuery;
-    UniLastInsertIDID: TIntegerField;
     procedure SetEmptyTR;
     procedure SetEmptyUA;
     procedure SetFormValues;
@@ -453,344 +449,6 @@ begin
     BitBtnSave.Click;
 end;
 
-procedure TFormNewResumeTranslation.GetMonthRegionByMask(const D: TDatetime;
-  Region: string; var FullMonthYear, ShortMonthYear: string);
-var
-  Year, MM, Day: Word;
-begin
-  DecodeDate(D, Year, MM, Day);
-  if lowercase(Region) = 'ukraine' then
-  begin
-    case MM of
-      1:
-        begin
-          FullMonthYear := 'Січень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'січ' + '. ' + IntToStr(Year);
-        end;
-      2:
-        begin
-          FullMonthYear := 'Лютий' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'лют' + '. ' + IntToStr(Year);
-        end;
-      3:
-        begin
-          FullMonthYear := 'Березень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'бер' + '. ' + IntToStr(Year);
-        end;
-      4:
-        begin
-          FullMonthYear := 'Квітень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'кві' + '. ' + IntToStr(Year);
-        end;
-      5:
-        begin
-          FullMonthYear := 'Травень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'тра' + '. ' + IntToStr(Year);
-        end;
-      6:
-        begin
-          FullMonthYear := 'Червень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'чер' + '. ' + IntToStr(Year);
-        end;
-      7:
-        begin
-          FullMonthYear := 'Липень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'лип' + '. ' + IntToStr(Year);
-        end;
-      8:
-        begin
-          FullMonthYear := 'Серпень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'сер' + '. ' + IntToStr(Year);
-        end;
-      9:
-        begin
-          FullMonthYear := 'Вересень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'вер' + '. ' + IntToStr(Year);
-        end;
-      10:
-        begin
-          FullMonthYear := 'Жовтень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'жов' + '. ' + IntToStr(Year);
-        end;
-      11:
-        begin
-          FullMonthYear := 'Листопад' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'лис' + '. ' + IntToStr(Year);
-        end;
-      12:
-        begin
-          FullMonthYear := 'Грудень' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'гру' + '. ' + IntToStr(Year);
-        end;
-    end;
-    // січень, лютий, березень, квітень, травень, червень, липень, серпень, вересень, жовтень, листопад, грудень.
-  end;
-  if lowercase(Region) = 'poland' then
-  begin
-    case MM of
-      1:
-        begin
-          FullMonthYear := 'styczeń' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'sty' + '. ' + IntToStr(Year);
-        end;
-      2:
-        begin
-          FullMonthYear := 'luty' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'lut' + '. ' + IntToStr(Year);
-        end;
-      3:
-        begin
-          FullMonthYear := 'marzec' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'mar' + '.' + IntToStr(Year);
-        end;
-      4:
-        begin
-          FullMonthYear := 'kwiecień' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'kwi' + '. ' + IntToStr(Year);
-        end;
-      5:
-        begin
-          FullMonthYear := 'maj' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'maj' + '. ' + IntToStr(Year);
-        end;
-      6:
-        begin
-          FullMonthYear := 'czerwiec' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'cze' + '. ' + IntToStr(Year);
-        end;
-      7:
-        begin
-          FullMonthYear := 'lipiec' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'lip' + '. ' + IntToStr(Year);
-        end;
-      8:
-        begin
-          FullMonthYear := 'sierpień' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'sie' + '. ' + IntToStr(Year);
-        end;
-      9:
-        begin
-          FullMonthYear := 'wrzesień' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'wrz' + '. ' + IntToStr(Year);
-        end;
-      10:
-        begin
-          FullMonthYear := 'październik' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'paź' + '. ' + IntToStr(Year);
-        end;
-      11:
-        begin
-          FullMonthYear := 'listopad' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'lis' + '. ' + IntToStr(Year);
-        end;
-      12:
-        begin
-          FullMonthYear := 'grudzień' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'gru' + '. ' + IntToStr(Year);
-        end;
-    end;
-    // styczeń, luty, marzec, kwiecień, maj, czerwiec, lipiec, sierpień, wrzesień, październik, listopad, grudzień.
-  end;
-  if lowercase(Region) = 'croatia' then
-  begin
-    case MM of
-      1:
-        begin
-          FullMonthYear := 'siječanj' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'sij' + '. ' + IntToStr(Year);
-        end;
-      2:
-        begin
-          FullMonthYear := 'veljača' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'vel' + '. ' + IntToStr(Year);
-        end;
-      3:
-        begin
-          FullMonthYear := 'ožujak' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'ožu' + '. ' + IntToStr(Year);
-        end;
-      4:
-        begin
-          FullMonthYear := 'travanj' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'tra' + '. ' + IntToStr(Year);
-        end;
-      5:
-        begin
-          FullMonthYear := 'svibanj' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'svi' + '. ' + IntToStr(Year);
-        end;
-      6:
-        begin
-          FullMonthYear := 'lip' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'lip' + '. ' + IntToStr(Year);
-        end;
-      7:
-        begin
-          FullMonthYear := 'srpanj' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'srp' + '. ' + IntToStr(Year);
-        end;
-      8:
-        begin
-          FullMonthYear := 'kolovoz' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'kol' + '. ' + IntToStr(Year);
-        end;
-      9:
-        begin
-          FullMonthYear := 'rujan' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'ruj' + '. ' + IntToStr(Year);
-        end;
-      10:
-        begin
-          FullMonthYear := 'listopad' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'lis' + '. ' + IntToStr(Year);
-        end;
-      11:
-        begin
-          FullMonthYear := 'studeni' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'studeni' + '. ' + IntToStr(Year);
-        end;
-      12:
-        begin
-          FullMonthYear := 'prosinac' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'pro' + '. ' + IntToStr(Year);
-        end;
-    end;
-    // Siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac
-  end;
-  if lowercase(Region) = 'germany' then
-  begin
-    case MM of
-      1:
-        begin
-          FullMonthYear := 'Januar' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Jan' + '. ' + IntToStr(Year);
-        end;
-      2:
-        begin
-          FullMonthYear := 'Februar';
-          ShortMonthYear := 'Feb' + '. ' + IntToStr(Year);
-        end;
-      3:
-        begin
-          FullMonthYear := 'März';
-          ShortMonthYear := 'Mär' + '. ' + IntToStr(Year);
-        end;
-      4:
-        begin
-          FullMonthYear := 'April';
-          ShortMonthYear := 'Apr' + '. ' + IntToStr(Year);
-        end;
-      5:
-        begin
-          FullMonthYear := 'Mai';
-          ShortMonthYear := 'Mai' + '. ' + IntToStr(Year);
-        end;
-      6:
-        begin
-          FullMonthYear := 'Juni';
-          ShortMonthYear := 'Jun' + '. ' + IntToStr(Year);
-        end;
-      7:
-        begin
-          FullMonthYear := 'Juli';
-          ShortMonthYear := 'Jul' + '. ' + IntToStr(Year);
-        end;
-      8:
-        begin
-          FullMonthYear := 'August';
-          ShortMonthYear := 'Aug' + '. ' + IntToStr(Year);
-        end;
-      9:
-        begin
-          FullMonthYear := 'September';
-          ShortMonthYear := 'Sep' + '. ' + IntToStr(Year);
-        end;
-      10:
-        begin
-          FullMonthYear := 'Oktober';
-          ShortMonthYear := 'Okt' + '. ' + IntToStr(Year);
-        end;
-      11:
-        begin
-          FullMonthYear := 'November';
-          ShortMonthYear := 'Nov' + '. ' + IntToStr(Year);
-        end;
-      12:
-        begin
-          FullMonthYear := 'Dezember';
-          ShortMonthYear := 'Dez' + '. ' + IntToStr(Year);
-        end;
-    end;
-    // Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember
-  end;
-  if (lowercase(Region) = 'england') or (lowercase(Region) = 'usa\canada') then
-  begin
-    case MM of
-      1:
-        begin
-          FullMonthYear := 'January' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Jan' + '. ' + IntToStr(Year);
-        end;
-      2:
-        begin
-          FullMonthYear := 'February' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Feb' + '. ' + IntToStr(Year);
-        end;
-      3:
-        begin
-          FullMonthYear := 'March' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Mar' + '. ' + IntToStr(Year);
-        end;
-      4:
-        begin
-          FullMonthYear := 'April' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Apr' + '. ' + IntToStr(Year);
-        end;
-      5:
-        begin
-          FullMonthYear := 'May' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'May' + '. ' + IntToStr(Year);
-        end;
-      6:
-        begin
-          FullMonthYear := 'June' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Jun' + '. ' + IntToStr(Year);
-        end;
-      7:
-        begin
-          FullMonthYear := 'July' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Jul' + ' .' + IntToStr(Year);
-        end;
-      8:
-        begin
-          FullMonthYear := 'August' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Aug' + '. ' + IntToStr(Year);
-        end;
-      9:
-        begin
-          FullMonthYear := 'September' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Sep' + '. ' + IntToStr(Year);
-        end;
-      10:
-        begin
-          FullMonthYear := 'October' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Oct' + '. ' + IntToStr(Year);
-        end;
-      11:
-        begin
-          FullMonthYear := 'November' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Nov' + '. ' + IntToStr(Year);
-        end;
-      12:
-        begin
-          FullMonthYear := 'December' + ' ' + IntToStr(Year);
-          ShortMonthYear := 'Dec' + '. ' + IntToStr(Year);
-        end;
-    end;
-    // January, February, March, April, May, June, July, August, September, October, November, December
-  end;
-
-end;
 
 procedure TFormNewResumeTranslation.PageControlTRChange(Sender: TObject);
 begin
@@ -1043,13 +701,13 @@ begin
     case UniGetJobs['order_position'] of
       1:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit1DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit1DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1072,13 +730,13 @@ begin
         end;
       2:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit2DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit1DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1101,13 +759,13 @@ begin
         end;
       3:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit3DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit3DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1130,13 +788,13 @@ begin
         end;
       4:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit4DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit4DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1159,13 +817,13 @@ begin
         end;
       5:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit5DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit5DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1188,13 +846,13 @@ begin
         end;
       6:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit6DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit6DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1217,13 +875,13 @@ begin
         end;
       7:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit7DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit7DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1246,13 +904,13 @@ begin
         end;
       8:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit8DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit8DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1275,13 +933,13 @@ begin
         end;
       9:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit9DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit9DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1304,13 +962,13 @@ begin
         end;
       10:
         begin
-          GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
+          FormMain.GetMonthRegionByMask(UniGetJobs['start_date'], 'UA',
             FullMonthYearStart, ShortMonthYearStart);
           if VarIsNull(UniGetJobs['end_date']) then
             Edit10DatesUA.Text := FullMonthYearStart + '- Now'
           else
           begin
-            GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
+            FormMain.GetMonthRegionByMask(UniGetJobs['end_date'], 'UA', FullMonthYearEnd,
               ShortMonthYearEnd);
             Edit10DatesUA.Text := FullMonthYearStart + '-' + FullMonthYearEnd;
           end;
@@ -1432,33 +1090,36 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.SaveResume: boolean;
+function TFormNewResumeTranslation.SaveResume(var FResumeid:integer): boolean;
+var Resume_id:integer;
 begin
   try
-    if not ArchiveResume(EditNameTR.Text, ComboBoxLangTR.Text) then
-    begin
-      FormMain.Warning('Ошибка при попытке архивирования resumes');
-      Result := false;
-      exit;
-    end;
-    Вместо архив необходимо делать удаление.Во время вставки срабатывает ключ
-      уникальности UniInsertResume.Close;
-    UniInsertResume.ParamByName('p_name').AsString := EditNameTR.Text;
-    UniInsertResume.ParamByName('p_region_id').AsString :=
-      ComboBoxRegionTR.Text;
-    UniInsertResume.ParamByName('p_lang').AsString := ComboBoxLangTR.Text;
-    UniInsertResume.ParamByName('p_job_opportunity').AsString :=
-      EditOpportunityTR.Text;
-    UniInsertResume.ParamByName('p_job_place').AsString := EditPlaceTR.Text;
-    UniInsertResume.ParamByName('p_cv_docx_url').AsString := '';
-    UniInsertResume.ParamByName('p_cv_pdf_url').AsString := '';
-    UniInsertResume.ParamByName('p_phone_numbers_text').AsString :=
-      EditPhonesTR.Text;
-    UniInsertResume.ParamByName('p_resume_introduction').AsString :=
-      MemoIntroTR.Text;
-    // UniInsertResume.Prepare;
-    UniInsertResume.ExecSQL;
-    Result := true;
+//    if not ArchiveResume(EditNameTR.Text, ComboBoxLangTR.Text) then
+//    begin
+//      FormMain.Warning('Ошибка при попытке архивирования resumes');
+//      Result := false;
+//      exit;
+//    end;
+    UniSPInsertResume.Close;
+    UniSPInsertResume.ParamByName('p_name').AsString := EditNameTR.Text;
+    UniSPInsertResume.ParamByName('p_region_id').AsString := ComboBoxRegionTR.Text;
+    UniSPInsertResume.ParamByName('p_lang').AsString := ComboBoxLangTR.Text;
+    UniSPInsertResume.ParamByName('p_job_opportunity').AsString := EditOpportunityTR.Text;
+    UniSPInsertResume.ParamByName('p_job_place').AsString := EditPlaceTR.Text;
+    UniSPInsertResume.ParamByName('p_phone_numbers_text').AsString := EditPhonesTR.Text;
+    UniSPInsertResume.ParamByName('p_resume_introduction').AsString := MemoIntroTR.Text;
+    UniSPInsertResume.ParamByName('p_footer_1_header').AsString := EditArticle1TR.Text;
+    UniSPInsertResume.ParamByName('p_footer_1_text').AsString := MemoArticle1TR.Text;
+    UniSPInsertResume.ParamByName('p_footer_2_header').AsString := EditArticle2TR.Text;
+    UniSPInsertResume.ParamByName('p_footer_2_text').AsString := MemoArticle2TR.Text;
+    UniSPInsertResume.ParamByName('p_footer_3_header').AsString := EditArticle3TR.Text;
+    UniSPInsertResume.ParamByName('p_footer_3_text').AsString := MemoArticle3TR.Text;
+    UniSPInsertResume.ParamByName('p_footer_4_header').AsString := EditArticle4TR.Text;
+    UniSPInsertResume.ParamByName('p_footer_4_text').AsString := MemoArticle4TR.Text;
+    UniSPInsertResume.ParamByName('p_archived').AsInteger := 0;
+    UniSPInsertResume.ExecProc;
+    FResumeID:=UniSPInsertResume.ParamByName('p_resume_id').AsInteger;
+    if UniSPInsertResume.ParamByName('p_result').AsInteger=0 then Result:=true else Result:=false;
   except
     on E: Exception do
     begin
@@ -1642,15 +1303,15 @@ var
   FResumeID, FExperienceID: integer;
 begin
   try
-    if not SaveResume then
+    if not SaveResume(FResumeID) then
     begin
       FormMain.Warning('Сбой при сохранении resumes');
       Result := false;
       exit;
     end;
-    UniLastInsertID.Prepare;
+    UniLastInsertID.Close;
     UniLastInsertID.ParamByName('p_name').AsString := EditNameTR.Text;
-    UniLastInsertID.ExecSQL;
+    UniLastInsertID.Open;
 
     if VarIsNull(UniLastInsertID['id']) then
     begin
@@ -1660,38 +1321,38 @@ begin
     end
     else
       FResumeID := UniLastInsertID['id'];
-
-    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 1)
-    then
-    begin
-      FormMain.Warning('Сбой при сохранении resume_footers #1');
-      Result := false;
-      exit;
-    end;
-
-    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 2)
-    then
-    begin
-      FormMain.Warning('Сбой при сохранении resume_footers #2');
-      Result := false;
-      exit;
-    end;
-
-    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 3)
-    then
-    begin
-      FormMain.Warning('Сбой при сохранении resume_footers #3');
-      Result := false;
-      exit;
-    end;
-
-    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 4)
-    then
-    begin
-      FormMain.Warning('Сбой при сохранении resume_footers #4');
-      Result := false;
-      exit;
-    end;
+//
+//    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 1)
+//    then
+//    begin
+//      FormMain.Warning('Сбой при сохранении resume_footers #1');
+//      Result := false;
+//      exit;
+//    end;
+//
+//    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 2)
+//    then
+//    begin
+//      FormMain.Warning('Сбой при сохранении resume_footers #2');
+//      Result := false;
+//      exit;
+//    end;
+//
+//    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 3)
+//    then
+//    begin
+//      FormMain.Warning('Сбой при сохранении resume_footers #3');
+//      Result := false;
+//      exit;
+//    end;
+//
+//    if not SaveFooters(FResumeID, EditArticle1TR.Text, MemoArticle1TR.Text, 4)
+//    then
+//    begin
+//      FormMain.Warning('Сбой при сохранении resume_footers #4');
+//      Result := false;
+//      exit;
+//    end;
 
     if not SaveJobs(FResumeID, Edit1NameTR.Text, CalendarPickerB1TR.Date,
       CalendarPickerE1TR.Date, Edit1CompanyTR.Text, Memo1RespTR.Text,
@@ -2562,8 +2223,8 @@ procedure TFormNewResumeTranslation.ChangeDates1;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB1TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE1TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB1TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE1TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit1DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2571,8 +2232,8 @@ procedure TFormNewResumeTranslation.ChangeDates2;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB2TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE2TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB2TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE2TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit2DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2580,8 +2241,8 @@ procedure TFormNewResumeTranslation.ChangeDates3;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB3TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE3TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB3TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE3TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit3DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2589,8 +2250,8 @@ procedure TFormNewResumeTranslation.ChangeDates4;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB4TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE4TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB4TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE4TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit4DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2598,8 +2259,8 @@ procedure TFormNewResumeTranslation.ChangeDates5;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB5TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE5TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB5TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE5TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit5DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2607,8 +2268,8 @@ procedure TFormNewResumeTranslation.ChangeDates6;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB6TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE6TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB6TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE6TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit6DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2616,8 +2277,8 @@ procedure TFormNewResumeTranslation.ChangeDates7;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB7TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE7TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB7TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE7TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit7DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2625,8 +2286,8 @@ procedure TFormNewResumeTranslation.ChangeDates8;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB8TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE8TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB8TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE8TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit8DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2634,8 +2295,8 @@ procedure TFormNewResumeTranslation.ChangeDates9;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB9TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE9TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB9TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE9TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit9DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
@@ -2643,8 +2304,8 @@ procedure TFormNewResumeTranslation.ChangeDates10;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  GetMonthRegionByMask(CalendarPickerB10TR.Date, 'EN', FullMBYear, ShortMBYear);
-  GetMonthRegionByMask(CalendarPickerE10TR.Date, 'EN', FullMEYear, ShortMEYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerB10TR.Date, 'EN', FullMBYear, ShortMBYear);
+  FormMain.GetMonthRegionByMask(CalendarPickerE10TR.Date, 'EN', FullMEYear, ShortMEYear);
   Edit10DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 

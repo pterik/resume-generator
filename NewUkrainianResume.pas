@@ -390,7 +390,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit1JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit1JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit1Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB1.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE1.Date;
@@ -406,7 +406,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit2JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit2JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit2Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB2.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE2.Date;
@@ -422,7 +422,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit3JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit3JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit3Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB3.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE3.Date;
@@ -438,7 +438,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit4JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit4JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit4Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB4.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE4.Date;
@@ -454,7 +454,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit5JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit5JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit5Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB5.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE5.Date;
@@ -470,7 +470,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit6JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit6JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit6Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB6.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE6.Date;
@@ -486,7 +486,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit7JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit7JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit7Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB7.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE7.Date;
@@ -502,7 +502,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit8JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit8JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit8Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB8.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE8.Date;
@@ -518,7 +518,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit9JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit9JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit9Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB9.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE9.Date;
@@ -534,7 +534,7 @@ then
   begin
   UniInsertExperiences.Prepare;
   UniInsertExperiences.ParamByName('p_resume_id').AsInteger:=FResumeID;
-  UniInsertExperiences.ParamByName('p_position').AsString:=Trim(Edit10JobName.Text);
+  UniInsertExperiences.ParamByName('p_job_position').AsString:=Trim(Edit10JobName.Text);
   UniInsertExperiences.ParamByName('p_employer').AsString:=Trim(Edit10Company.Text);
   UniInsertExperiences.ParamByName('p_start_date').AsDateTime:=CalendarPickerB10.Date;
   UniInsertExperiences.ParamByName('p_end_date').AsDateTime:=CalendarPickerE10.Date;

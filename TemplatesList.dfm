@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 893
+    Left = 889
     Top = 614
     Width = 75
     Height = 40
@@ -25,12 +25,14 @@ object FormTemplatesList: TFormTemplatesList
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 885
+    ExplicitTop = 613
   end
   object DBGrid1: TDBGrid
-    Left = 8
-    Top = 24
-    Width = 968
-    Height = 217
+    Left = 2
+    Top = 8
+    Width = 984
+    Height = 433
     DataSource = UniDSTemplates
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
@@ -42,24 +44,25 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'id'
+        Width = 36
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'name'
-        Width = 100
+        Width = 130
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'job_opportunity'
-        Width = 150
+        Width = 125
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'job_place'
-        Width = 150
+        Width = 123
         Visible = True
       end
       item
@@ -70,8 +73,31 @@ object FormTemplatesList: TFormTemplatesList
       end
       item
         Expanded = False
-        FieldName = 'resume_introduction'
-        Width = 300
+        FieldName = 'template_introduction'
+        Width = 150
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cntr_exp'
+        Width = 49
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cntr_skills'
+        Width = 58
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'archive'
+        Width = 61
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'updated'
         Visible = True
       end>
   end
@@ -350,8 +376,26 @@ object FormTemplatesList: TFormTemplatesList
   object UniTemplates: TUniQuery
     Connection = FormMain.UniConnection
     SQL.Strings = (
-      'select * from templates')
+      'select '
+      '  id ,'
+      
+        '  (select count(*) from experiences e where e.template_id = t.id' +
+        ') cntr_exp, '
+      
+        '  (select count(*) from skill_show_lists l, experiences e where ' +
+        'l.experience_id = e.id and e.template_id = t.id) cntr_skills, '
+      '  name ,'
+      '  job_opportunity ,'
+      '  job_place ,'
+      '  phone_numbers_text ,'
+      '  template_introduction ,'
+      '  archived,'
+      '  created ,'
+      '  updated '
+      'from templates t'
+      'order by archived, name')
     Active = True
+    OnCalcFields = UniTemplatesCalcFields
     Left = 288
     Top = 112
     object UniTemplatesid: TIntegerField
@@ -374,15 +418,31 @@ object FormTemplatesList: TFormTemplatesList
       FieldName = 'phone_numbers_text'
       Size = 255
     end
-    object UniTemplatesresume_introduction: TStringField
-      FieldName = 'resume_introduction'
-      Size = 1000
-    end
     object UniTemplatescreated: TDateTimeField
       FieldName = 'created'
     end
     object UniTemplatesupdated: TDateTimeField
       FieldName = 'updated'
+    end
+    object UniTemplatestemplate_introduction: TStringField
+      FieldName = 'template_introduction'
+      Size = 1000
+    end
+    object UniTemplatesarchived: TBooleanField
+      FieldName = 'archived'
+    end
+    object UniTemplatesarchive: TStringField
+      FieldKind = fkCalculated
+      FieldName = 'archive'
+      Calculated = True
+    end
+    object UniTemplatescntr_exp: TLargeintField
+      FieldName = 'cntr_exp'
+      ReadOnly = True
+    end
+    object UniTemplatescntr_skills: TLargeintField
+      FieldName = 'cntr_skills'
+      ReadOnly = True
     end
   end
   object UniDSTemplates: TUniDataSource
