@@ -5,7 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
-  DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids, WordCS;
+//  WordCS,
+  DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids;
 
 type
   TWordReplaceFlags = set of (wrfReplaceAll, wrfMatchCase, wrfMatchWildcards);
@@ -52,9 +53,9 @@ type
     BitBtnOpenTmpl: TBitBtn;
     BitBtnGo: TBitBtn;
     CheckBoxExtraComment: TCheckBox;
-    WordApplication1: TWordApplication;
-    WordDocument1: TWordDocument;
-    WordRange1: TWordRange;
+//    WordApplication1: TWordApplication;
+//    WordDocument1: TWordDocument;
+//    WordRange1: TWordRange;
     UniDeleteResumeFooters: TUniQuery;
     UniDeleteExperiences: TUniQuery;
     BitBtnArchive: TBitBtn;

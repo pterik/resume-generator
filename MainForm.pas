@@ -15,7 +15,7 @@ uses
   Data.DB, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
   FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef,
   Data.DBXMySQL, Data.SqlExpr, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, FireDAC.Phys.IBDef,
-  FireDAC.Phys.IB, FireDAC.Phys.IBBase, WordCS, Vcl.Menus, DBAccess, Uni,
+  FireDAC.Phys.IB, FireDAC.Phys.IBBase, Vcl.Menus, DBAccess, Uni,
   UniProvider, MySQLUniProvider, MemDS, DASQLMonitor, UniSQLMonitor;
 
 type
@@ -104,7 +104,8 @@ implementation
 uses
 System.StrUtils, System.IOUtils, System.Zip, System.inifiles, ShellApi,
 System.Win.ComObj, System.RegularExpressions, System.DateUtils, Vcl.ExtActns,
-Quick.Console, Quick.SMTP, NewTemplate, NewUkrainianResume, TranslateResume, Parameters,
+// Quick.Console, Quick.SMTP,
+NewTemplate, NewUkrainianResume, TranslateResume, Parameters,
   Emailbox, TemplatesList, ResumesList;
 
 function TFormMain.IsEmpty(const S: String): boolean;

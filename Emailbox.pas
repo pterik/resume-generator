@@ -81,7 +81,9 @@ implementation
 
 {$R *.dfm}
 
-uses Quick.SMTP, System.UITypes;
+uses
+// Quick.SMTP,
+System.UITypes;
 
 procedure TFormEmails.BitBtnCloseClick(Sender: TObject);
 begin
@@ -253,31 +255,31 @@ UniTableEmails.Refresh;
 end;
 
 procedure TFormEmails.BitBtnSendClick(Sender: TObject);
-var
-  smtp : TSMTP;
+//var
+//  smtp : TSMTP;
 begin
-try
-  smtp := TSMTP.Create('mail.adm.tools',25,False);
-  try
-      smtp.Username := 'admin@data-migration.club';
-      smtp.Password := 'Youknowme2';
-      smtp.Mail.AddAttachment('resume.png','C:\Temp\resume.png');
-      smtp.Mail.AddAttachment('Compile1.png','C:\Temp\Compile1.png');
-      smtp.Mail.Attachments.Add('C:\Temp\Compile2.png');
-      smtp.Mail.SenderName := 'pterik@gmail.com';
-      smtp.Mail.From := 'admin@data-migration.club';
-      smtp.Mail.Recipient := 'job@data-migration.club';
-      smtp.Mail.Subject := 'Test message тестируем';
-      smtp.Mail.Body := 'Hello world здравствуй мир';
-      smtp.SendMail;
-      MemoText.Lines.Add('Сообщение отослано');
-  except
-    on E: Exception do
-      Writeln(E.ClassName, ': ', E.Message);
-  end;
-finally
-   smtp.Free;
-end;
+//try
+//  smtp := TSMTP.Create('mail.adm.tools',25,False);
+//  try
+//      smtp.Username := 'admin@data-migration.club';
+//      smtp.Password := 'Youknowme2';
+//      smtp.Mail.AddAttachment('resume.png','C:\Temp\resume.png');
+//      smtp.Mail.AddAttachment('Compile1.png','C:\Temp\Compile1.png');
+//      smtp.Mail.Attachments.Add('C:\Temp\Compile2.png');
+//      smtp.Mail.SenderName := 'pterik@gmail.com';
+//      smtp.Mail.From := 'admin@data-migration.club';
+//      smtp.Mail.Recipient := 'job@data-migration.club';
+//      smtp.Mail.Subject := 'Test message тестируем';
+//      smtp.Mail.Body := 'Hello world здравствуй мир';
+//      smtp.SendMail;
+//      MemoText.Lines.Add('Сообщение отослано');
+//  except
+//    on E: Exception do
+//      Writeln(E.ClassName, ': ', E.Message);
+//  end;
+//finally
+//   smtp.Free;
+//end;
 end;
 
 end.

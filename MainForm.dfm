@@ -4866,6 +4866,7 @@ object FormMain: TFormMain
     DefaultTransaction = UniTransaction
     Username = 'jobreport'
     Server = 'localhost'
+    Connected = True
     LoginPrompt = False
     Left = 728
     Top = 85

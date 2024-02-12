@@ -2,8 +2,8 @@ object FormEmails: TFormEmails
   Left = 0
   Top = 0
   Caption = 'Emails'
-  ClientHeight = 662
-  ClientWidth = 988
+  ClientHeight = 661
+  ClientWidth = 984
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,8 +12,8 @@ object FormEmails: TFormEmails
   Font.Style = []
   OnClose = FormClose
   DesignSize = (
-    988
-    662)
+    984
+    661)
   TextHeight = 15
   object Label4: TLabel
     Left = 3
@@ -196,18 +196,17 @@ object FormEmails: TFormEmails
   end
   object MemoText: TMemo
     Left = 3
-    Top = 447
-    Width = 472
+    Top = 446
+    Width = 464
     Height = 159
     Anchors = [akLeft, akRight, akBottom]
     ScrollBars = ssVertical
     TabOrder = 9
-    ExplicitTop = 446
     ExplicitWidth = 468
   end
   object BitBtnClose: TBitBtn
-    Left = 889
-    Top = 614
+    Left = 881
+    Top = 613
     Width = 75
     Height = 40
     Anchors = [akRight, akBottom]
@@ -215,16 +214,19 @@ object FormEmails: TFormEmails
     NumGlyphs = 2
     TabOrder = 10
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 889
+    ExplicitTop = 614
   end
   object BitBtnOpenMailbox: TBitBtn
     Left = 8
-    Top = 614
+    Top = 613
     Width = 113
     Height = 40
     Anchors = [akLeft, akBottom]
     Caption = #1042#1110#1076#1082#1088#1080#1090#1080' Mailbox '
     TabOrder = 11
     OnClick = BitBtnOpenMailboxClick
+    ExplicitTop = 614
   end
   object BitBtnKeyword: TBitBtn
     Left = 136
