@@ -23,13 +23,13 @@ type
     BitBtnNewTemplate: TBitBtn;
     BitBtnEditTemplate: TBitBtn;
     BitBtnDeleteTemplate: TBitBtn;
-    UniDeleteTemplate: TUniQuery;
     BitBtnNewResume: TBitBtn;
     UniTemplatestemplate_introduction: TStringField;
     UniTemplatesarchived: TBooleanField;
     UniTemplatesarchive: TStringField;
     UniTemplatescntr_exp: TLargeintField;
     UniTemplatescntr_skills: TLargeintField;
+    UniSPDeleteTemplate: TUniStoredProc;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtnDeleteTemplateClick(Sender: TObject);
@@ -64,9 +64,9 @@ begin
 if not VarIsNull(Unitemplates['id'])
   then
     begin
-    UniDeleteTemplate.Close;
-    UniDeleteTemplate.ParamByName('p_id').AsInteger:=Unitemplates['id'];
-    UniDeleteTemplate.ExecSQL;
+    UniSPDeleteTemplate.Close;
+    UniSPDeleteTemplate.ParamByName('p_template_id').AsInteger:=Unitemplates['id'];
+    UniSPDeleteTemplate.ExecSQL;
     UniTemplates.Refresh;
     end
   else ShowMessage('Выберите запись');
@@ -101,7 +101,9 @@ end;
 
 procedure TFormTemplatesList.UniTemplatesCalcFields(DataSet: TDataSet);
 begin
-if UniTemplates['archived']=0 then UniTemplates['archive']:='Ні' else UniTemplates['archive']:='Так';
+UniTemplates['archive']:='null';
+if UniTemplates['archived']=0 then UniTemplates['archive']:='Ні';
+if UniTemplates['archived']=1 then UniTemplates['archive']:='Так';
 end;
 
 end.

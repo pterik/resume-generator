@@ -19,7 +19,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
     658)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 865
+    Left = 861
     Top = 616
     Width = 99
     Height = 34
@@ -29,7 +29,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 861
+    ExplicitLeft = 857
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -178,18 +178,18 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
   object PageControl1: TPageControl
     Left = 0
     Top = 8
-    Width = 966
+    Width = 962
     Height = 596
     ActivePage = TabSheetJob1
     Anchors = [akLeft, akTop, akRight, akBottom]
     Style = tsButtons
     TabOrder = 1
-    ExplicitWidth = 962
+    ExplicitWidth = 958
     ExplicitHeight = 595
     object TabSheetMain: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       DesignSize = (
-        958
+        954
         563)
       object Label1: TLabel
         Left = 7
@@ -318,7 +318,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter1: TMemo
         Left = 31
         Top = 299
-        Width = 434
+        Width = 430
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -382,7 +382,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter2: TMemo
         Left = 502
         Top = 299
-        Width = 434
+        Width = 430
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -408,7 +408,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter3: TMemo
         Left = 31
         Top = 451
-        Width = 434
+        Width = 430
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
@@ -434,7 +434,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter4: TMemo
         Left = 502
         Top = 451
-        Width = 434
+        Width = 430
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (

@@ -334,7 +334,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 564
   end
   object BitBtnClose: TBitBtn
-    Left = 839
+    Left = 835
     Top = 612
     Width = 137
     Height = 40
@@ -343,7 +343,7 @@ object FormListResumes: TFormListResumes
     NumGlyphs = 2
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 835
+    ExplicitLeft = 831
     ExplicitTop = 611
   end
   object BitBtnNewTranslation: TBitBtn
@@ -529,7 +529,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 611
   end
   object BitBtnPDF: TBitBtn
-    Left = 839
+    Left = 835
     Top = 563
     Width = 137
     Height = 40
@@ -537,7 +537,7 @@ object FormListResumes: TFormListResumes
     Caption = #1057#1090#1074#1086#1088#1080#1090#1080' PDF '#1088#1077#1079#1102#1084#1077
     TabOrder = 10
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 835
+    ExplicitLeft = 831
     ExplicitTop = 562
   end
   object BitBtnOpenTmpl: TBitBtn
@@ -807,21 +807,6 @@ object FormListResumes: TFormListResumes
         ParamType = ptInput
         Value = nil
       end>
-  end
-  object WordApplication1: TWordApplication
-    Active = False
-    Left = 808
-    Top = 125
-  end
-  object WordDocument1: TWordDocument
-    Active = False
-    Left = 816
-    Top = 205
-  end
-  object WordRange1: TWordRange
-    Active = False
-    Left = 824
-    Top = 293
   end
   object UniDeleteResumeFooters: TUniQuery
     Connection = FormMain.UniConnection

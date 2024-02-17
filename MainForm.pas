@@ -69,6 +69,9 @@ type
     UniRegionsupdated: TDateTimeField;
     BitBtnNewUkrResume: TBitBtn;
     MemoText: TMemo;
+    PDF1: TMenuItem;
+    PDF2: TMenuItem;
+    Skills1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
@@ -82,6 +85,7 @@ type
     procedure N2Click(Sender: TObject);
     procedure N3Click(Sender: TObject);
     procedure BitBtnNewUkrResumeClick(Sender: TObject);
+    procedure PDF1Click(Sender: TObject);
   private
      WarningFired:boolean;
   protected
@@ -192,6 +196,12 @@ if FormTemplatesList=nil then Application.CreateForm(TFormTemplatesList, FormTem
 FormTemplatesList.SetFormValues;
 FormTemplatesList.ShowModal;
 
+end;
+
+procedure TFormMain.PDF1Click(Sender: TObject);
+begin
+ { TODO : add Rich edit Component - Devexpress }
+//https://docs.devexpress.com/VCL/176009/ExpressRichEditControl/vcl-rich-edit-components
 end;
 
 procedure TFormMain.N2Click(Sender: TObject);

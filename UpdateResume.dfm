@@ -16,7 +16,7 @@ object FormUpdateResume: TFormUpdateResume
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 901
+    Left = 897
     Top = 614
     Width = 75
     Height = 40
@@ -25,7 +25,7 @@ object FormUpdateResume: TFormUpdateResume
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 897
+    ExplicitLeft = 893
     ExplicitTop = 613
   end
   object BitBtnSave: TBitBtn
@@ -176,7 +176,7 @@ object FormUpdateResume: TFormUpdateResume
     Top = 8
     Width = 984
     Height = 260
-    ActivePage = TabSheetMain
+    ActivePage = TabSheetJob2
     Enabled = False
     Style = tsButtons
     TabOrder = 2
@@ -1571,7 +1571,7 @@ object FormUpdateResume: TFormUpdateResume
     Top = 274
     Width = 980
     Height = 260
-    ActivePage = TabSheet1
+    ActivePage = TabSheet4
     Style = tsButtons
     TabOrder = 3
     object TabSheet1: TTabSheet
@@ -2981,7 +2981,13 @@ object FormUpdateResume: TFormUpdateResume
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
-      'SELECT * from resumes WHERE id = :p_id')
+      'SELECT '
+      '   id, name, lang, '
+      '   region_id, job_opportunity, job_place, '
+      '   phone_numbers_text, cv_docx_url, cv_pdf_url, '
+      '   resume_introduction, archived, created, '
+      '   updated'
+      'from resumes WHERE id = :p_id')
     Left = 656
     Top = 88
     ParamData = <

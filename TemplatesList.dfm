@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 889
+    Left = 877
     Top = 614
     Width = 75
     Height = 40
@@ -25,7 +25,7 @@ object FormTemplatesList: TFormTemplatesList
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 885
+    ExplicitLeft = 873
     ExplicitTop = 613
   end
   object DBGrid1: TDBGrid
@@ -450,18 +450,21 @@ object FormTemplatesList: TFormTemplatesList
     Left = 464
     Top = 112
   end
-  object UniDeleteTemplate: TUniQuery
-    Connection = FormMain.UniConnection
+  object UniSPDeleteTemplate: TUniStoredProc
+    StoredProcName = 'delete_template_all'
     SQL.Strings = (
-      'DELETE from templates WHERE id = :p_id')
+      'CALL delete_template_all(:p_template_id)')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
     Left = 616
     Top = 112
     ParamData = <
       item
         DataType = ftInteger
-        Name = 'p_id'
+        Name = 'p_template_id'
         ParamType = ptInput
         Value = nil
       end>
+    CommandStoredProcName = 'delete_template_all'
   end
 end

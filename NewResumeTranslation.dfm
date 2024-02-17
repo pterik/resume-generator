@@ -17,7 +17,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     680)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 833
+    Left = 829
     Top = 640
     Width = 98
     Height = 36
@@ -25,7 +25,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 829
+    ExplicitLeft = 825
     ExplicitTop = 639
   end
   object BitBtnSave: TBitBtn
@@ -176,7 +176,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     Top = 8
     Width = 980
     Height = 273
-    ActivePage = TabSheetMainUA
+    ActivePage = TabSheetFooterUA
     Style = tsButtons
     TabOrder = 2
     OnChange = PageControlUAChange

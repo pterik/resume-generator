@@ -4831,6 +4831,13 @@ object FormMain: TFormMain
         Caption = #1055#1077#1088#1077#1074#1086#1076' '
         OnClick = NNewTranslationClick
       end
+      object PDF1: TMenuItem
+        Caption = 'RTF'
+        OnClick = PDF1Click
+      end
+      object PDF2: TMenuItem
+        Caption = 'PDF'
+      end
     end
     object N5: TMenuItem
       Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082
@@ -4849,6 +4856,9 @@ object FormMain: TFormMain
       object N2: TMenuItem
         Caption = #1056#1077#1079#1102#1084#1077
         OnClick = N2Click
+      end
+      object Skills1: TMenuItem
+        Caption = 'Skills'
       end
     end
     object G1: TMenuItem

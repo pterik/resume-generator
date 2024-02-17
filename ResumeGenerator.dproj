@@ -180,7 +180,7 @@
                     <Excluded_Packages Name="$(BDS)\Source\..\Compiled\Delphi28.win32\Bin\DclFMXTeePro928.bpl">File c:\program files (x86)\embarcadero\studio\22.0\Source\..\Compiled\Delphi28.win32\Bin\DclFMXTeePro928.bpl not found</Excluded_Packages>
                     <Excluded_Packages Name="$(BDS)\Source\..\TeeTree\Compiled\Delphi28.win32\Bin\DclFMXTree28.bpl">File c:\program files (x86)\embarcadero\studio\22.0\Source\..\TeeTree\Compiled\Delphi28.win32\Bin\DclFMXTree28.bpl not found</Excluded_Packages>
                     <Excluded_Packages Name="$(BDS)\source\..\Compiled\Delphi28.win32\Bin\DclTeePro928.bpl">TeeChart Pro 2021 VCL Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDS)\source\..\Compiled\Delphi28.win32\Bin\DclTeeMaker128.bpl">TeeMaker </Excluded_Packages>
+                    <Excluded_Packages Name="$(BDS)\source\..\Compiled\Delphi28.win32\Bin\DclTeeMaker128.bpl">TeeMaker</Excluded_Packages>
                     <Excluded_Packages Name="$(BDS)\Source\..\TeeTree\Compiled\Delphi28.win32\Bin\DclTree2D28Tee9.bpl">TeeTree 2 Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>

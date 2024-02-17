@@ -57,7 +57,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 897
+    Left = 889
     Top = 616
     Width = 75
     Height = 38
@@ -66,7 +66,7 @@ object FormNewTemplate: TFormNewTemplate
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 893
+    ExplicitLeft = 885
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -210,7 +210,7 @@ object FormNewTemplate: TFormNewTemplate
     TabOrder = 1
     OnClick = BitBtnSaveClick
   end
-  object PageControlRU: TPageControl
+  object PageControlTR: TPageControl
     Left = 0
     Top = 8
     Width = 980
@@ -276,39 +276,39 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
       end
-      object EditNameRU: TEdit
+      object EditNameTR: TEdit
         Left = 198
         Top = 3
         Width = 145
         Height = 23
         TabOrder = 0
-        Text = 'EditNameRU'
+        Text = 'EditNameTR'
       end
-      object EditOpportunityRU: TEdit
+      object EditOpportunityTR: TEdit
         Left = 419
         Top = 3
         Width = 295
         Height = 23
         TabOrder = 1
-        Text = 'EditOpportunityRU'
+        Text = 'EditOpportunityTR'
       end
-      object EditPlaceRU: TEdit
+      object EditPlaceTR: TEdit
         Left = 229
         Top = 30
         Width = 114
         Height = 23
         TabOrder = 2
-        Text = 'EditPlaceRU'
+        Text = 'EditPlaceTR'
       end
-      object EditPhonesRU: TEdit
+      object EditPhonesTR: TEdit
         Left = 418
         Top = 30
         Width = 296
         Height = 23
         TabOrder = 3
-        Text = 'EditPhonesRU'
+        Text = 'EditPhonesTR'
       end
-      object MemoIntroRU: TMemo
+      object MemoIntroTR: TMemo
         Left = 57
         Top = 59
         Width = 912
@@ -326,7 +326,7 @@ object FormNewTemplate: TFormNewTemplate
         ScrollBars = ssVertical
         TabOrder = 4
       end
-      object EditLangRU: TEdit
+      object EditLangTR: TEdit
         Left = 57
         Top = 1
         Width = 72
@@ -335,7 +335,7 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 5
         Text = 'RU'
       end
-      object EditRegionRU: TEdit
+      object EditRegionTR: TEdit
         Left = 57
         Top = 30
         Width = 72
@@ -359,79 +359,79 @@ object FormNewTemplate: TFormNewTemplate
         Caption = #1053#1072#1074#1080#1095#1082#1080
         TabOrder = 0
       end
-      object EditArticle1RU: TEdit
+      object EditArticle1TR: TEdit
         Left = 61
         Top = 2
         Width = 421
         Height = 23
         TabOrder = 1
-        Text = 'EditArticle1RU'
+        Text = 'EditArticle1TR'
       end
-      object EditArticle2RU: TEdit
+      object EditArticle2TR: TEdit
         Left = 510
         Top = 3
         Width = 464
         Height = 23
         TabOrder = 2
-        Text = 'EditArticle2RU'
+        Text = 'EditArticle2TR'
       end
-      object MemoArticle1RU: TMemo
+      object MemoArticle1TR: TMemo
         Left = 2
         Top = 28
         Width = 476
         Height = 110
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          'MemoArticle1RU')
+          'MemoArticle1TR')
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object MemoArticle2RU: TMemo
+      object MemoArticle2TR: TMemo
         Left = 493
         Top = 32
         Width = 476
         Height = 110
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          'MemoArticle2RU')
+          'MemoArticle2TR')
         ScrollBars = ssVertical
         TabOrder = 4
       end
-      object EditArticle3RU: TEdit
+      object EditArticle3TR: TEdit
         Left = 16
         Top = 140
         Width = 462
         Height = 23
         TabOrder = 5
-        Text = 'EditArticle3RU'
+        Text = 'EditArticle3TR'
       end
-      object EditArticle4RU: TEdit
+      object EditArticle4TR: TEdit
         Left = 504
         Top = 140
         Width = 464
         Height = 23
         TabOrder = 6
-        Text = 'EditArticle4RU'
+        Text = 'EditArticle4TR'
       end
-      object MemoArticle3RU: TMemo
+      object MemoArticle3TR: TMemo
         Left = 2
         Top = 167
         Width = 476
         Height = 100
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          'MemoArticle3RU')
+          'MemoArticle3TR')
         ScrollBars = ssVertical
         TabOrder = 7
       end
-      object MemoArticle4RU: TMemo
+      object MemoArticle4TR: TMemo
         Left = 492
         Top = 167
         Width = 476
         Height = 100
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          'MemoArticle4RU')
+          'MemoArticle4TR')
         ScrollBars = ssVertical
         TabOrder = 8
       end
@@ -481,68 +481,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
-      object Edit1DatesRU: TEdit
+      object Edit1DatesTR: TEdit
         Left = 4
         Top = 3
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit1DatesRU'
+        Text = 'Edit1DatesTR'
       end
-      object Edit1NameRU: TEdit
+      object Edit1NameTR: TEdit
         Left = 70
         Top = 40
         Width = 200
         Height = 23
         TabOrder = 1
-        Text = 'Edit1NameRU'
+        Text = 'Edit1NameTR'
       end
-      object Edit1CompanyRU: TEdit
+      object Edit1CompanyTR: TEdit
         Left = 330
         Top = 40
         Width = 200
         Height = 23
         TabOrder = 2
-        Text = 'Edit1CompanyRU'
+        Text = 'Edit1CompanyTR'
       end
-      object Memo1RespRU: TMemo
+      object Memo1RespTR: TMemo
         Left = 70
         Top = 70
         Width = 899
         Height = 80
         Lines.Strings = (
-          'Memo1RespRU')
+          'Memo1RespTR')
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit1BenefitsRU: TEdit
+      object Edit1BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 4
-        Text = 'Edit1BenefitsRU'
+        Text = 'Edit1BenefitsTR'
       end
-      object Edit1BottomRU: TEdit
+      object Edit1BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 476
         Height = 23
         TabOrder = 5
-        Text = 'Edit1BottomRU'
+        Text = 'Edit1BottomTR'
       end
-      object Memo1SkillsRU: TMemo
+      object Memo1SkillsTR: TMemo
         Left = 70
         Top = 220
         Width = 479
         Height = 93
         Lines.Strings = (
-          'Memo1SkillsRU')
+          'Memo1SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB1RU: TCalendarPicker
+      object CalendarPickerB1TR: TCalendarPicker
         Left = 210
         Top = 0
         Width = 100
@@ -564,13 +564,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB1RUChange
-        OnCloseUp = CalendarPickerB1RUCloseUp
+        OnChange = CalendarPickerB1TRChange
+        OnCloseUp = CalendarPickerB1TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE1RU: TCalendarPicker
+      object CalendarPickerE1TR: TCalendarPicker
         Left = 316
         Top = 0
         Width = 100
@@ -592,8 +592,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE1RUChange
-        OnCloseUp = CalendarPickerE1RUCloseUp
+        OnChange = CalendarPickerE1TRChange
+        OnCloseUp = CalendarPickerE1TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -644,68 +644,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1057#1082#1110#1083#1080
       end
-      object Edit2DatesRU: TEdit
+      object Edit2DatesTR: TEdit
         Left = 4
         Top = 2
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit2DatesRU'
+        Text = 'Edit2DatesTR'
       end
-      object Edit2NameRU: TEdit
+      object Edit2NameTR: TEdit
         Left = 70
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 1
-        Text = 'Edit2NameRU'
+        Text = 'Edit2NameTR'
       end
-      object Edit2CompanyRU: TEdit
+      object Edit2CompanyTR: TEdit
         Left = 330
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 2
-        Text = 'Edit2CompanyRU'
+        Text = 'Edit2CompanyTR'
       end
-      object Memo2RespRU: TMemo
+      object Memo2RespTR: TMemo
         Left = 70
         Top = 70
         Width = 813
         Height = 80
         Lines.Strings = (
-          'Memo2RespRU')
+          'Memo2RespTR')
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit2BenefitsRU: TEdit
+      object Edit2BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 4
-        Text = 'Edit2BenefitsRU'
+        Text = 'Edit2BenefitsTR'
       end
-      object Edit2BottomRU: TEdit
+      object Edit2BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 5
-        Text = 'Edit2BottomRU'
+        Text = 'Edit2BottomTR'
       end
-      object Memo2SkillsRU: TMemo
+      object Memo2SkillsTR: TMemo
         Left = 70
         Top = 220
         Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo2SkillsRU')
+          'Memo2SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB2RU: TCalendarPicker
+      object CalendarPickerB2TR: TCalendarPicker
         Left = 210
         Top = 0
         Width = 100
@@ -727,13 +727,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB2RUChange
-        OnCloseUp = CalendarPickerB2RUCloseUp
+        OnChange = CalendarPickerB2TRChange
+        OnCloseUp = CalendarPickerB2TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE2RU: TCalendarPicker
+      object CalendarPickerE2TR: TCalendarPicker
         Left = 329
         Top = 0
         Width = 100
@@ -755,8 +755,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE2RUChange
-        OnCloseUp = CalendarPickerE2RUCloseUp
+        OnChange = CalendarPickerE2TRChange
+        OnCloseUp = CalendarPickerE2TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -807,68 +807,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1057#1082#1110#1083#1080
       end
-      object Edit3DatesRU: TEdit
+      object Edit3DatesTR: TEdit
         Left = 4
         Top = 3
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit3DatesRU'
+        Text = 'Edit3DatesTR'
       end
-      object Edit3NameRU: TEdit
+      object Edit3NameTR: TEdit
         Left = 70
         Top = 38
         Width = 200
         Height = 23
         TabOrder = 1
-        Text = 'Edit3NameRU'
+        Text = 'Edit3NameTR'
       end
-      object Edit3CompanyRU: TEdit
+      object Edit3CompanyTR: TEdit
         Left = 330
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 2
-        Text = 'Edit3CompanyRU'
+        Text = 'Edit3CompanyTR'
       end
-      object Memo3RespRU: TMemo
+      object Memo3RespTR: TMemo
         Left = 70
         Top = 70
         Width = 899
         Height = 80
         Lines.Strings = (
-          'Memo3RespRU')
+          'Memo3RespTR')
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit3BenefitsRU: TEdit
+      object Edit3BenefitsTR: TEdit
         Left = 70
         Top = 160
-        Width = 500
+        Width = 480
         Height = 23
         TabOrder = 4
-        Text = 'Edit3BenefitsRU'
+        Text = 'Edit3BenefitsTR'
       end
-      object Edit3BottomRU: TEdit
+      object Edit3BottomTR: TEdit
         Left = 70
         Top = 190
-        Width = 500
+        Width = 480
         Height = 23
         TabOrder = 5
-        Text = 'Edit3BottomRU'
+        Text = 'Edit3BottomTR'
       end
-      object Memo3SkillsRU: TMemo
+      object Memo3SkillsTR: TMemo
         Left = 70
         Top = 220
-        Width = 500
+        Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo3SkillsRU')
+          'Memo3SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB3RU: TCalendarPicker
+      object CalendarPickerB3TR: TCalendarPicker
         Left = 210
         Top = 0
         Width = 100
@@ -890,13 +890,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB3RUChange
-        OnCloseUp = CalendarPickerB3RUCloseUp
+        OnChange = CalendarPickerB3TRChange
+        OnCloseUp = CalendarPickerB3TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE3RU: TCalendarPicker
+      object CalendarPickerE3TR: TCalendarPicker
         Left = 329
         Top = 0
         Width = 100
@@ -918,8 +918,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE3RUChange
-        OnCloseUp = CalendarPickerE3RUCloseUp
+        OnChange = CalendarPickerE3TRChange
+        OnCloseUp = CalendarPickerE3TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -970,68 +970,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1057#1082#1110#1083#1080
       end
-      object Edit4DatesRU: TEdit
+      object Edit4DatesTR: TEdit
         Left = 4
         Top = 2
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit4DatesRU'
+        Text = 'Edit4DatesTR'
       end
-      object Edit4NameRU: TEdit
+      object Edit4NameTR: TEdit
         Left = 70
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 1
-        Text = 'Edit4NameRU'
+        Text = 'Edit4NameTR'
       end
-      object Edit4CompanyRU: TEdit
+      object Edit4CompanyTR: TEdit
         Left = 333
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 2
-        Text = 'Edit4CompanyRU'
+        Text = 'Edit4CompanyTR'
       end
-      object Memo4RespRU: TMemo
+      object Memo4RespTR: TMemo
         Left = 70
         Top = 70
         Width = 900
         Height = 80
         Lines.Strings = (
-          'Memo4RespRU')
+          'Memo4RespTR')
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit4BenefitsRU: TEdit
+      object Edit4BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 4
-        Text = 'Edit4BenefitsRU'
+        Text = 'Edit4BenefitsTR'
       end
-      object Edit4BottomRU: TEdit
+      object Edit4BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 5
-        Text = 'Edit4BottomRU'
+        Text = 'Edit4BottomTR'
       end
-      object Memo4SkillsRU: TMemo
+      object Memo4SkillsTR: TMemo
         Left = 70
         Top = 220
         Width = 481
         Height = 80
         Lines.Strings = (
-          'Memo4SkillsRU')
+          'Memo4SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB4RU: TCalendarPicker
+      object CalendarPickerB4TR: TCalendarPicker
         Left = 210
         Top = 0
         Width = 100
@@ -1053,13 +1053,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB4RUChange
-        OnCloseUp = CalendarPickerB4RUCloseUp
+        OnChange = CalendarPickerB4TRChange
+        OnCloseUp = CalendarPickerB4TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE4RU: TCalendarPicker
+      object CalendarPickerE4TR: TCalendarPicker
         Left = 329
         Top = 0
         Width = 100
@@ -1081,8 +1081,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE4RUChange
-        OnCloseUp = CalendarPickerE4RUCloseUp
+        OnChange = CalendarPickerE4TRChange
+        OnCloseUp = CalendarPickerE4TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1133,68 +1133,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1057#1082#1110#1083#1080
       end
-      object Edit5DatesRU: TEdit
+      object Edit5DatesTR: TEdit
         Left = 3
         Top = 1
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit5DatesRU'
+        Text = 'Edit5DatesTR'
       end
-      object Edit5NameRU: TEdit
+      object Edit5NameTR: TEdit
         Left = 70
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 1
-        Text = 'Edit5NameRU'
+        Text = 'Edit5NameTR'
       end
-      object Edit5CompanyRU: TEdit
+      object Edit5CompanyTR: TEdit
         Left = 333
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 2
-        Text = 'Edit5CompanyRU'
+        Text = 'Edit5CompanyTR'
       end
-      object Memo5RespRU: TMemo
+      object Memo5RespTR: TMemo
         Left = 70
         Top = 70
         Width = 900
         Height = 80
         Lines.Strings = (
-          'Memo5RespRU')
+          'Memo5RespTR')
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit5BenefitsRU: TEdit
+      object Edit5BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 4
-        Text = 'Edit5BenefitsRU'
+        Text = 'Edit5BenefitsTR'
       end
-      object Edit5BottomRU: TEdit
+      object Edit5BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 5
-        Text = 'Edit5BottomRU'
+        Text = 'Edit5BottomTR'
       end
-      object Memo5SkillsRU: TMemo
+      object Memo5SkillsTR: TMemo
         Left = 70
         Top = 220
-        Width = 900
+        Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo5SkillsRU')
+          'Memo5SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB5RU: TCalendarPicker
+      object CalendarPickerB5TR: TCalendarPicker
         Left = 218
         Top = 0
         Width = 100
@@ -1216,13 +1216,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB5RUChange
-        OnCloseUp = CalendarPickerB5RUCloseUp
+        OnChange = CalendarPickerB5TRChange
+        OnCloseUp = CalendarPickerB5TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE5RU: TCalendarPicker
+      object CalendarPickerE5TR: TCalendarPicker
         Left = 337
         Top = 0
         Width = 100
@@ -1244,8 +1244,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE5RUChange
-        OnCloseUp = CalendarPickerE5RUCloseUp
+        OnChange = CalendarPickerE5TRChange
+        OnCloseUp = CalendarPickerE5TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1296,68 +1296,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1057#1082#1110#1083#1080
       end
-      object Memo6RespRU: TMemo
+      object Memo6RespTR: TMemo
         Left = 70
         Top = 70
         Width = 900
         Height = 80
         Lines.Strings = (
-          'Memo6RespRU')
+          'Memo6RespTR')
         ScrollBars = ssVertical
         TabOrder = 0
       end
-      object Edit6BenefitsRU: TEdit
+      object Edit6BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 1
-        Text = 'Edit6BenefitsRU'
+        Text = 'Edit6BenefitsTR'
       end
-      object Edit6BottomRU: TEdit
+      object Edit6BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 2
-        Text = 'Edit6BottomRU'
+        Text = 'Edit6BottomTR'
       end
-      object Edit6DatesRU: TEdit
+      object Edit6DatesTR: TEdit
         Left = 3
         Top = 1
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 3
-        Text = 'Edit6DatesRU'
+        Text = 'Edit6DatesTR'
       end
-      object Edit6NameRU: TEdit
+      object Edit6NameTR: TEdit
         Left = 70
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 4
-        Text = 'Edit6NameRU'
+        Text = 'Edit6NameTR'
       end
-      object Edit6CompanyRU: TEdit
+      object Edit6CompanyTR: TEdit
         Left = 341
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 5
-        Text = 'Edit6CompanyRU'
+        Text = 'Edit6CompanyTR'
       end
-      object Memo6SkillsRU: TMemo
+      object Memo6SkillsTR: TMemo
         Left = 70
         Top = 220
-        Width = 900
+        Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo6SkillsRU')
+          'Memo6SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB6RU: TCalendarPicker
+      object CalendarPickerB6TR: TCalendarPicker
         Left = 218
         Top = 0
         Width = 100
@@ -1379,13 +1379,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB6RUChange
-        OnCloseUp = CalendarPickerB6RUCloseUp
+        OnChange = CalendarPickerB6TRChange
+        OnCloseUp = CalendarPickerB6TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE6RU: TCalendarPicker
+      object CalendarPickerE6TR: TCalendarPicker
         Left = 337
         Top = 0
         Width = 100
@@ -1407,8 +1407,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE6RUChange
-        OnCloseUp = CalendarPickerE6RUCloseUp
+        OnChange = CalendarPickerE6TRChange
+        OnCloseUp = CalendarPickerE6TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1459,68 +1459,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1055#1086#1089#1072#1076#1072
       end
-      object Memo7RespRU: TMemo
+      object Memo7RespTR: TMemo
         Left = 70
         Top = 70
         Width = 900
         Height = 80
         Lines.Strings = (
-          'Memo7RespRU')
+          'Memo7RespTR')
         ScrollBars = ssVertical
         TabOrder = 0
       end
-      object Edit7BenefitsRU: TEdit
+      object Edit7BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 1
-        Text = 'Edit7BenefitsRU'
+        Text = 'Edit7BenefitsTR'
       end
-      object Edit7BottomRU: TEdit
+      object Edit7BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 2
-        Text = 'Edit7BottomRU'
+        Text = 'Edit7BottomTR'
       end
-      object Edit7DatesRU: TEdit
+      object Edit7DatesTR: TEdit
         Left = 4
         Top = 2
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 3
-        Text = 'Edit7DatesRU'
+        Text = 'Edit7DatesTR'
       end
-      object Edit7NameRU: TEdit
+      object Edit7NameTR: TEdit
         Left = 70
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 4
-        Text = 'Edit7NameRU'
+        Text = 'Edit7NameTR'
       end
-      object Edit7CompanyRU: TEdit
+      object Edit7CompanyTR: TEdit
         Left = 333
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 5
-        Text = 'Edit7CompanyRU'
+        Text = 'Edit7CompanyTR'
       end
-      object Memo7SkillsRU: TMemo
+      object Memo7SkillsTR: TMemo
         Left = 70
         Top = 220
-        Width = 900
+        Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo7SkillsRU')
+          'Memo7SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB7RU: TCalendarPicker
+      object CalendarPickerB7TR: TCalendarPicker
         Left = 218
         Top = 0
         Width = 100
@@ -1542,13 +1542,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB7RUChange
-        OnCloseUp = CalendarPickerB7RUCloseUp
+        OnChange = CalendarPickerB7TRChange
+        OnCloseUp = CalendarPickerB7TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE7RU: TCalendarPicker
+      object CalendarPickerE7TR: TCalendarPicker
         Left = 337
         Top = 0
         Width = 100
@@ -1570,8 +1570,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE7RUChange
-        OnCloseUp = CalendarPickerE7RUCloseUp
+        OnChange = CalendarPickerE7TRChange
+        OnCloseUp = CalendarPickerE7TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1622,68 +1622,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1055#1086#1089#1072#1076#1072
       end
-      object Memo8RespRU: TMemo
+      object Memo8RespTR: TMemo
         Left = 70
         Top = 70
         Width = 900
         Height = 80
         Lines.Strings = (
-          'Memo8RespRU')
+          'Memo8RespTR')
         ScrollBars = ssVertical
         TabOrder = 0
       end
-      object Edit8BenefitsRU: TEdit
+      object Edit8BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 1
-        Text = 'Edit8BenefitsRU'
+        Text = 'Edit8BenefitsTR'
       end
-      object Edit8BottomRU: TEdit
+      object Edit8BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 2
-        Text = 'Edit8BottomRU'
+        Text = 'Edit8BottomTR'
       end
-      object Edit8DatesRU: TEdit
+      object Edit8DatesTR: TEdit
         Left = 4
         Top = 2
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 3
-        Text = 'Edit8DatesRU'
+        Text = 'Edit8DatesTR'
       end
-      object Edit8NameRU: TEdit
+      object Edit8NameTR: TEdit
         Left = 70
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 4
-        Text = 'Edit8NameRU'
+        Text = 'Edit8NameTR'
       end
-      object Edit8CompanyRU: TEdit
+      object Edit8CompanyTR: TEdit
         Left = 333
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 5
-        Text = 'Edit8CompanyRU'
+        Text = 'Edit8CompanyTR'
       end
-      object Memo8SkillsRU: TMemo
+      object Memo8SkillsTR: TMemo
         Left = 70
         Top = 220
-        Width = 900
+        Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo8SkillsRU')
+          'Memo8SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB8RU: TCalendarPicker
+      object CalendarPickerB8TR: TCalendarPicker
         Left = 218
         Top = 0
         Width = 100
@@ -1705,13 +1705,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB8RUChange
-        OnCloseUp = CalendarPickerB8RUCloseUp
+        OnChange = CalendarPickerB8TRChange
+        OnCloseUp = CalendarPickerB8TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE8RU: TCalendarPicker
+      object CalendarPickerE8TR: TCalendarPicker
         Left = 337
         Top = 0
         Width = 100
@@ -1733,8 +1733,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE8RUChange
-        OnCloseUp = CalendarPickerE8RUCloseUp
+        OnChange = CalendarPickerE8TRChange
+        OnCloseUp = CalendarPickerE8TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1785,68 +1785,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1055#1086#1089#1072#1076#1072
       end
-      object Memo9RespRU: TMemo
+      object Memo9RespTR: TMemo
         Left = 70
         Top = 70
         Width = 900
         Height = 80
         Lines.Strings = (
-          'Memo9RespRU')
+          'Memo9RespTR')
         ScrollBars = ssVertical
         TabOrder = 0
       end
-      object Edit9BenefitsRU: TEdit
+      object Edit9BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 1
-        Text = 'Edit9BenefitsRU'
+        Text = 'Edit9BenefitsTR'
       end
-      object Edit9BottomRU: TEdit
+      object Edit9BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 2
-        Text = 'Edit9BottomRU'
+        Text = 'Edit9BottomTR'
       end
-      object Edit9DatesRU: TEdit
+      object Edit9DatesTR: TEdit
         Left = 4
         Top = 2
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 3
-        Text = 'Edit9DatesRU'
+        Text = 'Edit9DatesTR'
       end
-      object Edit9NameRU: TEdit
+      object Edit9NameTR: TEdit
         Left = 70
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 4
-        Text = 'Edit9NameRU'
+        Text = 'Edit9NameTR'
       end
-      object Edit9CompanyRU: TEdit
+      object Edit9CompanyTR: TEdit
         Left = 334
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 5
-        Text = 'Edit9CompanyRU'
+        Text = 'Edit9CompanyTR'
       end
-      object Memo9SkillsRU: TMemo
+      object Memo9SkillsTR: TMemo
         Left = 70
         Top = 220
-        Width = 900
+        Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo9SkillsRU')
+          'Memo9SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB9RU: TCalendarPicker
+      object CalendarPickerB9TR: TCalendarPicker
         Left = 218
         Top = 0
         Width = 100
@@ -1868,13 +1868,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB9RUChange
-        OnCloseUp = CalendarPickerB9RUCloseUp
+        OnChange = CalendarPickerB9TRChange
+        OnCloseUp = CalendarPickerB9TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE9RU: TCalendarPicker
+      object CalendarPickerE9TR: TCalendarPicker
         Left = 337
         Top = 0
         Width = 100
@@ -1896,8 +1896,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE9RUChange
-        OnCloseUp = CalendarPickerE9RUCloseUp
+        OnChange = CalendarPickerE9TRChange
+        OnCloseUp = CalendarPickerE9TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1948,68 +1948,68 @@ object FormNewTemplate: TFormNewTemplate
         Height = 15
         Caption = #1057#1082#1110#1083#1080
       end
-      object Memo10RespRU: TMemo
+      object Memo10RespTR: TMemo
         Left = 70
         Top = 70
         Width = 900
         Height = 80
         Lines.Strings = (
-          'Memo10RespRU')
+          'Memo10RespTR')
         ScrollBars = ssVertical
         TabOrder = 0
       end
-      object Edit10BenefitsRU: TEdit
+      object Edit10BenefitsTR: TEdit
         Left = 70
         Top = 160
         Width = 480
         Height = 23
         TabOrder = 1
-        Text = 'Edit10BenefitsRU'
+        Text = 'Edit10BenefitsTR'
       end
-      object Edit10BottomRU: TEdit
+      object Edit10BottomTR: TEdit
         Left = 70
         Top = 190
         Width = 480
         Height = 23
         TabOrder = 2
-        Text = 'Edit10BottomRU'
+        Text = 'Edit10BottomTR'
       end
-      object Edit10DatesRU: TEdit
+      object Edit10DatesTR: TEdit
         Left = 4
         Top = 2
         Width = 200
         Height = 23
         ReadOnly = True
         TabOrder = 3
-        Text = 'Edit10DatesRU'
+        Text = 'Edit10DatesTR'
       end
-      object Edit10NameRU: TEdit
+      object Edit10NameTR: TEdit
         Left = 70
         Top = 38
         Width = 200
         Height = 23
         TabOrder = 4
-        Text = 'Edit10NameRU'
+        Text = 'Edit10NameTR'
       end
-      object Edit10CompanyRU: TEdit
+      object Edit10CompanyTR: TEdit
         Left = 338
         Top = 41
         Width = 200
         Height = 23
         TabOrder = 5
-        Text = 'Edit10CompanyRU'
+        Text = 'Edit10CompanyTR'
       end
-      object Memo10SkillsRU: TMemo
+      object Memo10SkillsTR: TMemo
         Left = 70
         Top = 220
-        Width = 900
+        Width = 480
         Height = 80
         Lines.Strings = (
-          'Memo10SkillsRU')
+          'Memo10SkillsTR')
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB10RU: TCalendarPicker
+      object CalendarPickerB10TR: TCalendarPicker
         Left = 218
         Top = 0
         Width = 100
@@ -2031,13 +2031,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB10RUChange
-        OnCloseUp = CalendarPickerB10RUCloseUp
+        OnChange = CalendarPickerB10TRChange
+        OnCloseUp = CalendarPickerB10TRCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE10RU: TCalendarPicker
+      object CalendarPickerE10TR: TCalendarPicker
         Left = 337
         Top = 0
         Width = 100
@@ -2059,15 +2059,15 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE10RUChange
-        OnCloseUp = CalendarPickerE10RUCloseUp
+        OnChange = CalendarPickerE10TRChange
+        OnCloseUp = CalendarPickerE10TRCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
       end
     end
   end
-  object UniArchiveJobs2: TUniQuery
+  object UniArchiveJobs22: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2092,7 +2092,7 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end>
   end
-  object UniArchiveSkills2: TUniQuery
+  object UniArchiveSkills22: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2118,7 +2118,7 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end>
   end
-  object UniGetSkillList2: TUniQuery
+  object UniGetSkillList22: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2151,13 +2151,13 @@ object FormNewTemplate: TFormNewTemplate
         ParamType = ptInput
         Value = nil
       end>
-    object UniGetSkillList2cntr: TLargeintField
+    object UniGetSkillList22cntr: TLargeintField
       FieldName = 'cntr'
       ReadOnly = True
       Required = True
     end
   end
-  object UniGetSkillID2: TUniQuery
+  object UniGetSkillID22: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2182,7 +2182,7 @@ object FormNewTemplate: TFormNewTemplate
         Value = 'Python'
       end>
   end
-  object UniInsertSkill2: TUniQuery
+  object UniInsertSkill22: TUniQuery
     SQLUpdate.Strings = (
       'UPDATE templates '
       
@@ -2220,7 +2220,7 @@ object FormNewTemplate: TFormNewTemplate
     Connection = FormMain.UniConnection
     Debug = True
     Left = 134
-    Top = 460
+    Top = 420
     ParamData = <
       item
         DataType = ftString
@@ -2317,7 +2317,7 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftInteger
         Name = 'p_template_id'
         ParamType = ptOutput
-        Value = 35
+        Value = 72
       end
       item
         DataType = ftInteger
@@ -2326,19 +2326,18 @@ object FormNewTemplate: TFormNewTemplate
         Value = 0
       end>
     CommandStoredProcName = 'insert_template'
-    StoredProcIsQuery = True
   end
   object UniSPInsertExperiences: TUniStoredProc
     StoredProcName = 'insert_experiences'
     SQL.Strings = (
       
         'CALL insert_experiences(:p_flag, :p_resume_id, :p_template_id, :' +
-        'p_job_position, :p_start_date, :p_end_date, :p_employer, :p_resp' +
-        ', :p_benefits, :p_leave_reason, @p_experience_id); SELECT @p_exp' +
-        'erience_id AS '#39'@p_experience_id'#39)
+        'p_job_order, :p_job_position, :p_start_date, :p_end_date, :p_emp' +
+        'loyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id);' +
+        ' SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 320
-    Top = 456
+    Top = 424
     ParamData = <
       item
         DataType = ftString
@@ -2356,6 +2355,12 @@ object FormNewTemplate: TFormNewTemplate
       item
         DataType = ftInteger
         Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_job_order'
         ParamType = ptInput
         Value = nil
       end
@@ -2421,7 +2426,7 @@ object FormNewTemplate: TFormNewTemplate
       'CALL insert_skills(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
     Left = 480
-    Top = 456
+    Top = 424
     ParamData = <
       item
         DataType = ftInteger
