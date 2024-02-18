@@ -57,17 +57,21 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 889
+    Left = 885
     Top = 616
-    Width = 75
+    Width = 95
     Height = 38
     Anchors = [akRight, akBottom]
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Kind = bkCancel
     NumGlyphs = 2
-    TabOrder = 0
+    ParentFont = False
+    TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 885
-    ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -75,6 +79,11 @@ object FormNewTemplate: TFormNewTemplate
     Width = 96
     Height = 38
     Caption = 'Save'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       2000000000000010000000000000000000000000000000000000000000019F9F
@@ -207,139 +216,213 @@ object FormNewTemplate: TFormNewTemplate
       FFBFFFFFFFBFFFFFFFBFFFFFFFBFD1B67EBFBD9544BFD4AA5EAFD7AA5C61CC99
       3305000000000000000000000000000000000000000000000000}
     ModalResult = 1
+    ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
   end
-  object PageControlTR: TPageControl
+  object PageControlRU: TPageControl
     Left = 0
-    Top = 8
+    Top = 2
     Width = 980
-    Height = 369
+    Height = 610
     ActivePage = TabSheetJob1RU
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     Style = tsButtons
-    TabOrder = 2
+    TabOrder = 0
     object TabSheetMainRU: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       object Label7: TLabel
-        Left = 147
-        Top = 6
-        Width = 40
-        Height = 15
+        Left = 53
+        Top = 68
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label8: TLabel
-        Left = 357
-        Top = 6
-        Width = 53
-        Height = 15
+        Left = 37
+        Top = 135
+        Width = 68
+        Height = 21
         Caption = #1055#1086#1074#1085#1110#1089#1090#1102
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label9: TLabel
-        Left = 147
-        Top = 32
-        Width = 76
-        Height = 15
+        Left = 7
+        Top = 100
+        Width = 99
+        Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label10: TLabel
-        Left = 357
-        Top = 32
-        Width = 55
-        Height = 15
+        Left = 34
+        Top = 170
+        Width = 70
+        Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label12: TLabel
-        Left = 3
-        Top = 6
-        Width = 30
-        Height = 15
+        Left = 66
+        Top = 3
+        Width = 39
+        Height = 21
         Caption = #1052#1086#1074#1072
       end
       object Label13: TLabel
-        Left = 3
-        Top = 32
-        Width = 35
-        Height = 15
+        Left = 60
+        Top = 36
+        Width = 45
+        Height = 21
         Caption = #1056#1077#1075#1110#1086#1085
       end
       object LabelFooterID: TLabel
         Left = 744
         Top = 6
-        Width = 73
-        Height = 15
+        Width = 97
+        Height = 21
         Caption = 'LabelFooterID'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label11: TLabel
-        Left = 3
-        Top = 62
-        Width = 51
-        Height = 15
+        Left = 38
+        Top = 205
+        Width = 68
+        Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object EditNameTR: TEdit
-        Left = 198
-        Top = 3
-        Width = 145
-        Height = 23
-        TabOrder = 0
-        Text = 'EditNameTR'
-      end
-      object EditOpportunityTR: TEdit
-        Left = 419
-        Top = 3
+      object EditNameRU: TEdit
+        Left = 111
+        Top = 68
         Width = 295
-        Height = 23
-        TabOrder = 1
-        Text = 'EditOpportunityTR'
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        Text = 'EditNameRU'
       end
-      object EditPlaceTR: TEdit
-        Left = 229
-        Top = 30
-        Width = 114
-        Height = 23
+      object EditOpportunityRU: TEdit
+        Left = 111
+        Top = 134
+        Width = 295
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
-        Text = 'EditPlaceTR'
+        Text = 'EditOpportunityRU'
       end
-      object EditPhonesTR: TEdit
-        Left = 418
-        Top = 30
+      object EditPlaceRU: TEdit
+        Left = 112
+        Top = 100
+        Width = 295
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'EditPlaceRU'
+      end
+      object EditPhonesRU: TEdit
+        Left = 111
+        Top = 170
         Width = 296
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 3
-        Text = 'EditPhonesTR'
+        Text = 'EditPhonesRU'
       end
-      object MemoIntroTR: TMemo
-        Left = 57
-        Top = 59
-        Width = 912
+      object MemoIntroRU: TMemo
+        Left = 112
+        Top = 206
+        Width = 860
         Height = 234
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
           
             'Total experience 10+ years in development, implementation, and t' +
-            'echnical support in the financial, insurance and banking '
+            'echnical support in the financial, insurance and '
+          'banking '
           'areas. '
           
             'Expert knowledge in database design, development and optimizatio' +
             'n of data warehouses.'
           'I have visas for the USA, Canada, United Kingdom.'
           'Ready to relocate in the EU.')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 4
       end
       object EditLangTR: TEdit
-        Left = 57
+        Left = 112
         Top = 1
         Width = 72
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'RU'
       end
       object EditRegionTR: TEdit
-        Left = 57
-        Top = 30
+        Left = 112
+        Top = 36
         Width = 72
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'Template'
@@ -347,93 +430,174 @@ object FormNewTemplate: TFormNewTemplate
     end
     object TabSheetFooterRU: TTabSheet
       Caption = 'Footer'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
       ImageIndex = 11
+      ParentFont = False
       DesignSize = (
         972
-        336)
+        571)
+      object Label74: TLabel
+        Left = 8
+        Top = 154
+        Width = 75
+        Height = 21
+        Caption = #1053#1072#1074#1080#1095#1086#1082' 2'
+      end
+      object Label75: TLabel
+        Left = 9
+        Top = 302
+        Width = 75
+        Height = 21
+        Caption = #1053#1072#1074#1080#1095#1086#1082' 3'
+      end
+      object Label76: TLabel
+        Left = 9
+        Top = 441
+        Width = 75
+        Height = 21
+        Caption = #1053#1072#1074#1080#1095#1086#1082' 4'
+      end
       object StaticText1: TStaticText
         Left = 3
         Top = 2
-        Width = 52
-        Height = 19
-        Caption = #1053#1072#1074#1080#1095#1082#1080
+        Width = 79
+        Height = 25
+        Caption = #1053#1072#1074#1080#1095#1086#1082' 1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+      end
+      object EditArticle1RU: TEdit
+        Left = 90
+        Top = 0
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
+        Text = 'EditArticle1RU'
       end
-      object EditArticle1TR: TEdit
-        Left = 61
-        Top = 2
-        Width = 421
-        Height = 23
-        TabOrder = 1
-        Text = 'EditArticle1TR'
-      end
-      object EditArticle2TR: TEdit
-        Left = 510
-        Top = 3
-        Width = 464
-        Height = 23
+      object EditArticle2RU: TEdit
+        Left = 90
+        Top = 151
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
-        Text = 'EditArticle2TR'
+        Text = 'EditArticle2RU'
       end
-      object MemoArticle1TR: TMemo
-        Left = 2
-        Top = 28
-        Width = 476
+      object MemoArticle1RU: TMemo
+        Left = 3
+        Top = 35
+        Width = 966
         Height = 110
         Anchors = [akLeft, akTop, akRight]
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'MemoArticle1TR')
+          'MemoArticle1RU')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+      object MemoArticle2RU: TMemo
+        Left = 1
+        Top = 186
+        Width = 968
+        Height = 110
+        Anchors = [akLeft, akTop, akRight]
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'MemoArticle2TR')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object MemoArticle2TR: TMemo
-        Left = 493
-        Top = 32
-        Width = 476
-        Height = 110
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle2TR')
-        ScrollBars = ssVertical
+      object EditArticle3RU: TEdit
+        Left = 90
+        Top = 300
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
+        Text = 'EditArticle3RU'
       end
-      object EditArticle3TR: TEdit
-        Left = 16
-        Top = 140
-        Width = 462
-        Height = 23
-        TabOrder = 5
-        Text = 'EditArticle3TR'
-      end
-      object EditArticle4TR: TEdit
-        Left = 504
-        Top = 140
-        Width = 464
-        Height = 23
+      object EditArticle4RU: TEdit
+        Left = 90
+        Top = 436
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 6
-        Text = 'EditArticle4TR'
+        Text = 'EditArticle4RU'
       end
-      object MemoArticle3TR: TMemo
+      object MemoArticle3RU: TMemo
         Left = 2
-        Top = 167
-        Width = 476
+        Top = 332
+        Width = 967
         Height = 100
         Anchors = [akLeft, akTop, akRight]
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'MemoArticle3TR')
+          'MemoArticle3RU')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object MemoArticle4RU: TMemo
+        Left = 2
+        Top = 468
+        Width = 967
+        Height = 100
+        Anchors = [akLeft, akTop, akRight]
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'MemoArticle4RU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 7
-      end
-      object MemoArticle4TR: TMemo
-        Left = 492
-        Top = 167
-        Width = 476
-        Height = 100
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle4TR')
-        ScrollBars = ssVertical
-        TabOrder = 8
       end
     end
     object TabSheetJob1RU: TTabSheet
@@ -442,108 +606,186 @@ object FormNewTemplate: TFormNewTemplate
       object Label1: TLabel
         Left = 24
         Top = 42
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label2: TLabel
-        Left = 275
-        Top = 42
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 79
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label3: TLabel
-        Left = 19
-        Top = 163
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 192
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label4: TLabel
-        Left = 3
-        Top = 192
-        Width = 62
-        Height = 15
+        Left = 4
+        Top = 227
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label5: TLabel
-        Left = 33
-        Top = 223
-        Width = 31
-        Height = 15
+        Left = 45
+        Top = 263
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label6: TLabel
-        Left = 3
-        Top = 73
-        Width = 56
-        Height = 15
+        Left = 10
+        Top = 110
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Edit1DatesTR: TEdit
-        Left = 4
-        Top = 3
+      object Edit1DatesRU: TEdit
+        Left = 90
+        Top = 2
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit1DatesTR'
+        Text = 'Edit1DatesRU'
       end
-      object Edit1NameTR: TEdit
-        Left = 70
-        Top = 40
+      object Edit1NameRU: TEdit
+        Left = 90
+        Top = 38
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
-        Text = 'Edit1NameTR'
+        Text = 'Edit1NameRU'
       end
-      object Edit1CompanyTR: TEdit
-        Left = 330
-        Top = 40
+      object Edit1CompanyRU: TEdit
+        Left = 90
+        Top = 72
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
-        Text = 'Edit1CompanyTR'
+        Text = 'Edit1CompanyRU'
       end
-      object Memo1RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 899
+      object Memo1RespRU: TMemo
+        Left = 90
+        Top = 106
+        Width = 879
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo1RespTR')
+          'Memo1RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit1BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
+      object Edit1BenefitsRU: TEdit
+        Left = 90
+        Top = 192
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
-        Text = 'Edit1BenefitsTR'
+        Text = 'Edit1BenefitsRU'
       end
-      object Edit1BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 476
-        Height = 23
+      object Edit1BottomRU: TEdit
+        Left = 90
+        Top = 226
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
-        Text = 'Edit1BottomTR'
+        Text = 'Edit1BottomRU'
       end
-      object Memo1SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Memo1SkillsRU: TMemo
+        Left = 90
+        Top = 260
         Width = 479
-        Height = 93
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo1SkillsTR')
+          'Memo1SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB1TR: TCalendarPicker
-        Left = 210
+      object CalendarPickerB1RU: TCalendarPicker
+        Left = 296
         Top = 0
         Width = 100
         Height = 32
@@ -564,14 +806,14 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB1TRChange
-        OnCloseUp = CalendarPickerB1TRCloseUp
+        OnChange = CalendarPickerB1RUChange
+        OnCloseUp = CalendarPickerB1RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE1TR: TCalendarPicker
-        Left = 316
+      object CalendarPickerE1RU: TCalendarPicker
+        Left = 402
         Top = 0
         Width = 100
         Height = 32
@@ -592,8 +834,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE1TRChange
-        OnCloseUp = CalendarPickerE1TRCloseUp
+        OnChange = CalendarPickerE1RUChange
+        OnCloseUp = CalendarPickerE1RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -605,109 +847,187 @@ object FormNewTemplate: TFormNewTemplate
       object Label14: TLabel
         Left = 24
         Top = 42
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label15: TLabel
-        Left = 275
-        Top = 42
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 76
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label16: TLabel
-        Left = 3
-        Top = 70
-        Width = 56
-        Height = 15
+        Left = 10
+        Top = 114
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label17: TLabel
-        Left = 19
-        Top = 160
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 200
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label18: TLabel
-        Left = 3
-        Top = 189
-        Width = 62
-        Height = 15
+        Left = 4
+        Top = 232
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label19: TLabel
-        Left = 33
-        Top = 220
-        Width = 31
-        Height = 15
+        Left = 45
+        Top = 270
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Edit2DatesTR: TEdit
-        Left = 4
-        Top = 2
+      object Edit2DatesRU: TEdit
+        Left = 90
+        Top = 0
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit2DatesTR'
+        Text = 'Edit2DatesRU'
       end
-      object Edit2NameTR: TEdit
-        Left = 70
-        Top = 41
+      object Edit2NameRU: TEdit
+        Left = 90
+        Top = 38
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
-        Text = 'Edit2NameTR'
+        Text = 'Edit2NameRU'
       end
-      object Edit2CompanyTR: TEdit
-        Left = 330
-        Top = 41
+      object Edit2CompanyRU: TEdit
+        Left = 90
+        Top = 76
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
-        Text = 'Edit2CompanyTR'
+        Text = 'Edit2CompanyRU'
       end
-      object Memo2RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 813
+      object Memo2RespRU: TMemo
+        Left = 90
+        Top = 111
+        Width = 879
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo2RespTR')
+          'Memo2RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit2BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
+      object Edit2BenefitsRU: TEdit
+        Left = 90
+        Top = 197
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
-        Text = 'Edit2BenefitsTR'
+        Text = 'Edit2BenefitsRU'
       end
-      object Edit2BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
+      object Edit2BottomRU: TEdit
+        Left = 90
+        Top = 232
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
-        Text = 'Edit2BottomTR'
+        Text = 'Edit2BottomRU'
       end
-      object Memo2SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Memo2SkillsRU: TMemo
+        Left = 90
+        Top = 267
         Width = 480
-        Height = 80
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo2SkillsTR')
+          'Memo2SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB2TR: TCalendarPicker
-        Left = 210
-        Top = 0
+      object CalendarPickerB2RU: TCalendarPicker
+        Left = 296
+        Top = -3
         Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -727,15 +1047,15 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB2TRChange
-        OnCloseUp = CalendarPickerB2TRCloseUp
+        OnChange = CalendarPickerB2RUChange
+        OnCloseUp = CalendarPickerB2RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE2TR: TCalendarPicker
-        Left = 329
-        Top = 0
+      object CalendarPickerE2RU: TCalendarPicker
+        Left = 402
+        Top = -2
         Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -755,8 +1075,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE2TRChange
-        OnCloseUp = CalendarPickerE2TRCloseUp
+        OnChange = CalendarPickerE2RUChange
+        OnCloseUp = CalendarPickerE2RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -766,110 +1086,188 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 3'
       ImageIndex = 5
       object Label20: TLabel
-        Left = 24
-        Top = 42
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 38
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label21: TLabel
-        Left = 275
-        Top = 42
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 72
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label22: TLabel
-        Left = 3
-        Top = 73
-        Width = 56
-        Height = 15
+        Left = 10
+        Top = 105
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label23: TLabel
-        Left = 19
-        Top = 158
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 192
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label24: TLabel
-        Left = 3
-        Top = 189
-        Width = 62
-        Height = 15
+        Left = 4
+        Top = 226
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label25: TLabel
-        Left = 33
-        Top = 219
-        Width = 31
-        Height = 15
+        Left = 44
+        Top = 264
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Edit3DatesTR: TEdit
-        Left = 4
-        Top = 3
+      object Edit3DatesRU: TEdit
+        Left = 90
+        Top = 0
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit3DatesTR'
+        Text = 'Edit3DatesRU'
       end
-      object Edit3NameTR: TEdit
-        Left = 70
-        Top = 38
+      object Edit3NameRU: TEdit
+        Left = 90
+        Top = 35
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
-        Text = 'Edit3NameTR'
+        Text = 'Edit3NameRU'
       end
-      object Edit3CompanyTR: TEdit
-        Left = 330
-        Top = 41
-        Width = 200
-        Height = 23
-        TabOrder = 2
-        Text = 'Edit3CompanyTR'
-      end
-      object Memo3RespTR: TMemo
-        Left = 70
+      object Edit3CompanyRU: TEdit
+        Left = 90
         Top = 70
-        Width = 899
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Edit3CompanyRU'
+      end
+      object Memo3RespRU: TMemo
+        Left = 90
+        Top = 105
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo3RespTR')
+          'Memo3RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit3BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
+      object Edit3BenefitsRU: TEdit
+        Left = 90
+        Top = 191
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
-        Text = 'Edit3BenefitsTR'
+        Text = 'Edit3BenefitsRU'
       end
-      object Edit3BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
+      object Edit3BottomRU: TEdit
+        Left = 90
+        Top = 226
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
-        Text = 'Edit3BottomTR'
+        Text = 'Edit3BottomRU'
       end
-      object Memo3SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Memo3SkillsRU: TMemo
+        Left = 89
+        Top = 261
         Width = 480
-        Height = 80
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo3SkillsTR')
+          'Memo3SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB3TR: TCalendarPicker
-        Left = 210
+      object CalendarPickerB3RU: TCalendarPicker
+        Left = 296
         Top = 0
         Width = 100
         Height = 32
@@ -890,14 +1288,14 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB3TRChange
-        OnCloseUp = CalendarPickerB3TRCloseUp
+        OnChange = CalendarPickerB3RUChange
+        OnCloseUp = CalendarPickerB3RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE3TR: TCalendarPicker
-        Left = 329
+      object CalendarPickerE3RU: TCalendarPicker
+        Left = 402
         Top = 0
         Width = 100
         Height = 32
@@ -918,8 +1316,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE3TRChange
-        OnCloseUp = CalendarPickerE3TRCloseUp
+        OnChange = CalendarPickerE3RUChange
+        OnCloseUp = CalendarPickerE3RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -929,110 +1327,188 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 4'
       ImageIndex = 6
       object Label26: TLabel
-        Left = 24
-        Top = 41
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 36
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label27: TLabel
-        Left = 275
-        Top = 41
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 72
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label28: TLabel
-        Left = 3
-        Top = 72
-        Width = 56
-        Height = 15
+        Left = 10
+        Top = 106
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label29: TLabel
-        Left = 19
-        Top = 157
-        Width = 45
-        Height = 15
+        Left = 27
+        Top = 187
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label30: TLabel
-        Left = 3
-        Top = 188
-        Width = 62
-        Height = 15
+        Left = 11
+        Top = 223
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label31: TLabel
-        Left = 33
-        Top = 218
-        Width = 31
-        Height = 15
+        Left = 46
+        Top = 259
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Edit4DatesTR: TEdit
-        Left = 4
-        Top = 2
+      object Edit4DatesRU: TEdit
+        Left = 90
+        Top = 0
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit4DatesTR'
+        Text = 'Edit4DatesRU'
       end
-      object Edit4NameTR: TEdit
-        Left = 70
-        Top = 41
+      object Edit4NameRU: TEdit
+        Left = 90
+        Top = 33
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
-        Text = 'Edit4NameTR'
+        Text = 'Edit4NameRU'
       end
-      object Edit4CompanyTR: TEdit
-        Left = 333
-        Top = 41
+      object Edit4CompanyRU: TEdit
+        Left = 90
+        Top = 68
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
-        Text = 'Edit4CompanyTR'
+        Text = 'Edit4CompanyRU'
       end
-      object Memo4RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 900
+      object Memo4RespRU: TMemo
+        Left = 90
+        Top = 103
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
           'Memo4RespTR')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit4BenefitsTR: TEdit
-        Left = 70
-        Top = 160
+      object Edit4BenefitsRU: TEdit
+        Left = 91
+        Top = 189
         Width = 480
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
-        Text = 'Edit4BenefitsTR'
+        Text = 'Edit4BenefitsRU'
       end
-      object Edit4BottomTR: TEdit
-        Left = 70
-        Top = 190
+      object Edit4BottomRU: TEdit
+        Left = 91
+        Top = 224
         Width = 480
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
-        Text = 'Edit4BottomTR'
+        Text = 'Edit4BottomRU'
       end
-      object Memo4SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Memo4SkillsRU: TMemo
+        Left = 91
+        Top = 259
         Width = 481
-        Height = 80
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo4SkillsTR')
+          'Memo4SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB4TR: TCalendarPicker
-        Left = 210
+      object CalendarPickerB4RU: TCalendarPicker
+        Left = 296
         Top = 0
         Width = 100
         Height = 32
@@ -1053,14 +1529,14 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB4TRChange
-        OnCloseUp = CalendarPickerB4TRCloseUp
+        OnChange = CalendarPickerB4RUChange
+        OnCloseUp = CalendarPickerB4RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE4TR: TCalendarPicker
-        Left = 329
+      object CalendarPickerE4RU: TCalendarPicker
+        Left = 402
         Top = 0
         Width = 100
         Height = 32
@@ -1081,8 +1557,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE4TRChange
-        OnCloseUp = CalendarPickerE4TRCloseUp
+        OnChange = CalendarPickerE4RUChange
+        OnCloseUp = CalendarPickerE4RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1092,111 +1568,189 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 5'
       ImageIndex = 7
       object Label32: TLabel
-        Left = 24
-        Top = 44
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 38
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label33: TLabel
-        Left = 275
-        Top = 44
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 72
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label34: TLabel
-        Left = 3
-        Top = 75
-        Width = 56
-        Height = 15
+        Left = 10
+        Top = 109
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label35: TLabel
-        Left = 19
-        Top = 160
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 191
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label36: TLabel
-        Left = 3
-        Top = 191
-        Width = 62
-        Height = 15
+        Left = 4
+        Top = 226
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label37: TLabel
-        Left = 33
-        Top = 221
-        Width = 31
-        Height = 15
+        Left = 48
+        Top = 264
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Edit5DatesTR: TEdit
-        Left = 3
-        Top = 1
+      object Edit5DatesRU: TEdit
+        Left = 90
+        Top = 0
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ReadOnly = True
         TabOrder = 0
-        Text = 'Edit5DatesTR'
+        Text = 'Edit5DatesRU'
       end
-      object Edit5NameTR: TEdit
-        Left = 70
-        Top = 41
+      object Edit5NameRU: TEdit
+        Left = 90
+        Top = 35
         Width = 200
-        Height = 23
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
-        Text = 'Edit5NameTR'
+        Text = 'Edit5NameRU'
       end
-      object Edit5CompanyTR: TEdit
-        Left = 333
-        Top = 41
-        Width = 200
-        Height = 23
-        TabOrder = 2
-        Text = 'Edit5CompanyTR'
-      end
-      object Memo5RespTR: TMemo
-        Left = 70
+      object Edit5CompanyRU: TEdit
+        Left = 90
         Top = 70
-        Width = 900
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Edit5CompanyRU'
+      end
+      object Memo5RespRU: TMemo
+        Left = 90
+        Top = 105
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo5RespTR')
+          'Memo5RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object Edit5BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
+      object Edit5BenefitsRU: TEdit
+        Left = 90
+        Top = 191
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
-        Text = 'Edit5BenefitsTR'
+        Text = 'Edit5BenefitsRU'
       end
-      object Edit5BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
+      object Edit5BottomRU: TEdit
+        Left = 90
+        Top = 226
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
-        Text = 'Edit5BottomTR'
+        Text = 'Edit5BottomRU'
       end
-      object Memo5SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Memo5SkillsRU: TMemo
+        Left = 90
+        Top = 261
         Width = 480
-        Height = 80
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo5SkillsTR')
+          'Memo5SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB5TR: TCalendarPicker
-        Left = 218
-        Top = 0
+      object CalendarPickerB5RU: TCalendarPicker
+        Left = 296
+        Top = -3
         Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -1216,15 +1770,15 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB5TRChange
-        OnCloseUp = CalendarPickerB5TRCloseUp
+        OnChange = CalendarPickerB5RUChange
+        OnCloseUp = CalendarPickerB5RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE5TR: TCalendarPicker
-        Left = 337
-        Top = 0
+      object CalendarPickerE5RU: TCalendarPicker
+        Left = 402
+        Top = -3
         Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -1244,8 +1798,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE5TRChange
-        OnCloseUp = CalendarPickerE5TRCloseUp
+        OnChange = CalendarPickerE5RUChange
+        OnCloseUp = CalendarPickerE5RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1255,110 +1809,188 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 6'
       ImageIndex = 8
       object Label38: TLabel
-        Left = 25
-        Top = 49
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 38
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label39: TLabel
-        Left = 276
-        Top = 49
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 72
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label40: TLabel
-        Left = 4
-        Top = 80
-        Width = 56
-        Height = 15
+        Left = 9
+        Top = 109
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label41: TLabel
-        Left = 20
-        Top = 165
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 194
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label42: TLabel
-        Left = 4
-        Top = 196
-        Width = 62
-        Height = 15
+        Left = 3
+        Top = 229
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label43: TLabel
-        Left = 34
-        Top = 226
-        Width = 31
-        Height = 15
+        Left = 44
+        Top = 264
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Memo6RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 900
+      object Memo6RespRU: TMemo
+        Left = 89
+        Top = 105
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo6RespTR')
+          'Memo6RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 0
-      end
-      object Edit6BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
-        TabOrder = 1
-        Text = 'Edit6BenefitsTR'
-      end
-      object Edit6BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
-        TabOrder = 2
-        Text = 'Edit6BottomTR'
-      end
-      object Edit6DatesTR: TEdit
-        Left = 3
-        Top = 1
-        Width = 200
-        Height = 23
-        ReadOnly = True
         TabOrder = 3
-        Text = 'Edit6DatesTR'
       end
-      object Edit6NameTR: TEdit
-        Left = 70
-        Top = 41
-        Width = 200
-        Height = 23
+      object Edit6BenefitsRU: TEdit
+        Left = 90
+        Top = 191
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
-        Text = 'Edit6NameTR'
+        Text = 'Edit6BenefitsRU'
       end
-      object Edit6CompanyTR: TEdit
-        Left = 341
-        Top = 41
-        Width = 200
-        Height = 23
+      object Edit6BottomRU: TEdit
+        Left = 89
+        Top = 226
+        Width = 880
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
-        Text = 'Edit6CompanyTR'
+        Text = 'Edit6BottomRU'
       end
-      object Memo6SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Edit6DatesRU: TEdit
+        Left = 90
+        Top = 0
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+        Text = 'Edit6DatesRU'
+      end
+      object Edit6NameRU: TEdit
+        Left = 90
+        Top = 35
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'Edit6NameRU'
+      end
+      object Edit6CompanyRU: TEdit
+        Left = 90
+        Top = 70
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Edit6CompanyRU'
+      end
+      object Memo6SkillsRU: TMemo
+        Left = 89
+        Top = 261
         Width = 480
-        Height = 80
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo6SkillsTR')
+          'Memo6SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB6TR: TCalendarPicker
-        Left = 218
+      object CalendarPickerB6RU: TCalendarPicker
+        Left = 296
         Top = 0
         Width = 100
         Height = 32
@@ -1379,14 +2011,14 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB6TRChange
-        OnCloseUp = CalendarPickerB6TRCloseUp
+        OnChange = CalendarPickerB6RUChange
+        OnCloseUp = CalendarPickerB6RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE6TR: TCalendarPicker
-        Left = 337
+      object CalendarPickerE6RU: TCalendarPicker
+        Left = 402
         Top = 0
         Width = 100
         Height = 32
@@ -1407,8 +2039,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE6TRChange
-        OnCloseUp = CalendarPickerE6TRCloseUp
+        OnChange = CalendarPickerE6RUChange
+        OnCloseUp = CalendarPickerE6RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1418,110 +2050,188 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 7'
       ImageIndex = 9
       object Label44: TLabel
-        Left = 275
-        Top = 44
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 72
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label45: TLabel
-        Left = 33
-        Top = 221
-        Width = 31
-        Height = 15
+        Left = 32
+        Top = 260
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label46: TLabel
-        Left = 3
-        Top = 191
-        Width = 62
-        Height = 15
+        Left = 2
+        Top = 225
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label47: TLabel
-        Left = 19
-        Top = 160
-        Width = 45
-        Height = 15
+        Left = 18
+        Top = 189
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label48: TLabel
-        Left = 3
-        Top = 75
-        Width = 56
-        Height = 15
+        Left = 9
+        Top = 109
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label49: TLabel
-        Left = 24
-        Top = 44
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 38
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Memo7RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 900
+      object Memo7RespRU: TMemo
+        Left = 89
+        Top = 105
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo7RespTR')
+          'Memo7RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 0
-      end
-      object Edit7BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
-        TabOrder = 1
-        Text = 'Edit7BenefitsTR'
-      end
-      object Edit7BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
-        TabOrder = 2
-        Text = 'Edit7BottomTR'
-      end
-      object Edit7DatesTR: TEdit
-        Left = 4
-        Top = 2
-        Width = 200
-        Height = 23
-        ReadOnly = True
         TabOrder = 3
-        Text = 'Edit7DatesTR'
       end
-      object Edit7NameTR: TEdit
-        Left = 70
-        Top = 41
-        Width = 200
-        Height = 23
-        TabOrder = 4
-        Text = 'Edit7NameTR'
-      end
-      object Edit7CompanyTR: TEdit
-        Left = 333
-        Top = 41
-        Width = 200
-        Height = 23
-        TabOrder = 5
-        Text = 'Edit7CompanyTR'
-      end
-      object Memo7SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Edit7BenefitsRU: TEdit
+        Left = 89
+        Top = 191
         Width = 480
-        Height = 80
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        Text = 'Edit7BenefitsRU'
+      end
+      object Edit7BottomRU: TEdit
+        Left = 89
+        Top = 226
+        Width = 480
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        Text = 'Edit7BottomRU'
+      end
+      object Edit7DatesRU: TEdit
+        Left = 90
+        Top = 0
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+        Text = 'Edit7DatesRU'
+      end
+      object Edit7NameRU: TEdit
+        Left = 90
+        Top = 35
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'Edit7NameRU'
+      end
+      object Edit7CompanyRU: TEdit
+        Left = 90
+        Top = 70
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Edit7CompanyRU'
+      end
+      object Memo7SkillsRU: TMemo
+        Left = 89
+        Top = 261
+        Width = 480
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo7SkillsTR')
+          'Memo7SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB7TR: TCalendarPicker
-        Left = 218
+      object CalendarPickerB7RU: TCalendarPicker
+        Left = 296
         Top = 0
         Width = 100
         Height = 32
@@ -1542,14 +2252,14 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB7TRChange
-        OnCloseUp = CalendarPickerB7TRCloseUp
+        OnChange = CalendarPickerB7RUChange
+        OnCloseUp = CalendarPickerB7RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE7TR: TCalendarPicker
-        Left = 337
+      object CalendarPickerE7RU: TCalendarPicker
+        Left = 402
         Top = 0
         Width = 100
         Height = 32
@@ -1570,8 +2280,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE7TRChange
-        OnCloseUp = CalendarPickerE7TRCloseUp
+        OnChange = CalendarPickerE7RUChange
+        OnCloseUp = CalendarPickerE7RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1581,111 +2291,189 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 8'
       ImageIndex = 10
       object Label50: TLabel
-        Left = 275
-        Top = 44
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 74
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label51: TLabel
-        Left = 33
-        Top = 226
-        Width = 31
-        Height = 15
+        Left = 45
+        Top = 265
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label52: TLabel
-        Left = 3
-        Top = 196
-        Width = 62
-        Height = 15
+        Left = 10
+        Top = 226
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label53: TLabel
-        Left = 19
-        Top = 165
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 190
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label54: TLabel
-        Left = 3
-        Top = 80
-        Width = 56
-        Height = 15
+        Left = 10
+        Top = 109
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label55: TLabel
-        Left = 24
-        Top = 44
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 39
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Memo8RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 900
+      object Memo8RespRU: TMemo
+        Left = 90
+        Top = 106
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo8RespTR')
+          'Memo8RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 0
-      end
-      object Edit8BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
-        TabOrder = 1
-        Text = 'Edit8BenefitsTR'
-      end
-      object Edit8BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
-        TabOrder = 2
-        Text = 'Edit8BottomTR'
-      end
-      object Edit8DatesTR: TEdit
-        Left = 4
-        Top = 2
-        Width = 200
-        Height = 23
-        ReadOnly = True
         TabOrder = 3
-        Text = 'Edit8DatesTR'
       end
-      object Edit8NameTR: TEdit
-        Left = 70
-        Top = 41
-        Width = 200
-        Height = 23
+      object Edit8BenefitsRU: TEdit
+        Left = 90
+        Top = 192
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
-        Text = 'Edit8NameTR'
+        Text = 'Edit8BenefitsRU'
       end
-      object Edit8CompanyTR: TEdit
-        Left = 333
-        Top = 41
-        Width = 200
-        Height = 23
+      object Edit8BottomRU: TEdit
+        Left = 90
+        Top = 227
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
-        Text = 'Edit8CompanyTR'
+        Text = 'Edit8BottomRU'
       end
-      object Memo8SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Edit8DatesRU: TEdit
+        Left = 90
+        Top = 0
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+        Text = 'Edit8DatesRU'
+      end
+      object Edit8NameRU: TEdit
+        Left = 90
+        Top = 36
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'Edit8NameRU'
+      end
+      object Edit8CompanyRU: TEdit
+        Left = 90
+        Top = 71
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Edit8CompanyRU'
+      end
+      object Memo8SkillsRU: TMemo
+        Left = 90
+        Top = 262
         Width = 480
-        Height = 80
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo8SkillsTR')
+          'Memo8SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB8TR: TCalendarPicker
-        Left = 218
-        Top = 0
+      object CalendarPickerB8RU: TCalendarPicker
+        Left = 296
+        Top = -2
         Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -1705,15 +2493,15 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB8TRChange
-        OnCloseUp = CalendarPickerB8TRCloseUp
+        OnChange = CalendarPickerB8RUChange
+        OnCloseUp = CalendarPickerB8RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE8TR: TCalendarPicker
-        Left = 337
-        Top = 0
+      object CalendarPickerE8RU: TCalendarPicker
+        Left = 402
+        Top = -2
         Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -1733,8 +2521,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE8TRChange
-        OnCloseUp = CalendarPickerE8TRCloseUp
+        OnChange = CalendarPickerE8RUChange
+        OnCloseUp = CalendarPickerE8RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1744,110 +2532,188 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 9'
       ImageIndex = 11
       object Label56: TLabel
-        Left = 276
-        Top = 49
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 73
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label57: TLabel
-        Left = 33
-        Top = 226
-        Width = 31
-        Height = 15
+        Left = 44
+        Top = 264
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label58: TLabel
         Left = 3
-        Top = 196
-        Width = 62
-        Height = 15
+        Top = 229
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label59: TLabel
-        Left = 19
-        Top = 165
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 192
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label60: TLabel
-        Left = 3
-        Top = 80
-        Width = 56
-        Height = 15
+        Left = 9
+        Top = 109
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label61: TLabel
-        Left = 24
-        Top = 49
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 38
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Memo9RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 900
+      object Memo9RespRU: TMemo
+        Left = 89
+        Top = 105
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo9RespTR')
+          'Memo9RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 0
-      end
-      object Edit9BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
-        TabOrder = 1
-        Text = 'Edit9BenefitsTR'
-      end
-      object Edit9BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
-        TabOrder = 2
-        Text = 'Edit9BottomTR'
-      end
-      object Edit9DatesTR: TEdit
-        Left = 4
-        Top = 2
-        Width = 200
-        Height = 23
-        ReadOnly = True
         TabOrder = 3
-        Text = 'Edit9DatesTR'
       end
-      object Edit9NameTR: TEdit
-        Left = 70
-        Top = 41
-        Width = 200
-        Height = 23
-        TabOrder = 4
-        Text = 'Edit9NameTR'
-      end
-      object Edit9CompanyTR: TEdit
-        Left = 334
-        Top = 41
-        Width = 200
-        Height = 23
-        TabOrder = 5
-        Text = 'Edit9CompanyTR'
-      end
-      object Memo9SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Edit9BenefitsRU: TEdit
+        Left = 90
+        Top = 191
         Width = 480
-        Height = 80
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        Text = 'Edit9BenefitsRU'
+      end
+      object Edit9BottomRU: TEdit
+        Left = 89
+        Top = 226
+        Width = 480
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        Text = 'Edit9BottomRU'
+      end
+      object Edit9DatesRU: TEdit
+        Left = 90
+        Top = 0
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+        Text = 'Edit9DatesRU'
+      end
+      object Edit9NameRU: TEdit
+        Left = 90
+        Top = 35
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'Edit9NameRU'
+      end
+      object Edit9CompanyRU: TEdit
+        Left = 90
+        Top = 70
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Edit9CompanyRU'
+      end
+      object Memo9SkillsRU: TMemo
+        Left = 89
+        Top = 261
+        Width = 480
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo9SkillsTR')
+          'Memo9SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB9TR: TCalendarPicker
-        Left = 218
+      object CalendarPickerB9RU: TCalendarPicker
+        Left = 296
         Top = 0
         Width = 100
         Height = 32
@@ -1868,14 +2734,14 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB9TRChange
-        OnCloseUp = CalendarPickerB9TRCloseUp
+        OnChange = CalendarPickerB9RUChange
+        OnCloseUp = CalendarPickerB9RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE9TR: TCalendarPicker
-        Left = 337
+      object CalendarPickerE9RU: TCalendarPicker
+        Left = 402
         Top = 0
         Width = 100
         Height = 32
@@ -1896,8 +2762,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE9TRChange
-        OnCloseUp = CalendarPickerE9TRCloseUp
+        OnChange = CalendarPickerE9RUChange
+        OnCloseUp = CalendarPickerE9RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1907,110 +2773,188 @@ object FormNewTemplate: TFormNewTemplate
       Caption = 'Job 10'
       ImageIndex = 12
       object Label68: TLabel
-        Left = 24
-        Top = 41
-        Width = 40
-        Height = 15
+        Left = 32
+        Top = 38
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label69: TLabel
-        Left = 276
-        Top = 41
-        Width = 52
-        Height = 15
+        Left = 17
+        Top = 72
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label70: TLabel
-        Left = 3
-        Top = 72
-        Width = 56
-        Height = 15
+        Left = 10
+        Top = 108
+        Width = 74
+        Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label71: TLabel
-        Left = 19
-        Top = 157
-        Width = 45
-        Height = 15
+        Left = 26
+        Top = 189
+        Width = 58
+        Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label72: TLabel
-        Left = 3
-        Top = 188
-        Width = 62
-        Height = 15
+        Left = 4
+        Top = 228
+        Width = 80
+        Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
       object Label73: TLabel
-        Left = 33
-        Top = 218
-        Width = 31
-        Height = 15
+        Left = 40
+        Top = 260
+        Width = 39
+        Height = 21
         Caption = #1057#1082#1110#1083#1080
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
       end
-      object Memo10RespTR: TMemo
-        Left = 70
-        Top = 70
-        Width = 900
+      object Memo10RespRU: TMemo
+        Left = 90
+        Top = 105
+        Width = 880
         Height = 80
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo10RespTR')
+          'Memo10RespRU')
+        ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 0
-      end
-      object Edit10BenefitsTR: TEdit
-        Left = 70
-        Top = 160
-        Width = 480
-        Height = 23
-        TabOrder = 1
-        Text = 'Edit10BenefitsTR'
-      end
-      object Edit10BottomTR: TEdit
-        Left = 70
-        Top = 190
-        Width = 480
-        Height = 23
-        TabOrder = 2
-        Text = 'Edit10BottomTR'
-      end
-      object Edit10DatesTR: TEdit
-        Left = 4
-        Top = 2
-        Width = 200
-        Height = 23
-        ReadOnly = True
         TabOrder = 3
-        Text = 'Edit10DatesTR'
       end
-      object Edit10NameTR: TEdit
-        Left = 70
-        Top = 38
-        Width = 200
-        Height = 23
-        TabOrder = 4
-        Text = 'Edit10NameTR'
-      end
-      object Edit10CompanyTR: TEdit
-        Left = 338
-        Top = 41
-        Width = 200
-        Height = 23
-        TabOrder = 5
-        Text = 'Edit10CompanyTR'
-      end
-      object Memo10SkillsTR: TMemo
-        Left = 70
-        Top = 220
+      object Edit10BenefitsRU: TEdit
+        Left = 90
+        Top = 191
         Width = 480
-        Height = 80
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        Text = 'Edit10BenefitsRU'
+      end
+      object Edit10BottomRU: TEdit
+        Left = 90
+        Top = 226
+        Width = 480
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        Text = 'Edit10BottomRU'
+      end
+      object Edit10DatesRU: TEdit
+        Left = 90
+        Top = 0
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 0
+        Text = 'Edit10DatesRU'
+      end
+      object Edit10NameRU: TEdit
+        Left = 90
+        Top = 35
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'Edit10NameRU'
+      end
+      object Edit10CompanyRU: TEdit
+        Left = 90
+        Top = 70
+        Width = 200
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        Text = 'Edit10CompanyRU'
+      end
+      object Memo10SkillsRU: TMemo
+        Left = 90
+        Top = 261
+        Width = 480
+        Height = 100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Lines.Strings = (
-          'Memo10SkillsTR')
+          'Memo10SkillsRU')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB10TR: TCalendarPicker
-        Left = 218
+      object CalendarPickerB10RU: TCalendarPicker
+        Left = 296
         Top = 0
         Width = 100
         Height = 32
@@ -2031,14 +2975,14 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerB10TRChange
-        OnCloseUp = CalendarPickerB10TRCloseUp
+        OnChange = CalendarPickerB10RUChange
+        OnCloseUp = CalendarPickerB10RUCloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE10TR: TCalendarPicker
-        Left = 337
+      object CalendarPickerE10RU: TCalendarPicker
+        Left = 402
         Top = 0
         Width = 100
         Height = 32
@@ -2059,152 +3003,13 @@ object FormNewTemplate: TFormNewTemplate
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        OnChange = CalendarPickerE10TRChange
-        OnCloseUp = CalendarPickerE10TRCloseUp
+        OnChange = CalendarPickerE10RUChange
+        OnCloseUp = CalendarPickerE10RUCloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
       end
     end
-  end
-  object UniArchiveJobs22: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'update experiences'
-      'set archived = 1'
-      'where template_id = :p_template_id')
-    Left = 832
-    Top = 440
-    ParamData = <
-      item
-        DataType = ftUnknown
-        Name = 'p_template_id'
-        Value = nil
-      end>
-  end
-  object UniArchiveSkills22: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'update skill_show_lists'
-      'set archived = 1'
-      'where experience_id = :p_experience_id')
-    Left = 832
-    Top = 496
-    ParamData = <
-      item
-        DataType = ftInteger
-        Name = 'p_experience_id'
-        ParamType = ptInput
-        Value = nil
-      end>
-  end
-  object UniGetSkillList22: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'select count(*) as cntr from skill_show_lists'
-      
-        'where skill_id = :p_skill_id and experience_id = :p_experience_i' +
-        'd'
-      '')
-    Left = 832
-    Top = 376
-    ParamData = <
-      item
-        DataType = ftInteger
-        Name = 'p_skill_id'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_experience_id'
-        ParamType = ptInput
-        Value = nil
-      end>
-    object UniGetSkillList22cntr: TLargeintField
-      FieldName = 'cntr'
-      ReadOnly = True
-      Required = True
-    end
-  end
-  object UniGetSkillID22: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'select id, skill from skills'
-      'where skill = :p_skill')
-    Left = 736
-    Top = 464
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_skill'
-        ParamType = ptInput
-        Value = 'Python'
-      end>
-  end
-  object UniInsertSkill22: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'insert into skills (skill) values (:p_skill) ')
-    Left = 744
-    Top = 392
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_skill'
-        ParamType = ptInput
-        Value = '11'
-      end>
   end
   object UniSPInsertTemplate: TUniStoredProc
     StoredProcName = 'insert_template'
@@ -2219,8 +3024,8 @@ object FormNewTemplate: TFormNewTemplate
         '_result'#39)
     Connection = FormMain.UniConnection
     Debug = True
-    Left = 134
-    Top = 420
+    Left = 630
+    Top = 364
     ParamData = <
       item
         DataType = ftString

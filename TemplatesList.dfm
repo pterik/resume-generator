@@ -7,33 +7,43 @@ object FormTemplatesList: TFormTemplatesList
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnClose = FormClose
   DesignSize = (
     988
     662)
-  TextHeight = 15
+  TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 877
+    Left = 873
     Top = 614
-    Width = 75
+    Width = 88
     Height = 40
     Anchors = [akRight, akBottom]
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Kind = bkCancel
     NumGlyphs = 2
+    ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 873
-    ExplicitTop = 613
   end
   object DBGrid1: TDBGrid
     Left = 2
     Top = 8
     Width = 984
-    Height = 433
+    Height = 593
     DataSource = UniDSTemplates
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 1
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -44,69 +54,174 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'id'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 36
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'name'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 130
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'job_opportunity'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 125
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'job_place'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 123
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'phone_numbers_text'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 150
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'template_introduction'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 150
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'cntr_exp'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 49
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'cntr_skills'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 58
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'archive'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 61
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'updated'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Visible = True
       end>
   end
   object BitBtnNewTemplate: TBitBtn
     Left = 8
     Top = 614
-    Width = 121
+    Width = 138
     Height = 40
     Caption = #1053#1086#1074#1080#1081' '#1096#1072#1073#1083#1086#1085
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000000000000000000000000000000000000000000000000
@@ -142,15 +257,21 @@ object FormTemplatesList: TFormTemplatesList
       57FF4CDE56FD4CDC55FB46CE4F9B17471B0A0000000000000000000000000000
       000000000000000000002B7E313247CD50994DDE57DB4DDF57F94DDF57F94DDE
       57DB48CF51992D82323200000000000000000000000000000000}
+    ParentFont = False
     TabOrder = 2
     OnClick = BitBtnNewTemplateClick
   end
   object BitBtnEditTemplate: TBitBtn
-    Left = 152
+    Left = 169
     Top = 614
     Width = 121
     Height = 40
     Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000000000000000000000000000000000000000000000D0D
@@ -186,15 +307,21 @@ object FormTemplatesList: TFormTemplatesList
       E1FD4646E3FD4747E4F13B3BB962000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000017174D0E4646
       E2D34848E4C327277D2400000000000000000000000000000000}
+    ParentFont = False
     TabOrder = 3
     OnClick = BitBtnEditTemplateClick
   end
   object BitBtnDeleteTemplate: TBitBtn
-    Left = 296
+    Left = 313
     Top = 614
     Width = 121
     Height = 40
     Caption = #1042#1080#1076#1072#1083#1080#1090#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000000000000000000000000000000000000000000000000
@@ -230,15 +357,21 @@ object FormTemplatesList: TFormTemplatesList
       EDFF4F4FEDFD4F4FEBFB4949DD9B19194B0A0000000000000000000000000000
       000000000000000000002E2E88324A4ADC995151EFDB5151EFF95151EFF95151
       EFDB4B4BDE992F2F8B3200000000000000000000000000000000}
+    ParentFont = False
     TabOrder = 4
     OnClick = BitBtnDeleteTemplateClick
   end
   object BitBtnNewResume: TBitBtn
-    Left = 440
+    Left = 456
     Top = 614
-    Width = 153
+    Width = 185
     Height = 40
     Caption = #1053#1086#1074#1077' '#1091#1082#1088' '#1088#1077#1079#1102#1084#1077
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       2000000000000010000000000000000000000000000000000000000000000000
@@ -370,6 +503,7 @@ object FormTemplatesList: TFormTemplatesList
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
+    ParentFont = False
     TabOrder = 5
     OnClick = BitBtnNewTemplateClick
   end
