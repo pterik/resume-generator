@@ -36,6 +36,7 @@ type
     procedure BitBtnNewTemplateClick(Sender: TObject);
     procedure BitBtnEditTemplateClick(Sender: TObject);
     procedure UniTemplatesCalcFields(DataSet: TDataSet);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
   {}
   public
@@ -57,6 +58,11 @@ if FormNewTemplate=nil then Application.CreateForm(TFormNewTemplate, FormNewTemp
 FormNewTemplate.SetFormValues;
 FormNewTemplate.ShowModal;
 UniTemplates.Refresh;
+end;
+
+procedure TFormTemplatesList.DBGrid1DblClick(Sender: TObject);
+begin
+BitBtnEditTemplate.Click();
 end;
 
 procedure TFormTemplatesList.BitBtnDeleteTemplateClick(Sender: TObject);
@@ -101,7 +107,7 @@ end;
 
 procedure TFormTemplatesList.UniTemplatesCalcFields(DataSet: TDataSet);
 begin
-UniTemplates['archive']:='null';
+UniTemplates['archive']:=UniTemplates['archived'];
 if UniTemplates['archived']=0 then UniTemplates['archive']:='ЭГ';
 if UniTemplates['archived']=1 then UniTemplates['archive']:='връ';
 end;

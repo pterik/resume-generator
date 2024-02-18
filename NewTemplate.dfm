@@ -10,6 +10,7 @@ object FormNewTemplate: TFormNewTemplate
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnKeyUp = FormKeyUp
   DesignSize = (
     988
     662)
@@ -57,7 +58,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 885
+    Left = 881
     Top = 616
     Width = 95
     Height = 38
@@ -72,6 +73,8 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 877
+    ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -3122,7 +3125,7 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftInteger
         Name = 'p_template_id'
         ParamType = ptOutput
-        Value = 72
+        Value = 77
       end
       item
         DataType = ftInteger
@@ -3133,13 +3136,13 @@ object FormNewTemplate: TFormNewTemplate
     CommandStoredProcName = 'insert_template'
   end
   object UniSPInsertExperiences: TUniStoredProc
-    StoredProcName = 'insert_experiences'
+    StoredProcName = 'insert_experience'
     SQL.Strings = (
       
-        'CALL insert_experiences(:p_flag, :p_resume_id, :p_template_id, :' +
-        'p_job_order, :p_job_position, :p_start_date, :p_end_date, :p_emp' +
-        'loyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id);' +
-        ' SELECT @p_experience_id AS '#39'@p_experience_id'#39)
+        'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
+        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
+        'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
+        'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 320
     Top = 424
@@ -3223,7 +3226,7 @@ object FormNewTemplate: TFormNewTemplate
         Size = 255
         Value = nil
       end>
-    CommandStoredProcName = 'insert_experiences'
+    CommandStoredProcName = 'insert_experience'
   end
   object UniSPInsertSkills: TUniStoredProc
     StoredProcName = 'insert_skills'
@@ -3243,9 +3246,8 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftString
         Name = 'p_skill'
         ParamType = ptInput
-        Size = 1000
+        Size = 255
         Value = nil
-        National = True
       end>
     CommandStoredProcName = 'insert_skills'
   end

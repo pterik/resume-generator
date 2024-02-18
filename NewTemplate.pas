@@ -252,6 +252,7 @@ type
     procedure CalendarPickerE9RUChange(Sender: TObject);
     procedure CalendarPickerB10RUChange(Sender: TObject);
     procedure CalendarPickerE10RUChange(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     function CheckValues: boolean;
     function SaveTemplate(var FTemplateID:integer):boolean;
@@ -1290,6 +1291,12 @@ begin
     exit;
   end;
   Result := true;
+end;
+
+procedure TFormNewTemplate.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key = VK_F2 then BitBtnSave.Click();
 end;
 
 procedure TFormNewTemplate.SetFormValues;

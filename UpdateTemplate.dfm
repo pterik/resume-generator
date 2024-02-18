@@ -12,12 +12,13 @@ object FormUpdateTemplate: TFormUpdateTemplate
   Font.Style = []
   OnClose = FormClose
   OnDestroy = FormDestroy
+  OnKeyUp = FormKeyUp
   DesignSize = (
     988
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 888
+    Left = 884
     Top = 620
     Width = 84
     Height = 40
@@ -31,6 +32,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
+    ExplicitLeft = 880
+    ExplicitTop = 619
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -3066,16 +3069,16 @@ object FormUpdateTemplate: TFormUpdateTemplate
       FieldName = 'archived'
     end
   end
-  object UniSPUpdateExperiences: TUniStoredProc
-    StoredProcName = 'update_experiences'
+  object UniSPInsertExperiences: TUniStoredProc
+    StoredProcName = 'insert_experience'
     SQL.Strings = (
       
-        'CALL update_experiences(:p_flag, :p_resume_id, :p_template_id, :' +
-        'p_job_order, :p_job_position, :p_start_date, :p_end_date, :p_emp' +
-        'loyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id);' +
-        ' SELECT @p_experience_id AS '#39'@p_experience_id'#39)
+        'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
+        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
+        'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
+        'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 296
+    Left = 400
     Top = 392
     ParamData = <
       item
@@ -3157,15 +3160,15 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Size = 255
         Value = nil
       end>
-    CommandStoredProcName = 'update_experiences'
+    CommandStoredProcName = 'insert_experience'
   end
   object UniSPInsertSkills: TUniStoredProc
     StoredProcName = 'insert_skills'
     SQL.Strings = (
       'CALL insert_skills(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 448
-    Top = 400
+    Left = 528
+    Top = 392
     ParamData = <
       item
         DataType = ftInteger
@@ -3460,5 +3463,36 @@ object FormUpdateTemplate: TFormUpdateTemplate
       ReadOnly = True
       Size = 255
     end
+  end
+  object UniSPDeleteExpSkills: TUniStoredProc
+    StoredProcName = 'delete_experiences_skills'
+    SQL.Strings = (
+      
+        'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
+        'e_id)')
+    Connection = FormMain.UniConnection
+    Left = 400
+    Top = 464
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_flag'
+        ParamType = ptInput
+        Size = 50
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'delete_experiences_skills'
   end
 end

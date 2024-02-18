@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     662)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 873
+    Left = 869
     Top = 614
     Width = 88
     Height = 40
@@ -31,9 +31,11 @@ object FormTemplatesList: TFormTemplatesList
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 865
+    ExplicitTop = 613
   end
   object DBGrid1: TDBGrid
-    Left = 2
+    Left = 8
     Top = 8
     Width = 984
     Height = 593
@@ -50,15 +52,11 @@ object FormTemplatesList: TFormTemplatesList
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
         FieldName = 'id'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -70,11 +68,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'name'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = #1048#1084#1103
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -86,11 +80,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'job_opportunity'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = #1055#1086#1089#1072#1076#1072' '#1087#1086#1074#1085#1110#1089#1090#1102
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -102,11 +92,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'job_place'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -118,11 +104,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'phone_numbers_text'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = #1058#1077#1083#1077#1092#1086#1085#1080
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -134,11 +116,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'template_introduction'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = #1042#1074#1077#1076#1077#1085#1085#1103
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -150,11 +128,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'cntr_exp'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = '# jobs'
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -166,11 +140,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'cntr_skills'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = '# skills'
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -182,11 +152,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'archive'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = #1040#1088#1093#1080#1074
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
@@ -198,11 +164,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'updated'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
+        Title.Caption = #1054#1085#1086#1074#1083#1077#1085#1086
         Title.Font.Charset = DEFAULT_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -16
