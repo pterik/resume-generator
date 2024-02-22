@@ -16,17 +16,29 @@ object FormListResumes: TFormListResumes
   TextHeight = 15
   object Label4: TLabel
     Left = 8
-    Top = 430
-    Width = 191
-    Height = 15
+    Top = 526
+    Width = 247
+    Height = 21
     Caption = #1050#1086#1087#1110#1103' '#1079' '#1096#1072#1073#1083#1086#1085#1091' (t) '#1072#1073#1086' '#1088#1077#1079#1102#1084#1077' (r)'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
   end
   object DBGrid1: TDBGrid
     Left = 0
     Top = 8
     Width = 980
-    Height = 346
+    Height = 509
     DataSource = UniDSResumes
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
@@ -38,74 +50,183 @@ object FormListResumes: TFormListResumes
       item
         Expanded = False
         FieldName = 'id'
+        Title.Caption = '#'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 27
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'name'
-        Width = 150
+        Title.Caption = #1053#1072#1079#1074#1072
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Width = 91
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cntr_exp'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Title.Caption = '# jobs'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'cntr_skills'
+        Title.Caption = '# skills'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'job_opportunity'
-        Width = 150
+        Title.Caption = #1056#1086#1073#1086#1090#1072
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Width = 106
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'job_place'
-        Width = 150
+        Title.Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Width = 113
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'phone_numbers_text'
-        Width = 150
+        Title.Caption = #1053#1086#1084#1077#1088#1080' '#1090#1077#1083#1077#1092#1086#1085#1110#1074
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Width = 114
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'resume_introduction'
+        Title.Caption = #1042#1074#1077#1076#1077#1085#1085#1103
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 150
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'lang'
+        Title.Caption = #1052#1086#1074#1072
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'updated'
+        Title.Caption = #1054#1085#1086#1074#1083#1077#1085#1086
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'cv_docx_url'
+        Title.Caption = 'URL DOCX'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 150
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'cv_pdf_url'
+        Title.Caption = 'URL PDF'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Width = 150
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'updated'
+        FieldName = 'created'
+        Title.Caption = #1057#1086#1079#1076#1072#1085
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Width = 64
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'created'
+        FieldName = 'resume_introduction'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'archived'
         Visible = True
       end>
   end
   object BitBtnEditResume: TBitBtn
     Left = 204
-    Top = 565
+    Top = 566
     Width = 121
     Height = 40
     Anchors = [akLeft, akBottom]
     Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000000000000000000000000000000000000000000000D0D
@@ -141,17 +262,23 @@ object FormListResumes: TFormListResumes
       E1FD4646E3FD4747E4F13B3BB962000000000000000000000000000000000000
       000000000000000000000000000000000000000000000000000017174D0E4646
       E2D34848E4C327277D2400000000000000000000000000000000}
+    ParentFont = False
     TabOrder = 1
     OnClick = BitBtnEditResumeClick
-    ExplicitTop = 564
+    ExplicitTop = 565
   end
   object BitBtnDeleteResume: TBitBtn
     Left = 204
-    Top = 614
+    Top = 616
     Width = 121
     Height = 40
     Anchors = [akLeft, akBottom]
     Caption = #1042#1080#1076#1072#1083#1080#1090#1080
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000000000000000000000000000000000000000000000000
@@ -187,17 +314,23 @@ object FormListResumes: TFormListResumes
       EDFF4F4FEDFD4F4FEBFB4949DD9B19194B0A0000000000000000000000000000
       000000000000000000002E2E88324A4ADC995151EFDB5151EFF95151EFF95151
       EFDB4B4BDE992F2F8B3200000000000000000000000000000000}
+    ParentFont = False
     TabOrder = 2
     OnClick = BitBtnDeleteResumeClick
-    ExplicitTop = 613
+    ExplicitTop = 615
   end
-  object BitBtnNewUkrResume: TBitBtn
+  object BitBtnNewResume: TBitBtn
     Left = 3
-    Top = 565
+    Top = 566
     Width = 185
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = #1053#1086#1074#1077' '#1091#1082#1088#1072#1111#1085#1089#1100#1082#1077' '#1088#1077#1079#1102#1084#1077
+    Caption = #1053#1086#1074#1077' '#1088#1077#1079#1102#1084#1077
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       2000000000000010000000000000000000000000000000000000000000000000
@@ -329,256 +462,174 @@ object FormListResumes: TFormListResumes
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
+    ParentFont = False
     TabOrder = 3
-    OnClick = BitBtnNewUkrResumeClick
-    ExplicitTop = 564
+    OnClick = BitBtnNewResumeClick
+    ExplicitTop = 565
   end
   object BitBtnClose: TBitBtn
-    Left = 835
+    Left = 866
     Top = 612
-    Width = 137
+    Width = 106
     Height = 40
     Anchors = [akRight, akBottom]
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Kind = bkCancel
     NumGlyphs = 2
+    ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 831
+    ExplicitLeft = 862
     ExplicitTop = 611
   end
-  object BitBtnNewTranslation: TBitBtn
-    Left = 7
-    Top = 616
-    Width = 186
-    Height = 40
-    Anchors = [akLeft, akBottom]
-    Caption = #1053#1086#1074#1080#1081' '#1087#1077#1088#1077#1082#1083#1072#1076' '#1088#1077#1079#1102#1084#1077
-    Glyph.Data = {
-      36100000424D3610000000000000360000002800000020000000200000000100
-      2000000000000010000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000333333052824306A29252FC6292430F22824
-      30F329252FC52824306A33333305000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000028283513282430C9292530FF292530FF292530FF2925
-      30FF292530FF292530FF29252FCC282833190000000000000000000000000000
-      0000292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF292530FF2B3138F53E7C6BFF469E82FF469F
-      83FF3E7B6BFF2B3338F4292530FF29252FCC3333330500000000000000000000
-      0000292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF46454DFF469D81FF48A687FF48A687FF48A6
-      87FF48A687FF469D80FF2B3338F4292530FF2824306A00000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFE5E9DBFF89C5B1FF48A687FF48A687FFA4D3C3FFA4D3
-      C3FF48A687FF48A687FF3E7B6BFF292530FF29252FC600000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFF9FBF8FF5AAF93FF48A687FFA4D3C3FFD2E9E1FFD2E9
-      E1FFA4D3C3FF48A687FF469E82FF292530FF292430F200000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFF9FBF9FF51AB8DFF48A687FFA4D3C3FFD2E9E1FFD2E9
-      E1FFA4D3C3FF48A687FF469E82FF292530FF29252FF100000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFE9ECE0FF84C3AFFF48A687FF48A687FFA4D3C3FFA4D3
-      C3FF48A687FF48A687FF3E7C6BFF292530FF29252FC700000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFD1CDA5FFEEF6F1FF55AC8FFF48A687FF48A687FF48A6
-      87FF48A687FF469D81FF2B3338F4292530FF2824306A00000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFDEDEC5FFEEF6F1FF84C3AFFF51AB8DFF56AD
-      90FF7CBFA9FF45454CFF292530FF282430C93333330500000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFD1CDA5FFE9ECE0FFFAFCF9FFF9FB
-      F8FFE5E9DBFF292530FF292530FF282835130000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFFFFFFFFFFFFF
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFFFFFFFFFFFFF
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB579FFBAB5
-      79FFBAB579FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-      FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-      FFFFFFFFFFFF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B44FFB39B
-      44FFB39B44FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF000000000000000000000000000000000000
-      0000292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF292530FF292530FF292530FF292530FF2925
-      30FF292530FF292530FF292530FF000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000}
-    TabOrder = 5
-    OnClick = BitBtnNewTranslationClick
-    ExplicitTop = 615
-  end
   object EditCopyNumber: TEdit
-    Left = 8
-    Top = 451
+    Left = 272
+    Top = 523
     Width = 121
-    Height = 23
-    TabOrder = 6
+    Height = 29
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
   end
   object BitBtnCheck: TBitBtn
-    Left = 533
-    Top = 563
+    Left = 557
+    Top = 566
     Width = 135
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = #1042#1110#1076#1082#1088#1080#1090#1080' '#1088#1077#1079#1102#1084#1077' DOCX'
-    TabOrder = 7
+    Caption = 'DOCX '#1085#1072' '#1089#1072#1081#1090#1110
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 6
     OnClick = BitBtnCheckClick
-    ExplicitTop = 562
+    ExplicitTop = 565
   end
   object BitBtnCV: TBitBtn
-    Left = 691
-    Top = 563
-    Width = 129
+    Left = 714
+    Top = 566
+    Width = 146
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = #1042#1110#1076#1082#1088#1080#1090#1080' CV DOCX'
-    TabOrder = 8
+    Caption = 'CV DOCX '#1085#1072' '#1089#1072#1081#1090#1110
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
     OnClick = BitBtnCVClick
-    ExplicitTop = 562
+    ExplicitTop = 565
   end
   object BitBtnLetter: TBitBtn
-    Left = 691
+    Left = 714
     Top = 612
-    Width = 129
+    Width = 146
     Height = 40
     Anchors = [akLeft, akBottom]
     Caption = #1042#1110#1076#1082#1088#1080#1090#1080' CL DOCX'
-    TabOrder = 9
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
     OnClick = BitBtnLetterClick
     ExplicitTop = 611
   end
   object BitBtnPDF: TBitBtn
-    Left = 835
-    Top = 563
-    Width = 137
+    Left = 866
+    Top = 566
+    Width = 106
     Height = 40
     Anchors = [akRight, akBottom]
-    Caption = #1057#1090#1074#1086#1088#1080#1090#1080' PDF '#1088#1077#1079#1102#1084#1077
-    TabOrder = 10
+    Caption = #1057#1090#1074#1086#1088#1080#1090#1080' PDF'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 831
-    ExplicitTop = 562
+    ExplicitLeft = 862
+    ExplicitTop = 565
   end
   object BitBtnOpenTmpl: TBitBtn
-    Left = 533
+    Left = 557
     Top = 612
     Width = 135
     Height = 40
     Anchors = [akLeft, akBottom]
     Caption = #1042#1110#1076#1082#1088#1080#1090#1080' '#1096#1072#1073#1083#1086#1085
-    TabOrder = 11
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 10
     OnClick = BitBtnOpenTmplClick
     ExplicitTop = 611
   end
-  object BitBtnGo: TBitBtn
-    Left = 342
-    Top = 563
-    Width = 174
+  object BitBtnSaveResume: TBitBtn
+    Left = 406
+    Top = 570
+    Width = 131
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = #1047#1073#1077#1088#1077#1075#1090#1080' '#1088#1077#1079#1102#1084#1077' '#1103#1082' '#1092#1072#1081#1083#1080
-    TabOrder = 12
-    OnClick = BitBtnGoClick
-    ExplicitTop = 562
+    Caption = #1047#1073#1077#1088#1077#1075#1090#1080' '#1088#1077#1079#1102#1084#1077
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
+    OnClick = BitBtnSaveResumeClick
+    ExplicitTop = 569
   end
   object CheckBoxExtraComment: TCheckBox
-    Left = 8
-    Top = 487
-    Width = 124
+    Left = 424
+    Top = 529
+    Width = 169
     Height = 17
     Anchors = [akLeft, akBottom]
     Caption = #1041#1110#1083#1100#1096#1077' '#1082#1086#1084#1077#1085#1090#1072#1088#1110#1074
-    TabOrder = 13
-    ExplicitTop = 486
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 12
+    ExplicitTop = 528
   end
   object BitBtnArchive: TBitBtn
-    Left = 342
-    Top = 614
-    Width = 174
+    Left = 406
+    Top = 616
+    Width = 131
     Height = 40
     Anchors = [akLeft, akBottom]
     Caption = #1042' '#1072#1088#1093#1080#1074
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       2000000000000010000000000000000000000000000000000000000000000000
@@ -710,43 +761,49 @@ object FormListResumes: TFormListResumes
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
-    TabOrder = 14
+    ParentFont = False
+    TabOrder = 13
     OnClick = BitBtnArchiveClick
-    ExplicitTop = 613
+    ExplicitTop = 615
   end
   object UniResumes: TUniQuery
     UpdatingTable = 'resumes'
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
-      'select   '
+      'select '
       '  id ,'
+      
+        '  (select count(*) from experiences e where e.resume_id = t.id) ' +
+        'cntr_exp, '
+      
+        '  (select count(*) from skill_show_lists l, experiences e where ' +
+        'l.experience_id = e.id and e.resume_id = t.id) cntr_skills, '
       '  name ,'
-      '  lang ,'
       '  job_opportunity ,'
       '  job_place ,'
       '  phone_numbers_text ,'
-      '  cv_docx_url ,'
-      '  cv_pdf_url ,'
       '  resume_introduction ,'
+      '  archived,'
       '  created ,'
-      '  updated from resumes'
-      'where lang = :p_lang'
-      'and archived = 0')
+      '  updated '
+      'from resumes t'
+      'order by archived, name')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
     Active = True
     Left = 288
     Top = 112
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_lang'
-        ParamType = ptInput
-        Value = 'UA'
-      end>
     object UniResumesid: TIntegerField
       AutoGenerateValue = arAutoInc
       FieldName = 'id'
+    end
+    object UniResumescntr_exp: TLargeintField
+      FieldName = 'cntr_exp'
+      ReadOnly = True
+    end
+    object UniResumescntr_skills: TLargeintField
+      FieldName = 'cntr_skills'
+      ReadOnly = True
     end
     object UniResumesname: TStringField
       FieldName = 'name'
@@ -768,23 +825,14 @@ object FormListResumes: TFormListResumes
       FieldName = 'resume_introduction'
       Size = 1000
     end
-    object UniResumeslang: TStringField
-      FieldName = 'lang'
-      Size = 3
-    end
-    object UniResumescv_docx_url: TStringField
-      FieldName = 'cv_docx_url'
-      Size = 255
-    end
-    object UniResumescv_pdf_url: TStringField
-      FieldName = 'cv_pdf_url'
-      Size = 255
-    end
-    object UniResumesupdated: TDateTimeField
-      FieldName = 'updated'
+    object UniResumesarchived: TBooleanField
+      FieldName = 'archived'
     end
     object UniResumescreated: TDateTimeField
       FieldName = 'created'
+    end
+    object UniResumesupdated: TDateTimeField
+      FieldName = 'updated'
     end
   end
   object UniDSResumes: TUniDataSource

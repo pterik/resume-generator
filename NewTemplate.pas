@@ -210,6 +210,7 @@ type
     Label74: TLabel;
     Label75: TLabel;
     Label76: TLabel;
+    UniSPDeleteExpSkills: TUniStoredProc;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure CalendarPickerB2RUCloseUp(Sender: TObject);
@@ -254,11 +255,11 @@ type
     procedure CalendarPickerE10RUChange(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
+    FTemplateID: integer;
     function CheckValues: boolean;
-    function SaveTemplate(var FTemplateID:integer):boolean;
+    function SaveTemplate:boolean;
     function SaveValues: boolean;
-    function SaveJobs(const FTemplateID: integer): boolean;
-//    function SaveSkill(const FExperienceID: integer; const Memo: TMemo): boolean;
+    function SaveJobs: boolean;
     procedure SetEmptySkillsRU;
     procedure SetEmptyJobsRU;
     procedure SetEmptyTemplatesRU;
@@ -292,10 +293,17 @@ begin
 Close;
 end;
 
-function TFormNewTemplate.SaveJobs(const FTemplateID: integer): boolean;
-var i, FExperienceID:integer;
+function TFormNewTemplate.SaveJobs: boolean;
+var i:integer;
+FExperienceID:array [1..10] of integer;
 begin
+for i:=1 to 10 do FExperienceID[i]:=0;
   try
+  UniSPDeleteExpSkills.Close;
+  UniSPDeleteExpSkills.ParamByName('p_flag').AsString := 'template_id';
+  UniSPDeleteExpSkills.ParamByName('p_template_id').AsInteger := FTemplateID;
+  UniSPDeleteExpSkills.ExecSQL;
+
   if not FormMain.isEmpty(Edit1NameRU.Text) and not FormMain.isEmpty(Edit1CompanyRU.Text) then
     begin
       UniSPInsertExperiences.Close;
@@ -310,16 +318,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit1BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit1BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo1SkillsRU.Text)<>'') then
-      for i := 0 to Memo1SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo1SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo1SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[1]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit2NameRU.Text) and not FormMain.isEmpty(Edit2CompanyRU.Text) then
     begin
@@ -335,16 +334,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit2BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit2BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo2SkillsRU.Text)<>'') then
-      for i := 0 to Memo2SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo2SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo2SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[2]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit3NameRU.Text) and not FormMain.isEmpty(Edit3CompanyRU.Text) then
     begin
@@ -360,16 +350,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit3BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit3BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo3SkillsRU.Text)<>'') then
-      for i := 0 to Memo3SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo3SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo3SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[3]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit4NameRU.Text) and not FormMain.isEmpty(Edit4CompanyRU.Text) then
     begin
@@ -385,16 +366,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit4BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit4BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo4SkillsRU.Text)<>'') then
-      for i := 0 to Memo4SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo4SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo4SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[4]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit5NameRU.Text) and not FormMain.isEmpty(Edit5CompanyRU.Text) then
     begin
@@ -410,16 +382,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit5BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit5BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo5SkillsRU.Text)<>'') then
-      for i := 0 to Memo5SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo5SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo5SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[5]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit6NameRU.Text) and not FormMain.isEmpty(Edit6CompanyRU.Text) then
     begin
@@ -435,16 +398,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit6BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit6BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo6SkillsRU.Text)<>'') then
-      for i := 0 to Memo6SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo6SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo6SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[6]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit7NameRU.Text) and not FormMain.isEmpty(Edit7CompanyRU.Text) then
     begin
@@ -460,16 +414,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit7BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit7BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo7SkillsRU.Text)<>'') then
-      for i := 0 to Memo7SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo7SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo7SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[7]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit8NameRU.Text) and not FormMain.isEmpty(Edit8CompanyRU.Text) then
     begin
@@ -485,16 +430,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit8BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit8BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo8SkillsRU.Text)<>'') then
-      for i := 0 to Memo8SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo8SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo8SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[8]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit9NameRU.Text) and not FormMain.isEmpty(Edit9CompanyRU.Text) then
     begin
@@ -510,16 +446,7 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit9BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit9BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo9SkillsRU.Text)<>'') then
-      for i := 0 to Memo9SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo9SkillsRU.Lines[i]) then
-          begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo9SkillsRU.Lines[i];
-          UniSPInsertSkills.ExecSQL;
-          end;
+      FExperienceID[9]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
   if not FormMain.isEmpty(Edit10NameRU.Text) and not FormMain.isEmpty(Edit10CompanyRU.Text) then
     begin
@@ -535,17 +462,98 @@ begin
       UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit10BenefitsRU.Text;
       UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit10BottomRU.Text;
       UniSPInsertExperiences.ExecSQL;
-      FExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-    if (Trim(Memo10SkillsRU.Text)<>'') then
-      for i := 0 to Memo10SkillsRU.Lines.Count - 1 do
-//        if not FormMain.IsEmpty(Memo10SkillsRU.Lines[i]) then
+      FExperienceID[10]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+    end;
+  if FormMain.isEmpty(Edit1NameRU.Text) and not FormMain.isEmpty(Edit1CompanyRU.Text) then
+    for i := 0 to Memo1SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo1SkillsRU.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[1];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo1SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit2NameRU.Text) and not FormMain.isEmpty(Edit2CompanyRU.Text) then
+    for i := 0 to Memo2SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo2SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[2];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo2SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit3NameRU.Text) and not FormMain.isEmpty(Edit3CompanyRU.Text) then
+    for i := 0 to Memo3SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo3SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[3];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo3SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit4NameRU.Text) and not FormMain.isEmpty(Edit4CompanyRU.Text) then
+    for i := 0 to Memo4SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo4SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[4];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo4SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit5NameRU.Text) and not FormMain.isEmpty(Edit5CompanyRU.Text) then
+    for i := 0 to Memo5SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo5SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[5];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo5SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit6NameRU.Text) and not FormMain.isEmpty(Edit6CompanyRU.Text) then
+    for i := 0 to Memo6SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo6SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[6];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo6SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit7NameRU.Text) and not FormMain.isEmpty(Edit7CompanyRU.Text) then
+    for i := 0 to Memo7SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo7SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[7];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo7SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit8NameRU.Text) and not FormMain.isEmpty(Edit8CompanyRU.Text) then
+    for i := 0 to Memo8SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo8SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[8];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo8SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit9NameRU.Text) and not FormMain.isEmpty(Edit9CompanyRU.Text) then
+    for i := 0 to Memo9SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo9SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[9];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo9SkillsRU.Lines[i];
+          UniSPInsertSkills.ExecSQL;
+          end;
+  if FormMain.isEmpty(Edit10NameRU.Text) and not FormMain.isEmpty(Edit10CompanyRU.Text) then
+    for i := 0 to Memo10SkillsRU.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo10SkillsRU.Lines[i]) then
+          begin
+          UniSPInsertSkills.Close;
+          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[10];
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo10SkillsRU.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-    end;
   Result:=true;
   except
     on E: Exception do
@@ -557,21 +565,17 @@ begin
 end;
 
 function TFormNewTemplate.SaveValues: boolean;
-var
-  FTemplateID, FExperienceID: integer;
-  R:boolean;
 begin
-Result := true;
   try
-  if not SaveTemplate(FTemplateID) then
+  if not SaveTemplate then
     begin
       FormMain.Warning('Сбой при сохранении templates');
       Result := false;
       exit;
     end;
-    if not SaveJobs(FTemplateID) then
+    if not SaveJobs then
     begin
-      FormMain.Warning('Сбой при сохранении jobs (experiences) #1');
+      FormMain.Warning('Сбой при сохранении jobs (experiences) NewTemplate');
       Result := false;
       exit;
     end;
@@ -584,28 +588,6 @@ Result := true;
     end;
   end;
 end;
-
-//function TFormNewTemplate.SaveSkill(const FExperienceID: integer; const Memo: TMemo): boolean;
-//var i:integer;
-//begin
-//  try
-//  for i := 1 to Memo.Lines.Count - 1 do
-//    begin
-//      UniSPInsertSkill.Close;
-//      UniSPInsertSkill.ParamByName('p_experience_id').AsInteger:=FExperienceID;
-//      UniSPInsertSkill.ParamByName('p_skill').AsString:=Memo.Lines[i];
-//      if Trim(Memo.Lines[i])<>'' then UniSPInsertSkill.ExecSQL;
-//    end;
-//    Result := true;
-//  except
-//    on E: Exception do
-//    begin
-//      ShowMessage('Ошибка во время вставки в skills (SaveSkills): ' +
-//        E.Message);
-//      Result := false;
-//    end;
-//  end;
-//end;
 
 procedure TFormNewTemplate.BitBtnSaveClick(Sender: TObject);
 begin
@@ -625,10 +607,8 @@ begin
   end;
 end;
 
-function TFormNewTemplate.SaveTemplate(var FTemplateID:integer):boolean;
-var Resume_id:integer;
+function TFormNewTemplate.SaveTemplate:boolean;
 begin
-Result:=true;
   try
     UniSPInsertTemplate.Prepare;
     UniSPInsertTemplate.ParamByName('p_name').AsString := trim(EditNameRU.Text);
@@ -647,7 +627,7 @@ Result:=true;
     UniSPInsertTemplate.ExecProc;
     FTemplateID:=UniSPInsertTemplate.ParamByName('p_template_id').Value;
     if UniSPInsertTemplate.ParamByName('p_result').Value=0 then Result:=true else Result:=false;
-    FormMain.Warning(' Result='+BoolToStr(Result)+' template_id = '+IntTostr(FTemplateID));
+    //FormMain.Warning(' Result='+BoolToStr(Result)+' template_id = '+IntTostr(FTemplateID));
     except
     on E: Exception do
     begin
@@ -983,6 +963,12 @@ begin
     Result := false;
     exit;
   end;
+  if IsJob1Active and (CalendarPickerB1RU.Date>CalendarPickerE1RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 1"');
+    Result := false;
+    exit;
+  end;
 
   /// ////
   IsJob2Active := not(FormMain.IsEmpty(Edit2DatesRU.Text) or FormMain.IsEmpty(Edit2NameRU.Text) or
@@ -1015,6 +1001,12 @@ begin
   if (IsJob2Active and FormMain.IsEmpty(Memo2SkillsRU.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 2"');
+    Result := false;
+    exit;
+  end;
+  if IsJob2Active and (CalendarPickerB2RU.Date>CalendarPickerE2RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 2"');
     Result := false;
     exit;
   end;
@@ -1052,6 +1044,12 @@ begin
     Result := false;
     exit;
   end;
+  if IsJob3Active and (CalendarPickerB3RU.Date>CalendarPickerE3RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 3"');
+    Result := false;
+    exit;
+  end;
   /// ////
   IsJob4Active := not(FormMain.IsEmpty(Edit4DatesRU.Text) or FormMain.IsEmpty(Edit4NameRU.Text) or
     FormMain.IsEmpty(Edit4CompanyRU.Text) or FormMain.IsEmpty(Memo4RespRU.Text) or FormMain.IsEmpty(Memo4SkillsRU.Text));
@@ -1083,6 +1081,12 @@ begin
   if (IsJob4Active and FormMain.IsEmpty(Memo4SkillsRU.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 4"');
+    Result := false;
+    exit;
+  end;
+  if IsJob4Active and (CalendarPickerB4RU.Date>CalendarPickerE4RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 4"');
     Result := false;
     exit;
   end;
@@ -1120,6 +1124,12 @@ begin
     Result := false;
     exit;
   end;
+  if IsJob5Active and (CalendarPickerB5RU.Date>CalendarPickerE5RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 5"');
+    Result := false;
+    exit;
+  end;
   /// ////
   IsJob6Active := not(FormMain.IsEmpty(Edit6DatesRU.Text) or FormMain.IsEmpty(Edit6NameRU.Text) or
     FormMain.IsEmpty(Edit6CompanyRU.Text) or FormMain.IsEmpty(Memo6RespRU.Text) or FormMain.IsEmpty(Memo6SkillsRU.Text));
@@ -1151,6 +1161,12 @@ begin
   if (IsJob6Active and FormMain.IsEmpty(Memo6SkillsRU.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 6"');
+    Result := false;
+    exit;
+  end;
+  if IsJob6Active and (CalendarPickerB6RU.Date>CalendarPickerE6RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 6"');
     Result := false;
     exit;
   end;
@@ -1188,6 +1204,12 @@ begin
     Result := false;
     exit;
   end;
+  if IsJob7Active and (CalendarPickerB7RU.Date>CalendarPickerE7RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 7"');
+    Result := false;
+    exit;
+  end;
   /// ////
   IsJob8Active := not(FormMain.IsEmpty(Edit8DatesRU.Text) or FormMain.IsEmpty(Edit8NameRU.Text) or
     FormMain.IsEmpty(Edit8CompanyRU.Text) or FormMain.IsEmpty(Memo8RespRU.Text) or FormMain.IsEmpty(Memo8SkillsRU.Text));
@@ -1219,6 +1241,12 @@ begin
   if (IsJob8Active and FormMain.IsEmpty(Memo8SkillsRU.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 8"');
+    Result := false;
+    exit;
+  end;
+  if IsJob8Active and (CalendarPickerB8RU.Date>CalendarPickerE8RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 8"');
     Result := false;
     exit;
   end;
@@ -1256,6 +1284,12 @@ begin
     Result := false;
     exit;
   end;
+  if IsJob9Active and (CalendarPickerB9RU.Date>CalendarPickerE9RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 9"');
+    Result := false;
+    exit;
+  end;
   /// ////
   IsJob10Active := not(FormMain.IsEmpty(Edit10DatesRU.Text) or FormMain.IsEmpty(Edit10NameRU.Text)
     or FormMain.IsEmpty(Edit10CompanyRU.Text) or FormMain.IsEmpty(Memo10RespRU.Text) or FormMain.IsEmpty(Memo10SkillsRU.Text));
@@ -1287,6 +1321,12 @@ begin
   if (IsJob10Active and FormMain.IsEmpty(Memo10SkillsRU.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 10"');
+    Result := false;
+    exit;
+  end;
+  if IsJob10Active and (CalendarPickerB10RU.Date>CalendarPickerE10RU.Date) then
+  begin
+    ShowMessage('Невірно вказані дати роботи, початок > закінчення 10"');
     Result := false;
     exit;
   end;

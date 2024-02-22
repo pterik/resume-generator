@@ -9,7 +9,7 @@ uses
   Vcl.StdCtrls, Vcl.Buttons, Vcl.WinXCalendars, Vcl.ComCtrls;
 
 type
-  TFormNewResumeTranslation = class(TForm)
+  TFormNewResume = class(TForm)
     BitBtnClose: TBitBtn;
     BitBtnSave: TBitBtn;
     UniGetResume: TUniQuery;
@@ -120,8 +120,8 @@ type
     EditPlaceTR: TEdit;
     EditPhonesTR: TEdit;
     MemoIntroTR: TMemo;
-    ComboBoxRegionTR: TComboBox;
-    ComboBoxLangTR: TComboBox;
+    CBRegionTR: TComboBox;
+    CBLangTR: TComboBox;
     TabSheetJob1TR: TTabSheet;
     Edit1DatesTR: TEdit;
     Edit1NameTR: TEdit;
@@ -212,8 +212,6 @@ type
     Edit10DatesTR: TEdit;
     Edit10NameTR: TEdit;
     Edit10CompanyTR: TEdit;
-    EditLangUA: TEdit;
-    EditRegionUA: TEdit;
     UniRegions: TUniQuery;
     UniRegionsregion_name: TStringField;
     UniRegionsorderby: TIntegerField;
@@ -323,6 +321,28 @@ type
     UniInsertResume2: TUniQuery;
     UniSPInsertResume: TUniStoredProc;
     UniLastInsertID: TUniQuery;
+    EditLangTR: TEdit;
+    EditRegionTR: TEdit;
+    CalendarPickerB1: TCalendarPicker;
+    CalendarPickerE1: TCalendarPicker;
+    CalendarPicker1: TCalendarPicker;
+    CalendarPicker2: TCalendarPicker;
+    CalendarPicker3: TCalendarPicker;
+    CalendarPicker4: TCalendarPicker;
+    CalendarPicker5: TCalendarPicker;
+    CalendarPicker6: TCalendarPicker;
+    CalendarPicker7: TCalendarPicker;
+    CalendarPicker8: TCalendarPicker;
+    CalendarPicker9: TCalendarPicker;
+    CalendarPicker10: TCalendarPicker;
+    CalendarPicker11: TCalendarPicker;
+    CalendarPicker12: TCalendarPicker;
+    CalendarPicker13: TCalendarPicker;
+    CalendarPicker14: TCalendarPicker;
+    CalendarPicker15: TCalendarPicker;
+    CalendarPicker16: TCalendarPicker;
+    CalendarPicker17: TCalendarPicker;
+    CalendarPicker18: TCalendarPicker;
     procedure PageControlTRChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -408,7 +428,7 @@ type
   end;
 
 var
-  FormNewResumeTranslation: TFormNewResumeTranslation;
+  FormNewResume: TFormNewResume;
 
 implementation
 
@@ -416,33 +436,35 @@ implementation
 
 uses MainForm;
 
-function TFormNewResumeTranslation.IsEmpty(const S: String): boolean;
+function TFormNewResume.IsEmpty(const S: String): boolean;
 begin
   Result := (Length(Trim(S)) <= 0);
 end;
 
-procedure TFormNewResumeTranslation.SetFormValues;
+procedure TFormNewResume.SetFormValues;
 var
   i: integer;
 begin
-  PageControlUA.ActivePage := TabSheetMainUA;
-  PageControlTR.ActivePage := TabSheetMainTR;
-  ComboBoxLangTR.Text := 'UA';
-  ComboBoxRegionTR.Text := 'Ukraine';
-  for i := 1 to 4 do
-    FootersAreActive[i] := false;
-  for i := 1 to 10 do
-    JobsAreActive[i] := false;
+SetEmptyUA;
+SetEmptyTR;
+PageControlUA.ActivePage := TabSheetMainUA;
+PageControlTR.ActivePage := TabSheetMainTR;
+ComboBoxLangTR.Text := 'UA';
+ComboBoxRegionTR.Text := 'Ukraine';
+for i := 1 to 4 do
+  FootersAreActive[i] := false;
+for i := 1 to 10 do
+  JobsAreActive[i] := false;
 end;
 
-procedure TFormNewResumeTranslation.FormCreate(Sender: TObject);
+procedure TFormNewResume.FormCreate(Sender: TObject);
 begin
   PageControlTR.ActivePage := TabSheetMainTR;
   SetComboBoxLanguages;
   SetComboBoxRegions;
 end;
 
-procedure TFormNewResumeTranslation.FormKeyUp(Sender: TObject; var Key: Word;
+procedure TFormNewResume.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   if Key = VK_F2 then
@@ -450,17 +472,17 @@ begin
 end;
 
 
-procedure TFormNewResumeTranslation.PageControlTRChange(Sender: TObject);
+procedure TFormNewResume.PageControlTRChange(Sender: TObject);
 begin
   PageControlUA.ActivePageIndex := PageControlTR.ActivePageIndex;
 end;
 
-procedure TFormNewResumeTranslation.PageControlUAChange(Sender: TObject);
+procedure TFormNewResume.PageControlUAChange(Sender: TObject);
 begin
   PageControlTR.ActivePageIndex := PageControlUA.ActivePageIndex;
 end;
 
-procedure TFormNewResumeTranslation.SetComboBoxLanguages;
+procedure TFormNewResume.SetComboBoxLanguages;
 begin
   ComboBoxLangTR.Clear;
   UniLanguages.Close;
@@ -475,7 +497,7 @@ begin
   UniLanguages.Close;
 end;
 
-procedure TFormNewResumeTranslation.SetComboBoxRegions;
+procedure TFormNewResume.SetComboBoxRegions;
 begin
   ComboBoxRegionTR.Clear;
   UniRegions.Close;
@@ -490,7 +512,7 @@ begin
   UniRegions.Close;
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyResumeTR;
+procedure TFormNewResume.SetEmptyResumeTR;
 begin
   EditNameTR.Clear;
   EditOpportunityTR.Clear;
@@ -501,7 +523,7 @@ begin
   ComboBoxRegionTR.Text := 'England';
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyResumeUA;
+procedure TFormNewResume.SetEmptyResumeUA;
 begin
   EditNameUA.Clear;
   EditOpportunityUA.Clear;
@@ -512,7 +534,7 @@ begin
   EditRegionUA.Text := 'Ukraine';
 end;
 
-procedure TFormNewResumeTranslation.SetEmptySkillsTR;
+procedure TFormNewResume.SetEmptySkillsTR;
 begin
   Memo1SkillsTR.Text := '';
   Memo2SkillsTR.Text := '';
@@ -526,7 +548,7 @@ begin
   Memo10SkillsTR.Text := '';
 end;
 
-procedure TFormNewResumeTranslation.SetEmptySkillsUA;
+procedure TFormNewResume.SetEmptySkillsUA;
 begin
   Memo1SkillsUA.Text := '';
   Memo2SkillsUA.Text := '';
@@ -540,7 +562,7 @@ begin
   Memo10SkillsUA.Text := '';
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyTR;
+procedure TFormNewResume.SetEmptyTR;
 begin
   SetEmptyResumeTR;
   SetEmptyFooterTR;
@@ -548,7 +570,7 @@ begin
   SetEmptySkillsTR;
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyUA;
+procedure TFormNewResume.SetEmptyUA;
 begin
   SetEmptyResumeUA;
   SetEmptyFooterUA;
@@ -556,7 +578,7 @@ begin
   SetEmptyJobsUA;
 end;
 
-procedure TFormNewResumeTranslation.GetValuesFromResume(Resumeid: integer);
+procedure TFormNewResume.GetValuesFromResume(Resumeid: integer);
 begin
   ComboBoxLangTR.Text := ComboBoxLang_First_Value;
   ComboBoxRegionTR.Text := ComboBoxRegion_First_Value;
@@ -607,7 +629,7 @@ begin
   end;
 end;
 
-procedure TFormNewResumeTranslation.SetFooterValues(FResumeID: integer);
+procedure TFormNewResume.SetFooterValues(FResumeID: integer);
 var
   ResumeFooterID: integer;
 begin
@@ -688,7 +710,7 @@ begin
   end;
 end;
 
-procedure TFormNewResumeTranslation.SetJobsValues(FResumeID: integer);
+procedure TFormNewResume.SetJobsValues(FResumeID: integer);
 var
   FullMonthYearStart, ShortMonthYearStart, FullMonthYearEnd,
     ShortMonthYearEnd: string;
@@ -997,7 +1019,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.ArchiveSkills(FJobID: integer): boolean;
+function TFormNewResume.ArchiveSkills(FJobID: integer): boolean;
 begin
   try
     UniArchiveSkills.Close;
@@ -1015,14 +1037,14 @@ begin
 
 end;
 
-procedure TFormNewResumeTranslation.BitBtnCopyClick(Sender: TObject);
+procedure TFormNewResume.BitBtnCopyClick(Sender: TObject);
 begin
   CopyResumeTRfromUA;
   CopyFooterTRfromUA;
   CopyJobsTRFromUA;
 end;
 
-procedure TFormNewResumeTranslation.BitBtnSaveClick(Sender: TObject);
+procedure TFormNewResume.BitBtnSaveClick(Sender: TObject);
 begin
   if CheckValues then
     ModalResult := mrOK
@@ -1040,7 +1062,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.ArchiveFooters(FResumeID: integer): boolean;
+function TFormNewResume.ArchiveFooters(FResumeID: integer): boolean;
 begin
   try
     UniArchiveFooters.Close;
@@ -1056,7 +1078,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.ArchiveJobs(FResumeID: integer): boolean;
+function TFormNewResume.ArchiveJobs(FResumeID: integer): boolean;
 begin
   try
     UniArchiveJobs.Close;
@@ -1072,7 +1094,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.ArchiveResume(const FResumeName,
+function TFormNewResume.ArchiveResume(const FResumeName,
   FLang: string): boolean;
 begin
   try
@@ -1090,7 +1112,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.SaveResume(var FResumeid:integer): boolean;
+function TFormNewResume.SaveResume(var FResumeid:integer): boolean;
 var Resume_id:integer;
 begin
   try
@@ -1129,7 +1151,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.SaveFooters(const FResumeID: integer;
+function TFormNewResume.SaveFooters(const FResumeID: integer;
   const FFooterHeader, FFooterText: string;
   const FFooterOrder: integer): boolean;
 begin
@@ -1159,7 +1181,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.SaveJobs(const FResumeID: integer;
+function TFormNewResume.SaveJobs(const FResumeID: integer;
   const FJobPosition: string; const FStartDate, FEndDate: TDate;
   FEmployer, FResponsibilities, FBenefits, FLeaveReason: string;
   var FExperienceID: integer): boolean;
@@ -1206,7 +1228,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.SaveSkill(const FSkill: string;
+function TFormNewResume.SaveSkill(const FSkill: string;
   var FSkillID: integer): boolean;
 begin
   try
@@ -1235,7 +1257,7 @@ begin
 
 end;
 
-function TFormNewResumeTranslation.SaveSkillLists(const FExperienceID: integer;
+function TFormNewResume.SaveSkillLists(const FExperienceID: integer;
   const FSkillsList: TStrings): boolean;
 var
   i, FSkillID: integer;
@@ -1267,7 +1289,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.SaveSkillShowList(const FSkillID,
+function TFormNewResume.SaveSkillShowList(const FSkillID,
   FExperienceID: integer): boolean;
 begin
   // insert into skill_show_lists
@@ -1298,7 +1320,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.SaveValues: boolean;
+function TFormNewResume.SaveValues: boolean;
 var
   FResumeID, FExperienceID: integer;
 begin
@@ -1379,7 +1401,7 @@ begin
   end;
 end;
 
-function TFormNewResumeTranslation.CheckValues: boolean;
+function TFormNewResume.CheckValues: boolean;
 var
   IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
     IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
@@ -1824,7 +1846,7 @@ begin
   Result := true;
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyFooterTR;
+procedure TFormNewResume.SetEmptyFooterTR;
 begin
   EditArticle1TR.Text := '';
   MemoArticle1TR.Text := '';
@@ -1836,7 +1858,7 @@ begin
   MemoArticle4TR.Text := '';
 end;
 
-procedure TFormNewResumeTranslation.CopyResumeTRfromUA;
+procedure TFormNewResume.CopyResumeTRfromUA;
 begin
   if IsEmpty(EditNameTR.Text) then
     EditNameTR.Text := EditNameUA.Text;
@@ -1850,7 +1872,7 @@ begin
     MemoIntroTR.Text := MemoIntroUA.Text;
 end;
 
-procedure TFormNewResumeTranslation.CopyFooterTRfromUA;
+procedure TFormNewResume.CopyFooterTRfromUA;
 begin
   if IsEmpty(EditArticle1TR.Text) then
     EditArticle1TR.Text := EditArticle1UA.Text;
@@ -1870,7 +1892,7 @@ begin
     MemoArticle4TR.Text := MemoArticle4UA.Text;
 end;
 
-procedure TFormNewResumeTranslation.CopyJobsTRFromUA;
+procedure TFormNewResume.CopyJobsTRFromUA;
 begin
   if IsEmpty(Edit1DatesTR.Text) then
     Edit1DatesTR.Text := Edit1DatesUA.Text;
@@ -2004,7 +2026,7 @@ begin
 
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyFooterUA;
+procedure TFormNewResume.SetEmptyFooterUA;
 begin
   MemoArticle1UA.Text := '';
   EditArticle1UA.Text := '';
@@ -2016,7 +2038,7 @@ begin
   EditArticle4UA.Text := '';
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyJobsTR;
+procedure TFormNewResume.SetEmptyJobsTR;
 begin
   Edit1DatesTR.Text := '';
   Edit1NameTR.Text := '';
@@ -2089,7 +2111,7 @@ begin
   Edit10BottomTR.Text := '';
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyJobsUA;
+procedure TFormNewResume.SetEmptyJobsUA;
 begin
   Edit1DatesUA.Text := '';
   Edit1NameUA.Text := '';
@@ -2171,7 +2193,7 @@ begin
   Edit10BottomUA.Text := '';
 end;
 
-procedure TFormNewResumeTranslation.SetEmptyResume;
+procedure TFormNewResume.SetEmptyResume;
 begin
   EditNameTR.Clear;
   EditOpportunityTR.Clear;
@@ -2182,7 +2204,7 @@ begin
   ComboBoxRegionTR.Text := 'Ukraine';
 end;
 
-procedure TFormNewResumeTranslation.GetValuesFromTemplate(TemplateId: integer);
+procedure TFormNewResume.GetValuesFromTemplate(TemplateId: integer);
 begin
   if TemplateId <= 0 then
     SetEmptyResume;
@@ -2219,7 +2241,7 @@ begin
   end;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates1;
+procedure TFormNewResume.ChangeDates1;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2228,7 +2250,7 @@ begin
   Edit1DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates2;
+procedure TFormNewResume.ChangeDates2;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2237,7 +2259,7 @@ begin
   Edit2DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates3;
+procedure TFormNewResume.ChangeDates3;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2246,7 +2268,7 @@ begin
   Edit3DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates4;
+procedure TFormNewResume.ChangeDates4;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2255,7 +2277,7 @@ begin
   Edit4DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates5;
+procedure TFormNewResume.ChangeDates5;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2264,7 +2286,7 @@ begin
   Edit5DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates6;
+procedure TFormNewResume.ChangeDates6;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2273,7 +2295,7 @@ begin
   Edit6DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates7;
+procedure TFormNewResume.ChangeDates7;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2282,7 +2304,7 @@ begin
   Edit7DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates8;
+procedure TFormNewResume.ChangeDates8;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2291,7 +2313,7 @@ begin
   Edit8DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates9;
+procedure TFormNewResume.ChangeDates9;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2300,7 +2322,7 @@ begin
   Edit9DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.ChangeDates10;
+procedure TFormNewResume.ChangeDates10;
 var
   FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
@@ -2309,102 +2331,102 @@ begin
   Edit10DatesTR.Text := FullMBYear + '-' + FullMEYear;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB10TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB10TRCloseUp(Sender: TObject);
 begin
   ChangeDates10;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB1TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB1TRCloseUp(Sender: TObject);
 begin
   ChangeDates1;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB2TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB2TRCloseUp(Sender: TObject);
 begin
   ChangeDates2;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB3TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB3TRCloseUp(Sender: TObject);
 begin
   ChangeDates3;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB4TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB4TRCloseUp(Sender: TObject);
 begin
   ChangeDates4;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB5TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB5TRCloseUp(Sender: TObject);
 begin
   ChangeDates5;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB6TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB6TRCloseUp(Sender: TObject);
 begin
   ChangeDates6;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB7TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB7TRCloseUp(Sender: TObject);
 begin
   ChangeDates7;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB8TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB8TRCloseUp(Sender: TObject);
 begin
   ChangeDates8;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerB9TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerB9TRCloseUp(Sender: TObject);
 begin
   ChangeDates9;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE10TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE10TRCloseUp(Sender: TObject);
 begin
   ChangeDates10;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE1TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE1TRCloseUp(Sender: TObject);
 begin
   ChangeDates1;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE2TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE2TRCloseUp(Sender: TObject);
 begin
   ChangeDates2;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE3TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE3TRCloseUp(Sender: TObject);
 begin
   ChangeDates3;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE4TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE4TRCloseUp(Sender: TObject);
 begin
   ChangeDates4;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE5TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE5TRCloseUp(Sender: TObject);
 begin
   ChangeDates5;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE6TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE6TRCloseUp(Sender: TObject);
 begin
   ChangeDates6;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE7TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE7TRCloseUp(Sender: TObject);
 begin
   ChangeDates7;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE8TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE8TRCloseUp(Sender: TObject);
 begin
   ChangeDates8;
 end;
 
-procedure TFormNewResumeTranslation.CalendarPickerE9TRCloseUp(Sender: TObject);
+procedure TFormNewResume.CalendarPickerE9TRCloseUp(Sender: TObject);
 begin
   ChangeDates9;
 end;

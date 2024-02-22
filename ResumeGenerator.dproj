@@ -105,10 +105,6 @@
             <Form>FormNewTemplate</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="NewUkrainianResume.pas">
-            <Form>FormNewUkrainianResume</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="TranslateResume.pas">
             <Form>FormTranslateResume</Form>
             <FormType>dfm</FormType>
@@ -137,8 +133,8 @@
             <Form>FormListResumes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="NewResumeTranslation.pas">
-            <Form>FormNewResumeTranslation</Form>
+        <DCCReference Include="NewResume.pas">
+            <Form>FormNewResume</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UpdateResume.pas">

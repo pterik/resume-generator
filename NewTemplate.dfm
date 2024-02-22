@@ -58,7 +58,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 881
+    Left = 877
     Top = 616
     Width = 95
     Height = 38
@@ -73,7 +73,7 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 877
+    ExplicitLeft = 873
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -228,7 +228,7 @@ object FormNewTemplate: TFormNewTemplate
     Top = 2
     Width = 980
     Height = 610
-    ActivePage = TabSheetJob1RU
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -3027,8 +3027,8 @@ object FormNewTemplate: TFormNewTemplate
         '_result'#39)
     Connection = FormMain.UniConnection
     Debug = True
-    Left = 630
-    Top = 364
+    Left = 766
+    Top = 420
     ParamData = <
       item
         DataType = ftString
@@ -3250,5 +3250,36 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end>
     CommandStoredProcName = 'insert_skills'
+  end
+  object UniSPDeleteExpSkills: TUniStoredProc
+    StoredProcName = 'delete_experiences_skills'
+    SQL.Strings = (
+      
+        'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
+        'e_id)')
+    Connection = FormMain.UniConnection
+    Left = 632
+    Top = 424
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_flag'
+        ParamType = ptInput
+        Size = 50
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'delete_experiences_skills'
   end
 end

@@ -96,6 +96,7 @@ type
     procedure GetMonthRegionByMask(const D: TDatetime; Region: string;
       var FullMonthYear, ShortMonthYear: string);
     function IsEmpty(const S: String): boolean;
+    function GetMonthByRegion(const D: TDatetime; Region: string):string;
   end;
 
 var
@@ -109,8 +110,8 @@ uses
 System.StrUtils, System.IOUtils, System.Zip, System.inifiles, ShellApi,
 System.Win.ComObj, System.RegularExpressions, System.DateUtils, Vcl.ExtActns,
 // Quick.Console, Quick.SMTP,
-NewTemplate, NewUkrainianResume, TranslateResume, Parameters,
-  Emailbox, TemplatesList, ResumesList;
+NewTemplate, TranslateResume, Parameters,
+  Emailbox, TemplatesList, ResumesList, NewResume;
 
 function TFormMain.IsEmpty(const S: String): boolean;
 begin
@@ -148,10 +149,11 @@ end;
 
 procedure TFormMain.BitBtnNewUkrResumeClick(Sender: TObject);
 begin
-if FormNewUkrainianResume=nil then Application.CreateForm(TFormNewUkrainianResume, FormNewUkrainianResume);
-FormNewUkrainianResume.SetFormValues;
-FormNewUkrainianResume.SetEmptyResume;
-FormNewUkrainianResume.ShowModal;
+if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
+FormNewResume.SetFormValues;
+FormNewResume.SetEmptyUA;
+FormNewResume.SetEmptyTR;
+FormNewResume.ShowModal;
 end;
 
 procedure TFormMain.BitBtnTemplatesClick(Sender: TObject);
@@ -221,10 +223,11 @@ end;
 
 procedure TFormMain.NNewResumeClick(Sender: TObject);
 begin
-if FormNewUkrainianResume=nil then Application.CreateForm(TFormNewUkrainianResume, FormNewUkrainianResume);
-FormNewUkrainianResume.SetFormValues;
-FormNewUkrainianResume.SetEmptyResume;
-FormNewUkrainianResume.ShowModal;
+if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
+FormNewResume.SetFormValues;
+FormNewResume.SetEmptyTR;
+FormNewResume.SetEmptyUA;
+FormNewResume.ShowModal;
 end;
 
 procedure TFormMain.NNewTemplateClick(Sender: TObject);
@@ -254,7 +257,7 @@ var
   Year, MM, Day: Word;
 begin
 DecodeDate(D, Year, MM, Day);
-if lowercase(Region) = 'template' then
+if (lowercase(Region) = 'template') or (lowercase(Region) = 'ru') then
   begin
   case MM of
       1:
@@ -319,7 +322,7 @@ if lowercase(Region) = 'template' then
         end;
     end;
   end;
-if lowercase(Region) = 'ukraine' then
+if (lowercase(Region) = 'ukraine') or (lowercase(Region) = 'ua') then
   begin
   case MM of
       1:
@@ -385,7 +388,7 @@ if lowercase(Region) = 'ukraine' then
     end;
     // січень, лютий, березень, квітень, травень, червень, липень, серпень, вересень, жовтень, листопад, грудень.
   end;
-  if lowercase(Region) = 'poland' then
+  if (lowercase(Region) = 'poland') or (lowercase(Region) = 'pl') then
   begin
     case MM of
       1:
@@ -451,7 +454,7 @@ if lowercase(Region) = 'ukraine' then
     end;
     // styczeń, luty, marzec, kwiecień, maj, czerwiec, lipiec, sierpień, wrzesień, październik, listopad, grudzień.
   end;
-  if lowercase(Region) = 'croatia' then
+  if (lowercase(Region) = 'croatia') or (lowercase(Region) = 'hr') then
   begin
     case MM of
       1:
@@ -517,7 +520,7 @@ if lowercase(Region) = 'ukraine' then
     end;
     // Siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac
   end;
-  if lowercase(Region) = 'germany' then
+  if (lowercase(Region) = 'germany') or (lowercase(Region) = 'de') then
   begin
     case MM of
       1:
@@ -583,7 +586,7 @@ if lowercase(Region) = 'ukraine' then
     end;
     // Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember
   end;
-  if (lowercase(Region) = 'england') or (lowercase(Region) = 'usa\canada') then
+  if (lowercase(Region) = 'england') or (lowercase(Region) = 'usa\canada') or (lowercase(Region) = 'en') or (lowercase(Region) = 'us') then
   begin
     case MM of
       1:
@@ -650,5 +653,120 @@ if lowercase(Region) = 'ukraine' then
     // January, February, March, April, May, June, July, August, September, October, November, December
   end;
 end;
+
+function TFormMain.GetMonthByRegion(const D: TDatetime; Region: string):string;
+var
+  Year, MM, Day: Word;
+begin
+DecodeDate(D, Year, MM, Day);
+if (lowercase(Region) = 'template') or (lowercase(Region) = 'ru') then
+  begin
+  case MM of
+      1: Result:= 'янв' + '. ' + IntToStr(Year);
+      2: Result:= 'фев' + '. ' + IntToStr(Year);
+      3: Result:= 'мар' + '. ' + IntToStr(Year);
+      4: Result:= 'апр' + '. ' + IntToStr(Year);
+      5: Result:= 'май' + '. ' + IntToStr(Year);
+      6: Result:= 'июн' + '. ' + IntToStr(Year);
+      7: Result:= 'июл' + '. ' + IntToStr(Year);
+      8: Result:= 'авг' + '. ' + IntToStr(Year);
+      9: Result:= 'сен' + '. ' + IntToStr(Year);
+      10: Result:= 'окт' + '. ' + IntToStr(Year);
+      11: Result:= 'ноя' + '. ' + IntToStr(Year);
+      12: Result:= 'дек' + '. ' + IntToStr(Year);
+    end;
+  end;
+if (lowercase(Region) = 'ukraine') or (lowercase(Region) = 'ua') then
+  begin
+  case MM of
+      1: Result:= 'січ' + '. ' + IntToStr(Year);
+      2: Result:= 'лют' + '. ' + IntToStr(Year);
+      3: Result:= 'бер' + '. ' + IntToStr(Year);
+      4: Result:= 'кві' + '. ' + IntToStr(Year);
+      5: Result:= 'тра' + '. ' + IntToStr(Year);
+      6: Result:= 'чер' + '. ' + IntToStr(Year);
+      7: Result:= 'лип' + '. ' + IntToStr(Year);
+      8: Result:= 'сер' + '. ' + IntToStr(Year);
+      9: Result:= 'вер' + '. ' + IntToStr(Year);
+      10: Result:= 'жов' + '. ' + IntToStr(Year);
+      11: Result:= 'лис' + '. ' + IntToStr(Year);
+      12: Result:= 'гру' + '. ' + IntToStr(Year);
+    end;
+    // січень, лютий, березень, квітень, травень, червень, липень, серпень, вересень, жовтень, листопад, грудень.
+  end;
+  if (lowercase(Region) = 'poland') or (lowercase(Region) = 'pl') then
+  begin
+    case MM of
+      1: Result:= 'sty' + '. ' + IntToStr(Year);
+      2: Result:= 'lut' + '. ' + IntToStr(Year);
+      3: Result:= 'mar' + '.' + IntToStr(Year);
+      4: Result:= 'kwi' + '. ' + IntToStr(Year);
+      5: Result:= 'maj' + '. ' + IntToStr(Year);
+      6: Result:= 'cze' + '. ' + IntToStr(Year);
+      7: Result:= 'lip' + '. ' + IntToStr(Year);
+      8: Result:= 'sie' + '. ' + IntToStr(Year);
+      9: Result:= 'wrz' + '. ' + IntToStr(Year);
+      10: Result:= 'paź' + '. ' + IntToStr(Year);
+      11: Result:= 'lis' + '. ' + IntToStr(Year);
+      12: Result:= 'gru' + '. ' + IntToStr(Year);
+    end;
+    // styczeń, luty, marzec, kwiecień, maj, czerwiec, lipiec, sierpień, wrzesień, październik, listopad, grudzień.
+  end;
+  if (lowercase(Region) = 'croatia') or (lowercase(Region) = 'hr') then
+  begin
+    case MM of
+      1: Result:= 'sij' + '. ' + IntToStr(Year);
+      2: Result:= 'vel' + '. ' + IntToStr(Year);
+      3: Result:= 'ožu' + '. ' + IntToStr(Year);
+      4: Result:= 'tra' + '. ' + IntToStr(Year);
+      5: Result:= 'svi' + '. ' + IntToStr(Year);
+      6: Result:= 'lip' + '. ' + IntToStr(Year);
+      7: Result:= 'srp' + '. ' + IntToStr(Year);
+      8: Result:= 'kol' + '. ' + IntToStr(Year);
+      9: Result:= 'ruj' + '. ' + IntToStr(Year);
+      10: Result:= 'lis' + '. ' + IntToStr(Year);
+      11: Result:= 'studeni' + '. ' + IntToStr(Year);
+      12: Result:= 'pro' + '. ' + IntToStr(Year);
+    end;
+    // Siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac
+  end;
+  if (lowercase(Region) = 'germany') or (lowercase(Region) = 'de') then
+  begin
+    case MM of
+      1: Result:= 'Jan' + '. ' + IntToStr(Year);
+      2: Result:= 'Feb' + '. ' + IntToStr(Year);
+      3: Result:= 'Mär' + '. ' + IntToStr(Year);
+      4: Result:= 'Apr' + '. ' + IntToStr(Year);
+      5: Result:= 'Mai' + '. ' + IntToStr(Year);
+      6: Result:= 'Jun' + '. ' + IntToStr(Year);
+      7: Result:= 'Jul' + '. ' + IntToStr(Year);
+      8: Result:= 'Aug' + '. ' + IntToStr(Year);
+      9: Result:= 'Sep' + '. ' + IntToStr(Year);
+      10: Result:= 'Okt' + '. ' + IntToStr(Year);
+      11: Result:= 'Nov' + '. ' + IntToStr(Year);
+      12: Result:= 'Dez' + '. ' + IntToStr(Year);
+    end;
+    // Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember
+  end;
+  if (lowercase(Region) = 'england') or (lowercase(Region) = 'usa\canada') or (lowercase(Region) = 'en') or (lowercase(Region) = 'US') then
+  begin
+    case MM of
+      1: Result:= 'Jan' + '. ' + IntToStr(Year);
+      2: Result:= 'Feb' + '. ' + IntToStr(Year);
+      3: Result:= 'Mar' + '. ' + IntToStr(Year);
+      4: Result:= 'Apr' + '. ' + IntToStr(Year);
+      5: Result:= 'May' + '. ' + IntToStr(Year);
+      6: Result:= 'Jun' + '. ' + IntToStr(Year);
+      7: Result:= 'Jul' + ' .' + IntToStr(Year);
+      8: Result:= 'Aug' + '. ' + IntToStr(Year);
+      9: Result:= 'Sep' + '. ' + IntToStr(Year);
+      10: Result:= 'Oct' + '. ' + IntToStr(Year);
+      11: Result:= 'Nov' + '. ' + IntToStr(Year);
+      12: Result:= 'Dec' + '. ' + IntToStr(Year);
+    end;
+    // January, February, March, April, May, June, July, August, September, October, November, December
+  end;
+end;
+
 
 end.

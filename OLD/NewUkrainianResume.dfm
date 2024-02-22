@@ -19,7 +19,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
     658)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 861
+    Left = 857
     Top = 616
     Width = 99
     Height = 34
@@ -29,7 +29,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
     NumGlyphs = 2
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 857
+    ExplicitLeft = 853
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -178,87 +178,91 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
   object PageControl1: TPageControl
     Left = 0
     Top = 8
-    Width = 962
+    Width = 985
     Height = 596
     ActivePage = TabSheetJob1
     Anchors = [akLeft, akTop, akRight, akBottom]
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     Style = tsButtons
     TabOrder = 1
-    ExplicitWidth = 958
-    ExplicitHeight = 595
     object TabSheetMain: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       DesignSize = (
-        954
-        563)
+        977
+        557)
       object Label1: TLabel
         Left = 7
         Top = 6
-        Width = 32
-        Height = 15
+        Width = 42
+        Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label2: TLabel
         Left = 3
         Top = 43
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label3: TLabel
         Left = 475
         Top = 3
-        Width = 76
-        Height = 15
+        Width = 99
+        Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
       end
       object Label4: TLabel
         Left = 11
         Top = 84
-        Width = 55
-        Height = 15
+        Width = 70
+        Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
       end
       object Label5: TLabel
         Left = 0
         Top = 122
-        Width = 51
-        Height = 15
+        Width = 68
+        Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
       end
       object Label14: TLabel
         Left = 731
         Top = 3
-        Width = 30
-        Height = 15
+        Width = 39
+        Height = 21
         Caption = #1052#1086#1074#1072
       end
       object Label6: TLabel
         Left = 835
         Top = 6
-        Width = 35
-        Height = 15
+        Width = 45
+        Height = 21
         Caption = #1056#1077#1075#1110#1086#1085
       end
       object Label16: TLabel
         Left = 34
         Top = 270
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label17: TLabel
         Left = 50
         Top = 300
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object EditName: TEdit
         Left = 72
         Top = 3
         Width = 188
-        Height = 23
+        Height = 29
         TabOrder = 0
         Text = 'EditName'
       end
@@ -266,7 +270,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 72
         Top = 40
         Width = 288
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'EditOpportunity'
       end
@@ -274,7 +278,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 557
         Top = 0
         Width = 162
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 15
         Text = 'EditPlace'
@@ -283,7 +287,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 72
         Top = 80
         Width = 296
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = '+380 (93)1775176 (WhatsApp, Viber)'
       end
@@ -301,7 +305,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 781
         Top = 3
         Width = 29
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 12
         Text = 'UA'
@@ -310,7 +314,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 884
         Top = 3
         Width = 72
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 13
         Text = 'Ukraine'
@@ -318,26 +322,27 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object MemoFooter1: TMemo
         Left = 31
         Top = 299
-        Width = 430
+        Width = 453
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          
-            'Implementation and support for databases and warehouses - 10 yrs' +
-            '.'
-          'Development for Oracle databases, Microsoft SQL server - 7 yrs.'
+          'Implementation and support for databases and warehouses - '
+          '10 yrs.'
+          'Development for Oracle databases, Microsoft SQL server - 7 '
+          'yrs.'
           'Reports and dashboards '#8211' 5 years'
           'Informatica ETL - 4 yrs.'
           'SQL Server Integration Service - 3 yrs.'
           'Linux Systems (Red hat & Ubuntu) - 6 yrs.')
         ScrollBars = ssVertical
         TabOrder = 5
+        ExplicitWidth = 426
       end
       object StaticText1: TStaticText
         Left = 0
         Top = 245
-        Width = 52
-        Height = 19
+        Width = 66
+        Height = 25
         Caption = #1053#1072#1074#1080#1095#1082#1080
         TabOrder = 14
       end
@@ -345,7 +350,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 374
         Top = 80
         Width = 213
-        Height = 23
+        Height = 29
         TabOrder = 16
         Text = '+380 (93)1775176 (WhatsApp, Viber)'
         Items.Strings = (
@@ -367,7 +372,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 31
         Top = 270
         Width = 450
-        Height = 23
+        Height = 29
         TabOrder = 4
         Text = 'EditFooter1'
       end
@@ -375,79 +380,82 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 502
         Top = 270
         Width = 450
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'EditFooter2'
       end
       object MemoFooter2: TMemo
         Left = 502
         Top = 299
-        Width = 430
+        Width = 453
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          
-            'Implementation and support for databases and warehouses - 10 yrs' +
-            '.'
-          'Development for Oracle databases, Microsoft SQL server - 7 yrs.'
+          'Implementation and support for databases and warehouses - '
+          '10 yrs.'
+          'Development for Oracle databases, Microsoft SQL server - 7 '
+          'yrs.'
           'Reports and dashboards '#8211' 5 years'
           'Informatica ETL - 4 yrs.'
           'SQL Server Integration Service - 3 yrs.'
           'Linux Systems (Red hat & Ubuntu) - 6 yrs.')
         ScrollBars = ssVertical
         TabOrder = 7
+        ExplicitWidth = 426
       end
       object EditFooter3: TEdit
         Left = 31
         Top = 422
         Width = 450
-        Height = 23
+        Height = 29
         TabOrder = 8
         Text = 'EditFooter3'
       end
       object MemoFooter3: TMemo
         Left = 31
         Top = 451
-        Width = 430
+        Width = 453
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          
-            'Implementation and support for databases and warehouses - 10 yrs' +
-            '.'
-          'Development for Oracle databases, Microsoft SQL server - 7 yrs.'
+          'Implementation and support for databases and warehouses - '
+          '10 yrs.'
+          'Development for Oracle databases, Microsoft SQL server - 7 '
+          'yrs.'
           'Reports and dashboards '#8211' 5 years'
           'Informatica ETL - 4 yrs.'
           'SQL Server Integration Service - 3 yrs.'
           'Linux Systems (Red hat & Ubuntu) - 6 yrs.')
         ScrollBars = ssVertical
         TabOrder = 9
+        ExplicitWidth = 426
       end
       object EditFooter4: TEdit
         Left = 502
         Top = 422
         Width = 450
-        Height = 23
+        Height = 29
         TabOrder = 10
         Text = 'EditFooter4'
       end
       object MemoFooter4: TMemo
         Left = 502
         Top = 451
-        Width = 430
+        Width = 453
         Height = 109
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
-          
-            'Implementation and support for databases and warehouses - 10 yrs' +
-            '.'
-          'Development for Oracle databases, Microsoft SQL server - 7 yrs.'
+          'Implementation and support for databases and warehouses - '
+          '10 yrs.'
+          'Development for Oracle databases, Microsoft SQL server - 7 '
+          'yrs.'
           'Reports and dashboards '#8211' 5 years'
           'Informatica ETL - 4 yrs.'
           'SQL Server Integration Service - 3 yrs.'
           'Linux Systems (Red hat & Ubuntu) - 6 yrs.')
         ScrollBars = ssVertical
         TabOrder = 11
+        ExplicitWidth = 426
       end
     end
     object TabSheetJob1: TTabSheet
@@ -456,43 +464,43 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label7: TLabel
         Left = 28
         Top = 35
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label8: TLabel
         Left = 16
         Top = 64
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label9: TLabel
         Left = 3
         Top = 6
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label10: TLabel
         Left = 26
         Top = 262
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label11: TLabel
         Left = 42
         Top = 292
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Edit1Dates: TEdit
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit1Dates'
@@ -501,7 +509,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 32
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit1JobName'
       end
@@ -509,7 +517,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 74
         Top = 62
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit1Company'
       end
@@ -581,7 +589,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 261
         Width = 607
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit1Benefits'
       end
@@ -589,7 +597,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 607
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit1Skills'
       end
@@ -610,43 +618,43 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label12: TLabel
         Left = 5
         Top = 6
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label13: TLabel
         Left = 30
         Top = 35
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label15: TLabel
         Left = 18
         Top = 64
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label36: TLabel
         Left = 22
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label37: TLabel
         Left = 38
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Edit2Dates: TEdit
         Left = 76
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit2Dates'
@@ -655,7 +663,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 32
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit2JobName'
       end
@@ -663,7 +671,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 61
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit2Company'
       end
@@ -735,7 +743,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit2Benefits'
       end
@@ -743,7 +751,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit2Skills'
       end
@@ -764,22 +772,22 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label38: TLabel
         Left = 22
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label39: TLabel
         Left = 38
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Edit3Dates: TEdit
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit3Dates'
@@ -788,7 +796,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit3JobName'
       end
@@ -796,7 +804,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 61
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit3Company'
       end
@@ -868,7 +876,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit3Benefits'
       end
@@ -876,7 +884,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit3Skills'
       end
@@ -897,43 +905,43 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label18: TLabel
         Left = 1
         Top = 3
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label19: TLabel
         Left = 30
         Top = 34
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label20: TLabel
         Left = 18
         Top = 60
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label40: TLabel
         Left = 22
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label41: TLabel
         Left = 38
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Edit4Dates: TEdit
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit4Dates'
@@ -942,7 +950,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit4JobName'
       end
@@ -950,7 +958,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 61
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit4Company'
       end
@@ -1022,7 +1030,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit4Benefits'
       end
@@ -1030,7 +1038,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit4Skills'
       end
@@ -1051,22 +1059,22 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label42: TLabel
         Left = 22
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label43: TLabel
         Left = 38
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Edit5Dates: TEdit
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit5Dates'
@@ -1075,7 +1083,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit5JobName'
       end
@@ -1083,7 +1091,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 60
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit5Company'
       end
@@ -1155,7 +1163,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit5Benefits'
       end
@@ -1163,7 +1171,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit5Skills'
       end
@@ -1184,36 +1192,36 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label21: TLabel
         Left = 5
         Top = 5
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label22: TLabel
         Left = 30
         Top = 34
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label23: TLabel
         Left = 18
         Top = 63
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label44: TLabel
         Left = 22
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label45: TLabel
         Left = 38
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Memo6JobResp: TMemo
@@ -1230,7 +1238,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit6Benefits'
       end
@@ -1238,7 +1246,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit6Skills'
       end
@@ -1246,7 +1254,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit6Dates'
@@ -1255,7 +1263,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 4
         Text = 'Edit6JobName'
       end
@@ -1263,7 +1271,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 60
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 5
         Text = 'Edit6Company'
       end
@@ -1338,36 +1346,36 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label24: TLabel
         Left = 5
         Top = 5
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label25: TLabel
         Left = 30
         Top = 34
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label26: TLabel
         Left = 18
         Top = 63
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label46: TLabel
         Left = 18
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label47: TLabel
         Left = 34
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Memo7JobResp: TMemo
@@ -1384,7 +1392,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit7Benefits'
       end
@@ -1392,7 +1400,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit7Skills'
       end
@@ -1454,7 +1462,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit7Dates'
@@ -1463,7 +1471,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit7JobName'
       end
@@ -1471,7 +1479,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 61
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit7Company'
       end
@@ -1492,36 +1500,36 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label27: TLabel
         Left = 5
         Top = 2
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label28: TLabel
         Left = 30
         Top = 31
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label29: TLabel
         Left = 18
         Top = 60
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label48: TLabel
         Left = 22
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label49: TLabel
         Left = 38
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Memo8JobResp: TMemo
@@ -1538,7 +1546,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit8Benefits'
       end
@@ -1546,7 +1554,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit8Skills'
       end
@@ -1608,7 +1616,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit8Dates'
@@ -1617,7 +1625,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit8JobName'
       end
@@ -1625,7 +1633,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 60
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit8Company'
       end
@@ -1646,36 +1654,36 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label30: TLabel
         Left = 5
         Top = 5
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label31: TLabel
         Left = 30
         Top = 34
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label32: TLabel
         Left = 18
         Top = 63
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label50: TLabel
         Left = 18
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label51: TLabel
         Left = 34
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Memo9JobResp: TMemo
@@ -1692,7 +1700,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit9Benefits'
       end
@@ -1700,7 +1708,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit9Skills'
       end
@@ -1708,7 +1716,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit9Dates'
@@ -1771,7 +1779,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit9JobName'
       end
@@ -1779,7 +1787,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 61
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit9Company'
       end
@@ -1800,36 +1808,36 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
       object Label33: TLabel
         Left = 5
         Top = 5
-        Width = 69
-        Height = 15
+        Width = 91
+        Height = 21
         Caption = #1044#1072#1090#1080' '#1088#1086#1073#1086#1090#1080
       end
       object Label34: TLabel
         Left = 30
         Top = 34
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label35: TLabel
         Left = 18
         Top = 63
-        Width = 52
-        Height = 15
+        Width = 67
+        Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label52: TLabel
         Left = 22
         Top = 263
-        Width = 42
-        Height = 15
+        Width = 55
+        Height = 21
         Caption = 'Benefits'
       end
       object Label53: TLabel
         Left = 38
         Top = 293
-        Width = 26
-        Height = 15
+        Width = 36
+        Height = 21
         Caption = 'Skills'
       end
       object Memo10JobResp: TMemo
@@ -1846,7 +1854,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 290
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit10Benefits'
       end
@@ -1854,7 +1862,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 70
         Top = 260
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit10Skills'
       end
@@ -1916,7 +1924,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit10Dates'
@@ -1925,7 +1933,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 31
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit10JobName'
       end
@@ -1933,7 +1941,7 @@ object FormNewUkrainianResume: TFormNewUkrainianResume
         Left = 76
         Top = 61
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit10Company'
       end

@@ -4674,9 +4674,9 @@ object FormMain: TFormMain
   object BitBtnNewUkrResume: TBitBtn
     Left = 8
     Top = 581
-    Width = 233
+    Width = 153
     Height = 40
-    Caption = #1053#1086#1074#1077' '#1091#1082#1088#1072#1111#1085#1089#1100#1082#1077' '#1088#1077#1079#1102#1084#1077
+    Caption = #1053#1086#1074#1077' '#1088#1077#1079#1102#1084#1077
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

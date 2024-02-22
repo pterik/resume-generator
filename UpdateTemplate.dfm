@@ -187,7 +187,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     Top = 8
     Width = 980
     Height = 610
-    ActivePage = TabSheet10RU
+    ActivePage = TabSheetJob1RU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -511,7 +511,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object MemoArticle1RU: TMemo
         Left = 2
-        Top = 33
+        Top = 32
         Width = 967
         Height = 110
         Anchors = [akLeft, akTop, akRight]

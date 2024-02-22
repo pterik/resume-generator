@@ -1,4 +1,4 @@
-object FormNewResumeTranslation: TFormNewResumeTranslation
+object FormNewResume: TFormNewResume
   Left = 0
   Top = 0
   Caption = #1053#1086#1074#1080#1081' '#1087#1077#1088#1077#1082#1083#1072#1076' '#1088#1077#1079#1102#1084#1077
@@ -7,7 +7,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -12
+  Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnCreate = FormCreate
@@ -15,22 +15,20 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
   DesignSize = (
     988
     680)
-  TextHeight = 15
+  TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 829
-    Top = 640
+    Left = 890
+    Top = 644
     Width = 98
     Height = 36
     Anchors = [akRight, akBottom]
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 825
-    ExplicitTop = 639
   end
   object BitBtnSave: TBitBtn
-    Left = 8
-    Top = 640
+    Left = 2
+    Top = 644
     Width = 96
     Height = 36
     Anchors = [akLeft, akBottom]
@@ -169,115 +167,120 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
     ModalResult = 1
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 639
   end
   object PageControlUA: TPageControl
     Left = 2
     Top = 8
     Width = 980
-    Height = 273
-    ActivePage = TabSheetFooterUA
+    Height = 320
+    ActivePage = TabSheetMainUA
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     Style = tsButtons
     TabOrder = 2
     OnChange = PageControlUAChange
     object TabSheetMainUA: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       object Label7: TLabel
-        Left = 147
-        Top = 6
-        Width = 40
-        Height = 15
+        Left = 138
+        Top = 3
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label8: TLabel
-        Left = 357
-        Top = 6
-        Width = 53
-        Height = 15
+        Left = 461
+        Top = 3
+        Width = 68
+        Height = 21
         Caption = #1055#1086#1074#1085#1110#1089#1090#1102
       end
       object Label9: TLabel
-        Left = 147
-        Top = 32
-        Width = 76
-        Height = 15
+        Left = 138
+        Top = 29
+        Width = 99
+        Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
       end
       object Label10: TLabel
-        Left = 357
-        Top = 32
-        Width = 55
-        Height = 15
+        Left = 461
+        Top = 29
+        Width = 70
+        Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
       end
       object Label12: TLabel
         Left = 3
         Top = 6
-        Width = 30
-        Height = 15
+        Width = 39
+        Height = 21
         Caption = #1052#1086#1074#1072
       end
       object Label13: TLabel
         Left = 3
         Top = 32
-        Width = 35
-        Height = 15
+        Width = 45
+        Height = 21
         Caption = #1056#1077#1075#1110#1086#1085
       end
       object LabelFooterID: TLabel
-        Left = 744
+        Left = 832
         Top = 6
-        Width = 73
-        Height = 15
+        Width = 97
+        Height = 21
         Caption = 'LabelFooterID'
       end
       object Label11: TLabel
         Left = 3
         Top = 62
-        Width = 51
-        Height = 15
+        Width = 68
+        Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
       end
       object EditNameUA: TEdit
-        Left = 198
-        Top = 3
-        Width = 145
-        Height = 23
+        Left = 243
+        Top = 0
+        Width = 212
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'EditNameUA'
       end
       object EditOpportunityUA: TEdit
-        Left = 419
-        Top = 3
+        Left = 535
+        Top = 0
         Width = 295
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'EditOpportunityUA'
       end
       object EditPlaceUA: TEdit
-        Left = 229
-        Top = 30
-        Width = 114
-        Height = 23
+        Left = 243
+        Top = 34
+        Width = 212
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'EditPlaceUA'
       end
       object EditPhonesUA: TEdit
-        Left = 418
-        Top = 30
+        Left = 534
+        Top = 34
         Width = 296
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'EditPhonesUA'
       end
       object MemoIntroUA: TMemo
-        Left = 57
-        Top = 59
-        Width = 912
+        Left = 97
+        Top = 70
+        Width = 872
         Height = 160
         Lines.Strings = (
           
@@ -293,23 +296,23 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ScrollBars = ssVertical
         TabOrder = 4
       end
-      object EditLangUA: TEdit
-        Left = 54
-        Top = 3
+      object EditLangTR: TEdit
+        Left = 60
+        Top = 0
         Width = 72
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
-        Text = 'UA'
+        Text = 'RU'
       end
-      object EditRegionUA: TEdit
-        Left = 57
-        Top = 30
+      object EditRegionTR: TEdit
+        Left = 60
+        Top = 35
         Width = 72
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 6
-        Text = 'Ukraine'
+        Text = 'Template'
       end
     end
     object TabSheetFooterUA: TTabSheet
@@ -317,12 +320,12 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       ImageIndex = 11
       DesignSize = (
         972
-        240)
+        281)
       object StaticText1: TStaticText
         Left = 3
         Top = 2
-        Width = 52
-        Height = 19
+        Width = 66
+        Height = 25
         Caption = #1053#1072#1074#1080#1095#1082#1080
         TabOrder = 0
       end
@@ -330,7 +333,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 61
         Top = 2
         Width = 421
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'EditArticle1UA'
@@ -339,7 +342,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 510
         Top = 3
         Width = 464
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'EditArticle2UA'
@@ -372,7 +375,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 16
         Top = 140
         Width = 462
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'EditArticle3UA'
@@ -381,7 +384,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 504
         Top = 140
         Width = 464
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'EditArticle4UA'
@@ -418,7 +421,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit1DatesUA'
@@ -427,7 +430,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 445
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit1NameUA'
@@ -436,7 +439,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 651
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit1CompanyUA'
@@ -456,7 +459,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 116
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit1BenefitsUA'
@@ -465,7 +468,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 500
         Top = 116
         Width = 470
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit1BottomUA'
@@ -481,6 +484,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ScrollBars = ssVertical
         TabOrder = 6
       end
+      object CalendarPickerB1: TCalendarPicker
+        Left = 223
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPickerE1: TCalendarPicker
+        Left = 329
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
+      end
     end
     object TabSheetJob2UA: TTabSheet
       Caption = 'Job 2'
@@ -489,7 +544,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit2DatesUA'
@@ -498,7 +553,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 444
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit2NameUA'
@@ -507,7 +562,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 650
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit2CompanyUA'
@@ -527,7 +582,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 122
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit2BenefitsUA'
@@ -536,7 +591,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 122
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit2BottomUA'
@@ -552,6 +607,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ScrollBars = ssVertical
         TabOrder = 6
       end
+      object CalendarPicker1: TCalendarPicker
+        Left = 210
+        Top = -1
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker2: TCalendarPicker
+        Left = 316
+        Top = -1
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
+      end
     end
     object TabSheetJob3UA: TTabSheet
       Caption = 'Job 3'
@@ -560,7 +667,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit3DatesUA'
@@ -569,7 +676,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 440
         Top = 1
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit3NameUA'
@@ -578,7 +685,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 646
         Top = 1
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit3CompanyUA'
@@ -598,7 +705,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit3BenefitsUA'
@@ -607,7 +714,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 493
         Top = 114
         Width = 472
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit3BottomUA'
@@ -623,6 +730,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ScrollBars = ssVertical
         TabOrder = 6
       end
+      object CalendarPicker3: TCalendarPicker
+        Left = 210
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker4: TCalendarPicker
+        Left = 316
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
+      end
     end
     object TabSheetJob4UA: TTabSheet
       Caption = 'Job 4'
@@ -631,7 +790,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit4DatesUA'
@@ -640,7 +799,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 442
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit4NameUA'
@@ -649,7 +808,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 648
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit4CompanyUA'
@@ -669,7 +828,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit4BenefitsUA'
@@ -678,7 +837,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit4BottomUA'
@@ -694,6 +853,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ScrollBars = ssVertical
         TabOrder = 6
       end
+      object CalendarPicker5: TCalendarPicker
+        Left = 210
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker6: TCalendarPicker
+        Left = 316
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
+      end
     end
     object TabSheetJob5UA: TTabSheet
       Caption = 'Job 5'
@@ -702,7 +913,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 1
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit5DatesUA'
@@ -711,7 +922,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 442
         Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit5NameUA'
@@ -720,7 +931,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 648
         Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit5CompanyUA'
@@ -740,7 +951,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit5BenefitsUA'
@@ -749,7 +960,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 115
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit5BottomUA'
@@ -764,6 +975,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 6
+      end
+      object CalendarPicker7: TCalendarPicker
+        Left = 209
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker8: TCalendarPicker
+        Left = 315
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
       end
     end
     object TabSheetJob6UA: TTabSheet
@@ -784,7 +1047,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit6BenefitsUA'
@@ -793,7 +1056,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit6BottomUA'
@@ -802,7 +1065,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 1
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit6DatesUA'
@@ -811,7 +1074,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 447
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit6NameUA'
@@ -820,7 +1083,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 653
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit6CompanyUA'
@@ -835,6 +1098,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 6
+      end
+      object CalendarPicker9: TCalendarPicker
+        Left = 209
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker10: TCalendarPicker
+        Left = 315
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
       end
     end
     object TabSheetJob7UA: TTabSheet
@@ -855,7 +1170,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 116
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit7BenefitsUA'
@@ -864,34 +1179,34 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 116
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit7BottomUA'
       end
       object Edit7DatesUA: TEdit
         Left = 4
-        Top = 2
+        Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit7DatesUA'
       end
       object Edit7NameUA: TEdit
         Left = 454
-        Top = 2
+        Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit7NameUA'
       end
       object Edit7CompanyUA: TEdit
         Left = 670
-        Top = 2
+        Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit7CompanyUA'
@@ -906,6 +1221,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 6
+      end
+      object CalendarPicker11: TCalendarPicker
+        Left = 210
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker12: TCalendarPicker
+        Left = 316
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
       end
     end
     object TabSheetJob8UA: TTabSheet
@@ -926,7 +1293,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit8BenefitsUA'
@@ -935,7 +1302,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit8BottomUA'
@@ -944,7 +1311,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit8DatesUA'
@@ -953,7 +1320,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 450
         Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit8NameUA'
@@ -962,7 +1329,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 656
         Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit8CompanyUA'
@@ -977,6 +1344,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 6
+      end
+      object CalendarPicker13: TCalendarPicker
+        Left = 210
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker14: TCalendarPicker
+        Left = 316
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
       end
     end
     object TabSheetJob9UA: TTabSheet
@@ -997,7 +1416,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 115
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit9BenefitsUA'
@@ -1006,7 +1425,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit9BottomUA'
@@ -1015,7 +1434,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit9DatesUA'
@@ -1024,7 +1443,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 451
         Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit9NameUA'
@@ -1033,7 +1452,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 667
         Top = 0
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit9CompanyUA'
@@ -1048,6 +1467,58 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ReadOnly = True
         ScrollBars = ssVertical
         TabOrder = 6
+      end
+      object CalendarPicker15: TCalendarPicker
+        Left = 210
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker16: TCalendarPicker
+        Left = 316
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
       end
     end
     object TabSheet10UA: TTabSheet
@@ -1068,7 +1539,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'Edit10BenefitsUA'
@@ -1077,7 +1548,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 490
         Top = 114
         Width = 480
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit10BottomUA'
@@ -1086,7 +1557,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit10DatesUA'
@@ -1095,7 +1566,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 451
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 4
         Text = 'Edit10NameUA'
@@ -1104,7 +1575,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 665
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit10CompanyUA'
@@ -1120,14 +1591,72 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         ScrollBars = ssVertical
         TabOrder = 6
       end
+      object CalendarPicker17: TCalendarPicker
+        Left = 210
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        TextHint = 'select a date'
+      end
+      object CalendarPicker18: TCalendarPicker
+        Left = 316
+        Top = 0
+        Width = 100
+        Height = 32
+        CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
+        CalendarHeaderInfo.DaysOfWeekFont.Height = -13
+        CalendarHeaderInfo.DaysOfWeekFont.Name = 'Segoe UI'
+        CalendarHeaderInfo.DaysOfWeekFont.Style = []
+        CalendarHeaderInfo.Font.Charset = DEFAULT_CHARSET
+        CalendarHeaderInfo.Font.Color = clWindowText
+        CalendarHeaderInfo.Font.Height = -20
+        CalendarHeaderInfo.Font.Name = 'Segoe UI'
+        CalendarHeaderInfo.Font.Style = []
+        Color = clWindow
+        FirstDayOfWeek = dwMonday
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clGray
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        TextHint = 'select a date'
+      end
     end
   end
   object PageControlTR: TPageControl
-    Left = 2
-    Top = 287
+    Left = 0
+    Top = 320
     Width = 980
-    Height = 338
-    ActivePage = TabSheetJob1TR
+    Height = 320
+    ActivePage = TabSheetFooterTR
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
     Style = tsButtons
     TabOrder = 3
     OnChange = PageControlTRChange
@@ -1136,107 +1665,107 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       object Label1: TLabel
         Left = 163
         Top = 2
-        Width = 40
-        Height = 15
+        Width = 52
+        Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
       end
       object Label2: TLabel
         Left = 455
         Top = 2
-        Width = 53
-        Height = 15
+        Width = 68
+        Height = 21
         Caption = #1055#1086#1074#1085#1110#1089#1090#1102
       end
       object Label3: TLabel
         Left = 163
-        Top = 30
-        Width = 76
-        Height = 15
+        Top = 35
+        Width = 99
+        Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
       end
       object Label4: TLabel
         Left = 453
-        Top = 30
-        Width = 55
-        Height = 15
+        Top = 35
+        Width = 70
+        Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
       end
       object Label5: TLabel
         Left = 3
-        Top = 65
-        Width = 51
-        Height = 15
+        Top = 137
+        Width = 68
+        Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
       end
       object Label6: TLabel
         Left = 3
         Top = 2
-        Width = 30
-        Height = 15
+        Width = 39
+        Height = 21
         Caption = #1052#1086#1074#1072
       end
       object Label14: TLabel
         Left = 3
-        Top = 30
-        Width = 35
-        Height = 15
+        Top = 35
+        Width = 45
+        Height = 21
         Caption = #1056#1077#1075#1110#1086#1085
       end
       object EditNameTR: TEdit
         Left = 245
-        Top = 3
+        Top = 0
         Width = 188
-        Height = 23
+        Height = 29
         TabOrder = 0
         Text = 'EditNameTR'
       end
       object EditOpportunityTR: TEdit
         Left = 523
-        Top = 2
+        Top = 0
         Width = 295
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'EditOpportunityTR'
       end
       object EditPlaceTR: TEdit
         Left = 245
-        Top = 30
+        Top = 35
         Width = 188
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'EditPlaceTR'
       end
       object EditPhonesTR: TEdit
         Left = 523
-        Top = 30
+        Top = 35
         Width = 296
-        Height = 23
+        Height = 29
         TabOrder = 3
         Text = 'EditPhonesTR'
       end
       object MemoIntroTR: TMemo
-        Left = 60
-        Top = 60
-        Width = 909
+        Left = 99
+        Top = 104
+        Width = 879
         Height = 160
         Lines.Strings = (
           'MemoIntroTR')
         ScrollBars = ssVertical
         TabOrder = 4
       end
-      object ComboBoxRegionTR: TComboBox
+      object CBRegionTR: TComboBox
         Left = 60
-        Top = 30
+        Top = 35
         Width = 80
-        Height = 23
+        Height = 29
         TabOrder = 5
         Text = 'ComboBoxRegion'
       end
-      object ComboBoxLangTR: TComboBox
+      object CBLangTR: TComboBox
         Left = 60
-        Top = 2
+        Top = 0
         Width = 81
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'ComboBoxLang'
       end
@@ -1246,12 +1775,12 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       ImageIndex = 11
       DesignSize = (
         972
-        305)
+        281)
       object EditArticle1TR: TEdit
         Left = 62
         Top = 2
         Width = 421
-        Height = 23
+        Height = 29
         TabOrder = 0
         Text = 'EditArticle1TR'
       end
@@ -1259,7 +1788,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 506
         Top = 2
         Width = 464
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'EditArticle2TR'
       end
@@ -1289,7 +1818,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 17
         Top = 141
         Width = 466
-        Height = 23
+        Height = 29
         TabOrder = 4
         Text = 'EditArticle3TR'
       end
@@ -1297,7 +1826,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 506
         Top = 141
         Width = 464
-        Height = 23
+        Height = 29
         TabOrder = 5
         Text = 'EditArticle4TR'
       end
@@ -1326,8 +1855,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       object StaticText3: TStaticText
         Left = 4
         Top = 3
-        Width = 52
-        Height = 19
+        Width = 66
+        Height = 25
         Caption = #1053#1072#1074#1080#1095#1082#1080
         TabOrder = 8
       end
@@ -1339,7 +1868,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 4
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit1DatesTR'
@@ -1348,7 +1877,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 445
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit1NameTR'
       end
@@ -1356,7 +1885,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 651
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit1CompanyTR'
       end
@@ -1428,7 +1957,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit1BenefitsTR'
       end
@@ -1436,7 +1965,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 489
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit1BottomTR'
       end
@@ -1458,7 +1987,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ParentShowHint = False
         ShowHint = True
         TabOrder = 0
@@ -1468,7 +1997,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 461
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit2NameTR'
       end
@@ -1476,7 +2005,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 667
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit2CompanyTR'
       end
@@ -1548,7 +2077,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit2BenefitsTR'
       end
@@ -1556,7 +2085,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 487
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit2BottomTR'
       end
@@ -1578,7 +2107,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit3DatesTR'
@@ -1587,7 +2116,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 456
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit3NameTR'
       end
@@ -1595,7 +2124,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 662
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit3CompanyTR'
       end
@@ -1667,7 +2196,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit3BenefitsTR'
       end
@@ -1675,7 +2204,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 488
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit3BottomTR'
       end
@@ -1697,7 +2226,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit4DatesTR'
@@ -1706,7 +2235,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 443
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit4NameTR'
       end
@@ -1714,7 +2243,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 657
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit4CompanyTR'
       end
@@ -1786,7 +2315,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit4BenefitsTR'
       end
@@ -1794,7 +2323,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 488
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit4BottomTR'
       end
@@ -1816,7 +2345,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit5DatesTR'
@@ -1825,7 +2354,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 453
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit5NameTR'
       end
@@ -1833,7 +2362,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 667
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit5CompanyTR'
       end
@@ -1905,7 +2434,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit5BenefitsTR'
       end
@@ -1913,7 +2442,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 489
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit5BottomTR'
       end
@@ -1945,7 +2474,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit6BenefitsTR'
       end
@@ -1953,7 +2482,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 489
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit6BottomTR'
       end
@@ -1961,7 +2490,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit6DatesTR'
@@ -1970,7 +2499,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 443
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 4
         Text = 'Edit6NameTR'
       end
@@ -1978,7 +2507,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 649
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 5
         Text = 'Edit6CompanyTR'
       end
@@ -2064,7 +2593,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit7BenefitsTR'
       end
@@ -2072,7 +2601,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 489
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit7BottomTR'
       end
@@ -2134,7 +2663,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit7DatesTR'
@@ -2143,7 +2672,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 443
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit7NameTR'
       end
@@ -2151,7 +2680,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 649
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit7CompanyTR'
       end
@@ -2183,7 +2712,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 1
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit8BenefitsTR'
       end
@@ -2191,7 +2720,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 487
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit8BottomTR'
       end
@@ -2253,7 +2782,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit8DatesTR'
@@ -2262,7 +2791,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 442
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit8NameTR'
       end
@@ -2270,7 +2799,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 648
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit8CompanyTR'
       end
@@ -2302,7 +2831,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit9BenefitsTR'
       end
@@ -2310,7 +2839,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 488
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit9BottomTR'
       end
@@ -2318,7 +2847,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 3
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit9DatesTR'
@@ -2381,7 +2910,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 442
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit9NameTR'
       end
@@ -2389,7 +2918,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 648
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit9CompanyTR'
       end
@@ -2421,7 +2950,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 3
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 1
         Text = 'Edit10BenefitsTR'
       end
@@ -2429,7 +2958,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 489
         Top = 155
         Width = 480
-        Height = 23
+        Height = 29
         TabOrder = 2
         Text = 'Edit10BottomTR'
       end
@@ -2491,7 +3020,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 2
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         ReadOnly = True
         TabOrder = 5
         Text = 'Edit10DatesTR'
@@ -2500,7 +3029,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 444
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 6
         Text = 'Edit10NameTR'
       end
@@ -2508,7 +3037,7 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         Left = 650
         Top = 2
         Width = 200
-        Height = 23
+        Height = 29
         TabOrder = 7
         Text = 'Edit10CompanyTR'
       end
@@ -2526,8 +3055,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
   end
   object BitBtnCopy: TBitBtn
     Left = 184
-    Top = 640
-    Width = 137
+    Top = 644
+    Width = 145
     Height = 36
     Anchors = [akLeft, akBottom]
     Caption = 'Copy from UA'
@@ -2596,7 +3125,6 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       3F501E3F6F3F6F3F6F0E68686868686868686868686868680000}
     TabOrder = 4
     OnClick = BitBtnCopyClick
-    ExplicitTop = 639
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (
@@ -2838,8 +3366,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  :p_footer_text ,'
       '  :p_footer_order, '
       '  :p_archived)')
-    Left = 208
-    Top = 368
+    Left = 712
+    Top = 520
     ParamData = <
       item
         DataType = ftInteger
@@ -2903,8 +3431,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
       '  :p_responsibilities ,'
       '  :p_benefits ,'
       '  :p_leave_reason)')
-    Left = 336
-    Top = 368
+    Left = 512
+    Top = 520
     ParamData = <
       item
         DataType = ftInteger
@@ -3426,8 +3954,8 @@ object FormNewResumeTranslation: TFormNewResumeTranslation
         '(:p_name, :p_lang, :p_region_id, :p_job_opportunity, :p_job_plac' +
         'e, :p_cv_docx_url, :p_cv_pdf_url,'
       ':p_phone_numbers_text, :p_resume_introduction)')
-    Left = 94
-    Top = 364
+    Left = 622
+    Top = 476
     ParamData = <
       item
         DataType = ftString

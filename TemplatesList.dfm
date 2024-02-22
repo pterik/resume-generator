@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     662)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 869
+    Left = 865
     Top = 614
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormTemplatesList: TFormTemplatesList
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 865
+    ExplicitLeft = 861
     ExplicitTop = 613
   end
   object DBGrid1: TDBGrid
@@ -467,7 +467,7 @@ object FormTemplatesList: TFormTemplatesList
       0000000000000000000000000000000000000000000000000000}
     ParentFont = False
     TabOrder = 5
-    OnClick = BitBtnNewTemplateClick
+    OnClick = BitBtnNewResumeClick
   end
   object UniTemplates: TUniQuery
     Connection = FormMain.UniConnection

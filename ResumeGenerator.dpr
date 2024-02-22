@@ -3,7 +3,6 @@ program ResumeGenerator;
 uses
   Vcl.Forms,
   NewTemplate in 'NewTemplate.pas' {FormNewTemplate},
-  NewUkrainianResume in 'NewUkrainianResume.pas' {FormNewUkrainianResume},
   TranslateResume in 'TranslateResume.pas' {FormTranslateResume},
   MainForm in 'MainForm.pas' {FormMain},
   Parameters in 'Parameters.pas' {FormParameters},
@@ -11,7 +10,7 @@ uses
   TemplatesList in 'TemplatesList.pas' {FormTemplatesList},
   UpdateTemplate in 'UpdateTemplate.pas' {FormUpdateTemplate},
   ResumesList in 'ResumesList.pas' {FormListResumes},
-  NewResumeTranslation in 'NewResumeTranslation.pas' {FormNewResumeTranslation},
+  NewResume in 'NewResume.pas' {FormNewResume},
   UpdateResume in 'UpdateResume.pas' {FormUpdateResume},
   CheckMailboxes in 'CheckMailboxes.pas' {FormCheckMailboxes};
 

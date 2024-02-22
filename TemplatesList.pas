@@ -37,6 +37,7 @@ type
     procedure BitBtnEditTemplateClick(Sender: TObject);
     procedure UniTemplatesCalcFields(DataSet: TDataSet);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure BitBtnNewResumeClick(Sender: TObject);
   private
   {}
   public
@@ -50,7 +51,15 @@ implementation
 
 {$R *.dfm}
 
-uses NewTemplate, UpdateTemplate, NewUkrainianResume;
+uses NewTemplate, UpdateTemplate, NewResume;
+
+procedure TFormTemplatesList.BitBtnNewResumeClick(Sender: TObject);
+begin
+if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
+FormNewResume.SetFormValues;
+//FormNewResume.SetEmptyResume;
+FormNewResume.ShowModal;
+end;
 
 procedure TFormTemplatesList.BitBtnNewTemplateClick(Sender: TObject);
 begin

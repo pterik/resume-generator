@@ -363,7 +363,7 @@ end;
 procedure TFormUpdateTemplate.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-if key = VK_F2 then BitBtnSave.Click();
+if Key = VK_F2 then BitBtnSave.Click();
 end;
 
 procedure TFormUpdateTemplate.SetID(TemplateID: integer);
@@ -1704,6 +1704,7 @@ begin
     UniSPUpdateTemplate.ParamByName('p_job_place').AsString := Trim(EditPlaceRU.Text);
     UniSPUpdateTemplate.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhonesRU.Text);
     UniSPUpdateTemplate.ParamByName('p_template_introduction').AsString := Trim(MemoIntroRU.Text);
+    UniSPUpdateTemplate.ParamByName('p_archived').AsBoolean := False;
     UniSPUpdateTemplate.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1RU.Text);
     UniSPUpdateTemplate.ParamByName('p_footer_1_text').AsString := Trim(MemoArticle1RU.Text);
     UniSPUpdateTemplate.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2RU.Text);
