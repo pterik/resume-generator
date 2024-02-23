@@ -3,7 +3,6 @@ program ResumeGenerator;
 uses
   Vcl.Forms,
   NewTemplate in 'NewTemplate.pas' {FormNewTemplate},
-  TranslateResume in 'TranslateResume.pas' {FormTranslateResume},
   MainForm in 'MainForm.pas' {FormMain},
   Parameters in 'Parameters.pas' {FormParameters},
   Emailbox in 'Emailbox.pas' {FormEmails},

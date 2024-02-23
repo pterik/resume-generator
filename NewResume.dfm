@@ -17,7 +17,7 @@ object FormNewResume: TFormNewResume
     692)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 882
+    Left = 878
     Top = 654
     Width = 98
     Height = 30
@@ -25,7 +25,8 @@ object FormNewResume: TFormNewResume
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitTop = 642
+    ExplicitLeft = 874
+    ExplicitTop = 653
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -168,13 +169,14 @@ object FormNewResume: TFormNewResume
     ModalResult = 1
     TabOrder = 1
     OnClick = BitBtnSaveClick
+    ExplicitTop = 653
   end
   object PageControlUA: TPageControl
     Left = 2
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheet10UA
+    ActivePage = TabSheetJob1UA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -1920,7 +1922,7 @@ object FormNewResume: TFormNewResume
     Top = 330
     Width = 980
     Height = 320
-    ActivePage = TabSheetMainTR
+    ActivePage = TabSheetJob1TR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -3796,6 +3798,7 @@ object FormNewResume: TFormNewResume
       3F501E3F6F3F6F3F6F0E68686868686868686868686868680000}
     TabOrder = 4
     OnClick = BitBtnCopyClick
+    ExplicitTop = 653
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (

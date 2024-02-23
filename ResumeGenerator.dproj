@@ -105,10 +105,6 @@
             <Form>FormNewTemplate</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="TranslateResume.pas">
-            <Form>FormTranslateResume</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
         <DCCReference Include="MainForm.pas">
             <Form>FormMain</Form>
             <FormType>dfm</FormType>
@@ -166,18 +162,11 @@
                     <Source Name="MainSource">ResumeGenerator.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="C:\WINDOWS\SysWOW64\MtxTee628.bpl">File C:\WINDOWS\SysWOW64\MtxTee628.bpl not found</Excluded_Packages>
-                    <Excluded_Packages Name="C:\WINDOWS\SysWOW64\StatSeries628.bpl">File C:\WINDOWS\SysWOW64\StatSeries628.bpl not found</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclemsedge280.bpl">Embarcadero RAD Server Edge Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k280.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcbofficexp280.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="C:\Program Files (x86)\Winsoft\Office Component Suite\Delphi11\officep.bpl">Winsoft Office Component Suite</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDS)\Source\..\Compiled\Delphi28.win32\Bin\DclFMXTeePro928.bpl">File c:\program files (x86)\embarcadero\studio\22.0\Source\..\Compiled\Delphi28.win32\Bin\DclFMXTeePro928.bpl not found</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDS)\Source\..\TeeTree\Compiled\Delphi28.win32\Bin\DclFMXTree28.bpl">File c:\program files (x86)\embarcadero\studio\22.0\Source\..\TeeTree\Compiled\Delphi28.win32\Bin\DclFMXTree28.bpl not found</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDS)\source\..\Compiled\Delphi28.win32\Bin\DclTeePro928.bpl">TeeChart Pro 2021 VCL Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDS)\source\..\Compiled\Delphi28.win32\Bin\DclTeeMaker128.bpl">TeeMaker</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDS)\Source\..\TeeTree\Compiled\Delphi28.win32\Bin\DclTree2D28Tee9.bpl">TeeTree 2 Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclemsedge280.bpl">Embarcadero RAD Server Edge Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">

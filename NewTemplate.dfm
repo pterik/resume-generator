@@ -58,7 +58,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 877
+    Left = 873
     Top = 616
     Width = 95
     Height = 38
@@ -73,7 +73,7 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 873
+    ExplicitLeft = 869
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -240,8 +240,8 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetMainRU: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       object Label7: TLabel
-        Left = 53
-        Top = 68
+        Left = 45
+        Top = 82
         Width = 52
         Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
@@ -252,22 +252,9 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label8: TLabel
-        Left = 37
-        Top = 135
-        Width = 68
-        Height = 21
-        Caption = #1055#1086#1074#1085#1110#1089#1090#1102
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
       object Label9: TLabel
-        Left = 7
-        Top = 100
+        Left = -3
+        Top = 158
         Width = 99
         Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
@@ -279,8 +266,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 34
-        Top = 170
+        Left = 26
+        Top = 188
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -319,8 +306,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label11: TLabel
-        Left = 38
-        Top = 205
+        Left = 30
+        Top = 223
         Width = 68
         Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
@@ -332,8 +319,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object EditNameRU: TEdit
-        Left = 111
-        Top = 68
+        Left = 103
+        Top = 83
         Width = 295
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -346,8 +333,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditNameRU'
       end
       object EditOpportunityRU: TEdit
-        Left = 111
-        Top = 134
+        Left = 102
+        Top = 118
         Width = 295
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -360,8 +347,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditOpportunityRU'
       end
       object EditPlaceRU: TEdit
-        Left = 112
-        Top = 100
+        Left = 102
+        Top = 153
         Width = 295
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -374,8 +361,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditPlaceRU'
       end
       object EditPhonesRU: TEdit
-        Left = 111
-        Top = 170
+        Left = 103
+        Top = 188
         Width = 296
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -388,8 +375,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditPhonesRU'
       end
       object MemoIntroRU: TMemo
-        Left = 112
-        Top = 206
+        Left = 104
+        Top = 224
         Width = 860
         Height = 234
         Font.Charset = DEFAULT_CHARSET
@@ -429,6 +416,14 @@ object FormNewTemplate: TFormNewTemplate
         ReadOnly = True
         TabOrder = 6
         Text = 'Template'
+      end
+      object StaticText2: TStaticText
+        Left = 16
+        Top = 109
+        Width = 80
+        Height = 52
+        Caption = #1055#1086#1089#1072#1076#1072' '#1087#1086#1074#1085#1110#1089#1090#1102
+        TabOrder = 7
       end
     end
     object TabSheetFooterRU: TTabSheet

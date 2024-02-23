@@ -5,18 +5,18 @@ object FormUpdateResume: TFormUpdateResume
   ClientHeight = 662
   ClientWidth = 988
   Color = clBtnFace
-  Enabled = False
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   DesignSize = (
     988
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 893
+    Left = 889
     Top = 614
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 889
+    ExplicitLeft = 885
     ExplicitTop = 613
   end
   object BitBtnSave: TBitBtn
@@ -188,7 +188,7 @@ object FormUpdateResume: TFormUpdateResume
     Top = 2
     Width = 980
     Height = 610
-    ActivePage = TabSheetMainRU
+    ActivePage = TabSheetJob1RU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -290,12 +290,12 @@ object FormUpdateResume: TFormUpdateResume
         Font.Style = []
         ParentFont = False
       end
-      object LabelTemplateID: TLabel
+      object LabelResumeID: TLabel
         Left = 792
         Top = 16
-        Width = 114
+        Width = 108
         Height = 21
-        Caption = 'LabelTemplateID'
+        Caption = 'LabelResumeID'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -427,8 +427,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label9: TLabel
-        Left = 7
-        Top = 301
+        Left = 8
+        Top = 294
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 3'
@@ -440,8 +440,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 3
-        Top = 439
+        Left = 8
+        Top = 436
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 4'
@@ -797,6 +797,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB1Change
+        OnCloseUp = CalendarPickerB1CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -823,6 +825,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE1Change
+        OnCloseUp = CalendarPickerE1CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -927,7 +931,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit2Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -941,7 +945,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit2Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1034,6 +1038,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB2Change
+        OnCloseUp = CalendarPickerB2CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -1060,6 +1066,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE2Change
+        OnCloseUp = CalendarPickerE2CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1164,7 +1172,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit3Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1178,7 +1186,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit3Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1271,6 +1279,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB3Change
+        OnCloseUp = CalendarPickerB3CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -1297,6 +1307,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE3Change
+        OnCloseUp = CalendarPickerE3CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1401,7 +1413,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit4Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1415,7 +1427,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit4Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1508,6 +1520,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB4Change
+        OnCloseUp = CalendarPickerB4CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -1534,6 +1548,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE4Change
+        OnCloseUp = CalendarPickerE4CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1638,7 +1654,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit5Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1652,7 +1668,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit5Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1745,6 +1761,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB5Change
+        OnCloseUp = CalendarPickerB5CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -1771,6 +1789,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE5Change
+        OnCloseUp = CalendarPickerE5CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -1919,7 +1939,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit6Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1933,7 +1953,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit6Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1982,6 +2002,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB6Change
+        OnCloseUp = CalendarPickerB6CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -2008,6 +2030,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE6Change
+        OnCloseUp = CalendarPickerE6CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -2156,7 +2180,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit7Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2170,7 +2194,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit7Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2219,6 +2243,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB7Change
+        OnCloseUp = CalendarPickerB7CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -2245,6 +2271,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE7Change
+        OnCloseUp = CalendarPickerE7CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -2393,7 +2421,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit8Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2407,7 +2435,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit8Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2456,6 +2484,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB8Change
+        OnCloseUp = CalendarPickerB8CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -2482,6 +2512,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE8Change
+        OnCloseUp = CalendarPickerE8CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -2630,7 +2662,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit9Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2644,7 +2676,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit9Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2693,6 +2725,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB9Change
+        OnCloseUp = CalendarPickerB9CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -2719,6 +2753,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE9Change
+        OnCloseUp = CalendarPickerE9CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -2867,7 +2903,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit10Name: TEdit
         Left = 90
         Top = 38
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2881,7 +2917,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit10Company: TEdit
         Left = 90
         Top = 72
-        Width = 200
+        Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2930,6 +2966,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerB10Change
+        OnCloseUp = CalendarPickerB10CloseUp
         ParentFont = False
         TabOrder = 7
         TextHint = 'select a date'
@@ -2956,6 +2994,8 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        OnChange = CalendarPickerE10Change
+        OnCloseUp = CalendarPickerE10CloseUp
         ParentFont = False
         TabOrder = 8
         TextHint = 'select a date'
@@ -3089,7 +3129,11 @@ object FormUpdateResume: TFormUpdateResume
     end
     object UniGetResumelang: TStringField
       FieldName = 'lang'
-      Size = 6
+      Size = 3
+    end
+    object UniGetResumeregion_id: TStringField
+      FieldName = 'region_id'
+      Size = 2
     end
     object UniGetResumejob_opportunity: TStringField
       FieldName = 'job_opportunity'
@@ -3116,15 +3160,14 @@ object FormUpdateResume: TFormUpdateResume
       FieldName = 'resume_introduction'
       Size = 1000
     end
+    object UniGetResumearchived: TBooleanField
+      FieldName = 'archived'
+    end
     object UniGetResumecreated: TDateTimeField
       FieldName = 'created'
     end
     object UniGetResumeupdated: TDateTimeField
       FieldName = 'updated'
-    end
-    object UniGetResumeregion: TStringField
-      FieldName = 'region'
-      Size = 10
     end
   end
   object UniLang: TUniQuery
@@ -3201,5 +3244,484 @@ object FormUpdateResume: TFormUpdateResume
     object UniRegionorderby: TIntegerField
       FieldName = 'orderby'
     end
+  end
+  object UniResumeID: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT '
+      '   id, name, job_opportunity, '
+      '   job_place, phone_numbers_text, resume_introduction, '
+      '   archived, created, updated  '
+      'from resumes'
+      'where id = :P_ID')
+    Left = 432
+    Top = 184
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'P_ID'
+        Value = nil
+      end>
+    object UniResumeIDid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniResumeIDname: TStringField
+      FieldName = 'name'
+      Size = 50
+    end
+    object UniResumeIDjob_opportunity: TStringField
+      FieldName = 'job_opportunity'
+      Required = True
+      Size = 255
+    end
+    object UniResumeIDjob_place: TStringField
+      FieldName = 'job_place'
+      Size = 255
+    end
+    object UniResumeIDphone_numbers_text: TStringField
+      FieldName = 'phone_numbers_text'
+      Size = 255
+    end
+    object UniResumeIDresume_introduction: TStringField
+      FieldName = 'resume_introduction'
+      Size = 1000
+    end
+    object UniResumeIDarchived: TBooleanField
+      FieldName = 'archived'
+    end
+    object UniResumeIDcreated: TDateTimeField
+      FieldName = 'created'
+    end
+    object UniResumeIDupdated: TDateTimeField
+      FieldName = 'updated'
+    end
+  end
+  object UniFootersID: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT '
+      '  id,'
+      '  resume_id,'
+      '  footer_header ,'
+      '  footer_text ,'
+      '  footer_order,'
+      '  created ,'
+      '  updated'
+      'from resume_footers f'
+      ' WHERE f.resume_id = :p_resume_id'
+      'ORDER BY footer_order'
+      '')
+    Left = 552
+    Top = 184
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object UniFootersIDid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniFootersIDresume_id: TIntegerField
+      FieldName = 'resume_id'
+      Required = True
+    end
+    object UniFootersIDfooter_header: TStringField
+      FieldName = 'footer_header'
+      Size = 255
+    end
+    object UniFootersIDfooter_text: TStringField
+      FieldName = 'footer_text'
+      Size = 1000
+    end
+    object UniFootersIDfooter_order: TIntegerField
+      FieldName = 'footer_order'
+    end
+    object UniFootersIDcreated: TDateTimeField
+      FieldName = 'created'
+    end
+    object UniFootersIDupdated: TDateTimeField
+      FieldName = 'updated'
+    end
+  end
+  object UniExperienceID: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT '
+      '  id experience_id ,'
+      '  resume_id ,'
+      '  template_id ,'
+      '  job_order ,'
+      '  job_position ,'
+      '  start_date ,'
+      '  end_date ,'
+      '  employer ,'
+      '  responsibilities ,'
+      '  benefits ,'
+      '  leave_reason ,'
+      '  created ,'
+      '  updated '
+      ' FROM experiences e'
+      'WHERE resume_id = :p_resume_id'
+      'ORDER BY job_order')
+    Left = 664
+    Top = 184
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object UniExperienceIDexperience_id: TIntegerField
+      FieldName = 'experience_id'
+    end
+    object UniExperienceIDresume_id: TIntegerField
+      FieldName = 'resume_id'
+    end
+    object UniExperienceIDtemplate_id: TIntegerField
+      FieldName = 'template_id'
+    end
+    object UniExperienceIDjob_order: TIntegerField
+      FieldName = 'job_order'
+    end
+    object UniExperienceIDjob_position: TStringField
+      FieldName = 'job_position'
+      Size = 255
+    end
+    object UniExperienceIDstart_date: TDateField
+      FieldName = 'start_date'
+      Required = True
+    end
+    object UniExperienceIDend_date: TDateField
+      FieldName = 'end_date'
+    end
+    object UniExperienceIDemployer: TStringField
+      FieldName = 'employer'
+      Size = 255
+    end
+    object UniExperienceIDresponsibilities: TStringField
+      FieldName = 'responsibilities'
+      Size = 1000
+    end
+    object UniExperienceIDbenefits: TStringField
+      FieldName = 'benefits'
+      Size = 1000
+    end
+    object UniExperienceIDleave_reason: TStringField
+      FieldName = 'leave_reason'
+      Size = 255
+    end
+    object UniExperienceIDcreated: TDateTimeField
+      FieldName = 'created'
+    end
+    object UniExperienceIDupdated: TDateTimeField
+      FieldName = 'updated'
+    end
+  end
+  object UniSkillsID: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT '
+      'skill_id,'
+      '(SELECT skill from skills s WHERE l.skill_id = s.id) skill'
+      'FROM skill_show_lists l'
+      'WHERE experience_id = :p_experience_id'
+      'ORDER BY skill_id')
+    Left = 784
+    Top = 184
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object UniSkillsIDskill_id: TIntegerField
+      FieldName = 'skill_id'
+      Required = True
+    end
+    object UniSkillsIDskill: TStringField
+      FieldName = 'skill'
+      ReadOnly = True
+      Size = 255
+    end
+  end
+  object UniSPUpdateResume: TUniStoredProc
+    StoredProcName = 'update_resume'
+    SQL.Strings = (
+      
+        'CALL update_resume(:p_resume_id, :p_name, :p_job_opportunity, :p' +
+        '_job_place, :p_phone_numbers_text, :p_resume_introduction, :p_ar' +
+        'chived, :p_footer_1_header, :p_footer_1_text, :p_footer_2_header' +
+        ', :p_footer_2_text, :p_footer_3_header, :p_footer_3_text, :p_foo' +
+        'ter_4_header, :p_footer_4_text, @p_result); SELECT CAST(@p_resul' +
+        't AS SIGNED) AS '#39'@p_result'#39)
+    Connection = FormMain.UniConnection
+    Left = 224
+    Top = 392
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_name'
+        ParamType = ptInput
+        Size = 50
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_job_opportunity'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_job_place'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_phone_numbers_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_resume_introduction'
+        ParamType = ptInput
+        Size = 1000
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_archived'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_1_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_1_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_2_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_2_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_3_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_3_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_4_header'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_footer_4_text'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_result'
+        ParamType = ptOutput
+        Value = 0
+      end>
+    CommandStoredProcName = 'update_resume'
+  end
+  object UniSPInsertExperiences: TUniStoredProc
+    StoredProcName = 'insert_experience'
+    SQL.Strings = (
+      
+        'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
+        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
+        'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
+        'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
+    Connection = FormMain.UniConnection
+    Left = 400
+    Top = 392
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_flag'
+        ParamType = ptInput
+        Size = 20
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_job_order'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_job_position'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftDateTime
+        Name = 'p_start_date'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftDateTime
+        Name = 'p_end_date'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_employer'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_resp'
+        ParamType = ptInput
+        Size = 1000
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_benefits'
+        ParamType = ptInput
+        Size = 1000
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_leave_reason'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_experience_id'
+        ParamType = ptOutput
+        Size = 255
+        Value = nil
+      end>
+    CommandStoredProcName = 'insert_experience'
+  end
+  object UniSPInsertSkills: TUniStoredProc
+    StoredProcName = 'insert_skills'
+    SQL.Strings = (
+      'CALL insert_skills(:p_experience_id, :p_skill)')
+    Connection = FormMain.UniConnection
+    Left = 536
+    Top = 392
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftString
+        Name = 'p_skill'
+        ParamType = ptInput
+        Size = 255
+        Value = nil
+      end>
+    CommandStoredProcName = 'insert_skills'
+  end
+  object UniSPDeleteExpSkills: TUniStoredProc
+    StoredProcName = 'delete_experiences_skills'
+    SQL.Strings = (
+      
+        'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
+        'e_id)')
+    Connection = FormMain.UniConnection
+    Left = 656
+    Top = 392
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_flag'
+        ParamType = ptInput
+        Size = 50
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_resume_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    CommandStoredProcName = 'delete_experiences_skills'
   end
 end

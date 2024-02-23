@@ -67,7 +67,7 @@ type
     UniRegionsorderby: TIntegerField;
     UniRegionscreated: TDateTimeField;
     UniRegionsupdated: TDateTimeField;
-    BitBtnNewUkrResume: TBitBtn;
+    BitBtnNewResume: TBitBtn;
     MemoText: TMemo;
     PDF1: TMenuItem;
     PDF2: TMenuItem;
@@ -77,14 +77,13 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure NNewTemplateClick(Sender: TObject);
     procedure NNewResumeClick(Sender: TObject);
-    procedure NNewTranslationClick(Sender: TObject);
     procedure NParametersClick(Sender: TObject);
     procedure MailboxClick(Sender: TObject);
     procedure NTemplatesClick(Sender: TObject);
     procedure BitBtnTemplatesClick(Sender: TObject);
     procedure N2Click(Sender: TObject);
     procedure N3Click(Sender: TObject);
-    procedure BitBtnNewUkrResumeClick(Sender: TObject);
+    procedure BitBtnNewResumeClick(Sender: TObject);
     procedure PDF1Click(Sender: TObject);
   private
      WarningFired:boolean;
@@ -110,14 +109,13 @@ uses
 System.StrUtils, System.IOUtils, System.Zip, System.inifiles, ShellApi,
 System.Win.ComObj, System.RegularExpressions, System.DateUtils, Vcl.ExtActns,
 // Quick.Console, Quick.SMTP,
-NewTemplate, TranslateResume, Parameters,
+NewTemplate, Parameters,
   Emailbox, TemplatesList, ResumesList, NewResume;
 
 function TFormMain.IsEmpty(const S: String): boolean;
 begin
   Result := (Length(Trim(S)) <= 0);
 end;
-
 
 function ComputerName: string;
 var
@@ -147,7 +145,7 @@ begin
 end;
 
 
-procedure TFormMain.BitBtnNewUkrResumeClick(Sender: TObject);
+procedure TFormMain.BitBtnNewResumeClick(Sender: TObject);
 begin
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
@@ -235,13 +233,6 @@ begin
 if FormNewTemplate=nil then Application.CreateForm(TFormNewTemplate, FormNewTemplate);
 FormNewTemplate.SetFormValues;
 FormNewTemplate.ShowModal;
-end;
-
-procedure TFormMain.NNewTranslationClick(Sender: TObject);
-begin
-if FormTranslateResume=nil then Application.CreateForm(TFormTranslateResume, FormTranslateResume);
-FormTranslateResume.SetFormValues;
-FormTranslateResume.ShowModal;
 end;
 
 procedure TFormMain.NParametersClick(Sender: TObject);

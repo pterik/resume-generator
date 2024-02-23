@@ -4671,7 +4671,7 @@ object FormMain: TFormMain
     TabOrder = 1
     OnClick = BitBtnTemplatesClick
   end
-  object BitBtnNewUkrResume: TBitBtn
+  object BitBtnNewResume: TBitBtn
     Left = 8
     Top = 581
     Width = 153
@@ -4815,7 +4815,7 @@ object FormMain: TFormMain
       0000000000000000000000000000000000000000000000000000}
     ParentFont = False
     TabOrder = 2
-    OnClick = BitBtnNewUkrResumeClick
+    OnClick = BitBtnNewResumeClick
   end
   object MemoText: TMemo
     Left = 8
@@ -4841,7 +4841,6 @@ object FormMain: TFormMain
       end
       object NNewTranslation: TMenuItem
         Caption = #1055#1077#1088#1077#1074#1086#1076' '
-        OnClick = NNewTranslationClick
       end
       object PDF1: TMenuItem
         Caption = 'RTF'

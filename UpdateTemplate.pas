@@ -291,12 +291,9 @@ type
     procedure SetValuesFootersRU;
     procedure SetValuesJobsRU;
     procedure SetValuesTemplatesRU;
-    function CheckValues: boolean;
-    function SaveValues: boolean;
-    function SaveTemplate: boolean;
-    procedure SetEmptyFooters;
-    procedure SetEmptyJobs;
-    procedure SetEmptySkills;
+    function  CheckValues: boolean;
+    function  SaveValues: boolean;
+    function  SaveTemplate: boolean;
     procedure SetEmptyTemplates;
     procedure ChangeDates10RU;
     procedure ChangeDates1RU;
@@ -947,9 +944,9 @@ procedure TFormUpdateTemplate.SetFormValues;
 begin
 PageControlRU.ActivePageIndex:=0;
 SetEmptyTemplates;
-SetEmptyFooters;
-SetEmptyJobs;
-SetEmptySkills;
+//SetEmptyFooters;
+//SetEmptyJobs;
+//SetEmptySkills;
 SetValuesTemplatesRU;
 SetValuesFootersRU;
 SetValuesJobsRU;
@@ -1666,6 +1663,123 @@ begin
     Result := false;
     exit;
   end;
+// BX>=EX
+  if IsJob1Active and (CalendarPickerB1RU.Date >=CalendarPickerE1RU.Date) then
+  begin
+    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB1RU.Date));
+    Result := false;
+    exit;
+  end;
+
+  if IsJob2Active and (CalendarPickerB2RU.Date >=CalendarPickerE2RU.Date) then
+  begin
+    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB2RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob3Active and (CalendarPickerB3RU.Date >=CalendarPickerE3RU.Date) then
+  begin
+    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB3RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob4Active and (CalendarPickerB4RU.Date >=CalendarPickerE4RU.Date) then
+  begin
+    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB4RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob5Active and (CalendarPickerB5RU.Date >=CalendarPickerE5RU.Date) then
+  begin
+    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB5RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob6Active and (CalendarPickerB6RU.Date >=CalendarPickerE6RU.Date) then
+  begin
+    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB6RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob7Active and (CalendarPickerB7RU.Date >=CalendarPickerE7RU.Date) then
+  begin
+    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB7RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob8Active and (CalendarPickerB8RU.Date >=CalendarPickerE8RU.Date) then
+  begin
+    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB8RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob9Active and (CalendarPickerB9RU.Date >=CalendarPickerE9RU.Date) then
+  begin
+    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB9RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob10Active and (CalendarPickerB10RU.Date >= CalendarPickerE10RU.Date) then
+  begin
+    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB10RU.Date));
+    Result := false;
+    exit;
+  end;
+// BX+1 < =EX
+ if IsJob1Active and IsJob2Active and (CalendarPickerB2RU.Date < CalendarPickerE1RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1RU.Date)+' меньше дати початку роботи B2 '+DateToStr(CalendarPickerB2RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob2Active and IsJob3Active and (CalendarPickerB3RU.Date < CalendarPickerE2RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2RU.Date)+' меньше дати початку роботи B3 '+DateToStr(CalendarPickerB3RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob3Active and IsJob4Active and (CalendarPickerB4RU.Date < CalendarPickerE3RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3RU.Date)+' меньше дати початку роботи B4 '+DateToStr(CalendarPickerB4RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob4Active and IsJob5Active and (CalendarPickerB5RU.Date < CalendarPickerE4RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4RU.Date)+' меньше дати початку роботи B5 '+DateToStr(CalendarPickerB5RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob5Active and IsJob6Active and (CalendarPickerB6RU.Date < CalendarPickerE5RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5RU.Date)+' меньше дати початку роботи B6 '+DateToStr(CalendarPickerB6RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob6Active and IsJob7Active and (CalendarPickerB7RU.Date < CalendarPickerE6RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6RU.Date)+' меньше дати початку роботи B7 '+DateToStr(CalendarPickerB7RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob7Active and IsJob8Active and (CalendarPickerB8RU.Date < CalendarPickerE7RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7RU.Date)+' меньше дати початку роботи B8 '+DateToStr(CalendarPickerB8RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob8Active and IsJob9Active and (CalendarPickerB9RU.Date < CalendarPickerE8RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8RU.Date)+' меньше дати початку роботи B9 '+DateToStr(CalendarPickerB9RU.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob9Active and IsJob10Active and (CalendarPickerB10RU.Date < CalendarPickerE9RU.Date) then
+  begin
+    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9RU.Date)+' меньше дати початку роботи B10 '+DateToStr(CalendarPickerB10RU.Date));
+    Result := false;
+    exit;
+  end;
   Result := true;
 end;
 
@@ -1725,8 +1839,13 @@ begin
   end;
 end;
 
-procedure TFormUpdateTemplate.SetEmptyFooters;
+procedure TFormUpdateTemplate.SetEmptyTemplates;
 begin
+  EditNameRU.Text:='';
+  EditOpportunityRU.Text:='';
+  EditPlaceRU.Text:='';
+  EditPhonesRU.Text:='';
+  MemoIntroRU.Text:='';
   MemoArticle1RU.Text := '';
   EditArticle1RU.Text := '';
   MemoArticle2RU.Text := '';
@@ -1735,34 +1854,7 @@ begin
   EditArticle3RU.Text := '';
   MemoArticle4RU.Text := '';
   EditArticle4RU.Text := '';
-end;
 
-procedure TFormUpdateTemplate.SetEmptyTemplates;
-begin
-  EditNameRU.Text:='';
-  EditOpportunityRU.Text:='';
-  EditPlaceRU.Text:='';
-  EditPhonesRU.Text:='';
-  MemoIntroRU.Text:='';
-
-end;
-
-procedure TFormUpdateTemplate.SetEmptySkills;
-begin
-  Memo1SkillsRU.Text := '';
-  Memo2SkillsRU.Text := '';
-  Memo3SkillsRU.Text := '';
-  Memo4SkillsRU.Text := '';
-  Memo5SkillsRU.Text := '';
-  Memo6SkillsRU.Text := '';
-  Memo7SkillsRU.Text := '';
-  Memo8SkillsRU.Text := '';
-  Memo9SkillsRU.Text := '';
-  Memo10SkillsRU.Text := '';
-end;
-
-procedure TFormUpdateTemplate.SetEmptyJobs;
-begin
   Edit1DatesRU.Text := '';
   Edit1NameRU.Text := '';
   Edit1CompanyRU.Text := '';
@@ -1832,6 +1924,18 @@ begin
   Memo10RespRU.Text := '';
   Edit10BenefitsRU.Text := '';
   Edit10BottomRU.Text := '';
+
+  Memo1SkillsRU.Text := '';
+  Memo2SkillsRU.Text := '';
+  Memo3SkillsRU.Text := '';
+  Memo4SkillsRU.Text := '';
+  Memo5SkillsRU.Text := '';
+  Memo6SkillsRU.Text := '';
+  Memo7SkillsRU.Text := '';
+  Memo8SkillsRU.Text := '';
+  Memo9SkillsRU.Text := '';
+  Memo10SkillsRU.Text := '';
+
 end;
 
 end.

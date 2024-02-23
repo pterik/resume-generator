@@ -18,7 +18,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 884
+    Left = 880
     Top = 620
     Width = 84
     Height = 40
@@ -32,7 +32,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 880
+    ExplicitLeft = 876
     ExplicitTop = 619
   end
   object BitBtnSave: TBitBtn
@@ -3167,7 +3167,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     SQL.Strings = (
       'CALL insert_skills(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 528
+    Left = 536
     Top = 392
     ParamData = <
       item
@@ -3245,7 +3245,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ':p_footer_4_header, :p_footer_4_text, @p_result); SELECT CAST(@p' +
         '_result AS SIGNED) AS '#39'@p_result'#39)
     Connection = FormMain.UniConnection
-    Left = 152
+    Left = 224
     Top = 392
     ParamData = <
       item
@@ -3471,8 +3471,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 400
-    Top = 464
+    Left = 640
+    Top = 392
     ParamData = <
       item
         DataType = ftString

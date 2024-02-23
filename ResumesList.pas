@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
 //  WordCS,
-  DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids;
+  DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls;
 
 type
   TWordReplaceFlags = set of (wrfReplaceAll, wrfMatchCase, wrfMatchWildcards);
@@ -59,6 +59,10 @@ type
     UniResumesarchived: TBooleanField;
     UniResumescreated: TDateTimeField;
     UniResumesupdated: TDateTimeField;
+    UniResumeslang: TStringField;
+    UniResumesregion_id: TStringField;
+    RadioGroup: TRadioGroup;
+    UniResumesarchive: TStringField;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnNewResumeClick(Sender: TObject);
     procedure BitBtnDeleteResumeClick(Sender: TObject);
@@ -70,6 +74,9 @@ type
     procedure BitBtnCVClick(Sender: TObject);
     procedure BitBtnEditResumeClick(Sender: TObject);
     procedure BitBtnArchiveClick(Sender: TObject);
+    procedure RadioGroupClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure UniResumesCalcFields(DataSet: TDataSet);
   private
     FileResumeTarget, FileCVTarget, FileCLTarget,FileResumePDF, FileCVPDF, FileCLPDF:string;
 //    WordRecords:TWordRecords;
@@ -115,8 +122,8 @@ end;
 
 procedure TFormListResumes.BitBtnArchiveClick(Sender: TObject);
 begin
-if not VarIsNull(UniResumes['id'])
-  then
+if VarIsNull(UniResumes['id']) then  ShowMessage('Выберите запись')
+  else
     begin
     if MessageDlg( 'Подтвердите перемещение резюме в архив', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
     UniArchiveResume.Prepare;
@@ -124,7 +131,6 @@ if not VarIsNull(UniResumes['id'])
     UniArchiveResume.ExecSQL;
     UniResumes.Refresh;
     end
-  else ShowMessage('Выберите запись');
 end;
 
 procedure TFormListResumes.BitBtnCheckClick(Sender: TObject);
@@ -166,7 +172,7 @@ end;
 
 procedure TFormListResumes.BitBtnEditResumeClick(Sender: TObject);
 begin
-if VarIsNull(UniResumes['id']) then ShowMessage('Выберите запись')
+if VarIsNull(UniResumes['id']) then ShowMessage('Оберіть резюме для редагування')
 else
   begin
   if FormUpdateResume=nil then Application.CreateForm(TFormUpdateResume, FormUpdateResume);
@@ -175,8 +181,6 @@ else
   FormUpdateResume.ShowModal;
   UniResumes.Refresh;
   end;
-
-
 end;
 
 procedure TFormListResumes.BitBtnSaveResumeClick(Sender: TObject);
@@ -255,6 +259,11 @@ FormMain.Warning('Шаблоны успешно обработаны, резюме готово: '+UniResumes['name'
 except on E:Exception do
   FormMain.Warning('Error message: '+E.Message);
 end;
+end;
+
+procedure TFormListResumes.FormCreate(Sender: TObject);
+begin
+Radiogroup.ItemIndex:=0;
 end;
 
 procedure TFormListResumes.BitBtnLetterClick(Sender: TObject);
@@ -389,7 +398,10 @@ end;
 
 procedure TFormListResumes.SetFormValues;
 begin
-//
+RadioGroup.ItemIndex:=0;
+UniResumes.Close;
+UniResumes.ParamByName('p_rg').AsInteger:=RadioGroup.ItemIndex;
+UniResumes.Open;
 end;
 
 procedure TFormListResumes.SetValues;
@@ -413,10 +425,25 @@ if CheckBoxExtraComment.Checked then
   end;
 end;
 
+procedure TFormListResumes.UniResumesCalcFields(DataSet: TDataSet);
+begin
+if not UniResumes['archived']
+then UniResumes['archive']:='Ні'
+else
+  if UniResumes['archived'] then UniResumes['archive']:='Так'
+  else UniResumes['archive']:='';
+end;
+
+procedure TFormListResumes.RadioGroupClick(Sender: TObject);
+begin
+UniResumes.Close;
+UniResumes.ParamByName('p_rg').AsInteger:=RadioGroup.ItemIndex;
+UniResumes.Open;
+end;
+
 function TFormListResumes.RichView_FileGenerate(resume_id:integer): boolean;
 begin
   Result:=false;
-
 end;
 
 
