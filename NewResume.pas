@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
-  System.Classes, Vcl.Graphics,
+  System.Classes, Vcl.Graphics, System.DateUtils,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, Uni,
   Vcl.StdCtrls, Vcl.Buttons, Vcl.WinXCalendars, Vcl.ComCtrls;
 
@@ -435,6 +435,7 @@ type
     Label98: TLabel;
     Label99: TLabel;
     Label100: TLabel;
+    BitBtn1: TBitBtn;
     procedure PageControlTRChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -461,7 +462,6 @@ type
     procedure CalendarPickerB10TRCloseUp(Sender: TObject);
     procedure CalendarPickerE10TRCloseUp(Sender: TObject);
     procedure BitBtnCopyClick(Sender: TObject);
-    procedure CalendarPickerB1TRChange(Sender: TObject);
     procedure CalendarPickerE1TRChange(Sender: TObject);
     procedure CalendarPickerB2TRChange(Sender: TObject);
     procedure CalendarPickerE2TRChange(Sender: TObject);
@@ -479,6 +479,7 @@ type
     procedure CalendarPickerB10TRChange(Sender: TObject);
     procedure CalendarPickerE10TRChange(Sender: TObject);
     procedure CBLangTRChange(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
   private
     CBLang_First_Value, CBRegion_First_Value: string;
     CBRegionTR_ID:string;
@@ -607,51 +608,126 @@ if VarIsNull(Value) then Result:='' else Result:=Value;
 end;
 
 procedure TFormNewResume.SetEmptyTR;
+var AF: TFormatSettings;
 begin
-  EditNameTR.Text := ''; EditOpportunityTR.Text := '';  EditPlaceTR.Text := '';  EditPhonesTR.Text := '';
-  MemoIntroTR.Text := '';  EditLangRU.Text := 'UA';  EditRegionRU.Text := 'UA';
+  AF := TFormatSettings.Create('de-DE');
+  AF.DateSeparator:='.';
+  EditNameTR.Text := '';
+  EditOpportunityTR.Text := '';
+  EditPlaceTR.Text := '';
+  EditPhonesTR.Text := '';
+  MemoIntroTR.Text := '';
+  EditLangRU.Text := 'UA';
+  EditRegionRU.Text := 'UA';
 
-  MemoArticle1TR.Text := '';  MemoArticle2TR.Text := '';  MemoArticle3TR.Text := '';  MemoArticle4TR.Text := '';
-  EditArticle1TR.Text := '';  EditArticle2TR.Text := '';  EditArticle3TR.Text := '';  EditArticle4TR.Text := '';
+  MemoArticle1TR.Text := '';
+  MemoArticle2TR.Text := '';
+  MemoArticle3TR.Text := '';
+  MemoArticle4TR.Text := '';
+  EditArticle1TR.Text := '';
+  EditArticle2TR.Text := '';
+  EditArticle3TR.Text := '';
+  EditArticle4TR.Text := '';
 
-  Edit1DatesTR.Text := '';  Edit1NameTR.Text := '';  Edit1CompanyTR.Text := ''; Memo1RespTR.Text := '';
-  Edit1BenefitsTR.Text := ''; Memo1SkillsTR.Text := ''; Edit1BottomTR.Text := '';
+  Edit1DatesTR.Text := '';
+  Edit1NameTR.Text := '';
+  Edit1CompanyTR.Text := '';
+  Memo1RespTR.Text := '';
+  Edit1BenefitsTR.Text := '';
+  Memo1SkillsTR.Text := '';
+  Edit1BottomTR.Text := '';
 
-  Edit2DatesTR.Text := '';  Edit2NameTR.Text := '';  Edit2CompanyTR.Text := '';  Memo2RespTR.Text := '';
-  Edit2BenefitsTR.Text := '';  Memo2SkillsTR.Text := '';  Edit2BottomTR.Text := '';
+  Edit2DatesTR.Text := '';
+  Edit2NameTR.Text := '';
+  Edit2CompanyTR.Text := '';
+  Memo2RespTR.Text := '';
+  Edit2BenefitsTR.Text := '';
+  Memo2SkillsTR.Text := '';
+  Edit2BottomTR.Text := '';
 
-  Edit3DatesTR.Text := '';  Edit3NameTR.Text := '';  Edit3CompanyTR.Text := '';  Memo3RespTR.Text := '';
-  Edit3BenefitsTR.Text := '';  Memo3SkillsTR.Text := '';  Edit3BottomTR.Text := '';
+  Edit3DatesTR.Text := '';
+  Edit3NameTR.Text := '';
+  Edit3CompanyTR.Text := '';
+  Memo3RespTR.Text := '';
+  Edit3BenefitsTR.Text := '';
+  Memo3SkillsTR.Text := '';
+  Edit3BottomTR.Text := '';
 
-  Edit4DatesTR.Text := '';  Edit4NameTR.Text := '';  Edit4CompanyTR.Text := '';  Memo4RespTR.Text := '';
-  Edit4BenefitsTR.Text := '';  Memo4SkillsTR.Text := '';  Edit4BottomTR.Text := '';
+  Edit4DatesTR.Text := '';
+  Edit4NameTR.Text := '';
+  Edit4CompanyTR.Text := '';
+  Memo4RespTR.Text := '';
+  Edit4BenefitsTR.Text := '';
+  Memo4SkillsTR.Text := '';
+  Edit4BottomTR.Text := '';
 
-  Edit5DatesTR.Text := '';  Edit5NameTR.Text := '';  Edit5CompanyTR.Text := '';  Memo5RespTR.Text := '';
-  Edit5BenefitsTR.Text := '';  Memo5SkillsTR.Text := '';  Edit5BottomTR.Text := '';
+  Edit5DatesTR.Text := '';
+  Edit5NameTR.Text := '';
+  Edit5CompanyTR.Text := '';
+  Memo5RespTR.Text := '';
+  Edit5BenefitsTR.Text := '';
+  Memo5SkillsTR.Text := '';
+  Edit5BottomTR.Text := '';
 
-  Edit6DatesTR.Text := '';  Edit6NameTR.Text := '';  Edit6CompanyTR.Text := '';  Memo6RespTR.Text := '';
-  Edit6BenefitsTR.Text := '';  Memo6SkillsTR.Text := '';  Edit6BottomTR.Text := '';
+  Edit6DatesTR.Text := '';
+  Edit6NameTR.Text := '';
+  Edit6CompanyTR.Text := '';
+  Memo6RespTR.Text := '';
+  Edit6BenefitsTR.Text := '';
+  Memo6SkillsTR.Text := '';
+  Edit6BottomTR.Text := '';
 
-  Edit7DatesTR.Text := '';  Edit7NameTR.Text := '';  Edit7CompanyTR.Text := '';  Memo7RespTR.Text := '';
-  Edit7BenefitsTR.Text := '';  Memo7SkillsTR.Text := '';  Edit7BottomTR.Text := '';
+  Edit7DatesTR.Text := '';
+  Edit7NameTR.Text := '';
+  Edit7CompanyTR.Text := '';
+  Memo7RespTR.Text := '';
+  Edit7BenefitsTR.Text := '';
+  Memo7SkillsTR.Text := '';
+  Edit7BottomTR.Text := '';
 
-  Edit8DatesTR.Text := '';  Edit8NameTR.Text := '';  Edit8CompanyTR.Text := '';  Memo8RespTR.Text := '';
-  Edit8BenefitsTR.Text := '';  Memo8SkillsTR.Text := '';  Edit8BottomTR.Text := '';
+  Edit8DatesTR.Text := '';
+  Edit8NameTR.Text := '';
+  Edit8CompanyTR.Text := '';
+  Memo8RespTR.Text := '';
+  Edit8BenefitsTR.Text := '';
+  Memo8SkillsTR.Text := '';
+  Edit8BottomTR.Text := '';
 
-  Edit9DatesTR.Text := '';  Edit9NameTR.Text := '';  Edit9CompanyTR.Text := '';  Memo9RespTR.Text := '';
-  Edit9BenefitsTR.Text := '';  Memo9SkillsTR.Text := '';  Edit9BottomTR.Text := '';
+  Edit9DatesTR.Text := '';
+  Edit9NameTR.Text := '';
+  Edit9CompanyTR.Text := '';
+  Memo9RespTR.Text := '';
+  Edit9BenefitsTR.Text := '';
+  Memo9SkillsTR.Text := '';
+  Edit9BottomTR.Text := '';
 
-  Edit10DatesTR.Text := '';  Edit10NameTR.Text := '';  Edit10CompanyTR.Text := '';  Memo10RespTR.Text := '';
-  Edit10BenefitsTR.Text := '';  Memo10SkillsTR.Text := '';  Edit10BottomTR.Text := '';
+  Edit10DatesTR.Text := '';
+  Edit10NameTR.Text := '';
+  Edit10CompanyTR.Text := '';
+  Memo10RespTR.Text := '';
+  Edit10BenefitsTR.Text := '';
+  Memo10SkillsTR.Text := '';
+  Edit10BottomTR.Text := '';
+
+//  CalendarPickerB1TR.Date := StrToDate('00.00.0000', AF);
+//  CalendarPickerE1TR.Date := StrToDate('00.00.0000', AF);
 end;
 
 procedure TFormNewResume.SetEmptyUA;
 begin
-  EditNameUA.Text := ''; EditOpportunityUA.Text := '';  EditPlaceUA.Text := '';  EditPhonesUA.Text := '';
+  EditNameUA.Text := '';
+  EditOpportunityUA.Text := '';
+  EditPlaceUA.Text := '';
+  EditPhonesUA.Text := '';
   MemoIntroUA.Text := '';
 
-  MemoArticle1UA.Text := '';  MemoArticle2UA.Text := '';  MemoArticle3UA.Text := '';  MemoArticle4UA.Text := '';
-  EditArticle1UA.Text := '';  EditArticle2UA.Text := '';  EditArticle3UA.Text := '';  EditArticle4UA.Text := '';
+  MemoArticle1UA.Text := '';
+  MemoArticle2UA.Text := '';
+  MemoArticle3UA.Text := '';
+  MemoArticle4UA.Text := '';
+  EditArticle1UA.Text := '';
+  EditArticle2UA.Text := '';
+  EditArticle3UA.Text := '';  EditArticle4UA.Text := '';
 
   Edit1DatesUA.Text := '';  Edit1NameUA.Text := '';  Edit1CompanyUA.Text := ''; Memo1RespUA.Text := '';
   Edit1BenefitsUA.Text := ''; Memo1SkillsUA.Text := ''; Edit1BottomUA.Text := '';
@@ -1710,6 +1786,37 @@ var
     IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
     IsJob10Active: boolean;
 begin
+  IsJob1Active := not(FormMain.IsEmpty(Edit1DatesTR.Text) or FormMain.IsEmpty(Edit1NameTR.Text) or
+    FormMain.IsEmpty(Edit1CompanyTR.Text) or FormMain.IsEmpty(Memo1RespTR.Text) or
+    FormMain.IsEmpty(Memo1SkillsTR.Text));
+  IsJob2Active := not(FormMain.IsEmpty(Edit2DatesTR.Text) or FormMain.IsEmpty(Edit2NameTR.Text) or
+    FormMain.IsEmpty(Edit2CompanyTR.Text) or FormMain.IsEmpty(Memo2RespTR.Text) or
+    FormMain.IsEmpty(Memo2SkillsTR.Text));
+  IsJob3Active := not(FormMain.IsEmpty(Edit3DatesTR.Text) or FormMain.IsEmpty(Edit3NameTR.Text) or
+    FormMain.IsEmpty(Edit3CompanyTR.Text) or FormMain.IsEmpty(Memo3RespTR.Text) or
+    FormMain.IsEmpty(Memo3SkillsTR.Text));
+  IsJob4Active := not(FormMain.IsEmpty(Edit4DatesTR.Text) or FormMain.IsEmpty(Edit4NameTR.Text) or
+    FormMain.IsEmpty(Edit4CompanyTR.Text) or FormMain.IsEmpty(Memo4RespTR.Text) or
+    FormMain.IsEmpty(Memo4SkillsTR.Text));
+  IsJob5Active := not(FormMain.IsEmpty(Edit5DatesTR.Text) or FormMain.IsEmpty(Edit5NameTR.Text) or
+    FormMain.IsEmpty(Edit5CompanyTR.Text) or FormMain.IsEmpty(Memo5RespTR.Text) or
+    FormMain.IsEmpty(Memo5SkillsTR.Text));
+  IsJob6Active := not(FormMain.IsEmpty(Edit6DatesTR.Text) or FormMain.IsEmpty(Edit6NameTR.Text) or
+    FormMain.IsEmpty(Edit6CompanyTR.Text) or FormMain.IsEmpty(Memo6RespTR.Text) or
+    FormMain.IsEmpty(Memo6SkillsTR.Text));
+  IsJob7Active := not(FormMain.IsEmpty(Edit7DatesTR.Text) or FormMain.IsEmpty(Edit7NameTR.Text) or
+    FormMain.IsEmpty(Edit7CompanyTR.Text) or FormMain.IsEmpty(Memo7RespTR.Text) or
+    FormMain.IsEmpty(Memo7SkillsTR.Text));
+  IsJob8Active := not(FormMain.IsEmpty(Edit8DatesTR.Text) or FormMain.IsEmpty(Edit8NameTR.Text) or
+    FormMain.IsEmpty(Edit8CompanyTR.Text) or FormMain.IsEmpty(Memo8RespTR.Text) or
+    FormMain.IsEmpty(Memo8SkillsTR.Text));
+  IsJob9Active := not(FormMain.IsEmpty(Edit9DatesTR.Text) or FormMain.IsEmpty(Edit9NameTR.Text) or
+    FormMain.IsEmpty(Edit9CompanyTR.Text) or FormMain.IsEmpty(Memo9RespTR.Text) or
+    FormMain.IsEmpty(Memo9SkillsTR.Text));
+  IsJob10Active := not(FormMain.IsEmpty(Edit10DatesTR.Text) or FormMain.IsEmpty(Edit10NameTR.Text)
+    or FormMain.IsEmpty(Edit10CompanyTR.Text) or FormMain.IsEmpty(Memo10RespTR.Text) or
+    FormMain.IsEmpty(Memo10SkillsTR.Text));
+
   if FormMain.IsEmpty(EditNameTR.Text) then
   begin
     ShowMessage('Пусте поле "Назва резюме"');
@@ -1752,6 +1859,7 @@ begin
     Result := false;
     exit;
   end;
+///   ///
   if FormMain.IsEmpty(EditArticle2TR.Text) and not FormMain.IsEmpty(MemoArticle2TR.Text) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Назва"');
@@ -1789,17 +1897,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob1Active := not(FormMain.IsEmpty(Edit1DatesTR.Text) or FormMain.IsEmpty(Edit1NameTR.Text) or
-    FormMain.IsEmpty(Edit1CompanyTR.Text) or FormMain.IsEmpty(Memo1RespTR.Text) or
-    FormMain.IsEmpty(Memo1SkillsTR.Text));
-
-  if (IsJob1Active and FormMain.IsEmpty(Edit1DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB1TR.Date) or CalendarPickerB1TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 1"');
+    ShowMessage('Робота 1 дата початку невірна '+DateToStr(CalendarPickerB1TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE1TR.Date) or CalendarPickerB1TR.IsEmpty then
+  begin
+    ShowMessage('Робота 1 дата закінчення невірна '+DateToStr(CalendarPickerE1TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob1Active and FormMain.IsEmpty(Edit1NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 1"');
@@ -1826,16 +1935,18 @@ begin
   end;
 
   /// ////
-  IsJob2Active := not(FormMain.IsEmpty(Edit2DatesTR.Text) or FormMain.IsEmpty(Edit2NameTR.Text) or
-    FormMain.IsEmpty(Edit2CompanyTR.Text) or FormMain.IsEmpty(Memo2RespTR.Text) or
-    FormMain.IsEmpty(Memo2SkillsTR.Text));
-  if (IsJob2Active and FormMain.IsEmpty(Edit2DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB2TR.Date) or CalendarPickerB2TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 2"');
+    ShowMessage('Робота 2 дата початку невірна '+DateToStr(CalendarPickerB2TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE2TR.Date) or CalendarPickerB2TR.IsEmpty then
+  begin
+    ShowMessage('Робота 2 дата закінчення невірна '+DateToStr(CalendarPickerE2TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob2Active and FormMain.IsEmpty(Edit2NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 2"');
@@ -1861,16 +1972,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob3Active := not(FormMain.IsEmpty(Edit3DatesTR.Text) or FormMain.IsEmpty(Edit3NameTR.Text) or
-    FormMain.IsEmpty(Edit3CompanyTR.Text) or FormMain.IsEmpty(Memo3RespTR.Text) or
-    FormMain.IsEmpty(Memo3SkillsTR.Text));
-  if (IsJob3Active and FormMain.IsEmpty(Edit3DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB3TR.Date) or CalendarPickerB3TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 3"');
+    ShowMessage('Робота 3 дата початку невірна '+DateToStr(CalendarPickerB3TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE3TR.Date) or CalendarPickerB3TR.IsEmpty then
+  begin
+    ShowMessage('Робота 3 дата закінчення невірна '+DateToStr(CalendarPickerE3TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob3Active and FormMain.IsEmpty(Edit3NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 3"');
@@ -1896,16 +2009,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob4Active := not(FormMain.IsEmpty(Edit4DatesTR.Text) or FormMain.IsEmpty(Edit4NameTR.Text) or
-    FormMain.IsEmpty(Edit4CompanyTR.Text) or FormMain.IsEmpty(Memo4RespTR.Text) or
-    FormMain.IsEmpty(Memo4SkillsTR.Text));
-  if (IsJob4Active and FormMain.IsEmpty(Edit4DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB4TR.Date) or CalendarPickerB4TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 4"');
+    ShowMessage('Робота 4 дата початку невірна '+DateToStr(CalendarPickerB4TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE4TR.Date) or CalendarPickerB4TR.IsEmpty then
+  begin
+    ShowMessage('Робота 4 дата закінчення невірна '+DateToStr(CalendarPickerE4TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob4Active and FormMain.IsEmpty(Edit4NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 4"');
@@ -1931,16 +2046,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob5Active := not(FormMain.IsEmpty(Edit5DatesTR.Text) or FormMain.IsEmpty(Edit5NameTR.Text) or
-    FormMain.IsEmpty(Edit5CompanyTR.Text) or FormMain.IsEmpty(Memo5RespTR.Text) or
-    FormMain.IsEmpty(Memo5SkillsTR.Text));
-  if (IsJob5Active and FormMain.IsEmpty(Edit5DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB5TR.Date) or CalendarPickerB5TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 5"');
+    ShowMessage('Робота 5 дата початку невірна '+DateToStr(CalendarPickerB5TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE5TR.Date) or CalendarPickerB5TR.IsEmpty then
+  begin
+    ShowMessage('Робота 5 дата закінчення невірна '+DateToStr(CalendarPickerE5TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob5Active and FormMain.IsEmpty(Edit5NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 5"');
@@ -1966,16 +2083,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob6Active := not(FormMain.IsEmpty(Edit6DatesTR.Text) or FormMain.IsEmpty(Edit6NameTR.Text) or
-    FormMain.IsEmpty(Edit6CompanyTR.Text) or FormMain.IsEmpty(Memo6RespTR.Text) or
-    FormMain.IsEmpty(Memo6SkillsTR.Text));
-  if (IsJob6Active and FormMain.IsEmpty(Edit6DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB6TR.Date) or CalendarPickerB6TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 6"');
+    ShowMessage('Робота 6 дата початку невірна '+DateToStr(CalendarPickerB6TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE6TR.Date) or CalendarPickerB6TR.IsEmpty then
+  begin
+    ShowMessage('Робота 6 дата закінчення невірна '+DateToStr(CalendarPickerE6TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob6Active and FormMain.IsEmpty(Edit6NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 6"');
@@ -2001,16 +2120,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob7Active := not(FormMain.IsEmpty(Edit7DatesTR.Text) or FormMain.IsEmpty(Edit7NameTR.Text) or
-    FormMain.IsEmpty(Edit7CompanyTR.Text) or FormMain.IsEmpty(Memo7RespTR.Text) or
-    FormMain.IsEmpty(Memo7SkillsTR.Text));
-  if (IsJob7Active and FormMain.IsEmpty(Edit7DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB7TR.Date) or CalendarPickerB7TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 7"');
+    ShowMessage('Робота 7 дата початку невірна '+DateToStr(CalendarPickerB7TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE7TR.Date) or CalendarPickerB7TR.IsEmpty then
+  begin
+    ShowMessage('Робота 7 дата закінчення невірна '+DateToStr(CalendarPickerE7TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob7Active and FormMain.IsEmpty(Edit7NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 7"');
@@ -2036,16 +2157,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob8Active := not(FormMain.IsEmpty(Edit8DatesTR.Text) or FormMain.IsEmpty(Edit8NameTR.Text) or
-    FormMain.IsEmpty(Edit8CompanyTR.Text) or FormMain.IsEmpty(Memo8RespTR.Text) or
-    FormMain.IsEmpty(Memo8SkillsTR.Text));
-  if (IsJob8Active and FormMain.IsEmpty(Edit8DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB8TR.Date) or CalendarPickerB8TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 8"');
+    ShowMessage('Робота 8 дата початку невірна '+DateToStr(CalendarPickerB8TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE8TR.Date) or CalendarPickerB8TR.IsEmpty then
+  begin
+    ShowMessage('Робота 8 дата закінчення невірна '+DateToStr(CalendarPickerE8TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob8Active and FormMain.IsEmpty(Edit8NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 8"');
@@ -2071,16 +2194,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob9Active := not(FormMain.IsEmpty(Edit9DatesTR.Text) or FormMain.IsEmpty(Edit9NameTR.Text) or
-    FormMain.IsEmpty(Edit9CompanyTR.Text) or FormMain.IsEmpty(Memo9RespTR.Text) or
-    FormMain.IsEmpty(Memo9SkillsTR.Text));
-  if (IsJob9Active and FormMain.IsEmpty(Edit9DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB9TR.Date) or CalendarPickerB9TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 9"');
+    ShowMessage('Робота 9 дата початку невірна '+DateToStr(CalendarPickerB9TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE9TR.Date) or CalendarPickerB9TR.IsEmpty then
+  begin
+    ShowMessage('Робота 9 дата закінчення невірна '+DateToStr(CalendarPickerE9TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob9Active and FormMain.IsEmpty(Edit9NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 9"');
@@ -2106,16 +2231,18 @@ begin
     exit;
   end;
   /// ////
-  IsJob10Active := not(FormMain.IsEmpty(Edit10DatesTR.Text) or FormMain.IsEmpty(Edit10NameTR.Text)
-    or FormMain.IsEmpty(Edit10CompanyTR.Text) or FormMain.IsEmpty(Memo10RespTR.Text) or
-    FormMain.IsEmpty(Memo10SkillsTR.Text));
-  if (IsJob10Active and FormMain.IsEmpty(Edit10DatesTR.Text)) then
+  if FormMain.IsDateInvalid(CalendarPickerB10TR.Date) or CalendarPickerB10TR.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 10"');
+    ShowMessage('Робота 10 дата початку невірна '+DateToStr(CalendarPickerB10TR.Date));
     Result := false;
     exit;
   end;
-
+  if FormMain.IsDateInvalid(CalendarPickerE10TR.Date) or CalendarPickerB10TR.IsEmpty then
+  begin
+    ShowMessage('Робота 10 дата закінчення невірна '+DateToStr(CalendarPickerE10TR.Date));
+    Result := false;
+    exit;
+  end;
   if (IsJob10Active and FormMain.IsEmpty(Edit10NameTR.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 10"');
@@ -2385,72 +2512,52 @@ end;
 
 procedure TFormNewResume.ChangeDates1;
 begin
-if DateToStr(CalendarPickerE1TR.Date)='00.00.0000'
-then Edit1DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB1TR.Date, CBRegionTR.Text) + '- Now'
-else Edit1DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB1TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE1TR.Date, CBRegionTR.Text);
+Edit1DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB1TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE1TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates2;
 begin
-if DateToStr(CalendarPickerE2TR.Date)='00.00.0000'
-then Edit2DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB2TR.Date, CBRegionTR.Text) + '- Now'
-else Edit2DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB2TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE2TR.Date, CBRegionTR.Text);
+Edit2DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB2TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE2TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates3;
 begin
-if DateToStr(CalendarPickerE3TR.Date)='00.00.0000'
-then Edit3DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB3TR.Date, CBRegionTR.Text) + '- Now'
-else Edit3DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB3TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE3TR.Date, CBRegionTR.Text);
+Edit3DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB3TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE3TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates4;
 begin
-if DateToStr(CalendarPickerE4TR.Date)='00.00.0000'
-then Edit4DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB4TR.Date, CBRegionTR.Text) + '- Now'
-else Edit4DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB4TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE4TR.Date, CBRegionTR.Text);
+Edit4DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB4TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE4TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates5;
 begin
-if DateToStr(CalendarPickerE5TR.Date)='00.00.0000'
-then Edit5DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB5TR.Date, CBRegionTR.Text) + '- Now'
-else Edit5DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB5TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE5TR.Date, CBRegionTR.Text);
+Edit5DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB5TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE5TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates6;
 begin
-if DateToStr(CalendarPickerE6TR.Date)='00.00.0000'
-then Edit6DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB6TR.Date, CBRegionTR.Text) + '- Now'
-else Edit6DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB6TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE6TR.Date, CBRegionTR.Text);
+Edit6DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB6TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE6TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates7;
 begin
-if DateToStr(CalendarPickerE7TR.Date)='00.00.0000'
-then Edit7DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB7TR.Date, CBRegionTR.Text) + '- Now'
-else Edit7DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB7TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE7TR.Date, CBRegionTR.Text);
+Edit7DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB7TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE7TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates8;
 begin
-if DateToStr(CalendarPickerE8TR.Date)='00.00.0000'
-then Edit8DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB8TR.Date, CBRegionTR.Text) + '- Now'
-else Edit8DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB8TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE8TR.Date, CBRegionTR.Text);
+Edit8DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB8TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE8TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates9;
 begin
-if DateToStr(CalendarPickerE9TR.Date)='00.00.0000'
-then Edit9DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB9TR.Date, CBRegionTR.Text) + '- Now'
-else Edit9DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB9TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE9TR.Date, CBRegionTR.Text);
+Edit9DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB9TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE9TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.ChangeDates10;
 begin
-if DateToStr(CalendarPickerE10TR.Date)='00.00.0000'
-then Edit10DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB10TR.Date, CBRegionTR.Text) + '- Now'
-else Edit10DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB10TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE10TR.Date, CBRegionTR.Text);
+Edit10DatesTR.Text := FormMain.GetMonthByRegion(CalendarPickerB10TR.Date, CBRegionTR.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE10TR.Date, CBRegionTR.Text);
 end;
 
 procedure TFormNewResume.CalendarPickerB10TRChange(Sender: TObject);
@@ -2461,11 +2568,6 @@ end;
 procedure TFormNewResume.CalendarPickerB10TRCloseUp(Sender: TObject);
 begin
   ChangeDates10;
-end;
-
-procedure TFormNewResume.CalendarPickerB1TRChange(Sender: TObject);
-begin
-  ChangeDates1;
 end;
 
 procedure TFormNewResume.CalendarPickerB1TRCloseUp(Sender: TObject);
@@ -2647,6 +2749,12 @@ while not UniRegions.Eof do
     UniRegions.Next;
   end;
 //FormMain.Warning('Регион изменён на '+CBRegionTR.Text+' для '+ CBLangTR.Text);
+end;
+
+procedure TFormNewResume.BitBtn1Click(Sender: TObject);
+begin
+ShowMessage(BoolToStr(CalendarPickerB1TR.IsEmpty));
+CheckValues;
 end;
 
 end.

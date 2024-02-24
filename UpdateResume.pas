@@ -1102,6 +1102,16 @@ var
     IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
     IsJob10Active: boolean;
 begin
+  IsJob1Active := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text) or FormMain.IsEmpty(Memo1Skills.Text));
+  IsJob2Active := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text) or FormMain.IsEmpty(Memo2Skills.Text));
+  IsJob3Active := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text) or FormMain.IsEmpty(Memo3Skills.Text));
+  IsJob4Active := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text) or FormMain.IsEmpty(Memo4Skills.Text));
+  IsJob5Active := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text) or FormMain.IsEmpty(Memo5Skills.Text));
+  IsJob6Active := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text) or FormMain.IsEmpty(Memo6Skills.Text));
+  IsJob7Active := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text) or FormMain.IsEmpty(Memo7Skills.Text));
+  IsJob8Active := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text) or FormMain.IsEmpty(Memo8Skills.Text));
+  IsJob9Active := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text) or FormMain.IsEmpty(Memo9Skills.Text));
+  IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text) or FormMain.IsEmpty(Memo10Skills.Text));
   //Обязательные поля
   if FormMain.IsEmpty(EditName.Text) then
   begin
@@ -1189,13 +1199,16 @@ begin
   end;
   /// Определяем активность Job через заполненные поля
   ///  Если обязательные поля в работе заполнены, тогда Job активна
-  IsJob1Active := not(FormMain.IsEmpty(Edit1Dates.Text) or FormMain.IsEmpty(Edit1Name.Text) or
-    FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text) or
-    FormMain.IsEmpty(Memo1Skills.Text));
 
-  if IsJob1Active and (Edit1Dates.Text='') then
+  if FormMain.IsDateInvalid(CalendarPickerB1.Date) or CalendarPickerB1.IsEmpty then
   begin
-    ShowMessage('Пусте поле "Дата робота 1"');
+    ShowMessage('Робота 1 дата початку невірна '+DateToStr(CalendarPickerB1.Date));
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsDateInvalid(CalendarPickerE1.Date) or CalendarPickerB1.IsEmpty then
+  begin
+    ShowMessage('Робота 1 дата закінчення невірна '+DateToStr(CalendarPickerE1.Date));
     Result := false;
     exit;
   end;
@@ -1226,8 +1239,6 @@ begin
   end;
 
   /// ////
-  IsJob2Active := not(FormMain.IsEmpty(Edit2Dates.Text) or FormMain.IsEmpty(Edit2Name.Text) or
-    FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text) or FormMain.IsEmpty(Memo2Skills.Text));
   if (IsJob2Active and FormMain.IsEmpty(Edit2Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 2"');
@@ -1260,8 +1271,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob3Active := not(FormMain.IsEmpty(Edit3Dates.Text) or FormMain.IsEmpty(Edit3Name.Text) or
-    FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text) or FormMain.IsEmpty(Memo3Skills.Text));
   if (IsJob3Active and FormMain.IsEmpty(Edit3Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 3"');
@@ -1294,8 +1303,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob4Active := not(FormMain.IsEmpty(Edit4Dates.Text) or FormMain.IsEmpty(Edit4Name.Text) or
-    FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text) or FormMain.IsEmpty(Memo4Skills.Text));
   if (IsJob4Active and FormMain.IsEmpty(Edit4Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 4"');
@@ -1328,8 +1335,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob5Active := not(FormMain.IsEmpty(Edit5Dates.Text) or FormMain.IsEmpty(Edit5Name.Text) or
-    FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text) or FormMain.IsEmpty(Memo5Skills.Text));
   if (IsJob5Active and FormMain.IsEmpty(Edit5Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 5"');
@@ -1362,8 +1367,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob6Active := not(FormMain.IsEmpty(Edit6Dates.Text) or FormMain.IsEmpty(Edit6Name.Text) or
-    FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text) or FormMain.IsEmpty(Memo6Skills.Text));
   if (IsJob6Active and FormMain.IsEmpty(Edit6Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 6"');
@@ -1396,8 +1399,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob7Active := not(FormMain.IsEmpty(Edit7Dates.Text) or FormMain.IsEmpty(Edit7Name.Text) or
-    FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text) or FormMain.IsEmpty(Memo7Skills.Text));
   if (IsJob7Active and FormMain.IsEmpty(Edit7Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 7"');
@@ -1430,8 +1431,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob8Active := not(FormMain.IsEmpty(Edit8Dates.Text) or FormMain.IsEmpty(Edit8Name.Text) or
-    FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text) or FormMain.IsEmpty(Memo8Skills.Text));
   if (IsJob8Active and FormMain.IsEmpty(Edit8Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 8"');
@@ -1464,8 +1463,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob9Active := not(FormMain.IsEmpty(Edit9Dates.Text) or FormMain.IsEmpty(Edit9Name.Text) or
-    FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text) or FormMain.IsEmpty(Memo9Skills.Text));
   if (IsJob9Active and FormMain.IsEmpty(Edit9Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 9"');
@@ -1498,8 +1495,6 @@ begin
     exit;
   end;
   /// ////
-  IsJob10Active := not(FormMain.IsEmpty(Edit10Dates.Text) or FormMain.IsEmpty(Edit10Name.Text)
-    or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text) or FormMain.IsEmpty(Memo10Skills.Text));
   if (IsJob10Active and FormMain.IsEmpty(Edit10Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 10"');

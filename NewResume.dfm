@@ -17,7 +17,7 @@ object FormNewResume: TFormNewResume
     692)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 878
+    Left = 874
     Top = 654
     Width = 98
     Height = 30
@@ -25,7 +25,7 @@ object FormNewResume: TFormNewResume
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 874
+    ExplicitLeft = 870
     ExplicitTop = 653
   end
   object BitBtnSave: TBitBtn
@@ -2062,7 +2062,7 @@ object FormNewResume: TFormNewResume
         Top = 0
         Width = 380
         Height = 29
-        TabOrder = 1
+        TabOrder = 2
         Text = 'EditArticle2TR'
       end
       object MemoArticle1TR: TMemo
@@ -2074,7 +2074,7 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'MemoArticle1TR')
         ScrollBars = ssVertical
-        TabOrder = 4
+        TabOrder = 1
       end
       object MemoArticle2TR: TMemo
         Left = 499
@@ -2085,14 +2085,14 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'MemoArticle2TR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 3
       end
       object EditArticle3TR: TEdit
         Left = 102
         Top = 145
         Width = 380
         Height = 29
-        TabOrder = 2
+        TabOrder = 4
         Text = 'EditArticle3TR'
       end
       object EditArticle4TR: TEdit
@@ -2100,7 +2100,7 @@ object FormNewResume: TFormNewResume
         Top = 145
         Width = 380
         Height = 29
-        TabOrder = 3
+        TabOrder = 6
         Text = 'EditArticle4TR'
       end
       object MemoArticle3TR: TMemo
@@ -2112,7 +2112,7 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'MemoArticle3TR')
         ScrollBars = ssVertical
-        TabOrder = 6
+        TabOrder = 5
       end
       object MemoArticle4TR: TMemo
         Left = 499
@@ -2251,7 +2251,6 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         MinYear = 1980
-        OnChange = CalendarPickerB1TRChange
         OnCloseUp = CalendarPickerB1TRCloseUp
         ParentFont = False
         TabOrder = 7
@@ -3799,6 +3798,15 @@ object FormNewResume: TFormNewResume
     TabOrder = 4
     OnClick = BitBtnCopyClick
     ExplicitTop = 653
+  end
+  object BitBtn1: TBitBtn
+    Left = 480
+    Top = 659
+    Width = 75
+    Height = 25
+    Caption = 'BitBtn1'
+    TabOrder = 5
+    OnClick = BitBtn1Click
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (

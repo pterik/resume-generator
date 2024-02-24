@@ -96,6 +96,7 @@ type
       var FullMonthYear, ShortMonthYear: string);
     function IsEmpty(const S: String): boolean;
     function GetMonthByRegion(const D: TDatetime; Region: string):string;
+    function IsDateInvalid(const D: TDateTime): boolean;
   end;
 
 var
@@ -757,6 +758,14 @@ if (lowercase(Region) = 'ukraine') or (lowercase(Region) = 'ua') then
     end;
     // January, February, March, April, May, June, July, August, September, October, November, December
   end;
+end;
+
+function TFormMain.IsDateInvalid(const D: TDateTime): boolean;
+var Year, Month, Day: Word;
+begin
+Result:=false;
+DecodeDate(D, Year, Month, Day);
+Result:=(Year=0) or (D>Now()) or (Year<=2000);
 end;
 
 

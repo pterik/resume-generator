@@ -4819,11 +4819,12 @@ object FormMain: TFormMain
   end
   object MemoText: TMemo
     Left = 8
-    Top = 328
-    Width = 500
-    Height = 233
+    Top = 416
+    Width = 972
+    Height = 159
     Lines.Strings = (
       'MemoText')
+    ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 3
   end
