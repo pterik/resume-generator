@@ -16,7 +16,7 @@ object FormUpdateResume: TFormUpdateResume
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 885
+    Left = 877
     Top = 614
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 881
+    ExplicitLeft = 873
     ExplicitTop = 613
   end
   object BitBtnSave: TBitBtn
@@ -188,7 +188,7 @@ object FormUpdateResume: TFormUpdateResume
     Top = 2
     Width = 980
     Height = 610
-    ActivePage = TabSheetJob1RU
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -399,6 +399,23 @@ object FormUpdateResume: TFormUpdateResume
         Height = 29
         TabOrder = 6
         Text = 'CBRegion'
+      end
+      object CBPhones: TComboBox
+        Left = 425
+        Top = 171
+        Width = 160
+        Height = 29
+        TabOrder = 7
+        Text = 'CBPhones'
+      end
+      object BitBtn2: TBitBtn
+        Left = 599
+        Top = 173
+        Width = 33
+        Height = 25
+        Caption = '+'
+        TabOrder = 8
+        OnClick = BitBtn2Click
       end
     end
     object TabSheetFooterRU: TTabSheet
@@ -3255,8 +3272,8 @@ object FormUpdateResume: TFormUpdateResume
       '   archived, created, updated  '
       'from resumes'
       'where id = :P_ID')
-    Left = 432
-    Top = 184
+    Left = 464
+    Top = 120
     ParamData = <
       item
         DataType = ftUnknown
@@ -3313,8 +3330,8 @@ object FormUpdateResume: TFormUpdateResume
       ' WHERE f.resume_id = :p_resume_id'
       'ORDER BY footer_order'
       '')
-    Left = 552
-    Top = 184
+    Left = 568
+    Top = 112
     ParamData = <
       item
         DataType = ftInteger
@@ -3368,7 +3385,7 @@ object FormUpdateResume: TFormUpdateResume
       ' FROM experiences e'
       'WHERE resume_id = :p_resume_id'
       'ORDER BY job_order')
-    Left = 664
+    Left = 688
     Top = 184
     ParamData = <
       item
@@ -3662,10 +3679,9 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'p_experience_id'
         ParamType = ptOutput
-        Size = 255
         Value = nil
       end>
     CommandStoredProcName = 'insert_experience'
@@ -3723,5 +3739,24 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end>
     CommandStoredProcName = 'delete_experiences_skills'
+  end
+  object UniTelephones: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT DISTINCT value FROM parameters'
+      'WHERE name LIKE '#39'%telephone%'#39' '
+      'ORDER BY 1')
+    Left = 512
+    Top = 200
   end
 end

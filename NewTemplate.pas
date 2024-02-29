@@ -211,6 +211,9 @@ type
     Label76: TLabel;
     UniSPDeleteExpSkills: TUniStoredProc;
     StaticText2: TStaticText;
+    CBPhones: TComboBox;
+    BitBtn2: TBitBtn;
+    UniTelephones: TUniQuery;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure CalendarPickerB2RUCloseUp(Sender: TObject);
@@ -254,6 +257,7 @@ type
     procedure CalendarPickerB10RUChange(Sender: TObject);
     procedure CalendarPickerE10RUChange(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure BitBtn2Click(Sender: TObject);
   private
     FTemplateID: integer;
     function CheckValues: boolean;
@@ -287,6 +291,11 @@ implementation
 {$R *.dfm}
 
 uses MainForm;
+
+procedure TFormNewTemplate.BitBtn2Click(Sender: TObject);
+begin
+EditPhonesRU.Text:=Trim(EditPhonesRU.Text+' '+CBPhones.Text);
+end;
 
 procedure TFormNewTemplate.BitBtnCloseClick(Sender: TObject);
 begin
@@ -1462,6 +1471,14 @@ SetEmptyTemplatesRU;
 SetEmptyFootersRU;
 SetEmptyJobsRU;
 SetEmptySkillsRU;
+CBPhones.Clear;
+UniTelephones.Close;
+UniTelephones.Open;
+while not UniTelephones.Eof do
+  begin
+    CBPhones.Items.Add(UniTelephones['value']);
+    UniTelephones.Next;
+  end;
 end;
 
 procedure TFormNewTemplate.SetEmptyFootersRU;

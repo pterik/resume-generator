@@ -18,7 +18,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 880
+    Left = 876
     Top = 620
     Width = 84
     Height = 40
@@ -32,7 +32,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 876
+    ExplicitLeft = 872
     ExplicitTop = 619
   end
   object BitBtnSave: TBitBtn
@@ -187,7 +187,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     Top = 8
     Width = 980
     Height = 610
-    ActivePage = TabSheetJob1RU
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -414,6 +414,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ReadOnly = True
         TabOrder = 6
         Text = 'Template'
+      end
+      object CBPhones: TComboBox
+        Left = 414
+        Top = 171
+        Width = 160
+        Height = 29
+        TabOrder = 7
+        Text = 'CBPhones'
+      end
+      object BitBtn2: TBitBtn
+        Left = 588
+        Top = 173
+        Width = 33
+        Height = 25
+        Caption = '+'
+        TabOrder = 8
       end
     end
     object TabSheetFooterRU: TTabSheet
@@ -3494,5 +3510,24 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end>
     CommandStoredProcName = 'delete_experiences_skills'
+  end
+  object UniTelephones: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT DISTINCT value FROM parameters'
+      'WHERE name LIKE '#39'%telephone%'#39' '
+      'ORDER BY 1')
+    Left = 792
+    Top = 200
   end
 end

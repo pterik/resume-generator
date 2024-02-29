@@ -77,6 +77,7 @@ type
     procedure RadioGroupClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure UniResumesCalcFields(DataSet: TDataSet);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     FileResumeTarget, FileCVTarget, FileCLTarget,FileResumePDF, FileCVPDF, FileCLPDF:string;
 //    WordRecords:TWordRecords;
@@ -89,6 +90,7 @@ type
     procedure SetValues;
     procedure ShowValues;
     function RichView_FileGenerate(resume_id: integer): boolean;
+    procedure EditResume;
 //    procedure SetWordRecord(I:integer; Key:string;WordType:TWordRecType; const EditTxt:TEdit); overload;
 //    procedure SetWordRecord(I:integer; Key:string;WordType:TWordRecType; const STxt:String); overload;
 //    procedure SetWordRecord(I: integer; Key: string; WordType: TWordRecType; const MemoTx: TMemo);overload;
@@ -122,10 +124,10 @@ end;
 
 procedure TFormListResumes.BitBtnArchiveClick(Sender: TObject);
 begin
-if VarIsNull(UniResumes['id']) then  ShowMessage('Выберите запись')
+if VarIsNull(UniResumes['id']) then  ShowMessage('Оберіть резюме')
   else
     begin
-    if MessageDlg( 'Подтвердите перемещение резюме в архив', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
+    if MessageDlg( 'Підтвердіть переміщення резюме у архив', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
     UniArchiveResume.Prepare;
     UniArchiveResume.ParamByName('p_id').AsInteger:=UniResumes['id'];
     UniArchiveResume.ExecSQL;
@@ -155,7 +157,7 @@ begin
 if not VarIsNull(UniResumes['id'])
   then
     begin
-    if MessageDlg( 'Подтвердите удаление резюме', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
+    if MessageDlg( 'Підтвердіть видалення резюме', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
     UniDeleteExperiences.Prepare;
     UniDeleteExperiences.ParamByName('p_resume_id').AsInteger:=UniResumes['id'];
     UniDeleteExperiences.ExecSQL;
@@ -167,10 +169,15 @@ if not VarIsNull(UniResumes['id'])
     UniDeleteResume.ExecSQL;
     UniResumes.Refresh;
     end
-  else ShowMessage('Выберите запись');
+  else ShowMessage('Оберіте резюме');
 end;
 
 procedure TFormListResumes.BitBtnEditResumeClick(Sender: TObject);
+begin
+EditResume;
+end;
+
+procedure TFormListResumes.EditResume;
 begin
 if VarIsNull(UniResumes['id']) then ShowMessage('Оберіть резюме для редагування')
 else
@@ -261,6 +268,11 @@ except on E:Exception do
 end;
 end;
 
+procedure TFormListResumes.DBGrid1DblClick(Sender: TObject);
+begin
+EditResume;
+end;
+
 procedure TFormListResumes.FormCreate(Sender: TObject);
 begin
 Radiogroup.ItemIndex:=0;
@@ -275,11 +287,6 @@ procedure TFormListResumes.BitBtnNewResumeClick(Sender: TObject);
 var rid, tid:integer;
 sid:string;
 begin
-if VarisNull(UniResumes['id']) then
-  begin
-    ShowMessage('Выберите резюме из списка');
-    exit;
-  end;
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
 if Pos('t',Trim(EditCopyNumber.Text))=1 then

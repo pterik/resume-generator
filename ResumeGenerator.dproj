@@ -117,8 +117,8 @@
             <Form>FormEmails</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="TemplatesList.pas">
-            <Form>FormTemplatesList</Form>
+        <DCCReference Include="Skills.pas">
+            <Form>FormSkills</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UpdateTemplate.pas">
@@ -139,6 +139,18 @@
         </DCCReference>
         <DCCReference Include="CheckMailboxes.pas">
             <Form>FormCheckMailboxes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="TemplatesList.pas">
+            <Form>FormTemplatesList</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="NewSkill.pas">
+            <Form>FormNewSkill</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UpdateSkill.pas">
+            <Form>FormUpdateSkill</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

@@ -58,7 +58,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 873
+    Left = 865
     Top = 616
     Width = 95
     Height = 38
@@ -73,7 +73,7 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 869
+    ExplicitLeft = 861
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -240,7 +240,7 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetMainRU: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       object Label7: TLabel
-        Left = 45
+        Left = 77
         Top = 82
         Width = 52
         Height = 21
@@ -253,8 +253,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label9: TLabel
-        Left = -3
-        Top = 158
+        Left = 29
+        Top = 149
         Width = 99
         Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
@@ -266,8 +266,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 26
-        Top = 188
+        Left = 59
+        Top = 185
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -279,15 +279,15 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label12: TLabel
-        Left = 66
-        Top = 3
+        Left = 31
+        Top = 5
         Width = 39
         Height = 21
         Caption = #1052#1086#1074#1072
       end
       object Label13: TLabel
-        Left = 60
-        Top = 36
+        Left = 25
+        Top = 38
         Width = 45
         Height = 21
         Caption = #1056#1077#1075#1110#1086#1085
@@ -306,8 +306,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label11: TLabel
-        Left = 30
-        Top = 223
+        Left = 3
+        Top = 227
         Width = 68
         Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
@@ -319,8 +319,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object EditNameRU: TEdit
-        Left = 103
-        Top = 83
+        Left = 138
+        Top = 79
         Width = 295
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -333,22 +333,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditNameRU'
       end
       object EditOpportunityRU: TEdit
-        Left = 102
-        Top = 118
-        Width = 295
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 2
-        Text = 'EditOpportunityRU'
-      end
-      object EditPlaceRU: TEdit
-        Left = 102
-        Top = 153
+        Left = 137
+        Top = 114
         Width = 295
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -358,11 +344,25 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
         TabOrder = 1
+        Text = 'EditOpportunityRU'
+      end
+      object EditPlaceRU: TEdit
+        Left = 137
+        Top = 149
+        Width = 295
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
         Text = 'EditPlaceRU'
       end
       object EditPhonesRU: TEdit
-        Left = 103
-        Top = 188
+        Left = 138
+        Top = 184
         Width = 296
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -375,9 +375,9 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditPhonesRU'
       end
       object MemoIntroRU: TMemo
-        Left = 104
+        Left = 77
         Top = 224
-        Width = 860
+        Width = 887
         Height = 234
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -400,30 +400,49 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 4
       end
       object EditLangTR: TEdit
-        Left = 112
-        Top = 1
+        Left = 77
+        Top = 3
         Width = 72
         Height = 29
+        Enabled = False
         ReadOnly = True
         TabOrder = 5
         Text = 'RU'
       end
       object EditRegionTR: TEdit
-        Left = 112
-        Top = 36
+        Left = 77
+        Top = 38
         Width = 72
         Height = 29
+        Enabled = False
         ReadOnly = True
         TabOrder = 6
         Text = 'Template'
       end
       object StaticText2: TStaticText
-        Left = 16
-        Top = 109
-        Width = 80
-        Height = 52
+        Left = 6
+        Top = 118
+        Width = 126
+        Height = 25
         Caption = #1055#1086#1089#1072#1076#1072' '#1087#1086#1074#1085#1110#1089#1090#1102
         TabOrder = 7
+      end
+      object CBPhones: TComboBox
+        Left = 449
+        Top = 182
+        Width = 160
+        Height = 29
+        TabOrder = 8
+        Text = 'CBPhones'
+      end
+      object BitBtn2: TBitBtn
+        Left = 623
+        Top = 184
+        Width = 33
+        Height = 25
+        Caption = '+'
+        TabOrder = 9
+        OnClick = BitBtn2Click
       end
     end
     object TabSheetFooterRU: TTabSheet
@@ -3276,5 +3295,24 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end>
     CommandStoredProcName = 'delete_experiences_skills'
+  end
+  object UniTelephones: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT DISTINCT value FROM parameters'
+      'WHERE name LIKE '#39'%telephone%'#39' '
+      'ORDER BY 1')
+    Left = 688
+    Top = 216
   end
 end

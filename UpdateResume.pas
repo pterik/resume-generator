@@ -264,6 +264,9 @@ type
     UniExperienceIDleave_reason: TStringField;
     UniExperienceIDcreated: TDateTimeField;
     UniExperienceIDupdated: TDateTimeField;
+    CBPhones: TComboBox;
+    BitBtn2: TBitBtn;
+    UniTelephones: TUniQuery;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -307,8 +310,12 @@ type
     procedure CalendarPickerB10CloseUp(Sender: TObject);
     procedure CalendarPickerE10Change(Sender: TObject);
     procedure CalendarPickerE10CloseUp(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
   private
     FResumeID:integer;
+    IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
+    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
+    IsJob10Active: boolean;
     procedure InitFormValues;
     procedure ChangeDates1;
     procedure SetValuesFooters;
@@ -322,7 +329,10 @@ type
     procedure ChangeDates7;
     procedure ChangeDates8;
     procedure ChangeDates9;
-    function CheckValues: boolean;
+    function isFormValuesGood: boolean;
+    function isMainFormGood:boolean;
+    function isJobGood:boolean;
+    function isJobDatesGood:boolean;
     function SaveResume: boolean;
     function SaveValues: boolean;
     function SaveJobs: boolean;
@@ -343,6 +353,11 @@ implementation
 {$R *.dfm}
 
 uses MainForm;
+
+procedure TFormUpdateResume.BitBtn2Click(Sender: TObject);
+begin
+EditPhones.Text:=trim(EditPhones.Text+' '+CBPhones.Text);
+end;
 
 procedure TFormUpdateResume.BitBtnCloseClick(Sender: TObject);
 begin
@@ -460,6 +475,14 @@ procedure TFormUpdateResume.SetFormValues;
 begin
 PageControlRU.ActivePageIndex:=0;
 SetEmptyResumes;
+CBPhones.Clear;
+UniTelephones.Close;
+UniTelephones.Open;
+while not UniTelephones.Eof do
+  begin
+    CBPhones.Items.Add(UniTelephones['value']);
+    UniTelephones.Next;
+  end;
 end;
 
 procedure TFormUpdateResume.InitFormValues;
@@ -486,7 +509,7 @@ end;
 
 procedure TFormUpdateResume.BitBtnSaveClick(Sender: TObject);
 begin
-  if CheckValues then
+  if isFormValuesGood then
     ModalResult := mrOK
   else
   begin
@@ -1096,23 +1119,11 @@ if Length(Trim(MBYear+MEYear))=0 then Edit10Dates.Text := '' else
   Edit10Dates.Text := MBYear + '-' + MEyear;
 end;
 
-function TFormUpdateResume.CheckValues: boolean;
-var
-  IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
-    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
-    IsJob10Active: boolean;
+
+function TFormUpdateResume.isMainFormGood: boolean;
 begin
-  IsJob1Active := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text) or FormMain.IsEmpty(Memo1Skills.Text));
-  IsJob2Active := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text) or FormMain.IsEmpty(Memo2Skills.Text));
-  IsJob3Active := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text) or FormMain.IsEmpty(Memo3Skills.Text));
-  IsJob4Active := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text) or FormMain.IsEmpty(Memo4Skills.Text));
-  IsJob5Active := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text) or FormMain.IsEmpty(Memo5Skills.Text));
-  IsJob6Active := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text) or FormMain.IsEmpty(Memo6Skills.Text));
-  IsJob7Active := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text) or FormMain.IsEmpty(Memo7Skills.Text));
-  IsJob8Active := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text) or FormMain.IsEmpty(Memo8Skills.Text));
-  IsJob9Active := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text) or FormMain.IsEmpty(Memo9Skills.Text));
-  IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text) or FormMain.IsEmpty(Memo10Skills.Text));
-  //Обязательные поля
+Result:=true;
+// Проверка полей основной формы
   if FormMain.IsEmpty(EditName.Text) then
   begin
     ShowMessage('Пусте поле "Назва резюме"');
@@ -1155,8 +1166,7 @@ begin
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle2.Text)) = 0) and
-    (Length(Trim(MemoArticle2.Text)) > 0) then
+  if FormMain.IsEmpty(EditArticle2.Text) and not FormMain.IsEmpty(MemoArticle2.Text) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Назва"');
     Result := false;
@@ -1197,335 +1207,134 @@ begin
     Result := false;
     exit;
   end;
-  /// Определяем активность Job через заполненные поля
-  ///  Если обязательные поля в работе заполнены, тогда Job активна
+end;
 
-  if FormMain.IsDateInvalid(CalendarPickerB1.Date) or CalendarPickerB1.IsEmpty then
-  begin
-    ShowMessage('Робота 1 дата початку невірна '+DateToStr(CalendarPickerB1.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE1.Date) or CalendarPickerB1.IsEmpty then
-  begin
-    ShowMessage('Робота 1 дата закінчення невірна '+DateToStr(CalendarPickerE1.Date));
-    Result := false;
-    exit;
-  end;
 
-  if (IsJob1Active and FormMain.IsEmpty(Edit1Name.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 1"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob1Active and FormMain.IsEmpty(Edit1Company.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 1"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob1Active and FormMain.IsEmpty(Memo1Resp.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 1"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob1Active and FormMain.IsEmpty(Memo1Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 1"');
-    Result := false;
-    exit;
-  end;
+function TFormUpdateResume.isJobDatesGood: boolean;
+begin
+Result:=true;
 
-  /// ////
-  if (IsJob2Active and FormMain.IsEmpty(Edit2Dates.Text)) then
+if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerB1.Date) or CalendarPickerB1.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Дата робота 2"');
+    ShowMessage('Робота 1 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB1.Date));
     Result := false;
     exit;
   end;
-
-  if (IsJob2Active and FormMain.IsEmpty(Edit2Name.Text)) then
+if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerE1.Date) or CalendarPickerE1.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Назва робота 2"');
+    ShowMessage('Робота 1 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE1.Date));
     Result := false;
     exit;
   end;
-  if (IsJob2Active and FormMain.IsEmpty(Edit2Company.Text)) then
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerB2.Date) or CalendarPickerB2.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Компанія робота 2"');
+    ShowMessage('Робота 2 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
-  if (IsJob2Active and FormMain.IsEmpty(Memo2Resp.Text)) then
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerE2.Date) or CalendarPickerE2.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Обов`язки робота 2"');
+    ShowMessage('Робота 2 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE2.Date));
     Result := false;
     exit;
   end;
-  if (IsJob2Active and FormMain.IsEmpty(Memo2Skills.Text)) then
+if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerB3.Date) or CalendarPickerB3.IsEmpty) then
   begin
-    ShowMessage('Пусте поле Скіли робота 2"');
+    ShowMessage('Робота 3 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
-  /// ////
-  if (IsJob3Active and FormMain.IsEmpty(Edit3Dates.Text)) then
+if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerE3.Date) or CalendarPickerE3.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Дата робота 3"');
+    ShowMessage('Робота 3 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE3.Date));
     Result := false;
     exit;
   end;
-
-  if (IsJob3Active and FormMain.IsEmpty(Edit3Name.Text)) then
+if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerB4.Date) or CalendarPickerB4.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Назва робота 3"');
+    ShowMessage('Робота 4 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
-  if (IsJob3Active and FormMain.IsEmpty(Edit3Company.Text)) then
+if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerE4.Date) or CalendarPickerE4.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Компанія робота 3"');
+    ShowMessage('Робота 4 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE4.Date));
     Result := false;
     exit;
   end;
-  if (IsJob3Active and FormMain.IsEmpty(Memo3Resp.Text)) then
+if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerB5.Date) or CalendarPickerB5.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Обов`язки робота 3"');
+    ShowMessage('Робота 5 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
-  if (IsJob3Active and FormMain.IsEmpty(Memo3Skills.Text)) then
+if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerE5.Date) or CalendarPickerE5.IsEmpty) then
   begin
-    ShowMessage('Пусте поле Скіли робота 3"');
+    ShowMessage('Робота 5 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE5.Date));
     Result := false;
     exit;
   end;
-  /// ////
-  if (IsJob4Active and FormMain.IsEmpty(Edit4Dates.Text)) then
+if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerB6.Date) or CalendarPickerB6.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Дата робота 4"');
+    ShowMessage('Робота 6 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
-
-  if (IsJob4Active and FormMain.IsEmpty(Edit4Name.Text)) then
+if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerE6.Date) or CalendarPickerE6.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Назва робота 4"');
+    ShowMessage('Робота 6 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE6.Date));
     Result := false;
     exit;
   end;
-  if (IsJob4Active and FormMain.IsEmpty(Edit4Company.Text)) then
+if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerB7.Date) or CalendarPickerB7.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Компанія робота 4"');
+    ShowMessage('Робота 7 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
-  if (IsJob4Active and FormMain.IsEmpty(Memo4Resp.Text)) then
+if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerE7.Date) or CalendarPickerE7.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Обов`язки робота 4"');
+    ShowMessage('Робота 7 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE7.Date));
     Result := false;
     exit;
   end;
-  if (IsJob4Active and FormMain.IsEmpty(Memo4Skills.Text)) then
+if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerB8.Date) or CalendarPickerB8.IsEmpty) then
   begin
-    ShowMessage('Пусте поле Скіли робота 4"');
+    ShowMessage('Робота 8 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
-  /// ////
-  if (IsJob5Active and FormMain.IsEmpty(Edit5Dates.Text)) then
+if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerE8.Date) or CalendarPickerE8.IsEmpty) then
   begin
-    ShowMessage('Пусте поле "Дата робота 5"');
+    ShowMessage('Робота 8 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE8.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerB9.Date) or CalendarPickerB9.IsEmpty) then
+  begin
+    ShowMessage('Робота 9 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB9.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerE9.Date) or CalendarPickerE9.IsEmpty) then
+  begin
+    ShowMessage('Робота 9 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE9.Date));
+    Result := false;
+    exit;
+  end;
+if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerB10.Date) or CalendarPickerB10.IsEmpty) then
+  begin
+    ShowMessage('Робота 10 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB10.Date));
+    Result := false;
+    exit;
+  end;
+if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or CalendarPickerE10.IsEmpty) then
+  begin
+    ShowMessage('Робота 10 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE10.Date));
     Result := false;
     exit;
   end;
 
-  if (IsJob5Active and FormMain.IsEmpty(Edit5Name.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 5"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob5Active and FormMain.IsEmpty(Edit5Company.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 5"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob5Active and FormMain.IsEmpty(Memo5Resp.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 5"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob5Active and FormMain.IsEmpty(Memo5Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 5"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if (IsJob6Active and FormMain.IsEmpty(Edit6Dates.Text)) then
-  begin
-    ShowMessage('Пусте поле "Дата робота 6"');
-    Result := false;
-    exit;
-  end;
-
-  if (IsJob6Active and FormMain.IsEmpty(Edit6Name.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 6"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Edit6Company.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 6"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Memo6Resp.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 6"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Memo6Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 6"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if (IsJob7Active and FormMain.IsEmpty(Edit7Dates.Text)) then
-  begin
-    ShowMessage('Пусте поле "Дата робота 7"');
-    Result := false;
-    exit;
-  end;
-
-  if (IsJob7Active and FormMain.IsEmpty(Edit7Name.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 7"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob7Active and FormMain.IsEmpty(Edit7Company.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 7"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob7Active and FormMain.IsEmpty(Memo7Resp.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 7"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob7Active and FormMain.IsEmpty(Memo7Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 7"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if (IsJob8Active and FormMain.IsEmpty(Edit8Dates.Text)) then
-  begin
-    ShowMessage('Пусте поле "Дата робота 8"');
-    Result := false;
-    exit;
-  end;
-
-  if (IsJob8Active and FormMain.IsEmpty(Edit8Name.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 8"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Edit8Company.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 8"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Memo8Resp.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 8"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Memo8Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 8"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if (IsJob9Active and FormMain.IsEmpty(Edit9Dates.Text)) then
-  begin
-    ShowMessage('Пусте поле "Дата робота 9"');
-    Result := false;
-    exit;
-  end;
-
-  if (IsJob9Active and FormMain.IsEmpty(Edit9Name.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 9"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob9Active and FormMain.IsEmpty(Edit9Company.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 9"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob9Active and FormMain.IsEmpty(Memo9Resp.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 9"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob9Active and FormMain.IsEmpty(Memo9Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 9"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if (IsJob10Active and FormMain.IsEmpty(Edit10Dates.Text)) then
-  begin
-    ShowMessage('Пусте поле "Дата робота 10"');
-    Result := false;
-    exit;
-  end;
-
-  if (IsJob10Active and FormMain.IsEmpty(Edit10Name.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 10"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob10Active and FormMain.IsEmpty(Edit10Company.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 10"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob10Active and FormMain.IsEmpty(Memo10Resp.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 10"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob10Active and FormMain.IsEmpty(Memo10Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 10"');
-    Result := false;
-    exit;
-  end;
 // BX>=EX
   if IsJob1Active and (CalendarPickerB1.Date >=CalendarPickerE1.Date) then
   begin
@@ -1643,7 +1452,294 @@ begin
     Result := false;
     exit;
   end;
-  Result := true;
+end;
+
+function TFormUpdateResume.isJobGood: boolean;
+begin
+Result:=true;
+  if (IsJob1Active and FormMain.IsEmpty(Edit1Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Edit1Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Memo1Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Memo1Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 1"');
+    Result := false;
+    exit;
+  end;
+
+  /// ////
+  if (IsJob2Active and FormMain.IsEmpty(Edit2Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Edit2Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Memo2Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Memo2Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 2"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob3Active and FormMain.IsEmpty(Edit3Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Edit3Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Memo3Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Memo3Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 3"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob4Active and FormMain.IsEmpty(Edit4Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Edit4Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Memo4Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Memo4Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 4"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob5Active and FormMain.IsEmpty(Edit5Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Edit5Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Memo5Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Memo5Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 5"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob6Active and FormMain.IsEmpty(Edit6Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Edit6Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Memo6Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Memo6Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 6"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob7Active and FormMain.IsEmpty(Edit7Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Edit7Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Memo7Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Memo7Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 7"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob8Active and FormMain.IsEmpty(Edit8Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Edit8Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Memo8Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Memo8Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 8"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob9Active and FormMain.IsEmpty(Edit9Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Edit9Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Memo9Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Memo9Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 9"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob10Active and FormMain.IsEmpty(Edit10Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Edit10Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Memo10Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Memo10Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 10"');
+    Result := false;
+    exit;
+  end;
+end;
+
+function TFormUpdateResume.isFormValuesGood: boolean;
+begin
+Result:=true;
+IsJob1Active := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text) or FormMain.IsEmpty(Memo1Skills.Text));
+IsJob2Active := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text) or FormMain.IsEmpty(Memo2Skills.Text));
+IsJob3Active := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text) or FormMain.IsEmpty(Memo3Skills.Text));
+IsJob4Active := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text) or FormMain.IsEmpty(Memo4Skills.Text));
+IsJob5Active := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text) or FormMain.IsEmpty(Memo5Skills.Text));
+IsJob6Active := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text) or FormMain.IsEmpty(Memo6Skills.Text));
+IsJob7Active := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text) or FormMain.IsEmpty(Memo7Skills.Text));
+IsJob8Active := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text) or FormMain.IsEmpty(Memo8Skills.Text));
+IsJob9Active := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text) or FormMain.IsEmpty(Memo9Skills.Text));
+IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text) or FormMain.IsEmpty(Memo10Skills.Text));
+  //Обязательные поля
+if not isMainFormGood then
+    begin
+      Result:=false;
+      exit;
+    end;
+  /// Определяем активность Job через заполненные поля
+  ///  Если обязательные поля в работе заполнены, тогда Job активна
+if not IsJobGood then
+    begin
+      Result:=false;
+      exit;
+    end;
+if not isJobDatesGood then
+    begin
+      Result:=false;
+      exit;
+    end;
 end;
 
 function TFormUpdateResume.SaveValues: boolean;

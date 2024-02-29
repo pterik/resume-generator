@@ -17,7 +17,7 @@ object FormNewResume: TFormNewResume
     692)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 874
+    Left = 866
     Top = 654
     Width = 98
     Height = 30
@@ -25,7 +25,7 @@ object FormNewResume: TFormNewResume
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 870
+    ExplicitLeft = 862
     ExplicitTop = 653
   end
   object BitBtnSave: TBitBtn
@@ -176,7 +176,7 @@ object FormNewResume: TFormNewResume
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheetJob1UA
+    ActivePage = TabSheet10UA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -553,7 +553,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPickerB1: TCalendarPicker
+      object CalendarPickerB1UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -579,7 +579,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPickerE1: TCalendarPicker
+      object CalendarPickerE1UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -697,7 +697,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker1: TCalendarPicker
+      object CalendarPickerB2UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -723,7 +723,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker2: TCalendarPicker
+      object CalendarPickerE2UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -841,7 +841,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker3: TCalendarPicker
+      object CalendarPickerB3UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -867,7 +867,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker4: TCalendarPicker
+      object CalendarPickerE3UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -985,7 +985,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker5: TCalendarPicker
+      object CalendarPickerB4UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -1011,7 +1011,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker6: TCalendarPicker
+      object CalendarPickerE4UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -1129,7 +1129,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker7: TCalendarPicker
+      object CalendarPickerB5UA: TCalendarPicker
         Left = 209
         Top = 0
         Width = 90
@@ -1155,7 +1155,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker8: TCalendarPicker
+      object CalendarPickerE5UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -1273,7 +1273,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker9: TCalendarPicker
+      object CalendarPickerB6UA: TCalendarPicker
         Left = 209
         Top = 0
         Width = 90
@@ -1299,7 +1299,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker10: TCalendarPicker
+      object CalendarPickerE6UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -1417,7 +1417,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker11: TCalendarPicker
+      object CalendarPickerB7UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -1443,7 +1443,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker12: TCalendarPicker
+      object CalendarPickerE7UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -1561,7 +1561,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker13: TCalendarPicker
+      object CalendarPickerB8UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -1587,7 +1587,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker14: TCalendarPicker
+      object CalendarPickerE8UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -1705,7 +1705,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker15: TCalendarPicker
+      object CalendarPickerB9UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -1731,7 +1731,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker16: TCalendarPicker
+      object CalendarPickerE9UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -1863,7 +1863,7 @@ object FormNewResume: TFormNewResume
         ScrollBars = ssVertical
         TabOrder = 6
       end
-      object CalendarPicker17: TCalendarPicker
+      object CalendarPickerB10UA: TCalendarPicker
         Left = 210
         Top = 0
         Width = 90
@@ -1889,7 +1889,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object CalendarPicker18: TCalendarPicker
+      object CalendarPickerE10UA: TCalendarPicker
         Left = 300
         Top = 0
         Width = 90
@@ -1922,7 +1922,7 @@ object FormNewResume: TFormNewResume
     Top = 330
     Width = 980
     Height = 320
-    ActivePage = TabSheetJob1TR
+    ActivePage = TabSheetMainTR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -1956,8 +1956,8 @@ object FormNewResume: TFormNewResume
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
       end
       object Label4: TLabel
-        Left = 453
-        Top = 35
+        Left = 187
+        Top = 77
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -2008,16 +2008,16 @@ object FormNewResume: TFormNewResume
         Text = 'EditPlaceTR'
       end
       object EditPhonesTR: TEdit
-        Left = 529
-        Top = 35
-        Width = 296
+        Left = 263
+        Top = 76
+        Width = 256
         Height = 29
         TabOrder = 3
         Text = 'EditPhonesTR'
       end
       object MemoIntroTR: TMemo
-        Left = 99
-        Top = 104
+        Left = 90
+        Top = 118
         Width = 879
         Height = 160
         Lines.Strings = (
@@ -2041,6 +2041,23 @@ object FormNewResume: TFormNewResume
         TabOrder = 6
         Text = 'CBLangTR'
         OnChange = CBLangTRChange
+      end
+      object CBPhones: TComboBox
+        Left = 529
+        Top = 76
+        Width = 160
+        Height = 29
+        TabOrder = 7
+        Text = 'CBPhones'
+      end
+      object BitBtn2: TBitBtn
+        Left = 703
+        Top = 78
+        Width = 33
+        Height = 25
+        Caption = '+'
+        TabOrder = 8
+        OnClick = BitBtn2Click
       end
     end
     object TabSheetFooterTR: TTabSheet
@@ -3806,7 +3823,6 @@ object FormNewResume: TFormNewResume
     Height = 25
     Caption = 'BitBtn1'
     TabOrder = 5
-    OnClick = BitBtn1Click
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (
@@ -4108,8 +4124,8 @@ object FormNewResume: TFormNewResume
       '  :p_responsibilities ,'
       '  :p_benefits ,'
       '  :p_leave_reason)')
-    Left = 832
-    Top = 248
+    Left = 856
+    Top = 120
     ParamData = <
       item
         DataType = ftInteger
@@ -4624,7 +4640,7 @@ object FormNewResume: TFormNewResume
     SQL.Strings = (
       'SELECT max(ID) from resumes '
       'WHERE name = :p_name and lang = :p_lang')
-    Left = 918
+    Left = 598
     Top = 285
     ParamData = <
       item
@@ -4725,10 +4741,9 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'p_experience_id'
         ParamType = ptOutput
-        Size = 255
         Value = nil
       end>
     CommandStoredProcName = 'insert_experience'
@@ -4786,5 +4801,24 @@ object FormNewResume: TFormNewResume
         Value = nil
       end>
     CommandStoredProcName = 'delete_experiences_skills'
+  end
+  object UniTelephones: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT DISTINCT value FROM parameters'
+      'WHERE name LIKE '#39'%telephone%'#39' '
+      'ORDER BY 1')
+    Left = 760
+    Top = 432
   end
 end

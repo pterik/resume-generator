@@ -318,26 +318,26 @@ type
     UniGetCopyResumeID: TUniQuery;
     EditLangRU: TEdit;
     EditRegionRU: TEdit;
-    CalendarPickerB1: TCalendarPicker;
-    CalendarPickerE1: TCalendarPicker;
-    CalendarPicker1: TCalendarPicker;
-    CalendarPicker2: TCalendarPicker;
-    CalendarPicker3: TCalendarPicker;
-    CalendarPicker4: TCalendarPicker;
-    CalendarPicker5: TCalendarPicker;
-    CalendarPicker6: TCalendarPicker;
-    CalendarPicker7: TCalendarPicker;
-    CalendarPicker8: TCalendarPicker;
-    CalendarPicker9: TCalendarPicker;
-    CalendarPicker10: TCalendarPicker;
-    CalendarPicker11: TCalendarPicker;
-    CalendarPicker12: TCalendarPicker;
-    CalendarPicker13: TCalendarPicker;
-    CalendarPicker14: TCalendarPicker;
-    CalendarPicker15: TCalendarPicker;
-    CalendarPicker16: TCalendarPicker;
-    CalendarPicker17: TCalendarPicker;
-    CalendarPicker18: TCalendarPicker;
+    CalendarPickerB1UA: TCalendarPicker;
+    CalendarPickerE1UA: TCalendarPicker;
+    CalendarPickerB2UA: TCalendarPicker;
+    CalendarPickerE2UA: TCalendarPicker;
+    CalendarPickerB3UA: TCalendarPicker;
+    CalendarPickerE3UA: TCalendarPicker;
+    CalendarPickerB4UA: TCalendarPicker;
+    CalendarPickerE4UA: TCalendarPicker;
+    CalendarPickerB5UA: TCalendarPicker;
+    CalendarPickerE5UA: TCalendarPicker;
+    CalendarPickerB6UA: TCalendarPicker;
+    CalendarPickerE6UA: TCalendarPicker;
+    CalendarPickerB7UA: TCalendarPicker;
+    CalendarPickerE7UA: TCalendarPicker;
+    CalendarPickerB8UA: TCalendarPicker;
+    CalendarPickerE8UA: TCalendarPicker;
+    CalendarPickerB9UA: TCalendarPicker;
+    CalendarPickerE9UA: TCalendarPicker;
+    CalendarPickerB10UA: TCalendarPicker;
+    CalendarPickerE10UA: TCalendarPicker;
     UniSPInsertExperiences: TUniStoredProc;
     UniSPInsertSkills: TUniStoredProc;
     UniSPDeleteExpSkills: TUniStoredProc;
@@ -436,6 +436,9 @@ type
     Label99: TLabel;
     Label100: TLabel;
     BitBtn1: TBitBtn;
+    CBPhones: TComboBox;
+    BitBtn2: TBitBtn;
+    UniTelephones: TUniQuery;
     procedure PageControlTRChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -479,13 +482,16 @@ type
     procedure CalendarPickerB10TRChange(Sender: TObject);
     procedure CalendarPickerE10TRChange(Sender: TObject);
     procedure CBLangTRChange(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
   private
     CBLang_First_Value, CBRegion_First_Value: string;
     CBRegionTR_ID:string;
     FootersAreActive: array [1 .. 4] of boolean;
     JobsAreActive: array [1 .. 10] of boolean;
     FResumeID : integer;
+    IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
+    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
+    IsJob10Active: boolean;
     procedure ChangeDates1;
     procedure ChangeDates2;
     procedure ChangeDates3;
@@ -498,7 +504,7 @@ type
     procedure ChangeDates10;
     procedure InitCBLanguages; // Инициализация CBLangTR
     procedure InitCBRegions;   // Инициализация CBRegionsTR
-    function CheckValues: boolean; //Проверка значений при сохранении
+    function isFormValuesGood: boolean; //Проверка значений при сохранении
     function SaveValues: boolean;  // Сохранение всех значений
     function SaveResume : boolean; // Сохранение значений Resume
     function SaveJobs: boolean;    // Сохранение значений Jobs
@@ -507,7 +513,11 @@ type
     procedure GetResumeTRfromUA;
     procedure CopyTRfromUA;
     procedure SynchroRegionLang; // Копировать резюме с UA в TR. Копируются все поля одним нажатием
+    function isMainFormGood:boolean;
+    function isJobGood:boolean;
+    function isJobDatesGood:boolean;
   public
+    //TelephoneByName:string;
     function NVL(Value:variant):string;
     procedure SetEmptyTR;     // Очистить все поля для TR
     procedure SetEmptyUA;     // Очистить все поля для UA
@@ -540,6 +550,18 @@ for i := 1 to 4 do
 for i := 1 to 10 do
   JobsAreActive[i] := false;
 PageControlTR.ActivePageIndex:=0;
+FormMain.UniParameterByName.Close;
+FormMain.UniParameterByName.ParamByName('name').AsString:=CBLangTR.Text;
+FormMain.UniParameterByName.Open;
+CBPhones.Clear;
+UniTelephones.Close;
+UniTelephones.Open;
+while not UniTelephones.Eof do
+  begin
+    CBPhones.Items.Add(UniTelephones['value']);
+    UniTelephones.Next;
+  end;
+//TelephoneByName:=FormMain.UniParameterByName['value'];
 end;
 
 procedure TFormNewResume.SynchroRegionLang;
@@ -1066,7 +1088,7 @@ begin
   UniGetFooters.ParamByName('p_resume_id').AsInteger := FResumeID;
   UniGetFooters.ParamByName('p_lang').AsString := 'UA';
   UniGetFooters.Open;
-  FormMain.Warning('Resumeid=' + IntToStr(FResumeID) + ' lang = UA');
+//  FormMain.Warning('Resumeid=' + IntToStr(FResumeID) + ' lang = UA');
   if VarIsNull(UniGetFooters['id']) then
   begin
     FormMain.Warning
@@ -1185,6 +1207,11 @@ begin
   end;
 end;
 
+procedure TFormNewResume.BitBtn2Click(Sender: TObject);
+begin
+EditPhonesTR.Text:=Trim(EditPhonesTR.Text+' '+CBPhones.Text);
+end;
+
 procedure TFormNewResume.BitBtnCopyClick(Sender: TObject);
 begin
 UniGetCopyResumeID.Close;
@@ -1207,7 +1234,7 @@ end;
 
 procedure TFormNewResume.BitBtnSaveClick(Sender: TObject);
 begin
-  if CheckValues then
+  if isFormValuesGood then
     ModalResult := mrOK
   else
   begin
@@ -1780,610 +1807,35 @@ end;
 //  end;
 //end;
 
-function TFormNewResume.CheckValues: boolean;
-var
-  IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
-    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
-    IsJob10Active: boolean;
+function TFormNewResume.isFormValuesGood: boolean;
 begin
-  IsJob1Active := not(FormMain.IsEmpty(Edit1DatesTR.Text) or FormMain.IsEmpty(Edit1NameTR.Text) or
-    FormMain.IsEmpty(Edit1CompanyTR.Text) or FormMain.IsEmpty(Memo1RespTR.Text) or
-    FormMain.IsEmpty(Memo1SkillsTR.Text));
-  IsJob2Active := not(FormMain.IsEmpty(Edit2DatesTR.Text) or FormMain.IsEmpty(Edit2NameTR.Text) or
-    FormMain.IsEmpty(Edit2CompanyTR.Text) or FormMain.IsEmpty(Memo2RespTR.Text) or
-    FormMain.IsEmpty(Memo2SkillsTR.Text));
-  IsJob3Active := not(FormMain.IsEmpty(Edit3DatesTR.Text) or FormMain.IsEmpty(Edit3NameTR.Text) or
-    FormMain.IsEmpty(Edit3CompanyTR.Text) or FormMain.IsEmpty(Memo3RespTR.Text) or
-    FormMain.IsEmpty(Memo3SkillsTR.Text));
-  IsJob4Active := not(FormMain.IsEmpty(Edit4DatesTR.Text) or FormMain.IsEmpty(Edit4NameTR.Text) or
-    FormMain.IsEmpty(Edit4CompanyTR.Text) or FormMain.IsEmpty(Memo4RespTR.Text) or
-    FormMain.IsEmpty(Memo4SkillsTR.Text));
-  IsJob5Active := not(FormMain.IsEmpty(Edit5DatesTR.Text) or FormMain.IsEmpty(Edit5NameTR.Text) or
-    FormMain.IsEmpty(Edit5CompanyTR.Text) or FormMain.IsEmpty(Memo5RespTR.Text) or
-    FormMain.IsEmpty(Memo5SkillsTR.Text));
-  IsJob6Active := not(FormMain.IsEmpty(Edit6DatesTR.Text) or FormMain.IsEmpty(Edit6NameTR.Text) or
-    FormMain.IsEmpty(Edit6CompanyTR.Text) or FormMain.IsEmpty(Memo6RespTR.Text) or
-    FormMain.IsEmpty(Memo6SkillsTR.Text));
-  IsJob7Active := not(FormMain.IsEmpty(Edit7DatesTR.Text) or FormMain.IsEmpty(Edit7NameTR.Text) or
-    FormMain.IsEmpty(Edit7CompanyTR.Text) or FormMain.IsEmpty(Memo7RespTR.Text) or
-    FormMain.IsEmpty(Memo7SkillsTR.Text));
-  IsJob8Active := not(FormMain.IsEmpty(Edit8DatesTR.Text) or FormMain.IsEmpty(Edit8NameTR.Text) or
-    FormMain.IsEmpty(Edit8CompanyTR.Text) or FormMain.IsEmpty(Memo8RespTR.Text) or
-    FormMain.IsEmpty(Memo8SkillsTR.Text));
-  IsJob9Active := not(FormMain.IsEmpty(Edit9DatesTR.Text) or FormMain.IsEmpty(Edit9NameTR.Text) or
-    FormMain.IsEmpty(Edit9CompanyTR.Text) or FormMain.IsEmpty(Memo9RespTR.Text) or
-    FormMain.IsEmpty(Memo9SkillsTR.Text));
-  IsJob10Active := not(FormMain.IsEmpty(Edit10DatesTR.Text) or FormMain.IsEmpty(Edit10NameTR.Text)
-    or FormMain.IsEmpty(Edit10CompanyTR.Text) or FormMain.IsEmpty(Memo10RespTR.Text) or
-    FormMain.IsEmpty(Memo10SkillsTR.Text));
-
-  if FormMain.IsEmpty(EditNameTR.Text) then
-  begin
-    ShowMessage('Пусте поле "Назва резюме"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(EditOpportunityTR.Text) then
-  begin
-    ShowMessage('Пусте поле "Посада"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(EditPlaceTR.Text) then
-  begin
-    ShowMessage('Пусте поле "Місце роботи"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(EditPhonesTR.Text) then
-  begin
-    ShowMessage('Пусте поле "Телефони"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(MemoIntroTR.Text) then
-  begin
-    ShowMessage('Пусте поле "Введення"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(EditArticle1TR.Text) and not FormMain.IsEmpty(MemoArticle1TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 1 - Назва"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(MemoArticle1TR.Text) and FormMain.IsEmpty(EditArticle1TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 1 - Текст"');
-    Result := false;
-    exit;
-  end;
-///   ///
-  if FormMain.IsEmpty(EditArticle2TR.Text) and not FormMain.IsEmpty(MemoArticle2TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 2 - Назва"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(MemoArticle2TR.Text) and not FormMain.IsEmpty(EditArticle2TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 2 - Текст"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(EditArticle3TR.Text) and not FormMain.IsEmpty(MemoArticle3TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 3 - Назва"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(MemoArticle3TR.Text) and not FormMain.IsEmpty(EditArticle3TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 3 - Текст"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(EditArticle4TR.Text) and not FormMain.IsEmpty(MemoArticle4TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 4 - Назва"');
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsEmpty(MemoArticle4TR.Text) and not FormMain.IsEmpty(EditArticle4TR.Text) then
-  begin
-    ShowMessage('Пусте поле "Навички 4 - Текст"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB1TR.Date) or CalendarPickerB1TR.IsEmpty then
-  begin
-    ShowMessage('Робота 1 дата початку невірна '+DateToStr(CalendarPickerB1TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE1TR.Date) or CalendarPickerB1TR.IsEmpty then
-  begin
-    ShowMessage('Робота 1 дата закінчення невірна '+DateToStr(CalendarPickerE1TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob1Active and FormMain.IsEmpty(Edit1NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 1"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob1Active and FormMain.IsEmpty(Edit1CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 1"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob1Active and FormMain.IsEmpty(Memo1RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 1"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob1Active and FormMain.IsEmpty(Memo1SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 1"');
-    Result := false;
-    exit;
-  end;
-
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB2TR.Date) or CalendarPickerB2TR.IsEmpty then
-  begin
-    ShowMessage('Робота 2 дата початку невірна '+DateToStr(CalendarPickerB2TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE2TR.Date) or CalendarPickerB2TR.IsEmpty then
-  begin
-    ShowMessage('Робота 2 дата закінчення невірна '+DateToStr(CalendarPickerE2TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob2Active and FormMain.IsEmpty(Edit2NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 2"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob2Active and FormMain.IsEmpty(Edit2CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 2"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob2Active and FormMain.IsEmpty(Memo2RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 2"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob2Active and FormMain.IsEmpty(Memo2SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 2"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB3TR.Date) or CalendarPickerB3TR.IsEmpty then
-  begin
-    ShowMessage('Робота 3 дата початку невірна '+DateToStr(CalendarPickerB3TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE3TR.Date) or CalendarPickerB3TR.IsEmpty then
-  begin
-    ShowMessage('Робота 3 дата закінчення невірна '+DateToStr(CalendarPickerE3TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob3Active and FormMain.IsEmpty(Edit3NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 3"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob3Active and FormMain.IsEmpty(Edit3CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 3"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob3Active and FormMain.IsEmpty(Memo3RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 3"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob3Active and FormMain.IsEmpty(Memo3SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 3"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB4TR.Date) or CalendarPickerB4TR.IsEmpty then
-  begin
-    ShowMessage('Робота 4 дата початку невірна '+DateToStr(CalendarPickerB4TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE4TR.Date) or CalendarPickerB4TR.IsEmpty then
-  begin
-    ShowMessage('Робота 4 дата закінчення невірна '+DateToStr(CalendarPickerE4TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob4Active and FormMain.IsEmpty(Edit4NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 4"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob4Active and FormMain.IsEmpty(Edit4CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 4"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob4Active and FormMain.IsEmpty(Memo4RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 4"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob4Active and FormMain.IsEmpty(Memo4SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 4"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB5TR.Date) or CalendarPickerB5TR.IsEmpty then
-  begin
-    ShowMessage('Робота 5 дата початку невірна '+DateToStr(CalendarPickerB5TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE5TR.Date) or CalendarPickerB5TR.IsEmpty then
-  begin
-    ShowMessage('Робота 5 дата закінчення невірна '+DateToStr(CalendarPickerE5TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob5Active and FormMain.IsEmpty(Edit5NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 5"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob5Active and FormMain.IsEmpty(Edit5CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 5"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob5Active and FormMain.IsEmpty(Memo5RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 5"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob5Active and FormMain.IsEmpty(Memo5SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 5"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB6TR.Date) or CalendarPickerB6TR.IsEmpty then
-  begin
-    ShowMessage('Робота 6 дата початку невірна '+DateToStr(CalendarPickerB6TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE6TR.Date) or CalendarPickerB6TR.IsEmpty then
-  begin
-    ShowMessage('Робота 6 дата закінчення невірна '+DateToStr(CalendarPickerE6TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Edit6NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 6"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Edit6CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 6"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Memo6RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 6"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Memo6SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 6"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB7TR.Date) or CalendarPickerB7TR.IsEmpty then
-  begin
-    ShowMessage('Робота 7 дата початку невірна '+DateToStr(CalendarPickerB7TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE7TR.Date) or CalendarPickerB7TR.IsEmpty then
-  begin
-    ShowMessage('Робота 7 дата закінчення невірна '+DateToStr(CalendarPickerE7TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob7Active and FormMain.IsEmpty(Edit7NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 7"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob7Active and FormMain.IsEmpty(Edit7CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 7"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob7Active and FormMain.IsEmpty(Memo7RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 7"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob7Active and FormMain.IsEmpty(Memo7SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 7"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB8TR.Date) or CalendarPickerB8TR.IsEmpty then
-  begin
-    ShowMessage('Робота 8 дата початку невірна '+DateToStr(CalendarPickerB8TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE8TR.Date) or CalendarPickerB8TR.IsEmpty then
-  begin
-    ShowMessage('Робота 8 дата закінчення невірна '+DateToStr(CalendarPickerE8TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Edit8NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 8"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Edit8CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 8"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Memo8RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 8"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Memo8SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 8"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB9TR.Date) or CalendarPickerB9TR.IsEmpty then
-  begin
-    ShowMessage('Робота 9 дата початку невірна '+DateToStr(CalendarPickerB9TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE9TR.Date) or CalendarPickerB9TR.IsEmpty then
-  begin
-    ShowMessage('Робота 9 дата закінчення невірна '+DateToStr(CalendarPickerE9TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob9Active and FormMain.IsEmpty(Edit9NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 9"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob9Active and FormMain.IsEmpty(Edit9CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 9"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob9Active and FormMain.IsEmpty(Memo9RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 9"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob9Active and FormMain.IsEmpty(Memo9SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 9"');
-    Result := false;
-    exit;
-  end;
-  /// ////
-  if FormMain.IsDateInvalid(CalendarPickerB10TR.Date) or CalendarPickerB10TR.IsEmpty then
-  begin
-    ShowMessage('Робота 10 дата початку невірна '+DateToStr(CalendarPickerB10TR.Date));
-    Result := false;
-    exit;
-  end;
-  if FormMain.IsDateInvalid(CalendarPickerE10TR.Date) or CalendarPickerB10TR.IsEmpty then
-  begin
-    ShowMessage('Робота 10 дата закінчення невірна '+DateToStr(CalendarPickerE10TR.Date));
-    Result := false;
-    exit;
-  end;
-  if (IsJob10Active and FormMain.IsEmpty(Edit10NameTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Назва робота 10"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob10Active and FormMain.IsEmpty(Edit10CompanyTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Компанія робота 10"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob10Active and FormMain.IsEmpty(Memo10RespTR.Text)) then
-  begin
-    ShowMessage('Пусте поле "Обов`язки робота 10"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob10Active and FormMain.IsEmpty(Memo10SkillsTR.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 10"');
-    Result := false;
-    exit;
-  end;
-// BX>=EX
-  if IsJob1Active and (CalendarPickerB1TR.Date >=CalendarPickerE1TR.Date) then
-  begin
-    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB1TR.Date));
-    Result := false;
-    exit;
-  end;
-
-  if IsJob2Active and (CalendarPickerB2TR.Date >=CalendarPickerE2TR.Date) then
-  begin
-    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB2TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob3Active and (CalendarPickerB3TR.Date >=CalendarPickerE3TR.Date) then
-  begin
-    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB3TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob4Active and (CalendarPickerB4TR.Date >=CalendarPickerE4TR.Date) then
-  begin
-    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB4TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob5Active and (CalendarPickerB5TR.Date >=CalendarPickerE5TR.Date) then
-  begin
-    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB5TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob6Active and (CalendarPickerB6TR.Date >=CalendarPickerE6TR.Date) then
-  begin
-    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB6TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob7Active and (CalendarPickerB7TR.Date >=CalendarPickerE7TR.Date) then
-  begin
-    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB7TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob8Active and (CalendarPickerB8TR.Date >=CalendarPickerE8TR.Date) then
-  begin
-    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB8TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob9Active and (CalendarPickerB9TR.Date >=CalendarPickerE9TR.Date) then
-  begin
-    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB9TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob10Active and (CalendarPickerB10TR.Date >= CalendarPickerE10TR.Date) then
-  begin
-    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB10TR.Date));
-    Result := false;
-    exit;
-  end;
-// BX+1 < =EX
- if IsJob1Active and IsJob2Active and (CalendarPickerB2TR.Date < CalendarPickerE1TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1TR.Date)+' меньше дати початку роботи B2 '+DateToStr(CalendarPickerB2TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob2Active and IsJob3Active and (CalendarPickerB3TR.Date < CalendarPickerE2TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2TR.Date)+' меньше дати початку роботи B3 '+DateToStr(CalendarPickerB3TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob3Active and IsJob4Active and (CalendarPickerB4TR.Date < CalendarPickerE3TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3TR.Date)+' меньше дати початку роботи B4 '+DateToStr(CalendarPickerB4TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob4Active and IsJob5Active and (CalendarPickerB5TR.Date < CalendarPickerE4TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4TR.Date)+' меньше дати початку роботи B5 '+DateToStr(CalendarPickerB5TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob5Active and IsJob6Active and (CalendarPickerB6TR.Date < CalendarPickerE5TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5TR.Date)+' меньше дати початку роботи B6 '+DateToStr(CalendarPickerB6TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob6Active and IsJob7Active and (CalendarPickerB7TR.Date < CalendarPickerE6TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6TR.Date)+' меньше дати початку роботи B7 '+DateToStr(CalendarPickerB7TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob7Active and IsJob8Active and (CalendarPickerB8TR.Date < CalendarPickerE7TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7TR.Date)+' меньше дати початку роботи B8 '+DateToStr(CalendarPickerB8TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob8Active and IsJob9Active and (CalendarPickerB9TR.Date < CalendarPickerE8TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8TR.Date)+' меньше дати початку роботи B9 '+DateToStr(CalendarPickerB9TR.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob9Active and IsJob10Active and (CalendarPickerB10TR.Date < CalendarPickerE9TR.Date) then
-  begin
-    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9TR.Date)+' меньше дати початку роботи B10 '+DateToStr(CalendarPickerB10TR.Date));
-    Result := false;
-    exit;
-  end;
+IsJob1Active := not(FormMain.IsEmpty(Edit1NameTR.Text) or FormMain.IsEmpty(Edit1CompanyTR.Text) or FormMain.IsEmpty(Memo1RespTR.Text) or FormMain.IsEmpty(Memo1SkillsTR.Text));
+IsJob2Active := not(FormMain.IsEmpty(Edit2NameTR.Text) or FormMain.IsEmpty(Edit2CompanyTR.Text) or FormMain.IsEmpty(Memo2RespTR.Text) or FormMain.IsEmpty(Memo2SkillsTR.Text));
+IsJob3Active := not(FormMain.IsEmpty(Edit3NameTR.Text) or FormMain.IsEmpty(Edit3CompanyTR.Text) or FormMain.IsEmpty(Memo3RespTR.Text) or FormMain.IsEmpty(Memo3SkillsTR.Text));
+IsJob4Active := not(FormMain.IsEmpty(Edit4NameTR.Text) or FormMain.IsEmpty(Edit4CompanyTR.Text) or FormMain.IsEmpty(Memo4RespTR.Text) or FormMain.IsEmpty(Memo4SkillsTR.Text));
+IsJob5Active := not(FormMain.IsEmpty(Edit5NameTR.Text) or FormMain.IsEmpty(Edit5CompanyTR.Text) or FormMain.IsEmpty(Memo5RespTR.Text) or FormMain.IsEmpty(Memo5SkillsTR.Text));
+IsJob6Active := not(FormMain.IsEmpty(Edit6NameTR.Text) or FormMain.IsEmpty(Edit6CompanyTR.Text) or FormMain.IsEmpty(Memo6RespTR.Text) or FormMain.IsEmpty(Memo6SkillsTR.Text));
+IsJob7Active := not(FormMain.IsEmpty(Edit7NameTR.Text) or FormMain.IsEmpty(Edit7CompanyTR.Text) or FormMain.IsEmpty(Memo7RespTR.Text) or FormMain.IsEmpty(Memo7SkillsTR.Text));
+IsJob8Active := not(FormMain.IsEmpty(Edit8NameTR.Text) or FormMain.IsEmpty(Edit8CompanyTR.Text) or FormMain.IsEmpty(Memo8RespTR.Text) or FormMain.IsEmpty(Memo8SkillsTR.Text));
+IsJob9Active := not(FormMain.IsEmpty(Edit9NameTR.Text) or FormMain.IsEmpty(Edit9CompanyTR.Text) or FormMain.IsEmpty(Memo9RespTR.Text) or FormMain.IsEmpty(Memo9SkillsTR.Text));
+IsJob10Active := not(FormMain.IsEmpty(Edit10NameTR.Text) or FormMain.IsEmpty(Edit10CompanyTR.Text) or FormMain.IsEmpty(Memo10RespTR.Text) or FormMain.IsEmpty(Memo10SkillsTR.Text));
+if not isMainFormGood then
+    begin
+      Result:=false;
+      exit;
+    end;
+  /// Определяем активность Job через заполненные поля
+  ///  Если обязательные поля в работе заполнены, тогда Job активна
+if not IsJobGood then
+    begin
+      Result:=false;
+      exit;
+    end;
+if not isJobDatesGood then
+    begin
+      Result:=false;
+      exit;
+    end;
   Result := true;
 end;
 
@@ -2751,10 +2203,589 @@ while not UniRegions.Eof do
 //FormMain.Warning('Регион изменён на '+CBRegionTR.Text+' для '+ CBLangTR.Text);
 end;
 
-procedure TFormNewResume.BitBtn1Click(Sender: TObject);
+function TFormNewResume.isMainFormGood: boolean;
 begin
-ShowMessage(BoolToStr(CalendarPickerB1TR.IsEmpty));
-CheckValues;
+Result:=true;
+// Проверка полей основной формы
+  if FormMain.IsEmpty(EditNameTR.Text) then
+  begin
+    ShowMessage('Пусте поле "Назва резюме"');
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsEmpty(EditOpportunityTR.Text) then
+  begin
+    ShowMessage('Пусте поле "Посада"');
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsEmpty(EditPlaceTR.Text) then
+  begin
+    ShowMessage('Пусте поле "Місце роботи"');
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsEmpty(EditPhonesTR.Text) then
+  begin
+    ShowMessage('Пусте поле "Телефони"');
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsEmpty(MemoIntroTR.Text) then
+  begin
+    ShowMessage('Пусте поле "Введення"');
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsEmpty(EditArticle1TR.Text) and not FormMain.IsEmpty(MemoArticle1TR.Text) then
+  begin
+    ShowMessage('Пусте поле "Навички 1 - Назва"');
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsEmpty(MemoArticle1TR.Text) and FormMain.IsEmpty(EditArticle1TR.Text) then
+  begin
+    ShowMessage('Пусте поле "Навички 1 - Текст"');
+    Result := false;
+    exit;
+  end;
+  if FormMain.IsEmpty(EditArticle2TR.Text) and not FormMain.IsEmpty(MemoArticle2TR.Text) then
+  begin
+    ShowMessage('Пусте поле "Навички 2 - Назва"');
+    Result := false;
+    exit;
+  end;
+  if (Length(Trim(MemoArticle2TR.Text)) = 0) and (Length(Trim(EditArticle2TR.Text)) > 0) then
+  begin
+    ShowMessage('Пусте поле "Навички 2 - Текст"');
+    Result := false;
+    exit;
+  end;
+  if (Length(Trim(EditArticle3TR.Text)) = 0) and (Length(Trim(MemoArticle3TR.Text)) > 0) then
+  begin
+    ShowMessage('Пусте поле "Навички 3 - Назва"');
+    Result := false;
+    exit;
+  end;
+  if (Length(Trim(MemoArticle3TR.Text)) = 0) and (Length(Trim(EditArticle3TR.Text)) > 0) then
+  begin
+    ShowMessage('Пусте поле "Навички 3 - Текст"');
+    Result := false;
+    exit;
+  end;
+  if (Length(Trim(EditArticle4TR.Text)) = 0) and (Length(Trim(MemoArticle4TR.Text)) > 0) then
+  begin
+    ShowMessage('Пусте поле "Навички 4 - Назва"');
+    Result := false;
+    exit;
+  end;
+  if (Length(Trim(MemoArticle4TR.Text)) = 0) and (Length(Trim(EditArticle4TR.Text)) > 0) then
+  begin
+    ShowMessage('Пусте поле "Навички 4 - Текст"');
+    Result := false;
+    exit;
+  end;
 end;
+
+
+function TFormNewResume.isJobDatesGood: boolean;
+begin
+Result:=true;
+
+if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerB1TR.Date) or CalendarPickerB1TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 1 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB1TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerE1TR.Date) or CalendarPickerE1TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 1 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE1TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerB2TR.Date) or CalendarPickerB2TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 2 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB2TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerE2TR.Date) or CalendarPickerE2TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 2 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE2TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerB3TR.Date) or CalendarPickerB3TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 3 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB3TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerE3TR.Date) or CalendarPickerE3TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 3 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE3TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerB4TR.Date) or CalendarPickerB4TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 4 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB4TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerE4TR.Date) or CalendarPickerE4TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 4 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE4TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerB5TR.Date) or CalendarPickerB5TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 5 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB5TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerE5TR.Date) or CalendarPickerE5TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 5 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE5TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerB6TR.Date) or CalendarPickerB6TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 6 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB6TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerE6TR.Date) or CalendarPickerE6TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 6 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE6TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerB7TR.Date) or CalendarPickerB7TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 7 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB7TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerE7TR.Date) or CalendarPickerE7TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 7 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE7TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerB8TR.Date) or CalendarPickerB8TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 8 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB8TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerE8TR.Date) or CalendarPickerE8TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 8 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE8TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerB9TR.Date) or CalendarPickerB9TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 9 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB9TR.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerE9TR.Date) or CalendarPickerE9TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 9 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE9TR.Date));
+    Result := false;
+    exit;
+  end;
+if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerB10TR.Date) or CalendarPickerB10TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 10 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB10TR.Date));
+    Result := false;
+    exit;
+  end;
+if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10TR.Date) or CalendarPickerE10TR.IsEmpty) then
+  begin
+    ShowMessage('Робота 10 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE10TR.Date));
+    Result := false;
+    exit;
+  end;
+
+// BX>=EX
+  if IsJob1Active and (CalendarPickerB1TR.Date >=CalendarPickerE1TR.Date) then
+  begin
+    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB1TR.Date));
+    Result := false;
+    exit;
+  end;
+
+  if IsJob2Active and (CalendarPickerB2TR.Date >=CalendarPickerE2TR.Date) then
+  begin
+    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB2TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob3Active and (CalendarPickerB3TR.Date >=CalendarPickerE3TR.Date) then
+  begin
+    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB3TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob4Active and (CalendarPickerB4TR.Date >=CalendarPickerE4TR.Date) then
+  begin
+    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB4TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob5Active and (CalendarPickerB5TR.Date >=CalendarPickerE5TR.Date) then
+  begin
+    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB5TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob6Active and (CalendarPickerB6TR.Date >=CalendarPickerE6TR.Date) then
+  begin
+    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB6TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob7Active and (CalendarPickerB7TR.Date >=CalendarPickerE7TR.Date) then
+  begin
+    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB7TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob8Active and (CalendarPickerB8TR.Date >=CalendarPickerE8TR.Date) then
+  begin
+    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB8TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob9Active and (CalendarPickerB9TR.Date >=CalendarPickerE9TR.Date) then
+  begin
+    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB9TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob10Active and (CalendarPickerB10TR.Date >= CalendarPickerE10TR.Date) then
+  begin
+    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10TR.Date)+' меньше дати початку '+DateToStr(CalendarPickerB10TR.Date));
+    Result := false;
+    exit;
+  end;
+// BX+1 < =EX
+ if IsJob1Active and IsJob2Active and (CalendarPickerB2TR.Date < CalendarPickerE1TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1TR.Date)+' меньше дати початку роботи B2 '+DateToStr(CalendarPickerB2TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob2Active and IsJob3Active and (CalendarPickerB3TR.Date < CalendarPickerE2TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2TR.Date)+' меньше дати початку роботи B3 '+DateToStr(CalendarPickerB3TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob3Active and IsJob4Active and (CalendarPickerB4TR.Date < CalendarPickerE3TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3TR.Date)+' меньше дати початку роботи B4 '+DateToStr(CalendarPickerB4TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob4Active and IsJob5Active and (CalendarPickerB5TR.Date < CalendarPickerE4TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4TR.Date)+' меньше дати початку роботи B5 '+DateToStr(CalendarPickerB5TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob5Active and IsJob6Active and (CalendarPickerB6TR.Date < CalendarPickerE5TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5TR.Date)+' меньше дати початку роботи B6 '+DateToStr(CalendarPickerB6TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob6Active and IsJob7Active and (CalendarPickerB7TR.Date < CalendarPickerE6TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6TR.Date)+' меньше дати початку роботи B7 '+DateToStr(CalendarPickerB7TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob7Active and IsJob8Active and (CalendarPickerB8TR.Date < CalendarPickerE7TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7TR.Date)+' меньше дати початку роботи B8 '+DateToStr(CalendarPickerB8TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob8Active and IsJob9Active and (CalendarPickerB9TR.Date < CalendarPickerE8TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8TR.Date)+' меньше дати початку роботи B9 '+DateToStr(CalendarPickerB9TR.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob9Active and IsJob10Active and (CalendarPickerB10TR.Date < CalendarPickerE9TR.Date) then
+  begin
+    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9TR.Date)+' меньше дати початку роботи B10 '+DateToStr(CalendarPickerB10TR.Date));
+    Result := false;
+    exit;
+  end;
+end;
+
+function TFormNewResume.isJobGood: boolean;
+begin
+Result:=true;
+  if (IsJob1Active and FormMain.IsEmpty(Edit1NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Edit1CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Memo1RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Memo1SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 1"');
+    Result := false;
+    exit;
+  end;
+
+  /// ////
+  if (IsJob2Active and FormMain.IsEmpty(Edit2NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Edit2CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Memo2RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Memo2SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 2"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob3Active and FormMain.IsEmpty(Edit3NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Edit3CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Memo3RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Memo3SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 3"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob4Active and FormMain.IsEmpty(Edit4NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Edit4CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Memo4RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Memo4SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 4"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob5Active and FormMain.IsEmpty(Edit5NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Edit5CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Memo5RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Memo5SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 5"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob6Active and FormMain.IsEmpty(Edit6NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Edit6CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Memo6RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Memo6SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 6"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob7Active and FormMain.IsEmpty(Edit7NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Edit7CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Memo7RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Memo7SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 7"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob8Active and FormMain.IsEmpty(Edit8NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Edit8CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Memo8RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Memo8SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 8"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob9Active and FormMain.IsEmpty(Edit9NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Edit9CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Memo9RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Memo9SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 9"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob10Active and FormMain.IsEmpty(Edit10NameTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Edit10CompanyTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Memo10RespTR.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Memo10SkillsTR.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 10"');
+    Result := false;
+    exit;
+  end;
+end;
+
 
 end.

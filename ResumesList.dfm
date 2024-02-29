@@ -47,16 +47,12 @@ object FormListResumes: TFormListResumes
     TitleFont.Height = -12
     TitleFont.Name = 'Segoe UI'
     TitleFont.Style = []
+    OnDblClick = DBGrid1DblClick
     Columns = <
       item
         Expanded = False
         FieldName = 'id'
         Title.Caption = '#'
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 27
         Visible = True
       end
@@ -64,11 +60,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'name'
         Title.Caption = #1053#1072#1079#1074#1072
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 77
         Visible = True
       end
@@ -76,38 +67,18 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'lang'
         Title.Caption = #1052#1086#1074#1072
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'region_id'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = 'Segoe UI'
-        Font.Style = []
         Title.Caption = #1056#1077#1075#1080#1086#1085
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'cntr_exp'
         Title.Caption = '# jobs'
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 38
         Visible = True
       end
@@ -115,11 +86,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'cntr_skills'
         Title.Caption = '# skills'
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 39
         Visible = True
       end
@@ -127,11 +93,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'job_opportunity'
         Title.Caption = #1056#1086#1073#1086#1090#1072
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 79
         Visible = True
       end
@@ -139,11 +100,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'job_place'
         Title.Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 99
         Visible = True
       end
@@ -151,11 +107,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'phone_numbers_text'
         Title.Caption = #1058#1077#1083#1077#1092#1086#1085#1080
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 103
         Visible = True
       end
@@ -163,11 +114,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'resume_introduction'
         Title.Caption = #1042#1074#1077#1076#1077#1085#1085#1103
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 112
         Visible = True
       end
@@ -180,11 +126,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'created'
         Title.Caption = #1057#1086#1079#1076#1072#1085
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 88
         Visible = True
       end
@@ -192,11 +133,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'updated'
         Title.Caption = #1054#1085#1086#1074#1083#1077#1085#1086
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 97
         Visible = True
       end
@@ -204,11 +140,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'cv_docx_url'
         Title.Caption = 'URL DOCX'
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 92
         Visible = True
       end
@@ -216,11 +147,6 @@ object FormListResumes: TFormListResumes
         Expanded = False
         FieldName = 'cv_pdf_url'
         Title.Caption = 'URL PDF'
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -12
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
         Width = 92
         Visible = True
       end>
@@ -275,6 +201,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnEditResumeClick
+    ExplicitTop = 565
   end
   object BitBtnDeleteResume: TBitBtn
     Left = 172
@@ -326,6 +253,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnDeleteResumeClick
+    ExplicitTop = 611
   end
   object BitBtnNewResume: TBitBtn
     Left = 3
@@ -473,9 +401,10 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 3
     OnClick = BitBtnNewResumeClick
+    ExplicitTop = 565
   end
   object BitBtnClose: TBitBtn
-    Left = 846
+    Left = 838
     Top = 612
     Width = 115
     Height = 30
@@ -490,6 +419,8 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 834
+    ExplicitTop = 611
   end
   object EditCopyNumber: TEdit
     Left = 272
@@ -519,6 +450,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 6
     OnClick = BitBtnCheckClick
+    ExplicitTop = 565
   end
   object BitBtnCV: TBitBtn
     Left = 658
@@ -535,6 +467,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 7
     OnClick = BitBtnCVClick
+    ExplicitTop = 565
   end
   object BitBtnLetter: TBitBtn
     Left = 658
@@ -551,9 +484,10 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 8
     OnClick = BitBtnLetterClick
+    ExplicitTop = 611
   end
   object BitBtnPDF: TBitBtn
-    Left = 846
+    Left = 838
     Top = 566
     Width = 115
     Height = 30
@@ -567,6 +501,8 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
+    ExplicitLeft = 834
+    ExplicitTop = 565
   end
   object BitBtnOpenTmpl: TBitBtn
     Left = 493
@@ -583,6 +519,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 10
     OnClick = BitBtnOpenTmplClick
+    ExplicitTop = 611
   end
   object BitBtnSaveResume: TBitBtn
     Left = 334
@@ -599,6 +536,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 11
     OnClick = BitBtnSaveResumeClick
+    ExplicitTop = 565
   end
   object CheckBoxExtraComment: TCheckBox
     Left = 424
@@ -762,6 +700,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 13
     OnClick = BitBtnArchiveClick
+    ExplicitTop = 615
   end
   object RadioGroup: TRadioGroup
     Left = 818
@@ -872,7 +811,6 @@ object FormListResumes: TFormListResumes
     end
   end
   object UniDSResumes: TUniDataSource
-    AutoEdit = False
     DataSet = UniResumes
     Left = 464
     Top = 112

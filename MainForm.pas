@@ -41,7 +41,6 @@ type
     N1: TMenuItem;
     NNewTemplate: TMenuItem;
     NNewResume: TMenuItem;
-    NNewTranslation: TMenuItem;
     N5: TMenuItem;
     NParameters: TMenuItem;
     UniConnection: TUniConnection;
@@ -72,6 +71,8 @@ type
     PDF1: TMenuItem;
     PDF2: TMenuItem;
     Skills1: TMenuItem;
+    UniParameterByName: TUniQuery;
+    BitBtnNewTemplate: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
@@ -85,6 +86,8 @@ type
     procedure N3Click(Sender: TObject);
     procedure BitBtnNewResumeClick(Sender: TObject);
     procedure PDF1Click(Sender: TObject);
+    procedure BitBtnNewTemplateClick(Sender: TObject);
+    procedure Skills1Click(Sender: TObject);
   private
      WarningFired:boolean;
   protected
@@ -111,7 +114,7 @@ System.StrUtils, System.IOUtils, System.Zip, System.inifiles, ShellApi,
 System.Win.ComObj, System.RegularExpressions, System.DateUtils, Vcl.ExtActns,
 // Quick.Console, Quick.SMTP,
 NewTemplate, Parameters,
-  Emailbox, TemplatesList, ResumesList, NewResume;
+  Emailbox, TemplatesList, ResumesList, NewResume, Skills;
 
 function TFormMain.IsEmpty(const S: String): boolean;
 begin
@@ -153,6 +156,13 @@ FormNewResume.SetFormValues;
 FormNewResume.SetEmptyUA;
 FormNewResume.SetEmptyTR;
 FormNewResume.ShowModal;
+end;
+
+procedure TFormMain.BitBtnNewTemplateClick(Sender: TObject);
+begin
+if FormNewTemplate=nil then Application.CreateForm(TFormNewTemplate, FormNewTemplate);
+FormNewTemplate.SetFormValues;
+FormNewTemplate.ShowModal;
 end;
 
 procedure TFormMain.BitBtnTemplatesClick(Sender: TObject);
@@ -205,12 +215,18 @@ begin
 //https://docs.devexpress.com/VCL/176009/ExpressRichEditControl/vcl-rich-edit-components
 end;
 
+procedure TFormMain.Skills1Click(Sender: TObject);
+begin
+if FormSkills=nil then Application.CreateForm(TFormSkills, FormSkills);
+FormSkills.SetFormValues;
+FormSkills.ShowModal;
+end;
+
 procedure TFormMain.N2Click(Sender: TObject);
 begin
 if FormListResumes=nil then Application.CreateForm(TFormListResumes, FormListResumes);
 FormListResumes.SetFormValues;
 FormListResumes.ShowModal;
-
 end;
 
 procedure TFormMain.N3Click(Sender: TObject);

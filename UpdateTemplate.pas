@@ -240,6 +240,9 @@ type
     Label9: TLabel;
     Label10: TLabel;
     UniSPDeleteExpSkills: TUniStoredProc;
+    UniTelephones: TUniQuery;
+    CBPhones: TComboBox;
+    BitBtn2: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -950,6 +953,14 @@ SetEmptyTemplates;
 SetValuesTemplatesRU;
 SetValuesFootersRU;
 SetValuesJobsRU;
+CBPhones.Clear;
+UniTelephones.Close;
+UniTelephones.Open;
+while not UniTelephones.Eof do
+  begin
+    CBPhones.Items.Add(UniTelephones['value']);
+    UniTelephones.Next;
+  end;
 end;
 
 procedure TFormUpdateTemplate.SetValuesFootersRU;
