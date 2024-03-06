@@ -73,6 +73,7 @@ type
     Skills1: TMenuItem;
     UniParameterByName: TUniQuery;
     BitBtnNewTemplate: TBitBtn;
+    UniTelephones: TUniQuery;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);

@@ -11,7 +11,7 @@ type
   TFormNewTemplate = class(TForm)
     BitBtnClose: TBitBtn;
     BitBtnSave: TBitBtn;
-    PageControlRU: TPageControl;
+    PageControl: TPageControl;
     TabSheetMainRU: TTabSheet;
     Label7: TLabel;
     Label9: TLabel;
@@ -20,123 +20,123 @@ type
     Label13: TLabel;
     LabelFooterID: TLabel;
     Label11: TLabel;
-    EditNameRU: TEdit;
-    EditOpportunityRU: TEdit;
-    EditPlaceRU: TEdit;
-    EditPhonesRU: TEdit;
-    MemoIntroRU: TMemo;
+    EditName: TEdit;
+    EditOpportunity: TEdit;
+    EditPlace: TEdit;
+    EditPhones: TEdit;
+    MemoIntro: TMemo;
     EditLangTR: TEdit;
     EditRegionTR: TEdit;
     TabSheetFooterRU: TTabSheet;
     StaticText1: TStaticText;
-    EditArticle1RU: TEdit;
-    EditArticle2RU: TEdit;
-    MemoArticle1RU: TMemo;
-    MemoArticle2RU: TMemo;
-    EditArticle3RU: TEdit;
-    EditArticle4RU: TEdit;
-    MemoArticle3RU: TMemo;
-    MemoArticle4RU: TMemo;
+    EditArticle1: TEdit;
+    EditArticle2: TEdit;
+    MemoArticle1: TMemo;
+    MemoArticle2: TMemo;
+    EditArticle3: TEdit;
+    EditArticle4: TEdit;
+    MemoArticle3: TMemo;
+    MemoArticle4: TMemo;
     TabSheetJob1RU: TTabSheet;
-    Edit1DatesRU: TEdit;
-    Edit1NameRU: TEdit;
-    Edit1CompanyRU: TEdit;
-    Memo1RespRU: TMemo;
-    Edit1BenefitsRU: TEdit;
-    Edit1BottomRU: TEdit;
-    Memo1SkillsRU: TMemo;
+    Edit1Dates: TEdit;
+    Edit1Name: TEdit;
+    Edit1Company: TEdit;
+    Memo1Resp: TMemo;
+    Edit1Benefits: TEdit;
+    Edit1Bottom: TEdit;
+    Memo1Skills: TMemo;
     TabSheetJob2RU: TTabSheet;
-    Edit2DatesRU: TEdit;
-    Edit2NameRU: TEdit;
-    Edit2CompanyRU: TEdit;
-    Memo2RespRU: TMemo;
-    Edit2BenefitsRU: TEdit;
-    Edit2BottomRU: TEdit;
-    Memo2SkillsRU: TMemo;
+    Edit2Dates: TEdit;
+    Edit2Name: TEdit;
+    Edit2Company: TEdit;
+    Memo2Resp: TMemo;
+    Edit2Benefits: TEdit;
+    Edit2Bottom: TEdit;
+    Memo2Skills: TMemo;
     TabSheetJob3RU: TTabSheet;
-    Edit3DatesRU: TEdit;
-    Edit3NameRU: TEdit;
-    Edit3CompanyRU: TEdit;
-    Memo3RespRU: TMemo;
-    Edit3BenefitsRU: TEdit;
-    Edit3BottomRU: TEdit;
-    Memo3SkillsRU: TMemo;
+    Edit3Dates: TEdit;
+    Edit3Name: TEdit;
+    Edit3Company: TEdit;
+    Memo3Resp: TMemo;
+    Edit3Benefits: TEdit;
+    Edit3Bottom: TEdit;
+    Memo3Skills: TMemo;
     TabSheetJob4RU: TTabSheet;
-    Edit4DatesRU: TEdit;
-    Edit4NameRU: TEdit;
-    Edit4CompanyRU: TEdit;
-    Memo4RespRU: TMemo;
-    Edit4BenefitsRU: TEdit;
-    Edit4BottomRU: TEdit;
-    Memo4SkillsRU: TMemo;
+    Edit4Dates: TEdit;
+    Edit4Name: TEdit;
+    Edit4Company: TEdit;
+    Memo4Resp: TMemo;
+    Edit4Benefits: TEdit;
+    Edit4Bottom: TEdit;
+    Memo4Skills: TMemo;
     TabSheetJob5RU: TTabSheet;
-    Edit5DatesRU: TEdit;
-    Edit5NameRU: TEdit;
-    Edit5CompanyRU: TEdit;
-    Memo5RespRU: TMemo;
-    Edit5BenefitsRU: TEdit;
-    Edit5BottomRU: TEdit;
-    Memo5SkillsRU: TMemo;
+    Edit5Dates: TEdit;
+    Edit5Name: TEdit;
+    Edit5Company: TEdit;
+    Memo5Resp: TMemo;
+    Edit5Benefits: TEdit;
+    Edit5Bottom: TEdit;
+    Memo5Skills: TMemo;
     TabSheetJob6RU: TTabSheet;
-    Memo6RespRU: TMemo;
-    Edit6BenefitsRU: TEdit;
-    Edit6BottomRU: TEdit;
-    Edit6DatesRU: TEdit;
-    Edit6NameRU: TEdit;
-    Edit6CompanyRU: TEdit;
-    Memo6SkillsRU: TMemo;
+    Memo6Resp: TMemo;
+    Edit6Benefits: TEdit;
+    Edit6Bottom: TEdit;
+    Edit6Dates: TEdit;
+    Edit6Name: TEdit;
+    Edit6Company: TEdit;
+    Memo6Skills: TMemo;
     TabSheetJob7RU: TTabSheet;
-    Memo7RespRU: TMemo;
-    Edit7BenefitsRU: TEdit;
-    Edit7BottomRU: TEdit;
-    Edit7DatesRU: TEdit;
-    Edit7NameRU: TEdit;
-    Edit7CompanyRU: TEdit;
-    Memo7SkillsRU: TMemo;
+    Memo7Resp: TMemo;
+    Edit7Benefits: TEdit;
+    Edit7Bottom: TEdit;
+    Edit7Dates: TEdit;
+    Edit7Name: TEdit;
+    Edit7Company: TEdit;
+    Memo7Skills: TMemo;
     TabSheetJob8RU: TTabSheet;
-    Memo8RespRU: TMemo;
-    Edit8BenefitsRU: TEdit;
-    Edit8BottomRU: TEdit;
-    Edit8DatesRU: TEdit;
-    Edit8NameRU: TEdit;
-    Edit8CompanyRU: TEdit;
-    Memo8SkillsRU: TMemo;
+    Memo8Resp: TMemo;
+    Edit8Benefits: TEdit;
+    Edit8Bottom: TEdit;
+    Edit8Dates: TEdit;
+    Edit8Name: TEdit;
+    Edit8Company: TEdit;
+    Memo8Skills: TMemo;
     TabSheetJob9RU: TTabSheet;
-    Memo9RespRU: TMemo;
-    Edit9BenefitsRU: TEdit;
-    Edit9BottomRU: TEdit;
-    Edit9DatesRU: TEdit;
-    Edit9NameRU: TEdit;
-    Edit9CompanyRU: TEdit;
-    Memo9SkillsRU: TMemo;
+    Memo9Resp: TMemo;
+    Edit9Benefits: TEdit;
+    Edit9Bottom: TEdit;
+    Edit9Dates: TEdit;
+    Edit9Name: TEdit;
+    Edit9Company: TEdit;
+    Memo9Skills: TMemo;
     TabSheet10RU: TTabSheet;
-    Memo10RespRU: TMemo;
-    Edit10BenefitsRU: TEdit;
-    Edit10BottomRU: TEdit;
-    Edit10DatesRU: TEdit;
-    Edit10NameRU: TEdit;
-    Edit10CompanyRU: TEdit;
-    Memo10SkillsRU: TMemo;
-    CalendarPickerB1RU: TCalendarPicker;
-    CalendarPickerE1RU: TCalendarPicker;
-    CalendarPickerB2RU: TCalendarPicker;
-    CalendarPickerE2RU: TCalendarPicker;
-    CalendarPickerB3RU: TCalendarPicker;
-    CalendarPickerE3RU: TCalendarPicker;
-    CalendarPickerB4RU: TCalendarPicker;
-    CalendarPickerE4RU: TCalendarPicker;
-    CalendarPickerB5RU: TCalendarPicker;
-    CalendarPickerE5RU: TCalendarPicker;
-    CalendarPickerB6RU: TCalendarPicker;
-    CalendarPickerE6RU: TCalendarPicker;
-    CalendarPickerB7RU: TCalendarPicker;
-    CalendarPickerE7RU: TCalendarPicker;
-    CalendarPickerB8RU: TCalendarPicker;
-    CalendarPickerE8RU: TCalendarPicker;
-    CalendarPickerB9RU: TCalendarPicker;
-    CalendarPickerE9RU: TCalendarPicker;
-    CalendarPickerB10RU: TCalendarPicker;
-    CalendarPickerE10RU: TCalendarPicker;
+    Memo10Resp: TMemo;
+    Edit10Benefits: TEdit;
+    Edit10Bottom: TEdit;
+    Edit10Dates: TEdit;
+    Edit10Name: TEdit;
+    Edit10Company: TEdit;
+    Memo10Skills: TMemo;
+    CalendarPickerB1: TCalendarPicker;
+    CalendarPickerE1: TCalendarPicker;
+    CalendarPickerB2: TCalendarPicker;
+    CalendarPickerE2: TCalendarPicker;
+    CalendarPickerB3: TCalendarPicker;
+    CalendarPickerE3: TCalendarPicker;
+    CalendarPickerB4: TCalendarPicker;
+    CalendarPickerE4: TCalendarPicker;
+    CalendarPickerB5: TCalendarPicker;
+    CalendarPickerE5: TCalendarPicker;
+    CalendarPickerB6: TCalendarPicker;
+    CalendarPickerE6: TCalendarPicker;
+    CalendarPickerB7: TCalendarPicker;
+    CalendarPickerE7: TCalendarPicker;
+    CalendarPickerB8: TCalendarPicker;
+    CalendarPickerE8: TCalendarPicker;
+    CalendarPickerB9: TCalendarPicker;
+    CalendarPickerE9: TCalendarPicker;
+    CalendarPickerB10: TCalendarPicker;
+    CalendarPickerE10: TCalendarPicker;
     UniSPInsertTemplate: TUniStoredProc;
     UniSPInsertExperiences: TUniStoredProc;
     Label1: TLabel;
@@ -213,54 +213,56 @@ type
     StaticText2: TStaticText;
     CBPhones: TComboBox;
     BitBtn2: TBitBtn;
-    UniTelephones: TUniQuery;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
-    procedure CalendarPickerB2RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE2RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB1RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE1RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB3RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE3RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB4RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE4RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB5RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE5RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB6RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE6RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB7RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE7RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB8RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE8RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB9RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE9RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB10RUCloseUp(Sender: TObject);
-    procedure CalendarPickerE10RUCloseUp(Sender: TObject);
-    procedure CalendarPickerB1RUChange(Sender: TObject);
-    procedure CalendarPickerE1RUChange(Sender: TObject);
-    procedure CalendarPickerB2RUChange(Sender: TObject);
-    procedure CalendarPickerE2RUChange(Sender: TObject);
-    procedure CalendarPickerB3RUChange(Sender: TObject);
-    procedure CalendarPickerE3RUChange(Sender: TObject);
-    procedure CalendarPickerB4RUChange(Sender: TObject);
-    procedure CalendarPickerE4RUChange(Sender: TObject);
-    procedure CalendarPickerB5RUChange(Sender: TObject);
-    procedure CalendarPickerE5RUChange(Sender: TObject);
-    procedure CalendarPickerB6RUChange(Sender: TObject);
-    procedure CalendarPickerE6RUChange(Sender: TObject);
-    procedure CalendarPickerB7RUChange(Sender: TObject);
-    procedure CalendarPickerE7RUChange(Sender: TObject);
-    procedure CalendarPickerB8RUChange(Sender: TObject);
-    procedure CalendarPickerE8RUChange(Sender: TObject);
-    procedure CalendarPickerB9RUChange(Sender: TObject);
-    procedure CalendarPickerE9RUChange(Sender: TObject);
-    procedure CalendarPickerB10RUChange(Sender: TObject);
-    procedure CalendarPickerE10RUChange(Sender: TObject);
+    procedure CalendarPickerB2CloseUp(Sender: TObject);
+    procedure CalendarPickerE2CloseUp(Sender: TObject);
+    procedure CalendarPickerB1CloseUp(Sender: TObject);
+    procedure CalendarPickerE1CloseUp(Sender: TObject);
+    procedure CalendarPickerB3CloseUp(Sender: TObject);
+    procedure CalendarPickerE3CloseUp(Sender: TObject);
+    procedure CalendarPickerB4CloseUp(Sender: TObject);
+    procedure CalendarPickerE4CloseUp(Sender: TObject);
+    procedure CalendarPickerB5CloseUp(Sender: TObject);
+    procedure CalendarPickerE5CloseUp(Sender: TObject);
+    procedure CalendarPickerB6CloseUp(Sender: TObject);
+    procedure CalendarPickerE6CloseUp(Sender: TObject);
+    procedure CalendarPickerB7CloseUp(Sender: TObject);
+    procedure CalendarPickerE7CloseUp(Sender: TObject);
+    procedure CalendarPickerB8CloseUp(Sender: TObject);
+    procedure CalendarPickerE8CloseUp(Sender: TObject);
+    procedure CalendarPickerB9CloseUp(Sender: TObject);
+    procedure CalendarPickerE9CloseUp(Sender: TObject);
+    procedure CalendarPickerB10CloseUp(Sender: TObject);
+    procedure CalendarPickerE10CloseUp(Sender: TObject);
+    procedure CalendarPickerB1Change(Sender: TObject);
+    procedure CalendarPickerE1Change(Sender: TObject);
+    procedure CalendarPickerB2Change(Sender: TObject);
+    procedure CalendarPickerE2Change(Sender: TObject);
+    procedure CalendarPickerB3Change(Sender: TObject);
+    procedure CalendarPickerE3Change(Sender: TObject);
+    procedure CalendarPickerB4Change(Sender: TObject);
+    procedure CalendarPickerE4Change(Sender: TObject);
+    procedure CalendarPickerB5Change(Sender: TObject);
+    procedure CalendarPickerE5Change(Sender: TObject);
+    procedure CalendarPickerB6Change(Sender: TObject);
+    procedure CalendarPickerE6Change(Sender: TObject);
+    procedure CalendarPickerB7Change(Sender: TObject);
+    procedure CalendarPickerE7Change(Sender: TObject);
+    procedure CalendarPickerB8Change(Sender: TObject);
+    procedure CalendarPickerE8Change(Sender: TObject);
+    procedure CalendarPickerB9Change(Sender: TObject);
+    procedure CalendarPickerE9Change(Sender: TObject);
+    procedure CalendarPickerB10Change(Sender: TObject);
+    procedure CalendarPickerE10Change(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure BitBtn2Click(Sender: TObject);
   private
     FTemplateID: integer;
-    function CheckValues: boolean;
+    IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
+    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
+    IsJob10Active: boolean;
+    function isFormValuesGood: boolean;
     function SaveTemplate:boolean;
     function SaveValues: boolean;
     function SaveJobs: boolean;
@@ -278,6 +280,8 @@ type
     procedure ChangeDates7;
     procedure ChangeDates8;
     procedure ChangeDates9;
+    function isJobDatesGood: boolean;
+    function isJobGood: boolean;
     { Private declarations }
   public
     procedure SetFormValues;
@@ -294,7 +298,7 @@ uses MainForm;
 
 procedure TFormNewTemplate.BitBtn2Click(Sender: TObject);
 begin
-EditPhonesRU.Text:=Trim(EditPhonesRU.Text+' '+CBPhones.Text);
+EditPhones.Text:=Trim(EditPhones.Text+' '+CBPhones.Text);
 end;
 
 procedure TFormNewTemplate.BitBtnCloseClick(Sender: TObject);
@@ -313,254 +317,254 @@ for i:=1 to 10 do FExperienceID[i]:=0;
   UniSPDeleteExpSkills.ParamByName('p_template_id').AsInteger := FTemplateID;
   UniSPDeleteExpSkills.ExecSQL;
 
-  if not FormMain.isEmpty(Edit1NameRU.Text) and not FormMain.isEmpty(Edit1CompanyRU.Text) then
+  if isJob1Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit1NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB1RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE1RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit1CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo1RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit1BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit1BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit1Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB1.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE1.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit1Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo1Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit1Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit1Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[1]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit2NameRU.Text) and not FormMain.isEmpty(Edit2CompanyRU.Text) then
+  if isJob2Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit2NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB2RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE2RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit2CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo2RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit2BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit2BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit2Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB2.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE2.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit2Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo2Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit2Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit2Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[2]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit3NameRU.Text) and not FormMain.isEmpty(Edit3CompanyRU.Text) then
+  if isJob3Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit3NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB3RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE3RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit3CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo3RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit3BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit3BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit3Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB3.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE3.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit3Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo3Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit3Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit3Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[3]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit4NameRU.Text) and not FormMain.isEmpty(Edit4CompanyRU.Text) then
+  if isJob4Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit4NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB4RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE4RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit4CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo4RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit4BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit4BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit4Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB4.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE4.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit4Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo4Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit4Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit4Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[4]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit5NameRU.Text) and not FormMain.isEmpty(Edit5CompanyRU.Text) then
+  if isJob5Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit5NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB5RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE5RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit5CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo5RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit5BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit5BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit5Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB5.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE5.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit5Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo5Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit5Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit5Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[5]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit6NameRU.Text) and not FormMain.isEmpty(Edit6CompanyRU.Text) then
+  if isJob6Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit6NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB6RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE6RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit6CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo6RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit6BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit6BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit6Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB6.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE6.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit6Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo6Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit6Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit6Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[6]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit7NameRU.Text) and not FormMain.isEmpty(Edit7CompanyRU.Text) then
+  if isJob7Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit7NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB7RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE7RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit7CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo7RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit7BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit7BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit7Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB7.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE7.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit7Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo7Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit7Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit7Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[7]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit8NameRU.Text) and not FormMain.isEmpty(Edit8CompanyRU.Text) then
+  if isJob8Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit8NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB8RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE8RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit8CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo8RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit8BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit8BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit8Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB8.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE8.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit8Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo8Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit8Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit8Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[8]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit9NameRU.Text) and not FormMain.isEmpty(Edit9CompanyRU.Text) then
+  if isJob9Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit9NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB9RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE9RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit9CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo9RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit9BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit9BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit9Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB9.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE9.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit9Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo9Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit9Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit9Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[9]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit10NameRU.Text) and not FormMain.isEmpty(Edit10CompanyRU.Text) then
+  if isJob10Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
       UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := FTemplateID;
       UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
-      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit10NameRU.Text;
-      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB10RU.Date;
-      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE10RU.Date;
-      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit10CompanyRU.Text;
-      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo10RespRU.Text;
-      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit10BenefitsRU.Text;
-      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit10BottomRU.Text;
+      UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit10Name.Text;
+      UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB10.Date;
+      UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE10.Date;
+      UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit10Company.Text;
+      UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo10Resp.Text;
+      UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit10Benefits.Text;
+      UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit10Bottom.Text;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[10]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if FormMain.isEmpty(Edit1NameRU.Text) and not FormMain.isEmpty(Edit1CompanyRU.Text) then
-    for i := 0 to Memo1SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo1SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit1Name.Text) and not FormMain.isEmpty(Edit1Company.Text) then
+    for i := 0 to Memo1Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[1];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo1SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit2NameRU.Text) and not FormMain.isEmpty(Edit2CompanyRU.Text) then
-    for i := 0 to Memo2SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo2SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit2Name.Text) and not FormMain.isEmpty(Edit2Company.Text) then
+    for i := 0 to Memo2Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo2Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[2];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo2SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo2Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit3NameRU.Text) and not FormMain.isEmpty(Edit3CompanyRU.Text) then
-    for i := 0 to Memo3SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo3SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit3Name.Text) and not FormMain.isEmpty(Edit3Company.Text) then
+    for i := 0 to Memo3Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo3Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[3];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo3SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo3Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit4NameRU.Text) and not FormMain.isEmpty(Edit4CompanyRU.Text) then
-    for i := 0 to Memo4SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo4SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit4Name.Text) and not FormMain.isEmpty(Edit4Company.Text) then
+    for i := 0 to Memo4Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo4Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[4];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo4SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo4Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit5NameRU.Text) and not FormMain.isEmpty(Edit5CompanyRU.Text) then
-    for i := 0 to Memo5SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo5SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit5Name.Text) and not FormMain.isEmpty(Edit5Company.Text) then
+    for i := 0 to Memo5Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo5Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[5];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo5SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo5Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit6NameRU.Text) and not FormMain.isEmpty(Edit6CompanyRU.Text) then
-    for i := 0 to Memo6SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo6SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit6Name.Text) and not FormMain.isEmpty(Edit6Company.Text) then
+    for i := 0 to Memo6Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo6Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[6];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo6SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo6Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit7NameRU.Text) and not FormMain.isEmpty(Edit7CompanyRU.Text) then
-    for i := 0 to Memo7SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo7SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit7Name.Text) and not FormMain.isEmpty(Edit7Company.Text) then
+    for i := 0 to Memo7Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo7Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[7];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo7SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo7Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit8NameRU.Text) and not FormMain.isEmpty(Edit8CompanyRU.Text) then
-    for i := 0 to Memo8SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo8SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit8Name.Text) and not FormMain.isEmpty(Edit8Company.Text) then
+    for i := 0 to Memo8Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo8Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[8];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo8SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo8Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit9NameRU.Text) and not FormMain.isEmpty(Edit9CompanyRU.Text) then
-    for i := 0 to Memo9SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo9SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit9Name.Text) and not FormMain.isEmpty(Edit9Company.Text) then
+    for i := 0 to Memo9Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo9Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[9];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo9SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo9Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if FormMain.isEmpty(Edit10NameRU.Text) and not FormMain.isEmpty(Edit10CompanyRU.Text) then
-    for i := 0 to Memo10SkillsRU.Lines.Count - 1 do
-       if not FormMain.IsEmpty(Memo10SkillsRU.Lines[i]) then
+  if FormMain.isEmpty(Edit10Name.Text) and not FormMain.isEmpty(Edit10Company.Text) then
+    for i := 0 to Memo10Skills.Lines.Count - 1 do
+       if not FormMain.IsEmpty(Memo10Skills.Lines[i]) then
           begin
           UniSPInsertSkills.Close;
           UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[10];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo10SkillsRU.Lines[i];
+          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo10Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
   Result:=true;
@@ -600,7 +604,7 @@ end;
 
 procedure TFormNewTemplate.BitBtnSaveClick(Sender: TObject);
 begin
-  if CheckValues then
+  if isFormValuesGood then
     ModalResult := mrOK
   else
   begin
@@ -620,19 +624,19 @@ function TFormNewTemplate.SaveTemplate:boolean;
 begin
   try
     UniSPInsertTemplate.Prepare;
-    UniSPInsertTemplate.ParamByName('p_name').AsString := trim(EditNameRU.Text);
-    UniSPInsertTemplate.ParamByName('p_job_opportunity').AsString := Trim(EditOpportunityRU.Text);
-    UniSPInsertTemplate.ParamByName('p_job_place').AsString := Trim(EditPlaceRU.Text);
-    UniSPInsertTemplate.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhonesRU.Text);
-    UniSPInsertTemplate.ParamByName('p_template_introduction').AsString := Trim(MemoIntroRU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1RU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_1_text').AsString := Trim(MemoArticle1RU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2RU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_2_text').AsString := Trim(MemoArticle2RU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_3_header').AsString := Trim(EditArticle3RU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_3_text').AsString := Trim(MemoArticle3RU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4RU.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_4_text').AsString := Trim(MemoArticle4RU.Text);
+    UniSPInsertTemplate.ParamByName('p_name').AsString := trim(EditName.Text);
+    UniSPInsertTemplate.ParamByName('p_job_opportunity').AsString := Trim(EditOpportunity.Text);
+    UniSPInsertTemplate.ParamByName('p_job_place').AsString := Trim(EditPlace.Text);
+    UniSPInsertTemplate.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhones.Text);
+    UniSPInsertTemplate.ParamByName('p_template_introduction').AsString := Trim(MemoIntro.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_1_text').AsString := Trim(MemoArticle1.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_2_text').AsString := Trim(MemoArticle2.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_3_header').AsString := Trim(EditArticle3.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_3_text').AsString := Trim(MemoArticle3.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_4_text').AsString := Trim(MemoArticle4.Text);
     UniSPInsertTemplate.ExecProc;
     FTemplateID:=UniSPInsertTemplate.ParamByName('p_template_id').Value;
     if UniSPInsertTemplate.ParamByName('p_result').Value=0 then Result:=true else Result:=false;
@@ -646,333 +650,336 @@ begin
   end;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB10RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB10Change(Sender: TObject);
 begin
   ChangeDates10;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB10RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB10CloseUp(Sender: TObject);
 begin
   ChangeDates10;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB1RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB1Change(Sender: TObject);
 begin
   ChangeDates1;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB1RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB1CloseUp(Sender: TObject);
 begin
   ChangeDates1;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB2RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB2Change(Sender: TObject);
 begin
   ChangeDates2;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB2RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB2CloseUp(Sender: TObject);
 begin
   ChangeDates2;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB3RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB3Change(Sender: TObject);
 begin
   ChangeDates3;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB3RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB3CloseUp(Sender: TObject);
 begin
   ChangeDates3;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB4RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB4Change(Sender: TObject);
 begin
   ChangeDates4;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB4RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB4CloseUp(Sender: TObject);
 begin
   ChangeDates4;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB5RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB5Change(Sender: TObject);
 begin
   ChangeDates5;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB5RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB5CloseUp(Sender: TObject);
 begin
   ChangeDates5;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB6RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB6Change(Sender: TObject);
 begin
   ChangeDates6;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB6RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB6CloseUp(Sender: TObject);
 begin
   ChangeDates6;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB7RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB7Change(Sender: TObject);
 begin
   ChangeDates7;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB7RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB7CloseUp(Sender: TObject);
 begin
   ChangeDates7;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB8RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB8Change(Sender: TObject);
 begin
   ChangeDates8;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB8RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB8CloseUp(Sender: TObject);
 begin
   ChangeDates8;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB9RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB9Change(Sender: TObject);
 begin
   ChangeDates9;
 end;
 
-procedure TFormNewTemplate.CalendarPickerB9RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerB9CloseUp(Sender: TObject);
 begin
   ChangeDates9;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE10RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE10Change(Sender: TObject);
 begin
   ChangeDates10;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE10RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE10CloseUp(Sender: TObject);
 begin
   ChangeDates10;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE1RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE1Change(Sender: TObject);
 begin
   ChangeDates1;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE1RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE1CloseUp(Sender: TObject);
 begin
   ChangeDates2;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE2RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE2Change(Sender: TObject);
 begin
   ChangeDates2;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE2RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE2CloseUp(Sender: TObject);
 begin
   ChangeDates1;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE3RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE3Change(Sender: TObject);
 begin
   ChangeDates3;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE3RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE3CloseUp(Sender: TObject);
 begin
   ChangeDates3;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE4RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE4Change(Sender: TObject);
 begin
   ChangeDates4;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE4RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE4CloseUp(Sender: TObject);
 begin
   ChangeDates4;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE5RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE5Change(Sender: TObject);
 begin
   ChangeDates5;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE5RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE5CloseUp(Sender: TObject);
 begin
   ChangeDates5;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE6RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE6Change(Sender: TObject);
 begin
   ChangeDates6;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE6RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE6CloseUp(Sender: TObject);
 begin
   ChangeDates6;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE7RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE7Change(Sender: TObject);
 begin
   ChangeDates7;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE7RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE7CloseUp(Sender: TObject);
 begin
   ChangeDates7;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE8RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE8Change(Sender: TObject);
 begin
   ChangeDates8;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE8RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE8CloseUp(Sender: TObject);
 begin
   ChangeDates8;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE9RUChange(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE9Change(Sender: TObject);
 begin
   ChangeDates9;
 end;
 
-procedure TFormNewTemplate.CalendarPickerE9RUCloseUp(Sender: TObject);
+procedure TFormNewTemplate.CalendarPickerE9CloseUp(Sender: TObject);
 begin
   ChangeDates9;
 end;
 
-function TFormNewTemplate.CheckValues: boolean;
-var
-  IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
-    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
-    IsJob10Active: boolean;
+function TFormNewTemplate.isFormValuesGood: boolean;
 begin
-  IsJob1Active := not(FormMain.IsEmpty(Edit1DatesRU.Text) or FormMain.IsEmpty(Edit1NameRU.Text) or
-    FormMain.IsEmpty(Edit1CompanyRU.Text) or FormMain.IsEmpty(Memo1RespRU.Text) or
-    FormMain.IsEmpty(Memo1SkillsRU.Text));
+IsJob1Active := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text));
+IsJob2Active := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text));
+IsJob3Active := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text));
+IsJob4Active := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text));
+IsJob5Active := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text));
+IsJob6Active := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text));
+IsJob7Active := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text));
+IsJob8Active := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text));
+IsJob9Active := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text));
+IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text));
 
-  if FormMain.IsEmpty(EditNameRU.Text) then
+  if FormMain.IsEmpty(EditName.Text) then
   begin
     ShowMessage('Пусте поле "Назва резюме"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(EditOpportunityRU.Text) then
+  if FormMain.IsEmpty(EditOpportunity.Text) then
   begin
     ShowMessage('Пусте поле "Посада"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(EditPlaceRU.Text) then
+  if FormMain.IsEmpty(EditPlace.Text) then
   begin
     ShowMessage('Пусте поле "Місце роботи"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(EditPhonesRU.Text) then
+  if FormMain.IsEmpty(EditPhones.Text) then
   begin
     ShowMessage('Пусте поле "Телефони"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(MemoIntroRU.Text) then
+  if FormMain.IsEmpty(MemoIntro.Text) then
   begin
     ShowMessage('Пусте поле "Введення"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(EditArticle1RU.Text) and not FormMain.IsEmpty(MemoArticle1RU.Text) then
+  if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(MemoArticle1.Text) then
   begin
     ShowMessage('Пусте поле "Навички 1 - Назва"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(MemoArticle1RU.Text) and FormMain.IsEmpty(EditArticle1RU.Text) then
+  if FormMain.IsEmpty(MemoArticle1.Text) and FormMain.IsEmpty(EditArticle1.Text) then
   begin
     ShowMessage('Пусте поле "Навички 1 - Текст"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle2RU.Text)) = 0) and
-    (Length(Trim(MemoArticle2RU.Text)) > 0) then
+  if (Length(Trim(EditArticle2.Text)) = 0) and
+    (Length(Trim(MemoArticle2.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle2RU.Text)) = 0) and
-    (Length(Trim(EditArticle2RU.Text)) > 0) then
+  if (Length(Trim(MemoArticle2.Text)) = 0) and
+    (Length(Trim(EditArticle2.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Текст"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle3RU.Text)) = 0) and
-    (Length(Trim(MemoArticle3RU.Text)) > 0) then
+  if (Length(Trim(EditArticle3.Text)) = 0) and
+    (Length(Trim(MemoArticle3.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle3RU.Text)) = 0) and
-    (Length(Trim(EditArticle3RU.Text)) > 0) then
+  if (Length(Trim(MemoArticle3.Text)) = 0) and
+    (Length(Trim(EditArticle3.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Текст"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle4RU.Text)) = 0) and
-    (Length(Trim(MemoArticle4RU.Text)) > 0) then
+  if (Length(Trim(EditArticle4.Text)) = 0) and
+    (Length(Trim(MemoArticle4.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle4RU.Text)) = 0) and
-    (Length(Trim(EditArticle4RU.Text)) > 0) then
+  if (Length(Trim(MemoArticle4.Text)) = 0) and
+    (Length(Trim(EditArticle4.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Текст"');
     Result := false;
     exit;
   end;
   /// ////
-  if (IsJob1Active and FormMain.IsEmpty(Edit1DatesRU.Text)) then
+  if (IsJob1Active and FormMain.IsEmpty(Edit1Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 1"');
     Result := false;
     exit;
   end;
 
-  if (IsJob1Active and FormMain.IsEmpty(Edit1NameRU.Text)) then
+  if (IsJob1Active and FormMain.IsEmpty(Edit1Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 1"');
     Result := false;
     exit;
   end;
-  if (IsJob1Active and FormMain.IsEmpty(Edit1CompanyRU.Text)) then
+  if (IsJob1Active and FormMain.IsEmpty(Edit1Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 1"');
     Result := false;
     exit;
   end;
-  if (IsJob1Active and FormMain.IsEmpty(Memo1RespRU.Text)) then
+  if (IsJob1Active and FormMain.IsEmpty(Memo1Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 1"');
     Result := false;
     exit;
   end;
-  if (IsJob1Active and FormMain.IsEmpty(Memo1SkillsRU.Text)) then
+  if (IsJob1Active and FormMain.IsEmpty(Memo1Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 1"');
     Result := false;
     exit;
   end;
-  if IsJob1Active and (CalendarPickerB1RU.Date>CalendarPickerE1RU.Date) then
+  if IsJob1Active and (CalendarPickerB1.Date>CalendarPickerE1.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 1"');
     Result := false;
@@ -980,479 +987,461 @@ begin
   end;
 
   /// ////
-  IsJob2Active := not(FormMain.IsEmpty(Edit2DatesRU.Text) or FormMain.IsEmpty(Edit2NameRU.Text) or
-    FormMain.IsEmpty(Edit2CompanyRU.Text) or FormMain.IsEmpty(Memo2RespRU.Text) or FormMain.IsEmpty(Memo2SkillsRU.Text));
-  if (IsJob2Active and FormMain.IsEmpty(Edit2DatesRU.Text)) then
+  if (IsJob2Active and FormMain.IsEmpty(Edit2Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 2"');
     Result := false;
     exit;
   end;
 
-  if (IsJob2Active and FormMain.IsEmpty(Edit2NameRU.Text)) then
+  if (IsJob2Active and FormMain.IsEmpty(Edit2Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 2"');
     Result := false;
     exit;
   end;
-  if (IsJob2Active and FormMain.IsEmpty(Edit2CompanyRU.Text)) then
+  if (IsJob2Active and FormMain.IsEmpty(Edit2Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 2"');
     Result := false;
     exit;
   end;
-  if (IsJob2Active and FormMain.IsEmpty(Memo2RespRU.Text)) then
+  if (IsJob2Active and FormMain.IsEmpty(Memo2Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 2"');
     Result := false;
     exit;
   end;
-  if (IsJob2Active and FormMain.IsEmpty(Memo2SkillsRU.Text)) then
+  if (IsJob2Active and FormMain.IsEmpty(Memo2Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 2"');
     Result := false;
     exit;
   end;
-  if IsJob2Active and (CalendarPickerB2RU.Date>CalendarPickerE2RU.Date) then
+  if IsJob2Active and (CalendarPickerB2.Date>CalendarPickerE2.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 2"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob3Active := not(FormMain.IsEmpty(Edit3DatesRU.Text) or FormMain.IsEmpty(Edit3NameRU.Text) or
-    FormMain.IsEmpty(Edit3CompanyRU.Text) or FormMain.IsEmpty(Memo3RespRU.Text) or FormMain.IsEmpty(Memo3SkillsRU.Text));
-  if (IsJob3Active and FormMain.IsEmpty(Edit3DatesRU.Text)) then
+  if (IsJob3Active and FormMain.IsEmpty(Edit3Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 3"');
     Result := false;
     exit;
   end;
 
-  if (IsJob3Active and FormMain.IsEmpty(Edit3NameRU.Text)) then
+  if (IsJob3Active and FormMain.IsEmpty(Edit3Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 3"');
     Result := false;
     exit;
   end;
-  if (IsJob3Active and FormMain.IsEmpty(Edit3CompanyRU.Text)) then
+  if (IsJob3Active and FormMain.IsEmpty(Edit3Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 3"');
     Result := false;
     exit;
   end;
-  if (IsJob3Active and FormMain.IsEmpty(Memo3RespRU.Text)) then
+  if (IsJob3Active and FormMain.IsEmpty(Memo3Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 3"');
     Result := false;
     exit;
   end;
-  if (IsJob3Active and FormMain.IsEmpty(Memo3SkillsRU.Text)) then
+  if (IsJob3Active and FormMain.IsEmpty(Memo3Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 3"');
     Result := false;
     exit;
   end;
-  if IsJob3Active and (CalendarPickerB3RU.Date>CalendarPickerE3RU.Date) then
+  if IsJob3Active and (CalendarPickerB3.Date>CalendarPickerE3.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 3"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob4Active := not(FormMain.IsEmpty(Edit4DatesRU.Text) or FormMain.IsEmpty(Edit4NameRU.Text) or
-    FormMain.IsEmpty(Edit4CompanyRU.Text) or FormMain.IsEmpty(Memo4RespRU.Text) or FormMain.IsEmpty(Memo4SkillsRU.Text));
-  if (IsJob4Active and FormMain.IsEmpty(Edit4DatesRU.Text)) then
+  if (IsJob4Active and FormMain.IsEmpty(Edit4Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 4"');
     Result := false;
     exit;
   end;
 
-  if (IsJob4Active and FormMain.IsEmpty(Edit4NameRU.Text)) then
+  if (IsJob4Active and FormMain.IsEmpty(Edit4Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 4"');
     Result := false;
     exit;
   end;
-  if (IsJob4Active and FormMain.IsEmpty(Edit4CompanyRU.Text)) then
+  if (IsJob4Active and FormMain.IsEmpty(Edit4Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 4"');
     Result := false;
     exit;
   end;
-  if (IsJob4Active and FormMain.IsEmpty(Memo4RespRU.Text)) then
+  if (IsJob4Active and FormMain.IsEmpty(Memo4Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 4"');
     Result := false;
     exit;
   end;
-  if (IsJob4Active and FormMain.IsEmpty(Memo4SkillsRU.Text)) then
+  if (IsJob4Active and FormMain.IsEmpty(Memo4Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 4"');
     Result := false;
     exit;
   end;
-  if IsJob4Active and (CalendarPickerB4RU.Date>CalendarPickerE4RU.Date) then
+  if IsJob4Active and (CalendarPickerB4.Date>CalendarPickerE4.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 4"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob5Active := not(FormMain.IsEmpty(Edit5DatesRU.Text) or FormMain.IsEmpty(Edit5NameRU.Text) or
-    FormMain.IsEmpty(Edit5CompanyRU.Text) or FormMain.IsEmpty(Memo5RespRU.Text) or FormMain.IsEmpty(Memo5SkillsRU.Text));
-  if (IsJob5Active and FormMain.IsEmpty(Edit5DatesRU.Text)) then
+  if (IsJob5Active and FormMain.IsEmpty(Edit5Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 5"');
     Result := false;
     exit;
   end;
 
-  if (IsJob5Active and FormMain.IsEmpty(Edit5NameRU.Text)) then
+  if (IsJob5Active and FormMain.IsEmpty(Edit5Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 5"');
     Result := false;
     exit;
   end;
-  if (IsJob5Active and FormMain.IsEmpty(Edit5CompanyRU.Text)) then
+  if (IsJob5Active and FormMain.IsEmpty(Edit5Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 5"');
     Result := false;
     exit;
   end;
-  if (IsJob5Active and FormMain.IsEmpty(Memo5RespRU.Text)) then
+  if (IsJob5Active and FormMain.IsEmpty(Memo5Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 5"');
     Result := false;
     exit;
   end;
-  if (IsJob5Active and FormMain.IsEmpty(Memo5SkillsRU.Text)) then
+  if (IsJob5Active and FormMain.IsEmpty(Memo5Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 5"');
     Result := false;
     exit;
   end;
-  if IsJob5Active and (CalendarPickerB5RU.Date>CalendarPickerE5RU.Date) then
+  if IsJob5Active and (CalendarPickerB5.Date>CalendarPickerE5.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 5"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob6Active := not(FormMain.IsEmpty(Edit6DatesRU.Text) or FormMain.IsEmpty(Edit6NameRU.Text) or
-    FormMain.IsEmpty(Edit6CompanyRU.Text) or FormMain.IsEmpty(Memo6RespRU.Text) or FormMain.IsEmpty(Memo6SkillsRU.Text));
-  if (IsJob6Active and FormMain.IsEmpty(Edit6DatesRU.Text)) then
+  if (IsJob6Active and FormMain.IsEmpty(Edit6Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 6"');
     Result := false;
     exit;
   end;
 
-  if (IsJob6Active and FormMain.IsEmpty(Edit6NameRU.Text)) then
+  if (IsJob6Active and FormMain.IsEmpty(Edit6Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 6"');
     Result := false;
     exit;
   end;
-  if (IsJob6Active and FormMain.IsEmpty(Edit6CompanyRU.Text)) then
+  if (IsJob6Active and FormMain.IsEmpty(Edit6Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 6"');
     Result := false;
     exit;
   end;
-  if (IsJob6Active and FormMain.IsEmpty(Memo6RespRU.Text)) then
+  if (IsJob6Active and FormMain.IsEmpty(Memo6Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 6"');
     Result := false;
     exit;
   end;
-  if (IsJob6Active and FormMain.IsEmpty(Memo6SkillsRU.Text)) then
+  if (IsJob6Active and FormMain.IsEmpty(Memo6Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 6"');
     Result := false;
     exit;
   end;
-  if IsJob6Active and (CalendarPickerB6RU.Date>CalendarPickerE6RU.Date) then
+  if IsJob6Active and (CalendarPickerB6.Date>CalendarPickerE6.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 6"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob7Active := not(FormMain.IsEmpty(Edit7DatesRU.Text) or FormMain.IsEmpty(Edit7NameRU.Text) or
-    FormMain.IsEmpty(Edit7CompanyRU.Text) or FormMain.IsEmpty(Memo7RespRU.Text) or FormMain.IsEmpty(Memo7SkillsRU.Text));
-  if (IsJob7Active and FormMain.IsEmpty(Edit7DatesRU.Text)) then
+  if (IsJob7Active and FormMain.IsEmpty(Edit7Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 7"');
     Result := false;
     exit;
   end;
 
-  if (IsJob7Active and FormMain.IsEmpty(Edit7NameRU.Text)) then
+  if (IsJob7Active and FormMain.IsEmpty(Edit7Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 7"');
     Result := false;
     exit;
   end;
-  if (IsJob7Active and FormMain.IsEmpty(Edit7CompanyRU.Text)) then
+  if (IsJob7Active and FormMain.IsEmpty(Edit7Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 7"');
     Result := false;
     exit;
   end;
-  if (IsJob7Active and FormMain.IsEmpty(Memo7RespRU.Text)) then
+  if (IsJob7Active and FormMain.IsEmpty(Memo7Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 7"');
     Result := false;
     exit;
   end;
-  if (IsJob7Active and FormMain.IsEmpty(Memo7SkillsRU.Text)) then
+  if (IsJob7Active and FormMain.IsEmpty(Memo7Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 7"');
     Result := false;
     exit;
   end;
-  if IsJob7Active and (CalendarPickerB7RU.Date>CalendarPickerE7RU.Date) then
+  if IsJob7Active and (CalendarPickerB7.Date>CalendarPickerE7.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 7"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob8Active := not(FormMain.IsEmpty(Edit8DatesRU.Text) or FormMain.IsEmpty(Edit8NameRU.Text) or
-    FormMain.IsEmpty(Edit8CompanyRU.Text) or FormMain.IsEmpty(Memo8RespRU.Text) or FormMain.IsEmpty(Memo8SkillsRU.Text));
-  if (IsJob8Active and FormMain.IsEmpty(Edit8DatesRU.Text)) then
+  if (IsJob8Active and FormMain.IsEmpty(Edit8Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 8"');
     Result := false;
     exit;
   end;
 
-  if (IsJob8Active and FormMain.IsEmpty(Edit8NameRU.Text)) then
+  if (IsJob8Active and FormMain.IsEmpty(Edit8Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 8"');
     Result := false;
     exit;
   end;
-  if (IsJob8Active and FormMain.IsEmpty(Edit8CompanyRU.Text)) then
+  if (IsJob8Active and FormMain.IsEmpty(Edit8Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 8"');
     Result := false;
     exit;
   end;
-  if (IsJob8Active and FormMain.IsEmpty(Memo8RespRU.Text)) then
+  if (IsJob8Active and FormMain.IsEmpty(Memo8Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 8"');
     Result := false;
     exit;
   end;
-  if (IsJob8Active and FormMain.IsEmpty(Memo8SkillsRU.Text)) then
+  if (IsJob8Active and FormMain.IsEmpty(Memo8Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 8"');
     Result := false;
     exit;
   end;
-  if IsJob8Active and (CalendarPickerB8RU.Date>CalendarPickerE8RU.Date) then
+  if IsJob8Active and (CalendarPickerB8.Date>CalendarPickerE8.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 8"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob9Active := not(FormMain.IsEmpty(Edit9DatesRU.Text) or FormMain.IsEmpty(Edit9NameRU.Text) or
-    FormMain.IsEmpty(Edit9CompanyRU.Text) or FormMain.IsEmpty(Memo9RespRU.Text) or FormMain.IsEmpty(Memo9SkillsRU.Text));
-  if (IsJob9Active and FormMain.IsEmpty(Edit9DatesRU.Text)) then
+  if (IsJob9Active and FormMain.IsEmpty(Edit9Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 9"');
     Result := false;
     exit;
   end;
 
-  if (IsJob9Active and FormMain.IsEmpty(Edit9NameRU.Text)) then
+  if (IsJob9Active and FormMain.IsEmpty(Edit9Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 9"');
     Result := false;
     exit;
   end;
-  if (IsJob9Active and FormMain.IsEmpty(Edit9CompanyRU.Text)) then
+  if (IsJob9Active and FormMain.IsEmpty(Edit9Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 9"');
     Result := false;
     exit;
   end;
-  if (IsJob9Active and FormMain.IsEmpty(Memo9RespRU.Text)) then
+  if (IsJob9Active and FormMain.IsEmpty(Memo9Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 9"');
     Result := false;
     exit;
   end;
-  if (IsJob9Active and FormMain.IsEmpty(Memo9SkillsRU.Text)) then
+  if (IsJob9Active and FormMain.IsEmpty(Memo9Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 9"');
     Result := false;
     exit;
   end;
-  if IsJob9Active and (CalendarPickerB9RU.Date>CalendarPickerE9RU.Date) then
+  if IsJob9Active and (CalendarPickerB9.Date>CalendarPickerE9.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 9"');
     Result := false;
     exit;
   end;
   /// ////
-  IsJob10Active := not(FormMain.IsEmpty(Edit10DatesRU.Text) or FormMain.IsEmpty(Edit10NameRU.Text)
-    or FormMain.IsEmpty(Edit10CompanyRU.Text) or FormMain.IsEmpty(Memo10RespRU.Text) or FormMain.IsEmpty(Memo10SkillsRU.Text));
-  if (IsJob10Active and FormMain.IsEmpty(Edit10DatesRU.Text)) then
+  if (IsJob10Active and FormMain.IsEmpty(Edit10Dates.Text)) then
   begin
     ShowMessage('Пусте поле "Дата робота 10"');
     Result := false;
     exit;
   end;
 
-  if (IsJob10Active and FormMain.IsEmpty(Edit10NameRU.Text)) then
+  if (IsJob10Active and FormMain.IsEmpty(Edit10Name.Text)) then
   begin
     ShowMessage('Пусте поле "Назва робота 10"');
     Result := false;
     exit;
   end;
-  if (IsJob10Active and FormMain.IsEmpty(Edit10CompanyRU.Text)) then
+  if (IsJob10Active and FormMain.IsEmpty(Edit10Company.Text)) then
   begin
     ShowMessage('Пусте поле "Компанія робота 10"');
     Result := false;
     exit;
   end;
-  if (IsJob10Active and FormMain.IsEmpty(Memo10RespRU.Text)) then
+  if (IsJob10Active and FormMain.IsEmpty(Memo10Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 10"');
     Result := false;
     exit;
   end;
-  if (IsJob10Active and FormMain.IsEmpty(Memo10SkillsRU.Text)) then
+  if (IsJob10Active and FormMain.IsEmpty(Memo10Skills.Text)) then
   begin
     ShowMessage('Пусте поле Скіли робота 10"');
     Result := false;
     exit;
   end;
-  if IsJob10Active and (CalendarPickerB10RU.Date>CalendarPickerE10RU.Date) then
+  if IsJob10Active and (CalendarPickerB10.Date>CalendarPickerE10.Date) then
   begin
     ShowMessage('Невірно вказані дати роботи, початок > закінчення 10"');
     Result := false;
     exit;
   end;
 // BX>=EX
-  if IsJob1Active and (CalendarPickerB1RU.Date >=CalendarPickerE1RU.Date) then
+  if IsJob1Active and (CalendarPickerB1.Date >=CalendarPickerE1.Date) then
   begin
-    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB1RU.Date));
+    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1.Date)+' меньше дати початку '+DateToStr(CalendarPickerB1.Date));
     Result := false;
     exit;
   end;
 
-  if IsJob2Active and (CalendarPickerB2RU.Date >=CalendarPickerE2RU.Date) then
+  if IsJob2Active and (CalendarPickerB2.Date >=CalendarPickerE2.Date) then
   begin
-    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB2RU.Date));
+    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2.Date)+' меньше дати початку '+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
-  if IsJob3Active and (CalendarPickerB3RU.Date >=CalendarPickerE3RU.Date) then
+  if IsJob3Active and (CalendarPickerB3.Date >=CalendarPickerE3.Date) then
   begin
-    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB3RU.Date));
+    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3.Date)+' меньше дати початку '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
-  if IsJob4Active and (CalendarPickerB4RU.Date >=CalendarPickerE4RU.Date) then
+  if IsJob4Active and (CalendarPickerB4.Date >=CalendarPickerE4.Date) then
   begin
-    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB4RU.Date));
+    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4.Date)+' меньше дати початку '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
-  if IsJob5Active and (CalendarPickerB5RU.Date >=CalendarPickerE5RU.Date) then
+  if IsJob5Active and (CalendarPickerB5.Date >=CalendarPickerE5.Date) then
   begin
-    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB5RU.Date));
+    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5.Date)+' меньше дати початку '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
-  if IsJob6Active and (CalendarPickerB6RU.Date >=CalendarPickerE6RU.Date) then
+  if IsJob6Active and (CalendarPickerB6.Date >=CalendarPickerE6.Date) then
   begin
-    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB6RU.Date));
+    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6.Date)+' меньше дати початку '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
-  if IsJob7Active and (CalendarPickerB7RU.Date >=CalendarPickerE7RU.Date) then
+  if IsJob7Active and (CalendarPickerB7.Date >=CalendarPickerE7.Date) then
   begin
-    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB7RU.Date));
+    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7.Date)+' меньше дати початку '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
-  if IsJob8Active and (CalendarPickerB8RU.Date >=CalendarPickerE8RU.Date) then
+  if IsJob8Active and (CalendarPickerB8.Date >=CalendarPickerE8.Date) then
   begin
-    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB8RU.Date));
+    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8.Date)+' меньше дати початку '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
-  if IsJob9Active and (CalendarPickerB9RU.Date >=CalendarPickerE9RU.Date) then
+  if IsJob9Active and (CalendarPickerB9.Date >=CalendarPickerE9.Date) then
   begin
-    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB9RU.Date));
+    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9.Date)+' меньше дати початку '+DateToStr(CalendarPickerB9.Date));
     Result := false;
     exit;
   end;
-  if IsJob10Active and (CalendarPickerB10RU.Date >= CalendarPickerE10RU.Date) then
+  if IsJob10Active and (CalendarPickerB10.Date >= CalendarPickerE10.Date) then
   begin
-    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10RU.Date)+' меньше дати початку '+DateToStr(CalendarPickerB10RU.Date));
+    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10.Date)+' меньше дати початку '+DateToStr(CalendarPickerB10.Date));
     Result := false;
     exit;
   end;
 // BX+1 < =EX
- if IsJob1Active and IsJob2Active and (CalendarPickerB2RU.Date < CalendarPickerE1RU.Date) then
+ if IsJob1Active and IsJob2Active and (CalendarPickerB2.Date < CalendarPickerE1.Date) then
   begin
-    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1RU.Date)+' меньше дати початку роботи B2 '+DateToStr(CalendarPickerB2RU.Date));
+    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1.Date)+' меньше дати початку роботи B2 '+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
-  if IsJob2Active and IsJob3Active and (CalendarPickerB3RU.Date < CalendarPickerE2RU.Date) then
+  if IsJob2Active and IsJob3Active and (CalendarPickerB3.Date < CalendarPickerE2.Date) then
   begin
-    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2RU.Date)+' меньше дати початку роботи B3 '+DateToStr(CalendarPickerB3RU.Date));
+    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2.Date)+' меньше дати початку роботи B3 '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
-  if IsJob3Active and IsJob4Active and (CalendarPickerB4RU.Date < CalendarPickerE3RU.Date) then
+  if IsJob3Active and IsJob4Active and (CalendarPickerB4.Date < CalendarPickerE3.Date) then
   begin
-    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3RU.Date)+' меньше дати початку роботи B4 '+DateToStr(CalendarPickerB4RU.Date));
+    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3.Date)+' меньше дати початку роботи B4 '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
-  if IsJob4Active and IsJob5Active and (CalendarPickerB5RU.Date < CalendarPickerE4RU.Date) then
+  if IsJob4Active and IsJob5Active and (CalendarPickerB5.Date < CalendarPickerE4.Date) then
   begin
-    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4RU.Date)+' меньше дати початку роботи B5 '+DateToStr(CalendarPickerB5RU.Date));
+    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4.Date)+' меньше дати початку роботи B5 '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
-  if IsJob5Active and IsJob6Active and (CalendarPickerB6RU.Date < CalendarPickerE5RU.Date) then
+  if IsJob5Active and IsJob6Active and (CalendarPickerB6.Date < CalendarPickerE5.Date) then
   begin
-    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5RU.Date)+' меньше дати початку роботи B6 '+DateToStr(CalendarPickerB6RU.Date));
+    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5.Date)+' меньше дати початку роботи B6 '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
-  if IsJob6Active and IsJob7Active and (CalendarPickerB7RU.Date < CalendarPickerE6RU.Date) then
+  if IsJob6Active and IsJob7Active and (CalendarPickerB7.Date < CalendarPickerE6.Date) then
   begin
-    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6RU.Date)+' меньше дати початку роботи B7 '+DateToStr(CalendarPickerB7RU.Date));
+    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6.Date)+' меньше дати початку роботи B7 '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
-  if IsJob7Active and IsJob8Active and (CalendarPickerB8RU.Date < CalendarPickerE7RU.Date) then
+  if IsJob7Active and IsJob8Active and (CalendarPickerB8.Date < CalendarPickerE7.Date) then
   begin
-    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7RU.Date)+' меньше дати початку роботи B8 '+DateToStr(CalendarPickerB8RU.Date));
+    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7.Date)+' меньше дати початку роботи B8 '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
-  if IsJob8Active and IsJob9Active and (CalendarPickerB9RU.Date < CalendarPickerE8RU.Date) then
+  if IsJob8Active and IsJob9Active and (CalendarPickerB9.Date < CalendarPickerE8.Date) then
   begin
-    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8RU.Date)+' меньше дати початку роботи B9 '+DateToStr(CalendarPickerB9RU.Date));
+    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8.Date)+' меньше дати початку роботи B9 '+DateToStr(CalendarPickerB9.Date));
     Result := false;
     exit;
   end;
-  if IsJob9Active and IsJob10Active and (CalendarPickerB10RU.Date < CalendarPickerE9RU.Date) then
+  if IsJob9Active and IsJob10Active and (CalendarPickerB10.Date < CalendarPickerE9.Date) then
   begin
-    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9RU.Date)+' меньше дати початку роботи B10 '+DateToStr(CalendarPickerB10RU.Date));
+    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9.Date)+' меньше дати початку роботи B10 '+DateToStr(CalendarPickerB10.Date));
     Result := false;
     exit;
   end;  Result := true;
@@ -1466,217 +1455,712 @@ end;
 
 procedure TFormNewTemplate.SetFormValues;
 begin
-PageControlRU.ActivePageIndex:=0;
+
+PageControl.ActivePageIndex:=0;
 SetEmptyTemplatesRU;
 SetEmptyFootersRU;
 SetEmptyJobsRU;
 SetEmptySkillsRU;
 CBPhones.Clear;
-UniTelephones.Close;
-UniTelephones.Open;
-while not UniTelephones.Eof do
+FormMain.UniTelephones.Close;
+FormMain.UniTelephones.Open;
+while not FormMain.UniTelephones.Eof do
   begin
-    CBPhones.Items.Add(UniTelephones['value']);
-    UniTelephones.Next;
+    CBPhones.Items.Add(FormMain.UniTelephones['value']);
+    FormMain.UniTelephones.Next;
   end;
 end;
 
 procedure TFormNewTemplate.SetEmptyFootersRU;
 begin
-  MemoArticle1RU.Text := '';
-  EditArticle1RU.Text := '';
-  MemoArticle2RU.Text := '';
-  EditArticle2RU.Text := '';
-  MemoArticle3RU.Text := '';
-  EditArticle3RU.Text := '';
-  MemoArticle4RU.Text := '';
-  EditArticle4RU.Text := '';
+  MemoArticle1.Text := '';
+  EditArticle1.Text := '';
+  MemoArticle2.Text := '';
+  EditArticle2.Text := '';
+  MemoArticle3.Text := '';
+  EditArticle3.Text := '';
+  MemoArticle4.Text := '';
+  EditArticle4.Text := '';
 end;
 
 procedure TFormNewTemplate.SetEmptyTemplatesRU;
 begin
-  EditNameRU.Text:='';
-  EditOpportunityRU.Text:='';
-  EditPlaceRU.Text:='';
-  EditPhonesRU.Text:='';
-  MemoIntroRU.Text:='';
+  EditName.Text:='';
+  EditOpportunity.Text:='';
+  EditPlace.Text:='';
+  EditPhones.Text:='';
+  MemoIntro.Text:='';
 end;
 
 procedure TFormNewTemplate.SetEmptySkillsRU;
 begin
-  Memo1SkillsRU.Text := '';
-  Memo2SkillsRU.Text := '';
-  Memo3SkillsRU.Text := '';
-  Memo4SkillsRU.Text := '';
-  Memo5SkillsRU.Text := '';
-  Memo6SkillsRU.Text := '';
-  Memo7SkillsRU.Text := '';
-  Memo8SkillsRU.Text := '';
-  Memo9SkillsRU.Text := '';
-  Memo10SkillsRU.Text := '';
+  Memo1Skills.Text := '';
+  Memo2Skills.Text := '';
+  Memo3Skills.Text := '';
+  Memo4Skills.Text := '';
+  Memo5Skills.Text := '';
+  Memo6Skills.Text := '';
+  Memo7Skills.Text := '';
+  Memo8Skills.Text := '';
+  Memo9Skills.Text := '';
+  Memo10Skills.Text := '';
 end;
 
 procedure TFormNewTemplate.SetEmptyJobsRU;
 begin
-  Edit1DatesRU.Text := '';
-  Edit1NameRU.Text := '';
-  Edit1CompanyRU.Text := '';
-  Memo1RespRU.Text := '';
-  Edit1BenefitsRU.Text := '';
-  Edit1BottomRU.Text := '';
+  Edit1Dates.Text := '';
+  Edit1Name.Text := '';
+  Edit1Company.Text := '';
+  Memo1Resp.Text := '';
+  Edit1Benefits.Text := '';
+  Edit1Bottom.Text := '';
 
-  Edit2DatesRU.Text := '';
-  Edit2NameRU.Text := '';
-  Edit2CompanyRU.Text := '';
-  Memo2RespRU.Text := '';
-  Edit2BenefitsRU.Text := '';
-  Edit2BottomRU.Text := '';
+  Edit2Dates.Text := '';
+  Edit2Name.Text := '';
+  Edit2Company.Text := '';
+  Memo2Resp.Text := '';
+  Edit2Benefits.Text := '';
+  Edit2Bottom.Text := '';
 
-  Edit3DatesRU.Text := '';
-  Edit3NameRU.Text := '';
-  Edit3CompanyRU.Text := '';
-  Memo3RespRU.Text := '';
-  Edit3BenefitsRU.Text := '';
-  Edit3BottomRU.Text := '';
+  Edit3Dates.Text := '';
+  Edit3Name.Text := '';
+  Edit3Company.Text := '';
+  Memo3Resp.Text := '';
+  Edit3Benefits.Text := '';
+  Edit3Bottom.Text := '';
 
-  Edit4DatesRU.Text := '';
-  Edit4NameRU.Text := '';
-  Edit4CompanyRU.Text := '';
-  Memo4RespRU.Text := '';
-  Edit4BenefitsRU.Text := '';
-  Edit4BottomRU.Text := '';
+  Edit4Dates.Text := '';
+  Edit4Name.Text := '';
+  Edit4Company.Text := '';
+  Memo4Resp.Text := '';
+  Edit4Benefits.Text := '';
+  Edit4Bottom.Text := '';
 
-  Edit5DatesRU.Text := '';
-  Edit5NameRU.Text := '';
-  Edit5CompanyRU.Text := '';
-  Memo5RespRU.Text := '';
-  Edit5BenefitsRU.Text := '';
-  Edit5BottomRU.Text := '';
+  Edit5Dates.Text := '';
+  Edit5Name.Text := '';
+  Edit5Company.Text := '';
+  Memo5Resp.Text := '';
+  Edit5Benefits.Text := '';
+  Edit5Bottom.Text := '';
 
-  Edit6DatesRU.Text := '';
-  Edit6NameRU.Text := '';
-  Edit6CompanyRU.Text := '';
-  Memo6RespRU.Text := '';
-  Edit6BenefitsRU.Text := '';
-  Edit6BottomRU.Text := '';
+  Edit6Dates.Text := '';
+  Edit6Name.Text := '';
+  Edit6Company.Text := '';
+  Memo6Resp.Text := '';
+  Edit6Benefits.Text := '';
+  Edit6Bottom.Text := '';
 
-  Edit7DatesRU.Text := '';
-  Edit7NameRU.Text := '';
-  Edit7CompanyRU.Text := '';
-  Memo7RespRU.Text := '';
-  Edit7BenefitsRU.Text := '';
-  Edit7BottomRU.Text := '';
+  Edit7Dates.Text := '';
+  Edit7Name.Text := '';
+  Edit7Company.Text := '';
+  Memo7Resp.Text := '';
+  Edit7Benefits.Text := '';
+  Edit7Bottom.Text := '';
 
-  Edit8DatesRU.Text := '';
-  Edit8NameRU.Text := '';
-  Edit8CompanyRU.Text := '';
-  Memo8RespRU.Text := '';
-  Edit8BenefitsRU.Text := '';
-  Edit8BottomRU.Text := '';
+  Edit8Dates.Text := '';
+  Edit8Name.Text := '';
+  Edit8Company.Text := '';
+  Memo8Resp.Text := '';
+  Edit8Benefits.Text := '';
+  Edit8Bottom.Text := '';
 
-  Edit9DatesRU.Text := '';
-  Edit9NameRU.Text := '';
-  Edit9CompanyRU.Text := '';
-  Memo9RespRU.Text := '';
-  Edit9BenefitsRU.Text := '';
-  Edit9BottomRU.Text := '';
+  Edit9Dates.Text := '';
+  Edit9Name.Text := '';
+  Edit9Company.Text := '';
+  Memo9Resp.Text := '';
+  Edit9Benefits.Text := '';
+  Edit9Bottom.Text := '';
 
-  Edit10DatesRU.Text := '';
-  Edit10NameRU.Text := '';
-  Edit10CompanyRU.Text := '';
-  Memo10RespRU.Text := '';
-  Edit10BenefitsRU.Text := '';
-  Edit10BottomRU.Text := '';
+  Edit10Dates.Text := '';
+  Edit10Name.Text := '';
+  Edit10Company.Text := '';
+  Memo10Resp.Text := '';
+  Edit10Benefits.Text := '';
+  Edit10Bottom.Text := '';
+
+  CalendarPickerB1.isEmpty:=true;
+  CalendarPickerB2.isEmpty:=true;
+  CalendarPickerB3.isEmpty:=true;
+  CalendarPickerB4.isEmpty:=true;
+  CalendarPickerB5.isEmpty:=true;
+  CalendarPickerB6.isEmpty:=true;
+  CalendarPickerB7.isEmpty:=true;
+  CalendarPickerB8.isEmpty:=true;
+  CalendarPickerB9.isEmpty:=true;
+  CalendarPickerB10.isEmpty:=true;
+
+  CalendarPickerE1.isEmpty:=true;
+  CalendarPickerE2.isEmpty:=true;
+  CalendarPickerE3.isEmpty:=true;
+  CalendarPickerE4.isEmpty:=true;
+  CalendarPickerE5.isEmpty:=true;
+  CalendarPickerE6.isEmpty:=true;
+  CalendarPickerE7.isEmpty:=true;
+  CalendarPickerE8.isEmpty:=true;
+  CalendarPickerE9.isEmpty:=true;
+  CalendarPickerE10.isEmpty:=true;
+
+  Memo1Skills.Text := '';
+  Memo2Skills.Text := '';
+  Memo3Skills.Text := '';
+  Memo4Skills.Text := '';
+  Memo5Skills.Text := '';
+  Memo6Skills.Text := '';
+  Memo7Skills.Text := '';
+  Memo8Skills.Text := '';
+  Memo9Skills.Text := '';
+  Memo10Skills.Text := '';
+
 end;
 
 procedure TFormNewTemplate.ChangeDates1;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB1RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE1RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit1DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit1Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB1.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE1.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates2;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB2RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE2RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit2DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit2Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB2.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE2.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates3;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB3RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE3RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit3DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit3Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB3.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE3.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates4;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB4RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE4RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit4DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit4Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB4.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE4.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates5;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB5RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE5RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit5DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit5Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB5.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE5.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates6;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB6RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE6RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit6DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit6Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB6.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE6.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates7;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB7RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE7RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit7DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit7Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB7.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE7.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates8;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB8RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE8RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit8DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit8Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB8.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE8.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates9;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB9RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE9RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit9DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit9Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB9.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE9.Date, 'Template');
 end;
 
 procedure TFormNewTemplate.ChangeDates10;
-var
-  FullMBYear, ShortMBYear, FullMEYear, ShortMEYear: string;
 begin
-  FormMain.GetMonthRegionByMask(CalendarPickerB10RU.Date, 'Template', FullMBYear, ShortMBYear);
-  FormMain.GetMonthRegionByMask(CalendarPickerE10RU.Date, 'Template', FullMEYear, ShortMEYear);
-  Edit10DatesRU.Text := FullMBYear + '-' + FullMEYear;
+Edit10Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB10.Date, 'Template') + '-' + FormMain.GetMonthByRegion(CalendarPickerE10.Date, 'Template');
+end;
+
+function TFormNewTemplate.isJobDatesGood: boolean;
+begin
+Result:=true;
+
+if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerB1.Date) or CalendarPickerB1.IsEmpty) then
+  begin
+    ShowMessage('Робота 1 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB1.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerE1.Date) or CalendarPickerE1.IsEmpty) then
+  begin
+    ShowMessage('Робота 1 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE1.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerB2.Date) or CalendarPickerB2.IsEmpty) then
+  begin
+    ShowMessage('Робота 2 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB2.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerE2.Date) or CalendarPickerE2.IsEmpty) then
+  begin
+    ShowMessage('Робота 2 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE2.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerB3.Date) or CalendarPickerB3.IsEmpty) then
+  begin
+    ShowMessage('Робота 3 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB3.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerE3.Date) or CalendarPickerE3.IsEmpty) then
+  begin
+    ShowMessage('Робота 3 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE3.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerB4.Date) or CalendarPickerB4.IsEmpty) then
+  begin
+    ShowMessage('Робота 4 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB4.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerE4.Date) or CalendarPickerE4.IsEmpty) then
+  begin
+    ShowMessage('Робота 4 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE4.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerB5.Date) or CalendarPickerB5.IsEmpty) then
+  begin
+    ShowMessage('Робота 5 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB5.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerE5.Date) or CalendarPickerE5.IsEmpty) then
+  begin
+    ShowMessage('Робота 5 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE5.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerB6.Date) or CalendarPickerB6.IsEmpty) then
+  begin
+    ShowMessage('Робота 6 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB6.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerE6.Date) or CalendarPickerE6.IsEmpty) then
+  begin
+    ShowMessage('Робота 6 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE6.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerB7.Date) or CalendarPickerB7.IsEmpty) then
+  begin
+    ShowMessage('Робота 7 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB7.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerE7.Date) or CalendarPickerE7.IsEmpty) then
+  begin
+    ShowMessage('Робота 7 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE7.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerB8.Date) or CalendarPickerB8.IsEmpty) then
+  begin
+    ShowMessage('Робота 8 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB8.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerE8.Date) or CalendarPickerE8.IsEmpty) then
+  begin
+    ShowMessage('Робота 8 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE8.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerB9.Date) or CalendarPickerB9.IsEmpty) then
+  begin
+    ShowMessage('Робота 9 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB9.Date));
+    Result := false;
+    exit;
+  end;
+if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerE9.Date) or CalendarPickerE9.IsEmpty) then
+  begin
+    ShowMessage('Робота 9 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE9.Date));
+    Result := false;
+    exit;
+  end;
+if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerB10.Date) or CalendarPickerB10.IsEmpty) then
+  begin
+    ShowMessage('Робота 10 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB10.Date));
+    Result := false;
+    exit;
+  end;
+if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or CalendarPickerE10.IsEmpty) then
+  begin
+    ShowMessage('Робота 10 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE10.Date));
+    Result := false;
+    exit;
+  end;
+
+// BX>=EX
+  if IsJob1Active and (CalendarPickerB1.Date >=CalendarPickerE1.Date) then
+  begin
+    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1.Date)+' меньше дати початку '+DateToStr(CalendarPickerB1.Date));
+    Result := false;
+    exit;
+  end;
+
+  if IsJob2Active and (CalendarPickerB2.Date >=CalendarPickerE2.Date) then
+  begin
+    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2.Date)+' меньше дати початку '+DateToStr(CalendarPickerB2.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob3Active and (CalendarPickerB3.Date >=CalendarPickerE3.Date) then
+  begin
+    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3.Date)+' меньше дати початку '+DateToStr(CalendarPickerB3.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob4Active and (CalendarPickerB4.Date >=CalendarPickerE4.Date) then
+  begin
+    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4.Date)+' меньше дати початку '+DateToStr(CalendarPickerB4.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob5Active and (CalendarPickerB5.Date >=CalendarPickerE5.Date) then
+  begin
+    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5.Date)+' меньше дати початку '+DateToStr(CalendarPickerB5.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob6Active and (CalendarPickerB6.Date >=CalendarPickerE6.Date) then
+  begin
+    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6.Date)+' меньше дати початку '+DateToStr(CalendarPickerB6.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob7Active and (CalendarPickerB7.Date >=CalendarPickerE7.Date) then
+  begin
+    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7.Date)+' меньше дати початку '+DateToStr(CalendarPickerB7.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob8Active and (CalendarPickerB8.Date >=CalendarPickerE8.Date) then
+  begin
+    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8.Date)+' меньше дати початку '+DateToStr(CalendarPickerB8.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob9Active and (CalendarPickerB9.Date >=CalendarPickerE9.Date) then
+  begin
+    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9.Date)+' меньше дати початку '+DateToStr(CalendarPickerB9.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob10Active and (CalendarPickerB10.Date >= CalendarPickerE10.Date) then
+  begin
+    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10.Date)+' меньше дати початку '+DateToStr(CalendarPickerB10.Date));
+    Result := false;
+    exit;
+  end;
+// BX+1 > EX - должно соблюдаться
+ if IsJob1Active and IsJob2Active and (CalendarPickerE1.Date <= CalendarPickerB2.Date)
+ then
+  begin
+    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1.Date)+' пізніше дати початку роботи B2 '+DateToStr(CalendarPickerB2.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob2Active and IsJob3Active and (CalendarPickerE2.Date <= CalendarPickerB3.Date) then
+  begin
+    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2.Date)+' пізніше дати початку роботи B3 '+DateToStr(CalendarPickerB3.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob3Active and IsJob4Active and (CalendarPickerE3.Date <= CalendarPickerB4.Date) then
+  begin
+    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3.Date)+' пізніше дати початку роботи B4 '+DateToStr(CalendarPickerB4.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob4Active and IsJob5Active and (CalendarPickerE4.Date <= CalendarPickerB5.Date) then
+  begin
+    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4.Date)+' пізніше дати початку роботи B5 '+DateToStr(CalendarPickerB5.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob5Active and IsJob6Active and (CalendarPickerE5.Date <= CalendarPickerB6.Date) then
+  begin
+    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5.Date)+' пізніше дати початку роботи B6 '+DateToStr(CalendarPickerB6.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob6Active and IsJob7Active and (CalendarPickerE6.Date <= CalendarPickerB7.Date) then
+  begin
+    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6.Date)+' пізніше дати початку роботи B7 '+DateToStr(CalendarPickerB7.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob7Active and IsJob8Active and (CalendarPickerE7.Date <= CalendarPickerB8.Date) then
+  begin
+    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7.Date)+' пізніше дати початку роботи B8 '+DateToStr(CalendarPickerB8.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob8Active and IsJob9Active and (CalendarPickerE8.Date <= CalendarPickerB9.Date) then
+  begin
+    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8.Date)+' пізніше дати початку роботи B9 '+DateToStr(CalendarPickerB9.Date));
+    Result := false;
+    exit;
+  end;
+  if IsJob9Active and IsJob10Active and (CalendarPickerE9.Date <= CalendarPickerB10.Date) then
+  begin
+    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9.Date)+' пізніше дати початку роботи B10 '+DateToStr(CalendarPickerB10.Date));
+    Result := false;
+    exit;
+  end;
+end;
+
+function TFormNewTemplate.isJobGood: boolean;
+begin
+Result:=true;
+  if (IsJob1Active and FormMain.IsEmpty(Edit1Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Edit1Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Memo1Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 1"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob1Active and FormMain.IsEmpty(Memo1Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 1"');
+    Result := false;
+    exit;
+  end;
+
+  /// ////
+  if (IsJob2Active and FormMain.IsEmpty(Edit2Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Edit2Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Memo2Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 2"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob2Active and FormMain.IsEmpty(Memo2Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 2"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob3Active and FormMain.IsEmpty(Edit3Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Edit3Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Memo3Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 3"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob3Active and FormMain.IsEmpty(Memo3Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 3"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob4Active and FormMain.IsEmpty(Edit4Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Edit4Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Memo4Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 4"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob4Active and FormMain.IsEmpty(Memo4Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 4"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob5Active and FormMain.IsEmpty(Edit5Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Edit5Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Memo5Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 5"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob5Active and FormMain.IsEmpty(Memo5Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 5"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob6Active and FormMain.IsEmpty(Edit6Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Edit6Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Memo6Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 6"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob6Active and FormMain.IsEmpty(Memo6Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 6"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob7Active and FormMain.IsEmpty(Edit7Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Edit7Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Memo7Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 7"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob7Active and FormMain.IsEmpty(Memo7Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 7"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob8Active and FormMain.IsEmpty(Edit8Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Edit8Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Memo8Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 8"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob8Active and FormMain.IsEmpty(Memo8Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 8"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob9Active and FormMain.IsEmpty(Edit9Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Edit9Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Memo9Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 9"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob9Active and FormMain.IsEmpty(Memo9Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 9"');
+    Result := false;
+    exit;
+  end;
+  /// ////
+  if (IsJob10Active and FormMain.IsEmpty(Edit10Name.Text)) then
+  begin
+    ShowMessage('Пусте поле "Назва робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Edit10Company.Text)) then
+  begin
+    ShowMessage('Пусте поле "Компанія робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Memo10Resp.Text)) then
+  begin
+    ShowMessage('Пусте поле "Обов`язки робота 10"');
+    Result := false;
+    exit;
+  end;
+  if (IsJob10Active and FormMain.IsEmpty(Memo10Skills.Text)) then
+  begin
+    ShowMessage('Пусте поле Скіли робота 10"');
+    Result := false;
+    exit;
+  end;
 end;
 
 end.

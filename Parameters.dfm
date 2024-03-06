@@ -100,7 +100,7 @@ object FormParameters: TFormParameters
     TabOrder = 0
   end
   object BitBtnClose: TBitBtn
-    Left = 905
+    Left = 901
     Top = 615
     Width = 75
     Height = 40
@@ -109,6 +109,8 @@ object FormParameters: TFormParameters
     NumGlyphs = 2
     TabOrder = 1
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 897
+    ExplicitTop = 614
   end
   object DBGrid1: TDBGrid
     Left = 8

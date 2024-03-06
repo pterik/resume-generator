@@ -100,7 +100,6 @@ while not UniqueryParameters.Eof do
     if UniqueryParameters['name']='main_folder_LAPTOP-PTERIK' then main_folder_LAPTOP_PTERIK:=UniqueryParameters['value'];
     UniqueryParameters.Next;
   end;
-UniqueryParameters.Close;
 EditRecommend.Text:=Recommendationlink;
 EditEnglishTest.Text:=EnglishTest;
 Edit_main_folder_LAPTOP_PTERIK.Text:=main_folder_LAPTOP_PTERIK;

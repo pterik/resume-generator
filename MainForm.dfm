@@ -5137,4 +5137,23 @@ object FormMain: TFormMain
         Value = nil
       end>
   end
+  object UniTelephones: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = UniConnection
+    Transaction = UniTransaction
+    SQL.Strings = (
+      'SELECT DISTINCT value FROM parameters'
+      'WHERE name LIKE '#39'%telephone%'#39' '
+      'ORDER BY 1')
+    Left = 592
+    Top = 88
+  end
 end

@@ -11,10 +11,6 @@ type
   TFormUpdateResume = class(TForm)
     BitBtnClose: TBitBtn;
     BitBtnSave: TBitBtn;
-    UniUpdateResume: TUniQuery;
-    UniGetResume: TUniQuery;
-    UniLang: TUniQuery;
-    UniRegion: TUniQuery;
     PageControlRU: TPageControl;
     TabSheetMainRU: TTabSheet;
     Label121: TLabel;
@@ -205,26 +201,6 @@ type
     CalendarPickerE10: TCalendarPicker;
     CBLang: TComboBox;
     CBRegion: TComboBox;
-    UniLanglang: TStringField;
-    UniLanglanguage: TStringField;
-    UniLangorderby: TIntegerField;
-    UniRegionid: TStringField;
-    UniRegionregion_name: TStringField;
-    UniRegiondate_mask: TStringField;
-    UniRegionorderby: TIntegerField;
-    UniGetResumeid: TIntegerField;
-    UniGetResumename: TStringField;
-    UniGetResumelang: TStringField;
-    UniGetResumeregion_id: TStringField;
-    UniGetResumejob_opportunity: TStringField;
-    UniGetResumejob_place: TStringField;
-    UniGetResumephone_numbers_text: TStringField;
-    UniGetResumecv_docx_url: TStringField;
-    UniGetResumecv_pdf_url: TStringField;
-    UniGetResumeresume_introduction: TStringField;
-    UniGetResumearchived: TBooleanField;
-    UniGetResumecreated: TDateTimeField;
-    UniGetResumeupdated: TDateTimeField;
     UniResumeID: TUniQuery;
     UniFootersID: TUniQuery;
     UniExperienceID: TUniQuery;
@@ -266,7 +242,6 @@ type
     UniExperienceIDupdated: TDateTimeField;
     CBPhones: TComboBox;
     BitBtn2: TBitBtn;
-    UniTelephones: TUniQuery;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -468,6 +443,28 @@ Memo7Skills.Text := '';
 Memo8Skills.Text := '';
 Memo9Skills.Text := '';
 Memo10Skills.Text := '';
+
+CalendarPickerB1.isEmpty:=true;
+CalendarPickerB2.isEmpty:=true;
+CalendarPickerB3.isEmpty:=true;
+CalendarPickerB4.isEmpty:=true;
+CalendarPickerB5.isEmpty:=true;
+CalendarPickerB6.isEmpty:=true;
+CalendarPickerB7.isEmpty:=true;
+CalendarPickerB8.isEmpty:=true;
+CalendarPickerB9.isEmpty:=true;
+CalendarPickerB10.isEmpty:=true;
+
+CalendarPickerE1.isEmpty:=true;
+CalendarPickerE2.isEmpty:=true;
+CalendarPickerE3.isEmpty:=true;
+CalendarPickerE4.isEmpty:=true;
+CalendarPickerE5.isEmpty:=true;
+CalendarPickerE6.isEmpty:=true;
+CalendarPickerE7.isEmpty:=true;
+CalendarPickerE8.isEmpty:=true;
+CalendarPickerE9.isEmpty:=true;
+CalendarPickerE10.isEmpty:=true;
 end;
 
 
@@ -476,33 +473,33 @@ begin
 PageControlRU.ActivePageIndex:=0;
 SetEmptyResumes;
 CBPhones.Clear;
-UniTelephones.Close;
-UniTelephones.Open;
-while not UniTelephones.Eof do
+FormMain.UniTelephones.Close;
+FormMain.UniTelephones.Open;
+while not FormMain.UniTelephones.Eof do
   begin
-    CBPhones.Items.Add(UniTelephones['value']);
-    UniTelephones.Next;
+    CBPhones.Items.Add(FormMain.UniTelephones['value']);
+    FormMain.UniTelephones.Next;
   end;
 end;
 
 procedure TFormUpdateResume.InitFormValues;
 begin
 CBLang.Clear;
-UniLang.Close;
-UniLang.Open;
-while not UniLang.EOF do
+FormMain.UniLanguages.Close;
+FormMain.UniLanguages.Open;
+while not FormMain.UniLanguages.EOF do
   begin
-    CBLang.Items.Add(UniLang['lang']);
-    UniLang.Next;
+    CBLang.Items.Add(FormMain.UniLanguages['lang']);
+    FormMain.UniLanguages.Next;
   end;
 CBLang.Text:='UA';
 CBRegion.Clear;
-UniRegion.Close;
-UniRegion.Open;
-while not UniRegion.EOF do
+FormMain.UniRegions.Close;
+FormMain.UniRegions.Open;
+while not FormMain.UniRegions.EOF do
   begin
-    CBRegion.Items.Add(UniRegion['ID']);
-    UniRegion.Next;
+    CBRegion.Items.Add(FormMain.UniRegions['ID']);
+    FormMain.UniRegions.Next;
   end;
 CBRegion.Text:='UA';
 end;
@@ -1172,36 +1169,31 @@ Result:=true;
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle2.Text)) = 0) and
-    (Length(Trim(EditArticle2.Text)) > 0) then
+  if FormMain.IsEmpty(MemoArticle2.Text) and not FormMain.IsEmpty(EditArticle2.Text) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Текст"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle3.Text)) = 0) and
-    (Length(Trim(MemoArticle3.Text)) > 0) then
+  if FormMain.IsEmpty(EditArticle3.Text) and not FormMain.IsEmpty(MemoArticle3.Text) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle3.Text)) = 0) and
-    (Length(Trim(EditArticle3.Text)) > 0) then
+  if FormMain.IsEmpty(MemoArticle3.Text) and not FormMain.IsEmpty(EditArticle3.Text) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Текст"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle4.Text)) = 0) and
-    (Length(Trim(MemoArticle4.Text)) > 0) then
+  if FormMain.IsEmpty(EditArticle4.Text) and not FormMain.IsEmpty(MemoArticle4.Text) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle4.Text)) = 0) and
-    (Length(Trim(EditArticle4.Text)) > 0) then
+  if FormMain.IsEmpty(MemoArticle4.Text) and not FormMain.IsEmpty(EditArticle4.Text) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Текст"');
     Result := false;
@@ -1398,57 +1390,57 @@ if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or Calenda
     exit;
   end;
 // BX+1 < =EX
- if IsJob1Active and IsJob2Active and (CalendarPickerB2.Date < CalendarPickerE1.Date) then
+ if IsJob1Active and IsJob2Active and (CalendarPickerE1.Date >= CalendarPickerB2.Date ) then
   begin
-    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1.Date)+' меньше дати початку роботи B2 '+DateToStr(CalendarPickerB2.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE1.Date)+'роботи 1 пізніше дати початку роботи 2'+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
-  if IsJob2Active and IsJob3Active and (CalendarPickerB3.Date < CalendarPickerE2.Date) then
+  if IsJob2Active and IsJob3Active and (CalendarPickerE2.Date >= CalendarPickerB3.Date) then
   begin
-    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2.Date)+' меньше дати початку роботи B3 '+DateToStr(CalendarPickerB3.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE2.Date)+'роботи 2 пізніше дати початку роботи 3 '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
-  if IsJob3Active and IsJob4Active and (CalendarPickerB4.Date < CalendarPickerE3.Date) then
+  if IsJob3Active and IsJob4Active and (CalendarPickerE4.Date >= CalendarPickerB4.Date) then
   begin
-    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3.Date)+' меньше дати початку роботи B4 '+DateToStr(CalendarPickerB4.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE3.Date)+'роботи 3 пізніше дати початку роботи 4 '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
-  if IsJob4Active and IsJob5Active and (CalendarPickerB5.Date < CalendarPickerE4.Date) then
+  if IsJob4Active and IsJob5Active and (CalendarPickerE5.Date >= CalendarPickerB5.Date) then
   begin
-    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4.Date)+' меньше дати початку роботи B5 '+DateToStr(CalendarPickerB5.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE4.Date)+'роботи 4 пізніше дати початку роботи 5 '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
-  if IsJob5Active and IsJob6Active and (CalendarPickerB6.Date < CalendarPickerE5.Date) then
+  if IsJob5Active and IsJob6Active and (CalendarPickerE6.Date >= CalendarPickerB6.Date) then
   begin
-    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5.Date)+' меньше дати початку роботи B6 '+DateToStr(CalendarPickerB6.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE5.Date)+'роботи 5 пізніше дати початку роботи 6 '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
-  if IsJob6Active and IsJob7Active and (CalendarPickerB7.Date < CalendarPickerE6.Date) then
+  if IsJob6Active and IsJob7Active and (CalendarPickerE7.Date >= CalendarPickerB7.Date) then
   begin
-    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6.Date)+' меньше дати початку роботи B7 '+DateToStr(CalendarPickerB7.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE6.Date)+'роботи 6 пізніше дати початку роботи 7 '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
-  if IsJob7Active and IsJob8Active and (CalendarPickerB8.Date < CalendarPickerE7.Date) then
+  if IsJob7Active and IsJob8Active and (CalendarPickerE8.Date >= CalendarPickerB8.Date) then
   begin
-    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7.Date)+' меньше дати початку роботи B8 '+DateToStr(CalendarPickerB8.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE7.Date)+'роботи 7 пізніше дати початку роботи 8 '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
-  if IsJob8Active and IsJob9Active and (CalendarPickerB9.Date < CalendarPickerE8.Date) then
+  if IsJob8Active and IsJob9Active and (CalendarPickerE9.Date >= CalendarPickerB9.Date) then
   begin
-    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8.Date)+' меньше дати початку роботи B9 '+DateToStr(CalendarPickerB9.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE8.Date)+'роботи 8 пізніше дати початку роботи 9 '+DateToStr(CalendarPickerB9.Date));
     Result := false;
     exit;
   end;
-  if IsJob9Active and IsJob10Active and (CalendarPickerB10.Date < CalendarPickerE9.Date) then
+  if IsJob9Active and IsJob10Active and (CalendarPickerE10.Date >= CalendarPickerB10.Date) then
   begin
-    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9.Date)+' меньше дати початку роботи B10 '+DateToStr(CalendarPickerB10.Date));
+    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE9.Date)+'роботи 9 пізніше дати початку роботи 10 '+DateToStr(CalendarPickerB10.Date));
     Result := false;
     exit;
   end;
@@ -1475,12 +1467,6 @@ Result:=true;
     Result := false;
     exit;
   end;
-  if (IsJob1Active and FormMain.IsEmpty(Memo1Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 1"');
-    Result := false;
-    exit;
-  end;
 
   /// ////
   if (IsJob2Active and FormMain.IsEmpty(Edit2Name.Text)) then
@@ -1498,12 +1484,6 @@ Result:=true;
   if (IsJob2Active and FormMain.IsEmpty(Memo2Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 2"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob2Active and FormMain.IsEmpty(Memo2Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 2"');
     Result := false;
     exit;
   end;
@@ -1526,12 +1506,6 @@ Result:=true;
     Result := false;
     exit;
   end;
-  if (IsJob3Active and FormMain.IsEmpty(Memo3Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 3"');
-    Result := false;
-    exit;
-  end;
   /// ////
   if (IsJob4Active and FormMain.IsEmpty(Edit4Name.Text)) then
   begin
@@ -1548,12 +1522,6 @@ Result:=true;
   if (IsJob4Active and FormMain.IsEmpty(Memo4Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 4"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob4Active and FormMain.IsEmpty(Memo4Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 4"');
     Result := false;
     exit;
   end;
@@ -1576,12 +1544,6 @@ Result:=true;
     Result := false;
     exit;
   end;
-  if (IsJob5Active and FormMain.IsEmpty(Memo5Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 5"');
-    Result := false;
-    exit;
-  end;
   /// ////
   if (IsJob6Active and FormMain.IsEmpty(Edit6Name.Text)) then
   begin
@@ -1598,12 +1560,6 @@ Result:=true;
   if (IsJob6Active and FormMain.IsEmpty(Memo6Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 6"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob6Active and FormMain.IsEmpty(Memo6Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 6"');
     Result := false;
     exit;
   end;
@@ -1626,12 +1582,6 @@ Result:=true;
     Result := false;
     exit;
   end;
-  if (IsJob7Active and FormMain.IsEmpty(Memo7Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 7"');
-    Result := false;
-    exit;
-  end;
   /// ////
   if (IsJob8Active and FormMain.IsEmpty(Edit8Name.Text)) then
   begin
@@ -1648,12 +1598,6 @@ Result:=true;
   if (IsJob8Active and FormMain.IsEmpty(Memo8Resp.Text)) then
   begin
     ShowMessage('Пусте поле "Обов`язки робота 8"');
-    Result := false;
-    exit;
-  end;
-  if (IsJob8Active and FormMain.IsEmpty(Memo8Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 8"');
     Result := false;
     exit;
   end;
@@ -1676,12 +1620,6 @@ Result:=true;
     Result := false;
     exit;
   end;
-  if (IsJob9Active and FormMain.IsEmpty(Memo9Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 9"');
-    Result := false;
-    exit;
-  end;
   /// ////
   if (IsJob10Active and FormMain.IsEmpty(Edit10Name.Text)) then
   begin
@@ -1701,28 +1639,23 @@ Result:=true;
     Result := false;
     exit;
   end;
-  if (IsJob10Active and FormMain.IsEmpty(Memo10Skills.Text)) then
-  begin
-    ShowMessage('Пусте поле Скіли робота 10"');
-    Result := false;
-    exit;
-  end;
 end;
 
 function TFormUpdateResume.isFormValuesGood: boolean;
 begin
 Result:=true;
-IsJob1Active := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text) or FormMain.IsEmpty(Memo1Skills.Text));
-IsJob2Active := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text) or FormMain.IsEmpty(Memo2Skills.Text));
-IsJob3Active := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text) or FormMain.IsEmpty(Memo3Skills.Text));
-IsJob4Active := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text) or FormMain.IsEmpty(Memo4Skills.Text));
-IsJob5Active := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text) or FormMain.IsEmpty(Memo5Skills.Text));
-IsJob6Active := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text) or FormMain.IsEmpty(Memo6Skills.Text));
-IsJob7Active := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text) or FormMain.IsEmpty(Memo7Skills.Text));
-IsJob8Active := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text) or FormMain.IsEmpty(Memo8Skills.Text));
-IsJob9Active := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text) or FormMain.IsEmpty(Memo9Skills.Text));
-IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text) or FormMain.IsEmpty(Memo10Skills.Text));
-  //Обязательные поля
+IsJob1Active  := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text));
+IsJob2Active  := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text));
+IsJob3Active  := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text));
+IsJob4Active  := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text));
+IsJob5Active  := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text));
+IsJob6Active  := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text));
+IsJob7Active  := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text));
+IsJob8Active  := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text));
+IsJob9Active  := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text));
+IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text));
+
+//Обязательные поля
 if not isMainFormGood then
     begin
       Result:=false;
@@ -1803,12 +1736,12 @@ var i:integer;
 FExperienceID:array [1..10] of integer;
 begin
 for i:=1 to 10 do FExperienceID[i]:=0;
-  try
+try
   UniSPDeleteExpSkills.Close;
   UniSPDeleteExpSkills.ParamByName('p_flag').AsString := 'resume_id';
   UniSPDeleteExpSkills.ParamByName('p_resume_id').AsInteger := FResumeID;
   UniSPDeleteExpSkills.ExecSQL;
-  if not FormMain.isEmpty(Edit1Name.Text) and not FormMain.isEmpty(Edit1Company.Text) then
+  if isJob1Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1825,7 +1758,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[1]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit2Name.Text) and not FormMain.isEmpty(Edit2Company.Text) then
+  if isJob2Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1842,7 +1775,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[2]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit3Name.Text) and not FormMain.isEmpty(Edit3Company.Text) then
+  if isJob3Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1859,7 +1792,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[3]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit4Name.Text) and not FormMain.isEmpty(Edit4Company.Text) then
+  if isJob4Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1876,7 +1809,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[4]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit5Name.Text) and not FormMain.isEmpty(Edit5Company.Text) then
+  if isJob5Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1893,7 +1826,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[5]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit6Name.Text) and not FormMain.isEmpty(Edit6Company.Text) then
+  if isJob6Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1910,7 +1843,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[6]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit7Name.Text) and not FormMain.isEmpty(Edit7Company.Text) then
+  if isJob7Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1927,7 +1860,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[7]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit8Name.Text) and not FormMain.isEmpty(Edit8Company.Text) then
+  if isJob8Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1944,7 +1877,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[8]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit9Name.Text) and not FormMain.isEmpty(Edit9Company.Text) then
+  if isJob9Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1961,7 +1894,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[9]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.isEmpty(Edit10Name.Text) and not FormMain.isEmpty(Edit10Company.Text) then
+  if isJob10Active then
     begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
@@ -1978,7 +1911,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[10]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if (Trim(Memo1Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo1Skills.Text) then
       for i := 0 to Memo1Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
           begin
@@ -1987,7 +1920,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo2Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo2Skills.Text) then
       for i := 0 to Memo2Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo2Skills.Lines[i]) then
           begin
@@ -1996,7 +1929,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo2Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo3Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo3Skills.Text) then
       for i := 0 to Memo3Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo3Skills.Lines[i]) then
           begin
@@ -2005,7 +1938,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo3Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo4Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo4Skills.Text) then
       for i := 0 to Memo4Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo4Skills.Lines[i]) then
           begin
@@ -2014,7 +1947,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo4Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo5Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo5Skills.Text) then
       for i := 0 to Memo5Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo5Skills.Lines[i]) then
           begin
@@ -2023,7 +1956,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo5Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo6Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo6Skills.Text) then
       for i := 0 to Memo6Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo6Skills.Lines[i]) then
           begin
@@ -2032,7 +1965,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo6Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo7Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo7Skills.Text) then
       for i := 0 to Memo7Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo7Skills.Lines[i]) then
           begin
@@ -2041,7 +1974,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo7Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo8Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo8Skills.Text) then
       for i := 0 to Memo8Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo8Skills.Lines[i]) then
           begin
@@ -2050,7 +1983,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo8Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo9Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo9Skills.Text) then
       for i := 0 to Memo9Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo9Skills.Lines[i]) then
           begin
@@ -2059,7 +1992,7 @@ for i:=1 to 10 do FExperienceID[i]:=0;
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo9Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if (Trim(Memo10Skills.Text)<>'') then
+  if not FormMain.IsEmpty(Memo10Skills.Text) then
       for i := 0 to Memo10Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo10Skills.Lines[i]) then
           begin

@@ -16,7 +16,7 @@ object FormUpdateResume: TFormUpdateResume
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 877
+    Left = 869
     Top = 614
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 873
+    ExplicitLeft = 865
     ExplicitTop = 613
   end
   object BitBtnSave: TBitBtn
@@ -188,7 +188,7 @@ object FormUpdateResume: TFormUpdateResume
     Top = 2
     Width = 980
     Height = 610
-    ActivePage = TabSheetMainRU
+    ActivePage = TabSheet10RU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -227,7 +227,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label123: TLabel
         Left = 38
-        Top = 208
+        Top = 312
         Width = 68
         Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
@@ -253,7 +253,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label125: TLabel
         Left = 7
-        Top = 103
+        Top = 141
         Width = 99
         Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
@@ -266,7 +266,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label126: TLabel
         Left = 38
-        Top = 138
+        Top = 106
         Width = 68
         Height = 21
         Caption = #1055#1086#1074#1085#1110#1089#1090#1102
@@ -279,7 +279,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label127: TLabel
         Left = 36
-        Top = 173
+        Top = 221
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -319,7 +319,21 @@ object FormUpdateResume: TFormUpdateResume
       end
       object EditOpportunity: TEdit
         Left = 112
-        Top = 135
+        Top = 103
+        Width = 409
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        Text = 'EditOpportunity'
+      end
+      object EditPlace: TEdit
+        Left = 112
+        Top = 138
         Width = 295
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -329,26 +343,12 @@ object FormUpdateResume: TFormUpdateResume
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        Text = 'EditOpportunity'
-      end
-      object EditPlace: TEdit
-        Left = 112
-        Top = 100
-        Width = 295
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
         Left = 112
-        Top = 170
-        Width = 296
+        Top = 218
+        Width = 633
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -361,7 +361,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object MemoIntro: TMemo
         Left = 112
-        Top = 206
+        Top = 310
         Width = 857
         Height = 205
         Font.Charset = DEFAULT_CHARSET
@@ -401,16 +401,16 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'CBRegion'
       end
       object CBPhones: TComboBox
-        Left = 425
-        Top = 171
+        Left = 761
+        Top = 219
         Width = 160
         Height = 29
         TabOrder = 7
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
-        Left = 599
-        Top = 173
+        Left = 935
+        Top = 221
         Width = 33
         Height = 25
         Caption = '+'
@@ -795,7 +795,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB1: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -821,9 +821,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE1: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1036,7 +1036,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB2: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1062,9 +1062,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE2: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1277,7 +1277,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB3: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1303,9 +1303,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE3: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1518,7 +1518,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB4: TCalendarPicker
         Left = 296
         Top = 1
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1544,9 +1544,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE4: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 1
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1759,7 +1759,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB5: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1785,9 +1785,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE5: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2000,7 +2000,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB6: TCalendarPicker
         Left = 296
         Top = 2
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2026,9 +2026,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE6: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 2
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2241,7 +2241,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB7: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2267,9 +2267,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE7: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2482,7 +2482,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB8: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2508,9 +2508,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE8: TCalendarPicker
-        Left = 402
-        Top = -1
-        Width = 100
+        Left = 430
+        Top = 0
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2723,7 +2723,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB9: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2749,9 +2749,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE9: TCalendarPicker
-        Left = 402
-        Top = -1
-        Width = 100
+        Left = 430
+        Top = 0
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2964,7 +2964,7 @@ object FormUpdateResume: TFormUpdateResume
       object CalendarPickerB10: TCalendarPicker
         Left = 296
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2990,9 +2990,9 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object CalendarPickerE10: TCalendarPicker
-        Left = 402
+        Left = 430
         Top = 0
-        Width = 100
+        Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -3019,249 +3019,6 @@ object FormUpdateResume: TFormUpdateResume
       end
     end
   end
-  object UniUpdateResume: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'UPDATE resumes '
-      '  SET'
-      '  name = :p_name,  '
-      '  region_id = :p_region_id,'
-      '  lang = :p_lang, '
-      '  job_opportunity = :p_job_opportunity,'
-      '  job_place = :p_job_place,'
-      '  cv_docx_url = :p_cv_docx_url,'
-      '  cv_pdf_url = :p_cv_pdf_url,'
-      '  phone_numbers_text = :p_phone_numbers_text,'
-      '  resume_introduction = :p_resume_introduction'
-      'WHERE ID = :p_id')
-    Left = 776
-    Top = 56
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_name'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_region_id'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftString
-        Name = 'p_lang'
-        ParamType = ptInput
-        Value = 'UA'
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_opportunity'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_job_place'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_docx_url'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftString
-        Name = 'p_cv_pdf_url'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftString
-        Name = 'p_phone_numbers_text'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftString
-        Name = 'p_resume_introduction'
-        ParamType = ptInput
-        Value = '0'
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_id'
-        ParamType = ptInput
-        Value = 0
-      end>
-  end
-  object UniGetResume: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'SELECT '
-      '   id, name, lang, '
-      '   region_id, job_opportunity, job_place, '
-      '   phone_numbers_text, cv_docx_url, cv_pdf_url, '
-      '   resume_introduction, archived, created, '
-      '   updated'
-      'from resumes WHERE id = :p_id')
-    Left = 664
-    Top = 56
-    ParamData = <
-      item
-        DataType = ftInteger
-        Name = 'p_id'
-        ParamType = ptInput
-        Value = nil
-      end>
-    object UniGetResumeid: TIntegerField
-      FieldName = 'id'
-    end
-    object UniGetResumename: TStringField
-      FieldName = 'name'
-      Size = 50
-    end
-    object UniGetResumelang: TStringField
-      FieldName = 'lang'
-      Size = 3
-    end
-    object UniGetResumeregion_id: TStringField
-      FieldName = 'region_id'
-      Size = 2
-    end
-    object UniGetResumejob_opportunity: TStringField
-      FieldName = 'job_opportunity'
-      Required = True
-      Size = 255
-    end
-    object UniGetResumejob_place: TStringField
-      FieldName = 'job_place'
-      Size = 255
-    end
-    object UniGetResumephone_numbers_text: TStringField
-      FieldName = 'phone_numbers_text'
-      Size = 255
-    end
-    object UniGetResumecv_docx_url: TStringField
-      FieldName = 'cv_docx_url'
-      Size = 255
-    end
-    object UniGetResumecv_pdf_url: TStringField
-      FieldName = 'cv_pdf_url'
-      Size = 255
-    end
-    object UniGetResumeresume_introduction: TStringField
-      FieldName = 'resume_introduction'
-      Size = 1000
-    end
-    object UniGetResumearchived: TBooleanField
-      FieldName = 'archived'
-    end
-    object UniGetResumecreated: TDateTimeField
-      FieldName = 'created'
-    end
-    object UniGetResumeupdated: TDateTimeField
-      FieldName = 'updated'
-    end
-  end
-  object UniLang: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'SELECT '
-      'lang,'
-      'language,'
-      'orderby '
-      'FROM languages'
-      'order by orderby')
-    Left = 664
-    Top = 120
-    object UniLanglang: TStringField
-      FieldName = 'lang'
-      Required = True
-      Size = 6
-    end
-    object UniLanglanguage: TStringField
-      FieldName = 'language'
-      Size = 255
-    end
-    object UniLangorderby: TIntegerField
-      FieldName = 'orderby'
-    end
-  end
-  object UniRegion: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'SELECT '
-      '  id,'
-      '  region_name,'
-      '  date_mask,'
-      '  orderby'
-      'FROM regions'
-      '  ORDER by orderby')
-    Left = 776
-    Top = 120
-    object UniRegionid: TStringField
-      FieldName = 'id'
-      Required = True
-      Size = 2
-    end
-    object UniRegionregion_name: TStringField
-      FieldName = 'region_name'
-      Required = True
-      Size = 10
-    end
-    object UniRegiondate_mask: TStringField
-      FieldName = 'date_mask'
-      Required = True
-      Size = 10
-    end
-    object UniRegionorderby: TIntegerField
-      FieldName = 'orderby'
-    end
-  end
   object UniResumeID: TUniQuery
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
@@ -3272,8 +3029,8 @@ object FormUpdateResume: TFormUpdateResume
       '   archived, created, updated  '
       'from resumes'
       'where id = :P_ID')
-    Left = 464
-    Top = 120
+    Left = 400
+    Top = 96
     ParamData = <
       item
         DataType = ftUnknown
@@ -3330,8 +3087,8 @@ object FormUpdateResume: TFormUpdateResume
       ' WHERE f.resume_id = :p_resume_id'
       'ORDER BY footer_order'
       '')
-    Left = 568
-    Top = 112
+    Left = 504
+    Top = 96
     ParamData = <
       item
         DataType = ftInteger
@@ -3385,8 +3142,8 @@ object FormUpdateResume: TFormUpdateResume
       ' FROM experiences e'
       'WHERE resume_id = :p_resume_id'
       'ORDER BY job_order')
-    Left = 688
-    Top = 184
+    Left = 608
+    Top = 96
     ParamData = <
       item
         DataType = ftInteger
@@ -3450,8 +3207,8 @@ object FormUpdateResume: TFormUpdateResume
       'FROM skill_show_lists l'
       'WHERE experience_id = :p_experience_id'
       'ORDER BY skill_id')
-    Left = 784
-    Top = 184
+    Left = 752
+    Top = 96
     ParamData = <
       item
         DataType = ftInteger
@@ -3739,24 +3496,5 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end>
     CommandStoredProcName = 'delete_experiences_skills'
-  end
-  object UniTelephones: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'SELECT DISTINCT value FROM parameters'
-      'WHERE name LIKE '#39'%telephone%'#39' '
-      'ORDER BY 1')
-    Left = 512
-    Top = 200
   end
 end
