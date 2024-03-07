@@ -2,7 +2,7 @@ object FormNewResume: TFormNewResume
   Left = 0
   Top = 0
   Caption = #1053#1086#1074#1080#1081' '#1087#1077#1088#1077#1082#1083#1072#1076' '#1088#1077#1079#1102#1084#1077
-  ClientHeight = 694
+  ClientHeight = 731
   ClientWidth = 988
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,23 +14,23 @@ object FormNewResume: TFormNewResume
   OnKeyUp = FormKeyUp
   DesignSize = (
     988
-    694)
+    731)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 878
-    Top = 656
+    Left = 874
+    Top = 693
     Width = 98
     Height = 38
     Anchors = [akRight, akBottom]
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 874
+    ExplicitLeft = 870
     ExplicitTop = 655
   end
   object BitBtnSave: TBitBtn
     Left = 8
-    Top = 656
+    Top = 693
     Width = 96
     Height = 38
     Anchors = [akLeft, akBottom]
@@ -445,14 +445,14 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 1'
       ImageIndex = 3
       object Label17: TLabel
-        Left = 676
+        Left = 580
         Top = 3
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label18: TLabel
-        Left = 390
+        Left = 310
         Top = 3
         Width = 42
         Height = 21
@@ -496,7 +496,7 @@ object FormNewResume: TFormNewResume
         Text = 'Edit1DatesUA'
       end
       object Edit1NameUA: TEdit
-        Left = 438
+        Left = 358
         Top = 0
         Width = 220
         Height = 29
@@ -505,9 +505,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit1NameUA'
       end
       object Edit1CompanyUA: TEdit
-        Left = 749
+        Left = 653
         Top = 0
-        Width = 220
+        Width = 300
         Height = 29
         ReadOnly = True
         TabOrder = 2
@@ -1401,8 +1401,8 @@ object FormNewResume: TFormNewResume
     Left = 0
     Top = 330
     Width = 980
-    Height = 320
-    ActivePage = TabSheetJob1TR
+    Height = 360
+    ActivePage = TabSheetMainTR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -1499,7 +1499,7 @@ object FormNewResume: TFormNewResume
         Left = 90
         Top = 118
         Width = 879
-        Height = 160
+        Height = 200
         Lines.Strings = (
           'MemoIntroTR')
         ScrollBars = ssVertical
@@ -1545,7 +1545,7 @@ object FormNewResume: TFormNewResume
       ImageIndex = 11
       DesignSize = (
         972
-        281)
+        321)
       object EditArticle1: TEdit
         Left = 102
         Top = 0
@@ -1566,7 +1566,7 @@ object FormNewResume: TFormNewResume
         Left = 2
         Top = 32
         Width = 480
-        Height = 110
+        Height = 120
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle1')
@@ -1577,7 +1577,7 @@ object FormNewResume: TFormNewResume
         Left = 499
         Top = 32
         Width = 470
-        Height = 110
+        Height = 120
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle2')
@@ -1586,7 +1586,7 @@ object FormNewResume: TFormNewResume
       end
       object EditArticle3: TEdit
         Left = 102
-        Top = 145
+        Top = 163
         Width = 380
         Height = 29
         TabOrder = 4
@@ -1594,7 +1594,7 @@ object FormNewResume: TFormNewResume
       end
       object EditArticle4: TEdit
         Left = 589
-        Top = 145
+        Top = 163
         Width = 380
         Height = 29
         TabOrder = 6
@@ -1602,9 +1602,9 @@ object FormNewResume: TFormNewResume
       end
       object MemoArticle3: TMemo
         Left = 3
-        Top = 180
+        Top = 198
         Width = 479
-        Height = 100
+        Height = 120
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle3')
@@ -1613,9 +1613,9 @@ object FormNewResume: TFormNewResume
       end
       object MemoArticle4: TMemo
         Left = 499
-        Top = 180
+        Top = 198
         Width = 470
-        Height = 100
+        Height = 120
         Anchors = [akLeft, akTop, akRight]
         Lines.Strings = (
           'MemoArticle4')
@@ -1632,7 +1632,7 @@ object FormNewResume: TFormNewResume
       end
       object StaticText2: TStaticText
         Left = 2
-        Top = 148
+        Top = 166
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 3'
@@ -1640,7 +1640,7 @@ object FormNewResume: TFormNewResume
       end
       object StaticText4: TStaticText
         Left = 504
-        Top = 149
+        Top = 167
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 4'
@@ -1659,43 +1659,43 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 1'
       ImageIndex = 3
       object Label15: TLabel
-        Left = 410
+        Left = 249
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label16: TLabel
-        Left = 678
-        Top = 3
+        Left = 224
+        Top = 43
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label19: TLabel
-        Left = 3
-        Top = 38
+        Left = 2
+        Top = 78
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label20: TLabel
-        Left = 27
-        Top = 164
+        Left = 26
+        Top = 204
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label21: TLabel
-        Left = 488
-        Top = 164
+        Left = 487
+        Top = 204
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
       end
       object Label22: TLabel
-        Left = 43
-        Top = 199
+        Left = 42
+        Top = 239
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -1703,32 +1703,32 @@ object FormNewResume: TFormNewResume
       object Edit1Dates: TEdit
         Left = 3
         Top = 3
-        Width = 160
+        Width = 203
         Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'Edit1Dates'
       end
       object Edit1Name: TEdit
-        Left = 456
+        Left = 300
         Top = 3
-        Width = 220
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit1Name'
       end
       object Edit1Company: TEdit
-        Left = 748
-        Top = 3
-        Width = 220
+        Left = 300
+        Top = 43
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit1Company'
       end
       object CalendarPickerB1: TCalendarPicker
-        Left = 164
-        Top = 3
-        Width = 120
+        Left = 3
+        Top = 40
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1754,9 +1754,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE1: TCalendarPicker
-        Left = 284
-        Top = 3
-        Width = 120
+        Left = 107
+        Top = 40
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1782,8 +1782,8 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Memo1Resp: TMemo
-        Left = 80
-        Top = 38
+        Left = 79
+        Top = 78
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -1792,24 +1792,24 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
       end
       object Edit1Benefits: TEdit
-        Left = 83
-        Top = 164
+        Left = 82
+        Top = 204
         Width = 400
         Height = 29
         TabOrder = 3
         Text = 'Edit1Benefits'
       end
       object Edit1Bottom: TEdit
-        Left = 83
-        Top = 199
+        Left = 82
+        Top = 239
         Width = 400
         Height = 29
         TabOrder = 4
         Text = 'Edit1Bottom'
       end
       object Memo1Skills: TMemo
-        Left = 533
-        Top = 164
+        Left = 532
+        Top = 204
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -1822,36 +1822,36 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 2'
       ImageIndex = 4
       object Label44: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label53: TLabel
-        Left = 696
-        Top = 3
+        Left = 226
+        Top = 38
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label74: TLabel
-        Left = 26
-        Top = 172
+        Left = 25
+        Top = 210
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label75: TLabel
-        Left = 42
-        Top = 207
+        Left = 41
+        Top = 245
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Label82: TLabel
-        Left = -1
-        Top = 38
+        Left = -2
+        Top = 76
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
@@ -1859,7 +1859,7 @@ object FormNewResume: TFormNewResume
       object Edit2Dates: TEdit
         Left = 2
         Top = 3
-        Width = 160
+        Width = 200
         Height = 29
         ParentShowHint = False
         ReadOnly = True
@@ -1868,25 +1868,25 @@ object FormNewResume: TFormNewResume
         Text = 'Edit2Dates'
       end
       object Edit2Name: TEdit
-        Left = 456
+        Left = 300
         Top = 0
-        Width = 200
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit2Name'
       end
       object Edit2Company: TEdit
-        Left = 769
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 35
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit2Company'
       end
       object CalendarPickerB2: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 2
+        Top = 38
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1912,9 +1912,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE2: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 104
+        Top = 38
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -1940,8 +1940,8 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Memo2Resp: TMemo
-        Left = 79
-        Top = 38
+        Left = 78
+        Top = 76
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -1950,24 +1950,24 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
       end
       object Edit2Benefits: TEdit
-        Left = 82
-        Top = 172
+        Left = 81
+        Top = 210
         Width = 400
         Height = 29
         TabOrder = 3
         Text = 'Edit2Benefits'
       end
       object Edit2Bottom: TEdit
-        Left = 82
-        Top = 212
+        Left = 81
+        Top = 250
         Width = 400
         Height = 29
         TabOrder = 4
         Text = 'Edit2Bottom'
       end
       object Memo2Skills: TMemo
-        Left = 531
-        Top = 168
+        Left = 530
+        Top = 206
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -1980,36 +1980,36 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 3'
       ImageIndex = 5
       object Label43: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label52: TLabel
-        Left = 701
-        Top = 3
+        Left = 228
+        Top = 35
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label76: TLabel
-        Left = 29
-        Top = 164
+        Left = 27
+        Top = 202
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label77: TLabel
-        Left = 45
-        Top = 207
+        Left = 43
+        Top = 245
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Label83: TLabel
-        Left = 5
-        Top = 37
+        Left = 3
+        Top = 75
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
@@ -2017,32 +2017,32 @@ object FormNewResume: TFormNewResume
       object Edit3Dates: TEdit
         Left = 2
         Top = 2
-        Width = 160
+        Width = 198
         Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'Edit3Dates'
       end
       object Edit3Name: TEdit
-        Left = 456
+        Left = 300
         Top = 0
-        Width = 200
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit3Name'
       end
       object Edit3Company: TEdit
-        Left = 774
-        Top = 3
-        Width = 200
+        Left = 300
+        Top = 35
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit3Company'
       end
       object CalendarPickerB3: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 0
+        Top = 37
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2068,9 +2068,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE3: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 100
+        Top = 37
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2096,8 +2096,8 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Memo3Resp: TMemo
-        Left = 85
-        Top = 37
+        Left = 83
+        Top = 75
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -2106,24 +2106,24 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
       end
       object Edit3Benefits: TEdit
-        Left = 85
-        Top = 163
+        Left = 83
+        Top = 201
         Width = 400
         Height = 29
         TabOrder = 3
         Text = 'Edit3Benefits'
       end
       object Edit3Bottom: TEdit
-        Left = 85
-        Top = 211
+        Left = 83
+        Top = 249
         Width = 400
         Height = 29
         TabOrder = 4
         Text = 'Edit3Bottom'
       end
       object Memo3Skills: TMemo
-        Left = 531
-        Top = 168
+        Left = 533
+        Top = 201
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2136,36 +2136,36 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 4'
       ImageIndex = 6
       object Label42: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label51: TLabel
-        Left = 696
-        Top = 3
+        Left = 227
+        Top = 38
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label78: TLabel
-        Left = 29
-        Top = 172
+        Left = 23
+        Top = 208
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label79: TLabel
-        Left = 45
-        Top = 207
+        Left = 39
+        Top = 251
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Label84: TLabel
-        Left = -1
-        Top = 35
+        Left = 3
+        Top = 73
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
@@ -2173,32 +2173,32 @@ object FormNewResume: TFormNewResume
       object Edit4Dates: TEdit
         Left = 2
         Top = 0
-        Width = 160
+        Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'Edit4Dates'
       end
       object Edit4Name: TEdit
-        Left = 456
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 3
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit4Name'
       end
       object Edit4Company: TEdit
-        Left = 769
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 38
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit4Company'
       end
       object CalendarPickerB4: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 3
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2224,9 +2224,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE4: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 104
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2253,7 +2253,7 @@ object FormNewResume: TFormNewResume
       end
       object Memo4Resp: TMemo
         Left = 79
-        Top = 38
+        Top = 73
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -2262,16 +2262,16 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
       end
       object Edit4Benefits: TEdit
-        Left = 85
-        Top = 171
+        Left = 79
+        Top = 207
         Width = 400
         Height = 29
         TabOrder = 3
         Text = 'Edit4Benefits'
       end
       object Edit4Bottom: TEdit
-        Left = 85
-        Top = 219
+        Left = 79
+        Top = 255
         Width = 400
         Height = 29
         TabOrder = 4
@@ -2279,7 +2279,7 @@ object FormNewResume: TFormNewResume
       end
       object Memo4Skills: TMemo
         Left = 531
-        Top = 168
+        Top = 203
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2292,36 +2292,36 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 5'
       ImageIndex = 7
       object Label41: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label50: TLabel
-        Left = 696
-        Top = 3
+        Left = 225
+        Top = 38
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label80: TLabel
         Left = 29
-        Top = 172
+        Top = 207
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label81: TLabel
         Left = 45
-        Top = 223
+        Top = 258
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Label85: TLabel
         Left = 3
-        Top = 35
+        Top = 70
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
@@ -2329,32 +2329,32 @@ object FormNewResume: TFormNewResume
       object Edit5Dates: TEdit
         Left = 2
         Top = 0
-        Width = 160
+        Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'Edit5Dates'
       end
       object Edit5Name: TEdit
-        Left = 456
+        Left = 300
         Top = 0
-        Width = 200
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit5Name'
       end
       object Edit5Company: TEdit
-        Left = 769
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 35
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit5Company'
       end
       object CalendarPickerB5: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 4
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2380,9 +2380,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE5: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 100
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2409,7 +2409,7 @@ object FormNewResume: TFormNewResume
       end
       object Memo5Resp: TMemo
         Left = 79
-        Top = 38
+        Top = 73
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -2419,7 +2419,7 @@ object FormNewResume: TFormNewResume
       end
       object Edit5Benefits: TEdit
         Left = 85
-        Top = 171
+        Top = 206
         Width = 400
         Height = 29
         TabOrder = 3
@@ -2427,7 +2427,7 @@ object FormNewResume: TFormNewResume
       end
       object Edit5Bottom: TEdit
         Left = 85
-        Top = 219
+        Top = 254
         Width = 400
         Height = 29
         TabOrder = 4
@@ -2435,7 +2435,7 @@ object FormNewResume: TFormNewResume
       end
       object Memo5Skills: TMemo
         Left = 531
-        Top = 168
+        Top = 203
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2448,43 +2448,43 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 6'
       ImageIndex = 8
       object Label40: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label49: TLabel
-        Left = 696
-        Top = 3
+        Left = 225
+        Top = 38
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label86: TLabel
         Left = 3
-        Top = 35
+        Top = 75
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label91: TLabel
         Left = 29
-        Top = 172
+        Top = 212
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label92: TLabel
         Left = 45
-        Top = 215
+        Top = 255
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Memo6Resp: TMemo
         Left = 79
-        Top = 35
+        Top = 75
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -2494,7 +2494,7 @@ object FormNewResume: TFormNewResume
       end
       object Edit6Benefits: TEdit
         Left = 85
-        Top = 171
+        Top = 211
         Width = 400
         Height = 29
         TabOrder = 3
@@ -2502,7 +2502,7 @@ object FormNewResume: TFormNewResume
       end
       object Edit6Bottom: TEdit
         Left = 85
-        Top = 219
+        Top = 259
         Width = 400
         Height = 29
         TabOrder = 4
@@ -2511,32 +2511,32 @@ object FormNewResume: TFormNewResume
       object Edit6Dates: TEdit
         Left = 2
         Top = 0
-        Width = 160
+        Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'Edit6Dates'
       end
       object Edit6Name: TEdit
-        Left = 456
+        Left = 300
         Top = 0
-        Width = 200
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit6Name'
       end
       object Edit6Company: TEdit
-        Left = 769
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 35
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit6Company'
       end
       object CalendarPickerB6: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 2
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2561,9 +2561,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE6: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 102
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2589,7 +2589,7 @@ object FormNewResume: TFormNewResume
       end
       object Memo6Skills: TMemo
         Left = 531
-        Top = 168
+        Top = 208
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2602,43 +2602,43 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 7'
       ImageIndex = 9
       object Label39: TLabel
-        Left = 410
-        Top = 5
+        Left = 252
+        Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label48: TLabel
-        Left = 694
-        Top = 5
+        Left = 230
+        Top = 43
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label87: TLabel
         Left = -1
-        Top = 35
+        Top = 81
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label93: TLabel
         Left = 29
-        Top = 180
+        Top = 226
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label94: TLabel
         Left = 45
-        Top = 223
+        Top = 269
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Memo7Resp: TMemo
         Left = 79
-        Top = 35
+        Top = 81
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -2648,7 +2648,7 @@ object FormNewResume: TFormNewResume
       end
       object Edit7Benefits: TEdit
         Left = 85
-        Top = 174
+        Top = 220
         Width = 400
         Height = 29
         TabOrder = 3
@@ -2656,16 +2656,16 @@ object FormNewResume: TFormNewResume
       end
       object Edit7Bottom: TEdit
         Left = 85
-        Top = 219
+        Top = 265
         Width = 400
         Height = 29
         TabOrder = 4
         Text = 'Edit7Bottom'
       end
       object CalendarPickerB7: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 2
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2691,9 +2691,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE7: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 102
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2720,14 +2720,14 @@ object FormNewResume: TFormNewResume
       object Edit7Dates: TEdit
         Left = 2
         Top = 0
-        Width = 160
+        Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 8
         Text = 'Edit7Dates'
       end
       object Edit7Name: TEdit
-        Left = 456
+        Left = 300
         Top = 3
         Width = 200
         Height = 29
@@ -2735,8 +2735,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit7Name'
       end
       object Edit7Company: TEdit
-        Left = 767
-        Top = 0
+        Left = 300
+        Top = 38
         Width = 200
         Height = 29
         TabOrder = 1
@@ -2744,7 +2744,7 @@ object FormNewResume: TFormNewResume
       end
       object Memo7Skills: TMemo
         Left = 531
-        Top = 168
+        Top = 214
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2757,43 +2757,43 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 8'
       ImageIndex = 10
       object Label38: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label47: TLabel
-        Left = 694
-        Top = 3
+        Left = 227
+        Top = 38
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label88: TLabel
-        Left = 3
-        Top = 35
+        Left = 5
+        Top = 75
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label95: TLabel
-        Left = 35
-        Top = 172
+        Left = 25
+        Top = 212
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label96: TLabel
-        Left = 51
-        Top = 207
+        Left = 41
+        Top = 247
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Memo8Resp: TMemo
-        Left = 79
-        Top = 38
+        Left = 81
+        Top = 78
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -2802,25 +2802,25 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
       end
       object Edit8Benefits: TEdit
-        Left = 85
-        Top = 171
+        Left = 81
+        Top = 211
         Width = 400
         Height = 29
         TabOrder = 3
         Text = 'Edit8Benefits'
       end
       object Edit8Bottom: TEdit
-        Left = 85
-        Top = 206
+        Left = 81
+        Top = 246
         Width = 400
         Height = 29
         TabOrder = 4
         Text = 'Edit8Bottom'
       end
       object CalendarPickerB8: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 0
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2846,9 +2846,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE8: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 102
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -2876,31 +2876,31 @@ object FormNewResume: TFormNewResume
       object Edit8Dates: TEdit
         Left = 2
         Top = 0
-        Width = 160
+        Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 8
         Text = 'Edit8Dates'
       end
       object Edit8Name: TEdit
-        Left = 456
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 3
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit8Name'
       end
       object Edit8Company: TEdit
-        Left = 767
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 38
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit8Company'
       end
       object Memo8Skills: TMemo
-        Left = 529
-        Top = 168
+        Left = 531
+        Top = 208
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2913,43 +2913,43 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 9'
       ImageIndex = 11
       object Label37: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label46: TLabel
-        Left = 690
-        Top = 3
+        Left = 226
+        Top = 38
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label89: TLabel
-        Left = 3
-        Top = 35
+        Left = 2
+        Top = 83
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label97: TLabel
-        Left = 23
-        Top = 180
+        Left = 22
+        Top = 228
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label98: TLabel
-        Left = 39
-        Top = 215
+        Left = 38
+        Top = 263
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Memo9Resp: TMemo
-        Left = 79
-        Top = 38
+        Left = 78
+        Top = 86
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -2958,16 +2958,16 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
       end
       object Edit9Benefits: TEdit
-        Left = 79
-        Top = 180
+        Left = 78
+        Top = 228
         Width = 400
         Height = 29
         TabOrder = 3
         Text = 'Edit9Benefits'
       end
       object Edit9Bottom: TEdit
-        Left = 80
-        Top = 215
+        Left = 79
+        Top = 263
         Width = 400
         Height = 29
         TabOrder = 4
@@ -2976,16 +2976,16 @@ object FormNewResume: TFormNewResume
       object Edit9Dates: TEdit
         Left = 3
         Top = 0
-        Width = 160
+        Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 6
         Text = 'Edit9Dates'
       end
       object CalendarPickerB9: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 4
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -3011,9 +3011,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE9: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 102
+        Top = 35
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -3039,24 +3039,24 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Edit9Name: TEdit
-        Left = 456
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 3
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit9Name'
       end
       object Edit9Company: TEdit
-        Left = 763
-        Top = 0
-        Width = 200
+        Left = 300
+        Top = 38
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit9Company'
       end
       object Memo9Skills: TMemo
-        Left = 531
-        Top = 168
+        Left = 530
+        Top = 216
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -3069,43 +3069,43 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 10'
       ImageIndex = 12
       object Label36: TLabel
-        Left = 410
+        Left = 252
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label45: TLabel
-        Left = 696
-        Top = 6
+        Left = 225
+        Top = 41
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label90: TLabel
         Left = 3
-        Top = 37
+        Top = 74
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label99: TLabel
-        Left = 29
-        Top = 180
+        Left = 23
+        Top = 217
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label100: TLabel
-        Left = 45
-        Top = 215
+        Left = 39
+        Top = 260
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Memo10Resp: TMemo
         Left = 79
-        Top = 38
+        Top = 75
         Width = 890
         Height = 120
         Lines.Strings = (
@@ -3114,25 +3114,25 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
       end
       object Edit10Benefits: TEdit
-        Left = 85
-        Top = 172
+        Left = 79
+        Top = 209
         Width = 400
         Height = 29
         TabOrder = 3
         Text = 'Edit10Benefits'
       end
       object Edit10Bottom: TEdit
-        Left = 85
-        Top = 219
+        Left = 79
+        Top = 256
         Width = 400
         Height = 29
         TabOrder = 4
         Text = 'Edit10Bottom'
       end
       object CalendarPickerB10: TCalendarPicker
-        Left = 164
-        Top = 0
-        Width = 120
+        Left = 4
+        Top = 37
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -3158,9 +3158,9 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE10: TCalendarPicker
-        Left = 284
-        Top = 0
-        Width = 120
+        Left = 102
+        Top = 37
+        Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
         CalendarHeaderInfo.DaysOfWeekFont.Color = clWindowText
@@ -3188,31 +3188,31 @@ object FormNewResume: TFormNewResume
       object Edit10Dates: TEdit
         Left = 2
         Top = 2
-        Width = 160
+        Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 8
         Text = 'Edit10Dates'
       end
       object Edit10Name: TEdit
-        Left = 456
+        Left = 300
         Top = 3
-        Width = 200
+        Width = 400
         Height = 29
         TabOrder = 0
         Text = 'Edit10Name'
       end
       object Edit10Company: TEdit
-        Left = 769
-        Top = 3
-        Width = 200
+        Left = 300
+        Top = 38
+        Width = 400
         Height = 29
         TabOrder = 1
         Text = 'Edit10Company'
       end
       object Memo10Skills: TMemo
         Left = 531
-        Top = 168
+        Top = 205
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -3224,7 +3224,7 @@ object FormNewResume: TFormNewResume
   end
   object BitBtnCopy: TBitBtn
     Left = 232
-    Top = 656
+    Top = 693
     Width = 201
     Height = 38
     Anchors = [akLeft, akBottom]
@@ -3631,7 +3631,7 @@ object FormNewResume: TFormNewResume
         #39'@p_resume_id'#39)
     Connection = FormMain.UniConnection
     Left = 246
-    Top = 500
+    Top = 444
     ParamData = <
       item
         DataType = ftString
@@ -3679,7 +3679,7 @@ object FormNewResume: TFormNewResume
         DataType = ftString
         Name = 'p_resume_introduction'
         ParamType = ptInput
-        Size = 1000
+        Size = 3000
         Value = nil
       end
       item
@@ -3693,7 +3693,7 @@ object FormNewResume: TFormNewResume
         DataType = ftString
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3707,7 +3707,7 @@ object FormNewResume: TFormNewResume
         DataType = ftString
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3721,7 +3721,7 @@ object FormNewResume: TFormNewResume
         DataType = ftString
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3735,7 +3735,7 @@ object FormNewResume: TFormNewResume
         DataType = ftString
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3756,7 +3756,7 @@ object FormNewResume: TFormNewResume
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
-      'SELECT max(ID) from resumes '
+      'SELECT max(ID) as ID from resumes '
       'WHERE name = :p_name and lang = :p_lang')
     Left = 574
     Top = 109
@@ -3773,6 +3773,10 @@ object FormNewResume: TFormNewResume
         ParamType = ptInput
         Value = nil
       end>
+    object UniGetCopyResumeIDID: TIntegerField
+      FieldName = 'ID'
+      ReadOnly = True
+    end
   end
   object UniSPInsertExperiences: TUniStoredProc
     StoredProcName = 'insert_experience'
@@ -3784,7 +3788,7 @@ object FormNewResume: TFormNewResume
         'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 408
-    Top = 504
+    Top = 448
     ParamData = <
       item
         DataType = ftString
@@ -3872,7 +3876,7 @@ object FormNewResume: TFormNewResume
       'CALL insert_skills(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
     Left = 568
-    Top = 504
+    Top = 448
     ParamData = <
       item
         DataType = ftInteger
@@ -3897,7 +3901,7 @@ object FormNewResume: TFormNewResume
         'e_id)')
     Connection = FormMain.UniConnection
     Left = 728
-    Top = 504
+    Top = 448
     ParamData = <
       item
         DataType = ftString

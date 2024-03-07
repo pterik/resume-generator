@@ -16,7 +16,7 @@ object FormUpdateResume: TFormUpdateResume
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 869
+    Left = 865
     Top = 614
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 865
+    ExplicitLeft = 861
     ExplicitTop = 613
   end
   object BitBtnSave: TBitBtn
@@ -3278,7 +3278,7 @@ object FormUpdateResume: TFormUpdateResume
         DataType = ftString
         Name = 'p_resume_introduction'
         ParamType = ptInput
-        Size = 1000
+        Size = 3000
         Value = nil
       end
       item
@@ -3298,7 +3298,7 @@ object FormUpdateResume: TFormUpdateResume
         DataType = ftString
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3312,7 +3312,7 @@ object FormUpdateResume: TFormUpdateResume
         DataType = ftString
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3326,7 +3326,7 @@ object FormUpdateResume: TFormUpdateResume
         DataType = ftString
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3340,7 +3340,7 @@ object FormUpdateResume: TFormUpdateResume
         DataType = ftString
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item

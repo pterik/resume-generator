@@ -18,7 +18,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     662)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 868
+    Left = 864
     Top = 620
     Width = 84
     Height = 40
@@ -32,7 +32,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 864
+    ExplicitLeft = 860
     ExplicitTop = 619
   end
   object BitBtnSave: TBitBtn
@@ -3303,7 +3303,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_template_introduction'
         ParamType = ptInput
-        Size = 1000
+        Size = 3000
         Value = nil
       end
       item
@@ -3323,7 +3323,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3337,7 +3337,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3351,7 +3351,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3365,7 +3365,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3488,7 +3488,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 640
+    Left = 680
     Top = 392
     ParamData = <
       item

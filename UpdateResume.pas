@@ -1208,121 +1208,121 @@ Result:=true;
 
 if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerB1.Date) or CalendarPickerB1.IsEmpty) then
   begin
-    ShowMessage('Робота 1 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB1.Date));
+    ShowMessage('Робота 1 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB1.Date));
     Result := false;
     exit;
   end;
 if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerE1.Date) or CalendarPickerE1.IsEmpty) then
   begin
-    ShowMessage('Робота 1 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE1.Date));
+    ShowMessage('Робота 1 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE1.Date));
     Result := false;
     exit;
   end;
 if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerB2.Date) or CalendarPickerB2.IsEmpty) then
   begin
-    ShowMessage('Робота 2 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB2.Date));
+    ShowMessage('Робота 2 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
 if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerE2.Date) or CalendarPickerE2.IsEmpty) then
   begin
-    ShowMessage('Робота 2 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE2.Date));
+    ShowMessage('Робота 2 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE2.Date));
     Result := false;
     exit;
   end;
 if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerB3.Date) or CalendarPickerB3.IsEmpty) then
   begin
-    ShowMessage('Робота 3 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB3.Date));
+    ShowMessage('Робота 3 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
 if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerE3.Date) or CalendarPickerE3.IsEmpty) then
   begin
-    ShowMessage('Робота 3 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE3.Date));
+    ShowMessage('Робота 3 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE3.Date));
     Result := false;
     exit;
   end;
 if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerB4.Date) or CalendarPickerB4.IsEmpty) then
   begin
-    ShowMessage('Робота 4 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB4.Date));
+    ShowMessage('Робота 4 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
 if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerE4.Date) or CalendarPickerE4.IsEmpty) then
   begin
-    ShowMessage('Робота 4 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE4.Date));
+    ShowMessage('Робота 4 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE4.Date));
     Result := false;
     exit;
   end;
 if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerB5.Date) or CalendarPickerB5.IsEmpty) then
   begin
-    ShowMessage('Робота 5 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB5.Date));
+    ShowMessage('Робота 5 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
 if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerE5.Date) or CalendarPickerE5.IsEmpty) then
   begin
-    ShowMessage('Робота 5 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE5.Date));
+    ShowMessage('Робота 5 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE5.Date));
     Result := false;
     exit;
   end;
 if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerB6.Date) or CalendarPickerB6.IsEmpty) then
   begin
-    ShowMessage('Робота 6 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB6.Date));
+    ShowMessage('Робота 6 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
 if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerE6.Date) or CalendarPickerE6.IsEmpty) then
   begin
-    ShowMessage('Робота 6 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE6.Date));
+    ShowMessage('Робота 6 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE6.Date));
     Result := false;
     exit;
   end;
 if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerB7.Date) or CalendarPickerB7.IsEmpty) then
   begin
-    ShowMessage('Робота 7 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB7.Date));
+    ShowMessage('Робота 7 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
 if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerE7.Date) or CalendarPickerE7.IsEmpty) then
   begin
-    ShowMessage('Робота 7 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE7.Date));
+    ShowMessage('Робота 7 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE7.Date));
     Result := false;
     exit;
   end;
 if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerB8.Date) or CalendarPickerB8.IsEmpty) then
   begin
-    ShowMessage('Робота 8 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB8.Date));
+    ShowMessage('Робота 8 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
 if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerE8.Date) or CalendarPickerE8.IsEmpty) then
   begin
-    ShowMessage('Робота 8 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE8.Date));
+    ShowMessage('Робота 8 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE8.Date));
     Result := false;
     exit;
   end;
 if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerB9.Date) or CalendarPickerB9.IsEmpty) then
   begin
-    ShowMessage('Робота 9 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB9.Date));
+    ShowMessage('Робота 9 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB9.Date));
     Result := false;
     exit;
   end;
 if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerE9.Date) or CalendarPickerE9.IsEmpty) then
   begin
-    ShowMessage('Робота 9 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE9.Date));
+    ShowMessage('Робота 9 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE9.Date));
     Result := false;
     exit;
   end;
 if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerB10.Date) or CalendarPickerB10.IsEmpty) then
   begin
-    ShowMessage('Робота 10 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB10.Date));
+    ShowMessage('Робота 10 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB10.Date));
     Result := false;
     exit;
   end;
 if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or CalendarPickerE10.IsEmpty) then
   begin
-    ShowMessage('Робота 10 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE10.Date));
+    ShowMessage('Робота 10 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE10.Date));
     Result := false;
     exit;
   end;
@@ -1330,117 +1330,119 @@ if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or Calenda
 // BX>=EX
   if IsJob1Active and (CalendarPickerB1.Date >=CalendarPickerE1.Date) then
   begin
-    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1.Date)+' меньше дати початку '+DateToStr(CalendarPickerB1.Date));
+    ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1.Date)+' раніше за дати початку '+DateToStr(CalendarPickerB1.Date));
     Result := false;
     exit;
   end;
 
   if IsJob2Active and (CalendarPickerB2.Date >=CalendarPickerE2.Date) then
   begin
-    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2.Date)+' меньше дати початку '+DateToStr(CalendarPickerB2.Date));
+    ShowMessage('Робота 2 дата закінчення '+DateToStr(CalendarPickerE2.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
   if IsJob3Active and (CalendarPickerB3.Date >=CalendarPickerE3.Date) then
   begin
-    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3.Date)+' меньше дати початку '+DateToStr(CalendarPickerB3.Date));
+    ShowMessage('Робота 3 дата закінчення '+DateToStr(CalendarPickerE3.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
   if IsJob4Active and (CalendarPickerB4.Date >=CalendarPickerE4.Date) then
   begin
-    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4.Date)+' меньше дати початку '+DateToStr(CalendarPickerB4.Date));
+    ShowMessage('Робота 4 дата закінчення '+DateToStr(CalendarPickerE4.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
   if IsJob5Active and (CalendarPickerB5.Date >=CalendarPickerE5.Date) then
   begin
-    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5.Date)+' меньше дати початку '+DateToStr(CalendarPickerB5.Date));
+    ShowMessage('Робота 5 дата закінчення '+DateToStr(CalendarPickerE5.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
   if IsJob6Active and (CalendarPickerB6.Date >=CalendarPickerE6.Date) then
   begin
-    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6.Date)+' меньше дати початку '+DateToStr(CalendarPickerB6.Date));
+    ShowMessage('Робота 6 дата закінчення '+DateToStr(CalendarPickerE6.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
   if IsJob7Active and (CalendarPickerB7.Date >=CalendarPickerE7.Date) then
   begin
-    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7.Date)+' меньше дати початку '+DateToStr(CalendarPickerB7.Date));
+    ShowMessage('Робота 7 дата закінчення '+DateToStr(CalendarPickerE7.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
   if IsJob8Active and (CalendarPickerB8.Date >=CalendarPickerE8.Date) then
   begin
-    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8.Date)+' меньше дати початку '+DateToStr(CalendarPickerB8.Date));
+    ShowMessage('Робота 8 дата закінчення '+DateToStr(CalendarPickerE8.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
   if IsJob9Active and (CalendarPickerB9.Date >=CalendarPickerE9.Date) then
   begin
-    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9.Date)+' меньше дати початку '+DateToStr(CalendarPickerB9.Date));
+    ShowMessage('Робота 9 дата закінчення '+DateToStr(CalendarPickerE9.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB9.Date));
     Result := false;
     exit;
   end;
   if IsJob10Active and (CalendarPickerB10.Date >= CalendarPickerE10.Date) then
   begin
-    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10.Date)+' меньше дати початку '+DateToStr(CalendarPickerB10.Date));
+    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB10.Date));
     Result := false;
     exit;
   end;
 // BX+1 < =EX
- if IsJob1Active and IsJob2Active and (CalendarPickerE1.Date >= CalendarPickerB2.Date ) then
+// BX+1 > EX - должно соблюдаться
+ if IsJob1Active and IsJob2Active and (CalendarPickerE1.Date <= CalendarPickerB2.Date)
+ then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE1.Date)+'роботи 1 пізніше дати початку роботи 2'+DateToStr(CalendarPickerB2.Date));
+    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1.Date)+' пізніше за дату початку роботи B2 '+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
-  if IsJob2Active and IsJob3Active and (CalendarPickerE2.Date >= CalendarPickerB3.Date) then
+  if IsJob2Active and IsJob3Active and (CalendarPickerE2.Date <= CalendarPickerB3.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE2.Date)+'роботи 2 пізніше дати початку роботи 3 '+DateToStr(CalendarPickerB3.Date));
+    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2.Date)+' пізніше за дату початку роботи B3 '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
-  if IsJob3Active and IsJob4Active and (CalendarPickerE4.Date >= CalendarPickerB4.Date) then
+  if IsJob3Active and IsJob4Active and (CalendarPickerE3.Date <= CalendarPickerB4.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE3.Date)+'роботи 3 пізніше дати початку роботи 4 '+DateToStr(CalendarPickerB4.Date));
+    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3.Date)+' пізніше за дату початку роботи B4 '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
-  if IsJob4Active and IsJob5Active and (CalendarPickerE5.Date >= CalendarPickerB5.Date) then
+  if IsJob4Active and IsJob5Active and (CalendarPickerE4.Date <= CalendarPickerB5.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE4.Date)+'роботи 4 пізніше дати початку роботи 5 '+DateToStr(CalendarPickerB5.Date));
+    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4.Date)+' пізніше за дату початку роботи B5 '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
-  if IsJob5Active and IsJob6Active and (CalendarPickerE6.Date >= CalendarPickerB6.Date) then
+  if IsJob5Active and IsJob6Active and (CalendarPickerE5.Date <= CalendarPickerB6.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE5.Date)+'роботи 5 пізніше дати початку роботи 6 '+DateToStr(CalendarPickerB6.Date));
+    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5.Date)+' пізніше за дату початку роботи B6 '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
-  if IsJob6Active and IsJob7Active and (CalendarPickerE7.Date >= CalendarPickerB7.Date) then
+  if IsJob6Active and IsJob7Active and (CalendarPickerE6.Date <= CalendarPickerB7.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE6.Date)+'роботи 6 пізніше дати початку роботи 7 '+DateToStr(CalendarPickerB7.Date));
+    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6.Date)+' пізніше за дату початку роботи B7 '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
-  if IsJob7Active and IsJob8Active and (CalendarPickerE8.Date >= CalendarPickerB8.Date) then
+  if IsJob7Active and IsJob8Active and (CalendarPickerE7.Date <= CalendarPickerB8.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE7.Date)+'роботи 7 пізніше дати початку роботи 8 '+DateToStr(CalendarPickerB8.Date));
+    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7.Date)+' пізніше за дату початку роботи B8 '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
-  if IsJob8Active and IsJob9Active and (CalendarPickerE9.Date >= CalendarPickerB9.Date) then
+  if IsJob8Active and IsJob9Active and (CalendarPickerE8.Date <= CalendarPickerB9.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE8.Date)+'роботи 8 пізніше дати початку роботи 9 '+DateToStr(CalendarPickerB9.Date));
+    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8.Date)+' пізніше за дату початку роботи B9 '+DateToStr(CalendarPickerB9.Date));
     Result := false;
     exit;
   end;
-  if IsJob9Active and IsJob10Active and (CalendarPickerE10.Date >= CalendarPickerB10.Date) then
+  if IsJob9Active and IsJob10Active and (CalendarPickerE9.Date <= CalendarPickerB10.Date) then
   begin
-    ShowMessage('Дата закінчення '+DateToStr(CalendarPickerE9.Date)+'роботи 9 пізніше дати початку роботи 10 '+DateToStr(CalendarPickerB10.Date));
+    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9.Date)+' пізніше за дату початку роботи B10 '+DateToStr(CalendarPickerB10.Date));
     Result := false;
     exit;
   end;
@@ -1911,7 +1913,7 @@ try
       UniSPInsertExperiences.ExecSQL;
       FExperienceID[10]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
     end;
-  if not FormMain.IsEmpty(Memo1Skills.Text) then
+  if isJob1Active and not FormMain.IsEmpty(Memo1Skills.Text) then
       for i := 0 to Memo1Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
           begin
@@ -1920,7 +1922,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo2Skills.Text) then
+  if isJob2Active and not FormMain.IsEmpty(Memo2Skills.Text) then
       for i := 0 to Memo2Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo2Skills.Lines[i]) then
           begin
@@ -1929,7 +1931,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo2Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo3Skills.Text) then
+  if isJob3Active and not FormMain.IsEmpty(Memo3Skills.Text) then
       for i := 0 to Memo3Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo3Skills.Lines[i]) then
           begin
@@ -1938,7 +1940,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo3Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo4Skills.Text) then
+  if isJob4Active and not FormMain.IsEmpty(Memo4Skills.Text) then
       for i := 0 to Memo4Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo4Skills.Lines[i]) then
           begin
@@ -1947,7 +1949,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo4Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo5Skills.Text) then
+  if isJob5Active and not FormMain.IsEmpty(Memo5Skills.Text) then
       for i := 0 to Memo5Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo5Skills.Lines[i]) then
           begin
@@ -1956,7 +1958,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo5Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo6Skills.Text) then
+  if isJob6Active and not FormMain.IsEmpty(Memo6Skills.Text) then
       for i := 0 to Memo6Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo6Skills.Lines[i]) then
           begin
@@ -1965,7 +1967,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo6Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo7Skills.Text) then
+  if isJob7Active and not FormMain.IsEmpty(Memo7Skills.Text) then
       for i := 0 to Memo7Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo7Skills.Lines[i]) then
           begin
@@ -1974,7 +1976,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo7Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo8Skills.Text) then
+  if isJob8Active and not FormMain.IsEmpty(Memo8Skills.Text) then
       for i := 0 to Memo8Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo8Skills.Lines[i]) then
           begin
@@ -1983,7 +1985,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo8Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo9Skills.Text) then
+  if isJob9Active and not FormMain.IsEmpty(Memo9Skills.Text) then
       for i := 0 to Memo9Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo9Skills.Lines[i]) then
           begin
@@ -1992,7 +1994,7 @@ try
           UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo9Skills.Lines[i];
           UniSPInsertSkills.ExecSQL;
           end;
-  if not FormMain.IsEmpty(Memo10Skills.Text) then
+  if isJob10Active and not FormMain.IsEmpty(Memo10Skills.Text) then
       for i := 0 to Memo10Skills.Lines.Count - 1 do
         if not FormMain.IsEmpty(Memo10Skills.Lines[i]) then
           begin

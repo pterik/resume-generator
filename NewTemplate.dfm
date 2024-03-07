@@ -58,7 +58,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 853
+    Left = 849
     Top = 616
     Width = 95
     Height = 38
@@ -73,7 +73,7 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 849
+    ExplicitLeft = 845
     ExplicitTop = 615
   end
   object BitBtnSave: TBitBtn
@@ -228,7 +228,7 @@ object FormNewTemplate: TFormNewTemplate
     Top = 2
     Width = 980
     Height = 610
-    ActivePage = TabSheet10RU
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -3041,7 +3041,7 @@ object FormNewTemplate: TFormNewTemplate
         '_result'#39)
     Connection = FormMain.UniConnection
     Debug = True
-    Left = 766
+    Left = 182
     Top = 420
     ParamData = <
       item
@@ -3076,7 +3076,7 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftString
         Name = 'p_template_introduction'
         ParamType = ptInput
-        Size = 1000
+        Size = 3000
         Value = nil
       end
       item
@@ -3090,7 +3090,7 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftString
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3104,7 +3104,7 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftString
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3118,7 +3118,7 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftString
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
@@ -3132,14 +3132,14 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftString
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 255
+        Size = 1000
         Value = nil
       end
       item
         DataType = ftInteger
         Name = 'p_template_id'
         ParamType = ptOutput
-        Value = 77
+        Value = 82
       end
       item
         DataType = ftInteger

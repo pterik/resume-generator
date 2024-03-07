@@ -1669,121 +1669,121 @@ Result:=true;
 
 if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerB1.Date) or CalendarPickerB1.IsEmpty) then
   begin
-    ShowMessage('Робота 1 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB1.Date));
+    ShowMessage('Робота 1 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB1.Date));
     Result := false;
     exit;
   end;
 if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerE1.Date) or CalendarPickerE1.IsEmpty) then
   begin
-    ShowMessage('Робота 1 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE1.Date));
+    ShowMessage('Робота 1 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE1.Date));
     Result := false;
     exit;
   end;
 if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerB2.Date) or CalendarPickerB2.IsEmpty) then
   begin
-    ShowMessage('Робота 2 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB2.Date));
+    ShowMessage('Робота 2 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB2.Date));
     Result := false;
     exit;
   end;
 if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerE2.Date) or CalendarPickerE2.IsEmpty) then
   begin
-    ShowMessage('Робота 2 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE2.Date));
+    ShowMessage('Робота 2 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE2.Date));
     Result := false;
     exit;
   end;
 if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerB3.Date) or CalendarPickerB3.IsEmpty) then
   begin
-    ShowMessage('Робота 3 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB3.Date));
+    ShowMessage('Робота 3 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB3.Date));
     Result := false;
     exit;
   end;
 if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerE3.Date) or CalendarPickerE3.IsEmpty) then
   begin
-    ShowMessage('Робота 3 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE3.Date));
+    ShowMessage('Робота 3 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE3.Date));
     Result := false;
     exit;
   end;
 if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerB4.Date) or CalendarPickerB4.IsEmpty) then
   begin
-    ShowMessage('Робота 4 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB4.Date));
+    ShowMessage('Робота 4 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB4.Date));
     Result := false;
     exit;
   end;
 if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerE4.Date) or CalendarPickerE4.IsEmpty) then
   begin
-    ShowMessage('Робота 4 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE4.Date));
+    ShowMessage('Робота 4 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE4.Date));
     Result := false;
     exit;
   end;
 if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerB5.Date) or CalendarPickerB5.IsEmpty) then
   begin
-    ShowMessage('Робота 5 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB5.Date));
+    ShowMessage('Робота 5 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB5.Date));
     Result := false;
     exit;
   end;
 if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerE5.Date) or CalendarPickerE5.IsEmpty) then
   begin
-    ShowMessage('Робота 5 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE5.Date));
+    ShowMessage('Робота 5 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE5.Date));
     Result := false;
     exit;
   end;
 if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerB6.Date) or CalendarPickerB6.IsEmpty) then
   begin
-    ShowMessage('Робота 6 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB6.Date));
+    ShowMessage('Робота 6 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB6.Date));
     Result := false;
     exit;
   end;
 if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerE6.Date) or CalendarPickerE6.IsEmpty) then
   begin
-    ShowMessage('Робота 6 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE6.Date));
+    ShowMessage('Робота 6 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE6.Date));
     Result := false;
     exit;
   end;
 if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerB7.Date) or CalendarPickerB7.IsEmpty) then
   begin
-    ShowMessage('Робота 7 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB7.Date));
+    ShowMessage('Робота 7 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB7.Date));
     Result := false;
     exit;
   end;
 if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerE7.Date) or CalendarPickerE7.IsEmpty) then
   begin
-    ShowMessage('Робота 7 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE7.Date));
+    ShowMessage('Робота 7 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE7.Date));
     Result := false;
     exit;
   end;
 if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerB8.Date) or CalendarPickerB8.IsEmpty) then
   begin
-    ShowMessage('Робота 8 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB8.Date));
+    ShowMessage('Робота 8 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB8.Date));
     Result := false;
     exit;
   end;
 if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerE8.Date) or CalendarPickerE8.IsEmpty) then
   begin
-    ShowMessage('Робота 8 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE8.Date));
+    ShowMessage('Робота 8 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE8.Date));
     Result := false;
     exit;
   end;
 if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerB9.Date) or CalendarPickerB9.IsEmpty) then
   begin
-    ShowMessage('Робота 9 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB9.Date));
+    ShowMessage('Робота 9 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB9.Date));
     Result := false;
     exit;
   end;
 if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerE9.Date) or CalendarPickerE9.IsEmpty) then
   begin
-    ShowMessage('Робота 9 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE9.Date));
+    ShowMessage('Робота 9 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE9.Date));
     Result := false;
     exit;
   end;
 if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerB10.Date) or CalendarPickerB10.IsEmpty) then
   begin
-    ShowMessage('Робота 10 дата початку невірна або рік меньший за 2000 '+DateToStr(CalendarPickerB10.Date));
+    ShowMessage('Робота 10 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB10.Date));
     Result := false;
     exit;
   end;
 if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or CalendarPickerE10.IsEmpty) then
   begin
-    ShowMessage('Робота 10 дата закінчення невірна або рік меньший за 2000 '+DateToStr(CalendarPickerE10.Date));
+    ShowMessage('Робота 10 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE10.Date));
     Result := false;
     exit;
   end;

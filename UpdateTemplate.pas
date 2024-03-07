@@ -289,6 +289,8 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     FTemplateID:integer;
+    IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
+    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active, IsJob10Active: boolean;
     function SaveJobs: boolean;
     procedure SetFormValues;
     procedure SetValuesFootersRU;
@@ -1200,11 +1202,18 @@ while not UniExperienceID.EOF do
 end;
 
 function TFormUpdateTemplate.isFormValuesGood: boolean;
-var
-  IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
-    IsJob6Active, IsJob7Active, IsJob8Active, IsJob9Active,
-    IsJob10Active: boolean;
 begin
+Result:=true;
+IsJob1Active  := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text));
+IsJob2Active  := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text));
+IsJob3Active  := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text));
+IsJob4Active  := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text));
+IsJob5Active  := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text));
+IsJob6Active  := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text));
+IsJob7Active  := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text));
+IsJob8Active  := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text));
+IsJob9Active  := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text));
+IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text));
   //Обязательные поля
   if FormMain.IsEmpty(EditName.Text) then
   begin
