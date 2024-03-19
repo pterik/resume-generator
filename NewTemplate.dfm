@@ -58,7 +58,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 829
+    Left = 825
     Top = 730
     Width = 95
     Height = 38
@@ -73,7 +73,7 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 825
+    ExplicitLeft = 821
     ExplicitTop = 729
   end
   object BitBtnSave: TBitBtn
@@ -230,7 +230,7 @@ object FormNewTemplate: TFormNewTemplate
     Top = 2
     Width = 980
     Height = 722
-    ActivePage = TabSheetFooterRU
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

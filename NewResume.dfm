@@ -17,7 +17,7 @@ object FormNewResume: TFormNewResume
     799)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 830
+    Left = 826
     Top = 761
     Width = 98
     Height = 38
@@ -25,7 +25,7 @@ object FormNewResume: TFormNewResume
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 826
+    ExplicitLeft = 822
     ExplicitTop = 760
   end
   object BitBtnSave: TBitBtn
@@ -176,7 +176,7 @@ object FormNewResume: TFormNewResume
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheetFooterUA
+    ActivePage = TabSheetMainUA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -230,13 +230,6 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1056#1077#1075#1110#1086#1085
       end
-      object LabelFooterID: TLabel
-        Left = 848
-        Top = 43
-        Width = 97
-        Height = 21
-        Caption = 'LabelFooterID'
-      end
       object Label11: TLabel
         Left = 3
         Top = 62
@@ -274,30 +267,11 @@ object FormNewResume: TFormNewResume
       object EditPhonesUA: TEdit
         Left = 534
         Top = 34
-        Width = 296
+        Width = 435
         Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'EditPhonesUA'
-      end
-      object MemoIntroUA: TMemo
-        Left = 97
-        Top = 70
-        Width = 872
-        Height = 215
-        Lines.Strings = (
-          
-            'Total experience 10+ years in development, implementation, and t' +
-            'echnical support in the financial, insurance and banking '
-          'areas. '
-          
-            'Expert knowledge in database design, development and optimizatio' +
-            'n of data warehouses.'
-          'I have visas for the USA, Canada, United Kingdom.'
-          'Ready to relocate in the EU.')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 4
       end
       object EditLangRU: TEdit
         Left = 60
@@ -305,7 +279,7 @@ object FormNewResume: TFormNewResume
         Width = 72
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'RU'
       end
       object EditRegionRU: TEdit
@@ -314,8 +288,36 @@ object FormNewResume: TFormNewResume
         Width = 72
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Template'
+      end
+      object RichEditorUA: TRichEdit
+        Left = 90
+        Top = 70
+        Width = 877
+        Height = 208
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+      end
+      object CBWordWrapUA: TCheckBox
+        Left = 3
+        Top = 147
+        Width = 88
+        Height = 17
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        OnClick = CBWordWrapUAClick
       end
     end
     object TabSheetFooterUA: TTabSheet
@@ -524,24 +526,13 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
         Text = 'Edit1CompanyUA'
       end
-      object Memo1RespUA: TMemo
-        Left = 81
-        Top = 35
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo1RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 3
-      end
       object Edit1BenefitsUA: TEdit
         Left = 81
         Top = 161
         Width = 400
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit1BenefitsUA'
       end
       object Edit1BottomUA: TEdit
@@ -550,7 +541,7 @@ object FormNewResume: TFormNewResume
         Width = 400
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit1BottomUA'
       end
       object Memo1SkillsUA: TMemo
@@ -561,6 +552,22 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo1SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit1RespUA: TRichEdit
+        Left = 81
+        Top = 35
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit1RespUA')
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -616,24 +623,13 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
         Text = 'Edit2CompanyUA'
       end
-      object Memo2RespUA: TMemo
-        Left = 80
-        Top = 38
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo2RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 3
-      end
       object Edit2BenefitsUA: TEdit
         Left = 3
         Top = 172
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit2BenefitsUA'
       end
       object Edit2BottomUA: TEdit
@@ -642,7 +638,7 @@ object FormNewResume: TFormNewResume
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit2BottomUA'
       end
       object Memo2SkillsUA: TMemo
@@ -653,6 +649,20 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo2SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit2RespUA: TRichEdit
+        Left = 81
+        Top = 38
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -708,24 +718,13 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
         Text = 'Edit3CompanyUA'
       end
-      object Memo3RespUA: TMemo
-        Left = 80
-        Top = 38
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo3RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 3
-      end
       object Edit3BenefitsUA: TEdit
         Left = 45
         Top = 164
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit3BenefitsUA'
       end
       object Edit3BottomUA: TEdit
@@ -734,7 +733,7 @@ object FormNewResume: TFormNewResume
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit3BottomUA'
       end
       object Memo3SkillsUA: TMemo
@@ -746,6 +745,20 @@ object FormNewResume: TFormNewResume
           'Memo3SkillsUA')
         ReadOnly = True
         ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit3RespUA: TRichEdit
+        Left = 81
+        Top = 35
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
         TabOrder = 6
       end
     end
@@ -753,15 +766,15 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 4'
       ImageIndex = 6
       object Label29: TLabel
-        Left = 396
-        Top = 4
+        Left = 220
+        Top = 5
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label56: TLabel
-        Left = 703
-        Top = 4
+        Left = 655
+        Top = 3
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -783,8 +796,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit4DatesUA'
       end
       object Edit4NameUA: TEdit
-        Left = 442
-        Top = 2
+        Left = 266
+        Top = 3
         Width = 200
         Height = 29
         ReadOnly = True
@@ -792,41 +805,30 @@ object FormNewResume: TFormNewResume
         Text = 'Edit4NameUA'
       end
       object Edit4CompanyUA: TEdit
-        Left = 776
-        Top = 3
+        Left = 728
+        Top = 2
         Width = 200
         Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit4CompanyUA'
       end
-      object Memo4RespUA: TMemo
-        Left = 80
-        Top = 38
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo4RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 3
-      end
       object Edit4BenefitsUA: TEdit
-        Left = 4
-        Top = 114
-        Width = 480
-        Height = 29
-        ReadOnly = True
-        TabOrder = 4
-        Text = 'Edit4BenefitsUA'
-      end
-      object Edit4BottomUA: TEdit
-        Left = 3
+        Left = 42
         Top = 178
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 3
+        Text = 'Edit4BenefitsUA'
+      end
+      object Edit4BottomUA: TEdit
+        Left = 41
+        Top = 242
+        Width = 480
+        Height = 29
+        ReadOnly = True
+        TabOrder = 4
         Text = 'Edit4BottomUA'
       end
       object Memo4SkillsUA: TMemo
@@ -837,6 +839,20 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo4SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit4RespUA: TRichEdit
+        Left = 81
+        Top = 38
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -892,24 +908,13 @@ object FormNewResume: TFormNewResume
         TabOrder = 2
         Text = 'Edit5CompanyUA'
       end
-      object Memo5RespUA: TMemo
-        Left = 80
-        Top = 38
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo5RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 3
-      end
       object Edit5BenefitsUA: TEdit
         Left = 3
         Top = 164
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit5BenefitsUA'
       end
       object Edit5BottomUA: TEdit
@@ -918,7 +923,7 @@ object FormNewResume: TFormNewResume
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit5BottomUA'
       end
       object Memo5SkillsUA: TMemo
@@ -929,6 +934,20 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo5SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit5RespUA: TRichEdit
+        Left = 81
+        Top = 35
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -957,24 +976,13 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
-      object Memo6RespUA: TMemo
-        Left = 80
-        Top = 38
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo6RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 0
-      end
       object Edit6BenefitsUA: TEdit
         Left = 45
         Top = 164
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 1
+        TabOrder = 0
         Text = 'Edit6BenefitsUA'
       end
       object Edit6BottomUA: TEdit
@@ -983,7 +991,7 @@ object FormNewResume: TFormNewResume
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 2
+        TabOrder = 1
         Text = 'Edit6BottomUA'
       end
       object Edit6DatesUA: TEdit
@@ -992,7 +1000,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit6DatesUA'
       end
       object Edit6NameUA: TEdit
@@ -1001,7 +1009,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit6NameUA'
       end
       object Edit6CompanyUA: TEdit
@@ -1010,7 +1018,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit6CompanyUA'
       end
       object Memo6SkillsUA: TMemo
@@ -1021,6 +1029,20 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo6SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit6RespUA: TRichEdit
+        Left = 81
+        Top = 36
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -1049,24 +1071,13 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
-      object Memo7RespUA: TMemo
-        Left = 80
-        Top = 30
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo7RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 0
-      end
       object Edit7BenefitsUA: TEdit
-        Left = 4
-        Top = 156
+        Left = 2
+        Top = 172
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 1
+        TabOrder = 0
         Text = 'Edit7BenefitsUA'
       end
       object Edit7BottomUA: TEdit
@@ -1075,7 +1086,7 @@ object FormNewResume: TFormNewResume
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 2
+        TabOrder = 1
         Text = 'Edit7BottomUA'
       end
       object Edit7DatesUA: TEdit
@@ -1084,7 +1095,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit7DatesUA'
       end
       object Edit7NameUA: TEdit
@@ -1093,7 +1104,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit7NameUA'
       end
       object Edit7CompanyUA: TEdit
@@ -1102,17 +1113,31 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit7CompanyUA'
       end
       object Memo7SkillsUA: TMemo
         Left = 531
-        Top = 156
+        Top = 161
         Width = 438
         Height = 110
         Lines.Strings = (
           'Memo7SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit7RespUA: TRichEdit
+        Left = 81
+        Top = 35
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -1141,24 +1166,13 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
-      object Memo8RespUA: TMemo
-        Left = 80
-        Top = 38
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo8RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 0
-      end
       object Edit8BenefitsUA: TEdit
         Left = 2
         Top = 164
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 1
+        TabOrder = 0
         Text = 'Edit8BenefitsUA'
       end
       object Edit8BottomUA: TEdit
@@ -1167,7 +1181,7 @@ object FormNewResume: TFormNewResume
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 2
+        TabOrder = 1
         Text = 'Edit8BottomUA'
       end
       object Edit8DatesUA: TEdit
@@ -1176,7 +1190,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit8DatesUA'
       end
       object Edit8NameUA: TEdit
@@ -1185,7 +1199,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit8NameUA'
       end
       object Edit8CompanyUA: TEdit
@@ -1194,7 +1208,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit8CompanyUA'
       end
       object Memo8SkillsUA: TMemo
@@ -1205,6 +1219,20 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo8SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit8RespUA: TRichEdit
+        Left = 81
+        Top = 35
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -1233,24 +1261,13 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
-      object Memo9RespUA: TMemo
-        Left = 80
-        Top = 38
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo9RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 0
-      end
       object Edit9BenefitsUA: TEdit
         Left = 14
         Top = 164
         Width = 400
         Height = 29
         ReadOnly = True
-        TabOrder = 1
+        TabOrder = 0
         Text = 'Edit9BenefitsUA'
       end
       object Edit9BottomUA: TEdit
@@ -1259,7 +1276,7 @@ object FormNewResume: TFormNewResume
         Width = 480
         Height = 29
         ReadOnly = True
-        TabOrder = 2
+        TabOrder = 1
         Text = 'Edit9BottomUA'
       end
       object Edit9DatesUA: TEdit
@@ -1268,7 +1285,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit9DatesUA'
       end
       object Edit9NameUA: TEdit
@@ -1277,7 +1294,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit9NameUA'
       end
       object Edit9CompanyUA: TEdit
@@ -1286,7 +1303,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit9CompanyUA'
       end
       object Memo9SkillsUA: TMemo
@@ -1297,6 +1314,20 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo9SkillsUA')
         ReadOnly = True
+        ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit9RespUA: TRichEdit
+        Left = 81
+        Top = 37
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 6
       end
@@ -1339,24 +1370,13 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1030#1085#1096#1077
       end
-      object Memo10RespUA: TMemo
-        Left = 83
-        Top = 38
-        Width = 880
-        Height = 120
-        Lines.Strings = (
-          'Memo10RespUA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 0
-      end
       object Edit10BenefitsUA: TEdit
         Left = 83
         Top = 162
         Width = 400
         Height = 29
         ReadOnly = True
-        TabOrder = 1
+        TabOrder = 0
         Text = 'Edit10BenefitsUA'
       end
       object Edit10BottomUA: TEdit
@@ -1365,7 +1385,7 @@ object FormNewResume: TFormNewResume
         Width = 400
         Height = 29
         ReadOnly = True
-        TabOrder = 2
+        TabOrder = 1
         Text = 'Edit10BottomUA'
       end
       object Edit10DatesUA: TEdit
@@ -1374,7 +1394,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit10DatesUA'
       end
       object Edit10NameUA: TEdit
@@ -1383,7 +1403,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit10NameUA'
       end
       object Edit10CompanyUA: TEdit
@@ -1392,7 +1412,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'Edit10CompanyUA'
       end
       object Memo10SkillsUA: TMemo
@@ -1404,6 +1424,20 @@ object FormNewResume: TFormNewResume
           'Memo10SkillsUA')
         ReadOnly = True
         ScrollBars = ssVertical
+        TabOrder = 5
+      end
+      object RichEdit10RespUA: TRichEdit
+        Left = 81
+        Top = 36
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
         TabOrder = 6
       end
     end
@@ -1413,7 +1447,7 @@ object FormNewResume: TFormNewResume
     Top = 330
     Width = 980
     Height = 424
-    ActivePage = TabSheetFooterTR
+    ActivePage = TabSheetMainTR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -1426,7 +1460,7 @@ object FormNewResume: TFormNewResume
     object TabSheetMainTR: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       object Label1: TLabel
-        Left = 187
+        Left = 147
         Top = 2
         Width = 52
         Height = 21
@@ -1475,9 +1509,9 @@ object FormNewResume: TFormNewResume
         Caption = #1056#1077#1075#1110#1086#1085
       end
       object EditName: TEdit
-        Left = 261
+        Left = 221
         Top = 0
-        Width = 188
+        Width = 228
         Height = 29
         TabOrder = 0
         Text = 'EditName'
@@ -1491,7 +1525,7 @@ object FormNewResume: TFormNewResume
         Text = 'EditOpportunity'
       end
       object EditPlace: TEdit
-        Left = 261
+        Left = 252
         Top = 35
         Width = 444
         Height = 29
@@ -1511,7 +1545,7 @@ object FormNewResume: TFormNewResume
         Top = 35
         Width = 80
         Height = 29
-        TabOrder = 4
+        TabOrder = 5
         Text = 'CBRegion'
         OnChange = CBRegionChange
       end
@@ -1520,7 +1554,7 @@ object FormNewResume: TFormNewResume
         Top = 0
         Width = 81
         Height = 29
-        TabOrder = 5
+        TabOrder = 6
         Text = 'CBLang'
         OnChange = CBLangChange
       end
@@ -1529,7 +1563,7 @@ object FormNewResume: TFormNewResume
         Top = 70
         Width = 275
         Height = 29
-        TabOrder = 6
+        TabOrder = 7
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
@@ -1538,7 +1572,7 @@ object FormNewResume: TFormNewResume
         Width = 33
         Height = 25
         Caption = '+'
-        TabOrder = 7
+        TabOrder = 8
         OnClick = BitBtn2Click
       end
       object RichEditor: TRichEdit
@@ -1552,7 +1586,7 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 4
       end
       object CBWordWrap: TCheckBox
         Left = 3
@@ -1753,7 +1787,7 @@ object FormNewResume: TFormNewResume
         Width = 203
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit1Dates'
       end
       object Edit1Name: TEdit
@@ -1797,7 +1831,7 @@ object FormNewResume: TFormNewResume
         MinYear = 1980
         OnCloseUp = CalendarPickerB1CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE1: TCalendarPicker
@@ -1825,25 +1859,15 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE1Change
         OnCloseUp = CalendarPickerE1CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
-      end
-      object Memo1Resp: TMemo
-        Left = 79
-        Top = 78
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo1Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
       end
       object Edit1Benefits: TEdit
         Left = 82
         Top = 204
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit1Benefits'
       end
       object Edit1Bottom: TEdit
@@ -1851,7 +1875,7 @@ object FormNewResume: TFormNewResume
         Top = 239
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit1Bottom'
       end
       object Memo1Skills: TMemo
@@ -1862,7 +1886,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo1Skills')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit1Resp: TRichEdit
+        Left = 82
+        Top = 78
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob2TR: TTabSheet
@@ -1897,7 +1935,7 @@ object FormNewResume: TFormNewResume
         Caption = #1030#1085#1096#1077
       end
       object Label82: TLabel
-        Left = -2
+        Left = 3
         Top = 76
         Width = 74
         Height = 21
@@ -1911,7 +1949,7 @@ object FormNewResume: TFormNewResume
         ParentShowHint = False
         ReadOnly = True
         ShowHint = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit2Dates'
       end
       object Edit2Name: TEdit
@@ -1955,7 +1993,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB2Change
         OnCloseUp = CalendarPickerB2CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE2: TCalendarPicker
@@ -1983,25 +2021,15 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE2Change
         OnCloseUp = CalendarPickerE2CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
-      end
-      object Memo2Resp: TMemo
-        Left = 78
-        Top = 76
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo2Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
       end
       object Edit2Benefits: TEdit
         Left = 81
         Top = 210
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit2Benefits'
       end
       object Edit2Bottom: TEdit
@@ -2009,7 +2037,7 @@ object FormNewResume: TFormNewResume
         Top = 250
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit2Bottom'
       end
       object Memo2Skills: TMemo
@@ -2020,7 +2048,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo2SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit2Resp: TRichEdit
+        Left = 81
+        Top = 76
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob3TR: TTabSheet
@@ -2067,7 +2109,7 @@ object FormNewResume: TFormNewResume
         Width = 198
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit3Dates'
       end
       object Edit3Name: TEdit
@@ -2111,7 +2153,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB3Change
         OnCloseUp = CalendarPickerB3CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE3: TCalendarPicker
@@ -2139,25 +2181,15 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE3Change
         OnCloseUp = CalendarPickerE3CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
-      end
-      object Memo3Resp: TMemo
-        Left = 83
-        Top = 75
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo3Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
       end
       object Edit3Benefits: TEdit
         Left = 83
         Top = 201
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit3Benefits'
       end
       object Edit3Bottom: TEdit
@@ -2165,7 +2197,7 @@ object FormNewResume: TFormNewResume
         Top = 249
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit3Bottom'
       end
       object Memo3Skills: TMemo
@@ -2176,7 +2208,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo3SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit3Resp: TRichEdit
+        Left = 81
+        Top = 75
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob4TR: TTabSheet
@@ -2223,7 +2269,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit4Dates'
       end
       object Edit4Name: TEdit
@@ -2267,7 +2313,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB4Change
         OnCloseUp = CalendarPickerB4CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE4: TCalendarPicker
@@ -2295,25 +2341,15 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE4Change
         OnCloseUp = CalendarPickerE4CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
-      end
-      object Memo4Resp: TMemo
-        Left = 79
-        Top = 73
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo4Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
       end
       object Edit4Benefits: TEdit
         Left = 79
         Top = 207
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit4Benefits'
       end
       object Edit4Bottom: TEdit
@@ -2321,7 +2357,7 @@ object FormNewResume: TFormNewResume
         Top = 255
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit4Bottom'
       end
       object Memo4Skills: TMemo
@@ -2332,7 +2368,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo4SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit4Resp: TRichEdit
+        Left = 81
+        Top = 77
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob5TR: TTabSheet
@@ -2379,7 +2429,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit5Dates'
       end
       object Edit5Name: TEdit
@@ -2423,7 +2473,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB5Change
         OnCloseUp = CalendarPickerB5CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE5: TCalendarPicker
@@ -2451,25 +2501,15 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE5Change
         OnCloseUp = CalendarPickerE5CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
-      end
-      object Memo5Resp: TMemo
-        Left = 79
-        Top = 73
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo5Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
       end
       object Edit5Benefits: TEdit
         Left = 85
         Top = 206
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit5Benefits'
       end
       object Edit5Bottom: TEdit
@@ -2477,7 +2517,7 @@ object FormNewResume: TFormNewResume
         Top = 254
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit5Bottom'
       end
       object Memo5Skills: TMemo
@@ -2488,7 +2528,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo5Skills')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit5Resp: TRichEdit
+        Left = 83
+        Top = 73
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob6TR: TTabSheet
@@ -2529,22 +2583,12 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1030#1085#1096#1077
       end
-      object Memo6Resp: TMemo
-        Left = 79
-        Top = 75
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo6Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
-      end
       object Edit6Benefits: TEdit
         Left = 85
         Top = 211
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit6Benefits'
       end
       object Edit6Bottom: TEdit
@@ -2552,7 +2596,7 @@ object FormNewResume: TFormNewResume
         Top = 259
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit6Bottom'
       end
       object Edit6Dates: TEdit
@@ -2561,7 +2605,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit6Dates'
       end
       object Edit6Name: TEdit
@@ -2604,7 +2648,7 @@ object FormNewResume: TFormNewResume
         Font.Style = []
         OnCloseUp = CalendarPickerB6CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE6: TCalendarPicker
@@ -2631,7 +2675,7 @@ object FormNewResume: TFormNewResume
         Font.Style = []
         OnCloseUp = CalendarPickerE6CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object Memo6Skills: TMemo
@@ -2642,7 +2686,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo6SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit6Resp: TRichEdit
+        Left = 81
+        Top = 73
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob7TR: TTabSheet
@@ -2683,22 +2741,12 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1030#1085#1096#1077
       end
-      object Memo7Resp: TMemo
-        Left = 79
-        Top = 81
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo7Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
-      end
       object Edit7Benefits: TEdit
         Left = 85
         Top = 220
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit7Benefits'
       end
       object Edit7Bottom: TEdit
@@ -2706,7 +2754,7 @@ object FormNewResume: TFormNewResume
         Top = 265
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit7Bottom'
       end
       object CalendarPickerB7: TCalendarPicker
@@ -2734,7 +2782,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB7Change
         OnCloseUp = CalendarPickerB7CloseUp
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         TextHint = 'select a date'
       end
       object CalendarPickerE7: TCalendarPicker
@@ -2761,7 +2809,7 @@ object FormNewResume: TFormNewResume
         Font.Style = []
         OnCloseUp = CalendarPickerE7CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object Edit7Dates: TEdit
@@ -2770,7 +2818,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 8
+        TabOrder = 7
         Text = 'Edit7Dates'
       end
       object Edit7Name: TEdit
@@ -2797,7 +2845,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo7SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit7Resp: TRichEdit
+        Left = 79
+        Top = 73
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob8TR: TTabSheet
@@ -2838,22 +2900,12 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1030#1085#1096#1077
       end
-      object Memo8Resp: TMemo
-        Left = 81
-        Top = 78
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo8Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
-      end
       object Edit8Benefits: TEdit
         Left = 81
         Top = 211
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit8Benefits'
       end
       object Edit8Bottom: TEdit
@@ -2861,7 +2913,7 @@ object FormNewResume: TFormNewResume
         Top = 246
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit8Bottom'
       end
       object CalendarPickerB8: TCalendarPicker
@@ -2889,7 +2941,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB8Change
         OnCloseUp = CalendarPickerB8CloseUp
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         TextHint = 'select a date'
       end
       object CalendarPickerE8: TCalendarPicker
@@ -2917,7 +2969,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE8Change
         OnCloseUp = CalendarPickerE8CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object Edit8Dates: TEdit
@@ -2926,7 +2978,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 8
+        TabOrder = 7
         Text = 'Edit8Dates'
       end
       object Edit8Name: TEdit
@@ -2953,7 +3005,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo8SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit8Resp: TRichEdit
+        Left = 81
+        Top = 73
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob9TR: TTabSheet
@@ -2994,22 +3060,12 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1030#1085#1096#1077
       end
-      object Memo9Resp: TMemo
-        Left = 78
-        Top = 86
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo9Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
-      end
       object Edit9Benefits: TEdit
         Left = 78
         Top = 228
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit9Benefits'
       end
       object Edit9Bottom: TEdit
@@ -3017,7 +3073,7 @@ object FormNewResume: TFormNewResume
         Top = 263
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit9Bottom'
       end
       object Edit9Dates: TEdit
@@ -3026,7 +3082,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit9Dates'
       end
       object CalendarPickerB9: TCalendarPicker
@@ -3054,7 +3110,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB9Change
         OnCloseUp = CalendarPickerB9CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE9: TCalendarPicker
@@ -3082,7 +3138,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE9Change
         OnCloseUp = CalendarPickerE9CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object Edit9Name: TEdit
@@ -3109,7 +3165,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo9SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit9Resp: TRichEdit
+        Left = 81
+        Top = 73
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob10TR: TTabSheet
@@ -3150,22 +3220,12 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1030#1085#1096#1077
       end
-      object Memo10Resp: TMemo
-        Left = 79
-        Top = 75
-        Width = 890
-        Height = 120
-        Lines.Strings = (
-          'Memo10Resp')
-        ScrollBars = ssVertical
-        TabOrder = 2
-      end
       object Edit10Benefits: TEdit
         Left = 79
         Top = 209
         Width = 400
         Height = 29
-        TabOrder = 3
+        TabOrder = 2
         Text = 'Edit10Benefits'
       end
       object Edit10Bottom: TEdit
@@ -3173,7 +3233,7 @@ object FormNewResume: TFormNewResume
         Top = 256
         Width = 400
         Height = 29
-        TabOrder = 4
+        TabOrder = 3
         Text = 'Edit10Bottom'
       end
       object CalendarPickerB10: TCalendarPicker
@@ -3201,7 +3261,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerB10Change
         OnCloseUp = CalendarPickerB10CloseUp
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         TextHint = 'select a date'
       end
       object CalendarPickerE10: TCalendarPicker
@@ -3229,7 +3289,7 @@ object FormNewResume: TFormNewResume
         OnChange = CalendarPickerE10Change
         OnCloseUp = CalendarPickerE10CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object Edit10Dates: TEdit
@@ -3238,7 +3298,7 @@ object FormNewResume: TFormNewResume
         Width = 200
         Height = 29
         ReadOnly = True
-        TabOrder = 8
+        TabOrder = 7
         Text = 'Edit10Dates'
       end
       object Edit10Name: TEdit
@@ -3265,7 +3325,21 @@ object FormNewResume: TFormNewResume
         Lines.Strings = (
           'Memo10SkillsTR')
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
+      end
+      object RichEdit10Resp: TRichEdit
+        Left = 81
+        Top = 79
+        Width = 888
+        Height = 120
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
   end
@@ -3371,8 +3445,8 @@ object FormNewResume: TFormNewResume
       '  created,'
       '  updated '
       'from resumes WHERE id = :p_id')
-    Left = 264
-    Top = 104
+    Left = 560
+    Top = 280
     ParamData = <
       item
         DataType = ftInteger
@@ -3450,8 +3524,8 @@ object FormNewResume: TFormNewResume
       'and r.lang = :p_lang'
       'and f.resume_id = :p_resume_id'
       'ORDER BY f.footer_order')
-    Left = 136
-    Top = 104
+    Left = 400
+    Top = 280
     ParamData = <
       item
         DataType = ftString
@@ -3617,8 +3691,8 @@ object FormNewResume: TFormNewResume
       'where e.resume_id = :p_resume_id'
       'order by start_date')
     UniDirectional = True
-    Left = 392
-    Top = 109
+    Left = 656
+    Top = 285
     ParamData = <
       item
         DataType = ftInteger
@@ -3975,8 +4049,8 @@ object FormNewResume: TFormNewResume
     SQL.Strings = (
       'SELECT id, RU, UA, EN, HR, PL, DE from words_translations'
       'WHERE RU = :p_word')
-    Left = 550
-    Top = 117
+    Left = 814
+    Top = 269
     ParamData = <
       item
         DataType = ftUnknown
