@@ -5127,7 +5127,6 @@ object FormMain: TFormMain
     SQL.Strings = (
       'select id, name, value from parameters'
       'where name like concat('#39'%'#39',:p_name,'#39'%'#39')')
-    Active = True
     Left = 232
     Top = 93
     ParamData = <
@@ -5155,5 +5154,13 @@ object FormMain: TFormMain
       'ORDER BY 1')
     Left = 592
     Top = 88
+  end
+  object UniQueryParameters: TUniQuery
+    Connection = UniConnection
+    Transaction = UniTransaction
+    SQL.Strings = (
+      'select * from parameters')
+    Left = 592
+    Top = 221
   end
 end

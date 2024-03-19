@@ -100,7 +100,7 @@ object FormParameters: TFormParameters
     TabOrder = 0
   end
   object BitBtnClose: TBitBtn
-    Left = 901
+    Left = 893
     Top = 615
     Width = 75
     Height = 40
@@ -109,7 +109,7 @@ object FormParameters: TFormParameters
     NumGlyphs = 2
     TabOrder = 1
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 897
+    ExplicitLeft = 889
     ExplicitTop = 614
   end
   object DBGrid1: TDBGrid
@@ -240,17 +240,9 @@ object FormParameters: TFormParameters
     Caption = 'Main folder VESTA'
     TabOrder = 14
   end
-  object UniQueryParameters: TUniQuery
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'select * from parameters')
-    Active = True
-    Left = 736
-    Top = 301
-  end
   object DataSource1: TDataSource
-    DataSet = UniQueryParameters
+    AutoEdit = False
+    DataSet = FormMain.UniQueryParameters
     Left = 824
     Top = 296
   end

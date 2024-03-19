@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Data.DB,
-  MemDS, DBAccess, Uni, Vcl.Grids, Vcl.DBGrids;
+  MemDS, DBAccess, Uni, Vcl.Grids, Vcl.DBGrids, Vcl.DBCtrls;
 
 type
   TFormTemplatesList = class(TForm)
@@ -24,12 +24,13 @@ type
     BitBtnEditTemplate: TBitBtn;
     BitBtnDeleteTemplate: TBitBtn;
     BitBtnNewResume: TBitBtn;
-    UniTemplatestemplate_introduction: TStringField;
     UniTemplatesarchived: TBooleanField;
     UniTemplatesarchive: TStringField;
     UniTemplatescntr_exp: TLargeintField;
     UniTemplatescntr_skills: TLargeintField;
     UniSPDeleteTemplate: TUniStoredProc;
+    UniTemplatestemplate_introduction: TMemoField;
+    DBMemo1: TDBMemo;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtnDeleteTemplateClick(Sender: TObject);

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/12/2024 01:04:47" ReportInfo.Modified="03/12/2024 01:19:58" ReportInfo.CreatorVersion="2024.1.0.0">
+  <Styles Name="Blue">
+    <Style Name="Title" Font="Arial, 12pt, style=Bold"/>
+    <Style Name="Header" Fill.Color="LightSkyBlue" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Group" Font="Arial, 10pt, style=Bold"/>
+    <Style Name="Data" Font="Arial, 10pt"/>
+    <Style Name="Footer" Fill.Color="LightSkyBlue" Font="Arial, 10pt"/>
+    <Style Name="EvenRows" Fill.Color="AliceBlue" Font="Arial, 10pt"/>
+  </Styles>
+  <Dictionary>
+    <OdbcDataConnection Name="jobsearch" ConnectionString="rijcmlq3lsVZeGYun2yk/0XuLCQswarePoyfzs3jKt19G4cPum4KgjRqU4ZxazM8lSE2FjF">
+      <TableDataSource Name="resumes" DataType="System.Int32" Enabled="true" TableName="resumes">
+        <Column Name="id" DataType="System.Int32"/>
+        <Column Name="name" DataType="System.String"/>
+        <Column Name="lang" DataType="System.String"/>
+        <Column Name="region_id" DataType="System.String"/>
+        <Column Name="job_opportunity" DataType="System.String"/>
+        <Column Name="job_place" DataType="System.String"/>
+        <Column Name="phone_numbers_text" DataType="System.String"/>
+        <Column Name="cv_docx_url" DataType="System.String"/>
+        <Column Name="cv_pdf_url" DataType="System.String"/>
+        <Column Name="resume_introduction" DataType="System.String"/>
+        <Column Name="archived" DataType="System.Int16"/>
+        <Column Name="created" DataType="System.DateTime"/>
+        <Column Name="updated" DataType="System.DateTime"/>
+      </TableDataSource>
+    </OdbcDataConnection>
+    <OdbcDataConnection Name="Connection" ConnectionString="rijcmlq3lsVZeGYun2yk/0XuLCQswarePoyfzs3jKt19G4cPulEPjF1w9zY3vIYkSSSXrta">
+      <TableDataSource Name="resume_footers" DataType="System.Int32" Enabled="true" TableName="resume_footers">
+        <Column Name="id" DataType="System.Int32"/>
+        <Column Name="resume_id" DataType="System.Int32"/>
+        <Column Name="footer_header" DataType="System.String"/>
+        <Column Name="footer_text" DataType="System.String"/>
+        <Column Name="footer_order" DataType="System.Int32"/>
+        <Column Name="archived" DataType="System.Int16"/>
+        <Column Name="created" DataType="System.DateTime"/>
+        <Column Name="updated" DataType="System.DateTime"/>
+      </TableDataSource>
+    </OdbcDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text1" Width="718.2" Height="37.8" Dock="Fill" Text="resumes" HorzAlign="Center" VertAlign="Center" Font="Arial, 12pt, style=Bold" Style="Title"/>
+    </ReportTitleBand>
+    <DataBand Name="Data1" Top="41.8" Width="718.2" Height="321.3" DataSource="resumes">
+      <TextObject Name="Text2" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="id" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text3" Left="151.2" Width="567" Height="18.9" Text="[resumes.id]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text4" Top="18.9" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="name" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text5" Left="151.2" Top="18.9" Width="567" Height="18.9" Text="[resumes.name]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text6" Top="37.8" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="lang" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text7" Left="151.2" Top="37.8" Width="567" Height="18.9" Text="[resumes.lang]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text8" Top="56.7" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="region_id" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text9" Left="151.2" Top="56.7" Width="567" Height="18.9" Text="[resumes.region_id]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text10" Top="75.6" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="job_opportunity" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text11" Left="151.2" Top="75.6" Width="567" Height="18.9" Text="[resumes.job_opportunity]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text12" Top="94.5" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="job_place" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text13" Left="151.2" Top="94.5" Width="567" Height="18.9" Text="[resumes.job_place]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text14" Top="113.4" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="phone_numbers_text" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text15" Left="151.2" Top="113.4" Width="567" Height="18.9" Text="[resumes.phone_numbers_text]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text16" Top="132.3" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="cv_docx_url" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text17" Left="151.2" Top="132.3" Width="567" Height="18.9" Text="[resumes.cv_docx_url]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text18" Top="151.2" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="cv_pdf_url" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text19" Left="151.2" Top="151.2" Width="567" Height="18.9" Text="[resumes.cv_pdf_url]" Font="Arial, 10pt" Style="Data"/>
+      <TextObject Name="Text20" Top="170.1" Width="151.2" Height="18.9" Fill.Color="LightSkyBlue" Text="resume_introduction" Font="Arial, 10pt, style=Bold" Style="Header"/>
+      <TextObject Name="Text21" Left="151.2" Top="170.1" Width="567" Height="18.9" Text="[resumes.resume_introduction]" Font="Arial, 10pt" Style="Data"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="367.1" Width="718.2" Height="18.9">
+      <TextObject Name="Text22" Width="718.2" Height="18.9" Dock="Fill" Fill.Color="LightSkyBlue" Text="[PageN]" HorzAlign="Right" Font="Arial, 10pt" Style="Footer"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

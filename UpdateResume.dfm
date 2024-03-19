@@ -2,7 +2,7 @@ object FormUpdateResume: TFormUpdateResume
   Left = 0
   Top = 0
   Caption = #1060#1086#1088#1084#1072' '#1086#1085#1086#1074#1083#1077#1085#1085#1103' '#1088#1077#1079#1102#1084#1077
-  ClientHeight = 662
+  ClientHeight = 812
   ClientWidth = 988
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,11 +13,11 @@ object FormUpdateResume: TFormUpdateResume
   OnCreate = FormCreate
   DesignSize = (
     988
-    662)
+    812)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 865
-    Top = 614
+    Left = 833
+    Top = 764
     Width = 88
     Height = 40
     Anchors = [akRight, akBottom]
@@ -31,12 +31,12 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 861
-    ExplicitTop = 613
+    ExplicitLeft = 829
+    ExplicitTop = 763
   end
   object BitBtnSave: TBitBtn
     Left = 8
-    Top = 616
+    Top = 766
     Width = 96
     Height = 38
     Anchors = [akLeft, akBottom]
@@ -181,14 +181,14 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 615
+    ExplicitTop = 765
   end
   object PageControlRU: TPageControl
     Left = 0
     Top = 2
     Width = 980
-    Height = 610
-    ActivePage = TabSheet10RU
+    Height = 756
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -226,8 +226,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label123: TLabel
-        Left = 38
-        Top = 312
+        Left = 3
+        Top = 212
         Width = 68
         Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
@@ -279,7 +279,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label127: TLabel
         Left = 36
-        Top = 221
+        Top = 176
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -347,8 +347,8 @@ object FormUpdateResume: TFormUpdateResume
       end
       object EditPhones: TEdit
         Left = 112
-        Top = 218
-        Width = 633
+        Top = 173
+        Width = 550
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -358,31 +358,6 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
         TabOrder = 3
         Text = 'EditPhones'
-      end
-      object MemoIntro: TMemo
-        Left = 112
-        Top = 310
-        Width = 857
-        Height = 205
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        Lines.Strings = (
-          
-            'Total experience 10+ years in development, implementation, and t' +
-            'echnical support in the financial, insurance and '
-          'banking '
-          'areas. '
-          
-            'Expert knowledge in database design, development and optimizatio' +
-            'n of data warehouses.'
-          'I have visas for the USA, Canada, United Kingdom.'
-          'Ready to relocate in the EU.')
-        ParentFont = False
-        ScrollBars = ssVertical
-        TabOrder = 4
       end
       object CBLang: TComboBox
         Left = 112
@@ -401,21 +376,154 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'CBRegion'
       end
       object CBPhones: TComboBox
-        Left = 761
-        Top = 219
-        Width = 160
+        Left = 695
+        Top = 174
+        Width = 230
         Height = 29
         TabOrder = 7
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
         Left = 935
-        Top = 221
+        Top = 176
         Width = 33
         Height = 25
         Caption = '+'
         TabOrder = 8
         OnClick = BitBtn2Click
+      end
+      object RichEditor: TRichEdit
+        Left = 112
+        Top = 209
+        Width = 857
+        Height = 450
+        EnableURLs = True
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          
+            'dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df df df df df ' +
+            'dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df df df df df ' +
+            'dfdfd '
+          
+            'df dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd ' +
+            'df dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd ' +
+            'df '
+          
+            'dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df ' +
+            'dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df ' +
+            'dfd '
+          
+            'fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd ' +
+            'fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd ' +
+            'fdf df '
+          
+            'df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df ' +
+            'df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df ' +
+            'df df '
+          'df df '
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          
+            '1234567890 123456789 123456789 123456789 123456789 123456789 123' +
+            '456789 123456789 123456789 '
+          '123456789 1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          
+            '1234567890 123456789 123456789 123456789 123456789 123456789 123' +
+            '456789 123456789 123456789 '
+          '123456789 1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          
+            '1234567890 123456789 123456789 123456789 123456789 123456789 123' +
+            '456789 123456789 123456789 '
+          '123456789 1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890'
+          
+            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
+            '56789 123456789 123456789 '
+          '1234567890')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 4
+      end
+      object CBWordWrap: TCheckBox
+        Left = 4
+        Top = 239
+        Width = 102
+        Height = 17
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
+        OnClick = CBWordWrapClick
       end
     end
     object TabSheetFooterRU: TTabSheet
@@ -429,7 +537,7 @@ object FormUpdateResume: TFormUpdateResume
       ParentFont = False
       DesignSize = (
         972
-        571)
+        717)
       object Label7: TLabel
         Left = 3
         Top = 146
@@ -3025,12 +3133,13 @@ object FormUpdateResume: TFormUpdateResume
     SQL.Strings = (
       'SELECT '
       '   id, name, job_opportunity, '
-      '   job_place, phone_numbers_text, resume_introduction, '
+      '   job_place, phone_numbers_text, '
+      '   resume_introduction, '
       '   archived, created, updated  '
       'from resumes'
       'where id = :P_ID')
     Left = 400
-    Top = 96
+    Top = 64
     ParamData = <
       item
         DataType = ftUnknown
@@ -3057,10 +3166,6 @@ object FormUpdateResume: TFormUpdateResume
       FieldName = 'phone_numbers_text'
       Size = 255
     end
-    object UniResumeIDresume_introduction: TStringField
-      FieldName = 'resume_introduction'
-      Size = 1000
-    end
     object UniResumeIDarchived: TBooleanField
       FieldName = 'archived'
     end
@@ -3069,6 +3174,10 @@ object FormUpdateResume: TFormUpdateResume
     end
     object UniResumeIDupdated: TDateTimeField
       FieldName = 'updated'
+    end
+    object UniResumeIDresume_introduction: TMemoField
+      FieldName = 'resume_introduction'
+      BlobType = ftMemo
     end
   end
   object UniFootersID: TUniQuery
@@ -3079,7 +3188,7 @@ object FormUpdateResume: TFormUpdateResume
       '  id,'
       '  resume_id,'
       '  footer_header ,'
-      '  footer_text ,'
+      '  FROM_BASE64(footer_text) footer_text,'
       '  footer_order,'
       '  created ,'
       '  updated'
@@ -3088,7 +3197,7 @@ object FormUpdateResume: TFormUpdateResume
       'ORDER BY footer_order'
       '')
     Left = 504
-    Top = 96
+    Top = 64
     ParamData = <
       item
         DataType = ftInteger
@@ -3143,7 +3252,7 @@ object FormUpdateResume: TFormUpdateResume
       'WHERE resume_id = :p_resume_id'
       'ORDER BY job_order')
     Left = 608
-    Top = 96
+    Top = 64
     ParamData = <
       item
         DataType = ftInteger
@@ -3208,7 +3317,7 @@ object FormUpdateResume: TFormUpdateResume
       'WHERE experience_id = :p_experience_id'
       'ORDER BY skill_id')
     Left = 752
-    Top = 96
+    Top = 64
     ParamData = <
       item
         DataType = ftInteger
@@ -3237,8 +3346,8 @@ object FormUpdateResume: TFormUpdateResume
         'ter_4_header, :p_footer_4_text, @p_result); SELECT CAST(@p_resul' +
         't AS SIGNED) AS '#39'@p_result'#39)
     Connection = FormMain.UniConnection
-    Left = 224
-    Top = 392
+    Left = 432
+    Top = 136
     ParamData = <
       item
         DataType = ftInteger
@@ -3278,7 +3387,7 @@ object FormUpdateResume: TFormUpdateResume
         DataType = ftString
         Name = 'p_resume_introduction'
         ParamType = ptInput
-        Size = 3000
+        Size = 5000
         Value = nil
       end
       item
@@ -3360,8 +3469,8 @@ object FormUpdateResume: TFormUpdateResume
         'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
         'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 400
-    Top = 392
+    Left = 608
+    Top = 136
     ParamData = <
       item
         DataType = ftString
@@ -3443,13 +3552,13 @@ object FormUpdateResume: TFormUpdateResume
       end>
     CommandStoredProcName = 'insert_experience'
   end
-  object UniSPInsertSkills: TUniStoredProc
-    StoredProcName = 'insert_skills'
+  object UniSPInsertSkillShow: TUniStoredProc
+    StoredProcName = 'insert_skill_show'
     SQL.Strings = (
-      'CALL insert_skills(:p_experience_id, :p_skill)')
+      'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 536
-    Top = 392
+    Left = 744
+    Top = 136
     ParamData = <
       item
         DataType = ftInteger
@@ -3464,7 +3573,7 @@ object FormUpdateResume: TFormUpdateResume
         Size = 255
         Value = nil
       end>
-    CommandStoredProcName = 'insert_skills'
+    CommandStoredProcName = 'insert_skill_show'
   end
   object UniSPDeleteExpSkills: TUniStoredProc
     StoredProcName = 'delete_experiences_skills'
@@ -3473,8 +3582,8 @@ object FormUpdateResume: TFormUpdateResume
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 656
-    Top = 392
+    Left = 864
+    Top = 136
     ParamData = <
       item
         DataType = ftString

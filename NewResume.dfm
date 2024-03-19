@@ -2,8 +2,8 @@ object FormNewResume: TFormNewResume
   Left = 0
   Top = 0
   Caption = #1053#1086#1074#1080#1081' '#1087#1077#1088#1077#1082#1083#1072#1076' '#1088#1077#1079#1102#1084#1077
-  ClientHeight = 731
-  ClientWidth = 988
+  ClientHeight = 799
+  ClientWidth = 984
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,24 +13,24 @@ object FormNewResume: TFormNewResume
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   DesignSize = (
-    988
-    731)
+    984
+    799)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 874
-    Top = 693
+    Left = 834
+    Top = 761
     Width = 98
     Height = 38
     Anchors = [akRight, akBottom]
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 870
-    ExplicitTop = 655
+    ExplicitLeft = 830
+    ExplicitTop = 760
   end
   object BitBtnSave: TBitBtn
     Left = 8
-    Top = 693
+    Top = 760
     Width = 96
     Height = 38
     Anchors = [akLeft, akBottom]
@@ -169,14 +169,14 @@ object FormNewResume: TFormNewResume
     ModalResult = 1
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 655
+    ExplicitTop = 759
   end
   object PageControlUA: TPageControl
     Left = 2
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheetJob1UA
+    ActivePage = TabSheetJob3UA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -246,7 +246,7 @@ object FormNewResume: TFormNewResume
       end
       object EditNameUA: TEdit
         Left = 243
-        Top = -1
+        Top = 0
         Width = 212
         Height = 29
         ReadOnly = True
@@ -284,7 +284,7 @@ object FormNewResume: TFormNewResume
         Left = 97
         Top = 70
         Width = 872
-        Height = 160
+        Height = 215
         Lines.Strings = (
           
             'Total experience 10+ years in development, implementation, and t' +
@@ -1401,7 +1401,7 @@ object FormNewResume: TFormNewResume
     Left = 0
     Top = 330
     Width = 980
-    Height = 360
+    Height = 424
     ActivePage = TabSheetMainTR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -1436,8 +1436,8 @@ object FormNewResume: TFormNewResume
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
       end
       object Label4: TLabel
-        Left = 187
-        Top = 77
+        Left = 16
+        Top = 71
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -1482,62 +1482,81 @@ object FormNewResume: TFormNewResume
       object EditPlace: TEdit
         Left = 261
         Top = 35
-        Width = 188
+        Width = 444
         Height = 29
         TabOrder = 2
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
-        Left = 263
-        Top = 76
-        Width = 484
+        Left = 92
+        Top = 70
+        Width = 550
         Height = 29
         TabOrder = 3
         Text = 'EditPhones'
-      end
-      object MemoIntro: TMemo
-        Left = 90
-        Top = 118
-        Width = 879
-        Height = 200
-        Lines.Strings = (
-          'MemoIntroTR')
-        ScrollBars = ssVertical
-        TabOrder = 4
       end
       object CBRegion: TComboBox
         Left = 60
         Top = 35
         Width = 80
         Height = 29
-        TabOrder = 5
+        TabOrder = 4
         Text = 'CBRegion'
+        OnChange = CBRegionChange
       end
       object CBLang: TComboBox
         Left = 60
         Top = 0
         Width = 81
         Height = 29
-        TabOrder = 6
+        TabOrder = 5
         Text = 'CBLang'
         OnChange = CBLangChange
       end
       object CBPhones: TComboBox
-        Left = 753
-        Top = 76
-        Width = 160
+        Left = 683
+        Top = 70
+        Width = 230
         Height = 29
-        TabOrder = 7
+        TabOrder = 6
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
-        Left = 927
-        Top = 78
+        Left = 929
+        Top = 74
         Width = 33
         Height = 25
         Caption = '+'
-        TabOrder = 8
+        TabOrder = 7
         OnClick = BitBtn2Click
+      end
+      object RichEditor: TRichEdit
+        Left = 92
+        Top = 105
+        Width = 877
+        Height = 277
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+      end
+      object CBWordWrap: TCheckBox
+        Left = 3
+        Top = 195
+        Width = 88
+        Height = 17
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
+        OnClick = CBWordWrapClick
       end
     end
     object TabSheetFooterTR: TTabSheet
@@ -1545,7 +1564,7 @@ object FormNewResume: TFormNewResume
       ImageIndex = 11
       DesignSize = (
         972
-        321)
+        385)
       object EditArticle1: TEdit
         Left = 102
         Top = 0
@@ -3224,11 +3243,11 @@ object FormNewResume: TFormNewResume
   end
   object BitBtnCopy: TBitBtn
     Left = 232
-    Top = 693
+    Top = 761
     Width = 201
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'Copy from Template'
+    Caption = 'Translate from Head'
     Glyph.Data = {
       B6070000424DB60700000000000036040000280000001E0000001C0000000100
       0800000000008003000000000000000000000001000000000000040204008482
@@ -3294,7 +3313,7 @@ object FormNewResume: TFormNewResume
       3F501E3F6F3F6F3F6F0E68686868686868686868686868680000}
     TabOrder = 4
     OnClick = BitBtnCopyClick
-    ExplicitTop = 655
+    ExplicitTop = 760
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (
@@ -3324,8 +3343,8 @@ object FormNewResume: TFormNewResume
       '  created,'
       '  updated '
       'from resumes WHERE id = :p_id')
-    Left = 48
-    Top = 112
+    Left = 224
+    Top = 128
     ParamData = <
       item
         DataType = ftInteger
@@ -3403,8 +3422,8 @@ object FormNewResume: TFormNewResume
       'and r.lang = :p_lang'
       'and f.resume_id = :p_resume_id'
       'ORDER BY f.footer_order')
-    Left = 152
-    Top = 112
+    Left = 328
+    Top = 128
     ParamData = <
       item
         DataType = ftString
@@ -3457,8 +3476,8 @@ object FormNewResume: TFormNewResume
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'SELECT * from templates WHERE id = :p_id')
-    Left = 264
-    Top = 112
+    Left = 232
+    Top = 232
     ParamData = <
       item
         DataType = ftInteger
@@ -3485,9 +3504,12 @@ object FormNewResume: TFormNewResume
       FieldName = 'phone_numbers_text'
       Size = 255
     end
-    object UniGetTemplateresume_introduction: TStringField
-      FieldName = 'resume_introduction'
-      Size = 1000
+    object UniGetTemplatetemplate_introduction: TStringField
+      FieldName = 'template_introduction'
+      Size = 3000
+    end
+    object UniGetTemplatearchived: TBooleanField
+      FieldName = 'archived'
     end
     object UniGetTemplatecreated: TDateTimeField
       FieldName = 'created'
@@ -3510,8 +3532,8 @@ object FormNewResume: TFormNewResume
       'where sl.skill_id = s.id'
       'and experience_id = :p_experience_id')
     UniDirectional = True
-    Left = 456
-    Top = 109
+    Left = 856
+    Top = 189
     ParamData = <
       item
         DataType = ftInteger
@@ -3567,8 +3589,8 @@ object FormNewResume: TFormNewResume
       'where e.resume_id = :p_resume_id'
       'order by start_date')
     UniDirectional = True
-    Left = 368
-    Top = 109
+    Left = 488
+    Top = 245
     ParamData = <
       item
         DataType = ftInteger
@@ -3630,8 +3652,8 @@ object FormNewResume: TFormNewResume
         'archived, @p_resume_id); SELECT CAST(@p_resume_id AS SIGNED) AS ' +
         #39'@p_resume_id'#39)
     Connection = FormMain.UniConnection
-    Left = 246
-    Top = 444
+    Left = 230
+    Top = 556
     ParamData = <
       item
         DataType = ftString
@@ -3758,8 +3780,8 @@ object FormNewResume: TFormNewResume
     SQL.Strings = (
       'SELECT max(ID) as ID from resumes '
       'WHERE name = :p_name and lang = :p_lang')
-    Left = 574
-    Top = 109
+    Left = 750
+    Top = 141
     ParamData = <
       item
         DataType = ftString
@@ -3787,8 +3809,8 @@ object FormNewResume: TFormNewResume
         'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
         'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 408
-    Top = 448
+    Left = 392
+    Top = 560
     ParamData = <
       item
         DataType = ftString
@@ -3870,13 +3892,13 @@ object FormNewResume: TFormNewResume
       end>
     CommandStoredProcName = 'insert_experience'
   end
-  object UniSPInsertSkills: TUniStoredProc
-    StoredProcName = 'insert_skills'
+  object UniSPInsertSkillShow: TUniStoredProc
+    StoredProcName = 'insert_skill_show'
     SQL.Strings = (
-      'CALL insert_skills(:p_experience_id, :p_skill)')
+      'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 568
-    Top = 448
+    Left = 552
+    Top = 560
     ParamData = <
       item
         DataType = ftInteger
@@ -3891,7 +3913,7 @@ object FormNewResume: TFormNewResume
         Size = 255
         Value = nil
       end>
-    CommandStoredProcName = 'insert_skills'
+    CommandStoredProcName = 'insert_skill_show'
   end
   object UniSPDeleteExpSkills: TUniStoredProc
     StoredProcName = 'delete_experiences_skills'
@@ -3900,8 +3922,8 @@ object FormNewResume: TFormNewResume
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 728
-    Top = 448
+    Left = 712
+    Top = 560
     ParamData = <
       item
         DataType = ftString
@@ -3923,5 +3945,99 @@ object FormNewResume: TFormNewResume
         Value = nil
       end>
     CommandStoredProcName = 'delete_experiences_skills'
+  end
+  object UniTranslation: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT id, RU, UA, EN, HR, PL, DE from words_translations'
+      'WHERE RU = :p_word')
+    Left = 614
+    Top = 245
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'p_word'
+        Value = nil
+      end>
+    object UniTranslationid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniTranslationRU: TStringField
+      FieldName = 'RU'
+      Size = 1000
+    end
+    object UniTranslationUA: TStringField
+      FieldName = 'UA'
+      Size = 1000
+    end
+    object UniTranslationEN: TStringField
+      FieldName = 'EN'
+      Size = 1000
+    end
+    object UniTranslationHR: TStringField
+      FieldName = 'HR'
+      Size = 1000
+    end
+    object UniTranslationPL: TStringField
+      FieldName = 'PL'
+      Size = 1000
+    end
+    object UniTranslationDE: TStringField
+      FieldName = 'DE'
+      Size = 1000
+    end
+  end
+  object UniGetTemplateFooters: TUniQuery
+    SQLUpdate.Strings = (
+      'UPDATE templates '
+      
+        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
+        'ace = :p_job_place, '
+      
+        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
+        '= :p_resume_introduction'
+      'WHERE id = :p_id')
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT f.id, f.template_id, f.footer_header, '
+      'f.footer_text, f.footer_order, f.created, f.updated '
+      'from template_footers f, templates r'
+      'WHERE  r.id = f.template_id'
+      'and f.template_id = :p_template_id'
+      'ORDER BY f.footer_order')
+    Left = 368
+    Top = 232
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object UniGetTemplateFootersid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniGetTemplateFooterstemplate_id: TIntegerField
+      FieldName = 'template_id'
+    end
+    object UniGetTemplateFootersfooter_header: TStringField
+      FieldName = 'footer_header'
+      Size = 255
+    end
+    object UniGetTemplateFootersfooter_text: TStringField
+      FieldName = 'footer_text'
+      Size = 2000
+    end
+    object UniGetTemplateFootersfooter_order: TIntegerField
+      FieldName = 'footer_order'
+    end
+    object UniGetTemplateFooterscreated: TDateTimeField
+      FieldName = 'created'
+    end
+    object UniGetTemplateFootersupdated: TDateTimeField
+      FieldName = 'updated'
+    end
   end
 end

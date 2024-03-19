@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     661)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 853
+    Left = 841
     Top = 613
     Width = 88
     Height = 40
@@ -31,13 +31,14 @@ object FormTemplatesList: TFormTemplatesList
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 857
+    ExplicitLeft = 837
+    ExplicitTop = 612
   end
   object DBGrid1: TDBGrid
     Left = 8
     Top = 8
     Width = 984
-    Height = 593
+    Height = 441
     DataSource = UniDSTemplates
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -71,7 +72,7 @@ object FormTemplatesList: TFormTemplatesList
         Expanded = False
         FieldName = 'job_opportunity'
         Title.Caption = #1055#1086#1089#1072#1076#1072' '#1087#1086#1074#1085#1110#1089#1090#1102
-        Width = 125
+        Width = 218
         Visible = True
       end
       item
@@ -85,14 +86,7 @@ object FormTemplatesList: TFormTemplatesList
         Expanded = False
         FieldName = 'phone_numbers_text'
         Title.Caption = #1058#1077#1083#1077#1092#1086#1085#1080
-        Width = 106
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'template_introduction'
-        Title.Caption = #1042#1074#1077#1076#1077#1085#1085#1103
-        Width = 150
+        Width = 186
         Visible = True
       end
       item
@@ -419,6 +413,16 @@ object FormTemplatesList: TFormTemplatesList
     TabOrder = 5
     OnClick = BitBtnNewResumeClick
   end
+  object DBMemo1: TDBMemo
+    Left = 8
+    Top = 455
+    Width = 968
+    Height = 138
+    DataField = 'template_introduction'
+    DataSource = UniDSTemplates
+    ScrollBars = ssVertical
+    TabOrder = 6
+  end
   object UniTemplates: TUniQuery
     Connection = FormMain.UniConnection
     SQL.Strings = (
@@ -464,15 +468,15 @@ object FormTemplatesList: TFormTemplatesList
       FieldName = 'phone_numbers_text'
       Size = 255
     end
+    object UniTemplatestemplate_introduction: TMemoField
+      FieldName = 'template_introduction'
+      BlobType = ftMemo
+    end
     object UniTemplatescreated: TDateTimeField
       FieldName = 'created'
     end
     object UniTemplatesupdated: TDateTimeField
       FieldName = 'updated'
-    end
-    object UniTemplatestemplate_introduction: TStringField
-      FieldName = 'template_introduction'
-      Size = 1000
     end
     object UniTemplatesarchived: TBooleanField
       FieldName = 'archived'
@@ -492,6 +496,7 @@ object FormTemplatesList: TFormTemplatesList
     end
   end
   object UniDSTemplates: TUniDataSource
+    AutoEdit = False
     DataSet = UniTemplates
     Left = 464
     Top = 112

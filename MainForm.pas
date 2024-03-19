@@ -5,23 +5,12 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Vcl.ComCtrls,
-  Vcl.OleServer, WordXP, Vcl.Mask, Vcl.WinXCalendars, IdSMTP, IdMessage,
-  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, IdSMTPBase,
-  IdExplicitTLSClientServerBase, IdMessageClient, IdMessageBuilder, System.UITypes,
-  IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdSSLOpenSSL,
-  FireDAC.Stan.Intf, FireDAC.Stan.Param, FireDAC.Phys.Intf, FireDAC.Stan.Option,
-  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
-  FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait, FireDAC.Comp.Client,
-  Data.DB, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet,
-  FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.Phys.MySQL, FireDAC.Phys.MySQLDef,
-  Data.DBXMySQL, Data.SqlExpr, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, FireDAC.Phys.IBDef,
-  FireDAC.Phys.IB, FireDAC.Phys.IBBase, Vcl.Menus, DBAccess, Uni,
-  UniProvider, MySQLUniProvider, MemDS, DASQLMonitor, UniSQLMonitor;
+	Vcl.OleServer, WordXP, Vcl.Mask, Vcl.WinXCalendars, DBAccess, Uni, Vcl.Menus,
+	Data.DB, MemDS, DASQLMonitor, UniSQLMonitor, UniProvider, MySQLUniProvider;
 
 type
   TWordReplaceFlags = set of (wrfReplaceAll, wrfMatchCase, wrfMatchWildcards);
   TWordDateSeparator = set of (Minus, Dot, Slash);
-//  TWordRecType = set of (wtEdit, wtMemo, wtLink, wtEMAIL, wtImage);
   TWordRecType = set of (wtEdit, wtMemo, wtLink, wtEMAIL);
   TWordTypes=record
     WordType:TWordRecType;
@@ -74,6 +63,7 @@ type
     UniParameterByName: TUniQuery;
     BitBtnNewTemplate: TBitBtn;
     UniTelephones: TUniQuery;
+    UniQueryParameters: TUniQuery;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
@@ -94,13 +84,16 @@ type
   protected
       procedure ActionChange(Sender: TObject; CheckDefaults: Boolean); override;
   public
+    Recommendationlink, EnglishTest, Website, FullName, Email, telephone_english, telephone_croatian,
+    telephone_ukrainian, telephone_usa, main_folder, main_folder_LAPTOP_PTERIK, main_folder_VESTA:string;
     property Action;
     procedure Warning(const s: string);
     procedure GetMonthRegionByMask(const D: TDatetime; Region: string;
       var FullMonthYear, ShortMonthYear: string);
     function IsEmpty(const S: String): boolean;
     function GetMonthByRegion(const D: TDatetime; Region: string):string;
-    function IsDateInvalid(const D: TDateTime): boolean;
+		function IsDateInvalid(const D: TDateTime): boolean;
+    function GetRegionID(const Region:string):string;
   end;
 
 var
@@ -117,11 +110,6 @@ System.Win.ComObj, System.RegularExpressions, System.DateUtils, Vcl.ExtActns,
 NewTemplate, Parameters,
   Emailbox, TemplatesList, ResumesList, NewResume, Skills;
 
-function TFormMain.IsEmpty(const S: String): boolean;
-begin
-  Result := (Length(Trim(S)) <= 0);
-end;
-
 function ComputerName: string;
 var
   Size: Cardinal;
@@ -131,6 +119,11 @@ begin
   GetComputerName(PChar(Result), Size);
   // Урезаем строку до действительной длины имени компьютера
   SetLength(Result, Size);
+end;
+
+function TFormMain.IsEmpty(const S: String): boolean;
+begin
+  Result := (Length(Trim(S)) <= 0);
 end;
 
 procedure TFormMain.Warning(const s: string);
@@ -188,6 +181,37 @@ UniConnection.Password := 'jobreport123';
 UniConnection.database := 'jobsearch';
 //UniConnection.SpecificOptions.Values['Schema'] := 'jobsearch';
 UniConnection.Open;
+
+Website:='https://data-migration.club/r/';
+Recommendationlink:=Website+'letter.pdf';
+EnglishTest:='english-test.jpg';
+FullName:='Vitalii Makhaiev';
+Email:='vitaly.makhaev@gmail.com';
+Telephone_english:='+(44) 204 577 29 76';
+Telephone_croatian:='+(385) 998 511 378';
+Telephone_ukrainian:='+(380) 93 177 51 76 Viber, Whatsapp';
+Telephone_usa:='+(1) 929 437 67 86';
+UniqueryParameters.Close;
+UniqueryParameters.Open;
+while not UniqueryParameters.Eof do
+  begin
+    if UniqueryParameters['name']='website' then Website:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='recommendation' then Recommendationlink:=Website+UniqueryParameters['value'];
+    if UniqueryParameters['name']='english_test' then EnglishTest:=Website+UniqueryParameters['value'];
+    if UniqueryParameters['name']='fullname' then FullName:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='email' then Email:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='telephone_english' then telephone_english:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='telephone_croatian' then telephone_croatian:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='telephone_ukrainian' then telephone_ukrainian:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='telephone_usa' then telephone_usa:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='main_folder' then main_folder:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='main_folder_VESTA' then main_folder_VESTA:=UniqueryParameters['value'];
+    if UniqueryParameters['name']='main_folder_LAPTOP-PTERIK' then main_folder_LAPTOP_PTERIK:=UniqueryParameters['value'];
+    UniqueryParameters.Next;
+  end;
+
+if (ComputerName()='LAPTOP-PTERIK') then main_folder:=main_folder_LAPTOP_PTERIK;
+if (ComputerName()='VESTA') then main_folder:=main_folder_VESTA;
 end;
 
 procedure TFormMain.FormDestroy(Sender: TObject);
@@ -207,7 +231,6 @@ begin
 if FormTemplatesList=nil then Application.CreateForm(TFormTemplatesList, FormTemplatesList);
 FormTemplatesList.SetFormValues;
 FormTemplatesList.ShowModal;
-
 end;
 
 procedure TFormMain.PDF1Click(Sender: TObject);
@@ -661,6 +684,17 @@ if (lowercase(Region) = 'ukraine') or (lowercase(Region) = 'ua') then
     end;
     // January, February, March, April, May, June, July, August, September, October, November, December
   end;
+end;
+
+function TFormMain.GetRegionID(const Region: string): string;
+begin
+Result:='UA';
+UniRegions.First;
+while not UniRegions.EOF do
+	begin
+		if Region = FormMain.UniRegions['region_name'] then Result:=FormMain.UniRegions['id'];
+		FormMain.UniRegions.Next;
+	end;
 end;
 
 function TFormMain.GetMonthByRegion(const D: TDatetime; Region: string):string;

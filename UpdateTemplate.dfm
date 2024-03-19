@@ -1,8 +1,9 @@
 object FormUpdateTemplate: TFormUpdateTemplate
   Left = 0
   Top = 0
+  Anchors = [akLeft, akBottom]
   Caption = #1048#1089#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1096#1072#1073#1083#1086#1085#1072
-  ClientHeight = 662
+  ClientHeight = 813
   ClientWidth = 988
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,11 +16,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
   OnKeyUp = FormKeyUp
   DesignSize = (
     988
-    662)
+    813)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 864
-    Top = 620
+    Left = 840
+    Top = 771
     Width = 84
     Height = 40
     Anchors = [akRight, akBottom]
@@ -32,14 +33,15 @@ object FormUpdateTemplate: TFormUpdateTemplate
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 860
-    ExplicitTop = 619
+    ExplicitLeft = 836
+    ExplicitTop = 652
   end
   object BitBtnSave: TBitBtn
     Left = 8
-    Top = 620
+    Top = 767
     Width = 96
     Height = 38
+    Anchors = [akLeft, akBottom]
     Caption = 'Save'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -181,13 +183,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
+    ExplicitTop = 650
   end
   object PageControl: TPageControl
     Left = 0
     Top = 8
     Width = 980
-    Height = 610
-    ActivePage = TabSheet10RU
+    Height = 753
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -303,7 +306,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object EditName: TEdit
-        Left = 113
+        Left = 110
         Top = 44
         Width = 295
         Height = 29
@@ -317,7 +320,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'EditName'
       end
       object EditOpportunity: TEdit
-        Left = 113
+        Left = 110
         Top = 95
         Width = 295
         Height = 29
@@ -327,11 +330,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
         Text = 'EditOpportunity'
       end
       object EditPlace: TEdit
-        Left = 112
+        Left = 110
         Top = 144
         Width = 295
         Height = 29
@@ -341,13 +344,13 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 2
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
-        Left = 112
+        Left = 110
         Top = 194
-        Width = 296
+        Width = 550
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -357,31 +360,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         TabOrder = 3
         Text = 'EditPhones'
-      end
-      object MemoIntro: TMemo
-        Left = 113
-        Top = 246
-        Width = 857
-        Height = 205
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        Lines.Strings = (
-          
-            'Total experience 10+ years in development, implementation, and t' +
-            'echnical support in the financial, insurance and '
-          'banking '
-          'areas. '
-          
-            'Expert knowledge in database design, development and optimizatio' +
-            'n of data warehouses.'
-          'I have visas for the USA, Canada, United Kingdom.'
-          'Ready to relocate in the EU.')
-        ParentFont = False
-        ScrollBars = ssVertical
-        TabOrder = 4
       end
       object EditLang: TEdit
         Left = 112
@@ -396,7 +374,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 4
         Text = 'RU'
       end
       object EditRegion: TEdit
@@ -412,24 +390,53 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Template'
       end
       object CBPhones: TComboBox
-        Left = 414
-        Top = 195
-        Width = 160
+        Left = 684
+        Top = 194
+        Width = 230
         Height = 29
-        TabOrder = 7
+        TabOrder = 6
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
-        Left = 588
-        Top = 197
+        Left = 920
+        Top = 196
         Width = 33
         Height = 25
         Caption = '+'
+        TabOrder = 7
+        OnClick = BitBtn2Click
+      end
+      object CBWordWrap: TCheckBox
+        Left = 3
+        Top = 299
+        Width = 102
+        Height = 17
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 8
+        OnClick = CBWordWrapClick
+      end
+      object RichEditor: TRichEdit
+        Left = 110
+        Top = 245
+        Width = 859
+        Height = 450
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 9
       end
     end
     object TabSheetFooterRU: TTabSheet
@@ -443,7 +450,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       ParentFont = False
       DesignSize = (
         972
-        571)
+        714)
       object Label7: TLabel
         Left = 3
         Top = 146
@@ -495,7 +502,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 8
       end
       object EditArticle1: TEdit
         Left = 90
@@ -522,7 +529,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
         Text = 'EditArticle2'
       end
       object MemoArticle1: TMemo
@@ -540,7 +547,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'MemoArticle1')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 2
+        TabOrder = 1
       end
       object MemoArticle2: TMemo
         Left = 4
@@ -557,7 +564,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'MemoArticle2')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 4
+        TabOrder = 3
       end
       object EditArticle3: TEdit
         Left = 90
@@ -570,7 +577,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 4
         Text = 'EditArticle3'
       end
       object EditArticle4: TEdit
@@ -584,7 +591,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         Text = 'EditArticle4'
       end
       object MemoArticle3: TMemo
@@ -602,7 +609,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'MemoArticle3')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 6
+        TabOrder = 5
       end
       object MemoArticle4: TMemo
         Left = 4
@@ -619,7 +626,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'MemoArticle4')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 8
+        TabOrder = 7
       end
     end
     object TabSheetJob1RU: TTabSheet
@@ -653,7 +660,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label3: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -666,7 +673,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label4: TLabel
         Left = 3
-        Top = 227
+        Top = 315
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -679,7 +686,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label5: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -750,7 +757,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -764,7 +771,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit1Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -778,7 +785,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit1Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -792,9 +799,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo1Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 479
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -807,7 +814,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB1: TCalendarPicker
-        Left = 296
+        Left = 305
         Top = 0
         Width = 100
         Height = 32
@@ -835,7 +842,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE1: TCalendarPicker
-        Left = 402
+        Left = 424
         Top = 0
         Width = 100
         Height = 32
@@ -907,7 +914,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label17: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -920,7 +927,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label18: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -933,7 +940,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label19: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -991,7 +998,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1006,7 +1013,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit2Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1020,7 +1027,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit2Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1034,9 +1041,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo2Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1049,7 +1056,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB2: TCalendarPicker
-        Left = 296
+        Left = 305
         Top = 0
         Width = 100
         Height = 32
@@ -1077,7 +1084,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE2: TCalendarPicker
-        Left = 415
+        Left = 424
         Top = 0
         Width = 100
         Height = 32
@@ -1149,7 +1156,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label23: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -1162,7 +1169,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label24: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -1175,7 +1182,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label25: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -1233,7 +1240,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1247,7 +1254,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit3Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1261,7 +1268,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit3Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1275,9 +1282,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo3Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 500
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1290,7 +1297,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB3: TCalendarPicker
-        Left = 296
+        Left = 305
         Top = 0
         Width = 100
         Height = 32
@@ -1318,7 +1325,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE3: TCalendarPicker
-        Left = 415
+        Left = 424
         Top = 0
         Width = 100
         Height = 32
@@ -1390,7 +1397,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label29: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -1403,7 +1410,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label30: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -1416,7 +1423,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label31: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -1474,7 +1481,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1488,7 +1495,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit4Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1502,7 +1509,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit4Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1516,9 +1523,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo4Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1531,7 +1538,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB4: TCalendarPicker
-        Left = 296
+        Left = 305
         Top = 1
         Width = 100
         Height = 32
@@ -1559,7 +1566,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE4: TCalendarPicker
-        Left = 415
+        Left = 424
         Top = 1
         Width = 100
         Height = 32
@@ -1631,7 +1638,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label35: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -1644,7 +1651,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label36: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -1657,7 +1664,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label37: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -1715,7 +1722,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1729,7 +1736,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit5Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1743,7 +1750,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit5Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1757,9 +1764,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo5Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1872,7 +1879,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label41: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -1885,7 +1892,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label42: TLabel
         Left = 3
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -1898,7 +1905,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label43: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -1913,7 +1920,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1927,7 +1934,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit6Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1941,7 +1948,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit6Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1998,9 +2005,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo6Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2087,7 +2094,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label45: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -2100,7 +2107,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label46: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -2113,7 +2120,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label47: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -2154,7 +2161,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2168,7 +2175,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit7Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2182,7 +2189,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit7Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2239,9 +2246,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo7Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2254,7 +2261,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB7: TCalendarPicker
-        Left = 304
+        Left = 305
         Top = 1
         Width = 100
         Height = 32
@@ -2282,7 +2289,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE7: TCalendarPicker
-        Left = 423
+        Left = 424
         Top = 1
         Width = 100
         Height = 32
@@ -2328,7 +2335,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label51: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -2341,7 +2348,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label52: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -2354,7 +2361,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label53: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -2395,7 +2402,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2409,7 +2416,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit8Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2423,7 +2430,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit8Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2480,9 +2487,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo8Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2495,7 +2502,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB8: TCalendarPicker
-        Left = 304
+        Left = 305
         Top = 0
         Width = 100
         Height = 32
@@ -2523,7 +2530,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE8: TCalendarPicker
-        Left = 423
+        Left = 424
         Top = 0
         Width = 100
         Height = 32
@@ -2568,8 +2575,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label57: TLabel
-        Left = 36
-        Top = 260
+        Left = 45
+        Top = 351
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -2582,7 +2589,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label58: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -2595,7 +2602,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label59: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -2636,7 +2643,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2650,7 +2657,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit9Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 878
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2664,7 +2671,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit9Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 878
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2721,9 +2728,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo9Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2736,7 +2743,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB9: TCalendarPicker
-        Left = 304
+        Left = 305
         Top = 0
         Width = 100
         Height = 32
@@ -2764,7 +2771,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE9: TCalendarPicker
-        Left = 423
+        Left = 424
         Top = 0
         Width = 100
         Height = 32
@@ -2836,7 +2843,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label71: TLabel
         Left = 26
-        Top = 195
+        Top = 283
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -2849,7 +2856,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label72: TLabel
         Left = 4
-        Top = 229
+        Top = 317
         Width = 80
         Height = 21
         Caption = #1047#1074#1110#1083#1100#1085#1077#1085#1085#1103
@@ -2862,7 +2869,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label73: TLabel
         Left = 36
-        Top = 260
+        Top = 348
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -2877,7 +2884,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 106
         Width = 880
-        Height = 80
+        Height = 168
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2891,7 +2898,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit10Benefits: TEdit
         Left = 90
-        Top = 192
+        Top = 280
         Width = 878
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2905,7 +2912,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit10Bottom: TEdit
         Left = 90
-        Top = 226
+        Top = 314
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2962,9 +2969,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Memo10Skills: TMemo
         Left = 90
-        Top = 260
+        Top = 348
         Width = 480
-        Height = 100
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2977,8 +2984,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 5
       end
       object CalendarPickerB10: TCalendarPicker
-        Left = 304
-        Top = 0
+        Left = 305
+        Top = -1
         Width = 100
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -3005,7 +3012,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE10: TCalendarPicker
-        Left = 423
+        Left = 424
         Top = 0
         Width = 100
         Height = 32
@@ -3068,13 +3075,13 @@ object FormUpdateTemplate: TFormUpdateTemplate
       FieldName = 'job_place'
       Size = 255
     end
+    object UniTemplateIDtemplate_introduction: TMemoField
+      FieldName = 'template_introduction'
+      BlobType = ftMemo
+    end
     object UniTemplateIDphone_numbers_text: TStringField
       FieldName = 'phone_numbers_text'
       Size = 255
-    end
-    object UniTemplateIDtemplate_introduction: TStringField
-      FieldName = 'template_introduction'
-      Size = 1000
     end
     object UniTemplateIDcreated: TDateTimeField
       FieldName = 'created'
@@ -3093,10 +3100,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
         '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
         'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
-        'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
+        'SELECT CAST(@p_experience_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 400
-    Top = 392
+    Left = 376
+    Top = 432
     ParamData = <
       item
         DataType = ftString
@@ -3171,37 +3178,35 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftInteger
         Name = 'p_experience_id'
         ParamType = ptOutput
-        Size = 255
         Value = nil
       end>
     CommandStoredProcName = 'insert_experience'
   end
-  object UniSPInsertSkills: TUniStoredProc
-    StoredProcName = 'insert_skills'
+  object UniSPInsertSkillShow: TUniStoredProc
+    StoredProcName = 'insert_skill_show'
     SQL.Strings = (
-      'CALL insert_skills(:p_experience_id, :p_skill)')
+      'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
     Left = 536
-    Top = 392
+    Top = 432
     ParamData = <
       item
         DataType = ftInteger
         Name = 'p_experience_id'
         ParamType = ptInput
-        Value = nil
+        Value = 0
       end
       item
         DataType = ftString
         Name = 'p_skill'
         ParamType = ptInput
-        Size = 1000
+        Size = 255
         Value = nil
-        National = True
       end>
-    CommandStoredProcName = 'insert_skills'
+    CommandStoredProcName = 'insert_skill_show'
   end
   object UniFootersID: TUniQuery
     Connection = FormMain.UniConnection
@@ -3237,12 +3242,12 @@ object FormUpdateTemplate: TFormUpdateTemplate
       FieldName = 'footer_header'
       Size = 255
     end
+    object UniFootersIDfooter_order: TIntegerField
+      FieldName = 'footer_order'
+    end
     object UniFootersIDfooter_text: TStringField
       FieldName = 'footer_text'
       Size = 2000
-    end
-    object UniFootersIDfooter_order: TIntegerField
-      FieldName = 'footer_order'
     end
     object UniFootersIDcreated: TDateTimeField
       FieldName = 'created'
@@ -3263,7 +3268,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         '_result AS SIGNED) AS '#39'@p_result'#39)
     Connection = FormMain.UniConnection
     Left = 224
-    Top = 392
+    Top = 432
     ParamData = <
       item
         DataType = ftInteger
@@ -3300,11 +3305,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_template_introduction'
         ParamType = ptInput
-        Size = 3000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftInteger
@@ -3323,7 +3327,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 1000
+        Size = 2000
         Value = nil
       end
       item
@@ -3337,7 +3341,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 1000
+        Size = 2000
         Value = nil
       end
       item
@@ -3351,7 +3355,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 1000
+        Size = 2000
         Value = nil
       end
       item
@@ -3365,7 +3369,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftString
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 1000
+        Size = 2000
         Value = nil
       end
       item
@@ -3488,8 +3492,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 680
-    Top = 392
+    Left = 776
+    Top = 432
     ParamData = <
       item
         DataType = ftString
@@ -3528,7 +3532,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       'SELECT DISTINCT value FROM parameters'
       'WHERE name LIKE '#39'%telephone%'#39' '
       'ORDER BY 1')
-    Left = 792
-    Top = 200
+    Left = 864
+    Top = 136
   end
 end

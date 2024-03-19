@@ -1,12 +1,16 @@
-unit ResumesList;
+п»їunit ResumesList;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
-//  WordCS,
-  DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls;
+	Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
+	DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls,
+	VCL.TMSFNCWXDocx.Models, VCL.TMSFNCCustomWEBControl,
+	Vcl.ComCtrls, Vcl.DBCtrls, VCL.TMSFNCTypes, VCL.TMSFNCUtils,
+	VCL.TMSFNCGraphics, VCL.TMSFNCGraphicsTypes, VCL.TMSFNCCustomControl,
+	VCL.TMSFNCWXDocx, VCL.TMSFNCBitmapContainer, VCL.TMSFNCWebBrowser,
+  VCL.TMSFNCCustomWEBComponent, VCL.TMSFNCCustomComponent;
 
 type
   TWordReplaceFlags = set of (wrfReplaceAll, wrfMatchCase, wrfMatchWildcards);
@@ -38,7 +42,7 @@ type
     BitBtnCV: TBitBtn;
     BitBtnLetter: TBitBtn;
     BitBtnPDF: TBitBtn;
-    BitBtnOpenTmpl: TBitBtn;
+    BitBtnOpenResume: TBitBtn;
     BitBtnSaveResume: TBitBtn;
     CheckBoxExtraComment: TCheckBox;
 //    WordApplication1: TWordApplication;
@@ -55,7 +59,6 @@ type
     UniResumesjob_opportunity: TStringField;
     UniResumesjob_place: TStringField;
     UniResumesphone_numbers_text: TStringField;
-    UniResumesresume_introduction: TStringField;
     UniResumesarchived: TBooleanField;
     UniResumescreated: TDateTimeField;
     UniResumesupdated: TDateTimeField;
@@ -63,11 +66,42 @@ type
     UniResumesregion_id: TStringField;
     RadioGroup: TRadioGroup;
     UniResumesarchive: TStringField;
+    TMSFNCBitmapContainer1: TTMSFNCBitmapContainer;
+		UniResumescountry: TStringField;
+    UniLocalTranslate: TUniQuery;
+    UniLocalTranslateid: TIntegerField;
+    UniLocalTranslateRU: TStringField;
+    UniLocalTranslateUA: TStringField;
+    UniLocalTranslateEN: TStringField;
+    UniLocalTranslateHR: TStringField;
+    UniLocalTranslatePL: TStringField;
+    UniLocalTranslateDE: TStringField;
+    UniResumeFooters: TUniQuery;
+    UniResumeFootersid: TIntegerField;
+    UniResumeFootersresume_id: TIntegerField;
+    UniResumeFootersfooter_header: TStringField;
+    UniResumeFootersfooter_text: TStringField;
+    UniResumeFootersfooter_order: TIntegerField;
+    UniExperiences: TUniQuery;
+    UniExperiencesid: TIntegerField;
+    UniExperiencesresume_id: TIntegerField;
+    UniExperiencestemplate_id: TIntegerField;
+    UniExperiencesjob_order: TIntegerField;
+    UniExperiencesjob_position: TStringField;
+    UniExperiencesstart_date: TDateField;
+    UniExperiencesend_date: TDateField;
+    UniExperiencesemployer: TStringField;
+    UniExperiencesresponsibilities: TStringField;
+    UniExperiencesbenefits: TStringField;
+    UniExperiencesleave_reason: TStringField;
+    TMSFNCWXDocx1: TTMSFNCWXDocx;
+    DBRichEditor: TDBRichEdit;
+    UniResumesresume_introduction: TMemoField;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnNewResumeClick(Sender: TObject);
     procedure BitBtnDeleteResumeClick(Sender: TObject);
     procedure BitBtnSaveResumeClick(Sender: TObject);
-    procedure BitBtnOpenTmplClick(Sender: TObject);
+    procedure BitBtnOpenResumeClick(Sender: TObject);
     procedure BitBtnLetterClick(Sender: TObject);
     procedure BitBtnPDFClick(Sender: TObject);
     procedure BitBtnCheckClick(Sender: TObject);
@@ -79,24 +113,16 @@ type
     procedure UniResumesCalcFields(DataSet: TDataSet);
     procedure DBGrid1DblClick(Sender: TObject);
   private
-    FileResumeTarget, FileCVTarget, FileCLTarget,FileResumePDF, FileCVPDF, FileCLPDF:string;
-//    WordRecords:TWordRecords;
-    WarningFired:boolean;
-    Country, Position, Language, MainFolder:string;
-//    Region:string;
-//    WApp1:OLEVariant;
-//    WordWrap:boolean;
-//    DateSeparator:TWordDateSeparator;
-    procedure SetValues;
-    procedure ShowValues;
-    function RichView_FileGenerate(resume_id: integer): boolean;
-    procedure EditResume;
-//    procedure SetWordRecord(I:integer; Key:string;WordType:TWordRecType; const EditTxt:TEdit); overload;
-//    procedure SetWordRecord(I:integer; Key:string;WordType:TWordRecType; const STxt:String); overload;
-//    procedure SetWordRecord(I: integer; Key: string; WordType: TWordRecType; const MemoTx: TMemo);overload;
+    FileRDOCX, FileCVDOCX, FileCLDOCX,FileRPDF, FileCVPDF, FileCLPDF:string;
+		WarningFired:boolean;
+    function WX_R_FileGenerate(const resume_id: integer; const FileName:string): boolean;
+    function WX_R_PDF_Generate(const resume_id: integer; const FileName:string): boolean;
+
+		procedure EditResume;
 
   public
     procedure SetFormValues;
+    function LocalTranslate(Word:string; Lang:string):string;
 //    function OLE_FileReplace(FWordFrom, FWordTo:TFileName):boolean;
 
   end;
@@ -108,7 +134,7 @@ implementation
 
 {$R *.dfm}
 
-uses System.UITypes, Winapi.ShellAPI, Parameters, System.Win.ComObj,
+uses System.UITypes, System.IOUtils, Winapi.ShellAPI, Parameters, System.Win.ComObj,
   UpdateResume, MainForm, NewResume;
 
 function ComputerName: string;
@@ -118,16 +144,16 @@ begin
   Size := MAX_COMPUTERNAME_LENGTH + 1;
   SetLength(Result, Size);
   GetComputerName(PChar(Result), Size);
-  // Урезаем строку до действительной длины имени компьютера
+  // РЈСЂРµР·Р°РµРј СЃС‚СЂРѕРєСѓ РґРѕ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕР№ РґР»РёРЅС‹ РёРјРµРЅРё РєРѕРјРїСЊСЋС‚РµСЂР°
   SetLength(Result, Size);
 end;
 
 procedure TFormListResumes.BitBtnArchiveClick(Sender: TObject);
 begin
-if VarIsNull(UniResumes['id']) then  ShowMessage('Оберіть резюме')
+if VarIsNull(UniResumes['id']) then  ShowMessage('РћР±РµСЂС–С‚СЊ СЂРµР·СЋРјРµ')
   else
     begin
-    if MessageDlg( 'Підтвердіть переміщення резюме у архив', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
+    if MessageDlg( 'РџС–РґС‚РІРµСЂРґС–С‚СЊ РїРµСЂРµРјС–С‰РµРЅРЅСЏ СЂРµР·СЋРјРµ Сѓ Р°СЂС…РёРІ', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
     UniArchiveResume.Prepare;
     UniArchiveResume.ParamByName('p_id').AsInteger:=UniResumes['id'];
     UniArchiveResume.ExecSQL;
@@ -137,8 +163,8 @@ end;
 
 procedure TFormListResumes.BitBtnCheckClick(Sender: TObject);
 begin
-if FileResumeTarget<>'' then ShellExecute(Handle, 'open', PWideChar(FileResumeTarget), nil, nil, SW_SHOWNORMAL) ;
-
+if FileRDocX<>'' then ShellExecute(Handle, 'open', PWideChar(FileRDocX), nil, nil, SW_SHOWNORMAL)
+else ShowMessage('R-DOCX С„Р°Р№Р» РЅРµ Р·РіРµРЅРµСЂРѕРІР°РЅРёР№');
 end;
 
 procedure TFormListResumes.BitBtnCloseClick(Sender: TObject);
@@ -148,8 +174,8 @@ end;
 
 procedure TFormListResumes.BitBtnCVClick(Sender: TObject);
 begin
-if FileCVTarget<>'' then ShellExecute(Handle, 'open', PWideChar(FileCVTarget), nil, nil, SW_SHOWNORMAL) ;
-
+if FileCVDocX<>'' then ShellExecute(Handle, 'open', PWideChar(FileCVDocX), nil, nil, SW_SHOWNORMAL)
+else ShowMessage('CV-DOCX С„Р°Р№Р» РЅРµ Р·РіРµРЅРµСЂРѕРІР°РЅРёР№');
 end;
 
 procedure TFormListResumes.BitBtnDeleteResumeClick(Sender: TObject);
@@ -157,7 +183,7 @@ begin
 if not VarIsNull(UniResumes['id'])
   then
     begin
-    if MessageDlg( 'Підтвердіть видалення резюме', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
+    if MessageDlg( 'РџС–РґС‚РІРµСЂРґС–С‚СЊ РІРёРґР°Р»РµРЅРЅСЏ СЂРµР·СЋРјРµ', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
     UniDeleteExperiences.Prepare;
     UniDeleteExperiences.ParamByName('p_resume_id').AsInteger:=UniResumes['id'];
     UniDeleteExperiences.ExecSQL;
@@ -167,9 +193,9 @@ if not VarIsNull(UniResumes['id'])
     UniDeleteResume.Prepare;
     UniDeleteResume.ParamByName('p_id').AsInteger:=UniResumes['id'];
     UniDeleteResume.ExecSQL;
-    UniResumes.Refresh;
+		UniResumes.Refresh;
     end
-  else ShowMessage('Оберіте резюме');
+  else ShowMessage('РћР±РµСЂС–С‚Рµ СЂРµР·СЋРјРµ');
 end;
 
 procedure TFormListResumes.BitBtnEditResumeClick(Sender: TObject);
@@ -179,90 +205,60 @@ end;
 
 procedure TFormListResumes.EditResume;
 begin
-if VarIsNull(UniResumes['id']) then ShowMessage('Оберіть резюме для редагування')
+if VarIsNull(UniResumes['id']) then ShowMessage('РћР±РµСЂС–С‚СЊ СЂРµР·СЋРјРµ РґР»СЏ СЂРµРґР°РіСѓРІР°РЅРЅСЏ')
 else
   begin
   if FormUpdateResume=nil then Application.CreateForm(TFormUpdateResume, FormUpdateResume);
   FormUpdateResume.SetFormValues;
   FormUpdateResume.SetID(UniResumes['id']);
-  FormUpdateResume.ShowModal;
-  UniResumes.Refresh;
-  end;
+	FormUpdateResume.ShowModal;
+	UniResumes.Refresh;
+	end;
 end;
 
 procedure TFormListResumes.BitBtnSaveResumeClick(Sender: TObject);
 var
-FileResumeTemplate, FileCVTemplate, FileCLTemplate:string;
 TemplatesAreReady:boolean;
 begin
+if VarIsNull(UniResumes['id']) then
+	begin
+	raise Exception.Create('РћР±РµСЂС–С‚СЊ СЂРµР·СЋРјРµ С–Р· СЃРїРёСЃРєР°');
+	exit;
+	end;
 WarningFired:=false;
-SetValues;
-ShowValues;
 TemplatesAreReady:=true;
-//FileResumeTemplate:=MainFolder+'\'+Resume+'\R Template '+Template+'.docx';
-//FileCVTemplate:=MainFolder+'\'+CV+'\CV Template '+Template+'.docx';
-//FileLetterTemplate:=MainFolder+'\'+CoverLetter+'\CL Template '+Template+'.docx';
-//
-//FileResumeTarget:=MainFolder+'\'+Resume+'\R '+Position+' '+Template+'.docx';
-//FileCVTarget:=MainFolder+'\'+CV+'\CV '+Position+' '+Template+'.docx';
-//FileLetterTarget:=MainFolder+'\'+CoverLetter+'\CL '+Position+' '+Template+'.docx';
-//
-//FileResumePDF:=MainFolder+'\'+Resume+'\R '+Position+' '+Template+'.pdf';
-//FileCVPDF:=MainFolder+'\'+CV+'\CV '+Position+' '+Template+'.pdf';
-//FileLetterPDF:=MainFolder+'\'+CoverLetter+'\CL '+Position+' '+Template+'.pdf';
-FileResumeTemplate:=MainFolder+'\Template\R Template '+Language+'.docx';
-FileCVTemplate:=MainFolder+'\Template\CV Template '+Language+'.docx';
-FileCLTemplate:=MainFolder+'\Template\CL Template '+Language+'.docx';
-
-FileResumeTarget:=MainFolder+'\!Resume\R '+Position+' '+Language+'.docx';
-FileCVTarget:=MainFolder+'\CV\CV '+Position+' '+Language+'.docx';
-FileCLTarget:=MainFolder+'\CL\CL '+Position+' '+Language+'.docx';
-
-FileResumePDF:=MainFolder+'\PDF\R '+Position+' '+Language+'.pdf';
-FileCVPDF:=MainFolder+'\PDF\CV '+Position+' '+Language+'.pdf';
-FileCLPDF:=MainFolder+'\PDF\CL '+Position+' '+Language+'.pdf';
-//if not FileExists(FileResumeTemplate) then
-//  begin
-//    FormMain.Warning('File not found: '+FileResumeTemplate);
-//    TemplatesAreReady:=false;
-//  end;
-//if not FileExists(FileResumeTemplate) then
-//  begin
-//    FormMain.Warning('File not found: '+FileCVTemplate);
-//    TemplatesAreReady:=false;
-//  end;
-//if not FileExists(FileLetterTemplate) then
-//  begin
-//    FormMain.Warning('File not found: '+FileLetterTemplate);
-//    TemplatesAreReady:=false;
-//  end;
-//if not TemplatesAreReady
-//  then
-//  begin
-//    FormMain.Warning('Template DOCX files not exists, exit');
-//    exit;
-//  end;
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\r') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\r');
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv');
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl');
+FileRDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\r-'+UniResumes['name']+'-'+UniResumes['lang']+'.docx';
+FileCVDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+UniResumes['name']+'-'+UniResumes['lang']+'.docx';
+FileCLDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+UniResumes['name']+'-'+UniResumes['lang']+'.docx';
+FileRPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\'+UniResumes['name']+'-'+UniResumes['lang']+'.pdf';
+FileCVPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+UniResumes['name']+'-'+UniResumes['lang']+'.pdf';
+FileCLPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+UniResumes['name']+'-'+UniResumes['lang']+'.pdf';
 try
-if FileExists(FileResumeTarget) then
-    DeleteFile(FileResumeTarget);
-if FileExists(FileCVTarget) then
-    DeleteFile(FileCVTarget);
-if FileExists(FileCLTarget) then
-    DeleteFile(FileCLTarget);
-if length(Trim(UniResumes['name']))<5 then
-  begin
-    FormMain.Warning('Должность не указана или менее 5 символов, exit');
-    exit;
-  end;
+if FileExists(FileRDocx) then
+		DeleteFile(FileRDocx);
+if FileExists(FileCVDocx) then
+		DeleteFile(FileCVDocx);
+if FileExists(FileCLDocx) then
+		DeleteFile(FileCLDocx);
 
-if not RichView_FileGenerate(UniResumes['id'])
+if not WX_R_FileGenerate(UniResumes['id'],FileRDocx)
 then
   begin
-    FormMain.Warning('Сбой при обработке Резюме "'+intToStr(UniResumes['id'])+'"');
+    FormMain.Warning('РЎР±РѕР№ РїСЂРё РѕР±СЂР°Р±РѕС‚РєРµ DOCX Р РµР·СЋРјРµ "'+intToStr(UniResumes['id'])+'"');
   exit;
   end;
+if not WX_R_PDF_Generate(UniResumes['id'],FileRPDF)
+then
+  begin
+    FormMain.Warning('РЎР±РѕР№ РїСЂРё РѕР±СЂР°Р±РѕС‚РєРµ PDF Р РµР·СЋРјРµ "'+intToStr(UniResumes['id'])+'"');
+  exit;
+  end;
+//CreateWordDoc;
 
-FormMain.Warning('Шаблоны успешно обработаны, резюме готово: '+UniResumes['name']);
+FormMain.Warning('РЁР°Р±Р»РѕРЅС‹ СѓСЃРїРµС€РЅРѕ РѕР±СЂР°Р±РѕС‚Р°РЅС‹, СЂРµР·СЋРјРµ РіРѕС‚РѕРІРѕ: '+UniResumes['name']);
 except on E:Exception do
   FormMain.Warning('Error message: '+E.Message);
 end;
@@ -278,9 +274,46 @@ begin
 Radiogroup.ItemIndex:=0;
 end;
 
+function TFormListResumes.LocalTranslate(Word, Lang: string): string;
+begin
+Result:='';
+UniLocalTranslate.Close;
+UniLocalTranslate.ParamByName('p_word').Value:=Trim(Word);
+UniLocalTranslate.Open;
+if VarIsNull(UniLocalTranslate['id']) then
+   begin
+   Result:='N/A';
+   exit;
+   end;
+if lang='RU' then
+   begin
+   Result:=UniLocalTranslate['RU'];
+   end;
+if lang='UA' then
+   begin
+   Result:=UniLocalTranslate['UA'];
+   end;
+if lang='EN' then
+   begin
+   Result:=UniLocalTranslate['EN'];
+   end;
+if lang='DE' then
+   begin
+   Result:=UniLocalTranslate['DE'];
+   end;
+if lang='PL' then
+   begin
+   Result:=UniLocalTranslate['PL'];
+   end;
+if lang='HR' then
+   begin
+   Result:=UniLocalTranslate['HR'];
+   end;
+end;
+
 procedure TFormListResumes.BitBtnLetterClick(Sender: TObject);
 begin
-if FileCLTarget<>'' then ShellExecute(Handle, 'open', PWideChar(FileCLTarget), nil, nil, SW_SHOWNORMAL) ;
+if FileCLDocx<>'' then ShellExecute(Handle, 'open', PWideChar(FileCLDocx), nil, nil, SW_SHOWNORMAL) ;
 end;
 
 procedure TFormListResumes.BitBtnNewResumeClick(Sender: TObject);
@@ -309,9 +342,20 @@ FormNewResume.ShowModal;
 UniResumes.Refresh;
 end;
 
-procedure TFormListResumes.BitBtnOpenTmplClick(Sender: TObject);
+procedure TFormListResumes.BitBtnOpenResumeClick(Sender: TObject);
 begin
-if FIleResumeTarget<>'' then ShellExecute(Handle, 'open', PWideChar(FileResumeTarget), nil, nil, SW_SHOWNORMAL) ;
+if (FIleRDocx='')  then
+   begin
+   ShowMessage('Р¤Р°Р№Р» РµС‰С‘ РЅРµ СЃРѕР·РґР°РЅ');
+   exit;
+   end;
+
+if (FIleRDocx<>'')
+   then
+   begin
+   FormMain.Warning('РћС‚РєСЂС‹РІР°РµРј С„Р°Р№Р» '+FileRDocx);
+   ShellExecute(Handle, 'open', PWideChar(FileRDocx), nil, nil, SW_SHOWNORMAL);
+   end
 end;
 
 procedure TFormListResumes.BitBtnPDFClick(Sender: TObject);
@@ -324,9 +368,9 @@ var
   Hf1, Hf2, Hf3 : Integer;
 
 begin
-if (trim(FileCLPDF)+trim(FileCVPDF)+trim(FileResumePDF)='')   then
+if (trim(FileCLPDF)+trim(FileCVPDF)+trim(FileRPDF)='')   then
   begin
-    FormMain.Warning('Нажмите Go, создайте DOCX файлы');
+    FormMain.Warning('РќР°Р¶РјРёС‚Рµ Go, СЃРѕР·РґР°Р№С‚Рµ DOCX С„Р°Р№Р»С‹');
     exit;
   end;
 if FileExists(FileCLPDF) then
@@ -335,7 +379,7 @@ if FileExists(FileCLPDF) then
     if Hf1 = -1
       then
       begin
-        FormMain.Warning('Файл открыт в другой программе: '+FileCLPDF);
+        FormMain.Warning('Р¤Р°Р№Р» РѕС‚РєСЂС‹С‚ РІ РґСЂСѓРіРѕР№ РїСЂРѕРіСЂР°РјРјРµ: '+FileCLPDF);
         exit;
       end
       else
@@ -350,7 +394,7 @@ if FileExists(FileCVPDF) then
     if Hf2 = -1
       then
       begin
-        FormMain.Warning('Файл открыт в другой программе: '+FileCVPDF);
+        FormMain.Warning('Р¤Р°Р№Р» РѕС‚РєСЂС‹С‚ РІ РґСЂСѓРіРѕР№ РїСЂРѕРіСЂР°РјРјРµ: '+FileCVPDF);
         exit;
       end
       else
@@ -359,24 +403,24 @@ if FileExists(FileCVPDF) then
           DeleteFile(FileCVPDF);
         end;
   end;
-if FileExists(FileResumePDF) then
+if FileExists(FileRPDF) then
   begin
-    Hf3 := FileOpen(FileResumePDF, fmOpenReadWrite or fmShareExclusive);
+    Hf3 := FileOpen(FileRPDF, fmOpenReadWrite or fmShareExclusive);
     if Hf3 = -1
       then
       begin
-        FormMain.Warning('Файл открыт в другой программе: '+FileResumePDF);
+        FormMain.Warning('Р¤Р°Р№Р» РѕС‚РєСЂС‹С‚ РІ РґСЂСѓРіРѕР№ РїСЂРѕРіСЂР°РјРјРµ: '+FileRPDF);
         exit;
       end
       else
         begin
           FileClose(Hf3);
-          DeleteFile(FileResumePDF);
+          DeleteFile(FileRPDF);
         end;
   end;
 try
 Word1 := CreateOLEObject('Word.Application');
-Doc1 := Word1.Documents.Open(FileCLTarget);
+Doc1 := Word1.Documents.Open(FileCLDocx);
 Doc1.ExportAsFixedFormat(FileCLPDF, wdExportFormatPDF);
 finally
   Doc1.Close;
@@ -385,7 +429,7 @@ finally
 end;
 try
 Word2 := CreateOLEObject('Word.Application');
-Doc2 := Word2.Documents.Open(FileCVTarget);
+Doc2 := Word2.Documents.Open(FileCVDocx);
 Doc2.ExportAsFixedFormat(FileCVPDF, wdExportFormatPDF);
 finally
   Doc2.Close;
@@ -394,8 +438,8 @@ finally
 end;
 try
 Word3 := CreateOLEObject('Word.Application');
-Doc3 := Word3.Documents.Open(FileResumeTarget);
-Doc3.ExportAsFixedFormat(FileResumePDF, wdExportFormatPDF);
+Doc3 := Word3.Documents.Open(FileRDocx);
+Doc3.ExportAsFixedFormat(FileRPDF, wdExportFormatPDF);
 finally
   Doc3.Close;
   Word3.Quit;
@@ -411,33 +455,12 @@ UniResumes.ParamByName('p_rg').AsInteger:=RadioGroup.ItemIndex;
 UniResumes.Open;
 end;
 
-procedure TFormListResumes.SetValues;
-//var I:integer;
-begin
-FormParameters.SetFormValues;
-//Position:=EditPosition.Text;
-if (ComputerName()='VESTA') or (ComputerName()='LAPTOP-PTERIK')
-  then MainFolder:='D:\Мой диск\Поиск работы\'+Country
-  else MainFolder:='??';
-end;
-
-procedure TFormListResumes.ShowValues;
-begin
-if CheckBoxExtraComment.Checked then
-  begin
-  FormMain.Warning('Country='+Country);
-  FormMain.Warning('Position='+Position);
-  FormMain.Warning('MainFolder='+MainFolder);
-  FormMain.Warning('Language='+Language);
-  end;
-end;
-
 procedure TFormListResumes.UniResumesCalcFields(DataSet: TDataSet);
 begin
 if not UniResumes['archived']
-then UniResumes['archive']:='Ні'
+then UniResumes['archive']:='РќС–'
 else
-  if UniResumes['archived'] then UniResumes['archive']:='Так'
+  if UniResumes['archived'] then UniResumes['archive']:='РўР°Рє'
   else UniResumes['archive']:='';
 end;
 
@@ -448,11 +471,267 @@ UniResumes.ParamByName('p_rg').AsInteger:=RadioGroup.ItemIndex;
 UniResumes.Open;
 end;
 
-function TFormListResumes.RichView_FileGenerate(resume_id:integer): boolean;
+function TFormListResumes.WX_R_FileGenerate(const resume_id:integer; const FileName:string): boolean;
+var
+section  : TTMSFNCWXDocxSection;
+paragraph: TTMSFNCWXDocxParagraph;
+text     : TTMSFNCWXDocxText;
+table    : TTMSFNCWXDocxTable;
+table2   : TTMSFNCWXDocxTable;
+tableRow : TTMSFNCWXDocxTableRow;
+tableCell: TTMSFNCWXDocxTableCell;
 begin
-  Result:=false;
+TMSFNCWXDocx1.Document.Sections.Clear;
+section := TMSFNCWXDocx1.Document.AddSection;
+section.Page.Orientation := poLandscape;
+paragraph := section.AddParagraph;
+paragraph.Spacing.Before:=120;
+paragraph.Spacing.After:=120;
+Paragraph.Spacing.Line:=600;
+text:=paragraph.AddText(FormMain.FullName);
+paragraph.Heading := hlHeading1;
+paragraph.Alignment := taLeft;
+Text.Font.Size := 22;
+Text.Font.Style := [fsBold];
+Text.Font.Name:='Times New Roman';
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+paragraph.Spacing.After:=480;
+text := paragraph.AddText('Position ');
+text.Font.Color := clBlack;
+text.Font.Size := 12;
+Text.Font.Style := [fsBold];
+Text.Font.Name:='Times New Roman';
+text := paragraph.AddText(UniResumes['name']);
+text.Font.Size := 12;
+Text.Font.Name:='Times New Roman';
+
+table := section.AddTable;
+Table.Width.Size:=10000;
+Table.Indent.Size:= 30;
+tableRow := Table.AddRow;
+tableCell := tableRow.AddCell;
+tableCell.Borders.Left.Size:=0;
+tableCell.Width.Size:=10;
+tableCell.Width.WidthType:=wtPercentage;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=1000;
+
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+paragraph.AddText('  ');
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[0],50,50);
+paragraph.AddText('  ');
+
+tableCell := tableRow.AddCell;
+tableCell.Borders.Left.Size:=0;
+tableCell.Width.Size:=90;
+tableCell.Width.WidthType:=wtPercentage;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=10000;
+
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+text := paragraph.AddText(UniResumes['job_place']);
+text.Font.Color := clBlack;
+text.Font.Size := 12;
+Text.Font.Name:='Times New Roman';
+
+tableRow := Table.AddRow;
+
+tableCell := tableRow.AddCell;
+tableCell.Borders.Left.Size:=0;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=10000;
+
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+paragraph.AddText('  ');
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[1],50,50);
+paragraph.AddText('  ');
+
+tableCell := tableRow.AddCell;
+tableCell.Borders.Left.Size:=0;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=100;
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+text := paragraph.AddText(UniResumes['phone_numbers_text']);
+text.Font.Color := clBlack;
+text.Font.Size := 12;
+Text.Font.Name:='Times New Roman';
+
+tableRow := Table.AddRow;
+tableCell := tableRow.AddCell;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=1000;
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+paragraph.AddText('  ');
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[2],50,50);
+paragraph.AddText('  ');
+
+tableCell := tableRow.AddCell;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=100;
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+text := paragraph.AddText(FormMain.Email);
+text.Font.Color := clBlack;
+text.Font.Size := 12;
+Text.Font.Name:='Times New Roman';
+
+tableRow := Table.AddRow;
+tableCell := tableRow.AddCell;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=1000;
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+paragraph.AddText('  ');
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[3],50,50);
+paragraph.AddText('  ');
+
+tableCell := tableRow.AddCell;
+tableCell.Borders.Borders:= [];
+//tableCell.Width.Size:=1000;
+paragraph := TableCell.AddParagraph;
+Paragraph.Spacing.After:=120;
+Paragraph.Spacing.Before:=120;
+Paragraph.Spacing.Line:=240;
+text := paragraph.AddText(LocalTranslate('Р РµРєРѕРјРµРЅРґР°С‚РµР»СЊРЅРѕРµ РїРёСЃСЊРјРѕ',UniResumes['lang'])+'  '+FormMain.RecommendationLink);
+text.Font.Color := clBlack;
+text.Font.Size := 12;
+Text.Font.Name:='Times New Roman';
+
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+text:=paragraph.AddText(UniResumes['resume_introduction']);
+paragraph.Alignment := taLeft;
+Text.Font.Size := 12;
+Text.Font.Name:='Times New Roman';
+UniResumeFooters.Close;
+UniResumeFooters.ParamByName('p_resume_id').Value:=resume_id;
+UniResumeFooters.Open;
+while not UniResumeFooters.Eof do
+	begin
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	text:=paragraph.AddText(UniResumeFooters['footer_header']);
+	paragraph.Alignment := taLeft;
+	Text.Font.Size := 12;
+	Text.Font.Name:='Times New Roman';
+	Text.Font.Style := [fsBold];
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	text:=paragraph.AddText(UniResumeFooters['footer_text']);
+	paragraph.Alignment := taLeft;
+	Text.Font.Size := 12;
+	Text.Font.Name:='Times New Roman';
+	UniResumeFooters.Next;
+	end;
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+text := paragraph.AddText(LocalTranslate('РћРїС‹С‚ СЂР°Р±РѕС‚С‹',UniResumes['lang']));
+Text.Font.Size := 18;
+Text.Font.Style := [fsBold];
+
+UniExperiences.Close;
+UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
+UniExperiences.Open;
+while not UniExperiences.Eof do
+	begin
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	paragraph.Alignment := taLeft;
+	text:=paragraph.AddText(UniExperiences['job_position']);
+	Text.Font.Size := 12;
+	Text.Font.Name:='Times New Roman';
+	Text.Font.Style := [fsBold];
+
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	paragraph.Alignment := taLeft;
+	text:=paragraph.AddText(FormMain.GetMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
+	Text.Font.Size := 12;
+	Text.Font.Name:='Times New Roman';
+
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	paragraph.Alignment := taLeft;
+	text:=paragraph.AddText(UniExperiences['employer']);
+	Text.Font.Size := 12;
+	Text.Font.Name:='Times New Roman';
+
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	paragraph.Alignment := taLeft;
+	text:=paragraph.AddText(UniExperiences['responsibilities']);
+	Text.Font.Size := 12;
+	Text.Font.Name:='Times New Roman';
+	if not FormMain.IsEmpty(UniExperiences['benefits']) then
+		begin
+		paragraph := section.AddParagraph;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		paragraph.Alignment := taLeft;
+		text:=paragraph.AddText(UniExperiences['benefits']);
+		Text.Font.Size := 12;
+		Text.Font.Name:='Times New Roman';
+		end;
+
+	if not FormMain.IsEmpty(UniExperiences['benefits']) then
+		begin
+		paragraph := section.AddParagraph;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		paragraph.Alignment := taLeft;
+		text:=paragraph.AddText(UniExperiences['leave_reason']);
+		Text.Font.Size := 12;
+		Text.Font.Name:='Times New Roman';
+		end;
+	UniExperiences.Next;
+	if not UniExperiences.Eof then
+		begin
+		paragraph := section.AddParagraph;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		text:=paragraph.AddText('========================================================');
+		Text.Font.Size := 12;
+		Text.Font.Name:='Times New Roman';
+		end;
+	end;
+TMSFNCWXDocx1.GetDocxAsFile(FileName);
+Result:=true;
 end;
 
+
+function TFormListResumes.WX_R_PDF_Generate(const resume_id: integer;
+  const FileName: string): boolean;
+begin
+Result:=true;
+end;
 
 //function TFormListResumes.OLE_FileReplace(FWordFrom, FWordTo: TFileName): boolean;
 //var
@@ -521,7 +800,7 @@ end;
 //  WApp1.ActiveDocument.Select;
 ////  if (WordRecords[i].WordType=[wtImage]) then
 ////    begin
-////     TODO: Вставка картинки не включена
+////     TODO: Р’СЃС‚Р°РІРєР° РєР°СЂС‚РёРЅРєРё РЅРµ РІРєР»СЋС‡РµРЅР°
 ////    FormMain.Warning('Replace Image: '+WordRecords[i].Key+' to size '+IntToStr(WordRecords[i].WordImage.Height)+'x'+IntToStr(WordRecords[i].WordImage.Width)+':File:'+FWordTarget);
 ////    W.Selection.Find.Text := WordRecords[i].Key;
 ////    W.Selection.Find.Replacement.Text := WordRecords[i].WordImage;
@@ -552,7 +831,7 @@ end;
 //    end;
 //  if (WordRecords[i].WordType=[wtMemo]) and WordRecords[i].Active then
 //    begin
-//    // TODO: Поиск шаблона в документе должен быть успешным
+//    // TODO: РџРѕРёСЃРє С€Р°Р±Р»РѕРЅР° РІ РґРѕРєСѓРјРµРЅС‚Рµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓСЃРїРµС€РЅС‹Рј
 //    MemoLog.Lines.Add('Replacetext = "'+WordRecords[i].ReplaceText[0]+'"');
 //    WApp1.Selection.Find.Text := WordRecords[i].Key;
 //    WApp1.Selection.Find.Replacement.Text :=WordRecords[i].ReplaceText[0];
@@ -643,7 +922,7 @@ end;
 //  WApp1.ActiveDocument.Select;
 ////  if (WordRecords[i].WordType=[wtImage]) then
 ////    begin
-////     TODO: Вставка картинки не включена
+////     TODO: Р’СЃС‚Р°РІРєР° РєР°СЂС‚РёРЅРєРё РЅРµ РІРєР»СЋС‡РµРЅР°
 ////    FormMain.Warning('Replace Image: '+WordRecords[i].Key+' to size '+IntToStr(WordRecords[i].WordImage.Height)+'x'+IntToStr(WordRecords[i].WordImage.Width)+':File:'+FWordTarget);
 ////    W.Selection.Find.Text := WordRecords[i].Key;
 ////    W.Selection.Find.Replacement.Text := WordRecords[i].WordImage;
@@ -674,7 +953,7 @@ end;
 //    end;
 //  if (WordRecords[i].WordType=[wtMemo]) and WordRecords[i].Active then
 //    begin
-//    // TODO: Поиск шаблона в документе должен быть успешным
+//    // TODO: РџРѕРёСЃРє С€Р°Р±Р»РѕРЅР° РІ РґРѕРєСѓРјРµРЅС‚Рµ РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ СѓСЃРїРµС€РЅС‹Рј
 //    MemoLog.Lines.Add('Replacetext = "'+WordRecords[i].ReplaceText[0]+'"');
 //    WApp1.Selection.Find.Text := WordRecords[i].Key;
 //    WApp1.Selection.Find.Replacement.Text :=WordRecords[i].ReplaceText[0];
@@ -740,6 +1019,126 @@ end;
 //  WordRecords[I].Active:=length(trim(STxt))>0;
 //  end
 //else WordRecords[I].Active:=false;
+//end;
+//procedure TFormListResumes.CreateWordDoc;
+//var
+//  section: TTMSFNCWXDocxSection;
+//  paragraph: TTMSFNCWXDocxParagraph;
+//  table: TTMSFNCWXDocxTable;
+//  tableCell: TTMSFNCWXDocxTableCell;
+//  TableRow: TTMSFNCWXDocxTableRow;
+//  parText: TTMSFNCWXDocxText;
+//  H1Font: TTMSFNCGraphicsFont;
+//  h2font: TTMSFNCGraphicsFont;
+//  i, j: Integer;
+//  parfont: TTMSFNCGraphicsFont;
+//begin
+//  H1Font := TTMSFNCGraphicsFont.Create;
+//  H1Font.Size := 14;
+//  H1Font.Style := H1Font.Style + [fsBold];
+//  H1Font.Name := 'calibri';
+//
+//  h2font := TTMSFNCGraphicsFont.Create;
+//  h2font.Size := 10;
+//  h2font.Style := H1Font.Style + [fsBold];
+//  h2font.Name := 'calibri';
+//
+//  parfont := TTMSFNCGraphicsFont.Create;
+//  parfont.Size := 10;
+//  parfont.Name := 'calibri';
+//
+//  TMSFNCWXDocx1.Document.Sections.Clear;
+//  section := TMSFNCWXDocx1.Document.AddSection;
+//  section.Page.Orientation := poPortrait;
+//
+//  section.Headers.EnableHeaders := [htDefault];
+//  paragraph := section.Headers.DefaultHeader.AddParagraph;
+//  paragraph.Alignment := taRight;
+//  paragraph.AddText('www.nutritional-software.at :: Online Rezept Rechner :: ' +
+//    FormatDateTime('dd.MM.yyyy hh:mm', now));
+//  // How to add a bottom line?
+//  paragraph.Border.Borders := [boBottom];
+//  paragraph.Border.Bottom.Value := bsSingle;
+//
+//  section.Footers.EnableFooters := [htDefault];
+//  paragraph := section.Footers.DefaultFooter.AddParagraph;
+//  paragraph.Alignment := taRight;
+//  paragraph.AddText('Seite ');
+//  paragraph.AddPageNumber();
+//  // How to add a top line?
+//  paragraph.Border.Borders := [boTop];
+//
+//  //
+//  paragraph := section.AddParagraph;
+//  SetH1Paragraph(paragraph);
+//  paragraph.AddText('Rezeptname').Font := H1Font;
+//
+//  //
+//  paragraph := section.AddParagraph;
+//  SetH2Paragraph(paragraph);
+//  paragraph.AddText('Гњber das Rezept:').Font := h2font;
+//  table := section.AddTable;
+//  table.Width.Size := 50;
+//  table.Width.WidthType := wtPercentage;
+//  for i := 0 to 3 do begin
+//      TableRow := table.AddRow;
+//      tableCell := TableRow.AddCell;
+//      // How to remove the lines?
+//      tableCell.Borders.Borders:=[];
+//      tableCell.Borders.Left.Size:=0;
+//      tableCell.Width.WidthType := wtPercentage;
+//      tableCell.Width.Size:=60;
+//      paragraph := tableCell.AddParagraph;
+//      paragraph.AddText('row ' + IntToStr(i) + ' cell ' + IntToStr(j));
+//
+//      tableCell := TableRow.AddCell;
+//      tableCell.Width.WidthType := wtPercentage;
+//      tableCell.Width.Size:=40;
+//      paragraph := tableCell.AddParagraph;
+//      paragraph.AddText('row ' + IntToStr(i) + ' cell ' + IntToStr(j));
+//  end;
+//
+//  //
+//  paragraph := section.AddParagraph;
+//  SetH2Paragraph(paragraph);
+//  paragraph.AddText('Zutaten:').Font := h2font;
+//
+//  //
+//  paragraph := section.AddParagraph;
+//  SetH2Paragraph(paragraph);
+//  paragraph.AddText('Anleitung:').Font := h2font;
+//  paragraph := section.AddParagraph;
+//  SetTextParagraph(paragraph);
+//  paragraph.AddText('lkifds vldkfj vlkedrf jvoef jvoefj voe').Font := parfont;
+//
+//  //
+//  paragraph := section.AddParagraph;
+//  SetH2Paragraph(paragraph);
+//  paragraph.AddText('NГ¤hrwerte:').Font := h2font;
+//
+//  paragraph := section.AddParagraph;
+//  paragraph.Heading := hlNone;
+//  paragraph.AddText('Text Text').Font := parfont;
+//  paragraph.AddText('Text1 Text1').Font := parfont;
+//  paragraph.AddText('Text2 Text2').Font := parfont;
+//
+//  paragraph := section.AddParagraph;
+//  paragraph.AddText('Text2 Text2').Font := parfont;
+//
+//  paragraph := section.AddParagraph;
+//  table := section.AddTable;
+//  table.Width.Size := 100;
+//  table.Width.WidthType := wtPercentage;
+//  for i := 0 to 3 do begin
+//    TableRow := table.AddRow;
+//    for j := 0 to 3 do begin
+//      tableCell := TableRow.AddCell;
+//      paragraph := tableCell.AddParagraph;
+//      paragraph.AddText('row ' + IntToStr(i) + ' cell ' + IntToStr(j));
+//    end;
+//  end;
+//
+//  TMSFNCWXDocx1.GetDocxAsFile(FileCVDOCX);
 //end;
 
 end.

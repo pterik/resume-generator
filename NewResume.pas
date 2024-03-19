@@ -5,8 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics, System.DateUtils,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, Uni,
-  Vcl.StdCtrls, Vcl.Buttons, Vcl.WinXCalendars, Vcl.ComCtrls;
+	Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, Uni,
+	Vcl.StdCtrls, Vcl.Buttons, Vcl.WinXCalendars, Vcl.ComCtrls;
 
 type
   TFormNewResume = class(TForm)
@@ -119,7 +119,6 @@ type
     EditOpportunity: TEdit;
     EditPlace: TEdit;
     EditPhones: TEdit;
-    MemoIntro: TMemo;
     CBRegion: TComboBox;
     CBLang: TComboBox;
     TabSheetJob1TR: TTabSheet;
@@ -263,14 +262,6 @@ type
     Memo9Skills: TMemo;
     Memo10Skills: TMemo;
     UniGetTemplate: TUniQuery;
-    UniGetTemplateid: TIntegerField;
-    UniGetTemplatename: TStringField;
-    UniGetTemplatejob_opportunity: TStringField;
-    UniGetTemplatejob_place: TStringField;
-    UniGetTemplatephone_numbers_text: TStringField;
-    UniGetTemplateresume_introduction: TStringField;
-    UniGetTemplatecreated: TDateTimeField;
-    UniGetTemplateupdated: TDateTimeField;
     UniGetSkills: TUniQuery;
     UniGetJobs: TUniQuery;
     UniGetJobsid: TIntegerField;
@@ -299,7 +290,7 @@ type
     EditLangRU: TEdit;
     EditRegionRU: TEdit;
     UniSPInsertExperiences: TUniStoredProc;
-    UniSPInsertSkills: TUniStoredProc;
+    UniSPInsertSkillShow: TUniStoredProc;
     UniSPDeleteExpSkills: TUniStoredProc;
     StaticText2: TStaticText;
     StaticText4: TStaticText;
@@ -396,6 +387,33 @@ type
     CBPhones: TComboBox;
     BitBtn2: TBitBtn;
     UniGetCopyResumeIDID: TIntegerField;
+    UniGetTemplateid: TIntegerField;
+    UniGetTemplatename: TStringField;
+    UniGetTemplatejob_opportunity: TStringField;
+    UniGetTemplatejob_place: TStringField;
+    UniGetTemplatephone_numbers_text: TStringField;
+    UniGetTemplatetemplate_introduction: TStringField;
+    UniGetTemplatearchived: TBooleanField;
+    UniGetTemplatecreated: TDateTimeField;
+    UniGetTemplateupdated: TDateTimeField;
+    UniTranslation: TUniQuery;
+    UniTranslationid: TIntegerField;
+    UniTranslationRU: TStringField;
+    UniTranslationUA: TStringField;
+    UniTranslationEN: TStringField;
+    UniTranslationHR: TStringField;
+    UniTranslationPL: TStringField;
+    UniTranslationDE: TStringField;
+    UniGetTemplateFooters: TUniQuery;
+    UniGetTemplateFootersid: TIntegerField;
+    UniGetTemplateFooterstemplate_id: TIntegerField;
+    UniGetTemplateFootersfooter_header: TStringField;
+    UniGetTemplateFootersfooter_text: TStringField;
+    UniGetTemplateFootersfooter_order: TIntegerField;
+    UniGetTemplateFooterscreated: TDateTimeField;
+    UniGetTemplateFootersupdated: TDateTimeField;
+    RichEditor: TRichEdit;
+    CBWordWrap: TCheckBox;
     procedure PageControlChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -440,6 +458,8 @@ type
     procedure CalendarPickerE10Change(Sender: TObject);
     procedure CBLangChange(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
+    procedure CBRegionChange(Sender: TObject);
+    procedure CBWordWrapClick(Sender: TObject);
   private
     CBLang_First_Value, CBRegion_First_Value: string;
     CBRegionTR_ID:string;
@@ -464,15 +484,17 @@ type
     function isFormValuesGood: boolean; //Проверка значений при сохранении
     function SaveValues: boolean;  // Сохранение всех значений
     function SaveResume : boolean; // Сохранение значений Resume
-    function SaveJobs: boolean;    // Сохранение значений Jobs
-    procedure GetFootersFromID; // Получить значения футера из другого резюме, указав краткое имя и язык
-    procedure GetResumefromID;       // Получить значения первого окна Resume указав ResumeID для копирования
+		function SaveJobs: boolean;    // Сохранение значений Jobs
+//    procedure GetFootersFromID; // Получить значения футера из другого резюме, указав краткое имя и язык
+//    procedure GetResumefromID;       // Получить значения первого окна Resume указав ResumeID для копирования
     procedure GetResumeTRfromUA;
     procedure CopyTRfromUA;
     procedure SynchroRegionLang; // Копировать резюме с UA в . Копируются все поля одним нажатием
     function isMainFormGood:boolean;
     function isJobGood:boolean;
     function isJobDatesGood:boolean;
+    function isJobDatesValid: boolean;
+    function isJobPeriodsValid: boolean;
   public
     //TelephoneByName:string;
     function NVL(Value:variant):string;
@@ -481,6 +503,8 @@ type
     procedure SetFormValues;  // Установить все значения перед открытием окна
     procedure GetValuesFromTemplate(TemplateId: integer); //Получить значения из шаблона - вызов внутри модуля
     procedure GetValuesFromResume(const ResumeID:integer);
+    function Translate(const S:string; const lang:string):string;
+    function GoogleTranslate(const S:string; const lang:string):string;
   end;
 
 var
@@ -524,6 +548,29 @@ end;
 procedure TFormNewResume.SynchroRegionLang;
 begin
 //
+end;
+
+function TFormNewResume.Translate(const S: string; const Lang:string): string;
+begin
+if FormMain.IsEmpty(S)
+  then Result:=''
+  else
+    begin
+    UniTranslation.Close;
+    UniTranslation.ParamByName('p_word').AsString:=S;
+    UniTranslation.Open;
+    if lang = 'UA' then
+      if VarIsNull(UniTranslation['UA']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['UA'];
+    if lang = 'EN' then
+      if VarIsNull(UniTranslation['EN']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['EN'];
+    if lang = 'HR' then
+      if VarIsNull(UniTranslation['HR']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['HR'];
+    if lang = 'PL' then
+      if VarIsNull(UniTranslation['PL']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['PL'];
+    if lang = 'DE' then
+      if VarIsNull(UniTranslation['DE']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['DE'];
+    Result:=S;
+    end;
 end;
 
 procedure TFormNewResume.FormCreate(Sender: TObject);
@@ -572,7 +619,7 @@ CBRegion.Clear;
 FormMain.UniRegions.Close;
 FormMain.UniRegions.Open;
 CBRegion.Text := FormMain.UniRegions['region_name'];
-CBRegionTR_ID:='RU';
+CBRegionTR_ID:='UA';
 CBRegion_First_Value := FormMain.UniRegions['region_name'];
 while not FormMain.UniRegions.EOF do
   begin
@@ -594,8 +641,8 @@ begin
   EditName.Text := '';
   EditOpportunity.Text := '';
   EditPlace.Text := '';
-  EditPhones.Text := '';
-  MemoIntro.Text := '';
+	EditPhones.Text := '';
+	RichEditor.Clear;
   EditLangRU.Text := 'UA';
   EditRegionRU.Text := 'UA';
 
@@ -758,266 +805,266 @@ begin
   Edit10BenefitsUA.Text := '';  Memo10SkillsUA.Text := '';  Edit10BottomUA.Text := '';
 end;
 
-procedure TFormNewResume.GetResumefromID;
-var ResumeFooterID: integer;
-begin
-CBLang.Text := CBLang_First_Value;
-CBRegion.Text := CBRegion_First_Value;
-FormMain.Warning('Resumeid=' + IntToStr(FResumeID));
-LabelFooterID.Caption:='Copy from '+ IntToStr(FResumeID);
-// Читаем запись из Resumes
-UniGetResume.Close;
-UniGetResume.ParamByName('p_id').AsInteger := FResumeID;
-UniGetResume.Open;
-EditNameUA.Text := NVL(UniGetResume['name']);
-EditOpportunityUA.Text := NVL(UniGetResume['job_opportunity']);
-EditPlaceUA.Text := NVL(UniGetResume['job_place']);
-EditPhonesUA.Text := NVL(UniGetResume['phone_numbers_text']);
-MemoIntroUA.Text := NVL(UniGetResume['resume_introduction']);
-
-// Читаем запись из Resume_Footers
-UniGetFooters.Close;
-UniGetFooters.ParamByName('p_resume_id').AsInteger := FResumeID;
-UniGetFooters.Open;
-ResumeFooterID := UniGetFooters['id'];
-LabelFooterID.Caption := LabelFooterID.Caption + ' resume_id = ' + IntToStr(FResumeID);
-while not UniGetFooters.EOF do
-  begin
-  if UniGetFooters['footer_order'] = 1 then
-    begin
-      EditArticle1UA.Text := NVL(UniGetFooters['footer_header']);
-      MemoArticle1UA.Text := NVL(UniGetFooters['footer_text']);
-    end;
-  if UniGetFooters['footer_order'] = 2 then
-    begin
-      EditArticle2UA.Text := NVL(UniGetFooters['footer_header']);
-      MemoArticle2UA.Text := NVL(UniGetFooters['footer_text']);
-    end;
-  if UniGetFooters['footer_order'] = 3 then
-    begin
-       EditArticle3UA.Text := NVL(UniGetFooters['footer_header']);
-       MemoArticle3UA.Text := NVL(UniGetFooters['footer_text']);
-    end;
-  if UniGetFooters['footer_order'] = 4 then
-    begin
-      EditArticle4UA.Text := NVL(UniGetFooters['footer_header']);
-      MemoArticle4UA.Text := NVL(UniGetFooters['footer_text']);
-    end;
-  UniGetFooters.Next;
-  end;
-//GetJobsFromID;         // Получить значения Job из другого резюме, указав его ID
-  UniGetJobs.Prepare;
-  UniGetJobs.ParamByName('p_resume_id').AsInteger := FResumeID;
-  UniGetJobs.Open;
-  while not UniGetJobs.EOF do
-  begin
-    case UniGetJobs['order_position'] of
-     1: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit1DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit1DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit1NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo1RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit1CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit1BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit1BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo1SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo1SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     2: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit2DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit2DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit2NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo2RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit2CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit2BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit2BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo2SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo2SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     3: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit3DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit3DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit3NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo3RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit3CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit3BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit3BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo3SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo3SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     4: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit4DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit4DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit4NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo4RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit4CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit4BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit4BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo4SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo4SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     5: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit5DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit5DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit5NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo5RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit5CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit5BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit5BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo5SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo5SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     6: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit6DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit6DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit6NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo6RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit6CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit6BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit6BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo6SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo6SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     7: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit7DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit7DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit7NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo7RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit7CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit7BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit7BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo7SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo7SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     8: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit8DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit8DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit8NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo8RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit8CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit8BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit8BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo8SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo8SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     9: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit9DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit9DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit9NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo9RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit9CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit9BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit9BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo9SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo9SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-     10: begin
-        if VarIsNull(UniGetJobs['end_date'])
-          then Edit10DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
-          else Edit10DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-        Edit10NameUA.Text := NVL(UniGetJobs['job_position']);
-        Memo10RespUA.Text := NVL(UniGetJobs['responsibilities']);
-        Edit10CompanyUA.Text := NVL(UniGetJobs['employer']);
-        Edit10BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-        Edit10BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-        UniGetSkills.Prepare;
-        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-        UniGetSkills.Open;
-        Memo10SkillsUA.Clear;
-        while not UniGetSkills.EOF do
-          begin
-            Memo10SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
-            UniGetSkills.Next;
-          end;
-        end;
-    else
-      FormMain.Warning('experienes, значение order_position больше 10 и равно '
-        + UniGetJobs['order_position']);
-    end;
-    UniGetJobs.Next;
-  end;
-
-end;
+//procedure TFormNewResume.GetResumefromID;
+//var ResumeFooterID: integer;
+//begin
+//CBLang.Text := CBLang_First_Value;
+//CBRegion.Text := CBRegion_First_Value;
+//FormMain.Warning('Resumeid=' + IntToStr(FResumeID));
+//LabelFooterID.Caption:='Copy from '+ IntToStr(FResumeID);
+//// Читаем запись из Resumes
+//UniGetResume.Close;
+//UniGetResume.ParamByName('p_id').AsInteger := FResumeID;
+//UniGetResume.Open;
+//EditNameUA.Text := NVL(UniGetResume['name']);
+//EditOpportunityUA.Text := NVL(UniGetResume['job_opportunity']);
+//EditPlaceUA.Text := NVL(UniGetResume['job_place']);
+//EditPhonesUA.Text := NVL(UniGetResume['phone_numbers_text']);
+//MemoIntroUA.Text := NVL(UniGetResume['resume_introduction']);
+//
+//// Читаем запись из Resume_Footers
+//UniGetFooters.Close;
+//UniGetFooters.ParamByName('p_resume_id').AsInteger := FResumeID;
+//UniGetFooters.Open;
+//ResumeFooterID := UniGetFooters['id'];
+//LabelFooterID.Caption := LabelFooterID.Caption + ' resume_id = ' + IntToStr(FResumeID);
+//while not UniGetFooters.EOF do
+//  begin
+//  if UniGetFooters['footer_order'] = 1 then
+//    begin
+//      EditArticle1UA.Text := NVL(UniGetFooters['footer_header']);
+//      MemoArticle1UA.Text := NVL(UniGetFooters['footer_text']);
+//    end;
+//  if UniGetFooters['footer_order'] = 2 then
+//    begin
+//      EditArticle2UA.Text := NVL(UniGetFooters['footer_header']);
+//      MemoArticle2UA.Text := NVL(UniGetFooters['footer_text']);
+//    end;
+//  if UniGetFooters['footer_order'] = 3 then
+//    begin
+//       EditArticle3UA.Text := NVL(UniGetFooters['footer_header']);
+//       MemoArticle3UA.Text := NVL(UniGetFooters['footer_text']);
+//    end;
+//  if UniGetFooters['footer_order'] = 4 then
+//    begin
+//      EditArticle4UA.Text := NVL(UniGetFooters['footer_header']);
+//      MemoArticle4UA.Text := NVL(UniGetFooters['footer_text']);
+//    end;
+//  UniGetFooters.Next;
+//  end;
+////GetJobsFromID;         // Получить значения Job из другого резюме, указав его ID
+//  UniGetJobs.Prepare;
+//  UniGetJobs.ParamByName('p_resume_id').AsInteger := FResumeID;
+//  UniGetJobs.Open;
+//  while not UniGetJobs.EOF do
+//  begin
+//    case UniGetJobs['order_position'] of
+//     1: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit1DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit1DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit1NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo1RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit1CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit1BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit1BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo1SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo1SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     2: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit2DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit2DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit2NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo2RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit2CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit2BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit2BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo2SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo2SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     3: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit3DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit3DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit3NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo3RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit3CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit3BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit3BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo3SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo3SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     4: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit4DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit4DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit4NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo4RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit4CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit4BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit4BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo4SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo4SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     5: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit5DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit5DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit5NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo5RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit5CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit5BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit5BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo5SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo5SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     6: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit6DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit6DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit6NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo6RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit6CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit6BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit6BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo6SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo6SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     7: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit7DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit7DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit7NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo7RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit7CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit7BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit7BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo7SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo7SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     8: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit8DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit8DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit8NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo8RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit8CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit8BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit8BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo8SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo8SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     9: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit9DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit9DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit9NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo9RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit9CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit9BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit9BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo9SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo9SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//     10: begin
+//        if VarIsNull(UniGetJobs['end_date'])
+//          then Edit10DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '- Now'
+//          else Edit10DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//        Edit10NameUA.Text := NVL(UniGetJobs['job_position']);
+//        Memo10RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//        Edit10CompanyUA.Text := NVL(UniGetJobs['employer']);
+//        Edit10BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//        Edit10BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//        UniGetSkills.Prepare;
+//        UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//        UniGetSkills.Open;
+//        Memo10SkillsUA.Clear;
+//        while not UniGetSkills.EOF do
+//          begin
+//            Memo10SkillsUA.Lines.Add(UniGetSkills['skill'] + ' - ' + UniGetSkills ['category']);
+//            UniGetSkills.Next;
+//          end;
+//        end;
+//    else
+//      FormMain.Warning('experienes, значение order_position больше 10 и равно '
+//        + UniGetJobs['order_position']);
+//    end;
+//    UniGetJobs.Next;
+//  end;
+//
+//end;
 
 procedure TFormNewResume.GetResumeTRfromUA;
 begin
   EditName.Text := EditNameUA.Text;
   EditOpportunity.Text := EditOpportunityUA.Text;
   EditPlace.Text := EditPlaceUA.Text;
-  EditPhones.Text := EditPhonesUA.Text;
-  MemoIntro.Text := MemoIntroUA.Text;
+	EditPhones.Text := EditPhonesUA.Text;
+	RichEditor.Text := MemoIntroUA.Text;
   EditLangRU.Text := 'UA';
   EditRegionRU.Text := 'UA';
 
@@ -1056,132 +1103,132 @@ begin
 end;
 
 
-procedure TFormNewResume.GetFootersFromID;
-var
-  ResumeFooterID: integer;
-begin
-  UniGetFooters.Close;
-  UniGetFooters.ParamByName('p_resume_id').AsInteger := FResumeID;
-  UniGetFooters.ParamByName('p_lang').AsString := 'UA';
-  UniGetFooters.Open;
-//  FormMain.Warning('Resumeid=' + IntToStr(FResumeID) + ' lang = UA');
-  if VarIsNull(UniGetFooters['id']) then
-  begin
-    FormMain.Warning
-      ('Resumeid не установлено - Query UniGetUAResumeFooters вернул null');
-    LabelFooterID.Caption := '# N/A';
-  end
-  else
-  begin
-    ResumeFooterID := UniGetFooters['id'];
-    LabelFooterID.Caption := IntToStr(ResumeFooterID);
-  end;
-  if VarIsNull(UniGetFooters['resume_id']) then
-  begin
-    FormMain.Warning
-      ('ResumeFooterID не установлено - Query UniGetUAResumeFooters вернул null');
-    LabelFooterID.Caption := LabelFooterID.Caption + ' ' + 'resume_id= N/A';
-  end
-  else
-  begin
-    LabelFooterID.Caption := LabelFooterID.Caption + ' resume_id = ' +
-      IntToStr(FResumeID);
-  end;
-  while not UniGetFooters.EOF do
-  begin
-    if UniGetFooters['footer_order'] = 1 then
-    begin
-      if VarIsNull(UniGetFooters['footer_header']) then
-        EditArticle1UA.Text := ''
-      else
-        EditArticle1UA.Text := UniGetFooters['footer_header'];
-      if VarIsNull(UniGetFooters['footer_text']) then
-        MemoArticle1UA.Text := ''
-      else
-        MemoArticle1UA.Text := UniGetFooters['footer_text'];
-    end;
-    if UniGetFooters['footer_order'] = 2 then
-    begin
-      if VarIsNull(UniGetFooters['footer_header']) then
-        EditArticle2UA.Text := ''
-      else
-        EditArticle2UA.Text := UniGetFooters['footer_header'];
-      if VarIsNull(UniGetFooters['footer_text']) then
-        MemoArticle2UA.Text := ''
-      else
-        MemoArticle2UA.Text := UniGetFooters['footer_text'];
-    end;
-    if UniGetFooters['footer_order'] = 3 then
-    begin
-      if VarIsNull(UniGetFooters['footer_header']) then
-        EditArticle3UA.Text := ''
-      else
-        EditArticle3UA.Text := UniGetFooters['footer_header'];
-      if VarIsNull(UniGetFooters['footer_text']) then
-        MemoArticle3UA.Text := ''
-      else
-        MemoArticle3UA.Text := UniGetFooters['footer_text'];
-    end;
-    if UniGetFooters['footer_order'] = 4 then
-    begin
-      if VarIsNull(UniGetFooters['footer_header']) then
-        EditArticle4UA.Text := ''
-      else
-        EditArticle4UA.Text := UniGetFooters['footer_header'];
-      if VarIsNull(UniGetFooters['footer_text']) then
-        MemoArticle4UA.Text := ''
-      else
-        MemoArticle4UA.Text := UniGetFooters['footer_text'];
-    end;
-    UniGetFooters.Next;
-  end;
-  UniGetJobs.Prepare;
-  UniGetJobs.ParamByName('p_resume_id').AsInteger := FResumeID;
-  UniGetJobs.Open;
-  while not UniGetJobs.EOF do
-  begin
-    case UniGetJobs['order_position'] of
-     1: begin
-          Edit1DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-          Edit1NameUA.Text := NVL(UniGetJobs['job_position']);
-          Memo1RespUA.Text := NVL(UniGetJobs['responsibilities']);
-          Edit1CompanyUA.Text := NVL(UniGetJobs['employer']);
-          Edit1BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-          Edit1BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-          UniGetSkills.Prepare;
-          UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-          UniGetSkills.Open;
-          Memo1SkillsUA.Clear;
-          while not UniGetSkills.EOF do
-            begin
-            Memo1SkillsUA.Lines.Add(NVL(UniGetSkills['skill']) + ' - ' + NVL(UniGetSkills ['category']));
-            UniGetSkills.Next;
-            end;
-        end;
-     2: begin
-          Edit2DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
-          Edit2NameUA.Text := NVL(UniGetJobs['job_position']);
-          Memo2RespUA.Text := NVL(UniGetJobs['responsibilities']);
-          Edit2CompanyUA.Text := NVL(UniGetJobs['employer']);
-          Edit2BenefitsUA.Text := NVL(UniGetJobs['benefits']);
-          Edit2BottomUA.Text := NVL(UniGetJobs['leave_reason']);
-          UniGetSkills.Prepare;
-          UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
-          UniGetSkills.Open;
-          Memo2SkillsUA.Clear;
-          while not UniGetSkills.EOF do
-            begin
-            Memo2SkillsUA.Lines.Add(NVL(UniGetSkills['skill']) + ' - ' + NVL(UniGetSkills ['category']));
-            UniGetSkills.Next;
-            end;
-        end;
-    else
-      FormMain.Warning('experienes, значение order_position больше 10 и равно '
-        + UniGetJobs['order_position']);
-    end;
-    UniGetJobs.Next;
-  end;
-end;
+//procedure TFormNewResume.GetFootersFromID;
+//var
+//  ResumeFooterID: integer;
+//begin
+//  UniGetFooters.Close;
+//  UniGetFooters.ParamByName('p_resume_id').AsInteger := FResumeID;
+//  UniGetFooters.ParamByName('p_lang').AsString := 'UA';
+//  UniGetFooters.Open;
+////  FormMain.Warning('Resumeid=' + IntToStr(FResumeID) + ' lang = UA');
+//  if VarIsNull(UniGetFooters['id']) then
+//  begin
+//    FormMain.Warning
+//      ('Resumeid не установлено - Query UniGetUAResumeFooters вернул null');
+//    LabelFooterID.Caption := '# N/A';
+//  end
+//  else
+//  begin
+//    ResumeFooterID := UniGetFooters['id'];
+//    LabelFooterID.Caption := IntToStr(ResumeFooterID);
+//  end;
+//  if VarIsNull(UniGetFooters['resume_id']) then
+//  begin
+//    FormMain.Warning
+//      ('ResumeFooterID не установлено - Query UniGetUAResumeFooters вернул null');
+//    LabelFooterID.Caption := LabelFooterID.Caption + ' ' + 'resume_id= N/A';
+//  end
+//  else
+//  begin
+//    LabelFooterID.Caption := LabelFooterID.Caption + ' resume_id = ' +
+//      IntToStr(FResumeID);
+//  end;
+//  while not UniGetFooters.EOF do
+//  begin
+//    if UniGetFooters['footer_order'] = 1 then
+//    begin
+//      if VarIsNull(UniGetFooters['footer_header']) then
+//        EditArticle1UA.Text := ''
+//      else
+//        EditArticle1UA.Text := UniGetFooters['footer_header'];
+//      if VarIsNull(UniGetFooters['footer_text']) then
+//        MemoArticle1UA.Text := ''
+//      else
+//        MemoArticle1UA.Text := UniGetFooters['footer_text'];
+//    end;
+//    if UniGetFooters['footer_order'] = 2 then
+//    begin
+//      if VarIsNull(UniGetFooters['footer_header']) then
+//        EditArticle2UA.Text := ''
+//      else
+//        EditArticle2UA.Text := UniGetFooters['footer_header'];
+//      if VarIsNull(UniGetFooters['footer_text']) then
+//        MemoArticle2UA.Text := ''
+//      else
+//        MemoArticle2UA.Text := UniGetFooters['footer_text'];
+//    end;
+//    if UniGetFooters['footer_order'] = 3 then
+//    begin
+//      if VarIsNull(UniGetFooters['footer_header']) then
+//        EditArticle3UA.Text := ''
+//      else
+//        EditArticle3UA.Text := UniGetFooters['footer_header'];
+//      if VarIsNull(UniGetFooters['footer_text']) then
+//        MemoArticle3UA.Text := ''
+//      else
+//        MemoArticle3UA.Text := UniGetFooters['footer_text'];
+//    end;
+//    if UniGetFooters['footer_order'] = 4 then
+//    begin
+//      if VarIsNull(UniGetFooters['footer_header']) then
+//        EditArticle4UA.Text := ''
+//      else
+//        EditArticle4UA.Text := UniGetFooters['footer_header'];
+//      if VarIsNull(UniGetFooters['footer_text']) then
+//        MemoArticle4UA.Text := ''
+//      else
+//        MemoArticle4UA.Text := UniGetFooters['footer_text'];
+//    end;
+//    UniGetFooters.Next;
+//  end;
+//  UniGetJobs.Prepare;
+//  UniGetJobs.ParamByName('p_resume_id').AsInteger := FResumeID;
+//  UniGetJobs.Open;
+//  while not UniGetJobs.EOF do
+//  begin
+//    case UniGetJobs['order_position'] of
+//     1: begin
+//          Edit1DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//          Edit1NameUA.Text := NVL(UniGetJobs['job_position']);
+//          Memo1RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//          Edit1CompanyUA.Text := NVL(UniGetJobs['employer']);
+//          Edit1BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//          Edit1BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//          UniGetSkills.Prepare;
+//          UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//          UniGetSkills.Open;
+//          Memo1SkillsUA.Clear;
+//          while not UniGetSkills.EOF do
+//            begin
+//            Memo1SkillsUA.Lines.Add(NVL(UniGetSkills['skill']) + ' - ' + NVL(UniGetSkills ['category']));
+//            UniGetSkills.Next;
+//            end;
+//        end;
+//     2: begin
+//          Edit2DatesUA.Text := FormMain.GetMonthByRegion(UniGetJobs['start_date'], 'UA') + '-' + FormMain.GetMonthByRegion(UniGetJobs['end_date'], 'UA');
+//          Edit2NameUA.Text := NVL(UniGetJobs['job_position']);
+//          Memo2RespUA.Text := NVL(UniGetJobs['responsibilities']);
+//          Edit2CompanyUA.Text := NVL(UniGetJobs['employer']);
+//          Edit2BenefitsUA.Text := NVL(UniGetJobs['benefits']);
+//          Edit2BottomUA.Text := NVL(UniGetJobs['leave_reason']);
+//          UniGetSkills.Prepare;
+//          UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetJobs['id'];
+//          UniGetSkills.Open;
+//          Memo2SkillsUA.Clear;
+//          while not UniGetSkills.EOF do
+//            begin
+//            Memo2SkillsUA.Lines.Add(NVL(UniGetSkills['skill']) + ' - ' + NVL(UniGetSkills ['category']));
+//            UniGetSkills.Next;
+//            end;
+//        end;
+//    else
+//      FormMain.Warning('experienes, значение order_position больше 10 и равно '
+//        + UniGetJobs['order_position']);
+//    end;
+//    UniGetJobs.Next;
+//  end;
+//end;
 
 procedure TFormNewResume.BitBtn2Click(Sender: TObject);
 begin
@@ -1190,22 +1237,106 @@ end;
 
 procedure TFormNewResume.BitBtnCopyClick(Sender: TObject);
 begin
-UniGetCopyResumeID.Close;
-UniGetCopyResumeID.ParamByName('p_name').AsString := EditName.Text;
-UniGetCopyResumeID.ParamByName('p_lang').AsString := CBLang.Text;
-UniGetCopyResumeID.Open;
-if VarIsNull(UniGetCopyResumeID['id']) then
-  begin
-  ShowMessage('Не знайдені резюме за ім`ям '+EditName.Text+' та язиком '+CBLang.Text);
-  exit;
-  end
-else
-  begin
-  FResumeID := UniGetCopyResumeID['id'];
-  GetResumefromID;
-  GetFootersFromID;
-  GetResumeTRfromUA;
-  end;
+//Копируем все поля из значений сверху
+//UniGetCopyResumeID.Close;
+//UniGetCopyResumeID.ParamByName('p_name').AsString := EditName.Text;
+//UniGetCopyResumeID.ParamByName('p_lang').AsString := CBLang.Text;
+//UniGetCopyResumeID.Open;
+//if VarIsNull(UniGetCopyResumeID['id']) then
+//  begin
+//  ShowMessage('Не знайдені резюме за ім`ям '+EditName.Text+' та язиком '+CBLang.Text);
+//  exit;
+//  end
+//else
+//  begin
+//  FResumeID := UniGetCopyResumeID['id'];
+//  GetResumefromID;
+//  GetFootersFromID;
+//  GetResumeTRfromUA;
+//  end;
+EditName.Text := Translate(EditNameUA.Text,CBLang.Text);
+EditOpportunity.Text := Translate(EditOpportunityUA.Text,CBLang.Text);
+EditPlace.Text := Translate(EditPlaceUA.Text,CBLang.Text);
+EditPhones.Text := Translate(EditPhonesUA.Text,CBLang.Text);
+RichEditor.Text := Translate(MemoIntroUA.Text,CBLang.Text);
+EditArticle1.Text := Translate(EditArticle1UA.Text,CBLang.Text);
+MemoArticle1.Text := Translate(MemoArticle1UA.Text,CBLang.Text);
+EditArticle2.Text := Translate(EditArticle2UA.Text,CBLang.Text);
+MemoArticle2.Text := Translate(MemoArticle2UA.Text,CBLang.Text);
+EditArticle3.Text := Translate(EditArticle3UA.Text,CBLang.Text);
+MemoArticle3.Text := Translate(MemoArticle3UA.Text,CBLang.Text);
+EditArticle4.Text := Translate(EditArticle4UA.Text,CBLang.Text);
+MemoArticle4.Text := Translate(MemoArticle4UA.Text,CBLang.Text);
+
+Edit1NameUA.Text  := Translate(Edit1NameUA.Text,CBLang.Text);
+Memo1RespUA.Text  := Translate(Memo1RespUA.Text,CBLang.Text);
+Edit1CompanyUA.Text := Translate(Edit1CompanyUA.Text,CBLang.Text);
+Edit1BenefitsUA.Text := Translate(Edit1BenefitsUA.Text,CBLang.Text);
+Edit1BottomUA.Text := Translate(Edit1BottomUA.Text,CBLang.Text);
+Memo1Skills.Text   :=Translate(Memo1SkillsUA.Text,CBLang.Text);
+
+Edit2NameUA.Text    := Translate(Edit2NameUA.Text,CBLang.Text);
+Memo2RespUA.Text    := Translate(Memo2RespUA.Text,CBLang.Text);
+Edit2CompanyUA.Text := Translate(Edit2CompanyUA.Text,CBLang.Text);
+Edit2BenefitsUA.Text:= Translate(Edit2BenefitsUA.Text,CBLang.Text);
+Edit2BottomUA.Text  := Translate(Edit2BottomUA.Text,CBLang.Text);
+Memo2Skills.Text    :=Translate(Memo2SkillsUA.Text,CBLang.Text);
+
+Edit3NameUA.Text    := Translate(Edit3NameUA.Text,CBLang.Text);
+Memo3RespUA.Text    := Translate(Memo3RespUA.Text,CBLang.Text);
+Edit3CompanyUA.Text := Translate(Edit3CompanyUA.Text,CBLang.Text);
+Edit3BenefitsUA.Text:= Translate(Edit3BenefitsUA.Text,CBLang.Text);
+Edit3BottomUA.Text  := Translate(Edit3BottomUA.Text,CBLang.Text);
+Memo3Skills.Text    :=Translate(Memo3SkillsUA.Text,CBLang.Text);
+
+Edit4NameUA.Text    := Translate(Edit4NameUA.Text,CBLang.Text);
+Memo4RespUA.Text    := Translate(Memo4RespUA.Text,CBLang.Text);
+Edit4CompanyUA.Text := Translate(Edit4CompanyUA.Text,CBLang.Text);
+Edit4BenefitsUA.Text:= Translate(Edit4BenefitsUA.Text,CBLang.Text);
+Edit4BottomUA.Text  := Translate(Edit4BottomUA.Text,CBLang.Text);
+Memo4Skills.Text    :=Translate(Memo4SkillsUA.Text,CBLang.Text);
+
+Edit5NameUA.Text    := Translate(Edit5NameUA.Text,CBLang.Text);
+Memo5RespUA.Text    := Translate(Memo5RespUA.Text,CBLang.Text);
+Edit5CompanyUA.Text := Translate(Edit5CompanyUA.Text,CBLang.Text);
+Edit5BenefitsUA.Text:= Translate(Edit5BenefitsUA.Text,CBLang.Text);
+Edit5BottomUA.Text  := Translate(Edit5BottomUA.Text,CBLang.Text);
+Memo5Skills.Text    :=Translate(Memo5SkillsUA.Text,CBLang.Text);
+
+Edit6NameUA.Text    := Translate(Edit6NameUA.Text,CBLang.Text);
+Memo6RespUA.Text    := Translate(Memo6RespUA.Text,CBLang.Text);
+Edit6CompanyUA.Text := Translate(Edit6CompanyUA.Text,CBLang.Text);
+Edit6BenefitsUA.Text:= Translate(Edit6BenefitsUA.Text,CBLang.Text);
+Edit6BottomUA.Text  := Translate(Edit6BottomUA.Text,CBLang.Text);
+Memo6Skills.Text    :=Translate(Memo6SkillsUA.Text,CBLang.Text);
+
+Edit7NameUA.Text    := Translate(Edit7NameUA.Text,CBLang.Text);
+Memo7RespUA.Text    := Translate(Memo7RespUA.Text,CBLang.Text);
+Edit7CompanyUA.Text := Translate(Edit7CompanyUA.Text,CBLang.Text);
+Edit7BenefitsUA.Text:= Translate(Edit7BenefitsUA.Text,CBLang.Text);
+Edit7BottomUA.Text  := Translate(Edit7BottomUA.Text,CBLang.Text);
+Memo7Skills.Text    :=Translate(Memo7SkillsUA.Text,CBLang.Text);
+
+Edit8NameUA.Text    := Translate(Edit8NameUA.Text,CBLang.Text);
+Memo8RespUA.Text    := Translate(Memo8RespUA.Text,CBLang.Text);
+Edit8CompanyUA.Text := Translate(Edit8CompanyUA.Text,CBLang.Text);
+Edit8BenefitsUA.Text:= Translate(Edit8BenefitsUA.Text,CBLang.Text);
+Edit8BottomUA.Text  := Translate(Edit8BottomUA.Text,CBLang.Text);
+Memo8Skills.Text    :=Translate(Memo8SkillsUA.Text,CBLang.Text);
+
+Edit9NameUA.Text    := Translate(Edit9NameUA.Text,CBLang.Text);
+Memo9RespUA.Text    := Translate(Memo9RespUA.Text,CBLang.Text);
+Edit9CompanyUA.Text := Translate(Edit9CompanyUA.Text,CBLang.Text);
+Edit9BenefitsUA.Text:= Translate(Edit9BenefitsUA.Text,CBLang.Text);
+Edit9BottomUA.Text  := Translate(Edit9BottomUA.Text,CBLang.Text);
+Memo9Skills.Text    :=Translate(Memo9SkillsUA.Text,CBLang.Text);
+
+Edit10NameUA.Text    := Translate(Edit10NameUA.Text,CBLang.Text);
+Memo10RespUA.Text    := Translate(Memo10RespUA.Text,CBLang.Text);
+Edit10CompanyUA.Text := Translate(Edit10CompanyUA.Text,CBLang.Text);
+Edit10BenefitsUA.Text:= Translate(Edit10BenefitsUA.Text,CBLang.Text);
+Edit10BottomUA.Text  := Translate(Edit10BottomUA.Text,CBLang.Text);
+Memo10Skills.Text    :=Translate(Memo10SkillsUA.Text,CBLang.Text);
 end;
 
 procedure TFormNewResume.BitBtnSaveClick(Sender: TObject);
@@ -1228,7 +1359,7 @@ end;
 
 function TFormNewResume.SaveValues: boolean;
 begin
-CBRegionTR_ID:='RU';
+CBRegionTR_ID:='UA';
 FormMain.UniRegions.First;
 while not FormMain.UniRegions.EOF do
   begin
@@ -1269,7 +1400,7 @@ try
   UniSPInsertResume.ParamByName('p_job_opportunity').AsString := Trim(EditOpportunity.Text);
   UniSPInsertResume.ParamByName('p_job_place').AsString := Trim(EditPlace.Text);
   UniSPInsertResume.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhones.Text);
-  UniSPInsertResume.ParamByName('p_resume_introduction').AsString := Trim(MemoIntro.Text);
+  UniSPInsertResume.ParamByName('p_resume_introduction').AsMemo := Trim(RichEditor.Text);
   UniSPInsertResume.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
   UniSPInsertResume.ParamByName('p_footer_1_text').AsString := Trim(MemoArticle1.Text);
   UniSPInsertResume.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2.Text);
@@ -1467,91 +1598,91 @@ if isJob10Active then
     for i := 0 to Memo1Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[1];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[1];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
   if FormMain.isEmpty(Edit2Name.Text) and not FormMain.isEmpty(Edit2Company.Text) then
     for i := 0 to Memo2Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo2Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[2];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo2Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[2];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo2Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit3Name.Text) and not FormMain.isEmpty(Edit3Company.Text) then
     for i := 0 to Memo3Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo3Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[3];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo3Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[3];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo3Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit4Name.Text) and not FormMain.isEmpty(Edit4Company.Text) then
     for i := 0 to Memo4Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo4Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[4];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo4Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[4];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo4Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit5Name.Text) and not FormMain.isEmpty(Edit5Company.Text) then
     for i := 0 to Memo5Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo5Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[5];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo5Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[5];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo5Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit6Name.Text) and not FormMain.isEmpty(Edit6Company.Text) then
     for i := 0 to Memo6Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo6Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[6];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo6Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[6];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo6Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit7Name.Text) and not FormMain.isEmpty(Edit7Company.Text) then
     for i := 0 to Memo7Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo7Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[7];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo7Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[7];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo7Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit8Name.Text) and not FormMain.isEmpty(Edit8Company.Text) then
     for i := 0 to Memo8Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo8Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[8];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo8Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[8];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo8Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit9Name.Text) and not FormMain.isEmpty(Edit9Company.Text) then
     for i := 0 to Memo9Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo9Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[9];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo9Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[9];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo9Skills.Lines[i];
+          UniSPInsertSkillShow.ExecSQL;
           end;
 if FormMain.isEmpty(Edit10Name.Text) and not FormMain.isEmpty(Edit10Company.Text) then
     for i := 0 to Memo10Skills.Lines.Count - 1 do
        if not FormMain.IsEmpty(Memo10Skills.Lines[i]) then
           begin
-          UniSPInsertSkills.Close;
-          UniSPInsertSkills.ParamByName('p_experience_id').AsInteger:=FExperienceID[10];
-          UniSPInsertSkills.ParamByName('p_skill').AsString:=Memo10Skills.Lines[i];
-          UniSPInsertSkills.ExecSQL;
+          UniSPInsertSkillShow.Close;
+          UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=FExperienceID[10];
+          UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo10Skills.Lines[i];
+					UniSPInsertSkillShow.ExecSQL;
           end;
   Result:=true;
   except
@@ -1649,8 +1780,8 @@ begin
   if FormMain.IsEmpty(EditName.Text) then EditName.Text := EditNameUA.Text;
   if FormMain.IsEmpty(EditOpportunity.Text) then EditOpportunity.Text := EditOpportunityUA.Text;
   if FormMain.IsEmpty(EditPlace.Text) then EditPlace.Text := EditPlaceUA.Text;
-  if FormMain.IsEmpty(EditPhones.Text) then EditPhones.Text := EditPhonesUA.Text;
-  if FormMain.IsEmpty(MemoIntro.Text) then MemoIntro.Text := MemoIntroUA.Text;
+	if FormMain.IsEmpty(EditPhones.Text) then EditPhones.Text := EditPhonesUA.Text;
+	if FormMain.IsEmpty(RichEditor.Text) then RichEditor.Text := MemoIntroUA.Text;
   if  FormMain.IsEmpty(EditArticle1.Text) then EditArticle1.Text := EditArticle1UA.Text;
   if  FormMain.IsEmpty(MemoArticle1.Text) then MemoArticle1.Text := MemoArticle1UA.Text;
   if  FormMain.IsEmpty(EditArticle2.Text) then EditArticle2.Text := EditArticle2UA.Text;
@@ -1743,8 +1874,51 @@ if VarIsNull(UniGetTemplate['job_place']) then EditPlaceUA.Text := ''
 else EditPlaceUA.Text := UniGetTemplate['job_place'];
 if VarIsNull(UniGetTemplate['phone_numbers_text']) then EditPhonesUA.Text := ''
 else EditPhonesUA.Text := UniGetTemplate['phone_numbers_text'];
-if VarIsNull(UniGetTemplate['resume_introduction']) then MemoIntroUA.Text := ''
-else MemoIntroUA.Text := UniGetTemplate['resume_introduction'];
+if VarIsNull(UniGetTemplate['template_introduction']) then MemoIntroUA.Text := ''
+else MemoIntroUA.Text := UniGetTemplate['template_introduction'];
+UniGetTemplateFooters.Close;
+UniGetTemplateFooters.ParamByName('p_template_id').AsInteger := TemplateId;
+UniGetTemplateFooters.Open;
+while not UniGetTemplateFooters.EOF do
+  begin
+  if UniGetTemplateFooters['footer_order']=1 then
+    begin
+    if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle1UA.Text := ''
+    else EditArticle1UA.Text := UniGetTemplateFooters['footer_header'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle1UA.Text := ''
+    else MemoArticle1UA.Text := UniGetTemplateFooters['footer_text'];
+    end;
+  if UniGetTemplateFooters['footer_order']=2 then
+    begin
+    if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle2UA.Text := ''
+    else EditArticle2UA.Text := UniGetTemplateFooters['footer_header'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle2UA.Text := ''
+    else MemoArticle2UA.Text := UniGetTemplateFooters['footer_text'];
+    end;
+  if UniGetTemplateFooters['footer_order']=3 then
+    begin
+    if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle3UA.Text := ''
+    else EditArticle3UA.Text := UniGetTemplateFooters['footer_header'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle3UA.Text := ''
+    else MemoArticle3UA.Text := UniGetTemplateFooters['footer_text'];
+    end;
+  if UniGetTemplateFooters['footer_order']=4 then
+    begin
+    if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle4UA.Text := ''
+    else EditArticle4UA.Text := UniGetTemplateFooters['footer_header'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle4UA.Text := ''
+    else MemoArticle4UA.Text := UniGetTemplateFooters['footer_text'];
+    end;
+  UniGetTemplateFooters.Next;
+  end;
+
+
+
+end;
+
+function TFormNewResume.GoogleTranslate(const S, lang: string): string;
+begin
+Result:=S;
 end;
 
 procedure TFormNewResume.GetValuesFromResume(const ResumeID:integer);
@@ -2008,6 +2182,31 @@ while not FormMain.UniRegions.Eof do
 //FormMain.Warning('Регион изменён на '+CBRegion.Text+' для '+ CBLang.Text);
 end;
 
+procedure TFormNewResume.CBRegionChange(Sender: TObject);
+begin
+FormMain.UniRegions.First;
+while not FormMain.UniRegions.Eof do
+  begin
+    if FormMain.UniRegions['id']=CBLang.Text then CBRegion.Text:=FormMain.UniRegions['region_name'];
+    FormMain.UniRegions.Next;
+  end;
+end;
+
+procedure TFormNewResume.CBWordWrapClick(Sender: TObject);
+begin
+if CBWordWrap.Checked
+then
+	begin
+	RichEditor.ScrollBars:=ssVertical;
+	RichEditor.WordWrap:=true;
+	end
+else
+	begin
+	RichEditor.ScrollBars:=ssBoth;
+	RichEditor.WordWrap:=false;
+	end;
+end;
+
 function TFormNewResume.isMainFormGood: boolean;
 begin
 Result:=true;
@@ -2015,6 +2214,12 @@ Result:=true;
   if FormMain.IsEmpty(EditName.Text) then
   begin
     ShowMessage('Пусте поле "Назва резюме"');
+    Result := false;
+    exit;
+  end;
+  if Length(Trim(EditName.Text))<5 then
+  begin
+    ShowMessage('Поле "Назва резюме" меньше за 5 символов, виправіть');
     Result := false;
     exit;
   end;
@@ -2035,8 +2240,8 @@ Result:=true;
     ShowMessage('Пусте поле "Телефони"');
     Result := false;
     exit;
-  end;
-  if FormMain.IsEmpty(MemoIntro.Text) then
+	end;
+	if FormMain.IsEmpty(RichEditor.Text) then
   begin
     ShowMessage('Пусте поле "Введення"');
     Result := false;
@@ -2096,131 +2301,150 @@ end;
 function TFormNewResume.isJobDatesGood: boolean;
 begin
 Result:=true;
+if not IsJobDatesValid then
+	begin
+	Result:=false;
+	exit;
+	end;
+if not IsJobPeriodsValid then
+	begin
+	Result:=false;
+	exit;
+	end;
+end;
 
+function TFormNewResume.isJobPeriodsValid: boolean;
+begin
+Result:=true;
+end;
+
+function TFormNewResume.isJobDatesValid: boolean;
+begin
+Result:=true;
 if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerB1.Date) or CalendarPickerB1.IsEmpty) then
-  begin
-    ShowMessage('Робота 1 дата початку невірна або знаходиться в майбутньому або рік дати меньший за 2000 '+DateToStr(CalendarPickerB1.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 1 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB1.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob1Active and (FormMain.IsDateInvalid(CalendarPickerE1.Date) or CalendarPickerE1.IsEmpty) then
-  begin
-    ShowMessage('Робота 1 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE1.Date));
-    Result := false;
-    exit;
-  end;
-if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerB2.Date) or CalendarPickerB2.IsEmpty) then
-  begin
-    ShowMessage('Робота 2 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB2.Date));
-    Result := false;
-    exit;
-  end;
-if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerE2.Date) or CalendarPickerE2.IsEmpty) then
-  begin
-    ShowMessage('Робота 2 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE2.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 1 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE1.Date));
+		Result := false;
+		exit;
+	end;
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerB2.Date)or CalendarPickerB2.IsEmpty) then
+	begin
+		ShowMessage('Робота 2 дата початку  пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB2.Date));
+		Result := false;
+		exit;
+	end;
+if IsJob2Active and (FormMain.IsDateInvalid(CalendarPickerE2.Date)or CalendarPickerE2.IsEmpty) then
+	begin
+		ShowMessage('Робота 2 дата закінчення  пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE2.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerB3.Date) or CalendarPickerB3.IsEmpty) then
-  begin
-    ShowMessage('Робота 3 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB3.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 3 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB3.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob3Active and (FormMain.IsDateInvalid(CalendarPickerE3.Date) or CalendarPickerE3.IsEmpty) then
-  begin
-    ShowMessage('Робота 3 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE3.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 3 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE3.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerB4.Date) or CalendarPickerB4.IsEmpty) then
-  begin
-    ShowMessage('Робота 4 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB4.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 4 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB4.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob4Active and (FormMain.IsDateInvalid(CalendarPickerE4.Date) or CalendarPickerE4.IsEmpty) then
-  begin
-    ShowMessage('Робота 4 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE4.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 4 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE4.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerB5.Date) or CalendarPickerB5.IsEmpty) then
-  begin
-    ShowMessage('Робота 5 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB5.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 5 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB5.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob5Active and (FormMain.IsDateInvalid(CalendarPickerE5.Date) or CalendarPickerE5.IsEmpty) then
-  begin
-    ShowMessage('Робота 5 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE5.Date));
-    Result := false;
-    exit;
-  end;
-if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerB6.Date) or CalendarPickerB6.IsEmpty) then
-  begin
-    ShowMessage('Робота 6 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB6.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 5 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE5.Date));
+		Result := false;
+		exit;
+	end;
+if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerB6.Date)  or CalendarPickerB6.IsEmpty) then
+	begin
+		ShowMessage('Робота 6 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB6.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob6Active and (FormMain.IsDateInvalid(CalendarPickerE6.Date) or CalendarPickerE6.IsEmpty) then
-  begin
-    ShowMessage('Робота 6 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE6.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 6 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE6.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerB7.Date) or CalendarPickerB7.IsEmpty) then
-  begin
-    ShowMessage('Робота 7 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB7.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 7 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB7.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob7Active and (FormMain.IsDateInvalid(CalendarPickerE7.Date) or CalendarPickerE7.IsEmpty) then
-  begin
-    ShowMessage('Робота 7 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE7.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 7 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE7.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerB8.Date) or CalendarPickerB8.IsEmpty) then
-  begin
-    ShowMessage('Робота 8 дата початку невірна або або знаходиться в майбутньому рік меньший за 2000 '+DateToStr(CalendarPickerB8.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 8 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB8.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob8Active and (FormMain.IsDateInvalid(CalendarPickerE8.Date) or CalendarPickerE8.IsEmpty) then
-  begin
-    ShowMessage('Робота 8 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE8.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 8 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE8.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerB9.Date) or CalendarPickerB9.IsEmpty) then
-  begin
-    ShowMessage('Робота 9 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB9.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 9 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB9.Date));
+		Result := false;
+		exit;
+	end;
 if IsJob9Active and (FormMain.IsDateInvalid(CalendarPickerE9.Date) or CalendarPickerE9.IsEmpty) then
-  begin
-    ShowMessage('Робота 9 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE9.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 9 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE9.Date));
+		Result := false;
+		exit;
+	end;
 if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerB10.Date) or CalendarPickerB10.IsEmpty) then
-  begin
-    ShowMessage('Робота 10 дата початку невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerB10.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 10 дата початку пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerB10.Date));
+		Result := false;
+		exit;
+	end;
 if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or CalendarPickerE10.IsEmpty) then
-  begin
-    ShowMessage('Робота 10 дата закінчення невірна або знаходиться в майбутньому або рік меньший за 2000 '+DateToStr(CalendarPickerE10.Date));
-    Result := false;
-    exit;
-  end;
+	begin
+		ShowMessage('Робота 10 дата закінчення пуста, невірна (знаходиться в майбутньому або рік дати меньший за 2000) '+DateToStr(CalendarPickerE10.Date));
+		Result := false;
+		exit;
+	end;
 
 // BX>=EX
-  if IsJob1Active and (CalendarPickerB1.Date >=CalendarPickerE1.Date) then
-  begin
+	if IsJob1Active and (CalendarPickerB1.Date >=CalendarPickerE1.Date) then
+	begin
     ShowMessage('Робота 1 дата закінчення '+DateToStr(CalendarPickerE1.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB1.Date));
     Result := false;
     exit;
@@ -2276,67 +2500,12 @@ if  IsJob10Active and (FormMain.IsDateInvalid(CalendarPickerE10.Date) or Calenda
   end;
   if IsJob10Active and (CalendarPickerB10.Date >= CalendarPickerE10.Date) then
   begin
-    ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB10.Date));
-    Result := false;
-    exit;
-  end;
-// BX+1 > EX - должно соблюдаться
- if IsJob1Active and IsJob2Active and (CalendarPickerE1.Date <= CalendarPickerB2.Date)
- then
-  begin
-    ShowMessage('Дата закінчення E1 '+DateToStr(CalendarPickerE1.Date)+' пізніше за дату початку роботи B2 '+DateToStr(CalendarPickerB2.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob2Active and IsJob3Active and (CalendarPickerE2.Date <= CalendarPickerB3.Date) then
-  begin
-    ShowMessage('Дата закінчення E2 '+DateToStr(CalendarPickerE2.Date)+' пізніше за дату початку роботи B3 '+DateToStr(CalendarPickerB3.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob3Active and IsJob4Active and (CalendarPickerE3.Date <= CalendarPickerB4.Date) then
-  begin
-    ShowMessage('Дата закінчення E3 '+DateToStr(CalendarPickerE3.Date)+' пізніше за дату початку роботи B4 '+DateToStr(CalendarPickerB4.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob4Active and IsJob5Active and (CalendarPickerE4.Date <= CalendarPickerB5.Date) then
-  begin
-    ShowMessage('Дата закінчення E4 '+DateToStr(CalendarPickerE4.Date)+' пізніше за дату початку роботи B5 '+DateToStr(CalendarPickerB5.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob5Active and IsJob6Active and (CalendarPickerE5.Date <= CalendarPickerB6.Date) then
-  begin
-    ShowMessage('Дата закінчення E5 '+DateToStr(CalendarPickerE5.Date)+' пізніше за дату початку роботи B6 '+DateToStr(CalendarPickerB6.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob6Active and IsJob7Active and (CalendarPickerE6.Date <= CalendarPickerB7.Date) then
-  begin
-    ShowMessage('Дата закінчення E6 '+DateToStr(CalendarPickerE6.Date)+' пізніше за дату початку роботи B7 '+DateToStr(CalendarPickerB7.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob7Active and IsJob8Active and (CalendarPickerE7.Date <= CalendarPickerB8.Date) then
-  begin
-    ShowMessage('Дата закінчення E7 '+DateToStr(CalendarPickerE7.Date)+' пізніше за дату початку роботи B8 '+DateToStr(CalendarPickerB8.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob8Active and IsJob9Active and (CalendarPickerE8.Date <= CalendarPickerB9.Date) then
-  begin
-    ShowMessage('Дата закінчення E8 '+DateToStr(CalendarPickerE8.Date)+' пізніше за дату початку роботи B9 '+DateToStr(CalendarPickerB9.Date));
-    Result := false;
-    exit;
-  end;
-  if IsJob9Active and IsJob10Active and (CalendarPickerE9.Date <= CalendarPickerB10.Date) then
-  begin
-    ShowMessage('Дата закінчення E9 '+DateToStr(CalendarPickerE9.Date)+' пізніше за дату початку роботи B10 '+DateToStr(CalendarPickerB10.Date));
-    Result := false;
-    exit;
-  end;
+		ShowMessage('Робота 10 дата закінчення '+DateToStr(CalendarPickerE10.Date)+' раніше за дату початку '+DateToStr(CalendarPickerB10.Date));
+		Result := false;
+		exit;
+	end;
 end;
+
 
 function TFormNewResume.isJobGood: boolean;
 begin
