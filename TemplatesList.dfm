@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     661)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 841
+    Left = 837
     Top = 613
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormTemplatesList: TFormTemplatesList
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 837
+    ExplicitLeft = 833
     ExplicitTop = 612
   end
   object DBGrid1: TDBGrid
@@ -64,7 +64,7 @@ object FormTemplatesList: TFormTemplatesList
       item
         Expanded = False
         FieldName = 'name'
-        Title.Caption = #1048#1084#1103
+        Title.Caption = #1055#1086#1089#1072#1076#1072
         Width = 130
         Visible = True
       end
@@ -468,10 +468,6 @@ object FormTemplatesList: TFormTemplatesList
       FieldName = 'phone_numbers_text'
       Size = 255
     end
-    object UniTemplatestemplate_introduction: TMemoField
-      FieldName = 'template_introduction'
-      BlobType = ftMemo
-    end
     object UniTemplatescreated: TDateTimeField
       FieldName = 'created'
     end
@@ -493,6 +489,10 @@ object FormTemplatesList: TFormTemplatesList
     object UniTemplatescntr_skills: TLargeintField
       FieldName = 'cntr_skills'
       ReadOnly = True
+    end
+    object UniTemplatestemplate_introduction: TMemoField
+      FieldName = 'template_introduction'
+      BlobType = ftMemo
     end
   end
   object UniDSTemplates: TUniDataSource

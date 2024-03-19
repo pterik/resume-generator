@@ -17,7 +17,7 @@ object FormNewResume: TFormNewResume
     799)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 834
+    Left = 830
     Top = 761
     Width = 98
     Height = 38
@@ -25,7 +25,7 @@ object FormNewResume: TFormNewResume
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 830
+    ExplicitLeft = 826
     ExplicitTop = 760
   end
   object BitBtnSave: TBitBtn
@@ -176,7 +176,7 @@ object FormNewResume: TFormNewResume
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheetJob3UA
+    ActivePage = TabSheetFooterUA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -321,9 +321,6 @@ object FormNewResume: TFormNewResume
     object TabSheetFooterUA: TTabSheet
       Caption = 'Footer'
       ImageIndex = 11
-      DesignSize = (
-        972
-        281)
       object StaticText1: TStaticText
         Left = 3
         Top = 2
@@ -333,88 +330,40 @@ object FormNewResume: TFormNewResume
         TabOrder = 0
       end
       object EditArticle1UA: TEdit
-        Left = 100
+        Left = 85
         Top = 0
-        Width = 380
+        Width = 398
         Height = 29
         ReadOnly = True
         TabOrder = 1
         Text = 'EditArticle1UA'
       end
       object EditArticle2UA: TEdit
-        Left = 590
+        Left = 574
         Top = 0
-        Width = 380
+        Width = 395
         Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'EditArticle2UA'
       end
-      object MemoArticle1UA: TMemo
-        Left = 2
-        Top = 32
-        Width = 476
-        Height = 110
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle1UA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 3
-      end
-      object MemoArticle2UA: TMemo
-        Left = 492
-        Top = 32
-        Width = 476
-        Height = 110
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle2UA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 4
-      end
       object EditArticle3UA: TEdit
-        Left = 100
+        Left = 85
         Top = 144
-        Width = 380
+        Width = 401
         Height = 29
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 3
         Text = 'EditArticle3UA'
       end
       object EditArticle4UA: TEdit
-        Left = 590
+        Left = 577
         Top = 144
-        Width = 380
+        Width = 392
         Height = 29
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 4
         Text = 'EditArticle4UA'
-      end
-      object MemoArticle3UA: TMemo
-        Left = 2
-        Top = 178
-        Width = 476
-        Height = 100
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle3UA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 7
-      end
-      object MemoArticle4UA: TMemo
-        Left = 492
-        Top = 178
-        Width = 476
-        Height = 100
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle4UA')
-        ReadOnly = True
-        ScrollBars = ssVertical
-        TabOrder = 8
       end
       object StaticText6: TStaticText
         Left = 3
@@ -422,22 +371,84 @@ object FormNewResume: TFormNewResume
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 3'
-        TabOrder = 9
+        TabOrder = 5
       end
       object StaticText7: TStaticText
-        Left = 497
-        Top = 1
+        Left = 489
+        Top = 4
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 2'
-        TabOrder = 10
+        TabOrder = 6
       end
       object StaticText8: TStaticText
-        Left = 505
+        Left = 492
         Top = 148
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 4'
+        TabOrder = 7
+      end
+      object RichEdit1UA: TRichEdit
+        Left = 3
+        Top = 33
+        Width = 480
+        Height = 105
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit1UA')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
+      end
+      object RichEdit2UA: TRichEdit
+        Left = 489
+        Top = 35
+        Width = 480
+        Height = 105
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit2UA')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 9
+      end
+      object RichEdit3UA: TRichEdit
+        Left = 3
+        Top = 178
+        Width = 483
+        Height = 100
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit3UA')
+        ParentFont = False
+        TabOrder = 10
+      end
+      object RichEdit4UA: TRichEdit
+        Left = 492
+        Top = 179
+        Width = 477
+        Height = 99
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit4UA')
+        ParentFont = False
         TabOrder = 11
       end
     end
@@ -1402,7 +1413,7 @@ object FormNewResume: TFormNewResume
     Top = 330
     Width = 980
     Height = 424
-    ActivePage = TabSheetMainTR
+    ActivePage = TabSheetFooterTR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -1514,9 +1525,9 @@ object FormNewResume: TFormNewResume
         OnChange = CBLangChange
       end
       object CBPhones: TComboBox
-        Left = 683
+        Left = 648
         Top = 70
-        Width = 230
+        Width = 275
         Height = 29
         TabOrder = 6
         Text = 'CBPhones'
@@ -1562,84 +1573,37 @@ object FormNewResume: TFormNewResume
     object TabSheetFooterTR: TTabSheet
       Caption = 'Footer'
       ImageIndex = 11
-      DesignSize = (
-        972
-        385)
       object EditArticle1: TEdit
-        Left = 102
+        Left = 89
         Top = 0
-        Width = 380
+        Width = 393
         Height = 29
         TabOrder = 0
         Text = 'EditArticle1'
       end
       object EditArticle2: TEdit
-        Left = 589
-        Top = 0
-        Width = 380
+        Left = 573
+        Top = -1
+        Width = 396
         Height = 29
-        TabOrder = 2
+        TabOrder = 1
         Text = 'EditArticle2'
       end
-      object MemoArticle1: TMemo
-        Left = 2
-        Top = 32
-        Width = 480
-        Height = 120
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle1')
-        ScrollBars = ssVertical
-        TabOrder = 1
-      end
-      object MemoArticle2: TMemo
-        Left = 499
-        Top = 32
-        Width = 470
-        Height = 120
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle2')
-        ScrollBars = ssVertical
-        TabOrder = 3
-      end
       object EditArticle3: TEdit
-        Left = 102
-        Top = 163
-        Width = 380
+        Left = 87
+        Top = 195
+        Width = 395
         Height = 29
-        TabOrder = 4
+        TabOrder = 2
         Text = 'EditArticle3'
       end
       object EditArticle4: TEdit
-        Left = 589
-        Top = 163
-        Width = 380
+        Left = 567
+        Top = 195
+        Width = 402
         Height = 29
-        TabOrder = 6
+        TabOrder = 3
         Text = 'EditArticle4'
-      end
-      object MemoArticle3: TMemo
-        Left = 3
-        Top = 198
-        Width = 479
-        Height = 120
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle3')
-        ScrollBars = ssVertical
-        TabOrder = 5
-      end
-      object MemoArticle4: TMemo
-        Left = 499
-        Top = 198
-        Width = 470
-        Height = 120
-        Anchors = [akLeft, akTop, akRight]
-        Lines.Strings = (
-          'MemoArticle4')
-        ScrollBars = ssVertical
-        TabOrder = 7
       end
       object StaticText3: TStaticText
         Left = 4
@@ -1647,30 +1611,94 @@ object FormNewResume: TFormNewResume
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 1'
-        TabOrder = 8
+        TabOrder = 4
       end
       object StaticText2: TStaticText
         Left = 2
-        Top = 166
+        Top = 198
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 3'
-        TabOrder = 9
+        TabOrder = 5
       end
       object StaticText4: TStaticText
-        Left = 504
-        Top = 167
+        Left = 488
+        Top = 199
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 4'
-        TabOrder = 10
+        TabOrder = 6
       end
       object StaticText5: TStaticText
-        Left = 504
-        Top = 1
+        Left = 488
+        Top = 3
         Width = 79
         Height = 25
         Caption = #1053#1072#1074#1080#1095#1086#1082' 2'
+        TabOrder = 7
+      end
+      object RichEdit1: TRichEdit
+        Left = 3
+        Top = 35
+        Width = 480
+        Height = 150
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit1')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
+      end
+      object RichEdit2: TRichEdit
+        Left = 489
+        Top = 34
+        Width = 480
+        Height = 154
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit2')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 9
+      end
+      object RichEdit3: TRichEdit
+        Left = 3
+        Top = 230
+        Width = 479
+        Height = 150
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit3')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 10
+      end
+      object RichEdit4: TRichEdit
+        Left = 488
+        Top = 230
+        Width = 481
+        Height = 150
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit4')
+        ParentFont = False
+        ScrollBars = ssVertical
         TabOrder = 11
       end
     end
@@ -3343,8 +3371,8 @@ object FormNewResume: TFormNewResume
       '  created,'
       '  updated '
       'from resumes WHERE id = :p_id')
-    Left = 224
-    Top = 128
+    Left = 264
+    Top = 104
     ParamData = <
       item
         DataType = ftInteger
@@ -3422,8 +3450,8 @@ object FormNewResume: TFormNewResume
       'and r.lang = :p_lang'
       'and f.resume_id = :p_resume_id'
       'ORDER BY f.footer_order')
-    Left = 328
-    Top = 128
+    Left = 136
+    Top = 104
     ParamData = <
       item
         DataType = ftString
@@ -3476,7 +3504,7 @@ object FormNewResume: TFormNewResume
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'SELECT * from templates WHERE id = :p_id')
-    Left = 232
+    Left = 296
     Top = 232
     ParamData = <
       item
@@ -3532,8 +3560,8 @@ object FormNewResume: TFormNewResume
       'where sl.skill_id = s.id'
       'and experience_id = :p_experience_id')
     UniDirectional = True
-    Left = 856
-    Top = 189
+    Left = 208
+    Top = 245
     ParamData = <
       item
         DataType = ftInteger
@@ -3589,8 +3617,8 @@ object FormNewResume: TFormNewResume
       'where e.resume_id = :p_resume_id'
       'order by start_date')
     UniDirectional = True
-    Left = 488
-    Top = 245
+    Left = 392
+    Top = 109
     ParamData = <
       item
         DataType = ftInteger
@@ -3652,8 +3680,8 @@ object FormNewResume: TFormNewResume
         'archived, @p_resume_id); SELECT CAST(@p_resume_id AS SIGNED) AS ' +
         #39'@p_resume_id'#39)
     Connection = FormMain.UniConnection
-    Left = 230
-    Top = 556
+    Left = 222
+    Top = 644
     ParamData = <
       item
         DataType = ftString
@@ -3698,11 +3726,10 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_resume_introduction'
         ParamType = ptInput
-        Size = 3000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3712,11 +3739,10 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3726,11 +3752,10 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3740,11 +3765,10 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3754,11 +3778,10 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftShortint
@@ -3780,8 +3803,8 @@ object FormNewResume: TFormNewResume
     SQL.Strings = (
       'SELECT max(ID) as ID from resumes '
       'WHERE name = :p_name and lang = :p_lang')
-    Left = 750
-    Top = 141
+    Left = 102
+    Top = 253
     ParamData = <
       item
         DataType = ftString
@@ -3809,8 +3832,8 @@ object FormNewResume: TFormNewResume
         'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
         'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 392
-    Top = 560
+    Left = 400
+    Top = 640
     ParamData = <
       item
         DataType = ftString
@@ -3897,8 +3920,8 @@ object FormNewResume: TFormNewResume
     SQL.Strings = (
       'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 552
-    Top = 560
+    Left = 560
+    Top = 640
     ParamData = <
       item
         DataType = ftInteger
@@ -3922,8 +3945,8 @@ object FormNewResume: TFormNewResume
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 712
-    Top = 560
+    Left = 704
+    Top = 640
     ParamData = <
       item
         DataType = ftString
@@ -3952,8 +3975,8 @@ object FormNewResume: TFormNewResume
     SQL.Strings = (
       'SELECT id, RU, UA, EN, HR, PL, DE from words_translations'
       'WHERE RU = :p_word')
-    Left = 614
-    Top = 245
+    Left = 550
+    Top = 117
     ParamData = <
       item
         DataType = ftUnknown
@@ -4007,7 +4030,7 @@ object FormNewResume: TFormNewResume
       'WHERE  r.id = f.template_id'
       'and f.template_id = :p_template_id'
       'ORDER BY f.footer_order')
-    Left = 368
+    Left = 416
     Top = 232
     ParamData = <
       item

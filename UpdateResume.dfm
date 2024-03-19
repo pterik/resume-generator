@@ -16,7 +16,7 @@ object FormUpdateResume: TFormUpdateResume
     812)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 833
+    Left = 829
     Top = 764
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 829
+    ExplicitLeft = 825
     ExplicitTop = 763
   end
   object BitBtnSave: TBitBtn
@@ -278,8 +278,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label127: TLabel
-        Left = 36
-        Top = 176
+        Left = 22
+        Top = 177
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -346,8 +346,8 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
-        Left = 112
-        Top = 173
+        Left = 98
+        Top = 174
         Width = 550
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -376,9 +376,9 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'CBRegion'
       end
       object CBPhones: TComboBox
-        Left = 695
+        Left = 654
         Top = 174
-        Width = 230
+        Width = 275
         Height = 29
         TabOrder = 7
         Text = 'CBPhones'
@@ -393,9 +393,9 @@ object FormUpdateResume: TFormUpdateResume
         OnClick = BitBtn2Click
       end
       object RichEditor: TRichEdit
-        Left = 112
+        Left = 98
         Top = 209
-        Width = 857
+        Width = 871
         Height = 450
         EnableURLs = True
         Font.Charset = RUSSIAN_CHARSET
@@ -403,109 +403,6 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
-        Lines.Strings = (
-          
-            'dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df df df df df ' +
-            'dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df df df df df ' +
-            'dfdfd '
-          
-            'df dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd ' +
-            'df dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd ' +
-            'df '
-          
-            'dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df ' +
-            'dfd fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df ' +
-            'dfd '
-          
-            'fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd ' +
-            'fdf df df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd ' +
-            'fdf df '
-          
-            'df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df ' +
-            'df df df df dfdfd df dfd fdf df df df df df dfdfd df dfd fdf df ' +
-            'df df '
-          'df df '
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          
-            '1234567890 123456789 123456789 123456789 123456789 123456789 123' +
-            '456789 123456789 123456789 '
-          '123456789 1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          
-            '1234567890 123456789 123456789 123456789 123456789 123456789 123' +
-            '456789 123456789 123456789 '
-          '123456789 1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          
-            '1234567890 123456789 123456789 123456789 123456789 123456789 123' +
-            '456789 123456789 123456789 '
-          '123456789 1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890'
-          
-            '123456789 123456789 123456789 123456789 123456789 123456789 1234' +
-            '56789 123456789 123456789 '
-          '1234567890')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 4
@@ -513,7 +410,7 @@ object FormUpdateResume: TFormUpdateResume
       object CBWordWrap: TCheckBox
         Left = 4
         Top = 239
-        Width = 102
+        Width = 88
         Height = 17
         Caption = 'Word Wrap'
         Font.Charset = DEFAULT_CHARSET
@@ -3346,8 +3243,8 @@ object FormUpdateResume: TFormUpdateResume
         'ter_4_header, :p_footer_4_text, @p_result); SELECT CAST(@p_resul' +
         't AS SIGNED) AS '#39'@p_result'#39)
     Connection = FormMain.UniConnection
-    Left = 432
-    Top = 136
+    Left = 192
+    Top = 376
     ParamData = <
       item
         DataType = ftInteger
@@ -3384,11 +3281,10 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_resume_introduction'
         ParamType = ptInput
-        Size = 5000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftInteger
@@ -3404,11 +3300,10 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3418,11 +3313,10 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3432,11 +3326,10 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3446,11 +3339,10 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftInteger
@@ -3469,8 +3361,8 @@ object FormUpdateResume: TFormUpdateResume
         'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
         'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 608
-    Top = 136
+    Left = 368
+    Top = 376
     ParamData = <
       item
         DataType = ftString
@@ -3557,8 +3449,8 @@ object FormUpdateResume: TFormUpdateResume
     SQL.Strings = (
       'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 744
-    Top = 136
+    Left = 520
+    Top = 376
     ParamData = <
       item
         DataType = ftInteger
@@ -3582,8 +3474,8 @@ object FormUpdateResume: TFormUpdateResume
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 864
-    Top = 136
+    Left = 656
+    Top = 376
     ParamData = <
       item
         DataType = ftString

@@ -30,12 +30,8 @@ type
     StaticText1: TStaticText;
     EditArticle1: TEdit;
     EditArticle2: TEdit;
-    MemoArticle1: TMemo;
-    MemoArticle2: TMemo;
     EditArticle3: TEdit;
     EditArticle4: TEdit;
-    MemoArticle3: TMemo;
-    MemoArticle4: TMemo;
     TabSheetJob1RU: TTabSheet;
     Edit1Dates: TEdit;
     Edit1Name: TEdit;
@@ -214,6 +210,10 @@ type
     BitBtn2: TBitBtn;
     RichEditor: TRichEdit;
     CBWordWrap: TCheckBox;
+    RichEdit1: TRichEdit;
+    RichEdit2: TRichEdit;
+    RichEdit3: TRichEdit;
+    RichEdit4: TRichEdit;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure CalendarPickerB2CloseUp(Sender: TObject);
@@ -633,14 +633,14 @@ begin
     UniSPInsertTemplate.ParamByName('p_job_place').AsString := Trim(EditPlace.Text);
 		UniSPInsertTemplate.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhones.Text);
 		UniSPInsertTemplate.ParamByName('p_template_introduction').AsMemo := Trim(RichEditor.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_1_text').AsString := Trim(MemoArticle1.Text);
+		UniSPInsertTemplate.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
+		UniSPInsertTemplate.ParamByName('p_footer_1_text').AsMemo := Trim(RichEdit1.Text);
     UniSPInsertTemplate.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_2_text').AsString := Trim(MemoArticle2.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_2_text').AsMemo := Trim(RichEdit2.Text);
     UniSPInsertTemplate.ParamByName('p_footer_3_header').AsString := Trim(EditArticle3.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_3_text').AsString := Trim(MemoArticle3.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
-    UniSPInsertTemplate.ParamByName('p_footer_4_text').AsString := Trim(MemoArticle4.Text);
+		UniSPInsertTemplate.ParamByName('p_footer_3_text').AsMemo := Trim(RichEdit3.Text);
+		UniSPInsertTemplate.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
+    UniSPInsertTemplate.ParamByName('p_footer_4_text').AsMemo := Trim(RichEdit4.Text);
     UniSPInsertTemplate.ExecProc;
     FTemplateID:=UniSPInsertTemplate.ParamByName('p_template_id').Value;
     if UniSPInsertTemplate.ParamByName('p_result').Value=0 then Result:=true else Result:=false;
@@ -918,26 +918,26 @@ IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit1
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(MemoArticle1.Text) then
+  if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(RichEdit1.Text) then
   begin
     ShowMessage('Пусте поле "Навички 1 - Назва"');
     Result := false;
     exit;
-  end;
-  if FormMain.IsEmpty(MemoArticle1.Text) and FormMain.IsEmpty(EditArticle1.Text) then
-  begin
+	end;
+	if FormMain.IsEmpty(RichEdit1.Text) and FormMain.IsEmpty(EditArticle1.Text) then
+	begin
     ShowMessage('Пусте поле "Навички 1 - Текст"');
     Result := false;
     exit;
   end;
   if (Length(Trim(EditArticle2.Text)) = 0) and
-    (Length(Trim(MemoArticle2.Text)) > 0) then
+    (Length(Trim(RichEdit2.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle2.Text)) = 0) and
+  if (Length(Trim(RichEdit2.Text)) = 0) and
     (Length(Trim(EditArticle2.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Текст"');
@@ -945,13 +945,13 @@ IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit1
     exit;
   end;
   if (Length(Trim(EditArticle3.Text)) = 0) and
-    (Length(Trim(MemoArticle3.Text)) > 0) then
+    (Length(Trim(RichEdit3.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle3.Text)) = 0) and
+  if (Length(Trim(RichEdit3.Text)) = 0) and
     (Length(Trim(EditArticle3.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Текст"');
@@ -959,13 +959,13 @@ IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit1
     exit;
   end;
   if (Length(Trim(EditArticle4.Text)) = 0) and
-    (Length(Trim(MemoArticle4.Text)) > 0) then
+    (Length(Trim(RichEdit4.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle4.Text)) = 0) and
+  if (Length(Trim(RichEdit4.Text)) = 0) and
     (Length(Trim(EditArticle4.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Текст"');
@@ -1498,14 +1498,14 @@ end;
 
 procedure TFormNewTemplate.SetEmptyFootersRU;
 begin
-  MemoArticle1.Text := '';
+	RichEdit1.Text := '';
   EditArticle1.Text := '';
-  MemoArticle2.Text := '';
+	RichEdit2.Text := '';
   EditArticle2.Text := '';
-  MemoArticle3.Text := '';
-  EditArticle3.Text := '';
-  MemoArticle4.Text := '';
-  EditArticle4.Text := '';
+	RichEdit3.Text := '';
+	EditArticle3.Text := '';
+	RichEdit4.Text := '';
+	EditArticle4.Text := '';
 end;
 
 procedure TFormNewTemplate.SetEmptyTemplatesRU;

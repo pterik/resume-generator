@@ -228,20 +228,12 @@ type
     StaticText1: TStaticText;
     EditArticle1UA: TEdit;
     EditArticle2UA: TEdit;
-    MemoArticle1UA: TMemo;
-    MemoArticle2UA: TMemo;
     EditArticle3UA: TEdit;
     EditArticle4UA: TEdit;
-    MemoArticle3UA: TMemo;
-    MemoArticle4UA: TMemo;
     EditArticle1: TEdit;
     EditArticle2: TEdit;
-    MemoArticle1: TMemo;
-    MemoArticle2: TMemo;
     EditArticle3: TEdit;
     EditArticle4: TEdit;
-    MemoArticle3: TMemo;
-    MemoArticle4: TMemo;
     StaticText3: TStaticText;
     LabelFooterID: TLabel;
     UniGetFootersid: TIntegerField;
@@ -414,6 +406,14 @@ type
     UniGetTemplateFootersupdated: TDateTimeField;
     RichEditor: TRichEdit;
     CBWordWrap: TCheckBox;
+    RichEdit1: TRichEdit;
+    RichEdit2: TRichEdit;
+    RichEdit3: TRichEdit;
+    RichEdit4: TRichEdit;
+    RichEdit1UA: TRichEdit;
+    RichEdit2UA: TRichEdit;
+    RichEdit3UA: TRichEdit;
+    RichEdit4UA: TRichEdit;
     procedure PageControlChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -646,11 +646,11 @@ begin
   EditLangRU.Text := 'UA';
   EditRegionRU.Text := 'UA';
 
-  MemoArticle1.Text := '';
-  MemoArticle2.Text := '';
-  MemoArticle3.Text := '';
-  MemoArticle4.Text := '';
-  EditArticle1.Text := '';
+	RichEdit1.Text := '';
+	RichEdit2.Text := '';
+	RichEdit3.Text := '';
+  RichEdit4.Text := '';
+	EditArticle1.Text := '';
   EditArticle2.Text := '';
   EditArticle3.Text := '';
   EditArticle4.Text := '';
@@ -766,10 +766,10 @@ begin
   EditPhonesUA.Text := '';
   MemoIntroUA.Text := '';
 
-  MemoArticle1UA.Text := '';
-  MemoArticle2UA.Text := '';
-  MemoArticle3UA.Text := '';
-  MemoArticle4UA.Text := '';
+  RichEdit1UA.Text := '';
+	RichEdit2UA.Text := '';
+  RichEdit3UA.Text := '';
+  RichEdit4UA.Text := '';
   EditArticle1UA.Text := '';
   EditArticle2UA.Text := '';
   EditArticle3UA.Text := '';  EditArticle4UA.Text := '';
@@ -833,22 +833,22 @@ end;
 //  if UniGetFooters['footer_order'] = 1 then
 //    begin
 //      EditArticle1UA.Text := NVL(UniGetFooters['footer_header']);
-//      MemoArticle1UA.Text := NVL(UniGetFooters['footer_text']);
+//      RichEdit1UA.Text := NVL(UniGetFooters['footer_text']);
 //    end;
 //  if UniGetFooters['footer_order'] = 2 then
 //    begin
 //      EditArticle2UA.Text := NVL(UniGetFooters['footer_header']);
-//      MemoArticle2UA.Text := NVL(UniGetFooters['footer_text']);
+//      RichEdit2UA.Text := NVL(UniGetFooters['footer_text']);
 //    end;
 //  if UniGetFooters['footer_order'] = 3 then
 //    begin
 //       EditArticle3UA.Text := NVL(UniGetFooters['footer_header']);
-//       MemoArticle3UA.Text := NVL(UniGetFooters['footer_text']);
+//       RichEdit3UA.Text := NVL(UniGetFooters['footer_text']);
 //    end;
 //  if UniGetFooters['footer_order'] = 4 then
 //    begin
 //      EditArticle4UA.Text := NVL(UniGetFooters['footer_header']);
-//      MemoArticle4UA.Text := NVL(UniGetFooters['footer_text']);
+//      RichEdit4UA.Text := NVL(UniGetFooters['footer_text']);
 //    end;
 //  UniGetFooters.Next;
 //  end;
@@ -1068,7 +1068,7 @@ begin
   EditLangRU.Text := 'UA';
   EditRegionRU.Text := 'UA';
 
-  MemoArticle1.Text := '';  MemoArticle2.Text := '';  MemoArticle3.Text := '';  MemoArticle4.Text := '';
+  RichEdit1.Text := '';  RichEdit2.Text := '';  RichEdit3.Text := '';  RichEdit4.Text := '';
   EditArticle1.Text := '';  EditArticle2.Text := '';  EditArticle3.Text := '';  EditArticle4.Text := '';
 
   Edit1Dates.Text := '';  Edit1Name.Text := '';  Edit1Company.Text := ''; Memo1Resp.Text := '';
@@ -1143,9 +1143,9 @@ end;
 //      else
 //        EditArticle1UA.Text := UniGetFooters['footer_header'];
 //      if VarIsNull(UniGetFooters['footer_text']) then
-//        MemoArticle1UA.Text := ''
+//        RichEdit1UA.Text := ''
 //      else
-//        MemoArticle1UA.Text := UniGetFooters['footer_text'];
+//        RichEdit1UA.Text := UniGetFooters['footer_text'];
 //    end;
 //    if UniGetFooters['footer_order'] = 2 then
 //    begin
@@ -1154,9 +1154,9 @@ end;
 //      else
 //        EditArticle2UA.Text := UniGetFooters['footer_header'];
 //      if VarIsNull(UniGetFooters['footer_text']) then
-//        MemoArticle2UA.Text := ''
+//        RichEdit2UA.Text := ''
 //      else
-//        MemoArticle2UA.Text := UniGetFooters['footer_text'];
+//        RichEdit2UA.Text := UniGetFooters['footer_text'];
 //    end;
 //    if UniGetFooters['footer_order'] = 3 then
 //    begin
@@ -1165,9 +1165,9 @@ end;
 //      else
 //        EditArticle3UA.Text := UniGetFooters['footer_header'];
 //      if VarIsNull(UniGetFooters['footer_text']) then
-//        MemoArticle3UA.Text := ''
+//        RichEdit3UA.Text := ''
 //      else
-//        MemoArticle3UA.Text := UniGetFooters['footer_text'];
+//        RichEdit3UA.Text := UniGetFooters['footer_text'];
 //    end;
 //    if UniGetFooters['footer_order'] = 4 then
 //    begin
@@ -1176,9 +1176,9 @@ end;
 //      else
 //        EditArticle4UA.Text := UniGetFooters['footer_header'];
 //      if VarIsNull(UniGetFooters['footer_text']) then
-//        MemoArticle4UA.Text := ''
+//        RichEdit4UA.Text := ''
 //      else
-//        MemoArticle4UA.Text := UniGetFooters['footer_text'];
+//        RichEdit4UA.Text := UniGetFooters['footer_text'];
 //    end;
 //    UniGetFooters.Next;
 //  end;
@@ -1260,13 +1260,13 @@ EditPlace.Text := Translate(EditPlaceUA.Text,CBLang.Text);
 EditPhones.Text := Translate(EditPhonesUA.Text,CBLang.Text);
 RichEditor.Text := Translate(MemoIntroUA.Text,CBLang.Text);
 EditArticle1.Text := Translate(EditArticle1UA.Text,CBLang.Text);
-MemoArticle1.Text := Translate(MemoArticle1UA.Text,CBLang.Text);
+RichEdit1.Text := Translate(RichEdit1UA.Text,CBLang.Text);
 EditArticle2.Text := Translate(EditArticle2UA.Text,CBLang.Text);
-MemoArticle2.Text := Translate(MemoArticle2UA.Text,CBLang.Text);
+RichEdit2.Text := Translate(RichEdit2UA.Text,CBLang.Text);
 EditArticle3.Text := Translate(EditArticle3UA.Text,CBLang.Text);
-MemoArticle3.Text := Translate(MemoArticle3UA.Text,CBLang.Text);
+RichEdit3.Text := Translate(RichEdit3UA.Text,CBLang.Text);
 EditArticle4.Text := Translate(EditArticle4UA.Text,CBLang.Text);
-MemoArticle4.Text := Translate(MemoArticle4UA.Text,CBLang.Text);
+RichEdit4.Text := Translate(RichEdit4UA.Text,CBLang.Text);
 
 Edit1NameUA.Text  := Translate(Edit1NameUA.Text,CBLang.Text);
 Memo1RespUA.Text  := Translate(Memo1RespUA.Text,CBLang.Text);
@@ -1402,13 +1402,13 @@ try
   UniSPInsertResume.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhones.Text);
   UniSPInsertResume.ParamByName('p_resume_introduction').AsMemo := Trim(RichEditor.Text);
   UniSPInsertResume.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
-  UniSPInsertResume.ParamByName('p_footer_1_text').AsString := Trim(MemoArticle1.Text);
+  UniSPInsertResume.ParamByName('p_footer_1_text').AsString := Trim(RichEdit1.Text);
   UniSPInsertResume.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2.Text);
-  UniSPInsertResume.ParamByName('p_footer_2_text').AsString := Trim(MemoArticle2.Text);
+  UniSPInsertResume.ParamByName('p_footer_2_text').AsString := Trim(RichEdit2.Text);
   UniSPInsertResume.ParamByName('p_footer_3_header').AsString := Trim(EditArticle3.Text);
-  UniSPInsertResume.ParamByName('p_footer_3_text').AsString := Trim(MemoArticle3.Text);
+  UniSPInsertResume.ParamByName('p_footer_3_text').AsString := Trim(RichEdit3.Text);
   UniSPInsertResume.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
-  UniSPInsertResume.ParamByName('p_footer_4_text').AsString := Trim(MemoArticle4.Text);
+  UniSPInsertResume.ParamByName('p_footer_4_text').AsString := Trim(RichEdit4.Text);
   UniSPInsertResume.ParamByName('p_archived').AsBoolean := false;
   UniSPInsertResume.ExecProc;
   FResumeID:=UniSPInsertResume.ParamByName('p_resume_id').AsInteger;
@@ -1783,13 +1783,13 @@ begin
 	if FormMain.IsEmpty(EditPhones.Text) then EditPhones.Text := EditPhonesUA.Text;
 	if FormMain.IsEmpty(RichEditor.Text) then RichEditor.Text := MemoIntroUA.Text;
   if  FormMain.IsEmpty(EditArticle1.Text) then EditArticle1.Text := EditArticle1UA.Text;
-  if  FormMain.IsEmpty(MemoArticle1.Text) then MemoArticle1.Text := MemoArticle1UA.Text;
+  if  FormMain.IsEmpty(RichEdit1.Text) then RichEdit1.Text := RichEdit1UA.Text;
   if  FormMain.IsEmpty(EditArticle2.Text) then EditArticle2.Text := EditArticle2UA.Text;
-  if  FormMain.IsEmpty(MemoArticle2.Text) then MemoArticle2.Text := MemoArticle2UA.Text;
+  if  FormMain.IsEmpty(RichEdit2.Text) then RichEdit2.Text := RichEdit2UA.Text;
   if  FormMain.IsEmpty(EditArticle3.Text) then EditArticle3.Text := EditArticle3UA.Text;
-  if  FormMain.IsEmpty(MemoArticle3.Text) then MemoArticle3.Text := MemoArticle3UA.Text;
+  if  FormMain.IsEmpty(RichEdit3.Text) then RichEdit3.Text := RichEdit3UA.Text;
   if  FormMain.IsEmpty(EditArticle4.Text) then EditArticle4.Text := EditArticle4UA.Text;
-  if  FormMain.IsEmpty(MemoArticle4.Text) then MemoArticle4.Text := MemoArticle4UA.Text;
+  if  FormMain.IsEmpty(RichEdit4.Text) then RichEdit4.Text := RichEdit4UA.Text;
   if  FormMain.IsEmpty(Edit1Dates.Text) then Edit1Dates.Text := Edit1DatesUA.Text;
   if  FormMain.IsEmpty(Edit1Name.Text) then Edit1Name.Text := Edit1NameUA.Text;
   if  FormMain.IsEmpty(Edit1Company.Text) then Edit1Company.Text := Edit1CompanyUA.Text;
@@ -1885,29 +1885,29 @@ while not UniGetTemplateFooters.EOF do
     begin
     if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle1UA.Text := ''
     else EditArticle1UA.Text := UniGetTemplateFooters['footer_header'];
-    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle1UA.Text := ''
-    else MemoArticle1UA.Text := UniGetTemplateFooters['footer_text'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit1UA.Text := ''
+    else RichEdit1UA.Text := UniGetTemplateFooters['footer_text'];
     end;
   if UniGetTemplateFooters['footer_order']=2 then
     begin
     if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle2UA.Text := ''
     else EditArticle2UA.Text := UniGetTemplateFooters['footer_header'];
-    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle2UA.Text := ''
-    else MemoArticle2UA.Text := UniGetTemplateFooters['footer_text'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit2UA.Text := ''
+    else RichEdit2UA.Text := UniGetTemplateFooters['footer_text'];
     end;
   if UniGetTemplateFooters['footer_order']=3 then
     begin
     if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle3UA.Text := ''
     else EditArticle3UA.Text := UniGetTemplateFooters['footer_header'];
-    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle3UA.Text := ''
-    else MemoArticle3UA.Text := UniGetTemplateFooters['footer_text'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit3UA.Text := ''
+		else RichEdit3UA.Text := UniGetTemplateFooters['footer_text'];
     end;
   if UniGetTemplateFooters['footer_order']=4 then
     begin
     if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle4UA.Text := ''
     else EditArticle4UA.Text := UniGetTemplateFooters['footer_header'];
-    if VarIsNull(UniGetTemplateFooters['footer_text']) then MemoArticle4UA.Text := ''
-    else MemoArticle4UA.Text := UniGetTemplateFooters['footer_text'];
+    if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit4UA.Text := ''
+		else RichEdit4UA.Text := UniGetTemplateFooters['footer_text'];
     end;
   UniGetTemplateFooters.Next;
   end;
@@ -2242,54 +2242,54 @@ Result:=true;
     exit;
 	end;
 	if FormMain.IsEmpty(RichEditor.Text) then
-  begin
+	begin
     ShowMessage('Пусте поле "Введення"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(MemoArticle1.Text) then
+  if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(RichEdit1.Text) then
   begin
     ShowMessage('Пусте поле "Навички 1 - Назва"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(MemoArticle1.Text) and FormMain.IsEmpty(EditArticle1.Text) then
+	if FormMain.IsEmpty(RichEdit1.Text) and FormMain.IsEmpty(EditArticle1.Text) then
   begin
     ShowMessage('Пусте поле "Навички 1 - Текст"');
     Result := false;
     exit;
   end;
-  if FormMain.IsEmpty(EditArticle2.Text) and not FormMain.IsEmpty(MemoArticle2.Text) then
+  if FormMain.IsEmpty(EditArticle2.Text) and not FormMain.IsEmpty(RichEdit2.Text) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle2.Text)) = 0) and (Length(Trim(EditArticle2.Text)) > 0) then
+	if (Length(Trim(RichEdit2.Text)) = 0) and (Length(Trim(EditArticle2.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 2 - Текст"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle3.Text)) = 0) and (Length(Trim(MemoArticle3.Text)) > 0) then
+  if (Length(Trim(EditArticle3.Text)) = 0) and (Length(Trim(RichEdit3.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle3.Text)) = 0) and (Length(Trim(EditArticle3.Text)) > 0) then
+	if (Length(Trim(RichEdit3.Text)) = 0) and (Length(Trim(EditArticle3.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 3 - Текст"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(EditArticle4.Text)) = 0) and (Length(Trim(MemoArticle4.Text)) > 0) then
+  if (Length(Trim(EditArticle4.Text)) = 0) and (Length(Trim(RichEdit4.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Назва"');
     Result := false;
     exit;
   end;
-  if (Length(Trim(MemoArticle4.Text)) = 0) and (Length(Trim(EditArticle4.Text)) > 0) then
+	if (Length(Trim(RichEdit4.Text)) = 0) and (Length(Trim(EditArticle4.Text)) > 0) then
   begin
     ShowMessage('Пусте поле "Навички 4 - Текст"');
     Result := false;

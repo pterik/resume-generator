@@ -58,7 +58,7 @@ object FormNewTemplate: TFormNewTemplate
     Caption = #1055#1086#1089#1072#1076#1072
   end
   object BitBtnClose: TBitBtn
-    Left = 833
+    Left = 829
     Top = 730
     Width = 95
     Height = 38
@@ -73,8 +73,8 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 829
-    ExplicitTop = 615
+    ExplicitLeft = 825
+    ExplicitTop = 729
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -223,7 +223,7 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 616
+    ExplicitTop = 733
   end
   object PageControl: TPageControl
     Left = 0
@@ -268,7 +268,7 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 34
+        Left = 0
         Top = 185
         Width = 70
         Height = 21
@@ -363,7 +363,7 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
-        Left = 110
+        Left = 99
         Top = 184
         Width = 550
         Height = 29
@@ -405,15 +405,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 6
       end
       object CBPhones: TComboBox
-        Left = 671
-        Top = 182
-        Width = 230
+        Left = 655
+        Top = 184
+        Width = 275
         Height = 29
         TabOrder = 7
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
-        Left = 905
+        Left = 936
         Top = 184
         Width = 33
         Height = 25
@@ -422,8 +422,8 @@ object FormNewTemplate: TFormNewTemplate
         OnClick = BitBtn2Click
       end
       object RichEditor: TRichEdit
-        Left = 110
-        Top = 230
+        Left = 98
+        Top = 219
         Width = 859
         Height = 450
         Font.Charset = RUSSIAN_CHARSET
@@ -437,7 +437,7 @@ object FormNewTemplate: TFormNewTemplate
       object CBWordWrap: TCheckBox
         Left = 3
         Top = 299
-        Width = 102
+        Width = 89
         Height = 17
         Caption = 'Word Wrap'
         Font.Charset = DEFAULT_CHARSET
@@ -459,9 +459,6 @@ object FormNewTemplate: TFormNewTemplate
       Font.Style = []
       ImageIndex = 11
       ParentFont = False
-      DesignSize = (
-        972
-        683)
       object Label74: TLabel
         Left = 8
         Top = 154
@@ -478,7 +475,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label76: TLabel
         Left = 9
-        Top = 441
+        Top = 457
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1086#1082' 4'
@@ -495,7 +492,7 @@ object FormNewTemplate: TFormNewTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 4
       end
       object EditArticle1: TEdit
         Left = 90
@@ -522,42 +519,8 @@ object FormNewTemplate: TFormNewTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
-        Text = 'EditArticle2'
-      end
-      object MemoArticle1: TMemo
-        Left = 3
-        Top = 35
-        Width = 966
-        Height = 110
-        Anchors = [akLeft, akTop, akRight]
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        Lines.Strings = (
-          'MemoArticle1')
-        ParentFont = False
-        ScrollBars = ssVertical
         TabOrder = 1
-      end
-      object MemoArticle2: TMemo
-        Left = 1
-        Top = 186
-        Width = 968
-        Height = 110
-        Anchors = [akLeft, akTop, akRight]
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        Lines.Strings = (
-          'MemoArticle2')
-        ParentFont = False
-        ScrollBars = ssVertical
-        TabOrder = 3
+        Text = 'EditArticle2'
       end
       object EditArticle3: TEdit
         Left = 90
@@ -570,12 +533,12 @@ object FormNewTemplate: TFormNewTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 2
         Text = 'EditArticle3'
       end
       object EditArticle4: TEdit
         Left = 90
-        Top = 436
+        Top = 452
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -584,42 +547,70 @@ object FormNewTemplate: TFormNewTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 3
         Text = 'EditArticle4'
       end
-      object MemoArticle3: TMemo
-        Left = 2
-        Top = 332
-        Width = 967
-        Height = 100
-        Anchors = [akLeft, akTop, akRight]
-        Font.Charset = DEFAULT_CHARSET
+      object RichEdit1: TRichEdit
+        Left = 3
+        Top = 33
+        Width = 966
+        Height = 112
+        Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'MemoArticle3')
+          'RichEdit1')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 5
       end
-      object MemoArticle4: TMemo
-        Left = 2
-        Top = 468
-        Width = 967
-        Height = 100
-        Anchors = [akLeft, akTop, akRight]
-        Font.Charset = DEFAULT_CHARSET
+      object RichEdit2: TRichEdit
+        Left = 3
+        Top = 186
+        Width = 966
+        Height = 110
+        Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'MemoArticle4')
+          'RichEdit2')
         ParentFont = False
         ScrollBars = ssVertical
+        TabOrder = 6
+      end
+      object RichEdit3: TRichEdit
+        Left = 3
+        Top = 335
+        Width = 966
+        Height = 110
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit3')
+        ParentFont = False
         TabOrder = 7
+      end
+      object RichEdit4: TRichEdit
+        Left = 3
+        Top = 487
+        Width = 966
+        Height = 110
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit4')
+        ParentFont = False
+        TabOrder = 8
       end
     end
     object TabSheetJob1RU: TTabSheet
@@ -3046,8 +3037,8 @@ object FormNewTemplate: TFormNewTemplate
         '_result'#39)
     Connection = FormMain.UniConnection
     Debug = True
-    Left = 182
-    Top = 420
+    Left = 158
+    Top = 532
     ParamData = <
       item
         DataType = ftString
@@ -3091,11 +3082,10 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3105,11 +3095,10 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3119,11 +3108,10 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3133,11 +3121,10 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftInteger
@@ -3162,8 +3149,8 @@ object FormNewTemplate: TFormNewTemplate
         'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
         'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 320
-    Top = 424
+    Left = 312
+    Top = 536
     ParamData = <
       item
         DataType = ftString
@@ -3251,8 +3238,8 @@ object FormNewTemplate: TFormNewTemplate
     SQL.Strings = (
       'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 480
-    Top = 424
+    Left = 472
+    Top = 536
     ParamData = <
       item
         DataType = ftInteger
@@ -3276,8 +3263,8 @@ object FormNewTemplate: TFormNewTemplate
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 632
-    Top = 424
+    Left = 608
+    Top = 536
     ParamData = <
       item
         DataType = ftString

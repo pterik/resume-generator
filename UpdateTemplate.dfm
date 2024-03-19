@@ -19,8 +19,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
     813)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 840
-    Top = 771
+    Left = 881
+    Top = 767
     Width = 84
     Height = 40
     Anchors = [akRight, akBottom]
@@ -33,8 +33,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 836
-    ExplicitTop = 652
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -183,7 +181,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 650
+    ExplicitTop = 766
   end
   object PageControl: TPageControl
     Left = 0
@@ -228,7 +226,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label123: TLabel
-        Left = 39
+        Left = 7
         Top = 248
         Width = 68
         Height = 21
@@ -280,7 +278,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label127: TLabel
-        Left = 36
+        Left = 25
         Top = 197
         Width = 70
         Height = 21
@@ -348,7 +346,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
-        Left = 110
+        Left = 99
         Top = 194
         Width = 550
         Height = 29
@@ -394,15 +392,15 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'Template'
       end
       object CBPhones: TComboBox
-        Left = 684
+        Left = 655
         Top = 194
-        Width = 230
+        Width = 275
         Height = 29
         TabOrder = 6
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
-        Left = 920
+        Left = 936
         Top = 196
         Width = 33
         Height = 25
@@ -3324,11 +3322,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3338,11 +3335,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3352,11 +3348,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3366,11 +3361,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftInteger
@@ -3492,7 +3486,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
         'e_id)')
     Connection = FormMain.UniConnection
-    Left = 776
+    Left = 680
     Top = 432
     ParamData = <
       item
@@ -3532,7 +3526,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       'SELECT DISTINCT value FROM parameters'
       'WHERE name LIKE '#39'%telephone%'#39' '
       'ORDER BY 1')
-    Left = 864
+    Left = 880
     Top = 136
   end
 end

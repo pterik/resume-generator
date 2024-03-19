@@ -29,8 +29,8 @@ type
     UniTemplatescntr_exp: TLargeintField;
     UniTemplatescntr_skills: TLargeintField;
     UniSPDeleteTemplate: TUniStoredProc;
-    UniTemplatestemplate_introduction: TMemoField;
     DBMemo1: TDBMemo;
+    UniTemplatestemplate_introduction: TMemoField;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtnDeleteTemplateClick(Sender: TObject);
