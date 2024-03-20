@@ -398,7 +398,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 565
   end
   object BitBtnClose: TBitBtn
-    Left = 829
+    Left = 825
     Top = 614
     Width = 115
     Height = 38
@@ -413,7 +413,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 825
+    ExplicitLeft = 821
     ExplicitTop = 613
   end
   object EditCopyNumber: TEdit
@@ -481,7 +481,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 609
   end
   object BitBtnPDF: TBitBtn
-    Left = 829
+    Left = 825
     Top = 566
     Width = 115
     Height = 38
@@ -495,7 +495,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 825
+    ExplicitLeft = 821
     ExplicitTop = 565
   end
   object BitBtnOpenResume: TBitBtn
@@ -1565,8 +1565,9 @@ object FormListResumes: TFormListResumes
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = []
-    ScrollBars = ssBoth
+    ScrollBars = ssVertical
     TabOrder = 17
+    WantTabs = True
   end
   object UniResumes: TUniQuery
     UpdatingTable = 'resumes'
@@ -1642,6 +1643,7 @@ object FormListResumes: TFormListResumes
         'and archived = 1)'
       'order by archived, name')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
+    Active = True
     OnCalcFields = UniResumesCalcFields
     Left = 288
     Top = 112

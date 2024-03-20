@@ -16,7 +16,7 @@ object FormUpdateResume: TFormUpdateResume
     812)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 825
+    Left = 821
     Top = 764
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 821
+    ExplicitLeft = 817
     ExplicitTop = 763
   end
   object BitBtnSave: TBitBtn

@@ -70,13 +70,13 @@ type
 		UniResumescountry: TStringField;
     UniLocalTranslate: TUniQuery;
     UniLocalTranslateid: TIntegerField;
-    UniLocalTranslateRU: TStringField;
-    UniLocalTranslateUA: TStringField;
-    UniLocalTranslateEN: TStringField;
-    UniLocalTranslateHR: TStringField;
-    UniLocalTranslatePL: TStringField;
-    UniLocalTranslateDE: TStringField;
-    UniResumeFooters: TUniQuery;
+		UniLocalTranslateRU: TStringField;
+		UniLocalTranslateUA: TStringField;
+		UniLocalTranslateEN: TStringField;
+		UniLocalTranslateHR: TStringField;
+		UniLocalTranslatePL: TStringField;
+		UniLocalTranslateDE: TStringField;
+		UniResumeFooters: TUniQuery;
     UniResumeFootersid: TIntegerField;
     UniResumeFootersresume_id: TIntegerField;
     UniResumeFootersfooter_order: TIntegerField;
@@ -115,14 +115,15 @@ type
   private
     FileRDOCX, FileCVDOCX, FileCLDOCX,FileRPDF, FileCVPDF, FileCLPDF:string;
 		WarningFired:boolean;
-    function WX_R_FileGenerate(const resume_id: integer; const FileName:string): boolean;
-    function WX_R_PDF_Generate(const resume_id: integer; const FileName:string): boolean;
+		function WX_R_FileGenerate(const resume_id: integer; const FileName:string): boolean;
+		function WX_R_PDF_Generate(const resume_id: integer; const FileName:string): boolean;
 
 		procedure EditResume;
 
-  public
-    procedure SetFormValues;
-    function LocalTranslate(Word:string; Lang:string):string;
+	public
+		procedure SetFormValues;
+		function LocalTranslate(Word:string):string;
+		function LocalTranslateLang(Word:string; Lang:string):string;
 //    function OLE_FileReplace(FWordFrom, FWordTo:TFileName):boolean;
 
   end;
@@ -274,41 +275,78 @@ begin
 Radiogroup.ItemIndex:=0;
 end;
 
-function TFormListResumes.LocalTranslate(Word, Lang: string): string;
+function TFormListResumes.LocalTranslate(Word:string): string;
 begin
 Result:='';
 UniLocalTranslate.Close;
 UniLocalTranslate.ParamByName('p_word').Value:=Trim(Word);
 UniLocalTranslate.Open;
 if VarIsNull(UniLocalTranslate['id']) then
-   begin
+	 begin
+   Result:='N/A';
+   exit;
+	 end;
+if UniResumes['lang']='RU' then
+	 begin
+	 Result:=UniLocalTranslate['RU'];
+	 end;
+if UniResumes['lang']='UA' then
+	 begin
+	 Result:=UniLocalTranslate['UA'];
+	 end;
+if UniResumes['lang']='EN' then
+	 begin
+	 Result:=UniLocalTranslate['EN'];
+	 end;
+if UniResumes['lang']='DE' then
+	 begin
+	 Result:=UniLocalTranslate['DE'];
+	 end;
+if UniResumes['lang']='PL' then
+	 begin
+	 Result:=UniLocalTranslate['PL'];
+	 end;
+if UniResumes['lang']='HR' then
+	 begin
+	 Result:=UniLocalTranslate['HR'];
+	 end;
+end;
+
+function TFormListResumes.LocalTranslateLang(Word, Lang: string): string;
+begin
+Result:='';
+UniLocalTranslate.Close;
+UniLocalTranslate.ParamByName('p_word').Value:=Trim(Word);
+UniLocalTranslate.Open;
+if VarIsNull(UniLocalTranslate['id']) then
+	 begin
    Result:='N/A';
    exit;
    end;
 if lang='RU' then
    begin
-   Result:=UniLocalTranslate['RU'];
-   end;
+	 Result:=UniLocalTranslate['RU'];
+	 end;
 if lang='UA' then
-   begin
-   Result:=UniLocalTranslate['UA'];
-   end;
+	 begin
+	 Result:=UniLocalTranslate['UA'];
+	 end;
 if lang='EN' then
-   begin
-   Result:=UniLocalTranslate['EN'];
-   end;
+	 begin
+	 Result:=UniLocalTranslate['EN'];
+	 end;
 if lang='DE' then
-   begin
-   Result:=UniLocalTranslate['DE'];
-   end;
+	 begin
+	 Result:=UniLocalTranslate['DE'];
+	 end;
 if lang='PL' then
-   begin
-   Result:=UniLocalTranslate['PL'];
-   end;
+	 begin
+	 Result:=UniLocalTranslate['PL'];
+	 end;
 if lang='HR' then
-   begin
-   Result:=UniLocalTranslate['HR'];
-   end;
+	 begin
+	 Result:=UniLocalTranslate['HR'];
+	 end;
 end;
 
 procedure TFormListResumes.BitBtnLetterClick(Sender: TObject);
@@ -344,6 +382,19 @@ end;
 
 procedure TFormListResumes.BitBtnOpenResumeClick(Sender: TObject);
 begin
+// TODO: В начале документа отображается POsition - должно быть слово в зависимости от языка.
+// TODO: Расположение ключевых слов, которые выводятся в DOCX. Вставлять их в текст или добавлять автоматически?
+// TODO: Указать размеры таблицы и ячеек таблицы, исправить цвет полей на белый или невидимый
+// TODO: Сделать отступ абзацев согласно стандартам языка.
+// TODO: Сделать общую высоту строки 1.5 - не смог найти
+// TODO: Поставить текст по ширине
+// TODO: Досвід роботи другим шрифтом, надо Times
+// TODO: Полное название месяцев в R версии документа
+// TODO: Если в тексте указаны тег <a> то делаем URL
+// TODO: Если в тексте указаны тег <b> то выделяем болдом
+// TODO: В поле "Компания" нужно выделять слово USA болдом.
+
+
 if (FIleRDocx='')  then
    begin
    ShowMessage('Файл ещё не создан');
@@ -480,14 +531,15 @@ table    : TTMSFNCWXDocxTable;
 table2   : TTMSFNCWXDocxTable;
 tableRow : TTMSFNCWXDocxTableRow;
 tableCell: TTMSFNCWXDocxTableCell;
-MemoText1:TStrings;
-MemoText:TStringList;
-Memo1:TMemo;
+StringList:TStringList;
 i:integer;
 begin
+StringList:=TStringList.Create();
 TMSFNCWXDocx1.Document.Sections.Clear;
 section := TMSFNCWXDocx1.Document.AddSection;
 section.Page.Orientation := poLandscape;
+
+// Добавляем Фамилию имя
 paragraph := section.AddParagraph;
 paragraph.Spacing.Before:=120;
 paragraph.Spacing.After:=120;
@@ -498,10 +550,12 @@ paragraph.Alignment := taLeft;
 Text.Font.Size := 22;
 Text.Font.Style := [fsBold];
 Text.Font.Name:='Times New Roman';
+
+// Добавляем должность
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
 paragraph.Spacing.After:=480;
-text := paragraph.AddText('Position ');
+text := paragraph.AddText(LocalTranslate('Должность'));
 text.Font.Color := clBlack;
 text.Font.Size := 12;
 Text.Font.Style := [fsBold];
@@ -509,7 +563,8 @@ Text.Font.Name:='Times New Roman';
 text := paragraph.AddText(UniResumes['name']);
 text.Font.Size := 12;
 Text.Font.Name:='Times New Roman';
-
+// Добавляем таблицу и выставляем её размеры
+// в таблице убирается ячейка и текст про языковой экзамен
 table := section.AddTable;
 Table.Width.Size:=10000;
 Table.Indent.Size:= 30;
@@ -521,6 +576,7 @@ tableCell.Width.WidthType:=wtPercentage;
 tableCell.Borders.Borders:= [];
 //tableCell.Width.Size:=1000;
 
+// Перенести ячейку Віддалена робота в конец таблицы
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
@@ -560,6 +616,7 @@ paragraph.AddText('  ');
 paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[1],50,50);
 paragraph.AddText('  ');
 
+// Добавляем телефонный номер
 tableCell := tableRow.AddCell;
 tableCell.Borders.Left.Size:=0;
 tableCell.Borders.Borders:= [];
@@ -616,7 +673,7 @@ paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
 Paragraph.Spacing.Line:=240;
-text := paragraph.AddText(LocalTranslate('Рекомендательное письмо',UniResumes['lang'])+'  '+FormMain.RecommendationLink);
+text := paragraph.AddText(LocalTranslate('Рекомендательное письмо')+'  '+FormMain.RecommendationLink);
 text.Font.Color := clBlack;
 text.Font.Size := 12;
 Text.Font.Name:='Times New Roman';
@@ -631,11 +688,13 @@ Paragraph.Spacing.LineRule:=lrAuto;
 //Text.Font.Name:='Times New Roman';
 if not VarIsNull(UniResumes['resume_introduction']) then
 	begin
-	Memo1.Text:=UniResumes['resume_introduction'];
-	for i:=0 to Memo1.Lines.Count-1 do
+	StringList.Text := UniResumes.FieldByName('resume_introduction').AsString;
+	for i:=0 to StringList.Count-1 do
 		begin
-			text:=paragraph.AddText(Memo1.Lines[i]);
-			paragraph.Alignment := taLeft;
+			paragraph := section.AddParagraph;
+			Paragraph.Spacing.Line:=400;
+			Paragraph.Spacing.LineRule:=lrAuto;
+			text:=paragraph.AddText(StringList[i]);
 			Text.Font.Size := 12;
 			Text.Font.Name:='Times New Roman';
 		end;
@@ -665,7 +724,7 @@ while not UniResumeFooters.Eof do
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
 Paragraph.Spacing.LineRule:=lrAuto;
-text := paragraph.AddText(LocalTranslate('Опыт работы',UniResumes['lang']));
+text := paragraph.AddText(LocalTranslate('Опыт работы'));
 Text.Font.Size := 18;
 Text.Font.Style := [fsBold];
 
@@ -816,7 +875,6 @@ end;
 //  WApp1.ActiveDocument.Select;
 ////  if (WordRecords[i].WordType=[wtImage]) then
 ////    begin
-////     TODO: Вставка картинки не включена
 ////    FormMain.Warning('Replace Image: '+WordRecords[i].Key+' to size '+IntToStr(WordRecords[i].WordImage.Height)+'x'+IntToStr(WordRecords[i].WordImage.Width)+':File:'+FWordTarget);
 ////    W.Selection.Find.Text := WordRecords[i].Key;
 ////    W.Selection.Find.Replacement.Text := WordRecords[i].WordImage;
@@ -847,7 +905,6 @@ end;
 //    end;
 //  if (WordRecords[i].WordType=[wtMemo]) and WordRecords[i].Active then
 //    begin
-//    // TODO: Поиск шаблона в документе должен быть успешным
 //    MemoLog.Lines.Add('Replacetext = "'+WordRecords[i].ReplaceText[0]+'"');
 //    WApp1.Selection.Find.Text := WordRecords[i].Key;
 //    WApp1.Selection.Find.Replacement.Text :=WordRecords[i].ReplaceText[0];
@@ -938,7 +995,6 @@ end;
 //  WApp1.ActiveDocument.Select;
 ////  if (WordRecords[i].WordType=[wtImage]) then
 ////    begin
-////     TODO: Вставка картинки не включена
 ////    FormMain.Warning('Replace Image: '+WordRecords[i].Key+' to size '+IntToStr(WordRecords[i].WordImage.Height)+'x'+IntToStr(WordRecords[i].WordImage.Width)+':File:'+FWordTarget);
 ////    W.Selection.Find.Text := WordRecords[i].Key;
 ////    W.Selection.Find.Replacement.Text := WordRecords[i].WordImage;
@@ -969,7 +1025,6 @@ end;
 //    end;
 //  if (WordRecords[i].WordType=[wtMemo]) and WordRecords[i].Active then
 //    begin
-//    // TODO: Поиск шаблона в документе должен быть успешным
 //    MemoLog.Lines.Add('Replacetext = "'+WordRecords[i].ReplaceText[0]+'"');
 //    WApp1.Selection.Find.Text := WordRecords[i].Key;
 //    WApp1.Selection.Find.Replacement.Text :=WordRecords[i].ReplaceText[0];

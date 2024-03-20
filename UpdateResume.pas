@@ -1106,20 +1106,20 @@ Result:=true;
 // Проверка полей основной формы
 	if FormMain.IsEmpty(EditName.Text) then
 	begin
-		ShowMessage('Пусте поле "Назва резюме"');
+		ShowMessage('Пусте поле "Посада"');
 		Result := false;
 		exit;
 	end;
 	if Length(Trim(EditName.Text))<5 then
 	begin
-		ShowMessage('Поле "Назва резюме" меньше за 5 символов, виправіть');
+		ShowMessage('Поле "Посада" меньше за 5 символов');
 		Result := false;
 		exit;
 	end;
 
 	if FormMain.IsEmpty(EditOpportunity.Text) then
 	begin
-		ShowMessage('Пусте поле "Посада"');
+		ShowMessage('Пусте поле "Посада повністю"');
 		Result := false;
 		exit;
 	end;
