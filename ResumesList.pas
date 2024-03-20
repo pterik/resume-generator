@@ -79,8 +79,6 @@ type
     UniResumeFooters: TUniQuery;
     UniResumeFootersid: TIntegerField;
     UniResumeFootersresume_id: TIntegerField;
-    UniResumeFootersfooter_header: TStringField;
-    UniResumeFootersfooter_text: TStringField;
     UniResumeFootersfooter_order: TIntegerField;
     UniExperiences: TUniQuery;
     UniExperiencesid: TIntegerField;
@@ -91,12 +89,14 @@ type
     UniExperiencesstart_date: TDateField;
     UniExperiencesend_date: TDateField;
     UniExperiencesemployer: TStringField;
-    UniExperiencesresponsibilities: TStringField;
     UniExperiencesbenefits: TStringField;
-    UniExperiencesleave_reason: TStringField;
     TMSFNCWXDocx1: TTMSFNCWXDocx;
     DBRichEditor: TDBRichEdit;
     UniResumesresume_introduction: TMemoField;
+    UniExperiencesother: TMemoField;
+    UniExperiencesresponsibilities: TMemoField;
+    UniResumeFootersfooter_header: TStringField;
+    UniResumeFootersfooter_text: TMemoField;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnNewResumeClick(Sender: TObject);
     procedure BitBtnDeleteResumeClick(Sender: TObject);
@@ -480,6 +480,10 @@ table    : TTMSFNCWXDocxTable;
 table2   : TTMSFNCWXDocxTable;
 tableRow : TTMSFNCWXDocxTableRow;
 tableCell: TTMSFNCWXDocxTableCell;
+MemoText1:TStrings;
+MemoText:TStringList;
+Memo1:TMemo;
+i:integer;
 begin
 TMSFNCWXDocx1.Document.Sections.Clear;
 section := TMSFNCWXDocx1.Document.AddSection;
@@ -620,10 +624,22 @@ Text.Font.Name:='Times New Roman';
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
 Paragraph.Spacing.LineRule:=lrAuto;
-text:=paragraph.AddText(UniResumes['resume_introduction']);
-paragraph.Alignment := taLeft;
-Text.Font.Size := 12;
-Text.Font.Name:='Times New Roman';
+
+//text:=paragraph.AddText(UniResumes['resume_introduction']);
+//paragraph.Alignment := taLeft;
+//Text.Font.Size := 12;
+//Text.Font.Name:='Times New Roman';
+if not VarIsNull(UniResumes['resume_introduction']) then
+	begin
+	Memo1.Text:=UniResumes['resume_introduction'];
+	for i:=0 to Memo1.Lines.Count-1 do
+		begin
+			text:=paragraph.AddText(Memo1.Lines[i]);
+			paragraph.Alignment := taLeft;
+			Text.Font.Size := 12;
+			Text.Font.Name:='Times New Roman';
+		end;
+  end;
 UniResumeFooters.Close;
 UniResumeFooters.ParamByName('p_resume_id').Value:=resume_id;
 UniResumeFooters.Open;
@@ -707,7 +723,7 @@ while not UniExperiences.Eof do
 		Paragraph.Spacing.Line:=400;
 		Paragraph.Spacing.LineRule:=lrAuto;
 		paragraph.Alignment := taLeft;
-		text:=paragraph.AddText(UniExperiences['leave_reason']);
+		text:=paragraph.AddText(UniExperiences['other']);
 		Text.Font.Size := 12;
 		Text.Font.Name:='Times New Roman';
 		end;

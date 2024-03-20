@@ -176,7 +176,7 @@ object FormNewResume: TFormNewResume
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheetMainUA
+    ActivePage = TabSheetJob1UA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -458,14 +458,14 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 1'
       ImageIndex = 3
       object Label17: TLabel
-        Left = 580
+        Left = 492
         Top = 3
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label18: TLabel
-        Left = 310
+        Left = 213
         Top = 3
         Width = 42
         Height = 21
@@ -509,7 +509,7 @@ object FormNewResume: TFormNewResume
         Text = 'Edit1DatesUA'
       end
       object Edit1NameUA: TEdit
-        Left = 358
+        Left = 261
         Top = 0
         Width = 220
         Height = 29
@@ -518,9 +518,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit1NameUA'
       end
       object Edit1CompanyUA: TEdit
-        Left = 653
+        Left = 565
         Top = 0
-        Width = 300
+        Width = 404
         Height = 29
         ReadOnly = True
         TabOrder = 2
@@ -535,14 +535,14 @@ object FormNewResume: TFormNewResume
         TabOrder = 3
         Text = 'Edit1BenefitsUA'
       end
-      object Edit1BottomUA: TEdit
+      object Edit1OthersUA: TEdit
         Left = 81
         Top = 196
         Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 4
-        Text = 'Edit1BottomUA'
+        Text = 'Edit1OthersUA'
       end
       object Memo1SkillsUA: TMemo
         Left = 531
@@ -576,15 +576,15 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 2'
       ImageIndex = 4
       object Label27: TLabel
-        Left = 396
-        Top = 3
+        Left = 212
+        Top = 4
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label54: TLabel
-        Left = 694
-        Top = 3
+        Left = 470
+        Top = 6
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -596,6 +596,27 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
+      object Label110: TLabel
+        Left = 486
+        Top = 167
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
+      end
+      object Label111: TLabel
+        Left = 23
+        Top = 175
+        Width = 50
+        Height = 21
+        Caption = #1042#1080#1075#1086#1076#1072
+      end
+      object Label112: TLabel
+        Left = 39
+        Top = 213
+        Width = 34
+        Height = 21
+        Caption = #1030#1085#1096#1077
+      end
       object Edit2DatesUA: TEdit
         Left = 4
         Top = 2
@@ -606,8 +627,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit2DatesUA'
       end
       object Edit2NameUA: TEdit
-        Left = 444
-        Top = 2
+        Left = 260
+        Top = 3
         Width = 200
         Height = 29
         ReadOnly = True
@@ -615,31 +636,31 @@ object FormNewResume: TFormNewResume
         Text = 'Edit2NameUA'
       end
       object Edit2CompanyUA: TEdit
-        Left = 767
-        Top = 0
-        Width = 200
+        Left = 543
+        Top = 3
+        Width = 426
         Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit2CompanyUA'
       end
       object Edit2BenefitsUA: TEdit
-        Left = 3
+        Left = 79
         Top = 172
-        Width = 480
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit2BenefitsUA'
       end
-      object Edit2BottomUA: TEdit
-        Left = 3
+      object Edit2OthersUA: TEdit
+        Left = 79
         Top = 218
-        Width = 480
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 4
-        Text = 'Edit2BottomUA'
+        Text = 'Edit2OthersUA'
       end
       object Memo2SkillsUA: TMemo
         Left = 531
@@ -671,14 +692,14 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 3'
       ImageIndex = 5
       object Label28: TLabel
-        Left = 396
-        Top = 3
+        Left = 212
+        Top = 2
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label55: TLabel
-        Left = 701
+        Left = 458
         Top = 3
         Width = 67
         Height = 21
@@ -691,6 +712,20 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
+      object Label113: TLabel
+        Left = 25
+        Top = 175
+        Width = 50
+        Height = 21
+        Caption = #1042#1080#1075#1086#1076#1072
+      end
+      object Label114: TLabel
+        Left = 41
+        Top = 213
+        Width = 34
+        Height = 21
+        Caption = #1030#1085#1096#1077
+      end
       object Edit3DatesUA: TEdit
         Left = 4
         Top = 3
@@ -701,8 +736,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit3DatesUA'
       end
       object Edit3NameUA: TEdit
-        Left = 440
-        Top = 1
+        Left = 256
+        Top = 0
         Width = 200
         Height = 29
         ReadOnly = True
@@ -710,31 +745,31 @@ object FormNewResume: TFormNewResume
         Text = 'Edit3NameUA'
       end
       object Edit3CompanyUA: TEdit
-        Left = 774
+        Left = 531
         Top = 0
-        Width = 200
+        Width = 438
         Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit3CompanyUA'
       end
       object Edit3BenefitsUA: TEdit
-        Left = 45
-        Top = 164
-        Width = 480
+        Left = 81
+        Top = 172
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit3BenefitsUA'
       end
-      object Edit3BottomUA: TEdit
-        Left = 45
-        Top = 210
-        Width = 480
+      object Edit3OthersUA: TEdit
+        Left = 81
+        Top = 218
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 4
-        Text = 'Edit3BottomUA'
+        Text = 'Edit3OthersUA'
       end
       object Memo3SkillsUA: TMemo
         Left = 531
@@ -766,15 +801,15 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 4'
       ImageIndex = 6
       object Label29: TLabel
-        Left = 220
+        Left = 212
         Top = 5
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label56: TLabel
-        Left = 655
-        Top = 3
+        Left = 471
+        Top = 4
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -786,6 +821,20 @@ object FormNewResume: TFormNewResume
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
+      object Label115: TLabel
+        Left = 27
+        Top = 181
+        Width = 50
+        Height = 21
+        Caption = #1042#1080#1075#1086#1076#1072
+      end
+      object Label116: TLabel
+        Left = 43
+        Top = 219
+        Width = 34
+        Height = 21
+        Caption = #1030#1085#1096#1077
+      end
       object Edit4DatesUA: TEdit
         Left = 4
         Top = 2
@@ -796,7 +845,7 @@ object FormNewResume: TFormNewResume
         Text = 'Edit4DatesUA'
       end
       object Edit4NameUA: TEdit
-        Left = 266
+        Left = 258
         Top = 3
         Width = 200
         Height = 29
@@ -805,27 +854,27 @@ object FormNewResume: TFormNewResume
         Text = 'Edit4NameUA'
       end
       object Edit4CompanyUA: TEdit
-        Left = 728
-        Top = 2
-        Width = 200
+        Left = 544
+        Top = 3
+        Width = 422
         Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit4CompanyUA'
       end
       object Edit4BenefitsUA: TEdit
-        Left = 42
+        Left = 83
         Top = 178
-        Width = 480
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit4BenefitsUA'
       end
       object Edit4BottomUA: TEdit
-        Left = 41
-        Top = 242
-        Width = 480
+        Left = 82
+        Top = 226
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 4
@@ -843,7 +892,7 @@ object FormNewResume: TFormNewResume
         TabOrder = 5
       end
       object RichEdit4RespUA: TRichEdit
-        Left = 81
+        Left = 83
         Top = 38
         Width = 888
         Height = 120
@@ -861,14 +910,14 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 5'
       ImageIndex = 7
       object Label30: TLabel
-        Left = 396
+        Left = 210
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label57: TLabel
-        Left = 703
+        Left = 466
         Top = 3
         Width = 67
         Height = 21
@@ -891,7 +940,7 @@ object FormNewResume: TFormNewResume
         Text = 'Edit5DatesUA'
       end
       object Edit5NameUA: TEdit
-        Left = 442
+        Left = 258
         Top = 0
         Width = 200
         Height = 29
@@ -900,27 +949,27 @@ object FormNewResume: TFormNewResume
         Text = 'Edit5NameUA'
       end
       object Edit5CompanyUA: TEdit
-        Left = 776
-        Top = 3
-        Width = 200
+        Left = 539
+        Top = 0
+        Width = 430
         Height = 29
         ReadOnly = True
         TabOrder = 2
         Text = 'Edit5CompanyUA'
       end
       object Edit5BenefitsUA: TEdit
-        Left = 3
-        Top = 164
-        Width = 480
+        Left = 81
+        Top = 180
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 3
         Text = 'Edit5BenefitsUA'
       end
       object Edit5BottomUA: TEdit
-        Left = 3
-        Top = 211
-        Width = 480
+        Left = 81
+        Top = 227
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 4
@@ -956,14 +1005,14 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 6'
       ImageIndex = 8
       object Label31: TLabel
-        Left = 399
-        Top = 3
+        Left = 207
+        Top = 1
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label58: TLabel
-        Left = 700
+        Left = 458
         Top = 3
         Width = 67
         Height = 21
@@ -977,18 +1026,18 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Edit6BenefitsUA: TEdit
-        Left = 45
-        Top = 164
-        Width = 480
+        Left = 79
+        Top = 188
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit6BenefitsUA'
       end
       object Edit6BottomUA: TEdit
-        Left = 45
-        Top = 214
-        Width = 480
+        Left = 79
+        Top = 238
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 1
@@ -1004,8 +1053,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit6DatesUA'
       end
       object Edit6NameUA: TEdit
-        Left = 447
-        Top = 3
+        Left = 255
+        Top = 1
         Width = 200
         Height = 29
         ReadOnly = True
@@ -1013,9 +1062,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit6NameUA'
       end
       object Edit6CompanyUA: TEdit
-        Left = 773
+        Left = 531
         Top = 3
-        Width = 200
+        Width = 438
         Height = 29
         ReadOnly = True
         TabOrder = 4
@@ -1051,14 +1100,14 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 7'
       ImageIndex = 9
       object Label32: TLabel
-        Left = 396
+        Left = 206
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label59: TLabel
-        Left = 694
+        Left = 458
         Top = 3
         Width = 67
         Height = 21
@@ -1072,18 +1121,18 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Edit7BenefitsUA: TEdit
-        Left = 2
+        Left = 79
         Top = 172
-        Width = 480
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit7BenefitsUA'
       end
       object Edit7BottomUA: TEdit
-        Left = 4
+        Left = 81
         Top = 220
-        Width = 480
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 1
@@ -1099,7 +1148,7 @@ object FormNewResume: TFormNewResume
         Text = 'Edit7DatesUA'
       end
       object Edit7NameUA: TEdit
-        Left = 454
+        Left = 254
         Top = 0
         Width = 200
         Height = 29
@@ -1108,9 +1157,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit7NameUA'
       end
       object Edit7CompanyUA: TEdit
-        Left = 767
+        Left = 531
         Top = 0
-        Width = 200
+        Width = 438
         Height = 29
         ReadOnly = True
         TabOrder = 4
@@ -1146,15 +1195,15 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 8'
       ImageIndex = 10
       object Label33: TLabel
-        Left = 402
-        Top = 3
+        Left = 210
+        Top = 6
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label60: TLabel
-        Left = 696
-        Top = 3
+        Left = 464
+        Top = 6
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -1167,18 +1216,18 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Edit8BenefitsUA: TEdit
-        Left = 2
-        Top = 164
-        Width = 480
+        Left = 79
+        Top = 180
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 0
         Text = 'Edit8BenefitsUA'
       end
       object Edit8BottomUA: TEdit
-        Left = 2
-        Top = 218
-        Width = 480
+        Left = 79
+        Top = 234
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 1
@@ -1194,8 +1243,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit8DatesUA'
       end
       object Edit8NameUA: TEdit
-        Left = 450
-        Top = 0
+        Left = 258
+        Top = 3
         Width = 200
         Height = 29
         ReadOnly = True
@@ -1203,9 +1252,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit8NameUA'
       end
       object Edit8CompanyUA: TEdit
-        Left = 769
-        Top = 0
-        Width = 200
+        Left = 537
+        Top = 3
+        Width = 432
         Height = 29
         ReadOnly = True
         TabOrder = 4
@@ -1241,15 +1290,15 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 9'
       ImageIndex = 11
       object Label34: TLabel
-        Left = 403
-        Top = 3
+        Left = 211
+        Top = 5
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label61: TLabel
-        Left = 684
-        Top = 3
+        Left = 470
+        Top = 6
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -1262,8 +1311,8 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Edit9BenefitsUA: TEdit
-        Left = 14
-        Top = 164
+        Left = 81
+        Top = 172
         Width = 400
         Height = 29
         ReadOnly = True
@@ -1271,9 +1320,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit9BenefitsUA'
       end
       object Edit9BottomUA: TEdit
-        Left = 14
-        Top = 210
-        Width = 480
+        Left = 81
+        Top = 218
+        Width = 400
         Height = 29
         ReadOnly = True
         TabOrder = 1
@@ -1289,8 +1338,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit9DatesUA'
       end
       object Edit9NameUA: TEdit
-        Left = 451
-        Top = 0
+        Left = 259
+        Top = 2
         Width = 200
         Height = 29
         ReadOnly = True
@@ -1298,9 +1347,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit9NameUA'
       end
       object Edit9CompanyUA: TEdit
-        Left = 767
-        Top = 0
-        Width = 200
+        Left = 543
+        Top = 3
+        Width = 426
         Height = 29
         ReadOnly = True
         TabOrder = 4
@@ -1336,15 +1385,15 @@ object FormNewResume: TFormNewResume
       Caption = 'Job 10'
       ImageIndex = 12
       object Label35: TLabel
-        Left = 396
+        Left = 212
         Top = 3
         Width = 42
         Height = 21
         Caption = #1053#1072#1079#1074#1072
       end
       object Label62: TLabel
-        Left = 684
-        Top = 3
+        Left = 468
+        Top = 5
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -1357,22 +1406,29 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label64: TLabel
-        Left = 27
-        Top = 162
+        Left = 25
+        Top = 178
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label65: TLabel
-        Left = 43
-        Top = 205
+        Left = 41
+        Top = 221
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
+      object Label117: TLabel
+        Left = 484
+        Top = 167
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
+      end
       object Edit10BenefitsUA: TEdit
-        Left = 83
-        Top = 162
+        Left = 81
+        Top = 178
         Width = 400
         Height = 29
         ReadOnly = True
@@ -1380,8 +1436,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit10BenefitsUA'
       end
       object Edit10BottomUA: TEdit
-        Left = 83
-        Top = 205
+        Left = 81
+        Top = 221
         Width = 400
         Height = 29
         ReadOnly = True
@@ -1398,7 +1454,7 @@ object FormNewResume: TFormNewResume
         Text = 'Edit10DatesUA'
       end
       object Edit10NameUA: TEdit
-        Left = 444
+        Left = 260
         Top = 1
         Width = 200
         Height = 29
@@ -1407,9 +1463,9 @@ object FormNewResume: TFormNewResume
         Text = 'Edit10NameUA'
       end
       object Edit10CompanyUA: TEdit
-        Left = 769
-        Top = 1
-        Width = 200
+        Left = 541
+        Top = 3
+        Width = 428
         Height = 29
         ReadOnly = True
         TabOrder = 4
@@ -1418,7 +1474,7 @@ object FormNewResume: TFormNewResume
       object Memo10SkillsUA: TMemo
         Left = 525
         Top = 164
-        Width = 438
+        Width = 444
         Height = 110
         Lines.Strings = (
           'Memo10SkillsUA')
@@ -1447,7 +1503,7 @@ object FormNewResume: TFormNewResume
     Top = 330
     Width = 980
     Height = 424
-    ActivePage = TabSheetMainTR
+    ActivePage = TabSheetJob2TR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -1761,22 +1817,22 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label20: TLabel
-        Left = 26
-        Top = 204
+        Left = 27
+        Top = 276
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label21: TLabel
-        Left = 487
-        Top = 204
+        Left = 488
+        Top = 268
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
       end
       object Label22: TLabel
-        Left = 42
-        Top = 239
+        Left = 43
+        Top = 319
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -1863,24 +1919,24 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Edit1Benefits: TEdit
-        Left = 82
-        Top = 204
+        Left = 83
+        Top = 276
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit1Benefits'
       end
-      object Edit1Bottom: TEdit
-        Left = 82
-        Top = 239
+      object Edit1Others: TEdit
+        Left = 83
+        Top = 319
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit1Bottom'
+        Text = 'Edit1Others'
       end
       object Memo1Skills: TMemo
-        Left = 532
-        Top = 204
+        Left = 533
+        Top = 268
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -1892,7 +1948,7 @@ object FormNewResume: TFormNewResume
         Left = 82
         Top = 78
         Width = 888
-        Height = 120
+        Height = 184
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1921,15 +1977,15 @@ object FormNewResume: TFormNewResume
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label74: TLabel
-        Left = 25
-        Top = 210
+        Left = 27
+        Top = 274
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label75: TLabel
-        Left = 41
-        Top = 245
+        Left = 43
+        Top = 309
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -1940,6 +1996,13 @@ object FormNewResume: TFormNewResume
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+      end
+      object Label109: TLabel
+        Left = 489
+        Top = 276
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
       end
       object Edit2Dates: TEdit
         Left = 2
@@ -2025,24 +2088,24 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Edit2Benefits: TEdit
-        Left = 81
-        Top = 210
+        Left = 83
+        Top = 274
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit2Benefits'
       end
-      object Edit2Bottom: TEdit
-        Left = 81
-        Top = 250
+      object Edit2Others: TEdit
+        Left = 83
+        Top = 314
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit2Bottom'
+        Text = 'Edit2Others'
       end
       object Memo2Skills: TMemo
-        Left = 530
-        Top = 206
+        Left = 532
+        Top = 270
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2054,7 +2117,7 @@ object FormNewResume: TFormNewResume
         Left = 81
         Top = 76
         Width = 888
-        Height = 120
+        Height = 188
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2083,15 +2146,15 @@ object FormNewResume: TFormNewResume
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label76: TLabel
-        Left = 27
-        Top = 202
+        Left = 25
+        Top = 290
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label77: TLabel
-        Left = 43
-        Top = 245
+        Left = 41
+        Top = 333
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -2102,6 +2165,13 @@ object FormNewResume: TFormNewResume
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+      end
+      object Label108: TLabel
+        Left = 489
+        Top = 273
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
       end
       object Edit3Dates: TEdit
         Left = 2
@@ -2185,24 +2255,24 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Edit3Benefits: TEdit
-        Left = 83
-        Top = 201
+        Left = 81
+        Top = 289
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit3Benefits'
       end
-      object Edit3Bottom: TEdit
-        Left = 83
-        Top = 249
+      object Edit3Others: TEdit
+        Left = 81
+        Top = 337
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit3Bottom'
+        Text = 'Edit3Others'
       end
       object Memo3Skills: TMemo
         Left = 533
-        Top = 201
+        Top = 273
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2214,7 +2284,7 @@ object FormNewResume: TFormNewResume
         Left = 81
         Top = 75
         Width = 888
-        Height = 120
+        Height = 192
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2243,25 +2313,32 @@ object FormNewResume: TFormNewResume
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label78: TLabel
-        Left = 23
-        Top = 208
+        Left = 25
+        Top = 280
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label79: TLabel
-        Left = 39
-        Top = 251
+        Left = 41
+        Top = 323
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
       object Label84: TLabel
         Left = 3
-        Top = 73
+        Top = 81
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+      end
+      object Label107: TLabel
+        Left = 488
+        Top = 275
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
       end
       object Edit4Dates: TEdit
         Left = 2
@@ -2345,24 +2422,24 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Edit4Benefits: TEdit
-        Left = 79
-        Top = 207
+        Left = 81
+        Top = 279
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit4Benefits'
       end
-      object Edit4Bottom: TEdit
-        Left = 79
-        Top = 255
+      object Edit4Others: TEdit
+        Left = 81
+        Top = 327
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit4Bottom'
+        Text = 'Edit4Others'
       end
       object Memo4Skills: TMemo
-        Left = 531
-        Top = 203
+        Left = 533
+        Top = 275
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2374,7 +2451,7 @@ object FormNewResume: TFormNewResume
         Left = 81
         Top = 77
         Width = 888
-        Height = 120
+        Height = 192
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2403,15 +2480,15 @@ object FormNewResume: TFormNewResume
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
       end
       object Label80: TLabel
-        Left = 29
-        Top = 207
+        Left = 27
+        Top = 279
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label81: TLabel
-        Left = 45
-        Top = 258
+        Left = 43
+        Top = 330
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -2422,6 +2499,13 @@ object FormNewResume: TFormNewResume
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+      end
+      object Label106: TLabel
+        Left = 489
+        Top = 267
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
       end
       object Edit5Dates: TEdit
         Left = 2
@@ -2449,7 +2533,7 @@ object FormNewResume: TFormNewResume
         Text = 'Edit5Company'
       end
       object CalendarPickerB5: TCalendarPicker
-        Left = 4
+        Left = 2
         Top = 35
         Width = 100
         Height = 32
@@ -2477,7 +2561,7 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object CalendarPickerE5: TCalendarPicker
-        Left = 100
+        Left = 102
         Top = 35
         Width = 100
         Height = 32
@@ -2505,24 +2589,24 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Edit5Benefits: TEdit
-        Left = 85
-        Top = 206
+        Left = 83
+        Top = 278
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit5Benefits'
       end
-      object Edit5Bottom: TEdit
-        Left = 85
-        Top = 254
+      object Edit5Others: TEdit
+        Left = 83
+        Top = 326
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit5Bottom'
+        Text = 'Edit5Others'
       end
       object Memo5Skills: TMemo
-        Left = 531
-        Top = 203
+        Left = 529
+        Top = 267
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2534,7 +2618,7 @@ object FormNewResume: TFormNewResume
         Left = 83
         Top = 73
         Width = 888
-        Height = 120
+        Height = 188
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2570,34 +2654,41 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label91: TLabel
-        Left = 29
-        Top = 212
+        Left = 25
+        Top = 292
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label92: TLabel
-        Left = 45
-        Top = 255
+        Left = 41
+        Top = 335
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
+      object Label105: TLabel
+        Left = 489
+        Top = 275
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
+      end
       object Edit6Benefits: TEdit
-        Left = 85
-        Top = 211
+        Left = 81
+        Top = 291
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit6Benefits'
       end
-      object Edit6Bottom: TEdit
-        Left = 85
-        Top = 259
+      object Edit6Others: TEdit
+        Left = 81
+        Top = 339
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit6Bottom'
+        Text = 'Edit6Others'
       end
       object Edit6Dates: TEdit
         Left = 2
@@ -2679,8 +2770,8 @@ object FormNewResume: TFormNewResume
         TextHint = 'select a date'
       end
       object Memo6Skills: TMemo
-        Left = 531
-        Top = 208
+        Left = 533
+        Top = 272
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -2692,7 +2783,7 @@ object FormNewResume: TFormNewResume
         Left = 81
         Top = 73
         Width = 888
-        Height = 120
+        Height = 196
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2728,34 +2819,41 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label93: TLabel
-        Left = 29
-        Top = 226
+        Left = 23
+        Top = 292
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label94: TLabel
-        Left = 45
-        Top = 269
+        Left = 39
+        Top = 335
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
+      object Label104: TLabel
+        Left = 486
+        Top = 276
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
+      end
       object Edit7Benefits: TEdit
-        Left = 85
-        Top = 220
+        Left = 79
+        Top = 294
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit7Benefits'
       end
-      object Edit7Bottom: TEdit
-        Left = 85
-        Top = 265
+      object Edit7Others: TEdit
+        Left = 79
+        Top = 339
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit7Bottom'
+        Text = 'Edit7Others'
       end
       object CalendarPickerB7: TCalendarPicker
         Left = 2
@@ -2839,11 +2937,11 @@ object FormNewResume: TFormNewResume
       end
       object Memo7Skills: TMemo
         Left = 531
-        Top = 214
+        Top = 272
         Width = 438
         Height = 110
         Lines.Strings = (
-          'Memo7SkillsTR')
+          'Memo7Skills')
         ScrollBars = ssVertical
         TabOrder = 4
       end
@@ -2851,7 +2949,7 @@ object FormNewResume: TFormNewResume
         Left = 79
         Top = 73
         Width = 888
-        Height = 120
+        Height = 197
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2888,33 +2986,40 @@ object FormNewResume: TFormNewResume
       end
       object Label95: TLabel
         Left = 25
-        Top = 212
+        Top = 292
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label96: TLabel
         Left = 41
-        Top = 247
+        Top = 335
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
+      object Label103: TLabel
+        Left = 489
+        Top = 272
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
+      end
       object Edit8Benefits: TEdit
         Left = 81
-        Top = 211
+        Top = 291
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit8Benefits'
       end
-      object Edit8Bottom: TEdit
+      object Edit8Others: TEdit
         Left = 81
-        Top = 246
+        Top = 334
         Width = 400
         Height = 29
         TabOrder = 3
-        Text = 'Edit8Bottom'
+        Text = 'Edit8Others'
       end
       object CalendarPickerB8: TCalendarPicker
         Left = 0
@@ -2998,8 +3103,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit8Company'
       end
       object Memo8Skills: TMemo
-        Left = 531
-        Top = 208
+        Left = 533
+        Top = 272
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -3011,7 +3116,7 @@ object FormNewResume: TFormNewResume
         Left = 81
         Top = 73
         Width = 888
-        Height = 120
+        Height = 193
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -3047,30 +3152,37 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label97: TLabel
-        Left = 22
-        Top = 228
+        Left = 26
+        Top = 284
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label98: TLabel
-        Left = 38
-        Top = 263
+        Left = 42
+        Top = 335
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
+      object Label102: TLabel
+        Left = 488
+        Top = 278
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
+      end
       object Edit9Benefits: TEdit
-        Left = 78
-        Top = 228
+        Left = 82
+        Top = 284
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit9Benefits'
       end
       object Edit9Bottom: TEdit
-        Left = 79
-        Top = 263
+        Left = 83
+        Top = 335
         Width = 400
         Height = 29
         TabOrder = 3
@@ -3158,8 +3270,8 @@ object FormNewResume: TFormNewResume
         Text = 'Edit9Company'
       end
       object Memo9Skills: TMemo
-        Left = 530
-        Top = 216
+        Left = 533
+        Top = 272
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -3171,7 +3283,7 @@ object FormNewResume: TFormNewResume
         Left = 81
         Top = 73
         Width = 888
-        Height = 120
+        Height = 193
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -3207,30 +3319,37 @@ object FormNewResume: TFormNewResume
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
       end
       object Label99: TLabel
-        Left = 23
-        Top = 217
+        Left = 25
+        Top = 289
         Width = 50
         Height = 21
         Caption = #1042#1080#1075#1086#1076#1072
       end
       object Label100: TLabel
-        Left = 39
-        Top = 260
+        Left = 41
+        Top = 340
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
       end
+      object Label101: TLabel
+        Left = 487
+        Top = 278
+        Width = 39
+        Height = 21
+        Caption = #1057#1082#1110#1083#1080
+      end
       object Edit10Benefits: TEdit
-        Left = 79
-        Top = 209
+        Left = 81
+        Top = 289
         Width = 400
         Height = 29
         TabOrder = 2
         Text = 'Edit10Benefits'
       end
       object Edit10Bottom: TEdit
-        Left = 79
-        Top = 256
+        Left = 81
+        Top = 336
         Width = 400
         Height = 29
         TabOrder = 3
@@ -3319,7 +3438,7 @@ object FormNewResume: TFormNewResume
       end
       object Memo10Skills: TMemo
         Left = 531
-        Top = 205
+        Top = 272
         Width = 438
         Height = 110
         Lines.Strings = (
@@ -3331,7 +3450,7 @@ object FormNewResume: TFormNewResume
         Left = 81
         Top = 79
         Width = 888
-        Height = 120
+        Height = 185
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -3446,7 +3565,7 @@ object FormNewResume: TFormNewResume
       '  updated '
       'from resumes WHERE id = :p_id')
     Left = 560
-    Top = 280
+    Top = 256
     ParamData = <
       item
         DataType = ftInteger
@@ -3550,12 +3669,12 @@ object FormNewResume: TFormNewResume
       FieldName = 'footer_header'
       Size = 255
     end
+    object UniGetFootersfooter_order: TIntegerField
+      FieldName = 'footer_order'
+    end
     object UniGetFootersfooter_text: TStringField
       FieldName = 'footer_text'
       Size = 1000
-    end
-    object UniGetFootersfooter_order: TIntegerField
-      FieldName = 'footer_order'
     end
     object UniGetFooterscreated: TDateTimeField
       FieldName = 'created'
@@ -3679,20 +3798,19 @@ object FormNewResume: TFormNewResume
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'select id, '
-      
-        'ifnull(job_position,'#39#39') job_position, start_date, end_date, ifnu' +
-        'll(employer,'#39#39') employer, ifnull(responsibilities,'#39#39') responsibi' +
-        'lities, '
-      
-        'ifnull(benefits,'#39#39') benefits, ifnull(leave_reason,'#39#39') leave_reas' +
-        'on, created, updated, '
+      'ifnull(job_position,'#39#39') job_position, start_date, end_date, '
+      'ifnull(employer,'#39#39') employer, '
+      'responsibilities, '
+      'ifnull(benefits,'#39#39') benefits, '
+      'other, '
+      'created, updated, '
       'ROW_NUMBER() OVER () AS order_position'
       'from experiences e'
       'where e.resume_id = :p_resume_id'
       'order by start_date')
     UniDirectional = True
     Left = 656
-    Top = 285
+    Top = 261
     ParamData = <
       item
         DataType = ftInteger
@@ -3723,17 +3841,9 @@ object FormNewResume: TFormNewResume
       FieldName = 'employer'
       Size = 255
     end
-    object UniGetJobsresponsibilities: TStringField
-      FieldName = 'responsibilities'
-      Size = 1000
-    end
     object UniGetJobsbenefits: TStringField
       FieldName = 'benefits'
       Size = 1000
-    end
-    object UniGetJobsleave_reason: TStringField
-      FieldName = 'leave_reason'
-      Size = 255
     end
     object UniGetJobscreated: TDateTimeField
       FieldName = 'created'
@@ -3755,7 +3865,7 @@ object FormNewResume: TFormNewResume
         #39'@p_resume_id'#39)
     Connection = FormMain.UniConnection
     Left = 222
-    Top = 644
+    Top = 492
     ParamData = <
       item
         DataType = ftString
@@ -3903,11 +4013,11 @@ object FormNewResume: TFormNewResume
       
         'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
         '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
-        'oyer, :p_resp, :p_benefits, :p_leave_reason, @p_experience_id); ' +
-        'SELECT @p_experience_id AS '#39'@p_experience_id'#39)
+        'oyer, :p_resp, :p_benefits, :p_other, @p_experience_id); SELECT ' +
+        'CAST(@p_experience_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 400
-    Top = 640
+    Top = 488
     ParamData = <
       item
         DataType = ftString
@@ -3961,11 +4071,10 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftMemo
         Name = 'p_resp'
         ParamType = ptInput
-        Size = 1000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftString
@@ -3975,11 +4084,10 @@ object FormNewResume: TFormNewResume
         Value = nil
       end
       item
-        DataType = ftString
-        Name = 'p_leave_reason'
+        DataType = ftMemo
+        Name = 'p_other'
         ParamType = ptInput
-        Size = 255
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftInteger
@@ -3995,7 +4103,7 @@ object FormNewResume: TFormNewResume
       'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
     Left = 560
-    Top = 640
+    Top = 488
     ParamData = <
       item
         DataType = ftInteger
@@ -4020,7 +4128,7 @@ object FormNewResume: TFormNewResume
         'e_id)')
     Connection = FormMain.UniConnection
     Left = 704
-    Top = 640
+    Top = 488
     ParamData = <
       item
         DataType = ftString

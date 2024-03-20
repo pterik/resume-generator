@@ -32,12 +32,8 @@ type
 		StaticText1: TStaticText;
 		EditArticle1: TEdit;
 		EditArticle2: TEdit;
-		MemoArticle1: TMemo;
-		MemoArticle2: TMemo;
 		EditArticle3: TEdit;
 		EditArticle4: TEdit;
-		MemoArticle3: TMemo;
-		MemoArticle4: TMemo;
 		TabSheetJob1RU: TTabSheet;
 		Label1: TLabel;
 		Label2: TLabel;
@@ -48,7 +44,6 @@ type
 		Edit1Dates: TEdit;
 		Edit1Name: TEdit;
 		Edit1Company: TEdit;
-		Memo1Resp: TMemo;
 		Edit1Benefits: TEdit;
 		Edit1Bottom: TEdit;
 		Memo1Skills: TMemo;
@@ -64,7 +59,6 @@ type
 		Edit2Dates: TEdit;
 		Edit2Name: TEdit;
 		Edit2Company: TEdit;
-		Memo2Resp: TMemo;
 		Edit2Benefits: TEdit;
 		Edit2Bottom: TEdit;
 		Memo2Skills: TMemo;
@@ -80,7 +74,6 @@ type
 		Edit3Dates: TEdit;
 		Edit3Name: TEdit;
 		Edit3Company: TEdit;
-		Memo3Resp: TMemo;
 		Edit3Benefits: TEdit;
 		Edit3Bottom: TEdit;
 		Memo3Skills: TMemo;
@@ -96,7 +89,6 @@ type
 		Edit4Dates: TEdit;
 		Edit4Name: TEdit;
 		Edit4Company: TEdit;
-		Memo4Resp: TMemo;
 		Edit4Benefits: TEdit;
 		Edit4Bottom: TEdit;
 		Memo4Skills: TMemo;
@@ -112,7 +104,6 @@ type
 		Edit5Dates: TEdit;
 		Edit5Name: TEdit;
 		Edit5Company: TEdit;
-		Memo5Resp: TMemo;
 		Edit5Benefits: TEdit;
 		Edit5Bottom: TEdit;
 		Memo5Skills: TMemo;
@@ -125,7 +116,6 @@ type
 		Label41: TLabel;
 		Label42: TLabel;
 		Label43: TLabel;
-		Memo6Resp: TMemo;
 		Edit6Benefits: TEdit;
 		Edit6Bottom: TEdit;
 		Edit6Dates: TEdit;
@@ -141,7 +131,6 @@ type
 		Label47: TLabel;
 		Label48: TLabel;
 		Label49: TLabel;
-		Memo7Resp: TMemo;
 		Edit7Benefits: TEdit;
 		Edit7Bottom: TEdit;
 		Edit7Dates: TEdit;
@@ -157,7 +146,6 @@ type
 		Label53: TLabel;
 		Label54: TLabel;
 		Label55: TLabel;
-		Memo8Resp: TMemo;
 		Edit8Benefits: TEdit;
 		Edit8Bottom: TEdit;
 		Edit8Dates: TEdit;
@@ -173,7 +161,6 @@ type
 		Label59: TLabel;
 		Label60: TLabel;
 		Label61: TLabel;
-		Memo9Resp: TMemo;
 		Edit9Benefits: TEdit;
 		Edit9Bottom: TEdit;
 		Edit9Dates: TEdit;
@@ -189,7 +176,6 @@ type
 		Label71: TLabel;
 		Label72: TLabel;
 		Label73: TLabel;
-		Memo10Resp: TMemo;
 		Edit10Benefits: TEdit;
 		Edit10Bottom: TEdit;
 		Edit10Dates: TEdit;
@@ -221,7 +207,6 @@ type
 		UniFootersIDid: TIntegerField;
 		UniFootersIDresume_id: TIntegerField;
 		UniFootersIDfooter_header: TStringField;
-		UniFootersIDfooter_text: TStringField;
 		UniFootersIDfooter_order: TIntegerField;
 		UniFootersIDcreated: TDateTimeField;
 		UniFootersIDupdated: TDateTimeField;
@@ -233,16 +218,31 @@ type
 		UniExperienceIDstart_date: TDateField;
 		UniExperienceIDend_date: TDateField;
 		UniExperienceIDemployer: TStringField;
-		UniExperienceIDresponsibilities: TStringField;
 		UniExperienceIDbenefits: TStringField;
-		UniExperienceIDleave_reason: TStringField;
 		UniExperienceIDcreated: TDateTimeField;
 		UniExperienceIDupdated: TDateTimeField;
 		CBPhones: TComboBox;
 		BitBtn2: TBitBtn;
 		RichEditor: TRichEdit;
 		CBWordWrap: TCheckBox;
-		UniResumeIDresume_introduction: TMemoField;
+    RichEditArticle1: TRichEdit;
+    RichEditArticle2: TRichEdit;
+    RichEditArticle3: TRichEdit;
+    RichEditArticle4: TRichEdit;
+    RichEdit1: TRichEdit;
+    RichEdit2: TRichEdit;
+    RichEdit3: TRichEdit;
+    RichEdit4: TRichEdit;
+    RichEdit5: TRichEdit;
+    RichEdit6: TRichEdit;
+    RichEdit7: TRichEdit;
+    RichEdit8: TRichEdit;
+    RichEdit9: TRichEdit;
+    RichEdit10: TRichEdit;
+    UniResumeIDresume_introduction: TMemoField;
+    UniFootersIDfooter_text: TMemoField;
+    UniExperienceIDresponsibilities: TMemoField;
+    UniExperienceIDother: TMemoField;
 		procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnSaveClick(Sender: TObject);
 		procedure FormCreate(Sender: TObject);
@@ -358,82 +358,82 @@ EditName.Text:='';
 EditOpportunity.Text:='';
 EditPlace.Text:='';
 EditPhones.Text:='';
-MemoArticle1.Text := '';
+RichEditArticle1.Text := '';
 EditArticle1.Text := '';
-MemoArticle2.Text := '';
+RichEditArticle2.Text := '';
 EditArticle2.Text := '';
-MemoArticle3.Text := '';
+RichEditArticle3.Text := '';
 EditArticle3.Text := '';
-MemoArticle4.Text := '';
+RichEditArticle4.Text := '';
 EditArticle4.Text := '';
 
 Edit1Dates.Text := '';
 Edit1Name.Text := '';
 Edit1Company.Text := '';
-Memo1Resp.Text := '';
+RichEdit1.Text := '';
 Edit1Benefits.Text := '';
 Edit1Bottom.Text := '';
 
 Edit2Dates.Text := '';
 Edit2Name.Text := '';
 Edit2Company.Text := '';
-Memo2Resp.Text := '';
+RichEdit2.Text := '';
 Edit2Benefits.Text := '';
 Edit2Bottom.Text := '';
 
 Edit3Dates.Text := '';
 Edit3Name.Text := '';
 Edit3Company.Text := '';
-Memo3Resp.Text := '';
+RichEdit3.Text := '';
 Edit3Benefits.Text := '';
 Edit3Bottom.Text := '';
 
 Edit4Dates.Text := '';
 Edit4Name.Text := '';
 Edit4Company.Text := '';
-Memo4Resp.Text := '';
+RichEdit4.Text := '';
 Edit4Benefits.Text := '';
 Edit4Bottom.Text := '';
 
 Edit5Dates.Text := '';
 Edit5Name.Text := '';
 Edit5Company.Text := '';
-Memo5Resp.Text := '';
+RichEdit5.Text := '';
 Edit5Benefits.Text := '';
 Edit5Bottom.Text := '';
 
 Edit6Dates.Text := '';
 Edit6Name.Text := '';
 Edit6Company.Text := '';
-Memo6Resp.Text := '';
+RichEdit6.Text := '';
 Edit6Benefits.Text := '';
 Edit6Bottom.Text := '';
 
 Edit7Dates.Text := '';
 Edit7Name.Text := '';
 Edit7Company.Text := '';
-Memo7Resp.Text := '';
+RichEdit7.Text := '';
 Edit7Benefits.Text := '';
 Edit7Bottom.Text := '';
 
 Edit8Dates.Text := '';
 Edit8Name.Text := '';
 Edit8Company.Text := '';
-Memo8Resp.Text := '';
+RichEdit8.Text := '';
 Edit8Benefits.Text := '';
 Edit8Bottom.Text := '';
 
 Edit9Dates.Text := '';
 Edit9Name.Text := '';
 Edit9Company.Text := '';
-Memo9Resp.Text := '';
+RichEdit9.Text := '';
 Edit9Benefits.Text := '';
 Edit9Bottom.Text := '';
 
 Edit10Dates.Text := '';
 Edit10Name.Text := '';
 Edit10Company.Text := '';
-Memo10Resp.Text := '';
+RichEdit10.Text := '';
 Edit10Benefits.Text := '';
 Edit10Bottom.Text := '';
 
@@ -552,23 +552,39 @@ while not UniFootersID.EOF  do
 	begin
 	if UniFootersID['footer_order']=1 then
 		begin
-		EditArticle1.Text := UniFootersID['footer_header'];
-		MemoArticle1.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['footer_header'])
+			then EditArticle1.Text := ''
+			else EditArticle1.Text := UniFootersID['footer_header'];
+		if VarIsNull(UniFootersID['footer_text'])
+			then RichEditArticle1.Text :=''
+      else RichEditArticle1.Text := UniFootersID['footer_text'];
 		end;
 	if UniFootersID['footer_order']=2 then
 		begin
-		EditArticle2.Text := UniFootersID['footer_header'];
-		MemoArticle2.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['footer_header'])
+			then EditArticle2.Text := ''
+			else EditArticle2.Text := UniFootersID['footer_header'];
+		if VarIsNull(UniFootersID['footer_text'])
+			then RichEditArticle2.Text :=''
+			else RichEditArticle2.Text := UniFootersID['footer_text'];
 		end;
 	if UniFootersID['footer_order']=3 then
 		begin
-		EditArticle3.Text := UniFootersID['footer_header'];
-		MemoArticle3.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['footer_header'])
+			then EditArticle3.Text := ''
+			else EditArticle3.Text := UniFootersID['footer_header'];
+		if VarIsNull(UniFootersID['footer_text'])
+			then RichEditArticle3.Text :=''
+      else RichEditArticle3.Text := UniFootersID['footer_text'];
 		end;
 	if UniFootersID['footer_order']=4 then
 		begin
-		EditArticle4.Text := UniFootersID['footer_header'];
-		MemoArticle4.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['footer_header'])
+			then EditArticle4.Text := ''
+			else EditArticle4.Text := UniFootersID['footer_header'];
+		if VarIsNull(UniFootersID['footer_text'])
+			then RichEditArticle4.Text :=''
+      else RichEditArticle4.Text := UniFootersID['footer_text'];
 		end;
 	UniFootersID.Next;
 	end;
@@ -611,9 +627,9 @@ while not UniExperienceID.EOF do
 			ChangeDates1;
 			Edit1Name.Text := UniExperienceID['job_position'];
 			Edit1Company.Text := UniExperienceID['employer'];
-			Memo1Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit1.Text := UniExperienceID['responsibilities'];
 			Edit1Benefits.Text := UniExperienceID['benefits'];
-			Edit1Bottom.Text := UniExperienceID['leave_reason'];
+			Edit1Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -632,9 +648,9 @@ while not UniExperienceID.EOF do
 			ChangeDates2;
 			Edit2Name.Text := UniExperienceID['job_position'];
 			Edit2Company.Text := UniExperienceID['employer'];
-			Memo2Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit2.Text := UniExperienceID['responsibilities'];
 			Edit2Benefits.Text := UniExperienceID['benefits'];
-			Edit2Bottom.Text := UniExperienceID['leave_reason'];
+			Edit2Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -653,9 +669,9 @@ while not UniExperienceID.EOF do
 			ChangeDates3;
 			Edit3Name.Text := UniExperienceID['job_position'];
 			Edit3Company.Text := UniExperienceID['employer'];
-			Memo3Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit3.Text := UniExperienceID['responsibilities'];
 			Edit3Benefits.Text := UniExperienceID['benefits'];
-			Edit3Bottom.Text := UniExperienceID['leave_reason'];
+			Edit3Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -674,9 +690,9 @@ while not UniExperienceID.EOF do
 			ChangeDates4;
 			Edit4Name.Text := UniExperienceID['job_position'];
 			Edit4Company.Text := UniExperienceID['employer'];
-			Memo4Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit4.Text := UniExperienceID['responsibilities'];
 			Edit4Benefits.Text := UniExperienceID['benefits'];
-			Edit4Bottom.Text := UniExperienceID['leave_reason'];
+			Edit4Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -695,9 +711,9 @@ while not UniExperienceID.EOF do
 			ChangeDates5;
 			Edit5Name.Text := UniExperienceID['job_position'];
 			Edit5Company.Text := UniExperienceID['employer'];
-			Memo5Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit5.Text := UniExperienceID['responsibilities'];
 			Edit5Benefits.Text := UniExperienceID['benefits'];
-			Edit5Bottom.Text := UniExperienceID['leave_reason'];
+			Edit5Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -716,9 +732,9 @@ while not UniExperienceID.EOF do
 			ChangeDates6;
 			Edit6Name.Text := UniExperienceID['job_position'];
 			Edit6Company.Text := UniExperienceID['employer'];
-			Memo6Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit6.Text := UniExperienceID['responsibilities'];
 			Edit6Benefits.Text := UniExperienceID['benefits'];
-			Edit6Bottom.Text := UniExperienceID['leave_reason'];
+			Edit6Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -737,9 +753,9 @@ while not UniExperienceID.EOF do
 			ChangeDates7;
 			Edit7Name.Text := UniExperienceID['job_position'];
 			Edit7Company.Text := UniExperienceID['employer'];
-			Memo7Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit7.Text := UniExperienceID['responsibilities'];
 			Edit7Benefits.Text := UniExperienceID['benefits'];
-			Edit7Bottom.Text := UniExperienceID['leave_reason'];
+			Edit7Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -758,9 +774,9 @@ while not UniExperienceID.EOF do
 			ChangeDates8;
 			Edit8Name.Text := UniExperienceID['job_position'];
 			Edit8Company.Text := UniExperienceID['employer'];
-			Memo8Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit8.Text := UniExperienceID['responsibilities'];
 			Edit8Benefits.Text := UniExperienceID['benefits'];
-			Edit8Bottom.Text := UniExperienceID['leave_reason'];
+			Edit8Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -779,9 +795,9 @@ while not UniExperienceID.EOF do
 			ChangeDates9;
 			Edit9Name.Text := UniExperienceID['job_position'];
 			Edit9Company.Text := UniExperienceID['employer'];
-			Memo9Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit9.Text := UniExperienceID['responsibilities'];
 			Edit9Benefits.Text := UniExperienceID['benefits'];
-			Edit9Bottom.Text := UniExperienceID['leave_reason'];
+			Edit9Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -800,9 +816,9 @@ while not UniExperienceID.EOF do
 			ChangeDates10;
 			Edit10Name.Text := UniExperienceID['job_position'];
 			Edit10Company.Text := UniExperienceID['employer'];
-			Memo10Resp.Text := UniExperienceID['responsibilities'];
+			RichEdit10.Text := UniExperienceID['responsibilities'];
 			Edit10Benefits.Text := UniExperienceID['benefits'];
-			Edit10Bottom.Text := UniExperienceID['leave_reason'];
+			Edit10Bottom.Text := UniExperienceID['other'];
 			UniSkillsID.Close;
 			UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperienceID['experience_id'];
 			UniSkillsID.Open;
@@ -1125,49 +1141,49 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(MemoArticle1.Text) then
+	if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(RichEditArticle1.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 1 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(MemoArticle1.Text) and FormMain.IsEmpty(EditArticle1.Text) then
+	if FormMain.IsEmpty(RichEditArticle1.Text) and not FormMain.IsEmpty(EditArticle1.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 1 - Текст"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle2.Text) and not FormMain.IsEmpty(MemoArticle2.Text) then
+	if FormMain.IsEmpty(EditArticle2.Text) and not FormMain.IsEmpty(RichEditArticle2.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 2 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(MemoArticle2.Text) and not FormMain.IsEmpty(EditArticle2.Text) then
+	if FormMain.IsEmpty(RichEditArticle2.Text) and not FormMain.IsEmpty(EditArticle2.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 2 - Текст"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle3.Text) and not FormMain.IsEmpty(MemoArticle3.Text) then
+	if FormMain.IsEmpty(EditArticle3.Text) and not FormMain.IsEmpty(RichEditArticle3.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 3 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(MemoArticle3.Text) and not FormMain.IsEmpty(EditArticle3.Text) then
+	if FormMain.IsEmpty(RichEditArticle3.Text) and not FormMain.IsEmpty(EditArticle3.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 3 - Текст"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle4.Text) and not FormMain.IsEmpty(MemoArticle4.Text) then
+	if FormMain.IsEmpty(EditArticle4.Text) and not FormMain.IsEmpty(RichEditArticle4.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 4 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(MemoArticle4.Text) and not FormMain.IsEmpty(EditArticle4.Text) then
+	if FormMain.IsEmpty(RichEditArticle4.Text) and not FormMain.IsEmpty(EditArticle4.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 4 - Текст"');
 		Result := false;
@@ -1399,7 +1415,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob1Active and FormMain.IsEmpty(Memo1Resp.Text)) then
+	if (IsJob1Active and FormMain.IsEmpty(RichEdit1.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 1"');
 		Result := false;
@@ -1419,7 +1435,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob2Active and FormMain.IsEmpty(Memo2Resp.Text)) then
+	if (IsJob2Active and FormMain.IsEmpty(RichEdit2.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 2"');
 		Result := false;
@@ -1438,7 +1454,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob3Active and FormMain.IsEmpty(Memo3Resp.Text)) then
+	if (IsJob3Active and FormMain.IsEmpty(RichEdit3.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 3"');
 		Result := false;
@@ -1457,7 +1473,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob4Active and FormMain.IsEmpty(Memo4Resp.Text)) then
+	if (IsJob4Active and FormMain.IsEmpty(RichEdit4.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 4"');
 		Result := false;
@@ -1476,7 +1492,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob5Active and FormMain.IsEmpty(Memo5Resp.Text)) then
+	if (IsJob5Active and FormMain.IsEmpty(RichEdit5.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 5"');
 		Result := false;
@@ -1495,7 +1511,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob6Active and FormMain.IsEmpty(Memo6Resp.Text)) then
+	if (IsJob6Active and FormMain.IsEmpty(RichEdit6.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 6"');
 		Result := false;
@@ -1514,7 +1530,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob7Active and FormMain.IsEmpty(Memo7Resp.Text)) then
+	if (IsJob7Active and FormMain.IsEmpty(RichEdit7.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 7"');
 		Result := false;
@@ -1533,7 +1549,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob8Active and FormMain.IsEmpty(Memo8Resp.Text)) then
+	if (IsJob8Active and FormMain.IsEmpty(RichEdit8.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 8"');
 		Result := false;
@@ -1552,7 +1568,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob9Active and FormMain.IsEmpty(Memo9Resp.Text)) then
+	if (IsJob9Active and FormMain.IsEmpty(RichEdit9.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 9"');
 		Result := false;
@@ -1571,7 +1587,7 @@ Result:=true;
 		Result := false;
 		exit;
 	end;
-	if (IsJob10Active and FormMain.IsEmpty(Memo10Resp.Text)) then
+	if (IsJob10Active and FormMain.IsEmpty(RichEdit10.Text)) then
 	begin
 		ShowMessage('Пусте поле "Обов`язки робота 10"');
 		Result := false;
@@ -1582,16 +1598,16 @@ end;
 function TFormUpdateResume.isFormValuesGood: boolean;
 begin
 Result:=true;
-IsJob1Active  := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(Memo1Resp.Text));
-IsJob2Active  := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(Memo2Resp.Text));
-IsJob3Active  := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(Memo3Resp.Text));
-IsJob4Active  := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(Memo4Resp.Text));
-IsJob5Active  := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(Memo5Resp.Text));
-IsJob6Active  := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(Memo6Resp.Text));
-IsJob7Active  := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(Memo7Resp.Text));
-IsJob8Active  := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(Memo8Resp.Text));
-IsJob9Active  := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(Memo9Resp.Text));
-IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(Memo10Resp.Text));
+IsJob1Active  := not(FormMain.IsEmpty(Edit1Name.Text) or FormMain.IsEmpty(Edit1Company.Text) or FormMain.IsEmpty(RichEdit1.Text));
+IsJob2Active  := not(FormMain.IsEmpty(Edit2Name.Text) or FormMain.IsEmpty(Edit2Company.Text) or FormMain.IsEmpty(RichEdit2.Text));
+IsJob3Active  := not(FormMain.IsEmpty(Edit3Name.Text) or FormMain.IsEmpty(Edit3Company.Text) or FormMain.IsEmpty(RichEdit3.Text));
+IsJob4Active  := not(FormMain.IsEmpty(Edit4Name.Text) or FormMain.IsEmpty(Edit4Company.Text) or FormMain.IsEmpty(RichEdit4.Text));
+IsJob5Active  := not(FormMain.IsEmpty(Edit5Name.Text) or FormMain.IsEmpty(Edit5Company.Text) or FormMain.IsEmpty(RichEdit5.Text));
+IsJob6Active  := not(FormMain.IsEmpty(Edit6Name.Text) or FormMain.IsEmpty(Edit6Company.Text) or FormMain.IsEmpty(RichEdit6.Text));
+IsJob7Active  := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Company.Text) or FormMain.IsEmpty(RichEdit7.Text));
+IsJob8Active  := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(RichEdit8.Text));
+IsJob9Active  := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(RichEdit9.Text));
+IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(RichEdit10.Text));
 
 //Обязательные поля
 if not isMainFormGood then
@@ -1652,17 +1668,17 @@ begin
 		UniSPUpdateResume.ParamByName('p_name').AsString  := trim(EditName.Text);
 		UniSPUpdateResume.ParamByName('p_job_opportunity').AsString := Trim(EditOpportunity.Text);
 		UniSPUpdateResume.ParamByName('p_job_place').AsString := Trim(EditPlace.Text);
-		UniSPUpdateResume.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhones.Text);
-		UniSPUpdateResume.ParamByName('p_resume_introduction').AsString := RichEditor.Text;
+		UniSPUpdateResume.ParamByName('p_phone_numbers_text').AsMemo := Trim(EditPhones.Text);
+		UniSPUpdateResume.ParamByName('p_resume_introduction').AsMemo := RichEditor.Text;
 		UniSPUpdateResume.ParamByName('p_archived').AsBoolean := False;
 		UniSPUpdateResume.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
-		UniSPUpdateResume.ParamByName('p_footer_1_text').AsString := Trim(MemoArticle1.Text);
+		UniSPUpdateResume.ParamByName('p_footer_1_text').AsMemo := Trim(RichEditArticle1.Text);
 		UniSPUpdateResume.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2.Text);
-		UniSPUpdateResume.ParamByName('p_footer_2_text').AsString := Trim(MemoArticle2.Text);
+		UniSPUpdateResume.ParamByName('p_footer_2_text').AsMemo := Trim(RichEditArticle2.Text);
 		UniSPUpdateResume.ParamByName('p_footer_3_header').AsString := Trim(EditArticle3.Text);
-		UniSPUpdateResume.ParamByName('p_footer_3_text').AsString := Trim(MemoArticle3.Text);
+		UniSPUpdateResume.ParamByName('p_footer_3_text').AsMemo := Trim(RichEditArticle3.Text);
 		UniSPUpdateResume.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
-		UniSPUpdateResume.ParamByName('p_footer_4_text').AsString := Trim(MemoArticle4.Text);
+		UniSPUpdateResume.ParamByName('p_footer_4_text').AsMemo := Trim(RichEditArticle4.Text);
 		UniSPUpdateResume.ExecProc;
 		if UniSPUpdateResume.ParamByName('p_result').Value=0 then Result:=true else Result:=false;
 		except
@@ -1694,9 +1710,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB1.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE1.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit1Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo1Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit1.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit1Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit1Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit1Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[1]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1710,9 +1726,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB2.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE2.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit2Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo2Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit2.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit2Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit2Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit2Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[2]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1726,9 +1742,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB3.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE3.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit3Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo3Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit3.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit3Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit3Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit3Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[3]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1742,9 +1758,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB4.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE4.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit4Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo4Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit4.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit4Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit4Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit4Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[4]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1758,9 +1774,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB5.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE5.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit5Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo5Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit5.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit5Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit5Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit5Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[5]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1774,9 +1790,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB6.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE6.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit6Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo6Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit6.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit6Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit6Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit6Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[6]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1790,9 +1806,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB7.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE7.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit7Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo7Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit7.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit7Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit7Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit7Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[7]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1806,9 +1822,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB8.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE8.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit8Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo8Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit8.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit8Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit8Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit8Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[8]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1822,9 +1838,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB9.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE9.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit9Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo9Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit9.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit9Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit9Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit9Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[9]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;
@@ -1838,9 +1854,9 @@ try
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB10.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE10.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit10Company.Text;
-			UniSPInsertExperiences.ParamByName('p_resp').AsString := Memo10Resp.Text;
+			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit10.Text;
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit10Benefits.Text;
-			UniSPInsertExperiences.ParamByName('p_leave_reason').AsString := Edit10Bottom.Text;
+			UniSPInsertExperiences.ParamByName('p_other').AsMemo := Edit10Bottom.Text;
 			UniSPInsertExperiences.ExecSQL;
 			FExperienceID[10]:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 		end;

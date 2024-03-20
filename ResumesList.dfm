@@ -398,7 +398,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 565
   end
   object BitBtnClose: TBitBtn
-    Left = 833
+    Left = 829
     Top = 614
     Width = 115
     Height = 38
@@ -413,7 +413,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 829
+    ExplicitLeft = 825
     ExplicitTop = 613
   end
   object EditCopyNumber: TEdit
@@ -481,7 +481,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 609
   end
   object BitBtnPDF: TBitBtn
-    Left = 833
+    Left = 829
     Top = 566
     Width = 115
     Height = 38
@@ -495,7 +495,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 829
+    ExplicitLeft = 825
     ExplicitTop = 565
   end
   object BitBtnOpenResume: TBitBtn
@@ -1830,7 +1830,7 @@ object FormListResumes: TFormListResumes
     SQL.Strings = (
       'select '
       'id, resume_id, footer_header, '
-      'FROM_BASE64(footer_text) footer_text, '
+      'footer_text, '
       'footer_order '
       'from resume_footers'
       'where resume_id = :p_resume_id'
@@ -1858,9 +1858,9 @@ object FormListResumes: TFormListResumes
       FieldName = 'footer_header'
       Size = 255
     end
-    object UniResumeFootersfooter_text: TStringField
+    object UniResumeFootersfooter_text: TMemoField
       FieldName = 'footer_text'
-      Size = 1000
+      BlobType = ftMemo
     end
     object UniResumeFootersfooter_order: TIntegerField
       FieldName = 'footer_order'
@@ -1881,7 +1881,7 @@ object FormListResumes: TFormListResumes
       '  employer ,'
       '  responsibilities ,'
       '  benefits ,'
-      '  leave_reason FROM experiences '
+      '  other FROM experiences '
       'WHERE resume_id = :p_resume_id'
       'order by start_date desc')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
@@ -1922,17 +1922,17 @@ object FormListResumes: TFormListResumes
       FieldName = 'employer'
       Size = 255
     end
-    object UniExperiencesresponsibilities: TStringField
-      FieldName = 'responsibilities'
-      Size = 1000
-    end
     object UniExperiencesbenefits: TStringField
       FieldName = 'benefits'
       Size = 1000
     end
-    object UniExperiencesleave_reason: TStringField
-      FieldName = 'leave_reason'
-      Size = 255
+    object UniExperiencesother: TMemoField
+      FieldName = 'other'
+      BlobType = ftMemo
+    end
+    object UniExperiencesresponsibilities: TMemoField
+      FieldName = 'responsibilities'
+      BlobType = ftMemo
     end
   end
 end
