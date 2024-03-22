@@ -81,17 +81,18 @@ type
     procedure Skills1Click(Sender: TObject);
   private
      WarningFired:boolean;
-  protected
-      procedure ActionChange(Sender: TObject; CheckDefaults: Boolean); override;
-  public
-    Recommendationlink, EnglishTest, Website, FullName, Email, telephone_english, telephone_croatian,
-    telephone_ukrainian, telephone_usa, main_folder, main_folder_LAPTOP_PTERIK, main_folder_VESTA:string;
-    property Action;
-    procedure Warning(const s: string);
-    procedure GetMonthRegionByMask(const D: TDatetime; Region: string;
-      var FullMonthYear, ShortMonthYear: string);
-    function IsEmpty(const S: String): boolean;
-    function GetMonthByRegion(const D: TDatetime; Region: string):string;
+	protected
+			procedure ActionChange(Sender: TObject; CheckDefaults: Boolean); override;
+	public
+		Recommendationlink, EnglishTest, Website, FullName, Email, telephone_english, telephone_croatian,
+		telephone_ukrainian, telephone_usa, main_folder, main_folder_LAPTOP_PTERIK, main_folder_VESTA:string;
+		property Action;
+		procedure Warning(const s: string);
+		procedure GetMonthRegionByMask(const D: TDatetime; Region: string;
+			var FullMonthYear, ShortMonthYear: string);
+		function IsEmpty(const S: String): boolean;
+		function GetMonthByRegion(const D: TDatetime; Region: string):string;
+    function GetFullMonthByRegion(const D: TDatetime; Region: string): string;
 		function IsDateInvalid(const D: TDateTime): boolean;
     function GetRegionID(const Region:string):string;
   end;
@@ -808,6 +809,120 @@ if (lowercase(Region) = 'ukraine') or (lowercase(Region) = 'ua') then
       12: Result:= 'Dec' + '. ' + IntToStr(Year);
     end;
     // January, February, March, April, May, June, July, August, September, October, November, December
+  end;
+end;
+
+function TFormMain.GetFullMonthByRegion(const D: TDatetime; Region: string):string;
+var
+  Year, MM, Day: Word;
+begin
+DecodeDate(D, Year, MM, Day);
+if (lowercase(Region) = 'template') or (lowercase(Region) = 'ru') then
+  begin
+  case MM of
+			1: Result:= 'Январь' + ' ' + IntToStr(Year);
+			2: Result:= 'Февраль' + ' ' + IntToStr(Year);
+			3: Result:= 'Март' + ' ' + IntToStr(Year);
+			4: Result:= 'Апрель' + ' ' + IntToStr(Year);
+			5: Result:= 'Май' + ' ' + IntToStr(Year);
+			6: Result:= 'Июнь' + ' ' + IntToStr(Year);
+			7: Result:= 'Июль' + ' ' + IntToStr(Year);
+			8: Result:= 'Август' + ' ' + IntToStr(Year);
+			9: Result:= 'Сентябрь' + ' ' + IntToStr(Year);
+			10: Result:= 'Октябрь' + ' ' + IntToStr(Year);
+			11: Result:= 'Ноябрь' + ' ' + IntToStr(Year);
+			12: Result:= 'Декабрь' + ' ' + IntToStr(Year);
+		end;
+	end;
+if (lowercase(Region) = 'ukraine') or (lowercase(Region) = 'ua') then
+	begin
+	case MM of
+			1: Result:= 'Січень' + ' ' + IntToStr(Year);
+			2: Result:= 'Лютий' + ' ' + IntToStr(Year);
+			3: Result:= 'Березень' + ' ' + IntToStr(Year);
+			4: Result:= 'Квітень' + ' ' + IntToStr(Year);
+			5: Result:= 'Травень' + ' ' + IntToStr(Year);
+			6: Result:= 'Червень' + ' ' + IntToStr(Year);
+			7: Result:= 'Липень' + ' ' + IntToStr(Year);
+			8: Result:= 'Серпень' + ' ' + IntToStr(Year);
+			9: Result:= 'Вересень' + ' ' + IntToStr(Year);
+			10: Result:= 'Жовтень' + ' ' + IntToStr(Year);
+			11: Result:= 'Листопад' + ' ' + IntToStr(Year);
+			12: Result:= 'Грудень' + ' ' + IntToStr(Year);
+		end;
+		// січень, лютий, березень, квітень, травень, червень, липень, серпень, вересень, жовтень, листопад, грудень.
+  end;
+  if (lowercase(Region) = 'poland') or (lowercase(Region) = 'pl') then
+  begin
+    case MM of
+			1: Result:= 'Styczeń' + ' ' + IntToStr(Year);
+			2: Result:= 'Luty' + ' ' + IntToStr(Year);
+			3: Result:= 'Marzec' + '' + IntToStr(Year);
+			4: Result:= 'Kwiecień' + ' ' + IntToStr(Year);
+			5: Result:= 'Maj' + ' ' + IntToStr(Year);
+			6: Result:= 'Czerwiec' + ' ' + IntToStr(Year);
+			7: Result:= 'Lipiec' + ' ' + IntToStr(Year);
+			8: Result:= 'Sierpień' + ' ' + IntToStr(Year);
+			9: Result:= 'Wrzesień' + ' ' + IntToStr(Year);
+			10: Result:= 'Październik' + ' ' + IntToStr(Year);
+			11: Result:= 'Listopad' + ' ' + IntToStr(Year);
+			12: Result:= 'Grudzień' + ' ' + IntToStr(Year);
+		end;
+		// styczeń, luty, marzec, kwiecień, maj, czerwiec, lipiec, sierpień, wrzesień, październik, listopad, grudzień.
+  end;
+  if (lowercase(Region) = 'croatia') or (lowercase(Region) = 'hr') then
+  begin
+    case MM of
+			1: Result:= 'Siječanj' + ' ' + IntToStr(Year);
+			2: Result:= 'Veljača' + ' ' + IntToStr(Year);
+			3: Result:= 'Ožujak' + ' ' + IntToStr(Year);
+			4: Result:= 'Travanj' + ' ' + IntToStr(Year);
+			5: Result:= 'Svibanj' + ' ' + IntToStr(Year);
+			6: Result:= 'Lipanj' + ' ' + IntToStr(Year);
+			7: Result:= 'Srpanj' + ' ' + IntToStr(Year);
+			8: Result:= 'Kolovoz' + ' ' + IntToStr(Year);
+			9: Result:= 'Rujan' + ' ' + IntToStr(Year);
+			10: Result:= 'Listopad' + ' ' + IntToStr(Year);
+			11: Result:= 'Studeni' + ' ' + IntToStr(Year);
+			12: Result:= 'Prosinac' + ' ' + IntToStr(Year);
+		end;
+		// Siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac
+  end;
+  if (lowercase(Region) = 'germany') or (lowercase(Region) = 'de') then
+  begin
+    case MM of
+			1: Result:= 'Januar' + ' ' + IntToStr(Year);
+			2: Result:= 'Februar' + ' ' + IntToStr(Year);
+			3: Result:= 'März' + ' ' + IntToStr(Year);
+			4: Result:= 'April' + ' ' + IntToStr(Year);
+			5: Result:= 'Mai' + ' ' + IntToStr(Year);
+			6: Result:= 'Juni' + ' ' + IntToStr(Year);
+			7: Result:= 'Juli' + ' ' + IntToStr(Year);
+			8: Result:= 'August' + ' ' + IntToStr(Year);
+			9: Result:= 'September' + ' ' + IntToStr(Year);
+			10: Result:= 'Oktober' + ' ' + IntToStr(Year);
+			11: Result:= 'November' + ' ' + IntToStr(Year);
+			12: Result:= 'Dezember' + ' ' + IntToStr(Year);
+		end;
+		// Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember
+	end;
+	if (lowercase(Region) = 'england') or (lowercase(Region) = 'usa\canada') or (lowercase(Region) = 'en') or (lowercase(Region) = 'US') then
+  begin
+    case MM of
+			1: Result:= 'January' + ' ' + IntToStr(Year);
+			2: Result:= 'February' + ' ' + IntToStr(Year);
+			3: Result:= 'March' + ' ' + IntToStr(Year);
+			4: Result:= 'April' + ' ' + IntToStr(Year);
+			5: Result:= 'May' + ' ' + IntToStr(Year);
+			6: Result:= 'June' + ' ' + IntToStr(Year);
+			7: Result:= 'July' + ' ' + IntToStr(Year);
+			8: Result:= 'August' + ' ' + IntToStr(Year);
+			9: Result:= 'September' + ' ' + IntToStr(Year);
+			10: Result:= 'October' + ' ' + IntToStr(Year);
+			11: Result:= 'November' + ' ' + IntToStr(Year);
+			12: Result:= 'December' + ' ' + IntToStr(Year);
+		end;
+		// January, February, March, April, May, June, July, August, September, October, November, December
   end;
 end;
 

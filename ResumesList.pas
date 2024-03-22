@@ -3,26 +3,26 @@
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+	Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
 	Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
 	DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls,
 	VCL.TMSFNCWXDocx.Models, VCL.TMSFNCCustomWEBControl,
 	Vcl.ComCtrls, Vcl.DBCtrls, VCL.TMSFNCTypes, VCL.TMSFNCUtils,
 	VCL.TMSFNCGraphics, VCL.TMSFNCGraphicsTypes, VCL.TMSFNCCustomControl,
 	VCL.TMSFNCWXDocx, VCL.TMSFNCBitmapContainer, VCL.TMSFNCWebBrowser,
-  VCL.TMSFNCCustomWEBComponent, VCL.TMSFNCCustomComponent;
+	VCL.TMSFNCCustomWEBComponent, VCL.TMSFNCCustomComponent;
 
 type
-  TWordReplaceFlags = set of (wrfReplaceAll, wrfMatchCase, wrfMatchWildcards);
-  TWordDateSeparator = set of (Minus, Dot, Slash);
-  TWordRecType = set of (wtEdit, wtMemo, wtLink, wtEMAIL);
-  TWordTypes=record
-    WordType:TWordRecType;
-    Active:Boolean;
-    Key:string;
-    StringValue:string;
-    ReplaceText:array of string;
-    ReplaceTextCount:integer;
+	TWordReplaceFlags = set of (wrfReplaceAll, wrfMatchCase, wrfMatchWildcards);
+	TWordDateSeparator = set of (Minus, Dot, Slash);
+	TWordRecType = set of (wtEdit, wtMemo, wtLink, wtEMAIL);
+	TWordTypes=record
+		WordType:TWordRecType;
+		Active:Boolean;
+		Key:string;
+		StringValue:string;
+		ReplaceText:array of string;
+		ReplaceTextCount:integer;
     WordImage:TBitmap;
   end;
 
@@ -65,7 +65,7 @@ type
     UniResumeslang: TStringField;
     UniResumesregion_id: TStringField;
     RadioGroup: TRadioGroup;
-    UniResumesarchive: TStringField;
+		UniResumesarchive: TStringField;
     TMSFNCBitmapContainer1: TTMSFNCBitmapContainer;
 		UniResumescountry: TStringField;
     UniLocalTranslate: TUniQuery;
@@ -108,7 +108,7 @@ type
     procedure BitBtnCVClick(Sender: TObject);
     procedure BitBtnEditResumeClick(Sender: TObject);
     procedure BitBtnArchiveClick(Sender: TObject);
-    procedure RadioGroupClick(Sender: TObject);
+		procedure RadioGroupClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure UniResumesCalcFields(DataSet: TDataSet);
     procedure DBGrid1DblClick(Sender: TObject);
@@ -119,7 +119,10 @@ type
 		function WX_R_PDF_Generate(const resume_id: integer; const FileName:string): boolean;
 
 		procedure EditResume;
-
+		procedure R_DOC_AddTable(var section:TTMSFNCWXDocxSection);
+		procedure R_DOC_AddFooter(var section:TTMSFNCWXDocxSection; resume_id:integer);
+		procedure R_DOC_AddJob(var section:TTMSFNCWXDocxSection);
+		procedure R_DOC_URL(var paragraph: TTMSFNCWXDocxParagraph; const SourceText: string);
 	public
 		procedure SetFormValues;
 		function LocalTranslate(Word:string):string;
@@ -135,18 +138,18 @@ implementation
 
 {$R *.dfm}
 
-uses System.UITypes, System.IOUtils, Winapi.ShellAPI, Parameters, System.Win.ComObj,
-  UpdateResume, MainForm, NewResume;
+uses System.UITypes, System.IOUtils, System.StrUtils, Winapi.ShellAPI, Parameters, System.Win.ComObj,
+	UpdateResume, MainForm, NewResume;
 
 function ComputerName: string;
 var
-  Size: Cardinal;
+	Size: Cardinal;
 begin
-  Size := MAX_COMPUTERNAME_LENGTH + 1;
-  SetLength(Result, Size);
-  GetComputerName(PChar(Result), Size);
-  // Урезаем строку до действительной длины имени компьютера
-  SetLength(Result, Size);
+	Size := MAX_COMPUTERNAME_LENGTH + 1;
+	SetLength(Result, Size);
+	GetComputerName(PChar(Result), Size);
+	// Урезаем строку до действительной длины имени компьютера
+	SetLength(Result, Size);
 end;
 
 procedure TFormListResumes.BitBtnArchiveClick(Sender: TObject);
@@ -522,91 +525,164 @@ UniResumes.ParamByName('p_rg').AsInteger:=RadioGroup.ItemIndex;
 UniResumes.Open;
 end;
 
-function TFormListResumes.WX_R_FileGenerate(const resume_id:integer; const FileName:string): boolean;
-var
-section  : TTMSFNCWXDocxSection;
-paragraph: TTMSFNCWXDocxParagraph;
-text     : TTMSFNCWXDocxText;
-table    : TTMSFNCWXDocxTable;
-table2   : TTMSFNCWXDocxTable;
-tableRow : TTMSFNCWXDocxTableRow;
-tableCell: TTMSFNCWXDocxTableCell;
+procedure TFormListResumes.R_DOC_AddFooter(var section: TTMSFNCWXDocxSection; resume_id:integer);
+var paragraph: TTMSFNCWXDocxParagraph;
 StringList:TStringList;
-i:integer;
+i,j:integer;
+FooterText : TTMSFNCWXDocxText;
 begin
 StringList:=TStringList.Create();
-TMSFNCWXDocx1.Document.Sections.Clear;
-section := TMSFNCWXDocx1.Document.AddSection;
-section.Page.Orientation := poLandscape;
-
-// Добавляем Фамилию имя
-paragraph := section.AddParagraph;
-paragraph.Spacing.Before:=120;
-paragraph.Spacing.After:=120;
-Paragraph.Spacing.Line:=600;
-text:=paragraph.AddText(FormMain.FullName);
-paragraph.Heading := hlHeading1;
-paragraph.Alignment := taLeft;
-Text.Font.Size := 22;
-Text.Font.Style := [fsBold];
-Text.Font.Name:='Times New Roman';
-
-// Добавляем должность
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
-paragraph.Spacing.After:=480;
-text := paragraph.AddText(LocalTranslate('Должность'));
-text.Font.Color := clBlack;
-text.Font.Size := 12;
-Text.Font.Style := [fsBold];
-Text.Font.Name:='Times New Roman';
-text := paragraph.AddText(UniResumes['name']);
-text.Font.Size := 12;
-Text.Font.Name:='Times New Roman';
-// Добавляем таблицу и выставляем её размеры
-// в таблице убирается ячейка и текст про языковой экзамен
+Paragraph.Spacing.LineRule:=lrAuto;
+
+if not VarIsNull(UniResumes['resume_introduction']) then
+	begin
+	StringList.Text := UniResumes.FieldByName('resume_introduction').AsString;
+	for i:=0 to StringList.Count-1 do
+		begin
+			paragraph := section.AddParagraph;
+			paragraph.Alignment:=taJustified;
+			Paragraph.Spacing.Line:=400;
+			Paragraph.Spacing.LineRule:=lrAuto;
+			FooterText:=paragraph.AddText(StringList[i]);
+			FooterText.Font.Size := 12;
+			FooterText.Font.Name:='Times New Roman';
+		end;
+	end;
+UniResumeFooters.Close;
+UniResumeFooters.ParamByName('p_resume_id').Value:=resume_id;
+UniResumeFooters.Open;
+while not UniResumeFooters.Eof do
+	begin
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	FooterText:=paragraph.AddText(UniResumeFooters['footer_header']);
+	paragraph.Alignment := taLeft;
+	FooterText.Font.Size := 12;
+	FooterText.Font.Name:='Times New Roman';
+	FooterText.Font.Style := [fsBold];
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	FooterText:=paragraph.AddText(UniResumeFooters['footer_text']);
+	paragraph.Alignment := taLeft;
+	FooterText.Font.Size := 12;
+	FooterText.Font.Name:='Times New Roman';
+	UniResumeFooters.Next;
+	end;
+end;
+
+procedure TFormListResumes.R_DOC_AddJob(var section: TTMSFNCWXDocxSection);
+var paragraph: TTMSFNCWXDocxParagraph;
+JobText : TTMSFNCWXDocxText;
+Postn, Postn2:integer;
+begin
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+paragraph.Alignment := taLeft;
+JobText:=paragraph.AddText(UniExperiences['job_position']);
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
+JobText.Font.Style := [fsBold];
+
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+paragraph.Alignment := taLeft;
+JobText:=paragraph.AddText(FormMain.GetFullMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetFullMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
+
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+paragraph.Alignment := taLeft;
+Postn:=Pos('USA',UpperCase(UniExperiences['employer']));
+if Postn>0
+then
+	begin
+		JobText:=paragraph.AddText(Copy(UniExperiences['employer'],1,Postn-1));
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+		JobText:=paragraph.AddText('USA');
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+		JobText.Font.Style:=[fsBold];
+		JobText:=paragraph.AddText(Copy(UniExperiences['employer'],Postn+3,length(UniExperiences['employer'])));
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+	end
+else
+	begin
+		JobText:=paragraph.AddText(UniExperiences['employer']);
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+	end;
+
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+paragraph.Alignment := taJustified;
+R_DOC_URL(paragraph,UniExperiences['responsibilities']);
+
+
+if not FormMain.IsEmpty(UniExperiences['benefits']) then
+	begin
+		paragraph := section.AddParagraph;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		paragraph.Alignment := taLeft;
+		JobText:=paragraph.AddText(UniExperiences['benefits']);
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+	end;
+
+if not FormMain.IsEmpty(UniExperiences['other']) then
+	begin
+		paragraph := section.AddParagraph;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		paragraph.Alignment := taJustified;
+		R_DOC_URL(paragraph,UniExperiences['other']);
+	end;
+end;
+
+procedure TFormListResumes.R_DOC_AddTable(var section:TTMSFNCWXDocxSection);
+var
+paragraph: TTMSFNCWXDocxParagraph;
+doctext     : TTMSFNCWXDocxText;
+table    : TTMSFNCWXDocxTable;
+tableRow : TTMSFNCWXDocxTableRow;
+tableCell: TTMSFNCWXDocxTableCell;
+begin
 table := section.AddTable;
-Table.Width.Size:=10000;
-Table.Indent.Size:= 30;
 tableRow := Table.AddRow;
+
 tableCell := tableRow.AddCell;
-tableCell.Borders.Left.Size:=0;
-tableCell.Width.Size:=10;
-tableCell.Width.WidthType:=wtPercentage;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=1000;
 
 // Перенести ячейку Віддалена робота в конец таблицы
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
 paragraph.AddText('  ');
 paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[0],50,50);
 paragraph.AddText('  ');
 
 tableCell := tableRow.AddCell;
-tableCell.Borders.Left.Size:=0;
-tableCell.Width.Size:=90;
-tableCell.Width.WidthType:=wtPercentage;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=10000;
 
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
 Paragraph.Spacing.Line:=240;
-text := paragraph.AddText(UniResumes['job_place']);
-text.Font.Color := clBlack;
-text.Font.Size := 12;
-Text.Font.Name:='Times New Roman';
+doctext := paragraph.AddText(UniResumes['job_place']);
+Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
 
 tableRow := Table.AddRow;
 
 tableCell := tableRow.AddCell;
-tableCell.Borders.Left.Size:=0;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=10000;
 
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
@@ -618,22 +694,18 @@ paragraph.AddText('  ');
 
 // Добавляем телефонный номер
 tableCell := tableRow.AddCell;
-tableCell.Borders.Left.Size:=0;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=100;
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
 Paragraph.Spacing.Line:=240;
-text := paragraph.AddText(UniResumes['phone_numbers_text']);
-text.Font.Color := clBlack;
-text.Font.Size := 12;
-Text.Font.Name:='Times New Roman';
+
+Doctext := paragraph.AddText(UniResumes['phone_numbers_text']);
+Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
 
 tableRow := Table.AddRow;
 tableCell := tableRow.AddCell;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=1000;
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
@@ -643,21 +715,17 @@ paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[2],50,50);
 paragraph.AddText('  ');
 
 tableCell := tableRow.AddCell;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=100;
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
 Paragraph.Spacing.Line:=240;
-text := paragraph.AddText(FormMain.Email);
-text.Font.Color := clBlack;
-text.Font.Size := 12;
-Text.Font.Name:='Times New Roman';
+Doctext := paragraph.AddText(FormMain.Email);
+Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
 
 tableRow := Table.AddRow;
 tableCell := tableRow.AddCell;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=1000;
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
@@ -667,134 +735,124 @@ paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[3],50,50);
 paragraph.AddText('  ');
 
 tableCell := tableRow.AddCell;
-tableCell.Borders.Borders:= [];
-//tableCell.Width.Size:=1000;
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=120;
 Paragraph.Spacing.Before:=120;
 Paragraph.Spacing.Line:=240;
-text := paragraph.AddText(LocalTranslate('Рекомендательное письмо')+'  '+FormMain.RecommendationLink);
-text.Font.Color := clBlack;
-text.Font.Size := 12;
-Text.Font.Name:='Times New Roman';
+Doctext := paragraph.AddText(LocalTranslate('Рекомендательное письмо')+'  '+FormMain.RecommendationLink);
+Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
+end;
 
-paragraph := section.AddParagraph;
-Paragraph.Spacing.Line:=400;
-Paragraph.Spacing.LineRule:=lrAuto;
-
-//text:=paragraph.AddText(UniResumes['resume_introduction']);
-//paragraph.Alignment := taLeft;
-//Text.Font.Size := 12;
-//Text.Font.Name:='Times New Roman';
-if not VarIsNull(UniResumes['resume_introduction']) then
+procedure TFormListResumes.R_DOC_URL(var paragraph: TTMSFNCWXDocxParagraph; const SourceText: string);
+var Postn1, Postn2:integer;
+SText:string;
+URLText:TTMSFNCWXDocxText;
+begin
+if ((Pos('<a>',lowercase(SourceText))=0) and (Pos('</a>',lowercase(SourceText))=0))
+then
 	begin
-	StringList.Text := UniResumes.FieldByName('resume_introduction').AsString;
-	for i:=0 to StringList.Count-1 do
-		begin
-			paragraph := section.AddParagraph;
-			Paragraph.Spacing.Line:=400;
-			Paragraph.Spacing.LineRule:=lrAuto;
-			text:=paragraph.AddText(StringList[i]);
-			Text.Font.Size := 12;
-			Text.Font.Name:='Times New Roman';
-		end;
-  end;
-UniResumeFooters.Close;
-UniResumeFooters.ParamByName('p_resume_id').Value:=resume_id;
-UniResumeFooters.Open;
-while not UniResumeFooters.Eof do
-	begin
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	text:=paragraph.AddText(UniResumeFooters['footer_header']);
-	paragraph.Alignment := taLeft;
-	Text.Font.Size := 12;
-	Text.Font.Name:='Times New Roman';
-	Text.Font.Style := [fsBold];
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	text:=paragraph.AddText(UniResumeFooters['footer_text']);
-	paragraph.Alignment := taLeft;
-	Text.Font.Size := 12;
-	Text.Font.Name:='Times New Roman';
-	UniResumeFooters.Next;
+	URLText:=paragraph.AddText(SourceText);
+	URLText.Font.Size := 12;
+	URLText.Font.Name:='Times New Roman';
+	exit;
 	end;
+SText:=SourceText;
+repeat
+	Postn1:=Pos('<a>',lowercase(SText));
+	Postn2:=Pos('</a>',lowercase(SText));
+	if (Postn1=0) or (Postn2=0) or (Postn1>Postn2) then
+		begin
+			SText:=StringReplace(SText,'<a>','',[rfIgnoreCase]);
+			SText:=StringReplace(Stext,'</a>','',[rfIgnoreCase]);
+			URLText:=paragraph.AddText(SText);
+			URLText.Font.Size := 12;
+			URLText.Font.Name:='Times New Roman';
+			exit;
+		end;
+	URLText:=paragraph.AddText(Copy(SText,1,Postn1-1));
+	URLText.Font.Size := 12;
+	URLText.Font.Name:='Times New Roman';
+	URLText:=paragraph.AddText(Copy(SText,Postn1+3,Postn2-Postn1-3));
+	URLText.Font.Size := 12;
+	URLText.Font.Color:=clBlue;
+	URLText.Font.Style:=[fsUnderline];
+	URLText.Font.Name:='Times New Roman';
+	URLText:=paragraph.AddText(Copy(SText,Postn2+5,length(SText)));
+	URLText.Font.Size := 12;
+	URLText.Font.Name:='Times New Roman';
+	SText:=StringReplace(SText,'<a>','',[rfIgnoreCase]);
+	SText:=StringReplace(SText,'</a>','',[rfIgnoreCase]);
+until (Postn1=0) or (Postn2=0);
+end;
+
+function TFormListResumes.WX_R_FileGenerate(const resume_id:integer; const FileName:string): boolean;
+var
+section  : TTMSFNCWXDocxSection;
+paragraph: TTMSFNCWXDocxParagraph;
+DocXText     : TTMSFNCWXDocxText;
+//table    : TTMSFNCWXDocxTable;
+//tableRow : TTMSFNCWXDocxTableRow;
+//tableCell: TTMSFNCWXDocxTableCell;
+//StringList:TStringList;
+i,j:integer;
+begin
+//StringList:=TStringList.Create();
+TMSFNCWXDocx1.Document.Sections.Clear;
+section := TMSFNCWXDocx1.Document.AddSection;
+section.Page.Orientation := poLandscape;
+
+// Добавляем Фамилию имя
+paragraph := section.AddParagraph;
+paragraph.Spacing.Before:=120;
+paragraph.Spacing.After:=120;
+Paragraph.Spacing.Line:=600;
+DocXText:=paragraph.AddText(FormMain.FullName);
+paragraph.Heading := hlHeading1;
+paragraph.Alignment := taLeft;
+DocXText.Font.Size := 22;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+
+// Добавляем должность
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+paragraph.Spacing.After:=480;
+DocXtext := paragraph.AddText(LocalTranslate('Должность')+' ');
+DocXtext.Font.Color := clBlack;
+DocXtext.Font.Size := 12;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+DocXtext := paragraph.AddText(UniResumes['name']);
+DocXtext.Font.Size := 12;
+DocXText.Font.Name:='Times New Roman';
+R_DOC_AddTable(section);
+R_DOC_AddFooter(section, resume_id);
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
 Paragraph.Spacing.LineRule:=lrAuto;
-text := paragraph.AddText(LocalTranslate('Опыт работы'));
-Text.Font.Size := 18;
-Text.Font.Style := [fsBold];
+DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
+DocXText.Font.Size := 18;
+DocXText.Font.Name:='Times New Roman';
+DocXText.Font.Style := [fsBold];
 
 UniExperiences.Close;
 UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
 UniExperiences.Open;
 while not UniExperiences.Eof do
 	begin
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	paragraph.Alignment := taLeft;
-	text:=paragraph.AddText(UniExperiences['job_position']);
-	Text.Font.Size := 12;
-	Text.Font.Name:='Times New Roman';
-	Text.Font.Style := [fsBold];
-
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	paragraph.Alignment := taLeft;
-	text:=paragraph.AddText(FormMain.GetMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
-	Text.Font.Size := 12;
-	Text.Font.Name:='Times New Roman';
-
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	paragraph.Alignment := taLeft;
-	text:=paragraph.AddText(UniExperiences['employer']);
-	Text.Font.Size := 12;
-	Text.Font.Name:='Times New Roman';
-
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	paragraph.Alignment := taLeft;
-	text:=paragraph.AddText(UniExperiences['responsibilities']);
-	Text.Font.Size := 12;
-	Text.Font.Name:='Times New Roman';
-	if not FormMain.IsEmpty(UniExperiences['benefits']) then
-		begin
-		paragraph := section.AddParagraph;
-		Paragraph.Spacing.Line:=400;
-		Paragraph.Spacing.LineRule:=lrAuto;
-		paragraph.Alignment := taLeft;
-		text:=paragraph.AddText(UniExperiences['benefits']);
-		Text.Font.Size := 12;
-		Text.Font.Name:='Times New Roman';
-		end;
-
-	if not FormMain.IsEmpty(UniExperiences['benefits']) then
-		begin
-		paragraph := section.AddParagraph;
-		Paragraph.Spacing.Line:=400;
-		Paragraph.Spacing.LineRule:=lrAuto;
-		paragraph.Alignment := taLeft;
-		text:=paragraph.AddText(UniExperiences['other']);
-		Text.Font.Size := 12;
-		Text.Font.Name:='Times New Roman';
-		end;
+	R_DOC_AddJob(section);
 	UniExperiences.Next;
 	if not UniExperiences.Eof then
 		begin
 		paragraph := section.AddParagraph;
+		paragraph.Alignment := taJustified;
 		Paragraph.Spacing.Line:=400;
 		Paragraph.Spacing.LineRule:=lrAuto;
-		text:=paragraph.AddText('========================================================');
-		Text.Font.Size := 12;
-		Text.Font.Name:='Times New Roman';
+		DocXtext:=paragraph.AddText('========================================================');
+		DocXText.Font.Size := 12;
+		DocXText.Font.Name:='Times New Roman';
 		end;
 	end;
 TMSFNCWXDocx1.GetDocxAsFile(FileName);

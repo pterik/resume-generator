@@ -398,7 +398,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 565
   end
   object BitBtnClose: TBitBtn
-    Left = 825
+    Left = 821
     Top = 614
     Width = 115
     Height = 38
@@ -413,7 +413,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 821
+    ExplicitLeft = 817
     ExplicitTop = 613
   end
   object EditCopyNumber: TEdit
@@ -481,7 +481,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 609
   end
   object BitBtnPDF: TBitBtn
-    Left = 825
+    Left = 821
     Top = 566
     Width = 115
     Height = 38
@@ -495,7 +495,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 821
+    ExplicitLeft = 817
     ExplicitTop = 565
   end
   object BitBtnOpenResume: TBitBtn
