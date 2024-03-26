@@ -38,7 +38,7 @@ type
     UniSQLMonitor1: TUniSQLMonitor;
     Mailbox: TMenuItem;
     NTemplates: TMenuItem;
-    BitBtnTemplates: TBitBtn;
+    BitBtnTemplatesList: TBitBtn;
     N2: TMenuItem;
     UniRegions: TUniQuery;
     UniLanguages: TUniQuery;
@@ -64,6 +64,7 @@ type
     BitBtnNewTemplate: TBitBtn;
     UniTelephones: TUniQuery;
     UniQueryParameters: TUniQuery;
+    BitBtnResumeList: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
@@ -72,13 +73,14 @@ type
     procedure NParametersClick(Sender: TObject);
     procedure MailboxClick(Sender: TObject);
     procedure NTemplatesClick(Sender: TObject);
-    procedure BitBtnTemplatesClick(Sender: TObject);
+    procedure BitBtnTemplatesListClick(Sender: TObject);
     procedure N2Click(Sender: TObject);
     procedure N3Click(Sender: TObject);
     procedure BitBtnNewResumeClick(Sender: TObject);
     procedure PDF1Click(Sender: TObject);
     procedure BitBtnNewTemplateClick(Sender: TObject);
     procedure Skills1Click(Sender: TObject);
+    procedure BitBtnResumeListClick(Sender: TObject);
   private
      WarningFired:boolean;
 	protected
@@ -149,7 +151,7 @@ begin
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
 FormNewResume.SetEmptyUA;
-FormNewResume.SetEmptyTR;
+FormNewResume.SetEmpty;
 FormNewResume.ShowModal;
 end;
 
@@ -160,7 +162,14 @@ FormNewTemplate.SetFormValues;
 FormNewTemplate.ShowModal;
 end;
 
-procedure TFormMain.BitBtnTemplatesClick(Sender: TObject);
+procedure TFormMain.BitBtnResumeListClick(Sender: TObject);
+begin
+if FormListResumes=nil then Application.CreateForm(TFormListResumes, FormListResumes);
+FormListResumes.SetFormValues;
+FormListResumes.ShowModal;
+end;
+
+procedure TFormMain.BitBtnTemplatesListClick(Sender: TObject);
 begin
 if FormTemplatesList=nil then Application.CreateForm(TFormTemplatesList, FormTemplatesList);
 FormTemplatesList.SetFormValues;
@@ -265,7 +274,7 @@ procedure TFormMain.NNewResumeClick(Sender: TObject);
 begin
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
-FormNewResume.SetEmptyTR;
+FormNewResume.SetEmpty;
 FormNewResume.SetEmptyUA;
 FormNewResume.ShowModal;
 end;

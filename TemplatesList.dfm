@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     661)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 837
+    Left = 833
     Top = 613
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormTemplatesList: TFormTemplatesList
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 833
+    ExplicitLeft = 829
     ExplicitTop = 612
   end
   object DBGrid1: TDBGrid
@@ -444,6 +444,7 @@ object FormTemplatesList: TFormTemplatesList
       '  updated '
       'from templates t'
       'order by archived, name')
+    ReadOnly = True
     Active = True
     OnCalcFields = UniTemplatesCalcFields
     Left = 288

@@ -4658,24 +4658,31 @@ object FormMain: TFormMain
     Kind = bkClose
     NumGlyphs = 2
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 4
     ExplicitLeft = 864
     ExplicitTop = 580
   end
-  object BitBtnTemplates: TBitBtn
-    Left = 60
-    Top = 629
-    Width = 90
-    Height = 25
+  object BitBtnTemplatesList: TBitBtn
+    Left = 364
+    Top = 580
+    Width = 160
+    Height = 40
     Caption = #1064#1072#1073#1083#1086#1085#1080
-    TabOrder = 1
-    OnClick = BitBtnTemplatesClick
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BitBtnTemplatesListClick
   end
   object BitBtnNewResume: TBitBtn
     Left = 8
-    Top = 581
-    Width = 153
+    Top = 580
+    Width = 160
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1053#1086#1074#1077' '#1088#1077#1079#1102#1084#1077
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -4814,25 +4821,27 @@ object FormMain: TFormMain
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 0
     OnClick = BitBtnNewResumeClick
   end
   object MemoText: TMemo
     Left = 8
-    Top = 416
+    Top = 8
     Width = 972
     Height = 159
+    Anchors = [akLeft, akRight, akBottom]
     Lines.Strings = (
       'MemoText')
     ReadOnly = True
     ScrollBars = ssBoth
-    TabOrder = 3
+    TabOrder = 5
   end
   object BitBtnNewTemplate: TBitBtn
     Left = 184
-    Top = 581
+    Top = 580
     Width = 161
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1053#1086#1074#1080#1081' '#1096#1072#1073#1083#1086#1085
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -4971,8 +4980,23 @@ object FormMain: TFormMain
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
     ParentFont = False
-    TabOrder = 4
+    TabOrder = 1
     OnClick = BitBtnNewTemplateClick
+  end
+  object BitBtnResumeList: TBitBtn
+    Left = 544
+    Top = 580
+    Width = 160
+    Height = 40
+    Caption = #1056#1077#1079#1102#1084#1077
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 3
+    OnClick = BitBtnResumeListClick
   end
   object MainMenu1: TMainMenu
     Left = 40

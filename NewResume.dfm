@@ -17,7 +17,7 @@ object FormNewResume: TFormNewResume
     861)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 822
+    Left = 818
     Top = 823
     Width = 98
     Height = 38
@@ -25,8 +25,8 @@ object FormNewResume: TFormNewResume
     Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 818
-    ExplicitTop = 760
+    ExplicitLeft = 814
+    ExplicitTop = 822
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -169,14 +169,14 @@ object FormNewResume: TFormNewResume
     ModalResult = 1
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 759
+    ExplicitTop = 821
   end
   object PageControlUA: TPageControl
     Left = 2
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheet10UA
+    ActivePage = TabSheetJob1UA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -3733,7 +3733,7 @@ object FormNewResume: TFormNewResume
     end
   end
   object BitBtnCopy: TBitBtn
-    Left = 232
+    Left = 230
     Top = 823
     Width = 201
     Height = 38
@@ -3804,7 +3804,6 @@ object FormNewResume: TFormNewResume
       3F501E3F6F3F6F3F6F0E68686868686868686868686868680000}
     TabOrder = 4
     OnClick = BitBtnCopyClick
-    ExplicitTop = 760
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (
@@ -3913,8 +3912,8 @@ object FormNewResume: TFormNewResume
       'and r.lang = :p_lang'
       'and f.resume_id = :p_resume_id'
       'ORDER BY f.footer_order')
-    Left = 704
-    Top = 104
+    Left = 624
+    Top = 112
     ParamData = <
       item
         DataType = ftString
@@ -3939,12 +3938,12 @@ object FormNewResume: TFormNewResume
       FieldName = 'footer_header'
       Size = 255
     end
+    object UniGetFootersfooter_text: TMemoField
+      FieldName = 'footer_text'
+      BlobType = ftMemo
+    end
     object UniGetFootersfooter_order: TIntegerField
       FieldName = 'footer_order'
-    end
-    object UniGetFootersfooter_text: TStringField
-      FieldName = 'footer_text'
-      Size = 1000
     end
     object UniGetFooterscreated: TDateTimeField
       FieldName = 'created'
@@ -3966,7 +3965,11 @@ object FormNewResume: TFormNewResume
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
-      'SELECT * from templates WHERE id = :p_id')
+      'SELECT '
+      'id, name, job_opportunity, job_place, phone_numbers_text, '
+      'template_introduction, archived, created, updated'
+      'from templates '
+      'WHERE id = :p_id')
     Left = 496
     Top = 120
     ParamData = <
@@ -3995,9 +3998,9 @@ object FormNewResume: TFormNewResume
       FieldName = 'phone_numbers_text'
       Size = 255
     end
-    object UniGetTemplatetemplate_introduction: TStringField
+    object UniGetTemplatetemplate_introduction: TMemoField
       FieldName = 'template_introduction'
-      Size = 3000
+      BlobType = ftMemo
     end
     object UniGetTemplatearchived: TBooleanField
       FieldName = 'archived'
@@ -4023,8 +4026,8 @@ object FormNewResume: TFormNewResume
       'where sl.skill_id = s.id'
       'and experience_id = :p_experience_id')
     UniDirectional = True
-    Left = 400
-    Top = 141
+    Left = 384
+    Top = 133
     ParamData = <
       item
         DataType = ftInteger
@@ -4077,7 +4080,7 @@ object FormNewResume: TFormNewResume
       'ROW_NUMBER() OVER () AS order_position'
       'from experiences e'
       'where e.resume_id = :p_resume_id'
-      'order by start_date')
+      'order by start_date desc')
     UniDirectional = True
     Left = 672
     Top = 253
@@ -4093,12 +4096,9 @@ object FormNewResume: TFormNewResume
     end
     object UniGetJobsjob_position: TStringField
       FieldName = 'job_position'
-      Size = 255
-    end
-    object UniGetJobsorder_position: TLargeintField
-      FieldName = 'order_position'
       ReadOnly = True
       Required = True
+      Size = 255
     end
     object UniGetJobsstart_date: TDateField
       FieldName = 'start_date'
@@ -4109,17 +4109,34 @@ object FormNewResume: TFormNewResume
     end
     object UniGetJobsemployer: TStringField
       FieldName = 'employer'
+      ReadOnly = True
+      Required = True
       Size = 255
+    end
+    object UniGetJobsresponsibilities: TMemoField
+      FieldName = 'responsibilities'
+      BlobType = ftMemo
     end
     object UniGetJobsbenefits: TStringField
       FieldName = 'benefits'
+      ReadOnly = True
+      Required = True
       Size = 1000
+    end
+    object UniGetJobsother: TMemoField
+      FieldName = 'other'
+      BlobType = ftMemo
     end
     object UniGetJobscreated: TDateTimeField
       FieldName = 'created'
     end
     object UniGetJobsupdated: TDateTimeField
       FieldName = 'updated'
+    end
+    object UniGetJobsorder_position: TLargeintField
+      FieldName = 'order_position'
+      ReadOnly = True
+      Required = True
     end
   end
   object UniSPInsertResume: TUniStoredProc
@@ -4257,8 +4274,8 @@ object FormNewResume: TFormNewResume
     SQL.Strings = (
       'SELECT max(ID) as ID from resumes '
       'WHERE name = :p_name and lang = :p_lang')
-    Left = 294
-    Top = 149
+    Left = 246
+    Top = 125
     ParamData = <
       item
         DataType = ftString
@@ -4482,8 +4499,8 @@ object FormNewResume: TFormNewResume
       'WHERE  r.id = f.template_id'
       'and f.template_id = :p_template_id'
       'ORDER BY f.footer_order')
-    Left = 600
-    Top = 112
+    Left = 784
+    Top = 104
     ParamData = <
       item
         DataType = ftInteger
@@ -4501,9 +4518,9 @@ object FormNewResume: TFormNewResume
       FieldName = 'footer_header'
       Size = 255
     end
-    object UniGetTemplateFootersfooter_text: TStringField
+    object UniGetTemplateFootersfooter_text: TMemoField
       FieldName = 'footer_text'
-      Size = 2000
+      BlobType = ftMemo
     end
     object UniGetTemplateFootersfooter_order: TIntegerField
       FieldName = 'footer_order'
@@ -4513,6 +4530,79 @@ object FormNewResume: TFormNewResume
     end
     object UniGetTemplateFootersupdated: TDateTimeField
       FieldName = 'updated'
+    end
+  end
+  object UniGetTemplateJobs: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'select id, '
+      'job_position, start_date, end_date, '
+      'employer, '
+      'responsibilities, '
+      'benefits, '
+      'other, '
+      'created, updated, '
+      'ROW_NUMBER() OVER () AS order_position'
+      'from experiences e'
+      'where e.template_id = :p_template_id'
+      'order by start_date desc')
+    UniDirectional = True
+    Left = 880
+    Top = 253
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object IntegerField1: TIntegerField
+      FieldName = 'id'
+    end
+    object StringField1: TStringField
+      FieldName = 'job_position'
+      ReadOnly = True
+      Required = True
+      Size = 255
+    end
+    object DateField1: TDateField
+      FieldName = 'start_date'
+      Required = True
+    end
+    object DateField2: TDateField
+      FieldName = 'end_date'
+    end
+    object StringField2: TStringField
+      FieldName = 'employer'
+      ReadOnly = True
+      Required = True
+      Size = 255
+    end
+    object MemoField1: TMemoField
+      FieldName = 'responsibilities'
+      BlobType = ftMemo
+    end
+    object MemoField2: TMemoField
+      FieldName = 'other'
+      BlobType = ftMemo
+    end
+    object DateTimeField1: TDateTimeField
+      FieldName = 'created'
+    end
+    object DateTimeField2: TDateTimeField
+      FieldName = 'updated'
+    end
+    object LargeintField1: TLargeintField
+      FieldName = 'order_position'
+      ReadOnly = True
+      Required = True
+    end
+    object UniGetTemplateJobsbenefits: TStringField
+      FieldName = 'benefits'
+      ReadOnly = True
+      Required = True
+      Size = 1000
     end
   end
 end
