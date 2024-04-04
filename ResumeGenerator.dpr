@@ -22,9 +22,5 @@ begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TFormMain, FormMain);
-  Application.CreateForm(TFormTemplatesList, FormTemplatesList);
-  Application.CreateForm(TFormUpdateSkill, FormUpdateSkill);
-  Application.CreateForm(TFormNewSkill, FormNewSkill);
-  Application.CreateForm(TFormUpdateSkill, FormUpdateSkill);
   Application.Run;
 end.

@@ -16,7 +16,7 @@ object FormTemplatesList: TFormTemplatesList
     661)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 833
+    Left = 829
     Top = 613
     Width = 88
     Height = 40
@@ -31,7 +31,7 @@ object FormTemplatesList: TFormTemplatesList
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 829
+    ExplicitLeft = 825
     ExplicitTop = 612
   end
   object DBGrid1: TDBGrid
@@ -453,36 +453,6 @@ object FormTemplatesList: TFormTemplatesList
       AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
-    object UniTemplatesname: TStringField
-      FieldName = 'name'
-      Size = 50
-    end
-    object UniTemplatesjob_opportunity: TStringField
-      FieldName = 'job_opportunity'
-      Size = 255
-    end
-    object UniTemplatesjob_place: TStringField
-      FieldName = 'job_place'
-      Size = 255
-    end
-    object UniTemplatesphone_numbers_text: TStringField
-      FieldName = 'phone_numbers_text'
-      Size = 255
-    end
-    object UniTemplatescreated: TDateTimeField
-      FieldName = 'created'
-    end
-    object UniTemplatesupdated: TDateTimeField
-      FieldName = 'updated'
-    end
-    object UniTemplatesarchived: TBooleanField
-      FieldName = 'archived'
-    end
-    object UniTemplatesarchive: TStringField
-      FieldKind = fkCalculated
-      FieldName = 'archive'
-      Calculated = True
-    end
     object UniTemplatescntr_exp: TLargeintField
       FieldName = 'cntr_exp'
       ReadOnly = True
@@ -491,9 +461,34 @@ object FormTemplatesList: TFormTemplatesList
       FieldName = 'cntr_skills'
       ReadOnly = True
     end
-    object UniTemplatestemplate_introduction: TMemoField
+    object UniTemplatesname: TWideStringField
+      FieldName = 'name'
+      Size = 50
+    end
+    object UniTemplatesjob_opportunity: TWideStringField
+      FieldName = 'job_opportunity'
+      Size = 255
+    end
+    object UniTemplatesjob_place: TWideStringField
+      FieldName = 'job_place'
+      Size = 255
+    end
+    object UniTemplatesphone_numbers_text: TWideStringField
+      FieldName = 'phone_numbers_text'
+      Size = 255
+    end
+    object UniTemplatestemplate_introduction: TWideMemoField
       FieldName = 'template_introduction'
-      BlobType = ftMemo
+      BlobType = ftWideMemo
+    end
+    object UniTemplatesarchived: TBooleanField
+      FieldName = 'archived'
+    end
+    object UniTemplatescreated: TDateTimeField
+      FieldName = 'created'
+    end
+    object UniTemplatesupdated: TDateTimeField
+      FieldName = 'updated'
     end
   end
   object UniDSTemplates: TUniDataSource

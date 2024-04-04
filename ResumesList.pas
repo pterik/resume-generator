@@ -3,7 +3,8 @@
 interface
 
 uses
-	Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+	Winapi.Windows, Winapi.Messages, System.SysUtils, System.StrUtils, System.Variants,
+	System.Classes, Vcl.Graphics,
 	Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
 	DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls,
 	VCL.TMSFNCWXDocx.Models, VCL.TMSFNCCustomWEBControl,
@@ -52,59 +53,53 @@ type
     UniDeleteExperiences: TUniQuery;
     BitBtnArchive: TBitBtn;
     UniArchiveResume: TUniQuery;
+    RadioGroup: TRadioGroup;
+    TMSFNCBitmapContainer1: TTMSFNCBitmapContainer;
+		UniResumeFooters: TUniQuery;
+    UniExperiences: TUniQuery;
+    TMSFNCWXDocx1: TTMSFNCWXDocx;
+    DBRichEditor: TDBRichEdit;
+    UniSkillsID: TUniQuery;
     UniResumesid: TIntegerField;
+    UniResumeslang: TWideStringField;
+    UniResumesregion_id: TWideStringField;
+    UniResumescountry: TWideStringField;
     UniResumescntr_exp: TLargeintField;
     UniResumescntr_skills: TLargeintField;
-    UniResumesname: TStringField;
-    UniResumesjob_opportunity: TStringField;
-    UniResumesjob_place: TStringField;
-    UniResumesphone_numbers_text: TStringField;
+    UniResumesname: TWideStringField;
+    UniResumesjob_opportunity: TWideStringField;
+    UniResumesjob_place: TWideStringField;
+    UniResumesphone_numbers_text: TWideStringField;
+    UniResumesresume_introduction: TWideMemoField;
     UniResumesarchived: TBooleanField;
     UniResumescreated: TDateTimeField;
     UniResumesupdated: TDateTimeField;
-    UniResumeslang: TStringField;
-    UniResumesregion_id: TStringField;
-    RadioGroup: TRadioGroup;
-		UniResumesarchive: TStringField;
-    TMSFNCBitmapContainer1: TTMSFNCBitmapContainer;
-		UniResumescountry: TStringField;
-    UniLocalTranslate: TUniQuery;
-    UniLocalTranslateid: TIntegerField;
-		UniLocalTranslateRU: TStringField;
-		UniLocalTranslateUA: TStringField;
-		UniLocalTranslateEN: TStringField;
-		UniLocalTranslateHR: TStringField;
-		UniLocalTranslatePL: TStringField;
-		UniLocalTranslateDE: TStringField;
-		UniResumeFooters: TUniQuery;
+    UniSkillsIDskill_id: TIntegerField;
+    UniSkillsIDskill: TWideStringField;
     UniResumeFootersid: TIntegerField;
     UniResumeFootersresume_id: TIntegerField;
+    UniResumeFootersfooter_header: TWideStringField;
+    UniResumeFootersfooter_text: TWideMemoField;
     UniResumeFootersfooter_order: TIntegerField;
-    UniExperiences: TUniQuery;
     UniExperiencesid: TIntegerField;
     UniExperiencesresume_id: TIntegerField;
     UniExperiencestemplate_id: TIntegerField;
-    UniExperiencesjob_order: TIntegerField;
-    UniExperiencesjob_position: TStringField;
+    UniExperiencesjob_order: TLargeintField;
+    UniExperiencesjob_position: TWideStringField;
     UniExperiencesstart_date: TDateField;
     UniExperiencesend_date: TDateField;
-    UniExperiencesemployer: TStringField;
-    UniExperiencesbenefits: TStringField;
-    TMSFNCWXDocx1: TTMSFNCWXDocx;
-    DBRichEditor: TDBRichEdit;
-    UniResumesresume_introduction: TMemoField;
-    UniExperiencesother: TMemoField;
-    UniExperiencesresponsibilities: TMemoField;
-    UniResumeFootersfooter_header: TStringField;
-    UniResumeFootersfooter_text: TMemoField;
+    UniExperiencesemployer: TWideStringField;
+    UniExperiencesresponsibilities: TWideMemoField;
+    UniExperiencesbenefits: TWideStringField;
+    UniExperiencesother: TWideMemoField;
     procedure BitBtnCloseClick(Sender: TObject);
-    procedure BitBtnNewResumeClick(Sender: TObject);
-    procedure BitBtnDeleteResumeClick(Sender: TObject);
-    procedure BitBtnSaveResumeClick(Sender: TObject);
-    procedure BitBtnOpenResumeClick(Sender: TObject);
-    procedure BitBtnLetterClick(Sender: TObject);
-    procedure BitBtnPDFClick(Sender: TObject);
-    procedure BitBtnCheckClick(Sender: TObject);
+		procedure BitBtnNewResumeClick(Sender: TObject);
+		procedure BitBtnDeleteResumeClick(Sender: TObject);
+		procedure BitBtnSaveResumeClick(Sender: TObject);
+		procedure BitBtnOpenResumeClick(Sender: TObject);
+		procedure BitBtnLetterClick(Sender: TObject);
+		procedure BitBtnPDFClick(Sender: TObject);
+		procedure BitBtnCheckClick(Sender: TObject);
     procedure BitBtnCVClick(Sender: TObject);
     procedure BitBtnEditResumeClick(Sender: TObject);
     procedure BitBtnArchiveClick(Sender: TObject);
@@ -125,8 +120,8 @@ type
 		procedure R_DOC_URL(var paragraph: TTMSFNCWXDocxParagraph; const SourceText: string);
 	public
 		procedure SetFormValues;
-		function LocalTranslate(Word:string):string;
-		function LocalTranslateLang(Word:string; Lang:string):string;
+		function LocalTranslate(Word:UnicodeString):UnicodeString;
+		function LocalTranslateLang(Word:UnicodeString; Lang:string):UnicodeString;
 //    function OLE_FileReplace(FWordFrom, FWordTo:TFileName):boolean;
 
   end;
@@ -138,7 +133,7 @@ implementation
 
 {$R *.dfm}
 
-uses System.UITypes, System.IOUtils, System.StrUtils, Winapi.ShellAPI, Parameters, System.Win.ComObj,
+uses System.UITypes, System.IOUtils, Winapi.ShellAPI, Parameters, System.Win.ComObj,
 	UpdateResume, MainForm, NewResume;
 
 function ComputerName: string;
@@ -158,8 +153,8 @@ if VarIsNull(UniResumes['id']) then  ShowMessage('Оберіть резюме')
   else
     begin
     if MessageDlg( 'Підтвердіть переміщення резюме у архив', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
-    UniArchiveResume.Prepare;
-    UniArchiveResume.ParamByName('p_id').AsInteger:=UniResumes['id'];
+		UniArchiveResume.Prepare;
+		UniArchiveResume.ParamByName('p_id').AsInteger:=UniResumes['id'];
     UniArchiveResume.ExecSQL;
     UniResumes.Refresh;
     end
@@ -214,7 +209,7 @@ else
   begin
   if FormUpdateResume=nil then Application.CreateForm(TFormUpdateResume, FormUpdateResume);
   FormUpdateResume.SetFormValues;
-  FormUpdateResume.SetID(UniResumes['id']);
+	FormUpdateResume.SetID(UniResumes['id']);
 	FormUpdateResume.ShowModal;
 	UniResumes.Refresh;
 	end;
@@ -223,6 +218,7 @@ end;
 procedure TFormListResumes.BitBtnSaveResumeClick(Sender: TObject);
 var
 TemplatesAreReady:boolean;
+FName:string;
 begin
 if VarIsNull(UniResumes['id']) then
 	begin
@@ -231,15 +227,16 @@ if VarIsNull(UniResumes['id']) then
 	end;
 WarningFired:=false;
 TemplatesAreReady:=true;
+FName:=lowercase(ReplaceStr(UniResumes['name'],' ','-'))+'-'+lowercase(UniResumes['lang']);
 if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\r') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\r');
 if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv');
 if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl');
-FileRDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\r-'+UniResumes['name']+'-'+UniResumes['lang']+'.docx';
-FileCVDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+UniResumes['name']+'-'+UniResumes['lang']+'.docx';
-FileCLDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+UniResumes['name']+'-'+UniResumes['lang']+'.docx';
-FileRPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\'+UniResumes['name']+'-'+UniResumes['lang']+'.pdf';
-FileCVPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+UniResumes['name']+'-'+UniResumes['lang']+'.pdf';
-FileCLPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+UniResumes['name']+'-'+UniResumes['lang']+'.pdf';
+FileRDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\r-'+FName+'.docx';
+FileCVDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.docx';
+FileCLDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.docx';
+FileRPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\'+FName+'.pdf';
+FileCVPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.pdf';
+FileCLPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.pdf';
 try
 if FileExists(FileRDocx) then
 		DeleteFile(FileRDocx);
@@ -278,77 +275,78 @@ begin
 Radiogroup.ItemIndex:=0;
 end;
 
-function TFormListResumes.LocalTranslate(Word:string): string;
+function TFormListResumes.LocalTranslate(Word:Unicodestring): UnicodeString;
 begin
 Result:='';
-UniLocalTranslate.Close;
-UniLocalTranslate.ParamByName('p_word').Value:=Trim(Word);
-UniLocalTranslate.Open;
-if VarIsNull(UniLocalTranslate['id']) then
+FormMain.UniLocalTranslate.Close;
+FormMain.UniLocalTranslate.ParamByName('p_word').Value:=Trim(Word);
+FormMain.UniLocalTranslate.ParamByName('p_word').National := true;
+FormMain.UniLocalTranslate.Open;
+if VarIsNull(FormMain.UniLocalTranslate['id']) then
 	 begin
-   Result:='N/A';
-   exit;
+	 Result:='N/A';
+	 exit;
 	 end;
 if UniResumes['lang']='RU' then
 	 begin
-	 Result:=UniLocalTranslate['RU'];
+	 Result:=FormMain.UniLocalTranslate['RU'];
 	 end;
 if UniResumes['lang']='UA' then
 	 begin
-	 Result:=UniLocalTranslate['UA'];
+	 Result:=FormMain.UniLocalTranslate['UA'];
 	 end;
 if UniResumes['lang']='EN' then
 	 begin
-	 Result:=UniLocalTranslate['EN'];
+	 Result:=FormMain.UniLocalTranslate['EN'];
 	 end;
 if UniResumes['lang']='DE' then
 	 begin
-	 Result:=UniLocalTranslate['DE'];
+	 Result:=FormMain.UniLocalTranslate['DE'];
 	 end;
 if UniResumes['lang']='PL' then
 	 begin
-	 Result:=UniLocalTranslate['PL'];
+	 Result:=FormMain.UniLocalTranslate['PL'];
 	 end;
 if UniResumes['lang']='HR' then
 	 begin
-	 Result:=UniLocalTranslate['HR'];
+	 Result:=FormMain.UniLocalTranslate['HR'];
 	 end;
 end;
 
-function TFormListResumes.LocalTranslateLang(Word, Lang: string): string;
+function TFormListResumes.LocalTranslateLang(Word:UnicodeString; Lang: string): Unicodestring;
 begin
 Result:='';
-UniLocalTranslate.Close;
-UniLocalTranslate.ParamByName('p_word').Value:=Trim(Word);
-UniLocalTranslate.Open;
-if VarIsNull(UniLocalTranslate['id']) then
+FormMain.UniLocalTranslate.Close;
+FormMain.UniLocalTranslate.ParamByName('p_word').Value:=Trim(Word);
+FormMain.UniLocalTranslate.Open;
+if VarIsNull(FormMain.UniLocalTranslate['id']) then
 	 begin
-   Result:='N/A';
-   exit;
-   end;
+	 Result:='N/A';
+	 exit;
+	 end;
 if lang='RU' then
-   begin
-	 Result:=UniLocalTranslate['RU'];
+	 begin
+	 Result:=FormMain.UniLocalTranslate['RU'];
 	 end;
 if lang='UA' then
 	 begin
-	 Result:=UniLocalTranslate['UA'];
+	 Result:=FormMain.UniLocalTranslate['UA'];
 	 end;
 if lang='EN' then
 	 begin
-	 Result:=UniLocalTranslate['EN'];
+	 Result:=FormMain.UniLocalTranslate['EN'];
 	 end;
 if lang='DE' then
 	 begin
-	 Result:=UniLocalTranslate['DE'];
+	 Result:=FormMain.UniLocalTranslate['DE'];
 	 end;
 if lang='PL' then
 	 begin
-	 Result:=UniLocalTranslate['PL'];
+	 Result:=FormMain.UniLocalTranslate['PL'];
 	 end;
 if lang='HR' then
 	 begin
-	 Result:=UniLocalTranslate['HR'];
+	 Result:=FormMain.UniLocalTranslate['HR'];
 	 end;
 end;
 
@@ -364,11 +362,11 @@ begin
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
 if Pos('t',Trim(EditCopyNumber.Text))=1 then
-  begin
-    tid:=0;
-    sid:=Trim(EditCopyNumber.Text);
-    sid:=Copy(sid,2,length(sid));
-  if TryStrToInt(sid,tid)
+	begin
+		tid:=0;
+		sid:=Trim(EditCopyNumber.Text);
+		sid:=Copy(sid,2,length(sid));
+	if TryStrToInt(sid,tid)
     then FormNewResume.GetValuesFromTemplate(tid);
   end;
 if Pos('r',Trim(EditCopyNumber.Text))=1 then
@@ -647,6 +645,33 @@ if not FormMain.IsEmpty(UniExperiences['other']) then
 		Paragraph.Spacing.LineRule:=lrAuto;
 		paragraph.Alignment := taJustified;
 		R_DOC_URL(paragraph,UniExperiences['other']);
+	end;
+UniSkillsID.Close;
+UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperiences['id'];
+UniSkillsID.Open;
+if not VarIsNull(UniSkillsID['skill_id']) then
+	begin
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	paragraph.Alignment := taJustified;
+	JobText:=paragraph.AddText(LocalTranslate('Навыки')+': ');
+	JobText.Font.Size := 12;
+	JobText.Font.Style := [fsBold];
+	JobText.Font.Name:='Times New Roman';
+	end;
+while not UniSkillsID.Eof do
+	begin
+	JobText:=paragraph.AddText(UniSkillsID['skill']);
+	JobText.Font.Size := 12;
+	JobText.Font.Name:='Times New Roman';
+	UniSkillsID.Next;
+	if not UniSkillsID.Eof then
+		begin
+		JobText:=paragraph.AddText(' · ');
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+		end;
 	end;
 end;
 

@@ -19,7 +19,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     813)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 877
+    Left = 861
     Top = 767
     Width = 84
     Height = 40
@@ -33,7 +33,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 873
+    ExplicitLeft = 857
     ExplicitTop = 766
   end
   object BitBtnSave: TBitBtn
@@ -190,7 +190,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     Top = 8
     Width = 980
     Height = 753
-    ActivePage = TabSheetFooterRU
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -3033,54 +3033,21 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Name = 'P_ID'
         Value = nil
       end>
-    object UniTemplateIDid: TIntegerField
-      AutoGenerateValue = arAutoInc
-      FieldName = 'id'
-    end
-    object UniTemplateIDname: TStringField
-      FieldName = 'name'
-      Size = 50
-    end
-    object UniTemplateIDjob_opportunity: TStringField
-      FieldName = 'job_opportunity'
-      Size = 255
-    end
-    object UniTemplateIDjob_place: TStringField
-      FieldName = 'job_place'
-      Size = 255
-    end
-    object UniTemplateIDtemplate_introduction: TMemoField
-      FieldName = 'template_introduction'
-      BlobType = ftMemo
-    end
-    object UniTemplateIDphone_numbers_text: TStringField
-      FieldName = 'phone_numbers_text'
-      Size = 255
-    end
-    object UniTemplateIDcreated: TDateTimeField
-      FieldName = 'created'
-    end
-    object UniTemplateIDupdated: TDateTimeField
-      FieldName = 'updated'
-    end
-    object UniTemplateIDarchived: TBooleanField
-      FieldName = 'archived'
-    end
   end
   object UniSPInsertExperiences: TUniStoredProc
     StoredProcName = 'insert_experience'
     SQL.Strings = (
       
         'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
-        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
-        'oyer, :p_resp, :p_benefits, :p_other, @p_experience_id); SELECT ' +
-        'CAST(@p_experience_id AS SIGNED) AS '#39'@p_experience_id'#39)
+        '_job_position, :p_start_date, :p_end_date, :p_employer, :p_resp,' +
+        ' :p_benefits, :p_other, @p_experience_id); SELECT CAST(@p_experi' +
+        'ence_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 576
     Top = 240
     ParamData = <
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_flag'
         ParamType = ptInput
         Size = 20
@@ -3099,13 +3066,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftInteger
-        Name = 'p_job_order'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_job_position'
         ParamType = ptInput
         Size = 255
@@ -3124,27 +3085,27 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_employer'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideMemo
         Name = 'p_resp'
         ParamType = ptInput
         Value = Null
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_benefits'
         ParamType = ptInput
         Size = 1000
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideMemo
         Name = 'p_other'
         ParamType = ptInput
         Value = Null
@@ -3169,10 +3130,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         DataType = ftInteger
         Name = 'p_experience_id'
         ParamType = ptInput
-        Value = 0
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_skill'
         ParamType = ptInput
         Size = 255
@@ -3204,29 +3165,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParamType = ptInput
         Value = nil
       end>
-    object UniFootersIDid: TIntegerField
-      FieldName = 'id'
-    end
-    object UniFootersIDtemplate_id: TIntegerField
-      FieldName = 'template_id'
-    end
-    object UniFootersIDfooter_header: TStringField
-      FieldName = 'footer_header'
-      Size = 255
-    end
-    object UniFootersIDfooter_text: TMemoField
-      FieldName = 'footer_text'
-      BlobType = ftMemo
-    end
-    object UniFootersIDfooter_order: TIntegerField
-      FieldName = 'footer_order'
-    end
-    object UniFootersIDcreated: TDateTimeField
-      FieldName = 'created'
-    end
-    object UniFootersIDupdated: TDateTimeField
-      FieldName = 'updated'
-    end
   end
   object UniSPUpdateTemplate: TUniStoredProc
     StoredProcName = 'update_template'
@@ -3249,35 +3187,35 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_name'
         ParamType = ptInput
         Size = 50
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_job_opportunity'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_job_place'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_phone_numbers_text'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideMemo
         Name = 'p_template_introduction'
         ParamType = ptInput
         Value = Null
@@ -3289,62 +3227,66 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_1_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_2_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_3_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_4_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
         DataType = ftInteger
         Name = 'p_result'
         ParamType = ptOutput
-        Value = 0
+        Value = nil
       end>
     CommandStoredProcName = 'update_template'
   end
@@ -3356,19 +3298,21 @@ object FormUpdateTemplate: TFormUpdateTemplate
       '  id experience_id ,'
       '  resume_id ,'
       '  template_id ,'
-      '  job_order ,'
       '  job_position ,'
       '  start_date ,'
       '  end_date ,'
+      
+        '  row_number() over (partition by template_id order by start_dat' +
+        'e desc) as job_order,'
       '  employer ,'
       '  responsibilities ,'
       '  benefits ,'
       '  other ,'
       '  created ,'
-      '  updated t'
+      '  updated'
       ' FROM experiences e'
-      'WHERE template_id = :p_template_id'
-      'ORDER BY job_order')
+      ' WHERE template_id = :p_template_id'
+      'ORDER BY start_date desc')
     Left = 672
     Top = 168
     ParamData = <
@@ -3378,51 +3322,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParamType = ptInput
         Value = nil
       end>
-    object UniExperienceIDexperience_id: TIntegerField
-      FieldName = 'experience_id'
-    end
-    object UniExperienceIDresume_id: TIntegerField
-      FieldName = 'resume_id'
-    end
-    object UniExperienceIDtemplate_id: TIntegerField
-      FieldName = 'template_id'
-    end
-    object UniExperienceIDjob_order: TIntegerField
-      FieldName = 'job_order'
-    end
-    object UniExperienceIDjob_position: TStringField
-      FieldName = 'job_position'
-      Size = 255
-    end
-    object UniExperienceIDstart_date: TDateField
-      FieldName = 'start_date'
-      Required = True
-    end
-    object UniExperienceIDend_date: TDateField
-      FieldName = 'end_date'
-    end
-    object UniExperienceIDemployer: TStringField
-      FieldName = 'employer'
-      Size = 255
-    end
-    object UniExperienceIDresponsibilities: TMemoField
-      FieldName = 'responsibilities'
-      BlobType = ftMemo
-    end
-    object UniExperienceIDbenefits: TStringField
-      FieldName = 'benefits'
-      Size = 1000
-    end
-    object UniExperienceIDother: TMemoField
-      FieldName = 'other'
-      BlobType = ftMemo
-    end
-    object UniExperienceIDcreated: TDateTimeField
-      FieldName = 'created'
-    end
-    object UniExperienceIDt: TDateTimeField
-      FieldName = 't'
-    end
   end
   object UniSkillsID: TUniQuery
     Connection = FormMain.UniConnection
@@ -3443,15 +3342,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParamType = ptInput
         Value = nil
       end>
-    object UniSkillsIDskill_id: TIntegerField
-      FieldName = 'skill_id'
-      Required = True
-    end
-    object UniSkillsIDskill: TStringField
-      FieldName = 'skill'
-      ReadOnly = True
-      Size = 255
-    end
   end
   object UniSPDeleteExpSkills: TUniStoredProc
     StoredProcName = 'delete_experiences_skills'
@@ -3464,7 +3354,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     Top = 240
     ParamData = <
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_flag'
         ParamType = ptInput
         Size = 50
@@ -3483,24 +3373,5 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Value = nil
       end>
     CommandStoredProcName = 'delete_experiences_skills'
-  end
-  object UniTelephones: TUniQuery
-    SQLUpdate.Strings = (
-      'UPDATE templates '
-      
-        'set name = :p_name, job_opportunity = :p_job_opportunity, job_pl' +
-        'ace = :p_job_place, '
-      
-        'phone_numbers_text = :p_phone_numbers_text, resume_introduction ' +
-        '= :p_resume_introduction'
-      'WHERE id = :p_id')
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'SELECT DISTINCT value FROM parameters'
-      'WHERE name LIKE '#39'%telephone%'#39' '
-      'ORDER BY 1')
-    Left = 880
-    Top = 168
   end
 end

@@ -42,19 +42,8 @@ type
     N2: TMenuItem;
     UniRegions: TUniQuery;
     UniLanguages: TUniQuery;
-    UniLanguageslang: TStringField;
-    UniLanguageslanguage: TStringField;
-    UniLanguagesorderby: TIntegerField;
-    UniLanguagescreated: TDateTimeField;
-    UniLanguagesupdated: TDateTimeField;
     G1: TMenuItem;
     N3: TMenuItem;
-    UniRegionsid: TStringField;
-    UniRegionsregion_name: TStringField;
-    UniRegionsdate_mask: TStringField;
-    UniRegionsorderby: TIntegerField;
-    UniRegionscreated: TDateTimeField;
-    UniRegionsupdated: TDateTimeField;
     BitBtnNewResume: TBitBtn;
     MemoText: TMemo;
     PDF1: TMenuItem;
@@ -65,6 +54,40 @@ type
     UniTelephones: TUniQuery;
     UniQueryParameters: TUniQuery;
     BitBtnResumeList: TBitBtn;
+    UniLanguageslang: TWideStringField;
+    UniLanguageslanguage: TWideStringField;
+    UniLanguagesorderby: TIntegerField;
+    UniLanguagescreated: TDateTimeField;
+    UniLanguagesupdated: TDateTimeField;
+    UniRegionsid: TWideStringField;
+    UniRegionsregion_name: TWideStringField;
+    UniRegionsdate_mask: TWideStringField;
+    UniRegionsorderby: TIntegerField;
+    UniRegionscreated: TDateTimeField;
+    UniRegionsupdated: TDateTimeField;
+    UniParameterByNameid: TIntegerField;
+    UniParameterByNamename: TWideStringField;
+    UniParameterByNamevalue: TWideStringField;
+    UniTelephonesvalue: TWideStringField;
+    UniQueryParametersid: TIntegerField;
+    UniQueryParametersname: TWideStringField;
+    UniQueryParametersvalue: TWideStringField;
+    UniTranslation: TUniQuery;
+    UniLocalTranslate: TUniQuery;
+    UniLocalTranslateid: TIntegerField;
+    UniLocalTranslateRU: TWideMemoField;
+    UniLocalTranslateUA: TWideMemoField;
+    UniLocalTranslateEN: TWideMemoField;
+    UniLocalTranslateHR: TWideMemoField;
+    UniLocalTranslatePL: TWideStringField;
+    UniLocalTranslateDE: TWideMemoField;
+    UniTranslationid: TIntegerField;
+    UniTranslationRU: TWideMemoField;
+    UniTranslationUA: TWideMemoField;
+    UniTranslationEN: TWideMemoField;
+    UniTranslationHR: TWideMemoField;
+    UniTranslationPL: TWideStringField;
+    UniTranslationDE: TWideMemoField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
@@ -89,7 +112,7 @@ type
 		Recommendationlink, EnglishTest, Website, FullName, Email, telephone_english, telephone_croatian,
 		telephone_ukrainian, telephone_usa, main_folder, main_folder_LAPTOP_PTERIK, main_folder_VESTA:string;
 		property Action;
-		procedure Warning(const s: string);
+		procedure Warning(const s: UnicodeString);
 		procedure GetMonthRegionByMask(const D: TDatetime; Region: string;
 			var FullMonthYear, ShortMonthYear: string);
 		function IsEmpty(const S: String): boolean;
@@ -129,7 +152,7 @@ begin
   Result := (Length(Trim(S)) <= 0);
 end;
 
-procedure TFormMain.Warning(const s: string);
+procedure TFormMain.Warning(const s: UnicodeString);
 begin
 MemoText.Lines.Add(S);
 if not WarningFired then
@@ -189,6 +212,7 @@ UniConnection.Port := 3306;
 UniConnection.Username := 'jobreport';
 UniConnection.Password := 'jobreport123';
 UniConnection.database := 'jobsearch';
+UniConnection.SpecificOptions.Values['UseUnicode'] := 'true';
 //UniConnection.SpecificOptions.Values['Schema'] := 'jobsearch';
 UniConnection.Open;
 
@@ -861,7 +885,7 @@ if (lowercase(Region) = 'ukraine') or (lowercase(Region) = 'ua') then
 		end;
 		// січень, лютий, березень, квітень, травень, червень, липень, серпень, вересень, жовтень, листопад, грудень.
   end;
-  if (lowercase(Region) = 'poland') or (lowercase(Region) = 'pl') then
+  if (lowercase(Region) = 'poland') or (lowercase(Region) = 'po') then
   begin
     case MM of
 			1: Result:= 'Styczeń' + ' ' + IntToStr(Year);

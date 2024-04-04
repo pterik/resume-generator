@@ -6,21 +6,13 @@ uses
 	Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
 	System.Classes, Vcl.Graphics,
 	Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, Uni,
-	Vcl.StdCtrls, Vcl.Buttons, Vcl.WinXCalendars, Vcl.ComCtrls;
+	Vcl.StdCtrls, Vcl.Buttons, Vcl.WinXCalendars, Vcl.ComCtrls, Vcl.Menus;
 
 type
 	TFormUpdateTemplate = class(TForm)
 		UniTemplateID: TUniQuery;
 		BitBtnClose: TBitBtn;
-		UniTemplateIDid: TIntegerField;
-		UniTemplateIDname: TStringField;
-		UniTemplateIDjob_opportunity: TStringField;
-		UniTemplateIDjob_place: TStringField;
-		UniTemplateIDphone_numbers_text: TStringField;
-		UniTemplateIDcreated: TDateTimeField;
-		UniTemplateIDupdated: TDateTimeField;
 		BitBtnSave: TBitBtn;
-		UniTemplateIDarchived: TBooleanField;
 		PageControl: TPageControl;
 		TabSheetMainRU: TTabSheet;
 		EditName: TEdit;
@@ -191,17 +183,9 @@ type
 		UniSPInsertExperiences: TUniStoredProc;
 		UniSPInsertSkillShow: TUniStoredProc;
 		UniFootersID: TUniQuery;
-		UniFootersIDid: TIntegerField;
-		UniFootersIDtemplate_id: TIntegerField;
-		UniFootersIDfooter_header: TStringField;
-		UniFootersIDfooter_order: TIntegerField;
-		UniFootersIDcreated: TDateTimeField;
-		UniFootersIDupdated: TDateTimeField;
 		UniSPUpdateTemplate: TUniStoredProc;
 		UniExperienceID: TUniQuery;
 		UniSkillsID: TUniQuery;
-		UniSkillsIDskill_id: TIntegerField;
-		UniSkillsIDskill: TStringField;
 		Label121: TLabel;
 		Label122: TLabel;
 		Label123: TLabel;
@@ -214,7 +198,6 @@ type
 		Label9: TLabel;
 		Label10: TLabel;
 		UniSPDeleteExpSkills: TUniStoredProc;
-		UniTelephones: TUniQuery;
 		CBPhones: TComboBox;
 		BitBtn2: TBitBtn;
 		CBWordWrap: TCheckBox;
@@ -230,21 +213,6 @@ type
 		RichEdit9Resp: TRichEdit;
 		RichEdit10Resp: TRichEdit;
 		RichEdit1: TRichEdit;
-    UniExperienceIDexperience_id: TIntegerField;
-    UniExperienceIDresume_id: TIntegerField;
-    UniExperienceIDtemplate_id: TIntegerField;
-    UniExperienceIDjob_order: TIntegerField;
-    UniExperienceIDjob_position: TStringField;
-    UniExperienceIDstart_date: TDateField;
-    UniExperienceIDend_date: TDateField;
-    UniExperienceIDemployer: TStringField;
-    UniExperienceIDresponsibilities: TMemoField;
-    UniExperienceIDbenefits: TStringField;
-    UniExperienceIDother: TMemoField;
-    UniExperienceIDcreated: TDateTimeField;
-    UniExperienceIDt: TDateTimeField;
-    UniTemplateIDtemplate_introduction: TMemoField;
-    UniFootersIDfooter_text: TMemoField;
 		procedure FormClose(Sender: TObject; var Action: TCloseAction);
 		procedure FormDestroy(Sender: TObject);
 		procedure BitBtnSaveClick(Sender: TObject);
@@ -410,7 +378,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit1Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -434,7 +402,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit2Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -458,7 +426,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit3Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -482,7 +450,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit4Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -506,7 +474,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit5Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -530,7 +498,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit6Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -554,7 +522,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit7Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -578,7 +546,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit8Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -602,7 +570,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit9Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -626,7 +594,7 @@ begin
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'template_id';
 			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger :=
 				FTemplateID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString :=
 				Edit10Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=
@@ -1060,12 +1028,12 @@ begin
 	SetValuesFooters;
 	SetValuesJobs;
 	CBPhones.Clear;
-	UniTelephones.Close;
-	UniTelephones.Open;
-	while not UniTelephones.Eof do
+	FormMain.UniTelephones.Close;
+	FormMain.UniTelephones.Open;
+	while not FormMain.UniTelephones.Eof do
 	begin
-		CBPhones.Items.Add(UniTelephones['value']);
-		UniTelephones.Next;
+		CBPhones.Items.Add(FormMain.UniTelephones['value']);
+		FormMain.UniTelephones.Next;
 	end;
 end;
 
@@ -1089,11 +1057,11 @@ begin
 		if UniFootersID['footer_order'] = 2 then
 		begin
 		if VarIsNull(UniFootersID['footer_header'])
-			then EditArticle1.Text := ''
-			else EditArticle1.Text := UniFootersID['footer_header'];
+			then EditArticle2.Text := ''
+			else EditArticle2.Text := UniFootersID['footer_header'];
 		if VarIsNull(UniFootersID['footer_text'])
-			then RichEdit1.Text :=''
-			else RichEdit1.Text := UniFootersID['footer_text'];
+			then RichEdit2.Text :=''
+			else RichEdit2.Text := UniFootersID['footer_text'];
 		end;
 		if UniFootersID['footer_order'] = 3 then
 		begin

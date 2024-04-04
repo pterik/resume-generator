@@ -16,7 +16,7 @@ object FormNewTemplate: TFormNewTemplate
     776)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 885
+    Left = 877
     Top = 730
     Width = 95
     Height = 38
@@ -31,6 +31,8 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 873
+    ExplicitTop = 729
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -186,7 +188,7 @@ object FormNewTemplate: TFormNewTemplate
     Top = 2
     Width = 980
     Height = 722
-    ActivePage = TabSheetMainRU
+    ActivePage = TabSheetJob2RU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -2979,90 +2981,94 @@ object FormNewTemplate: TFormNewTemplate
     Top = 532
     ParamData = <
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_name'
         ParamType = ptInput
         Size = 50
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_job_opportunity'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_job_place'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_phone_numbers_text'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideMemo
         Name = 'p_template_introduction'
         ParamType = ptInput
         Value = Null
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_1_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_2_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_3_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_footer_4_header'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideString
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Value = Null
+        Size = 2000
+        Value = nil
       end
       item
         DataType = ftInteger
@@ -3083,15 +3089,15 @@ object FormNewTemplate: TFormNewTemplate
     SQL.Strings = (
       
         'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
-        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
-        'oyer, :p_resp, :p_benefits, :p_other, @p_experience_id); SELECT ' +
-        'CAST(@p_experience_id AS SIGNED) AS '#39'@p_experience_id'#39)
+        '_job_position, :p_start_date, :p_end_date, :p_employer, :p_resp,' +
+        ' :p_benefits, :p_other, @p_experience_id); SELECT CAST(@p_experi' +
+        'ence_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 312
     Top = 528
     ParamData = <
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_flag'
         ParamType = ptInput
         Size = 20
@@ -3110,13 +3116,7 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftInteger
-        Name = 'p_job_order'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_job_position'
         ParamType = ptInput
         Size = 255
@@ -3135,27 +3135,27 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_employer'
         ParamType = ptInput
         Size = 255
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideMemo
         Name = 'p_resp'
         ParamType = ptInput
         Value = Null
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_benefits'
         ParamType = ptInput
         Size = 1000
         Value = nil
       end
       item
-        DataType = ftMemo
+        DataType = ftWideMemo
         Name = 'p_other'
         ParamType = ptInput
         Value = Null
@@ -3180,10 +3180,10 @@ object FormNewTemplate: TFormNewTemplate
         DataType = ftInteger
         Name = 'p_experience_id'
         ParamType = ptInput
-        Value = 0
+        Value = nil
       end
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_skill'
         ParamType = ptInput
         Size = 255
@@ -3202,7 +3202,7 @@ object FormNewTemplate: TFormNewTemplate
     Top = 536
     ParamData = <
       item
-        DataType = ftString
+        DataType = ftWideString
         Name = 'p_flag'
         ParamType = ptInput
         Size = 50

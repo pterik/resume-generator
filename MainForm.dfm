@@ -4823,6 +4823,7 @@ object FormMain: TFormMain
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnNewResumeClick
+    ExplicitTop = 579
   end
   object MemoText: TMemo
     Left = 8
@@ -4835,6 +4836,8 @@ object FormMain: TFormMain
     ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 5
+    ExplicitTop = 7
+    ExplicitWidth = 968
   end
   object BitBtnNewTemplate: TBitBtn
     Left = 184
@@ -4982,6 +4985,7 @@ object FormMain: TFormMain
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnNewTemplateClick
+    ExplicitTop = 579
   end
   object BitBtnResumeList: TBitBtn
     Left = 544
@@ -5054,6 +5058,8 @@ object FormMain: TFormMain
     ProviderName = 'MySQL'
     Port = 3306
     Database = 'jobsearch'
+    SpecificOptions.Strings = (
+      'MySQL.UseUnicode=True')
     DefaultTransaction = UniTransaction
     Username = 'jobreport'
     Server = 'localhost'
@@ -5092,17 +5098,17 @@ object FormMain: TFormMain
     UniDirectional = True
     Left = 352
     Top = 93
-    object UniRegionsid: TStringField
+    object UniRegionsid: TWideStringField
       FieldName = 'id'
       Required = True
       Size = 2
     end
-    object UniRegionsregion_name: TStringField
+    object UniRegionsregion_name: TWideStringField
       FieldName = 'region_name'
       Required = True
       Size = 10
     end
-    object UniRegionsdate_mask: TStringField
+    object UniRegionsdate_mask: TWideStringField
       FieldName = 'date_mask'
       Required = True
       Size = 10
@@ -5121,17 +5127,17 @@ object FormMain: TFormMain
     Connection = UniConnection
     Transaction = UniTransaction
     SQL.Strings = (
-      'select * from languages'
+      'select lang, language, orderby, created, updated from languages'
       'order by orderby')
     UniDirectional = True
     Left = 464
     Top = 93
-    object UniLanguageslang: TStringField
+    object UniLanguageslang: TWideStringField
       FieldName = 'lang'
       Required = True
       Size = 6
     end
-    object UniLanguageslanguage: TStringField
+    object UniLanguageslanguage: TWideStringField
       FieldName = 'language'
       Size = 255
     end
@@ -5159,6 +5165,18 @@ object FormMain: TFormMain
         Name = 'p_name'
         Value = nil
       end>
+    object UniParameterByNameid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniParameterByNamename: TWideStringField
+      FieldName = 'name'
+      Required = True
+      Size = 255
+    end
+    object UniParameterByNamevalue: TWideStringField
+      FieldName = 'value'
+      Size = 255
+    end
   end
   object UniTelephones: TUniQuery
     SQLUpdate.Strings = (
@@ -5178,13 +5196,115 @@ object FormMain: TFormMain
       'ORDER BY 1')
     Left = 592
     Top = 88
+    object UniTelephonesvalue: TWideStringField
+      FieldName = 'value'
+      Size = 255
+    end
   end
   object UniQueryParameters: TUniQuery
     Connection = UniConnection
     Transaction = UniTransaction
     SQL.Strings = (
       'select * from parameters')
-    Left = 592
-    Top = 221
+    Left = 600
+    Top = 213
+    object UniQueryParametersid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniQueryParametersname: TWideStringField
+      FieldName = 'name'
+      Required = True
+      Size = 255
+    end
+    object UniQueryParametersvalue: TWideStringField
+      FieldName = 'value'
+      Size = 255
+    end
+  end
+  object UniTranslation: TUniQuery
+    Connection = UniConnection
+    Transaction = UniTransaction
+    SQL.Strings = (
+      'SELECT id, RU, UA, EN, HR, PL, DE from words_translations'
+      'WHERE RU = :p_word')
+    Left = 710
+    Top = 93
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'p_word'
+        Value = nil
+      end>
+    object UniTranslationid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniTranslationRU: TWideMemoField
+      FieldName = 'RU'
+      BlobType = ftWideMemo
+    end
+    object UniTranslationUA: TWideMemoField
+      FieldName = 'UA'
+      BlobType = ftWideMemo
+    end
+    object UniTranslationEN: TWideMemoField
+      FieldName = 'EN'
+      BlobType = ftWideMemo
+    end
+    object UniTranslationHR: TWideMemoField
+      FieldName = 'HR'
+      BlobType = ftWideMemo
+    end
+    object UniTranslationPL: TWideStringField
+      FieldName = 'PL'
+      Size = 1024
+    end
+    object UniTranslationDE: TWideMemoField
+      FieldName = 'DE'
+      BlobType = ftWideMemo
+    end
+  end
+  object UniLocalTranslate: TUniQuery
+    Connection = UniConnection
+    Transaction = UniTransaction
+    SQL.Strings = (
+      'SELECT   id , RU, UA, EN, HR, PL, DE'
+      'FROM words_translations '
+      'WHERE lower(RU) = lower(:p_word)')
+    Left = 832
+    Top = 88
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'p_word'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object UniLocalTranslateid: TIntegerField
+      FieldName = 'id'
+    end
+    object UniLocalTranslateRU: TWideMemoField
+      FieldName = 'RU'
+      BlobType = ftWideMemo
+    end
+    object UniLocalTranslateUA: TWideMemoField
+      FieldName = 'UA'
+      BlobType = ftWideMemo
+    end
+    object UniLocalTranslateEN: TWideMemoField
+      FieldName = 'EN'
+      BlobType = ftWideMemo
+    end
+    object UniLocalTranslateHR: TWideMemoField
+      FieldName = 'HR'
+      BlobType = ftWideMemo
+    end
+    object UniLocalTranslatePL: TWideStringField
+      FieldName = 'PL'
+      Size = 1024
+    end
+    object UniLocalTranslateDE: TWideMemoField
+      FieldName = 'DE'
+      BlobType = ftWideMemo
+    end
   end
 end

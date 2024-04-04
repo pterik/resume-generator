@@ -190,37 +190,10 @@ type
 		UniFootersID: TUniQuery;
 		UniExperienceID: TUniQuery;
 		UniSkillsID: TUniQuery;
-		UniSkillsIDskill_id: TIntegerField;
-		UniSkillsIDskill: TStringField;
 		UniSPUpdateResume: TUniStoredProc;
 		UniSPInsertExperiences: TUniStoredProc;
 		UniSPInsertSkillShow: TUniStoredProc;
 		UniSPDeleteExpSkills: TUniStoredProc;
-		UniResumeIDid: TIntegerField;
-		UniResumeIDname: TStringField;
-		UniResumeIDjob_opportunity: TStringField;
-		UniResumeIDjob_place: TStringField;
-		UniResumeIDphone_numbers_text: TStringField;
-		UniResumeIDarchived: TBooleanField;
-		UniResumeIDcreated: TDateTimeField;
-		UniResumeIDupdated: TDateTimeField;
-		UniFootersIDid: TIntegerField;
-		UniFootersIDresume_id: TIntegerField;
-		UniFootersIDfooter_header: TStringField;
-		UniFootersIDfooter_order: TIntegerField;
-		UniFootersIDcreated: TDateTimeField;
-		UniFootersIDupdated: TDateTimeField;
-		UniExperienceIDexperience_id: TIntegerField;
-		UniExperienceIDresume_id: TIntegerField;
-		UniExperienceIDtemplate_id: TIntegerField;
-		UniExperienceIDjob_order: TIntegerField;
-		UniExperienceIDjob_position: TStringField;
-		UniExperienceIDstart_date: TDateField;
-		UniExperienceIDend_date: TDateField;
-		UniExperienceIDemployer: TStringField;
-		UniExperienceIDbenefits: TStringField;
-		UniExperienceIDcreated: TDateTimeField;
-		UniExperienceIDupdated: TDateTimeField;
 		CBPhones: TComboBox;
 		BitBtn2: TBitBtn;
 		RichEditor: TRichEdit;
@@ -239,10 +212,40 @@ type
     RichEdit8: TRichEdit;
     RichEdit9: TRichEdit;
     RichEdit10: TRichEdit;
-    UniResumeIDresume_introduction: TMemoField;
-    UniFootersIDfooter_text: TMemoField;
-    UniExperienceIDresponsibilities: TMemoField;
-    UniExperienceIDother: TMemoField;
+    UniResumeIDid: TIntegerField;
+    UniResumeIDname: TWideStringField;
+    UniResumeIDlang: TWideStringField;
+    UniResumeIDregion_id: TWideStringField;
+    UniResumeIDregion: TWideStringField;
+    UniResumeIDjob_opportunity: TWideStringField;
+    UniResumeIDjob_place: TWideStringField;
+    UniResumeIDphone_numbers_text: TWideStringField;
+    UniResumeIDresume_introduction: TWideMemoField;
+    UniResumeIDarchived: TBooleanField;
+    UniResumeIDcreated: TDateTimeField;
+    UniResumeIDupdated: TDateTimeField;
+    UniFootersIDid: TIntegerField;
+    UniFootersIDresume_id: TIntegerField;
+    UniFootersIDfooter_header: TWideStringField;
+    UniFootersIDfooter_text: TWideMemoField;
+    UniFootersIDfooter_order: TIntegerField;
+    UniFootersIDcreated: TDateTimeField;
+    UniFootersIDupdated: TDateTimeField;
+    UniExperienceIDexperience_id: TIntegerField;
+    UniExperienceIDresume_id: TIntegerField;
+    UniExperienceIDtemplate_id: TIntegerField;
+    UniExperienceIDjob_order: TLargeintField;
+    UniExperienceIDjob_position: TWideStringField;
+    UniExperienceIDstart_date: TDateField;
+    UniExperienceIDend_date: TDateField;
+    UniExperienceIDemployer: TWideStringField;
+    UniExperienceIDresponsibilities: TWideMemoField;
+    UniExperienceIDbenefits: TWideStringField;
+    UniExperienceIDother: TWideMemoField;
+    UniExperienceIDcreated: TDateTimeField;
+    UniExperienceIDupdated: TDateTimeField;
+    UniSkillsIDskill_id: TIntegerField;
+    UniSkillsIDskill: TWideStringField;
 		procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnSaveClick(Sender: TObject);
 		procedure FormCreate(Sender: TObject);
@@ -596,6 +599,8 @@ UniResumeID.Close;
 UniResumeID.ParamByName('P_ID').AsInteger:=FResumeID;
 UniResumeID.Open;
 EditName.Text:=VarToStr(UniResumeID['name']);
+CBLang.Text:=VarToStr(UniResumeID['lang']);
+CBRegion.Text:=VarToStr(UniResumeID['region']);
 EditOpportunity.Text:=VarToStr(UniResumeID['job_opportunity']);
 EditPlace.Text:=VarToStr(UniResumeID['job_place']);
 EditPhones.Text:=VarToStr(UniResumeID['phone_numbers_text']);
@@ -1051,52 +1056,62 @@ end;
 
 procedure TFormUpdateResume.ChangeDates1;
 begin
-Edit1Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB1.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE1.Date, CBRegion.Text);
+Edit1Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB1.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE1.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates2;
 begin
-Edit2Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB2.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE2.Date, CBRegion.Text);
+Edit2Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB2.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE2.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates3;
 begin
-Edit3Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB3.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE3.Date, CBRegion.Text);
+Edit3Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB3.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE3.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates4;
 begin
-Edit4Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB4.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE4.Date, CBRegion.Text);
+Edit4Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB4.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE4.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates5;
 begin
-Edit5Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB5.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE5.Date, CBRegion.Text);
+Edit5Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB5.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE5.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates6;
 begin
-Edit6Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB6.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE6.Date, CBRegion.Text);
+Edit6Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB6.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE6.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates7;
 begin
-Edit7Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB7.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE7.Date, CBRegion.Text);
+Edit7Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB7.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE7.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates8;
 begin
-Edit8Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB8.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE8.Date, CBRegion.Text);
+Edit8Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB8.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE8.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates9;
 begin
-Edit9Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB9.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE9.Date, CBRegion.Text);
+Edit9Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB9.Date, CBRegion.Text)
+					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE9.Date, CBRegion.Text);
 end;
 
 procedure TFormUpdateResume.ChangeDates10;
 begin
-Edit10Dates.Text := FormMain.GetMonthByRegion(CalendarPickerB10.Date, CBRegion.Text) + '-' + FormMain.GetMonthByRegion(CalendarPickerE10.Date, CBRegion.Text);
+Edit10Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB10.Date, CBRegion.Text)
+						+ '-' + FormMain.GetFullMonthByRegion(CalendarPickerE10.Date, CBRegion.Text);
 end;
 
 
@@ -1705,7 +1720,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit1Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB1.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE1.Date;
@@ -1721,7 +1736,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit2Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB2.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE2.Date;
@@ -1737,7 +1752,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit3Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB3.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE3.Date;
@@ -1753,7 +1768,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit4Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB4.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE4.Date;
@@ -1769,7 +1784,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit5Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB5.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE5.Date;
@@ -1785,7 +1800,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit6Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB6.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE6.Date;
@@ -1801,7 +1816,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit7Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB7.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE7.Date;
@@ -1817,7 +1832,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit8Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB8.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE8.Date;
@@ -1833,7 +1848,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit9Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB9.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE9.Date;
@@ -1849,7 +1864,7 @@ try
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit10Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB10.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE10.Date;

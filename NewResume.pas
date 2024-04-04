@@ -170,18 +170,6 @@ type
     Edit10Dates: TEdit;
     Edit10Name: TEdit;
     Edit10Company: TEdit;
-    UniGetResumeid: TIntegerField;
-    UniGetResumename: TStringField;
-    UniGetResumelang: TStringField;
-    UniGetResumeregion_id: TStringField;
-    UniGetResumejob_opportunity: TStringField;
-    UniGetResumejob_place: TStringField;
-    UniGetResumephone_numbers_text: TStringField;
-    UniGetResumecv_docx_url: TStringField;
-    UniGetResumecv_pdf_url: TStringField;
-    UniGetResumeresume_introduction: TStringField;
-    UniGetResumecreated: TDateTimeField;
-    UniGetResumeupdated: TDateTimeField;
     UniGetFooters: TUniQuery;
     TabSheetFooterUA: TTabSheet;
     StaticText1: TStaticText;
@@ -207,15 +195,7 @@ type
     UniGetTemplate: TUniQuery;
     UniGetSkills: TUniQuery;
     UniGetJobs: TUniQuery;
-    UniGetSkillsid: TIntegerField;
-    UniGetSkillsexperience_id: TIntegerField;
-    UniGetSkillscategory_id: TIntegerField;
-    UniGetSkillscreated: TDateTimeField;
-    UniGetSkillsupdated: TDateTimeField;
     Label11: TLabel;
-    UniGetResumearchived: TBooleanField;
-    UniGetSkillsskill: TStringField;
-    UniGetSkillscategory: TStringField;
     BitBtnCopy: TBitBtn;
     UniSPInsertResume: TUniStoredProc;
     UniGetCopyResumeID: TUniQuery;
@@ -318,15 +298,6 @@ type
     Label100: TLabel;
     CBPhones: TComboBox;
     BitBtn2: TBitBtn;
-    UniGetCopyResumeIDID: TIntegerField;
-    UniTranslation: TUniQuery;
-    UniTranslationid: TIntegerField;
-    UniTranslationRU: TStringField;
-    UniTranslationUA: TStringField;
-    UniTranslationEN: TStringField;
-    UniTranslationHR: TStringField;
-    UniTranslationPL: TStringField;
-    UniTranslationDE: TStringField;
     UniGetTemplateFooters: TUniQuery;
     RichEditor: TRichEdit;
     CBWordWrap: TCheckBox;
@@ -414,52 +385,73 @@ type
     Label132: TLabel;
     Label133: TLabel;
     Label134: TLabel;
+    UniGetTemplateJobs: TUniQuery;
+    UniGetCopyResumeIDID: TIntegerField;
+    UniGetSkillsid: TIntegerField;
+    UniGetSkillsexperience_id: TIntegerField;
+    UniGetSkillsskill: TWideStringField;
+    UniGetSkillscategory: TWideStringField;
+    UniGetSkillscategory_id: TIntegerField;
+    UniGetSkillscreated: TDateTimeField;
+    UniGetSkillsupdated: TDateTimeField;
     UniGetTemplateid: TIntegerField;
-    UniGetTemplatename: TStringField;
-    UniGetTemplatejob_opportunity: TStringField;
-    UniGetTemplatejob_place: TStringField;
-    UniGetTemplatephone_numbers_text: TStringField;
-    UniGetTemplatetemplate_introduction: TMemoField;
+    UniGetTemplatename: TWideStringField;
+    UniGetTemplatejob_opportunity: TWideStringField;
+    UniGetTemplatejob_place: TWideStringField;
+    UniGetTemplatephone_numbers_text: TWideStringField;
+    UniGetTemplatetemplate_introduction: TWideMemoField;
     UniGetTemplatearchived: TBooleanField;
     UniGetTemplatecreated: TDateTimeField;
     UniGetTemplateupdated: TDateTimeField;
-    UniGetTemplateFootersid: TIntegerField;
-    UniGetTemplateFooterstemplate_id: TIntegerField;
-    UniGetTemplateFootersfooter_header: TStringField;
-    UniGetTemplateFootersfooter_text: TMemoField;
-    UniGetTemplateFootersfooter_order: TIntegerField;
-    UniGetTemplateFooterscreated: TDateTimeField;
-    UniGetTemplateFootersupdated: TDateTimeField;
     UniGetFootersid: TIntegerField;
     UniGetFootersresume_id: TIntegerField;
-    UniGetFootersfooter_header: TStringField;
-    UniGetFootersfooter_text: TMemoField;
+    UniGetFootersfooter_header: TWideStringField;
+    UniGetFootersfooter_text: TWideMemoField;
     UniGetFootersfooter_order: TIntegerField;
     UniGetFooterscreated: TDateTimeField;
     UniGetFootersupdated: TDateTimeField;
+    UniGetTemplateFootersid: TIntegerField;
+    UniGetTemplateFooterstemplate_id: TIntegerField;
+    UniGetTemplateFootersfooter_header: TWideStringField;
+    UniGetTemplateFootersfooter_text: TWideMemoField;
+    UniGetTemplateFootersfooter_order: TIntegerField;
+    UniGetTemplateFooterscreated: TDateTimeField;
+    UniGetTemplateFootersupdated: TDateTimeField;
+    UniGetResumeid: TIntegerField;
+    UniGetResumename: TWideStringField;
+    UniGetResumelang: TWideStringField;
+    UniGetResumeregion_id: TWideStringField;
+    UniGetResumejob_opportunity: TWideStringField;
+    UniGetResumejob_place: TWideStringField;
+    UniGetResumephone_numbers_text: TWideStringField;
+    UniGetResumecv_docx_url: TWideStringField;
+    UniGetResumecv_pdf_url: TWideStringField;
+    UniGetResumeresume_introduction: TWideMemoField;
+    UniGetResumearchived: TBooleanField;
+    UniGetResumecreated: TDateTimeField;
+    UniGetResumeupdated: TDateTimeField;
     UniGetJobsid: TIntegerField;
-    UniGetJobsjob_position: TStringField;
+    UniGetJobsjob_position: TWideStringField;
     UniGetJobsstart_date: TDateField;
     UniGetJobsend_date: TDateField;
-    UniGetJobsemployer: TStringField;
-    UniGetJobsresponsibilities: TMemoField;
-    UniGetJobsbenefits: TStringField;
-    UniGetJobsother: TMemoField;
+    UniGetJobsemployer: TWideStringField;
+    UniGetJobsresponsibilities: TWideMemoField;
+    UniGetJobsbenefits: TWideStringField;
+    UniGetJobsother: TWideMemoField;
     UniGetJobscreated: TDateTimeField;
     UniGetJobsupdated: TDateTimeField;
     UniGetJobsorder_position: TLargeintField;
-    UniGetTemplateJobs: TUniQuery;
-    IntegerField1: TIntegerField;
-    StringField1: TStringField;
-    DateField1: TDateField;
-    DateField2: TDateField;
-    StringField2: TStringField;
-    MemoField1: TMemoField;
-    MemoField2: TMemoField;
-    DateTimeField1: TDateTimeField;
-    DateTimeField2: TDateTimeField;
-    LargeintField1: TLargeintField;
-    UniGetTemplateJobsbenefits: TStringField;
+    UniGetTemplateJobsid: TIntegerField;
+    UniGetTemplateJobsjob_position: TWideStringField;
+    UniGetTemplateJobsstart_date: TDateField;
+    UniGetTemplateJobsend_date: TDateField;
+    UniGetTemplateJobsemployer: TWideStringField;
+    UniGetTemplateJobsresponsibilities: TWideMemoField;
+    UniGetTemplateJobsbenefits: TWideStringField;
+    UniGetTemplateJobsother: TWideMemoField;
+    UniGetTemplateJobscreated: TDateTimeField;
+    UniGetTemplateJobsupdated: TDateTimeField;
+    UniGetTemplateJobsorder_position: TLargeintField;
 		procedure PageControlChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
@@ -604,20 +596,20 @@ begin
 if FormMain.IsEmpty(S)
   then Result:=''
   else
-    begin
-    UniTranslation.Close;
-    UniTranslation.ParamByName('p_word').AsString:=S;
-    UniTranslation.Open;
-    if lang = 'UA' then
-      if VarIsNull(UniTranslation['UA']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['UA'];
-    if lang = 'EN' then
-      if VarIsNull(UniTranslation['EN']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['EN'];
-    if lang = 'HR' then
-      if VarIsNull(UniTranslation['HR']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['HR'];
-    if lang = 'PL' then
-      if VarIsNull(UniTranslation['PL']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['PL'];
-    if lang = 'DE' then
-      if VarIsNull(UniTranslation['DE']) then Result:=GoogleTranslate(S,lang) else Result:=UniTranslation['DE'];
+		begin
+		FormMain.UniTranslation.Close;
+		FormMain.UniTranslation.ParamByName('p_word').AsString:=S;
+		FormMain.UniTranslation.Open;
+		if lang = 'UA' then
+			if VarIsNull(FormMain.UniTranslation['UA']) then Result:=GoogleTranslate(S,lang) else Result:=FormMain.UniTranslation['UA'];
+		if lang = 'EN' then
+			if VarIsNull(FormMain.UniTranslation['EN']) then Result:=GoogleTranslate(S,lang) else Result:=FormMain.UniTranslation['EN'];
+		if lang = 'HR' then
+			if VarIsNull(FormMain.UniTranslation['HR']) then Result:=GoogleTranslate(S,lang) else Result:=FormMain.UniTranslation['HR'];
+		if lang = 'PL' then
+			if VarIsNull(FormMain.UniTranslation['PL']) then Result:=GoogleTranslate(S,lang) else Result:=FormMain.UniTranslation['PL'];
+		if lang = 'DE' then
+			if VarIsNull(FormMain.UniTranslation['DE']) then Result:=GoogleTranslate(S,lang) else Result:=FormMain.UniTranslation['DE'];
     Result:=S;
     end;
 end;
@@ -1144,8 +1136,8 @@ if isJob1Active then
       begin
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
-      UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
+			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit1Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB1.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE1.Date;
@@ -1161,7 +1153,7 @@ if isJob2Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit2Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB2.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE2.Date;
@@ -1177,7 +1169,7 @@ if isJob3Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit3Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB3.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE3.Date;
@@ -1193,7 +1185,7 @@ if isJob4Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit4Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB4.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE4.Date;
@@ -1209,7 +1201,7 @@ if isJob5Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit5Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB5.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE5.Date;
@@ -1225,7 +1217,7 @@ if isJob6Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
+//			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit6Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB6.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE6.Date;
@@ -1241,7 +1233,7 @@ if isJob7Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit7Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB7.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE7.Date;
@@ -1257,7 +1249,7 @@ if isJob8Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit8Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB8.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE8.Date;
@@ -1273,7 +1265,7 @@ if isJob9Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit9Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB9.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE9.Date;
@@ -1289,7 +1281,7 @@ if isJob10Active then
       UniSPInsertExperiences.Close;
       UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
       UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := FResumeID;
-      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
+//      UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
       UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit10Name.Text;
       UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB10.Date;
       UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE10.Date;

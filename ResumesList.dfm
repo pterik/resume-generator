@@ -58,9 +58,9 @@ object FormListResumes: TFormListResumes
       end
       item
         Expanded = False
-        FieldName = 'name'
-        Title.Caption = #1053#1072#1079#1074#1072
-        Width = 77
+        FieldName = 'job_opportunity'
+        Title.Caption = #1056#1086#1073#1086#1090#1072
+        Width = 126
         Visible = True
       end
       item
@@ -87,13 +87,6 @@ object FormListResumes: TFormListResumes
         FieldName = 'cntr_skills'
         Title.Caption = '# skills'
         Width = 39
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'job_opportunity'
-        Title.Caption = #1056#1086#1073#1086#1090#1072
-        Width = 79
         Visible = True
       end
       item
@@ -142,6 +135,10 @@ object FormListResumes: TFormListResumes
         FieldName = 'cv_pdf_url'
         Title.Caption = 'URL PDF'
         Width = 92
+        Visible = True
+      end
+      item
+        Expanded = False
         Visible = True
       end>
   end
@@ -398,7 +395,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 565
   end
   object BitBtnClose: TBitBtn
-    Left = 821
+    Left = 805
     Top = 614
     Width = 115
     Height = 38
@@ -413,7 +410,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 817
+    ExplicitLeft = 801
     ExplicitTop = 613
   end
   object EditCopyNumber: TEdit
@@ -481,7 +478,7 @@ object FormListResumes: TFormListResumes
     ExplicitTop = 609
   end
   object BitBtnPDF: TBitBtn
-    Left = 821
+    Left = 805
     Top = 566
     Width = 115
     Height = 38
@@ -495,7 +492,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 817
+    ExplicitLeft = 801
     ExplicitTop = 565
   end
   object BitBtnOpenResume: TBitBtn
@@ -1613,6 +1610,11 @@ object FormListResumes: TFormListResumes
       '  id = :id')
     SQLRecCount.Strings = (
       'SELECT COUNT(*) FROM resumes')
+    DataTypeMap = <
+      item
+        FieldName = 'name'
+        FieldType = ftWideString
+      end>
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
@@ -1658,6 +1660,19 @@ object FormListResumes: TFormListResumes
       AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
+    object UniResumeslang: TWideStringField
+      FieldName = 'lang'
+      Size = 3
+    end
+    object UniResumesregion_id: TWideStringField
+      FieldName = 'region_id'
+      Size = 2
+    end
+    object UniResumescountry: TWideStringField
+      FieldName = 'country'
+      ReadOnly = True
+      Size = 10
+    end
     object UniResumescntr_exp: TLargeintField
       FieldName = 'cntr_exp'
       ReadOnly = True
@@ -1666,21 +1681,25 @@ object FormListResumes: TFormListResumes
       FieldName = 'cntr_skills'
       ReadOnly = True
     end
-    object UniResumesname: TStringField
+    object UniResumesname: TWideStringField
       FieldName = 'name'
       Size = 50
     end
-    object UniResumesjob_opportunity: TStringField
+    object UniResumesjob_opportunity: TWideStringField
       FieldName = 'job_opportunity'
       Size = 255
     end
-    object UniResumesjob_place: TStringField
+    object UniResumesjob_place: TWideStringField
       FieldName = 'job_place'
       Size = 255
     end
-    object UniResumesphone_numbers_text: TStringField
+    object UniResumesphone_numbers_text: TWideStringField
       FieldName = 'phone_numbers_text'
       Size = 255
+    end
+    object UniResumesresume_introduction: TWideMemoField
+      FieldName = 'resume_introduction'
+      BlobType = ftWideMemo
     end
     object UniResumesarchived: TBooleanField
       FieldName = 'archived'
@@ -1690,28 +1709,6 @@ object FormListResumes: TFormListResumes
     end
     object UniResumesupdated: TDateTimeField
       FieldName = 'updated'
-    end
-    object UniResumeslang: TStringField
-      FieldName = 'lang'
-      Size = 3
-    end
-    object UniResumesregion_id: TStringField
-      FieldName = 'region_id'
-      Size = 2
-    end
-    object UniResumesarchive: TStringField
-      FieldKind = fkCalculated
-      FieldName = 'archive'
-      Calculated = True
-    end
-    object UniResumescountry: TStringField
-      FieldName = 'country'
-      ReadOnly = True
-      Size = 10
-    end
-    object UniResumesresume_introduction: TMemoField
-      FieldName = 'resume_introduction'
-      BlobType = ftMemo
     end
   end
   object UniDSResumes: TUniDataSource
@@ -1782,50 +1779,6 @@ object FormListResumes: TFormListResumes
         Value = nil
       end>
   end
-  object UniLocalTranslate: TUniQuery
-    Connection = FormMain.UniConnection
-    Transaction = FormMain.UniTransaction
-    SQL.Strings = (
-      'SELECT   id , RU, UA, EN, HR, PL, DE'
-      'FROM words_translations '
-      'WHERE lower(RU) = lower(:p_word)')
-    Left = 456
-    Top = 192
-    ParamData = <
-      item
-        DataType = ftString
-        Name = 'p_word'
-        ParamType = ptInput
-        Value = nil
-      end>
-    object UniLocalTranslateid: TIntegerField
-      FieldName = 'id'
-    end
-    object UniLocalTranslateRU: TStringField
-      FieldName = 'RU'
-      Size = 1000
-    end
-    object UniLocalTranslateUA: TStringField
-      FieldName = 'UA'
-      Size = 1000
-    end
-    object UniLocalTranslateEN: TStringField
-      FieldName = 'EN'
-      Size = 1000
-    end
-    object UniLocalTranslateHR: TStringField
-      FieldName = 'HR'
-      Size = 1000
-    end
-    object UniLocalTranslatePL: TStringField
-      FieldName = 'PL'
-      Size = 1000
-    end
-    object UniLocalTranslateDE: TStringField
-      FieldName = 'DE'
-      Size = 1000
-    end
-  end
   object UniResumeFooters: TUniQuery
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
@@ -1849,20 +1802,19 @@ object FormListResumes: TFormListResumes
         Value = nil
       end>
     object UniResumeFootersid: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
     object UniResumeFootersresume_id: TIntegerField
       FieldName = 'resume_id'
       Required = True
     end
-    object UniResumeFootersfooter_header: TStringField
+    object UniResumeFootersfooter_header: TWideStringField
       FieldName = 'footer_header'
       Size = 255
     end
-    object UniResumeFootersfooter_text: TMemoField
+    object UniResumeFootersfooter_text: TWideMemoField
       FieldName = 'footer_text'
-      BlobType = ftMemo
+      BlobType = ftWideMemo
     end
     object UniResumeFootersfooter_order: TIntegerField
       FieldName = 'footer_order'
@@ -1876,14 +1828,17 @@ object FormListResumes: TFormListResumes
       '  id ,'
       '  resume_id ,'
       '  template_id ,'
-      '  job_order ,'
+      
+        '  row_number() over (partition by resume_id, template_id order b' +
+        'y start_date desc) as job_order,'
       '  job_position ,'
       '  start_date ,'
       '  end_date ,'
       '  employer ,'
       '  responsibilities ,'
       '  benefits ,'
-      '  other FROM experiences '
+      '  other'
+      'FROM experiences '
       'WHERE resume_id = :p_resume_id'
       'order by start_date desc')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
@@ -1906,10 +1861,12 @@ object FormListResumes: TFormListResumes
     object UniExperiencestemplate_id: TIntegerField
       FieldName = 'template_id'
     end
-    object UniExperiencesjob_order: TIntegerField
+    object UniExperiencesjob_order: TLargeintField
       FieldName = 'job_order'
+      ReadOnly = True
+      Required = True
     end
-    object UniExperiencesjob_position: TStringField
+    object UniExperiencesjob_position: TWideStringField
       FieldName = 'job_position'
       Size = 255
     end
@@ -1920,21 +1877,50 @@ object FormListResumes: TFormListResumes
     object UniExperiencesend_date: TDateField
       FieldName = 'end_date'
     end
-    object UniExperiencesemployer: TStringField
+    object UniExperiencesemployer: TWideStringField
       FieldName = 'employer'
       Size = 255
     end
-    object UniExperiencesbenefits: TStringField
+    object UniExperiencesresponsibilities: TWideMemoField
+      FieldName = 'responsibilities'
+      BlobType = ftWideMemo
+    end
+    object UniExperiencesbenefits: TWideStringField
       FieldName = 'benefits'
       Size = 1000
     end
-    object UniExperiencesother: TMemoField
+    object UniExperiencesother: TWideMemoField
       FieldName = 'other'
-      BlobType = ftMemo
+      BlobType = ftWideMemo
     end
-    object UniExperiencesresponsibilities: TMemoField
-      FieldName = 'responsibilities'
-      BlobType = ftMemo
+  end
+  object UniSkillsID: TUniQuery
+    Connection = FormMain.UniConnection
+    Transaction = FormMain.UniTransaction
+    SQL.Strings = (
+      'SELECT '
+      'skill_id,'
+      '(SELECT skill from skills s WHERE l.skill_id = s.id) skill'
+      'FROM skill_show_lists l'
+      'WHERE experience_id = :p_experience_id'
+      'ORDER BY skill_id')
+    Left = 456
+    Top = 272
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object UniSkillsIDskill_id: TIntegerField
+      FieldName = 'skill_id'
+      Required = True
+    end
+    object UniSkillsIDskill: TWideStringField
+      FieldName = 'skill'
+      ReadOnly = True
+      Size = 255
     end
   end
 end
