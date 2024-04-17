@@ -150,7 +150,7 @@ end;
 procedure TFormListResumes.BitBtnArchiveClick(Sender: TObject);
 begin
 if VarIsNull(UniResumes['id']) then  ShowMessage('Оберіть резюме')
-  else
+	else
     begin
     if MessageDlg( 'Підтвердіть переміщення резюме у архив', mtConfirmation, [mbYes,mbNo],0)=mrNo then exit;
 		UniArchiveResume.Prepare;
@@ -217,7 +217,7 @@ end;
 
 procedure TFormListResumes.BitBtnSaveResumeClick(Sender: TObject);
 var
-TemplatesAreReady:boolean;
+//TemplatesAreReady:boolean;
 FName:string;
 begin
 if VarIsNull(UniResumes['id']) then
@@ -226,7 +226,7 @@ if VarIsNull(UniResumes['id']) then
 	exit;
 	end;
 WarningFired:=false;
-TemplatesAreReady:=true;
+//TemplatesAreReady:=true;
 FName:=lowercase(ReplaceStr(UniResumes['name'],' ','-'))+'-'+lowercase(UniResumes['lang']);
 if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\r') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\r');
 if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv');
@@ -526,7 +526,7 @@ end;
 procedure TFormListResumes.R_DOC_AddFooter(var section: TTMSFNCWXDocxSection; resume_id:integer);
 var paragraph: TTMSFNCWXDocxParagraph;
 StringList:TStringList;
-i,j:integer;
+i:integer;
 FooterText : TTMSFNCWXDocxText;
 begin
 StringList:=TStringList.Create();
@@ -575,7 +575,7 @@ end;
 procedure TFormListResumes.R_DOC_AddJob(var section: TTMSFNCWXDocxSection);
 var paragraph: TTMSFNCWXDocxParagraph;
 JobText : TTMSFNCWXDocxText;
-Postn, Postn2:integer;
+Postn:integer;
 begin
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
@@ -821,7 +821,6 @@ DocXText     : TTMSFNCWXDocxText;
 //tableRow : TTMSFNCWXDocxTableRow;
 //tableCell: TTMSFNCWXDocxTableCell;
 //StringList:TStringList;
-i,j:integer;
 begin
 //StringList:=TStringList.Create();
 TMSFNCWXDocx1.Document.Sections.Clear;

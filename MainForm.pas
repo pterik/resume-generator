@@ -119,7 +119,9 @@ type
 		function GetMonthByRegion(const D: TDatetime; Region: string):string;
     function GetFullMonthByRegion(const D: TDatetime; Region: string): string;
 		function IsDateInvalid(const D: TDateTime): boolean;
-    function GetRegionID(const Region:string):string;
+		function GetRegionID(const Region:string):string;
+		function ConvertWithSeparators(const S:TMemo): TStringList;
+    function isSeparatorFound(const S:string):boolean;
   end;
 
 var
@@ -150,6 +152,11 @@ end;
 function TFormMain.IsEmpty(const S: String): boolean;
 begin
   Result := (Length(Trim(S)) <= 0);
+end;
+
+function TFormMain.isSeparatorFound(const S: string): boolean;
+begin
+Result:=(Pos('·',S)=0);
 end;
 
 procedure TFormMain.Warning(const s: UnicodeString);
@@ -197,6 +204,24 @@ begin
 if FormTemplatesList=nil then Application.CreateForm(TFormTemplatesList, FormTemplatesList);
 FormTemplatesList.SetFormValues;
 FormTemplatesList.ShowModal;
+end;
+
+function TFormMain.ConvertWithSeparators(const S: TMemo): TStringList;
+var i:integer;
+R:TStringList;
+TR1, TR2:string;
+begin
+for i:=0 to S.Lines.Count-1 do
+	begin
+	TR1:=S.Lines[i];
+	if IsEmpty(TR1) then continue;
+	while Pos('·',TR1)>0 do
+		begin
+			R.Add(Copy(TR1,Pos('·',TR1)+1,length(TR1)));
+			TR1:=Copy(TR1,1,Pos('·',TR1)-1);
+		end;
+	R.Add(TR1);
+	end;
 end;
 
 procedure TFormMain.FormClose(Sender: TObject; var Action: TCloseAction);

@@ -16,7 +16,7 @@ object FormNewTemplate: TFormNewTemplate
     776)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 877
+    Left = 881
     Top = 730
     Width = 95
     Height = 38
@@ -26,12 +26,12 @@ object FormNewTemplate: TFormNewTemplate
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    Kind = bkCancel
+    Kind = bkClose
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 873
+    ExplicitLeft = 877
     ExplicitTop = 729
   end
   object BitBtnSave: TBitBtn
@@ -188,7 +188,7 @@ object FormNewTemplate: TFormNewTemplate
     Top = 2
     Width = 980
     Height = 722
-    ActivePage = TabSheetJob2RU
+    ActivePage = TabSheetJob4RU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -200,11 +200,11 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetMainRU: TTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1072#1103
       object Label7: TLabel
-        Left = 49
+        Left = 24
         Top = 54
-        Width = 52
+        Width = 80
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -215,9 +215,9 @@ object FormNewTemplate: TFormNewTemplate
       object Label9: TLabel
         Left = 2
         Top = 142
-        Width = 99
+        Width = 102
         Height = 21
-        Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
+        Caption = #1052#1077#1089#1090#1086' '#1088#1072#1073#1086#1090#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -226,11 +226,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 0
+        Left = 21
         Top = 185
-        Width = 70
+        Width = 72
         Height = 21
-        Caption = #1058#1077#1083#1077#1092#1086#1085#1080
+        Caption = #1058#1077#1083#1077#1092#1086#1085#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -241,16 +241,16 @@ object FormNewTemplate: TFormNewTemplate
       object Label12: TLabel
         Left = 64
         Top = 5
-        Width = 39
+        Width = 35
         Height = 21
-        Caption = #1052#1086#1074#1072
+        Caption = #1071#1079#1099#1082
       end
       object Label13: TLabel
         Left = 218
         Top = 3
-        Width = 45
+        Width = 50
         Height = 21
-        Caption = #1056#1077#1075#1110#1086#1085
+        Caption = #1056#1077#1075#1080#1086#1085
       end
       object LabelFooterID: TLabel
         Left = 744
@@ -270,7 +270,7 @@ object FormNewTemplate: TFormNewTemplate
         Top = 253
         Width = 68
         Height = 21
-        Caption = #1042#1074#1077#1076#1077#1085#1085#1103
+        Caption = #1042#1074#1077#1076#1077#1085#1080#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -281,7 +281,7 @@ object FormNewTemplate: TFormNewTemplate
       object EditName: TEdit
         Left = 110
         Top = 51
-        Width = 295
+        Width = 539
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -295,7 +295,7 @@ object FormNewTemplate: TFormNewTemplate
       object EditOpportunity: TEdit
         Left = 108
         Top = 94
-        Width = 397
+        Width = 541
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -309,7 +309,7 @@ object FormNewTemplate: TFormNewTemplate
       object EditPlace: TEdit
         Left = 110
         Top = 142
-        Width = 295
+        Width = 539
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -321,9 +321,9 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
-        Left = 99
+        Left = 110
         Top = 184
-        Width = 550
+        Width = 539
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -341,7 +341,7 @@ object FormNewTemplate: TFormNewTemplate
         Height = 29
         Enabled = False
         ReadOnly = True
-        TabOrder = 4
+        TabOrder = 5
         Text = 'RU'
       end
       object EditRegionTR: TEdit
@@ -351,23 +351,23 @@ object FormNewTemplate: TFormNewTemplate
         Height = 29
         Enabled = False
         ReadOnly = True
-        TabOrder = 5
+        TabOrder = 6
         Text = 'Template'
       end
       object StaticText2: TStaticText
-        Left = 30
+        Left = 17
         Top = 94
-        Width = 72
+        Width = 85
         Height = 25
-        Caption = #1055#1086#1074#1085#1110#1089#1090#1102
-        TabOrder = 6
+        Caption = #1055#1086#1083#1085#1086#1089#1090#1100#1102
+        TabOrder = 7
       end
       object CBPhones: TComboBox
         Left = 655
         Top = 184
         Width = 275
         Height = 29
-        TabOrder = 7
+        TabOrder = 8
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
@@ -376,13 +376,13 @@ object FormNewTemplate: TFormNewTemplate
         Width = 33
         Height = 25
         Caption = '+'
-        TabOrder = 8
+        TabOrder = 9
         OnClick = BitBtn2Click
       end
       object RichEditor: TRichEdit
-        Left = 98
+        Left = 110
         Top = 219
-        Width = 859
+        Width = 847
         Height = 450
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
@@ -390,7 +390,7 @@ object FormNewTemplate: TFormNewTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 4
       end
       object CBWordWrap: TCheckBox
         Left = 3
@@ -419,38 +419,38 @@ object FormNewTemplate: TFormNewTemplate
       ParentFont = False
       object Label74: TLabel
         Left = 8
-        Top = 154
-        Width = 75
+        Top = 194
+        Width = 59
         Height = 21
-        Caption = #1053#1072#1074#1080#1095#1086#1082' 2'
+        Caption = #1053#1072#1074#1099#1082' 2'
       end
       object Label75: TLabel
         Left = 9
-        Top = 302
-        Width = 75
+        Top = 390
+        Width = 59
         Height = 21
-        Caption = #1053#1072#1074#1080#1095#1086#1082' 3'
+        Caption = #1053#1072#1074#1099#1082' 3'
       end
       object Label76: TLabel
         Left = 9
-        Top = 457
-        Width = 75
+        Top = 537
+        Width = 59
         Height = 21
-        Caption = #1053#1072#1074#1080#1095#1086#1082' 4'
+        Caption = #1053#1072#1074#1099#1082' 4'
       end
       object StaticText1: TStaticText
         Left = 3
         Top = 2
-        Width = 79
+        Width = 63
         Height = 25
-        Caption = #1053#1072#1074#1080#1095#1086#1082' 1'
+        Caption = #1053#1072#1074#1099#1082' 1'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 8
       end
       object EditArticle1: TEdit
         Left = 90
@@ -468,21 +468,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object EditArticle2: TEdit
         Left = 90
-        Top = 151
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 1
-        Text = 'EditArticle2'
-      end
-      object EditArticle3: TEdit
-        Left = 90
-        Top = 300
+        Top = 191
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -492,11 +478,11 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
         TabOrder = 2
-        Text = 'EditArticle3'
+        Text = 'EditArticle2'
       end
-      object EditArticle4: TEdit
+      object EditArticle3: TEdit
         Left = 90
-        Top = 452
+        Top = 388
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -505,28 +491,73 @@ object FormNewTemplate: TFormNewTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 4
+        Text = 'EditArticle3'
+      end
+      object EditArticle4: TEdit
+        Left = 90
+        Top = 532
+        Width = 879
+        Height = 29
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
         Text = 'EditArticle4'
       end
-      object RichEdit1: TRichEdit
+      object RichEdit1Article: TRichEdit
         Left = 3
         Top = 33
         Width = 966
-        Height = 112
+        Height = 152
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit1')
+          'RichEdit1Article')
         ParentFont = False
         ScrollBars = ssVertical
+        TabOrder = 1
+      end
+      object RichEdit2Article: TRichEdit
+        Left = 3
+        Top = 226
+        Width = 966
+        Height = 158
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit2Article')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 3
+      end
+      object RichEdit3Article: TRichEdit
+        Left = 3
+        Top = 423
+        Width = 966
+        Height = 110
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit3Article')
+        ParentFont = False
         TabOrder = 5
       end
-      object RichEdit2: TRichEdit
+      object RichEdit4Article: TRichEdit
         Left = 3
-        Top = 186
+        Top = 567
         Width = 966
         Height = 110
         Font.Charset = RUSSIAN_CHARSET
@@ -535,51 +566,20 @@ object FormNewTemplate: TFormNewTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit2')
-        ParentFont = False
-        ScrollBars = ssVertical
-        TabOrder = 6
-      end
-      object RichEdit3: TRichEdit
-        Left = 3
-        Top = 335
-        Width = 966
-        Height = 110
-        Font.Charset = RUSSIAN_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        Lines.Strings = (
-          'RichEdit3')
+          'RichEdit4Article')
         ParentFont = False
         TabOrder = 7
-      end
-      object RichEdit4: TRichEdit
-        Left = 3
-        Top = 487
-        Width = 966
-        Height = 110
-        Font.Charset = RUSSIAN_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        Lines.Strings = (
-          'RichEdit4')
-        ParentFont = False
-        TabOrder = 8
       end
     end
     object TabSheetJob1RU: TTabSheet
       Caption = 'Job 1'
       ImageIndex = 3
       object Label1: TLabel
-        Left = 24
-        Top = 42
-        Width = 52
+        Left = 4
+        Top = 37
+        Width = 80
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -588,11 +588,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label2: TLabel
-        Left = 17
-        Top = 79
-        Width = 67
+        Left = 3
+        Top = 75
+        Width = 72
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -601,11 +601,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 26
-        Top = 344
-        Width = 58
+        Left = 32
+        Top = 415
+        Width = 52
         Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
+        Caption = #1042#1099#1075#1086#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -614,11 +614,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 50
-        Top = 380
-        Width = 34
+        Left = 30
+        Top = 447
+        Width = 51
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1044#1088#1091#1075#1086#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -627,24 +627,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 45
-        Top = 415
-        Width = 39
+        Left = 552
+        Top = 411
+        Width = 46
         Height = 21
-        Caption = #1057#1082#1110#1083#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label6: TLabel
-        Left = 10
-        Top = 110
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -669,7 +656,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit1Name: TEdit
         Left = 90
-        Top = 38
+        Top = 40
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -683,7 +670,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit1Company: TEdit
         Left = 90
-        Top = 72
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -697,8 +684,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit1Benefits: TEdit
         Left = 90
-        Top = 344
-        Width = 879
+        Top = 412
+        Width = 437
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -709,25 +696,11 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 3
         Text = 'Edit1Benefits'
       end
-      object Edit1Bottom: TEdit
-        Left = 90
-        Top = 378
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit1Bottom'
-      end
       object Memo1Skills: TMemo
-        Left = 90
-        Top = 412
-        Width = 479
-        Height = 200
+        Left = 529
+        Top = 447
+        Width = 440
+        Height = 234
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -737,7 +710,7 @@ object FormNewTemplate: TFormNewTemplate
           'Memo1SkillsRU')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB1: TCalendarPicker
         Left = 296
@@ -764,7 +737,7 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerB1Change
         OnCloseUp = CalendarPickerB1CloseUp
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         TextHint = 'select a date'
       end
       object CalendarPickerE1: TCalendarPicker
@@ -792,14 +765,14 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerE1Change
         OnCloseUp = CalendarPickerE1CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object RichEdit1Resp: TRichEdit
         Left = 90
-        Top = 107
+        Top = 111
         Width = 879
-        Height = 231
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -809,70 +782,34 @@ object FormNewTemplate: TFormNewTemplate
           'RichEdit1Resp')
         ParentFont = False
         ScrollBars = ssVertical
+        TabOrder = 7
+      end
+      object RichEdit1Other: TRichEdit
+        Left = 90
+        Top = 447
+        Width = 437
+        Height = 233
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit1Other')
+        ParentFont = False
+        ScrollBars = ssVertical
         TabOrder = 8
       end
     end
     object TabSheetJob2RU: TTabSheet
       Caption = 'Job 2'
       ImageIndex = 4
-      object Label14: TLabel
-        Left = 24
-        Top = 42
-        Width = 52
+      object Label6: TLabel
+        Left = 4
+        Top = 35
+        Width = 80
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label15: TLabel
-        Left = 17
-        Top = 76
-        Width = 67
-        Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label16: TLabel
-        Left = 10
-        Top = 114
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label17: TLabel
-        Left = 29
-        Top = 368
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label19: TLabel
-        Left = 48
-        Top = 454
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -881,11 +818,50 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 53
-        Top = 411
-        Width = 34
+        Left = 3
+        Top = 73
+        Width = 72
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label14: TLabel
+        Left = 35
+        Top = 415
+        Width = 52
+        Height = 21
+        Caption = #1042#1099#1075#1086#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label15: TLabel
+        Left = 33
+        Top = 447
+        Width = 51
+        Height = 21
+        Caption = #1044#1088#1091#1075#1086#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label16: TLabel
+        Left = 536
+        Top = 417
+        Width = 46
+        Height = 21
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -910,7 +886,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit2Name: TEdit
         Left = 90
-        Top = 38
+        Top = 40
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -937,9 +913,9 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit2Company'
       end
       object Edit2Benefits: TEdit
-        Left = 93
-        Top = 365
-        Width = 879
+        Left = 90
+        Top = 412
+        Width = 440
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -950,25 +926,11 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 3
         Text = 'Edit2Benefits'
       end
-      object Edit2Bottom: TEdit
-        Left = 93
-        Top = 408
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit2Bottom'
-      end
       object Memo2Skills: TMemo
-        Left = 93
-        Top = 451
-        Width = 480
-        Height = 198
+        Left = 536
+        Top = 447
+        Width = 433
+        Height = 233
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -978,7 +940,7 @@ object FormNewTemplate: TFormNewTemplate
           'Memo2Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB2: TCalendarPicker
         Left = 296
@@ -1005,7 +967,7 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerB2Change
         OnCloseUp = CalendarPickerB2CloseUp
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         TextHint = 'select a date'
       end
       object CalendarPickerE2: TCalendarPicker
@@ -1033,19 +995,35 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerE2Change
         OnCloseUp = CalendarPickerE2CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object RichEdit2Resp: TRichEdit
-        Left = 93
-        Top = 115
-        Width = 879
-        Height = 231
+        Left = 90
+        Top = 111
+        Width = 882
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 7
+      end
+      object RichEdit2Other: TRichEdit
+        Left = 90
+        Top = 447
+        Width = 440
+        Height = 233
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit2Other')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
@@ -1054,64 +1032,12 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetJob3RU: TTabSheet
       Caption = 'Job 3'
       ImageIndex = 5
-      object Label20: TLabel
-        Left = 32
+      object Label17: TLabel
+        Left = 3
         Top = 44
-        Width = 52
+        Width = 80
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label21: TLabel
-        Left = 17
-        Top = 88
-        Width = 67
-        Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label22: TLabel
-        Left = 10
-        Top = 136
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label23: TLabel
-        Left = 27
-        Top = 383
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label25: TLabel
-        Left = 45
-        Top = 487
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1120,11 +1046,50 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label18: TLabel
-        Left = 51
-        Top = 436
-        Width = 34
+        Left = 11
+        Top = 83
+        Width = 72
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label19: TLabel
+        Left = 32
+        Top = 418
+        Width = 52
+        Height = 21
+        Caption = #1042#1099#1075#1086#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label20: TLabel
+        Left = 33
+        Top = 450
+        Width = 51
+        Height = 21
+        Caption = #1044#1088#1091#1075#1086#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label21: TLabel
+        Left = 539
+        Top = 423
+        Width = 46
+        Height = 21
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1149,7 +1114,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit3Name: TEdit
         Left = 90
-        Top = 41
+        Top = 40
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1163,7 +1128,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit3Company: TEdit
         Left = 90
-        Top = 86
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1176,9 +1141,9 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit3Company'
       end
       object Edit3Benefits: TEdit
-        Left = 91
-        Top = 382
-        Width = 879
+        Left = 90
+        Top = 415
+        Width = 440
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1189,25 +1154,11 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 3
         Text = 'Edit3Benefits'
       end
-      object Edit3Bottom: TEdit
-        Left = 91
-        Top = 433
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit3Bottom'
-      end
       object Memo3Skills: TMemo
-        Left = 90
-        Top = 484
-        Width = 480
-        Height = 189
+        Left = 539
+        Top = 450
+        Width = 430
+        Height = 230
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1217,7 +1168,7 @@ object FormNewTemplate: TFormNewTemplate
           'Memo3Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB3: TCalendarPicker
         Left = 296
@@ -1244,7 +1195,7 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerB3Change
         OnCloseUp = CalendarPickerB3CloseUp
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         TextHint = 'select a date'
       end
       object CalendarPickerE3: TCalendarPicker
@@ -1272,19 +1223,35 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerE3Change
         OnCloseUp = CalendarPickerE3CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object RichEdit3Resp: TRichEdit
         Left = 90
-        Top = 136
+        Top = 111
         Width = 879
-        Height = 231
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 7
+      end
+      object RichEdit3Other: TRichEdit
+        Left = 90
+        Top = 450
+        Width = 440
+        Height = 233
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit3Other')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
@@ -1293,12 +1260,12 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetJob4RU: TTabSheet
       Caption = 'Job 4'
       ImageIndex = 6
-      object Label26: TLabel
-        Left = 32
+      object Label22: TLabel
+        Left = 4
         Top = 44
-        Width = 52
+        Width = 80
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1306,51 +1273,12 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label27: TLabel
-        Left = 17
-        Top = 91
-        Width = 67
+      object Label23: TLabel
+        Left = 3
+        Top = 82
+        Width = 72
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label28: TLabel
-        Left = 11
-        Top = 122
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label29: TLabel
-        Left = 26
-        Top = 371
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label31: TLabel
-        Left = 45
-        Top = 467
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1359,11 +1287,37 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label24: TLabel
-        Left = 50
-        Top = 419
-        Width = 34
+        Left = 32
+        Top = 414
+        Width = 52
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1042#1099#1075#1086#1076#1072
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label25: TLabel
+        Left = 24
+        Top = 441
+        Width = 51
+        Height = 21
+        Caption = #1044#1088#1091#1075#1086#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label26: TLabel
+        Left = 539
+        Top = 411
+        Width = 46
+        Height = 21
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1388,7 +1342,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit4Name: TEdit
         Left = 90
-        Top = 41
+        Top = 40
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1402,7 +1356,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit4Company: TEdit
         Left = 90
-        Top = 87
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1416,8 +1370,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit4Benefits: TEdit
         Left = 90
-        Top = 373
-        Width = 480
+        Top = 411
+        Width = 443
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1428,25 +1382,11 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 3
         Text = 'Edit4Benefits'
       end
-      object Edit4Bottom: TEdit
-        Left = 90
-        Top = 416
-        Width = 480
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit4Bottom'
-      end
       object Memo4Skills: TMemo
-        Left = 90
-        Top = 467
-        Width = 481
-        Height = 190
+        Left = 539
+        Top = 446
+        Width = 430
+        Height = 234
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1456,7 +1396,7 @@ object FormNewTemplate: TFormNewTemplate
           'Memo4Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB4: TCalendarPicker
         Left = 296
@@ -1483,7 +1423,7 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerB4Change
         OnCloseUp = CalendarPickerB4CloseUp
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
         TextHint = 'select a date'
       end
       object CalendarPickerE4: TCalendarPicker
@@ -1511,19 +1451,35 @@ object FormNewTemplate: TFormNewTemplate
         OnChange = CalendarPickerE4Change
         OnCloseUp = CalendarPickerE4CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object RichEdit4Resp: TRichEdit
         Left = 90
-        Top = 128
+        Top = 111
         Width = 879
-        Height = 231
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 7
+      end
+      object RichEdit4Other: TRichEdit
+        Left = 93
+        Top = 446
+        Width = 440
+        Height = 233
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit4Other')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
@@ -1532,64 +1488,38 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetJob5RU: TTabSheet
       Caption = 'Job 5'
       ImageIndex = 7
-      object Label32: TLabel
-        Left = 32
+      object Label27: TLabel
+        Left = 4
         Top = 44
+        Width = 80
+        Height = 21
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label28: TLabel
+        Left = 3
+        Top = 89
+        Width = 72
+        Height = 21
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label29: TLabel
+        Left = 35
+        Top = 414
         Width = 52
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label33: TLabel
-        Left = 20
-        Top = 88
-        Width = 67
-        Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label34: TLabel
-        Left = 13
-        Top = 140
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label35: TLabel
-        Left = 26
-        Top = 367
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label37: TLabel
-        Left = 48
-        Top = 448
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
+        Caption = #1042#1099#1075#1086#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1598,11 +1528,24 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label30: TLabel
-        Left = 50
-        Top = 410
-        Width = 34
+        Left = 36
+        Top = 449
+        Width = 51
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1044#1088#1091#1075#1086#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label31: TLabel
+        Left = 41
+        Top = 483
+        Width = 46
+        Height = 21
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1627,8 +1570,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit5Name: TEdit
         Left = 90
-        Top = 41
-        Width = 343
+        Top = 40
+        Width = 403
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1641,7 +1584,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit5Company: TEdit
         Left = 93
-        Top = 86
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1654,8 +1597,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit5Company'
       end
       object Edit5Benefits: TEdit
-        Left = 90
-        Top = 367
+        Left = 93
+        Top = 411
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1668,8 +1611,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit5Benefits'
       end
       object Edit5Bottom: TEdit
-        Left = 90
-        Top = 410
+        Left = 93
+        Top = 446
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1682,10 +1625,10 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit5Bottom'
       end
       object Memo5Skills: TMemo
-        Left = 90
-        Top = 445
+        Left = 93
+        Top = 480
         Width = 480
-        Height = 228
+        Height = 200
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1755,9 +1698,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit5Resp: TRichEdit
         Left = 93
-        Top = 128
+        Top = 111
         Width = 879
-        Height = 231
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1771,12 +1714,38 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetJob6RU: TTabSheet
       Caption = 'Job 6'
       ImageIndex = 8
-      object Label38: TLabel
-        Left = 32
+      object Label32: TLabel
+        Left = 4
         Top = 44
+        Width = 80
+        Height = 21
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label33: TLabel
+        Left = 3
+        Top = 89
+        Width = 72
+        Height = 21
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label34: TLabel
+        Left = 32
+        Top = 414
         Width = 52
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1042#1099#1075#1086#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1784,12 +1753,12 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label39: TLabel
-        Left = 16
-        Top = 88
-        Width = 67
+      object Label35: TLabel
+        Left = 32
+        Top = 449
+        Width = 51
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Caption = #1044#1088#1091#1075#1086#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1797,51 +1766,12 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label40: TLabel
-        Left = 10
-        Top = 140
-        Width = 74
+      object Label37: TLabel
+        Left = 37
+        Top = 481
+        Width = 46
         Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label41: TLabel
-        Left = 26
-        Top = 378
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label43: TLabel
-        Left = 44
-        Top = 464
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label42: TLabel
-        Left = 49
-        Top = 421
-        Width = 34
-        Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1851,7 +1781,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit6Benefits: TEdit
         Left = 90
-        Top = 375
+        Top = 411
         Width = 879
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1865,7 +1795,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit6Bottom: TEdit
         Left = 89
-        Top = 418
+        Top = 446
         Width = 880
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1894,8 +1824,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit6Name: TEdit
         Left = 90
-        Top = 41
-        Width = 200
+        Top = 40
+        Width = 399
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1908,7 +1838,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit6Company: TEdit
         Left = 89
-        Top = 86
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1922,9 +1852,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo6Skills: TMemo
         Left = 89
-        Top = 461
+        Top = 481
         Width = 480
-        Height = 219
+        Height = 199
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1994,9 +1924,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit6Resp: TRichEdit
         Left = 90
-        Top = 128
+        Top = 111
         Width = 879
-        Height = 231
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2010,64 +1940,38 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetJob7RU: TTabSheet
       Caption = 'Job 7'
       ImageIndex = 9
-      object Label44: TLabel
-        Left = 16
-        Top = 88
-        Width = 67
-        Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label45: TLabel
-        Left = 32
-        Top = 468
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label47: TLabel
-        Left = 18
-        Top = 373
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label48: TLabel
-        Left = 3
-        Top = 140
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label49: TLabel
-        Left = 32
+      object Label38: TLabel
+        Left = 4
         Top = 44
+        Width = 80
+        Height = 21
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label39: TLabel
+        Left = 3
+        Top = 82
+        Width = 72
+        Height = 21
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label40: TLabel
+        Left = 32
+        Top = 425
         Width = 52
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1042#1099#1075#1086#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2075,12 +1979,25 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label46: TLabel
-        Left = 49
-        Top = 421
-        Width = 34
+      object Label41: TLabel
+        Left = 33
+        Top = 452
+        Width = 51
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1044#1088#1091#1075#1086#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label42: TLabel
+        Left = 28
+        Top = 495
+        Width = 46
+        Height = 21
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2089,8 +2006,8 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Edit7Benefits: TEdit
-        Left = 89
-        Top = 375
+        Left = 90
+        Top = 422
         Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2103,8 +2020,8 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit7Benefits'
       end
       object Edit7Bottom: TEdit
-        Left = 89
-        Top = 418
+        Left = 90
+        Top = 457
         Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2133,8 +2050,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit7Name: TEdit
         Left = 90
-        Top = 41
-        Width = 200
+        Top = 40
+        Width = 399
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2147,7 +2064,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit7Company: TEdit
         Left = 89
-        Top = 86
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2160,10 +2077,10 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit7Company'
       end
       object Memo7Skills: TMemo
-        Left = 89
-        Top = 469
+        Left = 90
+        Top = 492
         Width = 480
-        Height = 204
+        Height = 188
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2233,9 +2150,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit7Resp: TRichEdit
         Left = 90
-        Top = 128
+        Top = 120
         Width = 879
-        Height = 231
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2249,64 +2166,38 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetJob8RU: TTabSheet
       Caption = 'Job 8'
       ImageIndex = 10
-      object Label50: TLabel
-        Left = 17
-        Top = 90
-        Width = 67
-        Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label51: TLabel
-        Left = 45
-        Top = 449
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label53: TLabel
-        Left = 26
-        Top = 374
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label54: TLabel
-        Left = 3
-        Top = 140
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label55: TLabel
-        Left = 32
+      object Label43: TLabel
+        Left = 4
         Top = 44
+        Width = 80
+        Height = 21
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label44: TLabel
+        Left = 3
+        Top = 82
+        Width = 72
+        Height = 21
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label45: TLabel
+        Left = 32
+        Top = 379
         Width = 52
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1042#1099#1075#1086#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2314,12 +2205,25 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label52: TLabel
-        Left = 50
-        Top = 408
-        Width = 34
+      object Label46: TLabel
+        Left = 30
+        Top = 411
+        Width = 51
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1044#1088#1091#1075#1086#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label47: TLabel
+        Left = 35
+        Top = 450
+        Width = 46
+        Height = 21
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2372,8 +2276,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit8Name: TEdit
         Left = 90
-        Top = 41
-        Width = 200
+        Top = 40
+        Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2386,7 +2290,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit8Company: TEdit
         Left = 90
-        Top = 87
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2400,9 +2304,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo8Skills: TMemo
         Left = 90
-        Top = 446
+        Top = 492
         Width = 480
-        Height = 100
+        Height = 188
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2472,7 +2376,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit8Resp: TRichEdit
         Left = 90
-        Top = 128
+        Top = 120
         Width = 879
         Height = 231
         Font.Charset = RUSSIAN_CHARSET
@@ -2488,64 +2392,38 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheetJob9RU: TTabSheet
       Caption = 'Job 9'
       ImageIndex = 11
-      object Label56: TLabel
-        Left = 16
-        Top = 76
-        Width = 67
-        Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label57: TLabel
-        Left = 43
-        Top = 456
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label59: TLabel
-        Left = 25
-        Top = 368
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label60: TLabel
-        Left = 10
-        Top = 131
-        Width = 74
-        Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label61: TLabel
-        Left = 32
+      object Label48: TLabel
+        Left = 3
         Top = 41
+        Width = 80
+        Height = 21
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label49: TLabel
+        Left = 2
+        Top = 79
+        Width = 72
+        Height = 21
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label50: TLabel
+        Left = 22
+        Top = 370
         Width = 52
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1042#1099#1075#1086#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2553,12 +2431,25 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label72: TLabel
-        Left = 48
-        Top = 408
-        Width = 34
+      object Label51: TLabel
+        Left = 31
+        Top = 413
+        Width = 51
         Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1044#1088#1091#1075#1086#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label52: TLabel
+        Left = 36
+        Top = 452
+        Width = 46
+        Height = 21
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2611,8 +2502,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit9Name: TEdit
         Left = 90
-        Top = 38
-        Width = 200
+        Top = 40
+        Width = 399
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2625,7 +2516,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit9Company: TEdit
         Left = 89
-        Top = 73
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2639,9 +2530,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo9Skills: TMemo
         Left = 88
-        Top = 453
+        Top = 492
         Width = 480
-        Height = 227
+        Height = 188
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2711,7 +2602,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit9Resp: TRichEdit
         Left = 90
-        Top = 116
+        Top = 120
         Width = 879
         Height = 231
         Font.Charset = RUSSIAN_CHARSET
@@ -2727,12 +2618,38 @@ object FormNewTemplate: TFormNewTemplate
     object TabSheet10RU: TTabSheet
       Caption = 'Job 10'
       ImageIndex = 12
-      object Label68: TLabel
-        Left = 32
+      object Label36: TLabel
+        Left = 4
         Top = 44
+        Width = 80
+        Height = 21
+        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label53: TLabel
+        Left = 12
+        Top = 76
+        Width = 72
+        Height = 21
+        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label54: TLabel
+        Left = 32
+        Top = 418
         Width = 52
         Height = 21
-        Caption = #1055#1086#1089#1072#1076#1072
+        Caption = #1042#1099#1075#1086#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2740,12 +2657,12 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label69: TLabel
-        Left = 17
-        Top = 88
-        Width = 67
+      object Label55: TLabel
+        Left = 33
+        Top = 457
+        Width = 51
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
+        Caption = #1044#1088#1091#1075#1086#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2753,51 +2670,12 @@ object FormNewTemplate: TFormNewTemplate
         Font.Style = []
         ParentFont = False
       end
-      object Label70: TLabel
-        Left = 3
-        Top = 140
-        Width = 74
+      object Label56: TLabel
+        Left = 38
+        Top = 495
+        Width = 46
         Height = 21
-        Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label71: TLabel
-        Left = 26
-        Top = 373
-        Width = 58
-        Height = 21
-        Caption = #1050#1086#1088#1080#1089#1090#1100
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label73: TLabel
-        Left = 40
-        Top = 444
-        Width = 39
-        Height = 21
-        Caption = #1057#1082#1110#1083#1080
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label36: TLabel
-        Left = 40
-        Top = 410
-        Width = 34
-        Height = 21
-        Caption = #1030#1085#1096#1077
+        Caption = #1057#1082#1080#1083#1099
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2807,7 +2685,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit10Benefits: TEdit
         Left = 90
-        Top = 375
+        Top = 415
         Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2821,7 +2699,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit10Bottom: TEdit
         Left = 90
-        Top = 410
+        Top = 457
         Width = 480
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2850,8 +2728,8 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit10Name: TEdit
         Left = 90
-        Top = 41
-        Width = 200
+        Top = 40
+        Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2864,7 +2742,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit10Company: TEdit
         Left = 90
-        Top = 86
+        Top = 76
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2878,9 +2756,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo10Skills: TMemo
         Left = 90
-        Top = 445
+        Top = 492
         Width = 480
-        Height = 100
+        Height = 188
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2950,9 +2828,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit10Resp: TRichEdit
         Left = 90
-        Top = 128
+        Top = 115
         Width = 879
-        Height = 231
+        Height = 294
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2977,8 +2855,8 @@ object FormNewTemplate: TFormNewTemplate
         '_result'#39)
     Connection = FormMain.UniConnection
     Debug = True
-    Left = 158
-    Top = 532
+    Left = 302
+    Top = 308
     ParamData = <
       item
         DataType = ftWideString
@@ -3093,8 +2971,8 @@ object FormNewTemplate: TFormNewTemplate
         ' :p_benefits, :p_other, @p_experience_id); SELECT CAST(@p_experi' +
         'ence_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 312
-    Top = 528
+    Left = 464
+    Top = 312
     ParamData = <
       item
         DataType = ftWideString
@@ -3171,14 +3049,20 @@ object FormNewTemplate: TFormNewTemplate
   object UniSPInsertSkillShow: TUniStoredProc
     StoredProcName = 'insert_skill_show'
     SQL.Strings = (
-      'CALL insert_skill_show(:p_experience_id, :p_skill)')
+      'CALL insert_skill_show(:p_experience_id, :p_skill_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 472
-    Top = 536
+    Left = 624
+    Top = 312
     ParamData = <
       item
         DataType = ftInteger
         Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_skill_id'
         ParamType = ptInput
         Value = nil
       end
@@ -3191,35 +3075,36 @@ object FormNewTemplate: TFormNewTemplate
       end>
     CommandStoredProcName = 'insert_skill_show'
   end
-  object UniSPDeleteExpSkills: TUniStoredProc
-    StoredProcName = 'delete_experiences_skills'
+  object UniSPInsertUpdSkill: TUniStoredProc
+    StoredProcName = 'insert_update_skill'
     SQL.Strings = (
       
-        'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
-        'e_id)')
+        'CALL insert_update_skill(:p_skill, :p_category, @p_skill_id); SE' +
+        'LECT CAST(@p_skill_id AS SIGNED) AS '#39'@p_skill_id'#39)
     Connection = FormMain.UniConnection
-    Left = 608
-    Top = 536
+    Left = 768
+    Top = 312
     ParamData = <
       item
         DataType = ftWideString
-        Name = 'p_flag'
+        Name = 'p_skill'
         ParamType = ptInput
-        Size = 50
+        Size = 255
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_category'
+        ParamType = ptInput
+        Size = 255
         Value = nil
       end
       item
         DataType = ftInteger
-        Name = 'p_template_id'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_resume_id'
-        ParamType = ptInput
+        Name = 'p_skill_id'
+        ParamType = ptOutput
         Value = nil
       end>
-    CommandStoredProcName = 'delete_experiences_skills'
+    CommandStoredProcName = 'insert_update_skill'
   end
 end

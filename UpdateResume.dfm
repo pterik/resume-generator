@@ -16,9 +16,9 @@ object FormUpdateResume: TFormUpdateResume
     812)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 809
+    Left = 852
     Top = 764
-    Width = 88
+    Width = 120
     Height = 40
     Anchors = [akRight, akBottom]
     Font.Charset = DEFAULT_CHARSET
@@ -26,18 +26,18 @@ object FormUpdateResume: TFormUpdateResume
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    Kind = bkCancel
+    Kind = bkClose
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 805
+    ExplicitLeft = 848
     ExplicitTop = 763
   end
   object BitBtnSave: TBitBtn
     Left = 8
     Top = 766
-    Width = 96
+    Width = 120
     Height = 38
     Anchors = [akLeft, akBottom]
     Caption = 'Save'
@@ -188,7 +188,7 @@ object FormUpdateResume: TFormUpdateResume
     Top = 2
     Width = 980
     Height = 756
-    ActivePage = TabSheet10RU
+    ActivePage = TabSheetJob2RU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -738,7 +738,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 2
         Text = 'Edit1Benefits'
       end
-      object Edit1Bottom: TEdit
+      object Edit1Others: TEdit
         Left = 90
         Top = 490
         Width = 879
@@ -750,7 +750,7 @@ object FormUpdateResume: TFormUpdateResume
         Font.Style = []
         ParentFont = False
         TabOrder = 3
-        Text = 'Edit1Bottom'
+        Text = 'Edit1Others'
       end
       object Memo1Skills: TMemo
         Left = 91
@@ -824,7 +824,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit1: TRichEdit
+      object RichEdit1Resp: TRichEdit
         Left = 90
         Top = 129
         Width = 879
@@ -834,9 +834,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit1Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear1: TBitBtn
+        Left = 944
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear1Click
       end
     end
     object TabSheetJob2RU: TTabSheet
@@ -992,7 +1003,7 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'Edit2Bottom'
       end
       object Memo2Skills: TMemo
-        Left = 90
+        Left = 402
         Top = 524
         Width = 480
         Height = 190
@@ -1063,7 +1074,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit2: TRichEdit
+      object RichEdit2Resp: TRichEdit
         Left = 90
         Top = 137
         Width = 879
@@ -1073,9 +1084,36 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit2Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear2: TBitBtn
+        Left = 944
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear2Click
+      end
+      object RichEdit1Other: TRichEdit
+        Left = 83
+        Top = 303
+        Width = 444
+        Height = 140
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit1Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 10
       end
     end
     object TabSheetJob3RU: TTabSheet
@@ -1302,7 +1340,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit3: TRichEdit
+      object RichEdit3Resp: TRichEdit
         Left = 90
         Top = 138
         Width = 879
@@ -1312,9 +1350,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit3Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear3: TBitBtn
+        Left = 943
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear3Click
       end
     end
     object TabSheetJob4RU: TTabSheet
@@ -1541,7 +1590,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit4: TRichEdit
+      object RichEdit4Resp: TRichEdit
         Left = 90
         Top = 136
         Width = 879
@@ -1551,9 +1600,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit4Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear4: TBitBtn
+        Left = 944
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear4Click
       end
     end
     object TabSheetJob5RU: TTabSheet
@@ -1780,7 +1840,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit5: TRichEdit
+      object RichEdit5Resp: TRichEdit
         Left = 93
         Top = 144
         Width = 879
@@ -1790,9 +1850,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit5Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear5: TBitBtn
+        Left = 944
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear5Click
       end
     end
     object TabSheetJob6RU: TTabSheet
@@ -2019,7 +2090,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit6: TRichEdit
+      object RichEdit6Resp: TRichEdit
         Left = 90
         Top = 138
         Width = 879
@@ -2029,9 +2100,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit6Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear6: TBitBtn
+        Left = 944
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear6Click
       end
     end
     object TabSheetJob7RU: TTabSheet
@@ -2258,7 +2340,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit7: TRichEdit
+      object RichEdit7Resp: TRichEdit
         Left = 90
         Top = 131
         Width = 879
@@ -2268,9 +2350,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit7Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear7: TBitBtn
+        Left = 943
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear7Click
       end
     end
     object TabSheetJob8RU: TTabSheet
@@ -2497,7 +2590,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit8: TRichEdit
+      object RichEdit8Resp: TRichEdit
         Left = 90
         Top = 131
         Width = 879
@@ -2507,9 +2600,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit8Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear8: TBitBtn
+        Left = 936
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear8Click
       end
     end
     object TabSheetJob9RU: TTabSheet
@@ -2736,7 +2840,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit9: TRichEdit
+      object RichEdit9Resp: TRichEdit
         Left = 90
         Top = 128
         Width = 879
@@ -2746,9 +2850,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit9Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear9: TBitBtn
+        Left = 944
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear9Click
       end
     end
     object TabSheet10RU: TTabSheet
@@ -2975,7 +3090,7 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 7
         TextHint = 'select a date'
       end
-      object RichEdit10: TRichEdit
+      object RichEdit10Resp: TRichEdit
         Left = 90
         Top = 123
         Width = 879
@@ -2985,9 +3100,20 @@ object FormUpdateResume: TFormUpdateResume
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit10Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object BitBtnClear10: TBitBtn
+        Left = 943
+        Top = 3
+        Width = 25
+        Height = 25
+        Caption = 'X'
+        TabOrder = 9
+        OnClick = BitBtnClear10Click
       end
     end
   end
@@ -3447,35 +3573,20 @@ object FormUpdateResume: TFormUpdateResume
       end>
     CommandStoredProcName = 'insert_skill_show'
   end
-  object UniSPDeleteExpSkills: TUniStoredProc
-    StoredProcName = 'delete_experiences_skills'
+  object UniSPDeleteSkillsShow: TUniStoredProc
+    StoredProcName = 'delete_skill_show'
     SQL.Strings = (
-      
-        'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
-        'e_id)')
+      'CALL delete_skill_show(:p_experience_id)')
     Connection = FormMain.UniConnection
     Left = 656
     Top = 376
     ParamData = <
       item
-        DataType = ftWideString
-        Name = 'p_flag'
-        ParamType = ptInput
-        Size = 50
-        Value = nil
-      end
-      item
         DataType = ftInteger
-        Name = 'p_template_id'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_resume_id'
+        Name = 'p_experience_id'
         ParamType = ptInput
         Value = nil
       end>
-    CommandStoredProcName = 'delete_experiences_skills'
+    CommandStoredProcName = 'delete_skill_show'
   end
 end

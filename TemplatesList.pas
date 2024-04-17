@@ -57,7 +57,8 @@ procedure TFormTemplatesList.BitBtnNewResumeClick(Sender: TObject);
 begin
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
-//FormNewResume.SetEmptyResume;
+if not VarIsNull(UniTemplates['id'])
+	then FormNewResume.GetValuesFromTemplate(UniTemplates['id']);
 FormNewResume.ShowModal;
 end;
 
