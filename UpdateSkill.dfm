@@ -41,23 +41,24 @@ object FormUpdateSkill: TFormUpdateSkill
     ParentFont = False
   end
   object BitBtnClose: TBitBtn
-    Left = 198
+    Left = 194
     Top = 110
     Width = 88
     Height = 40
     Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = '&Close'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    Kind = bkCancel
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 892
-    ExplicitTop = 614
+    ExplicitLeft = 190
+    ExplicitTop = 109
   end
   object BitBtnSave: TBitBtn
     Left = 16
@@ -206,7 +207,7 @@ object FormUpdateSkill: TFormUpdateSkill
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 614
+    ExplicitTop = 109
   end
   object EditSkill: TEdit
     Left = 50
@@ -242,14 +243,12 @@ object FormUpdateSkill: TFormUpdateSkill
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'SELECT id, category, created, updated FROM skills_categories')
-    Active = True
     Left = 147
     Top = 8
     object UniSkillCategoryid: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
-    object UniSkillCategorycategory: TStringField
+    object UniSkillCategorycategory: TWideStringField
       FieldName = 'category'
       Size = 255
     end
@@ -324,14 +323,14 @@ object FormUpdateSkill: TFormUpdateSkill
     object UniGetSkillskill_id: TIntegerField
       FieldName = 'skill_id'
     end
-    object UniGetSkillskill: TStringField
+    object UniGetSkillskill: TWideStringField
       FieldName = 'skill'
       Size = 255
     end
     object UniGetSkillcategory_id: TIntegerField
       FieldName = 'category_id'
     end
-    object UniGetSkillcategory: TStringField
+    object UniGetSkillcategory: TWideStringField
       FieldName = 'category'
       ReadOnly = True
       Size = 255

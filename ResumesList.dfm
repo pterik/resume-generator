@@ -192,7 +192,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnEditResumeClick
-    ExplicitTop = 560
+    ExplicitTop = 558
   end
   object BitBtnDeleteResume: TBitBtn
     Left = 570
@@ -244,7 +244,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnDeleteResumeClick
-    ExplicitTop = 560
+    ExplicitTop = 558
   end
   object BitBtnNewResume: TBitBtn
     Left = 150
@@ -296,26 +296,27 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 3
     OnClick = BitBtnNewResumeClick
-    ExplicitTop = 560
+    ExplicitTop = 558
   end
   object BitBtnClose: TBitBtn
-    Left = 842
+    Left = 844
     Top = 609
     Width = 120
     Height = 38
     Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = '&Close'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    Kind = bkClose
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 850
-    ExplicitTop = 610
+    ExplicitLeft = 840
+    ExplicitTop = 608
   end
   object EditCopyNumber: TEdit
     Left = 536
@@ -345,7 +346,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 6
     OnClick = BitBtnCheckClick
-    ExplicitTop = 610
+    ExplicitTop = 608
   end
   object BitBtnCV: TBitBtn
     Left = 710
@@ -362,7 +363,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 7
     OnClick = BitBtnCVClick
-    ExplicitTop = 560
+    ExplicitTop = 558
   end
   object BitBtnLetter: TBitBtn
     Left = 570
@@ -379,10 +380,10 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 8
     OnClick = BitBtnLetterClick
-    ExplicitTop = 610
+    ExplicitTop = 608
   end
   object BitBtnPDF: TBitBtn
-    Left = 842
+    Left = 844
     Top = 559
     Width = 120
     Height = 38
@@ -396,8 +397,8 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 850
-    ExplicitTop = 560
+    ExplicitLeft = 840
+    ExplicitTop = 558
   end
   object BitBtnOpenResume: TBitBtn
     Left = 430
@@ -449,7 +450,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 10
     OnClick = BitBtnOpenResumeClick
-    ExplicitTop = 610
+    ExplicitTop = 608
   end
   object BitBtnSaveResume: TBitBtn
     Left = 150
@@ -501,7 +502,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 11
     OnClick = BitBtnSaveResumeClick
-    ExplicitTop = 610
+    ExplicitTop = 608
   end
   object CheckBoxExtraComment: TCheckBox
     Left = 666
@@ -517,6 +518,7 @@ object FormListResumes: TFormListResumes
     Font.Style = []
     ParentFont = False
     TabOrder = 12
+    ExplicitTop = 520
   end
   object BitBtnArchive: TBitBtn
     Left = 290
@@ -568,7 +570,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 13
     OnClick = BitBtnArchiveClick
-    ExplicitTop = 560
+    ExplicitTop = 558
   end
   object RadioGroup: TRadioGroup
     Left = 1
@@ -1428,20 +1430,100 @@ object FormListResumes: TFormListResumes
     Visible = True
   end
   object DBRichEditor: TDBRichEdit
-    Left = 0
-    Top = 287
-    Width = 980
-    Height = 194
+    Left = 2
+    Top = 290
+    Width = 970
+    Height = 226
     DataField = 'resume_introduction'
     DataSource = UniDSResumes
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -12
+    Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    ScrollBars = ssVertical
+    ScrollBars = ssBoth
     TabOrder = 17
     WantTabs = True
+  end
+  object CBWordWrap: TCheckBox
+    Left = 16
+    Top = 519
+    Width = 97
+    Height = 17
+    Caption = 'WordWrap'
+    Checked = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    State = cbChecked
+    TabOrder = 18
+    OnClick = CBWordWrapClick
+  end
+  object BitBtn1: TBitBtn
+    Left = 290
+    Top = 610
+    Width = 120
+    Height = 38
+    Anchors = [akLeft, akBottom]
+    Caption = 'Test'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000000000000000000000000000000000000000000090000
+      000E000000100000001000000010000000100000001000000011000000110000
+      0011000000110000001100000011000000100000000B0000000377544AC1A474
+      66FFA47465FFA47465FFA37364FFA37264FFA27263FFA27263FFA27162FFA271
+      62FFA17062FFA17061FFA17061FFA17061FF735046C30000000AAC7E71FFF8F1
+      EEFFF8F0EDFFF8F1ECFFF8F0ECFFF8F0ECFFF5EDE9FFF2EAE6FFF5EDE9FFF8EF
+      EBFFF7EFEBFFF7EFEBFFF7EFEBFFF7F0EBFFA8796AFF0000000FAD8172FFF8F2
+      EFFFF6EDE8FFF7EDE8FFF6ECE8FFF4EBE6FFE6DBD6FFA87A62FFE7DCD8FFF5EB
+      E6FFF6EDE7FFF6ECE8FFF6ECE8FFF8F0ECFFA97B6BFF00000010AF8375FFF9F2
+      EFFFF6ECE8FFF6EDE9FFF6ECE7FFEDE5E0FFAD836EFFC58A51FFB08975FFEDE4
+      E0FFF6ECE7FFF6ECE8FFF6ECE8FFF8F1EDFFAA7C6DFF0000000FB18577FFF9F3
+      F0FFF7EDE9FFF7EDE8FFF3EAE5FFCDB3A8FFAC6E41FFF7C67AFFA96B40FFCDB6
+      ABFFF1E8E4FFF7EDE8FFF6EDE9FFF9F1EDFFAB7E6FFF0000000EB2887AFFF9F4
+      F0FFF7EEE9FFF5EBE7FFE4D8D1FFA06544FFEFBE79FFF9CA82FFEDBB78FF9F63
+      42FFE3D7D2FFF4EBE7FFF7EEE9FFF8F1EEFFAD8072FF0000000EB48A7CFFF9F4
+      F1FFF7EEEAFFF4EBE7FFC69E83FFB47C54FFB47B53FFFACF88FFB37851FFB277
+      4FFFC3987EFFF2E9E5FFF7EEE9FFF9F2EFFFAF8274FF0000000DB68D7FFFFAF4
+      F2FFF7EEEAFFF6EDE9FFF2E9E5FFE9E1DDFFB77F57FFFDD48EFFB1744CFFE8DF
+      DBFFF1E7E4FFF6EDE9FFF7EEEAFFF9F2EFFFB08476FF0000000CB88F82FFFAF5
+      F2FFF7EEEAFFF7EEEBFFF7EEEAFFF0E7E5FFBA845CFFFEEAC1FFB2774FFFEFE7
+      E3FFF7EEEAFFF7EFEAFFF7EEEAFFF9F3F0FFB28679FF0000000CB99184FFFAF5
+      F3FFF8EFEBFFF7EFEAFFF7EFEBFFF2EAE6FFCB9E76FFCB9E76FFCB9E76FFF2E8
+      E5FFF7EFEAFFF7EEEAFFF7EFEBFFFAF4F1FFB3897BFF0000000BBB9387FFFAF6
+      F4FFF7EFEBFFF7EEEBFFF8EFEBFFF6EDEAFFF2EAE6FFF1E9E5FFF2EAE6FFF6ED
+      EAFFF7EFEBFFF7EFEBFFF7EEEBFFFAF3F2FFB58B7DFF0000000AD4A477FFD8B1
+      8BFFD2A373FFD1A372FFD1A272FFD1A170FFD0A070FFD09F6FFFCF9F6EFFCE9E
+      6DFFCF9D6CFFCE9C6BFFCE9C6AFFD3A77CFFCE9764FF00000009D4A678FFEED7
+      B6FFE2BB87FFE2BA86FFE2B985FFE2BA85FFE2BA85FFE1B984FFE1B984FFE1B8
+      84FFE1B883FFE1B883FFE0B783FFEBD0AAFFCE9864FF00000009D4A679FFF1DC
+      BCFFF0DCBCFFF0DBBCFFF0DBBCFFF0DCBBFFEFDABBFFEFDABBFFEFDABAFFEFDA
+      B9FFEFD8B9FFEFD9B8FFEFD8B6FFEED5B1FFCE9865FF000000089E7B5AC0D4A6
+      79FFD4A577FFD4A476FFD3A375FFD3A272FFD2A071FFD1A06FFFD09F6FFFD09D
+      6DFFD09C6CFFD09B6AFFCF9B68FFCF9A67FF99714BC200000005}
+    ParentFont = False
+    TabOrder = 19
+    OnClick = BitBtn1Click
+    ExplicitTop = 609
+  end
+  object TMSFNCWXDocx2: TTMSFNCWXDocx
+    Left = 72
+    Top = 159
+    Width = 26
+    Height = 26
+    ParentDoubleBuffered = False
+    DoubleBuffered = True
+    TabOrder = 20
+    Visible = True
+    OnDownloadAsFile = TMSFNCWXDocx2DownloadAsFile
   end
   object UniResumes: TUniQuery
     UpdatingTable = 'resumes'
@@ -1669,8 +1751,8 @@ object FormListResumes: TFormListResumes
       'order by footer_order')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
     OnCalcFields = UniResumesCalcFields
-    Left = 288
-    Top = 296
+    Left = 464
+    Top = 192
     ParamData = <
       item
         DataType = ftInteger
@@ -1720,8 +1802,8 @@ object FormListResumes: TFormListResumes
       'order by start_date desc')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
     OnCalcFields = UniResumesCalcFields
-    Left = 288
-    Top = 376
+    Left = 800
+    Top = 200
     ParamData = <
       item
         DataType = ftInteger
@@ -1781,8 +1863,8 @@ object FormListResumes: TFormListResumes
       'FROM skill_show_lists l'
       'WHERE experience_id = :p_experience_id'
       'ORDER BY skill_id')
-    Left = 456
-    Top = 272
+    Left = 800
+    Top = 128
     ParamData = <
       item
         DataType = ftInteger

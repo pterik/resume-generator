@@ -300,14 +300,14 @@ type
     UniGetTemplateFooters: TUniQuery;
     RichEditor: TRichEdit;
     CBWordWrap: TCheckBox;
-    RichEdit1Article: TRichEdit;
-    RichEdit2Article: TRichEdit;
-    RichEdit3Article: TRichEdit;
-    RichEdit4Article: TRichEdit;
-    RichEdit1ArticleUA: TRichEdit;
-    RichEdit2ArticleUA: TRichEdit;
-    RichEdit3ArticleUA: TRichEdit;
-    RichEdit4ArticleUA: TRichEdit;
+    RichEditArticle1: TRichEdit;
+    RichEditArticle2: TRichEdit;
+    RichEditArticle3: TRichEdit;
+    RichEditArticle4: TRichEdit;
+    RichEditArticle1UA: TRichEdit;
+    RichEditArticle2UA: TRichEdit;
+    RichEditArticle3UA: TRichEdit;
+    RichEditArticle4UA: TRichEdit;
     RichEdit1RespUA: TRichEdit;
     RichEdit2RespUA: TRichEdit;
     RichEdit3RespUA: TRichEdit;
@@ -716,10 +716,10 @@ begin
   EditLangRU.Text := 'UA';
   EditRegionRU.Text := 'UA';
 
-	RichEdit1Article.Text := '';
-	RichEdit2Article.Text := '';
-	RichEdit3Article.Text := '';
-	RichEdit4Article.Text := '';
+	RichEditArticle1.Text := '';
+	RichEditArticle2.Text := '';
+	RichEditArticle3.Text := '';
+	RichEditArticle4.Text := '';
 	EditArticle1.Text := '';
 	EditArticle2.Text := '';
 	EditArticle3.Text := '';
@@ -837,10 +837,10 @@ begin
   EditPhonesUA.Text := '';
   RichEditorUA.Text := '';
 
-	RichEdit1ArticleUA.Text := '';
-	RichEdit2ArticleUA.Text := '';
-	RichEdit3ArticleUA.Text := '';
-	RichEdit4ArticleUA.Text := '';
+	RichEditArticle1UA.Text := '';
+	RichEditArticle2UA.Text := '';
+	RichEditArticle3UA.Text := '';
+	RichEditArticle4UA.Text := '';
   EditArticle1UA.Text := '';
   EditArticle2UA.Text := '';
 	EditArticle3UA.Text := '';
@@ -907,15 +907,15 @@ begin
   EditLangRU.Text := 'UA';
   EditRegionRU.Text := 'UA';
 
-	RichEdit1Article.Text := '';  RichEdit2Article.Text := '';
-	RichEdit3Article.Text := '';  RichEdit4Article.Text := '';
+	RichEditArticle1.Text := '';  RichEditArticle2.Text := '';
+	RichEditArticle3.Text := '';  RichEditArticle4.Text := '';
 
 	EditArticle1.Text := '';  EditArticle2.Text := '';  EditArticle3.Text := '';  EditArticle4.Text := '';
 
-  Edit1Dates.Text := '';  Edit1Name.Text := '';  Edit1Company.Text := ''; RichEdit1Resp.Text := '';
-  Edit1Benefits.Text := ''; Memo1Skills.Text := ''; RichEdit1Other.Text := '';
+	Edit1Dates.Text := '';  Edit1Name.Text := '';  Edit1Company.Text := ''; RichEdit1Resp.Text := '';
+	Edit1Benefits.Text := ''; Memo1Skills.Text := ''; RichEdit1Other.Text := '';
 
-  Edit2Dates.Text := '';  Edit2Name.Text := '';  Edit2Company.Text := '';  RichEdit2Resp.Text := '';
+	Edit2Dates.Text := '';  Edit2Name.Text := '';  Edit2Company.Text := '';  RichEdit2Resp.Text := '';
   Edit2Benefits.Text := '';  Memo2Skills.Text := '';  RichEdit2Other.Text := '';
 
   Edit3Dates.Text := '';  Edit3Name.Text := '';  Edit3Company.Text := '';  RichEdit3Resp.Text := '';
@@ -1219,13 +1219,13 @@ EditPhones.Text := Translate(EditPhonesUA.Text,CBLang.Text);
 RichEditor.Text := Translate(RichEditorUA.Text,CBLang.Text);
 
 EditArticle1.Text := Translate(EditArticle1UA.Text,CBLang.Text);
-RichEdit1Article.Text := Translate(RichEdit1ArticleUA.Text,CBLang.Text);
+RichEditArticle1.Text := Translate(RichEditArticle1UA.Text,CBLang.Text);
 EditArticle2.Text := Translate(EditArticle2UA.Text,CBLang.Text);
-RichEdit2Article.Text := Translate(RichEdit2ArticleUA.Text,CBLang.Text);
+RichEditArticle2.Text := Translate(RichEditArticle2UA.Text,CBLang.Text);
 EditArticle3.Text := Translate(EditArticle3UA.Text,CBLang.Text);
-RichEdit3Article.Text := Translate(RichEdit3ArticleUA.Text,CBLang.Text);
+RichEditArticle3.Text := Translate(RichEditArticle3UA.Text,CBLang.Text);
 EditArticle4.Text := Translate(EditArticle4UA.Text,CBLang.Text);
-RichEdit4Article.Text := Translate(RichEdit4ArticleUA.Text,CBLang.Text);
+RichEditArticle4.Text := Translate(RichEditArticle4UA.Text,CBLang.Text);
 
 Edit1Dates.Text  := Edit1DatesUA.Text;
 if not (CalendarPickerB[1]=0.0) then CalendarPickerB1.Date:=CalendarPickerB[1];
@@ -1395,13 +1395,13 @@ try
   UniSPInsertResume.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhones.Text);
   UniSPInsertResume.ParamByName('p_resume_introduction').AsMemo := Trim(RichEditor.Text);
   UniSPInsertResume.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
-	UniSPInsertResume.ParamByName('p_footer_1_text').AsMemo := Trim(RichEdit1Article.Text);
+	UniSPInsertResume.ParamByName('p_footer_1_text').AsMemo := Trim(RichEditArticle1.Text);
 	UniSPInsertResume.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2.Text);
-	UniSPInsertResume.ParamByName('p_footer_2_text').AsMemo := Trim(RichEdit2Article.Text);
+	UniSPInsertResume.ParamByName('p_footer_2_text').AsMemo := Trim(RichEditArticle2.Text);
 	UniSPInsertResume.ParamByName('p_footer_3_header').AsString := Trim(EditArticle3.Text);
-	UniSPInsertResume.ParamByName('p_footer_3_text').AsMemo := Trim(RichEdit3Article.Text);
+	UniSPInsertResume.ParamByName('p_footer_3_text').AsMemo := Trim(RichEditArticle3.Text);
 	UniSPInsertResume.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
-	UniSPInsertResume.ParamByName('p_footer_4_text').AsMemo := Trim(RichEdit4Article.Text);
+	UniSPInsertResume.ParamByName('p_footer_4_text').AsMemo := Trim(RichEditArticle4.Text);
   UniSPInsertResume.ParamByName('p_archived').AsBoolean := false;
   UniSPInsertResume.ExecProc;
 	ResumeID:=UniSPInsertResume.ParamByName('p_resume_id').AsInteger;
@@ -1438,7 +1438,7 @@ if isJob1Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 			end;
@@ -1461,7 +1461,7 @@ if isJob2Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo2Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1484,7 +1484,7 @@ if isJob3Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo3Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1507,7 +1507,7 @@ if isJob4Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo4Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1530,7 +1530,7 @@ if isJob5Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo5Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1553,7 +1553,7 @@ if isJob6Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo6Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1576,7 +1576,7 @@ if isJob7Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo7Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1599,7 +1599,7 @@ if isJob8Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo8Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1622,7 +1622,7 @@ if isJob9Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo9Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1645,7 +1645,7 @@ if isJob10Active then
 				UniSPInsertSkillShow.Close;
 				UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 				UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo10Skills.Lines[i];
-				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
+//				UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=null;
 				UniSPInsertSkillShow.ExecSQL;
 				end;
 		end;
@@ -1694,90 +1694,100 @@ end;
 
 procedure TFormNewResume.CopyTRfromUA;
 begin
-	if FormMain.IsEmpty(EditName.Text) then EditName.Text := EditNameUA.Text;
-  if FormMain.IsEmpty(EditOpportunity.Text) then EditOpportunity.Text := EditOpportunityUA.Text;
-	if FormMain.IsEmpty(EditPlace.Text) then EditPlace.Text := EditPlaceUA.Text;
-	if FormMain.IsEmpty(EditPhones.Text) then EditPhones.Text := EditPhonesUA.Text;
-	if FormMain.IsEmpty(RichEditor.Text) then RichEditor.Text := RichEditorUA.Text;
+EditName.Text := EditNameUA.Text;
+EditOpportunity.Text := EditOpportunityUA.Text;
+EditPlace.Text := EditPlaceUA.Text;
+EditPhones.Text := EditPhonesUA.Text;
+RichEditor.Text := RichEditorUA.Text;
 
-	if  FormMain.IsEmpty(EditArticle1.Text) then EditArticle1.Text := EditArticle1UA.Text;
-	if  FormMain.IsEmpty(RichEdit1Article.Text) then RichEdit1Article.Text := RichEdit1ArticleUA.Text;
-	if  FormMain.IsEmpty(EditArticle2.Text) then EditArticle2.Text := EditArticle2UA.Text;
-	if  FormMain.IsEmpty(RichEdit2Article.Text) then RichEdit2Article.Text := RichEdit2ArticleUA.Text;
-	if  FormMain.IsEmpty(EditArticle3.Text) then EditArticle3.Text := EditArticle3UA.Text;
-	if  FormMain.IsEmpty(RichEdit3Article.Text) then RichEdit3Article.Text := RichEdit3ArticleUA.Text;
-	if  FormMain.IsEmpty(EditArticle4.Text) then EditArticle4.Text := EditArticle4UA.Text;
-	if  FormMain.IsEmpty(RichEdit4Article.Text) then RichEdit4Article.Text := RichEdit4ArticleUA.Text;
+EditArticle1.Text := EditArticle1UA.Text;
+RichEditArticle1.Text := RichEditArticle1UA.Text;
+EditArticle2.Text := EditArticle2UA.Text;
+RichEditArticle2.Text := RichEditArticle2UA.Text;
+EditArticle3.Text := EditArticle3UA.Text;
+RichEditArticle3.Text := RichEditArticle3UA.Text;
+EditArticle4.Text := EditArticle4UA.Text;
+RichEditArticle4.Text := RichEditArticle4UA.Text;
 
-	if  FormMain.IsEmpty(Edit1Dates.Text) then Edit1Dates.Text := Edit1DatesUA.Text;
-	if  FormMain.IsEmpty(Edit1Name.Text) then Edit1Name.Text := Edit1NameUA.Text;
-	if  FormMain.IsEmpty(Edit1Company.Text) then Edit1Company.Text := Edit1CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit1Resp.Text) then RichEdit1Resp.Text := RichEdit1RespUA.Text;
-	if  FormMain.IsEmpty(Edit1Benefits.Text) then Edit1Benefits.Text := Edit1BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit1Other.Text) then RichEdit1Other.Text := RichEdit1OtherUA.Text;
+Edit1Dates.Text := Edit1DatesUA.Text;
+Edit1Name.Text := Edit1NameUA.Text;
+Edit1Company.Text := Edit1CompanyUA.Text;
+RichEdit1Resp.Text := RichEdit1RespUA.Text;
+Edit1Benefits.Text := Edit1BenefitsUA.Text;
+RichEdit1Other.Text := RichEdit1OtherUA.Text;
+Memo1Skills.Text:=Memo1SkillsUA.Text;
 
-	if  FormMain.IsEmpty(Edit2Dates.Text) then Edit2Dates.Text := Edit2DatesUA.Text;
-	if  FormMain.IsEmpty(Edit2Name.Text) then Edit2Name.Text := Edit2NameUA.Text;
-	if  FormMain.IsEmpty(Edit2Company.Text) then Edit2Company.Text := Edit2CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit2Resp.Text) then RichEdit2Resp.Text := RichEdit2RespUA.Text;
-	if  FormMain.IsEmpty(Edit2Benefits.Text) then Edit2Benefits.Text := Edit2BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit2Other.Text) then RichEdit2Other.Text := RichEdit2OtherUA.Text;
+Edit2Dates.Text := Edit2DatesUA.Text;
+Edit2Name.Text := Edit2NameUA.Text;
+Edit2Company.Text := Edit2CompanyUA.Text;
+RichEdit2Resp.Text := RichEdit2RespUA.Text;
+Edit2Benefits.Text := Edit2BenefitsUA.Text;
+RichEdit2Other.Text := RichEdit2OtherUA.Text;
+Memo2Skills.Text:=Memo2SkillsUA.Text;
 
-	if  FormMain.IsEmpty(Edit3Dates.Text) then Edit3Dates.Text := Edit3DatesUA.Text;
-	if  FormMain.IsEmpty(Edit3Name.Text) then Edit3Name.Text := Edit3NameUA.Text;
-	if  FormMain.IsEmpty(Edit3Company.Text) then Edit3Company.Text := Edit3CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit3Resp.Text) then RichEdit3Resp.Text := RichEdit3RespUA.Text;
-	if  FormMain.IsEmpty(Edit3Benefits.Text) then Edit3Benefits.Text := Edit3BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit3Other.Text) then RichEdit3Other.Text := RichEdit3OtherUA.Text;
+Edit3Dates.Text := Edit3DatesUA.Text;
+Edit3Name.Text := Edit3NameUA.Text;
+Edit3Company.Text := Edit3CompanyUA.Text;
+RichEdit3Resp.Text := RichEdit3RespUA.Text;
+Edit3Benefits.Text := Edit3BenefitsUA.Text;
+RichEdit3Other.Text := RichEdit3OtherUA.Text;
+Memo3Skills.Text:=Memo3SkillsUA.Text;
 
-	if  FormMain.IsEmpty(Edit4Dates.Text) then Edit4Dates.Text := Edit4DatesUA.Text;
-	if  FormMain.IsEmpty(Edit4Name.Text) then Edit4Name.Text := Edit4NameUA.Text;
-	if  FormMain.IsEmpty(Edit4Company.Text) then Edit4Company.Text := Edit4CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit4Resp.Text) then RichEdit4Resp.Text := RichEdit4RespUA.Text;
-	if  FormMain.IsEmpty(Edit4Benefits.Text) then Edit4Benefits.Text := Edit4BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit4Other.Text) then RichEdit4Other.Text := RichEdit4OtherUA.Text;
+Edit4Dates.Text := Edit4DatesUA.Text;
+Edit4Name.Text := Edit4NameUA.Text;
+Edit4Company.Text := Edit4CompanyUA.Text;
+RichEdit4Resp.Text := RichEdit4RespUA.Text;
+Edit4Benefits.Text := Edit4BenefitsUA.Text;
+RichEdit4Other.Text := RichEdit4OtherUA.Text;
+Memo4Skills.Text:=Memo4SkillsUA.Text;
 
-  if  FormMain.IsEmpty(Edit5Dates.Text) then Edit5Dates.Text := Edit5DatesUA.Text;
-  if  FormMain.IsEmpty(Edit5Name.Text) then Edit5Name.Text := Edit5NameUA.Text;
-  if  FormMain.IsEmpty(Edit5Company.Text) then Edit5Company.Text := Edit5CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit5Resp.Text) then RichEdit5Resp.Text := RichEdit5RespUA.Text;
-  if  FormMain.IsEmpty(Edit5Benefits.Text) then Edit5Benefits.Text := Edit5BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit5Other.Text) then RichEdit5Other.Text := RichEdit5OtherUA.Text;
+Edit5Dates.Text := Edit5DatesUA.Text;
+Edit5Name.Text := Edit5NameUA.Text;
+Edit5Company.Text := Edit5CompanyUA.Text;
+RichEdit5Resp.Text := RichEdit5RespUA.Text;
+Edit5Benefits.Text := Edit5BenefitsUA.Text;
+RichEdit5Other.Text := RichEdit5OtherUA.Text;
+Memo5Skills.Text:=Memo5SkillsUA.Text;
 
-  if  FormMain.IsEmpty(Edit6Dates.Text) then Edit6Dates.Text := Edit6DatesUA.Text;
-	if  FormMain.IsEmpty(Edit6Name.Text) then Edit6Name.Text := Edit6NameUA.Text;
-  if  FormMain.IsEmpty(Edit6Company.Text) then Edit6Company.Text := Edit6CompanyUA.Text;
-  if  FormMain.IsEmpty(RichEdit6Resp.Text) then RichEdit6Resp.Text := RichEdit6RespUA.Text;
-	if  FormMain.IsEmpty(Edit6Benefits.Text) then Edit6Benefits.Text := Edit6BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit6Other.Text) then RichEdit6Other.Text := RichEdit6OtherUA.Text;
+Edit6Dates.Text := Edit6DatesUA.Text;
+Edit6Name.Text := Edit6NameUA.Text;
+Edit6Company.Text := Edit6CompanyUA.Text;
+RichEdit6Resp.Text := RichEdit6RespUA.Text;
+Edit6Benefits.Text := Edit6BenefitsUA.Text;
+RichEdit6Other.Text := RichEdit6OtherUA.Text;
+Memo6Skills.Text:=Memo6SkillsUA.Text;
 
-	if  FormMain.IsEmpty(Edit7Dates.Text) then Edit7Dates.Text := Edit7DatesUA.Text;
-  if  FormMain.IsEmpty(Edit7Name.Text) then Edit7Name.Text := Edit7NameUA.Text;
-	if  FormMain.IsEmpty(Edit7Company.Text) then Edit7Company.Text := Edit7CompanyUA.Text;
-  if  FormMain.IsEmpty(RichEdit7Resp.Text) then RichEdit7Resp.Text := RichEdit7RespUA.Text;
-	if  FormMain.IsEmpty(Edit7Benefits.Text) then Edit7Benefits.Text := Edit7BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit7Other.Text) then RichEdit7Other.Text := RichEdit7OtherUA.Text;
+Edit7Dates.Text := Edit7DatesUA.Text;
+Edit7Name.Text := Edit7NameUA.Text;
+Edit7Company.Text := Edit7CompanyUA.Text;
+RichEdit7Resp.Text := RichEdit7RespUA.Text;
+Edit7Benefits.Text := Edit7BenefitsUA.Text;
+RichEdit7Other.Text := RichEdit7OtherUA.Text;
+Memo7Skills.Text:=Memo7SkillsUA.Text;
 
-  if  FormMain.IsEmpty(Edit8Dates.Text) then Edit8Dates.Text := Edit8DatesUA.Text;
-  if  FormMain.IsEmpty(Edit8Name.Text) then Edit8Name.Text := Edit8NameUA.Text;
-	if  FormMain.IsEmpty(Edit8Company.Text) then Edit8Company.Text := Edit8CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit8Resp.Text) then RichEdit8Resp.Text := RichEdit8RespUA.Text;
-	if  FormMain.IsEmpty(Edit8Benefits.Text) then Edit8Benefits.Text := Edit8BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit8Other.Text) then RichEdit8Other.Text := RichEdit8OtherUA.Text;
+Edit8Dates.Text := Edit8DatesUA.Text;
+Edit8Name.Text := Edit8NameUA.Text;
+Edit8Company.Text := Edit8CompanyUA.Text;
+RichEdit8Resp.Text := RichEdit8RespUA.Text;
+Edit8Benefits.Text := Edit8BenefitsUA.Text;
+RichEdit8Other.Text := RichEdit8OtherUA.Text;
+Memo8Skills.Text:=Memo8SkillsUA.Text;
 
-  if  FormMain.IsEmpty(Edit9Dates.Text) then Edit9Dates.Text := Edit9DatesUA.Text;
-  if  FormMain.IsEmpty(Edit9Name.Text) then Edit9Name.Text := Edit9NameUA.Text;
-  if  FormMain.IsEmpty(Edit9Company.Text) then Edit9Company.Text := Edit9CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit9Resp.Text) then RichEdit9Resp.Text := RichEdit9RespUA.Text;
-  if  FormMain.IsEmpty(Edit9Benefits.Text) then Edit9Benefits.Text := Edit9BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit9Other.Text) then RichEdit9Other.Text := RichEdit9OtherUA.Text;
+Edit9Dates.Text := Edit9DatesUA.Text;
+Edit9Name.Text := Edit9NameUA.Text;
+Edit9Company.Text := Edit9CompanyUA.Text;
+RichEdit9Resp.Text := RichEdit9RespUA.Text;
+Edit9Benefits.Text := Edit9BenefitsUA.Text;
+RichEdit9Other.Text := RichEdit9OtherUA.Text;
+Memo9Skills.Text:=Memo9SkillsUA.Text;
 
-  if  FormMain.IsEmpty(Edit10Dates.Text) then Edit10Dates.Text := Edit10DatesUA.Text;
-  if  FormMain.IsEmpty(Edit10Name.Text) then Edit10Name.Text := Edit10NameUA.Text;
-  if  FormMain.IsEmpty(Edit10Company.Text) then Edit10Company.Text := Edit10CompanyUA.Text;
-	if  FormMain.IsEmpty(RichEdit10Resp.Text) then RichEdit10Resp.Text := RichEdit10RespUA.Text;
-	if  FormMain.IsEmpty(Edit10Benefits.Text) then Edit10Benefits.Text := Edit10BenefitsUA.Text;
-	if  FormMain.IsEmpty(RichEdit10Other.Text) then RichEdit10Other.Text := RichEdit10OtherUA.Text;
+Edit10Dates.Text := Edit10DatesUA.Text;
+Edit10Name.Text := Edit10NameUA.Text;
+Edit10Company.Text := Edit10CompanyUA.Text;
+RichEdit10Resp.Text := RichEdit10RespUA.Text;
+Edit10Benefits.Text := Edit10BenefitsUA.Text;
+RichEdit10Other.Text := RichEdit10OtherUA.Text;
+Memo10Skills.Text:=Memo10SkillsUA.Text;
 end;
 
 procedure TFormNewResume.GetValuesFromTemplate(TemplateId: integer);
@@ -1804,29 +1814,29 @@ while not UniGetTemplateFooters.EOF do
     begin
     if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle1UA.Text := ''
     else EditArticle1UA.Text := UniGetTemplateFooters['footer_header'];
-		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit1ArticleUA.Text := ''
-		else RichEdit1ArticleUA.Text := UniGetTemplateFooters['footer_text'];
+		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEditArticle1UA.Text := ''
+		else RichEditArticle1UA.Text := UniGetTemplateFooters['footer_text'];
 		end;
 	if UniGetTemplateFooters['footer_order']=2 then
 		begin
 		if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle2UA.Text := ''
 		else EditArticle2UA.Text := UniGetTemplateFooters['footer_header'];
-		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit2ArticleUA.Text := ''
-		else RichEdit2ArticleUA.Text := UniGetTemplateFooters['footer_text'];
+		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEditArticle2UA.Text := ''
+		else RichEditArticle2UA.Text := UniGetTemplateFooters['footer_text'];
 		end;
 	if UniGetTemplateFooters['footer_order']=3 then
 		begin
 		if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle3UA.Text := ''
 		else EditArticle3UA.Text := UniGetTemplateFooters['footer_header'];
-		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit3ArticleUA.Text := ''
-		else RichEdit3ArticleUA.Text := UniGetTemplateFooters['footer_text'];
+		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEditArticle3UA.Text := ''
+		else RichEditArticle3UA.Text := UniGetTemplateFooters['footer_text'];
 		end;
 	if UniGetTemplateFooters['footer_order']=4 then
 		begin
-    if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle4UA.Text := ''
-    else EditArticle4UA.Text := UniGetTemplateFooters['footer_header'];
-		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEdit4ArticleUA.Text := ''
-		else RichEdit4ArticleUA.Text := UniGetTemplateFooters['footer_text'];
+		if VarIsNull(UniGetTemplateFooters['footer_header']) then EditArticle4UA.Text := ''
+		else EditArticle4UA.Text := UniGetTemplateFooters['footer_header'];
+		if VarIsNull(UniGetTemplateFooters['footer_text']) then RichEditArticle4UA.Text := ''
+		else RichEditArticle4UA.Text := UniGetTemplateFooters['footer_text'];
 		end;
 	UniGetTemplateFooters.Next;
 	end;
@@ -2405,49 +2415,49 @@ Result:=true;
     Result := false;
     exit;
   end;
-	if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(RichEdit1Article.Text) then
+	if FormMain.IsEmpty(EditArticle1.Text) and not FormMain.IsEmpty(RichEditArticle1.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 1 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle1.Text) and FormMain.IsEmpty(RichEdit1Article.Text) then
+	if FormMain.IsEmpty(RichEditArticle1.Text) and not FormMain.IsEmpty(EditArticle1.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 1 - Текст"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle2.Text) and not FormMain.IsEmpty(RichEdit2Article.Text) then
+	if FormMain.IsEmpty(EditArticle2.Text) and not FormMain.IsEmpty(RichEditArticle2.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 2 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle2.Text) and FormMain.IsEmpty(RichEdit2Article.Text) then
+	if FormMain.IsEmpty(RichEditArticle2.Text) and not FormMain.IsEmpty(EditArticle2.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 2 - Текст"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle3.Text) and FormMain.IsEmpty(RichEdit3Article.Text) then
+	if FormMain.IsEmpty(EditArticle3.Text) and not FormMain.IsEmpty(RichEditArticle3.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 3 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle3.Text) and FormMain.IsEmpty(RichEdit3Article.Text) then
+	if FormMain.IsEmpty(RichEditArticle3.Text) and not FormMain.IsEmpty(EditArticle3.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 3 - Текст"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle4.Text) and FormMain.IsEmpty(RichEdit4Article.Text) then
+	if FormMain.IsEmpty(EditArticle4.Text) and not FormMain.IsEmpty(RichEditArticle4.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 4 - Назва"');
 		Result := false;
 		exit;
 	end;
-	if FormMain.IsEmpty(EditArticle4.Text) and FormMain.IsEmpty(RichEdit4Article.Text) then
+	if FormMain.IsEmpty(RichEditArticle4.Text) and not FormMain.IsEmpty(EditArticle4.Text) then
 	begin
 		ShowMessage('Пусте поле "Навички 4 - Текст"');
 		Result := false;

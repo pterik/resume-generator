@@ -41,22 +41,23 @@ object FormNewSkill: TFormNewSkill
     ParentFont = False
   end
   object BitBtnClose: TBitBtn
-    Left = 198
+    Left = 190
     Top = 117
     Width = 88
     Height = 40
     Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = '&Close'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    Kind = bkCancel
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 305
-    ExplicitTop = 203
+    ExplicitLeft = 186
+    ExplicitTop = 116
   end
   object BitBtnSave: TBitBtn
     Left = 16
@@ -205,7 +206,7 @@ object FormNewSkill: TFormNewSkill
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 348
+    ExplicitTop = 116
   end
   object EditSkill: TEdit
     Left = 52
@@ -242,14 +243,12 @@ object FormNewSkill: TFormNewSkill
     SQL.Strings = (
       'SELECT id, category, created, updated FROM skills_categories'
       'order by id')
-    Active = True
     Left = 147
     Top = 16
     object UniSkillCategoryid: TIntegerField
-      AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
-    object UniSkillCategorycategory: TStringField
+    object UniSkillCategorycategory: TWideStringField
       FieldName = 'category'
       Size = 255
     end
@@ -266,27 +265,27 @@ object FormNewSkill: TFormNewSkill
     Top = 16
   end
   object UniSPInsertSkill: TUniStoredProc
-    StoredProcName = 'insert_skill'
+    StoredProcName = 'insert_skill_show'
     SQL.Strings = (
-      'CALL insert_skill(:p_skill, :p_category_id)')
+      'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
     Transaction = FormMain.UniTransaction
     Left = 232
     Top = 48
     ParamData = <
       item
-        DataType = ftString
+        DataType = ftInteger
+        Name = 'p_experience_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftWideString
         Name = 'p_skill'
         ParamType = ptInput
         Size = 255
         Value = nil
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_category_id'
-        ParamType = ptInput
-        Value = nil
       end>
-    CommandStoredProcName = 'insert_skill'
+    CommandStoredProcName = 'insert_skill_show'
   end
 end

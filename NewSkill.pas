@@ -19,7 +19,7 @@ type
     UniSPInsertSkill: TUniStoredProc;
     CBCategory: TComboBox;
     UniSkillCategoryid: TIntegerField;
-    UniSkillCategorycategory: TStringField;
+    UniSkillCategorycategory: TWideStringField;
     UniSkillCategorycreated: TDateTimeField;
     UniSkillCategoryupdated: TDateTimeField;
     procedure BitBtnSaveClick(Sender: TObject);

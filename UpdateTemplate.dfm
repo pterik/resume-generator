@@ -11,6 +11,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   OnClose = FormClose
   OnDestroy = FormDestroy
   OnKeyUp = FormKeyUp
@@ -19,30 +20,29 @@ object FormUpdateTemplate: TFormUpdateTemplate
     813)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 845
-    Top = 767
+    Left = 887
+    Top = 765
     Width = 84
     Height = 40
     Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = '&Close'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    Kind = bkClose
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 841
-    ExplicitTop = 766
   end
   object BitBtnSave: TBitBtn
     Left = 8
     Top = 767
-    Width = 96
+    Width = 113
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'Save'
+    Caption = 'Save(F2)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -190,7 +190,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
     Top = 8
     Width = 980
     Height = 753
-    ActivePage = TabSheetJob1RU
+    ActivePage = TabSheetFooterRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -557,7 +557,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 6
         Text = 'EditArticle4'
       end
-      object RichEdit1Article: TRichEdit
+      object RichEditArticle1: TRichEdit
         Left = 3
         Top = 33
         Width = 966
@@ -568,12 +568,12 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit1Article')
+          'RichEditArticle1')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 1
       end
-      object RichEdit2Article: TRichEdit
+      object RichEditArticle2: TRichEdit
         Left = 1
         Top = 241
         Width = 966
@@ -584,12 +584,12 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit2Article')
+          'RichEditArticle2')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 3
       end
-      object RichEdit3Article: TRichEdit
+      object RichEditArticle3: TRichEdit
         Left = 3
         Top = 437
         Width = 966
@@ -600,12 +600,12 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit3Article')
+          'RichEditArticle3')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 5
       end
-      object RichEdit4Article: TRichEdit
+      object RichEditArticle4: TRichEdit
         Left = 3
         Top = 594
         Width = 966
@@ -616,7 +616,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit4Article')
+          'RichEditArticle4')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 7
@@ -653,7 +653,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label3: TLabel
         Left = 32
-        Top = 446
+        Top = 433
         Width = 52
         Height = 21
         Caption = #1042#1099#1075#1086#1076#1072
@@ -665,8 +665,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 30
-        Top = 478
+        Left = 33
+        Top = 473
         Width = 51
         Height = 21
         Caption = #1044#1088#1091#1075#1086#1077
@@ -678,8 +678,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 35
-        Top = 517
+        Left = 540
+        Top = 433
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -702,7 +702,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit1Dates'
       end
       object Edit1Name: TEdit
@@ -735,8 +735,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit1Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 879
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -747,25 +747,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 3
         Text = 'Edit1Benefits'
       end
-      object Edit1Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit1Bottom'
-      end
       object Memo1Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 479
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -775,7 +761,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo1Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB1: TCalendarPicker
         Left = 305
@@ -802,7 +788,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB1Change
         OnCloseUp = CalendarPickerB1CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE1: TCalendarPicker
@@ -830,14 +816,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE1Change
         OnCloseUp = CalendarPickerE1CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit1Resp: TRichEdit
         Left = 90
-        Top = 120
+        Top = 115
         Width = 879
-        Height = 320
+        Height = 309
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -848,6 +834,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit1Other: TRichEdit
+        Left = 90
+        Top = 470
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit1Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob2RU: TTabSheet
@@ -906,8 +908,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label13: TLabel
-        Left = 27
-        Top = 514
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -930,7 +932,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit2Dates'
       end
       object Edit2Name: TEdit
@@ -963,8 +965,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit2Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 879
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -975,25 +977,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 3
         Text = 'Edit2Benefits'
       end
-      object Edit2Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit2Bottom'
-      end
       object Memo2Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1003,7 +991,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo2Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB2: TCalendarPicker
         Left = 305
@@ -1030,7 +1018,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB2Change
         OnCloseUp = CalendarPickerB2CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE2: TCalendarPicker
@@ -1058,14 +1046,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE2Change
         OnCloseUp = CalendarPickerE2CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit2Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 304
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1074,6 +1062,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit2Other: TRichEdit
+        Left = 94
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit2Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob3RU: TTabSheet
@@ -1107,7 +1111,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label16: TLabel
         Left = 32
-        Top = 443
+        Top = 433
         Width = 52
         Height = 21
         Caption = #1042#1099#1075#1086#1076#1072
@@ -1132,8 +1136,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label18: TLabel
-        Left = 35
-        Top = 514
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1156,7 +1160,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit3Dates'
       end
       object Edit3Name: TEdit
@@ -1188,9 +1192,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'Edit3Company'
       end
       object Edit3Benefits: TEdit
-        Left = 90
-        Top = 450
-        Width = 879
+        Left = 87
+        Top = 436
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1201,35 +1205,21 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 3
         Text = 'Edit3Benefits'
       end
-      object Edit3Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit3Bottom'
-      end
       object Memo3Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 500
-        Height = 183
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'Memo3SkillsRU')
+          'Memo3Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB3: TCalendarPicker
         Left = 305
@@ -1256,7 +1246,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB3Change
         OnCloseUp = CalendarPickerB3CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE3: TCalendarPicker
@@ -1284,14 +1274,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE3Change
         OnCloseUp = CalendarPickerE3CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit3Resp: TRichEdit
-        Left = 90
-        Top = 120
+        Left = 87
+        Top = 115
         Width = 879
-        Height = 320
+        Height = 312
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1300,6 +1290,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit3Other: TRichEdit
+        Left = 87
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit3Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob4RU: TTabSheet
@@ -1358,8 +1364,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label23: TLabel
-        Left = 27
-        Top = 511
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1382,7 +1388,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit4Dates'
       end
       object Edit4Name: TEdit
@@ -1415,8 +1421,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit4Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 879
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1427,25 +1433,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 3
         Text = 'Edit4Benefits'
       end
-      object Edit4Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit4Bottom'
-      end
       object Memo4Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1455,7 +1447,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo4Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB4: TCalendarPicker
         Left = 305
@@ -1482,7 +1474,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB4Change
         OnCloseUp = CalendarPickerB4CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE4: TCalendarPicker
@@ -1510,14 +1502,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE4Change
         OnCloseUp = CalendarPickerE4CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit4Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 284
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1526,6 +1518,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit4Other: TRichEdit
+        Left = 90
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit4Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob5RU: TTabSheet
@@ -1584,8 +1592,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label27: TLabel
-        Left = 38
-        Top = 514
+        Left = 540
+        Top = 430
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1608,7 +1616,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit5Dates'
       end
       object Edit5Name: TEdit
@@ -1641,8 +1649,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit5Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 879
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1653,25 +1661,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 3
         Text = 'Edit5Benefits'
       end
-      object Edit5Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit5Bottom'
-      end
       object Memo5Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1681,7 +1675,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo5SkillsRU')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB5: TCalendarPicker
         Left = 305
@@ -1708,7 +1702,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB5Change
         OnCloseUp = CalendarPickerB5CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE5: TCalendarPicker
@@ -1736,14 +1730,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE5Change
         OnCloseUp = CalendarPickerE5CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit5Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 304
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1752,6 +1746,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit5Other: TRichEdit
+        Left = 90
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit5Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob6RU: TTabSheet
@@ -1785,7 +1795,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label30: TLabel
         Left = 32
-        Top = 446
+        Top = 433
         Width = 52
         Height = 21
         Caption = #1042#1099#1075#1086#1076#1072
@@ -1810,8 +1820,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label32: TLabel
-        Left = 35
-        Top = 517
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1824,8 +1834,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit6Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 879
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1835,20 +1845,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         TabOrder = 3
         Text = 'Edit6Benefits'
-      end
-      object Edit6Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit6Bottom'
       end
       object Edit6Dates: TEdit
         Left = 90
@@ -1862,7 +1858,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit6Dates'
       end
       object Edit6Name: TEdit
@@ -1894,10 +1890,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'Edit6Company'
       end
       object Memo6Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1907,7 +1903,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo6Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB6: TCalendarPicker
         Left = 305
@@ -1934,7 +1930,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB6Change
         OnCloseUp = CalendarPickerB6CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE6: TCalendarPicker
@@ -1962,14 +1958,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE6Change
         OnCloseUp = CalendarPickerE6CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit6Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 304
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1978,6 +1974,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit6Other: TRichEdit
+        Left = 90
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit6Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob7RU: TTabSheet
@@ -2036,8 +2048,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label38: TLabel
-        Left = 35
-        Top = 503
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2050,8 +2062,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit7Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 879
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2061,20 +2073,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         TabOrder = 3
         Text = 'Edit7Benefits'
-      end
-      object Edit7Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit7Bottom'
       end
       object Edit7Dates: TEdit
         Left = 90
@@ -2088,7 +2086,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit7Dates'
       end
       object Edit7Name: TEdit
@@ -2120,10 +2118,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'Edit7Company'
       end
       object Memo7Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2133,7 +2131,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo7Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB7: TCalendarPicker
         Left = 305
@@ -2160,7 +2158,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB7Change
         OnCloseUp = CalendarPickerB7CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE7: TCalendarPicker
@@ -2188,14 +2186,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE7Change
         OnCloseUp = CalendarPickerE7CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit7Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 304
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2204,6 +2202,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit7Other: TRichEdit
+        Left = 90
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit7Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob8RU: TTabSheet
@@ -2236,8 +2250,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label54: TLabel
-        Left = 35
-        Top = 445
+        Left = 32
+        Top = 433
         Width = 52
         Height = 21
         Caption = #1042#1099#1075#1086#1076#1072
@@ -2262,8 +2276,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label40: TLabel
-        Left = 38
-        Top = 516
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2276,8 +2290,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit8Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 879
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2287,20 +2301,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         TabOrder = 3
         Text = 'Edit8Benefits'
-      end
-      object Edit8Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit8Bottom'
       end
       object Edit8Dates: TEdit
         Left = 90
@@ -2314,7 +2314,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit8Dates'
       end
       object Edit8Name: TEdit
@@ -2346,10 +2346,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'Edit8Company'
       end
       object Memo8Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 183
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2359,7 +2359,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo8SkillsRU')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB8: TCalendarPicker
         Left = 305
@@ -2386,7 +2386,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB8Change
         OnCloseUp = CalendarPickerB8CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE8: TCalendarPicker
@@ -2414,14 +2414,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE8Change
         OnCloseUp = CalendarPickerE8CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit8Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 304
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2430,6 +2430,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit8Other: TRichEdit
+        Left = 90
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit8Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheetJob9RU: TTabSheet
@@ -2462,8 +2478,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label43: TLabel
-        Left = 24
-        Top = 446
+        Left = 32
+        Top = 433
         Width = 52
         Height = 21
         Caption = #1042#1099#1075#1086#1076#1072
@@ -2488,8 +2504,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label56: TLabel
-        Left = 27
-        Top = 517
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2502,8 +2518,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit9Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 878
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2513,20 +2529,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         TabOrder = 3
         Text = 'Edit9Benefits'
-      end
-      object Edit9Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 878
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit9Bottom'
       end
       object Edit9Dates: TEdit
         Left = 90
@@ -2540,7 +2542,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit9Dates'
       end
       object Edit9Name: TEdit
@@ -2572,10 +2574,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'Edit9Company'
       end
       object Memo9Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2585,7 +2587,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo9Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB9: TCalendarPicker
         Left = 305
@@ -2612,7 +2614,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB9Change
         OnCloseUp = CalendarPickerB9CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE9: TCalendarPicker
@@ -2640,14 +2642,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE9Change
         OnCloseUp = CalendarPickerE9CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit9Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 304
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2656,6 +2658,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit9Other: TRichEdit
+        Left = 90
+        Top = 471
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit9Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
     object TabSheet10RU: TTabSheet
@@ -2689,7 +2707,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label47: TLabel
         Left = 32
-        Top = 443
+        Top = 430
         Width = 52
         Height = 21
         Caption = #1042#1099#1075#1086#1076#1072
@@ -2714,8 +2732,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label49: TLabel
-        Left = 35
-        Top = 514
+        Left = 540
+        Top = 443
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2728,8 +2746,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Edit10Benefits: TEdit
         Left = 90
-        Top = 450
-        Width = 878
+        Top = 430
+        Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2739,20 +2757,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         TabOrder = 3
         Text = 'Edit10Benefits'
-      end
-      object Edit10Bottom: TEdit
-        Left = 90
-        Top = 490
-        Width = 879
-        Height = 29
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-        Text = 'Edit10Bottom'
       end
       object Edit10Dates: TEdit
         Left = 90
@@ -2766,7 +2770,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 6
+        TabOrder = 5
         Text = 'Edit10Dates'
       end
       object Edit10Name: TEdit
@@ -2798,10 +2802,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'Edit10Company'
       end
       object Memo10Skills: TMemo
-        Left = 90
-        Top = 525
-        Width = 480
-        Height = 186
+        Left = 540
+        Top = 470
+        Width = 430
+        Height = 240
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2811,7 +2815,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
           'Memo10Skills')
         ParentFont = False
         ScrollBars = ssVertical
-        TabOrder = 5
+        TabOrder = 4
       end
       object CalendarPickerB10: TCalendarPicker
         Left = 305
@@ -2838,7 +2842,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerB10Change
         OnCloseUp = CalendarPickerB10CloseUp
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 6
         TextHint = 'select a date'
       end
       object CalendarPickerE10: TCalendarPicker
@@ -2866,14 +2870,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnChange = CalendarPickerE10Change
         OnCloseUp = CalendarPickerE10CloseUp
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 7
         TextHint = 'select a date'
       end
       object RichEdit10Resp: TRichEdit
         Left = 90
         Top = 120
         Width = 879
-        Height = 320
+        Height = 304
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2882,6 +2886,22 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 2
+      end
+      object RichEdit10Other: TRichEdit
+        Left = 90
+        Top = 470
+        Width = 430
+        Height = 240
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Lines.Strings = (
+          'RichEdit10Other')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 8
       end
     end
   end
@@ -2991,7 +3011,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
   object UniSPInsertSkillShow: TUniStoredProc
     StoredProcName = 'insert_skill_show'
     SQL.Strings = (
-      'CALL insert_skill_show(:p_experience_id, :p_skill_id, :p_skill)')
+      'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
     Left = 736
     Top = 240
@@ -2999,12 +3019,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
       item
         DataType = ftInteger
         Name = 'p_experience_id'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_skill_id'
         ParamType = ptInput
         Value = nil
       end

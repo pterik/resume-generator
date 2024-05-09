@@ -16,21 +16,24 @@ object FormTemplatesList: TFormTemplatesList
     661)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 860
+    Left = 856
     Top = 613
     Width = 120
     Height = 40
     Anchors = [akRight, akBottom]
+    Cancel = True
+    Caption = '&Close'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
-    Kind = bkClose
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
+    ExplicitLeft = 852
+    ExplicitTop = 612
   end
   object DBGrid1: TDBGrid
     Left = 8

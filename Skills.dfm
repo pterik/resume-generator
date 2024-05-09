@@ -23,7 +23,7 @@ object FormSkills: TFormSkills
     Caption = #1055#1086#1096#1091#1082
   end
   object BitBtnClose: TBitBtn
-    Left = 857
+    Left = 853
     Top = 614
     Width = 88
     Height = 40
@@ -38,7 +38,7 @@ object FormSkills: TFormSkills
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 853
+    ExplicitLeft = 849
     ExplicitTop = 613
   end
   object DBGrid1: TDBGrid
@@ -77,18 +77,6 @@ object FormSkills: TFormSkills
       end
       item
         Expanded = False
-        FieldName = 'skill'
-        Title.Caption = #1057#1082#1110#1083
-        Title.Font.Charset = DEFAULT_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -16
-        Title.Font.Name = 'Segoe UI'
-        Title.Font.Style = []
-        Width = 247
-        Visible = True
-      end
-      item
-        Expanded = False
         FieldName = 'category'
         Title.Caption = #1050#1072#1090#1077#1075#1086#1088#1110#1103
         Title.Font.Charset = DEFAULT_CHARSET
@@ -97,6 +85,17 @@ object FormSkills: TFormSkills
         Title.Font.Name = 'Segoe UI'
         Title.Font.Style = []
         Width = 185
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'skill'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
+        Width = 120
         Visible = True
       end
       item
@@ -112,11 +111,21 @@ object FormSkills: TFormSkills
       item
         Expanded = False
         FieldName = 'created'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'updated'
+        Title.Font.Charset = DEFAULT_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -16
+        Title.Font.Name = 'Segoe UI'
+        Title.Font.Style = []
         Visible = True
       end>
   end
@@ -304,7 +313,6 @@ object FormSkills: TFormSkills
       'on sc.id = s.category_id '
       'order by skill) R'
       'WHERE lower(skill) LIKE concat('#39'%'#39',lower(:p_filter),'#39'%'#39')')
-    Active = True
     Left = 496
     Top = 80
     ParamData = <

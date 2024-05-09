@@ -92,6 +92,9 @@ type
     UniExperiencesresponsibilities: TWideMemoField;
     UniExperiencesbenefits: TWideStringField;
     UniExperiencesother: TWideMemoField;
+    CBWordWrap: TCheckBox;
+    BitBtn1: TBitBtn;
+    TMSFNCWXDocx2: TTMSFNCWXDocx;
     procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnNewResumeClick(Sender: TObject);
 		procedure BitBtnDeleteResumeClick(Sender: TObject);
@@ -107,6 +110,9 @@ type
     procedure FormCreate(Sender: TObject);
     procedure UniResumesCalcFields(DataSet: TDataSet);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure CBWordWrapClick(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure TMSFNCWXDocx2DownloadAsFile(Sender: TObject; FileName: string);
   private
     FileRDOCX, FileCVDOCX, FileCLDOCX,FileRPDF, FileCVPDF, FileCLPDF:string;
 		WarningFired:boolean;
@@ -117,7 +123,10 @@ type
 		procedure R_DOC_AddTable(var section:TTMSFNCWXDocxSection);
 		procedure R_DOC_AddFooter(var section:TTMSFNCWXDocxSection; resume_id:integer);
 		procedure R_DOC_AddJob(var section:TTMSFNCWXDocxSection);
-		procedure R_DOC_URL(var paragraph: TTMSFNCWXDocxParagraph; const SourceText: string);
+		procedure R_DOC_RichText(var paragraph: TTMSFNCWXDocxParagraph; const SourceText: string; var Alignment:TTMSFNCWXDocxTextAlignment; var Res:string);
+		procedure LocateTagA(const SourceText: string; var TagBegin, TagEnd:integer; var isFound:boolean);
+		procedure LocateTagB(const SourceText: string; var TagBegin, TagEnd: integer; var isFound: boolean);
+		procedure LocateTagU(const SourceText: string; var TagBegin, TagEnd: integer; var isFound: boolean);
 	public
 		procedure SetFormValues;
 		function LocalTranslate(Word:UnicodeString):UnicodeString;
@@ -133,7 +142,7 @@ implementation
 
 {$R *.dfm}
 
-uses System.UITypes, System.IOUtils, Winapi.ShellAPI, Parameters, System.Win.ComObj,
+uses System.Math, System.UITypes, System.IOUtils, Winapi.ShellAPI, Parameters, System.Win.ComObj,
 	UpdateResume, MainForm, NewResume;
 
 function ComputerName: string;
@@ -145,6 +154,32 @@ begin
 	GetComputerName(PChar(Result), Size);
 	// Урезаем строку до действительной длины имени компьютера
 	SetLength(Result, Size);
+end;
+
+procedure TFormListResumes.BitBtn1Click(Sender: TObject);
+var
+  section: TTMSFNCWXDocxSection;
+  paragraph:  TTMSFNCWXDocxParagraph;
+	text: TTMSFNCWXDocxText;
+	URL:TTMSFNCWXDocxExternalHyperlink;
+//  table: TTMSFNCWXDocxTable;
+//  tableCell: TTMSFNCWXDocxTableCell;
+//  TableRow: TTMSFNCWXDocxTableRow;
+  i, j: Integer;
+  toc: TTMSFNCWXDocxTableOfContents;
+  internalHyperlink: TTMSFNCWXDocxInternalHyperLink;
+	externalHyperlink: TTMSFNCWXDocxExternalHyperlink;
+begin
+//	TMSFNCWXDocx1.Document.Features.UpdateFields := true;
+	section := TMSFNCWXDocx1.Document.AddSection;
+	paragraph := section.AddParagraph;
+	externalHyperlink := paragraph.AddExternalHyperlink('https://www.tmssoftware.com','link to tmssoftware page');
+//	externalHyperlink.Link := 'https://www.tmssoftware.com';
+	text := externalHyperlink.AddText;
+	text.Text := 'link to tmssoftware page';
+	toc := section.AddTableOfContents;
+	TMSFNCWXDocx1.GetDocxAsFile(TPath.Combine(TPath.GetDocumentsPath,'AdvancedDocx.docx'));
+
 end;
 
 procedure TFormListResumes.BitBtnArchiveClick(Sender: TObject);
@@ -162,8 +197,9 @@ end;
 
 procedure TFormListResumes.BitBtnCheckClick(Sender: TObject);
 begin
-if FileRDocX<>'' then ShellExecute(Handle, 'open', PWideChar(FileRDocX), nil, nil, SW_SHOWNORMAL)
-else ShowMessage('R-DOCX файл не згенерований');
+TTMSFNCUtils.OpenFile(TPath.Combine(TPath.GetDocumentsPath,'AdvancedDocx.docx'));
+//if FileRDocX<>'' then ShellExecute(Handle, 'open', PWideChar(FileRDocX), nil, nil, SW_SHOWNORMAL)
+//else ShowMessage('R-DOCX файл не згенерований');
 end;
 
 procedure TFormListResumes.BitBtnCloseClick(Sender: TObject);
@@ -238,7 +274,7 @@ FileRPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\'+FName+'.pdf';
 FileCVPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.pdf';
 FileCLPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.pdf';
 try
-if FileExists(FileRDocx) then
+	if FileExists(FileRDocx) then
 		DeleteFile(FileRDocx);
 if FileExists(FileCVDocx) then
 		DeleteFile(FileCVDocx);
@@ -247,22 +283,41 @@ if FileExists(FileCLDocx) then
 
 if not WX_R_FileGenerate(UniResumes['id'],FileRDocx)
 then
-  begin
-    FormMain.Warning('Сбой при обработке DOCX Резюме "'+intToStr(UniResumes['id'])+'"');
-  exit;
-  end;
+	begin
+		ShowMessage('Сбой при обработке DOCX Резюме "'+intToStr(UniResumes['id'])+'"');
+	exit;
+	end;
 if not WX_R_PDF_Generate(UniResumes['id'],FileRPDF)
 then
-  begin
-    FormMain.Warning('Сбой при обработке PDF Резюме "'+intToStr(UniResumes['id'])+'"');
+	begin
+		ShowMessage('Сбой при обработке PDF Резюме "'+intToStr(UniResumes['id'])+'"');
   exit;
   end;
 //CreateWordDoc;
-
-FormMain.Warning('Шаблоны успешно обработаны, резюме готово: '+UniResumes['name']);
-except on E:Exception do
+ShowMessage('Шаблоны успешно обработаны, резюме готово: '+UniResumes['name']);
+except on E:EFCreateError do
+	begin
+	ShowMessage('Сбой при удалении файла "'+FileRDocx+'": '+E.Message);
+  exit;
+	end;
+on E:Exception do
   FormMain.Warning('Error message: '+E.Message);
 end;
+end;
+
+procedure TFormListResumes.CBWordWrapClick(Sender: TObject);
+begin
+if CBWordWrap.Checked
+then
+	begin
+	DBRichEditor.ScrollBars:=ssVertical;
+	DBRichEditor.WordWrap:=true;
+	end
+else
+	begin
+	DBRichEditor.ScrollBars:=ssBoth;
+	DBRichEditor.WordWrap:=false;
+	end;
 end;
 
 procedure TFormListResumes.DBGrid1DblClick(Sender: TObject);
@@ -273,6 +328,8 @@ end;
 procedure TFormListResumes.FormCreate(Sender: TObject);
 begin
 Radiogroup.ItemIndex:=0;
+DBRichEditor.ScrollBars:=ssVertical;
+DBRichEditor.WordWrap:=true;
 end;
 
 function TFormListResumes.LocalTranslate(Word:Unicodestring): UnicodeString;
@@ -507,6 +564,12 @@ UniResumes.ParamByName('p_rg').AsInteger:=RadioGroup.ItemIndex;
 UniResumes.Open;
 end;
 
+procedure TFormListResumes.TMSFNCWXDocx2DownloadAsFile(Sender: TObject;
+  FileName: string);
+begin
+    TTMSFNCUtils.OpenFile(FileName);
+end;
+
 procedure TFormListResumes.UniResumesCalcFields(DataSet: TDataSet);
 begin
 if not UniResumes['archived']
@@ -525,9 +588,11 @@ end;
 
 procedure TFormListResumes.R_DOC_AddFooter(var section: TTMSFNCWXDocxSection; resume_id:integer);
 var paragraph: TTMSFNCWXDocxParagraph;
-StringList:TStringList;
+StringList,StringList2:TStringList;
 i:integer;
 FooterText : TTMSFNCWXDocxText;
+Alignment:TTMSFNCWXDocxTextAlignment;
+Res:string;
 begin
 StringList:=TStringList.Create();
 paragraph := section.AddParagraph;
@@ -543,9 +608,8 @@ if not VarIsNull(UniResumes['resume_introduction']) then
 			paragraph.Alignment:=taJustified;
 			Paragraph.Spacing.Line:=400;
 			Paragraph.Spacing.LineRule:=lrAuto;
-			FooterText:=paragraph.AddText(StringList[i]);
-			FooterText.Font.Size := 12;
-			FooterText.Font.Name:='Times New Roman';
+			Alignment:=taJustified;
+			R_DOC_RichText(paragraph, StringList[i], Alignment, Res);
 		end;
 	end;
 UniResumeFooters.Close;
@@ -561,21 +625,44 @@ while not UniResumeFooters.Eof do
 	FooterText.Font.Size := 12;
 	FooterText.Font.Name:='Times New Roman';
 	FooterText.Font.Style := [fsBold];
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	FooterText:=paragraph.AddText(UniResumeFooters['footer_text']);
-	paragraph.Alignment := taLeft;
-	FooterText.Font.Size := 12;
-	FooterText.Font.Name:='Times New Roman';
+//	paragraph := section.AddParagraph;
+//	Paragraph.Spacing.Line:=400;
+//	Paragraph.Spacing.LineRule:=lrAuto;
+//Разложить footer_text на отдельные строки
+//	FooterText:=paragraph.AddText(UniResumeFooters['footer_text']);
+	StringList2:=TStringList.Create();
+	StringList2.Text := UniResumeFooters.FieldByName('footer_text').AsString;
+	for i:=0 to StringList2.Count-1 do
+    if not FormMain.IsEmpty(StringList2[i]) then
+		begin
+			paragraph := section.AddParagraph;
+			Paragraph.Spacing.Line:=400;
+			Paragraph.Spacing.LineRule:=lrAuto;
+//			paragraph.Alignment := taLeft;
+			FooterText.Font.Size := 12;
+			FooterText.Font.Name:='Times New Roman';
+			Alignment:=taJustified;
+			R_DOC_RichText(paragraph, StringList2[i], Alignment, Res);
+		end;
+//	FooterText:=paragraph.AddText(UniResumeFooters['footer_text']);
+//	paragraph.Alignment := taLeft;
+//	FooterText.Font.Size := 12;
+//	FooterText.Font.Name:='Times New Roman';
 	UniResumeFooters.Next;
 	end;
+StringList.Destroy();
+StringList2.Destroy();
 end;
 
 procedure TFormListResumes.R_DOC_AddJob(var section: TTMSFNCWXDocxSection);
-var paragraph: TTMSFNCWXDocxParagraph;
+var
+i:integer;
+paragraph: TTMSFNCWXDocxParagraph;
 JobText : TTMSFNCWXDocxText;
 Postn:integer;
+Res:string;
+StringList3:TStringList;
+Alignment:TTMSFNCWXDocxTextAlignment;
 begin
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
@@ -585,14 +672,6 @@ JobText:=paragraph.AddText(UniExperiences['job_position']);
 JobText.Font.Size := 12;
 JobText.Font.Name:='Times New Roman';
 JobText.Font.Style := [fsBold];
-
-paragraph := section.AddParagraph;
-Paragraph.Spacing.Line:=400;
-Paragraph.Spacing.LineRule:=lrAuto;
-paragraph.Alignment := taLeft;
-JobText:=paragraph.AddText(FormMain.GetFullMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetFullMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
-JobText.Font.Size := 12;
-JobText.Font.Name:='Times New Roman';
 
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
@@ -623,28 +702,61 @@ else
 paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
 Paragraph.Spacing.LineRule:=lrAuto;
-paragraph.Alignment := taJustified;
-R_DOC_URL(paragraph,UniExperiences['responsibilities']);
+paragraph.Alignment := taLeft;
+JobText:=paragraph.AddText(FormMain.GetFullMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetFullMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
 
-
+//paragraph := section.AddParagraph;
+//Paragraph.Spacing.Line:=400;
+//Paragraph.Spacing.LineRule:=lrAuto;
+//R_DOC_Richtext(paragraph,UniExperiences['responsibilities'],Res);
+//paragraph.Alignment := taJustified;
+//Res не должна иметь 0 в начале - тогда содержит текст ошибки
+StringList3:=TStringList.Create();
+StringList3.Text := UniExperiences.FieldByName('responsibilities').AsString;
+	for i:=0 to StringList3.Count-1 do
+		begin
+			paragraph := section.AddParagraph;
+			paragraph.Alignment:=taJustified;
+			Paragraph.Spacing.Line:=400;
+			Paragraph.Spacing.LineRule:=lrAuto;
+			Alignment:=taJustified;
+			R_DOC_RichText(paragraph, StringList3[i],Alignment, Res);
+			if not (Copy(Res,1,1)='0') then
+				begin
+				FormMain.Warning(Res);
+				exit;
+				end;
+		end;
 if not FormMain.IsEmpty(UniExperiences['benefits']) then
 	begin
 		paragraph := section.AddParagraph;
 		Paragraph.Spacing.Line:=400;
 		Paragraph.Spacing.LineRule:=lrAuto;
 		paragraph.Alignment := taLeft;
-		JobText:=paragraph.AddText(UniExperiences['benefits']);
+		JobText:=paragraph.AddText(LocalTranslate('Преимущества'));
+		JobText.Font.Size := 12;
+		JobText.Font.Style := [fsUnderline];
+		JobText.Font.Name:='Times New Roman';
+		JobText:=paragraph.AddText(': '+UniExperiences['benefits']);
 		JobText.Font.Size := 12;
 		JobText.Font.Name:='Times New Roman';
+		JobText.Font.Style := [];
 	end;
 
 if not FormMain.IsEmpty(UniExperiences['other']) then
 	begin
-		paragraph := section.AddParagraph;
-		Paragraph.Spacing.Line:=400;
-		Paragraph.Spacing.LineRule:=lrAuto;
-		paragraph.Alignment := taJustified;
-		R_DOC_URL(paragraph,UniExperiences['other']);
+//		paragraph := section.AddParagraph;
+//		Paragraph.Spacing.Line:=400;
+//		Paragraph.Spacing.LineRule:=lrAuto;
+		Alignment := taJustified;
+		R_DOC_RichText(paragraph,UniExperiences['other'], Alignment,Res);
+		if not (Copy(Res,1,1)='0') then
+			begin
+			FormMain.Warning(Res);
+			exit;
+			end;
 	end;
 UniSkillsID.Close;
 UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperiences['id'];
@@ -673,6 +785,7 @@ while not UniSkillsID.Eof do
 		JobText.Font.Name:='Times New Roman';
 		end;
 	end;
+StringList3.Destroy();
 end;
 
 procedure TFormListResumes.R_DOC_AddTable(var section:TTMSFNCWXDocxSection);
@@ -682,25 +795,38 @@ doctext     : TTMSFNCWXDocxText;
 table    : TTMSFNCWXDocxTable;
 tableRow : TTMSFNCWXDocxTableRow;
 tableCell: TTMSFNCWXDocxTableCell;
+externalHyperlink:TTMSFNCWXDocxExternalHyperlink;
+Alignment:TTMSFNCWXDocxTextAlignment;
+Res:string;
 begin
 table := section.AddTable;
+table.Width.Size:=100;
+table.Width.WidthType:=wtPercentage;
 tableRow := Table.AddRow;
 
 tableCell := tableRow.AddCell;
+tableCell.Width.Size:=5;
+tableCell.Width.WidthType := wtPercentage;
 
 // Перенести ячейку Віддалена робота в конец таблицы
 paragraph := TableCell.AddParagraph;
-paragraph.AddText('  ');
-paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[0],50,50);
-paragraph.AddText('  ');
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[1],20,20);
+Paragraph.Alignment:=taCenter;
 
 tableCell := tableRow.AddCell;
+tableCell.Width.Size:=95;
+tableCell.Width.WidthType := wtPercentage;
 
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
-doctext := paragraph.AddText(UniResumes['job_place']);
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+Paragraph.Spacing.LineRule:=lrExactly;
+doctext := paragraph.AddText(UniResumes['phone_numbers_text']);
+Paragraph.Alignment:=taLeft;
 Doctext.Font.Color := clBlack;
 Doctext.Font.Size := 12;
 DocText.Font.Name:='Times New Roman';
@@ -708,23 +834,26 @@ DocText.Font.Name:='Times New Roman';
 tableRow := Table.AddRow;
 
 tableCell := tableRow.AddCell;
+//  tableCell.Width.WidthType = (wtAuto, wtDxa, wtNil, wtPercentage);
+tableCell.Borders.Top.Value:=bsNone;
 
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
-paragraph.AddText('  ');
-paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[1],50,50);
-paragraph.AddText('  ');
-
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+Paragraph.Spacing.LineRule:=lrExactly;
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[0],20,20);
+Paragraph.Alignment:=taCenter;
 // Добавляем телефонный номер
 tableCell := tableRow.AddCell;
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+Paragraph.Spacing.LineRule:=lrExactly;
 
-Doctext := paragraph.AddText(UniResumes['phone_numbers_text']);
+Doctext := paragraph.AddText(UniResumes['job_place']);
+Paragraph.Alignment:=taLeft;
 Doctext.Font.Color := clBlack;
 Doctext.Font.Size := 12;
 DocText.Font.Name:='Times New Roman';
@@ -732,19 +861,23 @@ DocText.Font.Name:='Times New Roman';
 tableRow := Table.AddRow;
 tableCell := tableRow.AddCell;
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
-paragraph.AddText('  ');
-paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[2],50,50);
-paragraph.AddText('  ');
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+Paragraph.Spacing.LineRule:=lrExactly;
+
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[2],20,20);
+Paragraph.Alignment:=taCenter;
 
 tableCell := tableRow.AddCell;
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+Paragraph.Spacing.LineRule:=lrExactly;
+
 Doctext := paragraph.AddText(FormMain.Email);
+Paragraph.Alignment:=taLeft;
 Doctext.Font.Color := clBlack;
 Doctext.Font.Size := 12;
 DocText.Font.Name:='Times New Roman';
@@ -752,80 +885,133 @@ DocText.Font.Name:='Times New Roman';
 tableRow := Table.AddRow;
 tableCell := tableRow.AddCell;
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
-paragraph.AddText('  ');
-paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[3],50,50);
-paragraph.AddText('  ');
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+Paragraph.Spacing.LineRule:=lrExactly;
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[3],20,20);
+Paragraph.Alignment:=taCenter;
 
 tableCell := tableRow.AddCell;
 paragraph := TableCell.AddParagraph;
-Paragraph.Spacing.After:=120;
-Paragraph.Spacing.Before:=120;
-Paragraph.Spacing.Line:=240;
-Doctext := paragraph.AddText(LocalTranslate('Рекомендательное письмо')+'  '+FormMain.RecommendationLink);
-Doctext.Font.Color := clBlack;
-Doctext.Font.Size := 12;
-DocText.Font.Name:='Times New Roman';
+Paragraph.Spacing.After:=180;
+Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+Paragraph.Spacing.LineRule:=lrExactly;
+Alignment:=taLeft;
+R_DOC_RichText(paragraph,LocalTranslate('Рекомендательное письмо')+' <a>'+FormMain.RecommendationLink+'</a>', Alignment,Res);
 end;
 
-procedure TFormListResumes.R_DOC_URL(var paragraph: TTMSFNCWXDocxParagraph; const SourceText: string);
-var Postn1, Postn2:integer;
+procedure TFormListResumes.R_DOC_RichText(var paragraph: TTMSFNCWXDocxParagraph; const SourceText: string; var Alignment:TTMSFNCWXDocxTextAlignment;var Res:string);
+var I, TagBeginA, TagEndA, TagBeginB, TagEndB, TagBeginU, TagEndU :integer;
+isFoundA,isFoundB,isFoundU:boolean;
+FirstSymbol:integer;
+TagText:TTMSFNCWXDocxText;
+externalHyperlink:TTMSFNCWXDocxExternalHyperlink;
 SText:string;
-URLText:TTMSFNCWXDocxText;
 begin
-if ((Pos('<a>',lowercase(SourceText))=0) and (Pos('</a>',lowercase(SourceText))=0))
-then
+Res:='0';
+try
+LocateTagA(SourceText, TagBeginA, TagEndA, isFoundA);
+LocateTagB(SourceText, TagBeginB, TagEndB, isFoundB);
+LocateTagU(SourceText, TagBeginU, TagEndU, isFoundU);
+FirstSymbol:=TagBeginA+TagBeginB+TagBeginU;
+if isFoundA then FirstSymbol:=TagBeginA;
+if isFoundB then FirstSymbol:=System.Math.Min(FirstSymbol,TagBeginB);
+if isFoundU then FirstSymbol:=System.Math.Min(FirstSymbol,TagBeginU);
+SText:=Copy(SourceText,FirstSymbol,length(Sourcetext));
+TagText:=paragraph.AddText(Copy(SourceText,1,FirstSymbol-1));
+TagText.Font.Size := 12;
+TagText.Font.Name:='Times New Roman';
+i:=0;
+while isFoundA or isFoundB or isFoundU do
 	begin
-	URLText:=paragraph.AddText(SourceText);
-	URLText.Font.Size := 12;
-	URLText.Font.Name:='Times New Roman';
-	exit;
-	end;
-SText:=SourceText;
-repeat
-	Postn1:=Pos('<a>',lowercase(SText));
-	Postn2:=Pos('</a>',lowercase(SText));
-	if (Postn1=0) or (Postn2=0) or (Postn1>Postn2) then
+	inc(i);
+	LocateTagA(SText, TagBeginA, TagEndA, isFoundA);
+	LocateTagB(SText, TagBeginB, TagEndB, isFoundB);
+	LocateTagU(SText, TagBeginU, TagEndU, isFoundU);
+	FirstSymbol:=TagBeginA+TagBeginB+TagBeginU;
+	if isFoundA then FirstSymbol:=TagBeginA;
+	if isFoundB then FirstSymbol:=System.Math.Min(FirstSymbol,TagBeginB);
+	if isFoundU then FirstSymbol:=System.Math.Min(FirstSymbol,TagBeginU);
+	if isFoundA and (FirstSymbol=TagBeginA) then
 		begin
-			SText:=StringReplace(SText,'<a>','',[rfIgnoreCase]);
-			SText:=StringReplace(Stext,'</a>','',[rfIgnoreCase]);
-			URLText:=paragraph.AddText(SText);
-			URLText.Font.Size := 12;
-			URLText.Font.Name:='Times New Roman';
-			exit;
+		TagText:=paragraph.AddText(Copy(SText,4,TagEndA-4));
+		TagText.Font.Size := 12;
+		TagText.Font.Name:='Times New Roman';
+		TagText.Font.Style:=[fsBold, fsUnderline];
+		TagText.Font.Color:=clBlue;
+		externalHyperlink := paragraph.AddExternalHyperlink;
+		externalHyperlink.Link := Copy(SText,4,TagEndA-4);
+		SText:=Copy(Stext,TagEndA+4,length(SText));
 		end;
-	URLText:=paragraph.AddText(Copy(SText,1,Postn1-1));
-	URLText.Font.Size := 12;
-	URLText.Font.Name:='Times New Roman';
-	URLText:=paragraph.AddText(Copy(SText,Postn1+3,Postn2-Postn1-3));
-	URLText.Font.Size := 12;
-	URLText.Font.Color:=clBlue;
-	URLText.Font.Style:=[fsUnderline];
-	URLText.Font.Name:='Times New Roman';
-	URLText:=paragraph.AddText(Copy(SText,Postn2+5,length(SText)));
-	URLText.Font.Size := 12;
-	URLText.Font.Name:='Times New Roman';
-	SText:=StringReplace(SText,'<a>','',[rfIgnoreCase]);
-	SText:=StringReplace(SText,'</a>','',[rfIgnoreCase]);
-until (Postn1=0) or (Postn2=0);
+	if isFoundB and (FirstSymbol=TagBeginB) then
+		begin
+		TagText:=paragraph.AddText(Copy(SText,4,TagEndB-4));
+		TagText.Font.Size := 12;
+		TagText.Font.Name:='Times New Roman';
+		TagText.Font.Style:=[fsBold];
+		SText:=Copy(Stext,TagEndB+4,length(SText));
+		end;
+	if isFoundU and (FirstSymbol=TagBeginU) then
+		begin
+		TagText:=paragraph.AddText(Copy(SText,4,TagEndU-4));
+		TagText.Font.Size := 12;
+		TagText.Font.Name:='Times New Roman';
+		TagText.Font.Style:=[fsUnderline];
+		SText:=Copy(Stext,TagEndU+4,length(SText));
+		end;
+	if i>100 then Break;
+	end;
+TagText:=paragraph.AddText(SText);
+if Alignment = taLeft then Paragraph.Alignment:=taLeft;
+if Alignment = taJustified then Paragraph.Alignment:=taJustified;
+TagText.Font.Size := 12;
+TagText.Font.Name:='Times New Roman';
+except on e:Exception do
+	begin
+	FormMain.Warning('Ошибка в процедуре R_DOC_RichText '+E.Message);
+	Res:='Ошибка в процедуре R_DOC_RichText '+E.Message;
+	end;
 end;
+end;
+
+procedure TFormListResumes.LocateTagA(const SourceText: string; var TagBegin:integer; var TagEnd:integer; var isFound:boolean);
+begin
+isFound:=false;
+TagBegin:=Pos('<a>',Lowercase(SourceText));
+TagEnd:=Pos('</a>',Lowercase(SourceText));
+if TagBegin+TagEnd>0 then isFound:=true;
+end;
+
+procedure TFormListResumes.LocateTagB(const SourceText: string; var TagBegin:integer; var TagEnd:integer; var isFound:boolean);
+begin
+isFound:=false;
+TagBegin:=Pos('<b>',Lowercase(SourceText));
+TagEnd:=Pos('</b>',Lowercase(SourceText));
+if TagBegin+TagEnd>0 then isFound:=true;
+end;
+
+procedure TFormListResumes.LocateTagU(const SourceText: string; var TagBegin:integer; var TagEnd:integer; var isFound:boolean);
+begin
+isFound:=false;
+TagBegin:=Pos('<u>',Lowercase(SourceText));
+TagEnd:=Pos('</u>',Lowercase(SourceText));
+if TagBegin+TagEnd>0 then isFound:=true;
+end;
+
 
 function TFormListResumes.WX_R_FileGenerate(const resume_id:integer; const FileName:string): boolean;
 var
 section  : TTMSFNCWXDocxSection;
 paragraph: TTMSFNCWXDocxParagraph;
 DocXText     : TTMSFNCWXDocxText;
-//table    : TTMSFNCWXDocxTable;
-//tableRow : TTMSFNCWXDocxTableRow;
-//tableCell: TTMSFNCWXDocxTableCell;
-//StringList:TStringList;
+externalHyperlink: TTMSFNCWXDocxExternalHyperlink;
+break:TTMSFNCWXDocxPageBreak;
 begin
-//StringList:=TStringList.Create();
 TMSFNCWXDocx1.Document.Sections.Clear;
 section := TMSFNCWXDocx1.Document.AddSection;
-section.Page.Orientation := poLandscape;
+section.Page.Orientation := poPortrait;
 
 // Добавляем Фамилию имя
 paragraph := section.AddParagraph;
@@ -851,16 +1037,17 @@ DocXText.Font.Name:='Times New Roman';
 DocXtext := paragraph.AddText(UniResumes['name']);
 DocXtext.Font.Size := 12;
 DocXText.Font.Name:='Times New Roman';
+
 R_DOC_AddTable(section);
 R_DOC_AddFooter(section, resume_id);
 paragraph := section.AddParagraph;
+Break:=Paragraph.AddBreak;
 Paragraph.Spacing.Line:=400;
 Paragraph.Spacing.LineRule:=lrAuto;
 DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
 DocXText.Font.Size := 18;
 DocXText.Font.Name:='Times New Roman';
 DocXText.Font.Style := [fsBold];
-
 UniExperiences.Close;
 UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
 UniExperiences.Open;
@@ -879,8 +1066,15 @@ while not UniExperiences.Eof do
 		DocXText.Font.Name:='Times New Roman';
 		end;
 	end;
+try
 TMSFNCWXDocx1.GetDocxAsFile(FileName);
 Result:=true;
+except on E:Exception do
+	begin
+	ShowMessage('Ошибка создания файла: '+E.Message);
+	Result:=false;
+	end;
+end;
 end;
 
 
@@ -889,409 +1083,5 @@ function TFormListResumes.WX_R_PDF_Generate(const resume_id: integer;
 begin
 Result:=true;
 end;
-
-//function TFormListResumes.OLE_FileReplace(FWordFrom, FWordTo: TFileName): boolean;
-//var
-//I,J:integer;
-//Fs : TFileStream;
-//WordDoc1: OleVariant;
-//WordSel:OleVariant;
-//begin
-//Result:=true;
-////SetValues();
-//if not FileExists(FWordFrom) then
-//  begin
-//    ShowMessage('Document not found: '+FWordFrom);
-//    Result:=false;
-//    Exit;
-//  end;
-//if FileExists(FWordTo) then
-//  begin
-//    Fs:=nil;
-//    try
-//    Fs:=TFileStream.Create(FWordTo, fmOpenReadWrite, fmShareExclusive);
-//    Fs.Free;
-//    DeleteFile(FWordTo);
-//    except on E:Exception do
-//      begin
-//      FormMain.Warning('Unable to delete target file: '+FWordTo+' Message='+E.Message);
-//      if not(Fs=nil) then Fs.Free;
-//      Result:=false;
-//      exit;
-//      end;
-//    end;
-//
-//  end;
-//TFile.Copy(FWordFrom,FWordTo);
-//try
-//    WApp1 := CreateOLEObject('Word.Application');
-//  except
-//    on E: Exception do
-//    begin
-//      E.Message := 'Word application is not available.';
-//      raise;
-//    end;
-//  end;
-//try
-//WApp1.Visible := False;
-//WApp1.Options.CheckSpellingAsYouType := False;
-//WApp1.Options.CheckGrammarAsYouType := False;
-//WordDoc1:=WApp1.Documents.Open(Filename:=OleVariant(FWordTo));
-//MemoLog.Lines.Add('Word opened');
-////WordDocument1.ConnectTo(WordApplication1.ActiveDocument);
-//WApp1.ActiveDocument.Select;
-//WApp1.Selection.Find.ClearFormatting;
-//WApp1.Selection.Find.Forward := True;
-//WApp1.Selection.Find.Wrap := wdFindContinue;
-//WApp1.Selection.Find.Format := False;
-//WApp1.Selection.Find.MatchCase := False;
-//WApp1.Selection.Find.MatchWholeWord := False;
-//WApp1.Selection.Find.MatchWildcards := False;
-//WApp1.Selection.Find.MatchSoundsLike := False;
-//WApp1.Selection.Find.MatchAllWordForms := False;
-//for I := Low(WordRecords) to High(WordRecords) do
-//  begin
-//  if WordRecords[I].Active then
-//  begin
-//  MemoLog.Lines.Add('Low '+IntToStr(Low(WordRecords))+'High '+IntToStr(High(WordRecords))+'Next '+IntToStr(I));
-//  WApp1.ActiveDocument.Select;
-////  if (WordRecords[i].WordType=[wtImage]) then
-////    begin
-////    FormMain.Warning('Replace Image: '+WordRecords[i].Key+' to size '+IntToStr(WordRecords[i].WordImage.Height)+'x'+IntToStr(WordRecords[i].WordImage.Width)+':File:'+FWordTarget);
-////    W.Selection.Find.Text := WordRecords[i].Key;
-////    W.Selection.Find.Replacement.Text := WordRecords[i].WordImage;
-////    end;
-//  if (WordRecords[i].WordType=[wtLink]) or (WordRecords[i].WordType=[wtEmail]) then
-//    begin
-////    WordApplication1.Selection.Find.Text := WordRecords[i].Key;
-////    WordApplication1.Selection.Find.Replacement.Text :=WordRecords[i].StringValue;
-////    WordApplication1.Selection.Find.Execute(Replace := wdReplaceOne);
-////    sel := W.Selection.Range;
-////    if WordRecords[i].WordType=[wtEmail] then
-////      WordApplication1.ActiveDocument.Hyperlinks.Add(Anchor := sel, Address :='mailto:'+WordRecords[i].StringValue,
-////            ScreenTip:= 'mailto:'+WordRecords[i].StringValue, TextToDisplay:='mailto:'+WordRecords[i].StringValue,
-////            Target:='Your%20CV%20delivered', Subaddress:='');
-////    if WordRecords[i].WordType=[wtLink] then
-////      WordApplication1.ActiveDocument.Hyperlinks.Add(Anchor := sel, Address :='http://'+WordRecords[i].StringValue,
-////            ScreenTip:= 'http://'+WordRecords[i].StringValue, TextToDisplay:='http://'+WordRecords[i].StringValue,
-////            Target:='', Subaddress:='');
-//    end;
-//  if (WordRecords[i].WordType=[wtEdit]) then
-//    begin
-//      WApp1.Selection.Find.Execute(Replace := wdReplaceOne);
-//      WApp1.Execute(Format:=True, Replace:=wdReplaceAll);
-//      WApp1.Selection.Find.Execute(  ReplacementText:=WordRecords[i].Key);
-//      WApp1.Selection.Find.Text := WordRecords[i].Key;
-//      WApp1.Selection.Find.Replacement.Text := WordRecords[i].StringValue;
-//      WApp1.Selection.Find.Execute(Replace := wdReplaceOne);
-//    end;
-//  if (WordRecords[i].WordType=[wtMemo]) and WordRecords[i].Active then
-//    begin
-//    MemoLog.Lines.Add('Replacetext = "'+WordRecords[i].ReplaceText[0]+'"');
-//    WApp1.Selection.Find.Text := WordRecords[i].Key;
-//    WApp1.Selection.Find.Replacement.Text :=WordRecords[i].ReplaceText[0];
-//    WApp1.Selection.Find.Execute(Replace := wdReplaceOne);
-//    MemoLog.Lines.Add('Key='+ WordRecords[i].Key+' Replace memo:' +IntToStr(length(WApp1.Selection.Range.Text))+' 2)'+IntToStr(WApp1.Selection.Range.End-WApp1.Selection.Range.Start));
-//    if ((length(WApp1.Selection.Range.Text)>0) or (WApp1.Selection.Range.End-WApp1.Selection.Range.Start>0)) then
-//      for J := 1 to WordRecords[i].ReplaceTextCount-1 do
-//          if length(WordRecords[i].ReplaceText[j])>0 then
-//            begin
-//            WApp1.Selection.InsertParagraphAfter;
-//            WApp1.Selection.InsertAfter(WordRecords[i].ReplaceText[j]);
-//            end;
-//      end;
-//  end;
-//  end;
-//WApp1.Documents.Save(NoPrompt:=True);
-//WApp1.Documents.Close(wdSaveChanges);
-//finally
-//    WApp1.Quit;
-//    WApp1:= Unassigned;
-//  end;
-//end;
-
-//function TFormListResumes.OLE_FileReplace(FWordFrom, FWordTo: TFileName): boolean;
-//var
-//I,J:integer;
-//Fs : TFileStream;
-//WordDoc1: OleVariant;
-//WordSel:OleVariant;
-//begin
-//Result:=true;
-////SetValues();
-//if not FileExists(FWordFrom) then
-//  begin
-//    ShowMessage('Document not found: '+FWordFrom);
-//    Result:=false;
-//    Exit;
-//  end;
-//if FileExists(FWordTo) then
-//  begin
-//    Fs:=nil;
-//    try
-//    Fs:=TFileStream.Create(FWordTo, fmOpenReadWrite, fmShareExclusive);
-//    Fs.Free;
-//    DeleteFile(FWordTo);
-//    except on E:Exception do
-//      begin
-//      FormMain.Warning('Unable to delete target file: '+FWordTo+' Message='+E.Message);
-//      if not(Fs=nil) then Fs.Free;
-//      Result:=false;
-//      exit;
-//      end;
-//    end;
-//
-//  end;
-//TFile.Copy(FWordFrom,FWordTo);
-//try
-//    WApp1 := CreateOLEObject('Word.Application');
-//  except
-//    on E: Exception do
-//    begin
-//      E.Message := 'Word application is not available.';
-//      raise;
-//    end;
-//  end;
-//try
-//WApp1.Visible := False;
-//WApp1.Options.CheckSpellingAsYouType := False;
-//WApp1.Options.CheckGrammarAsYouType := False;
-//WordDoc1:=WApp1.Documents.Open(Filename:=OleVariant(FWordTo));
-//MemoLog.Lines.Add('Word opened');
-////WordDocument1.ConnectTo(WordApplication1.ActiveDocument);
-//WApp1.ActiveDocument.Select;
-//WApp1.Selection.Find.ClearFormatting;
-//WApp1.Selection.Find.Forward := True;
-//WApp1.Selection.Find.Wrap := wdFindContinue;
-//WApp1.Selection.Find.Format := False;
-//WApp1.Selection.Find.MatchCase := False;
-//WApp1.Selection.Find.MatchWholeWord := False;
-//WApp1.Selection.Find.MatchWildcards := False;
-//WApp1.Selection.Find.MatchSoundsLike := False;
-//WApp1.Selection.Find.MatchAllWordForms := False;
-//for I := Low(WordRecords) to High(WordRecords) do
-//  begin
-//  if WordRecords[I].Active then
-//  begin
-//  MemoLog.Lines.Add('Low '+IntToStr(Low(WordRecords))+'High '+IntToStr(High(WordRecords))+'Next '+IntToStr(I));
-//  WApp1.ActiveDocument.Select;
-////  if (WordRecords[i].WordType=[wtImage]) then
-////    begin
-////    FormMain.Warning('Replace Image: '+WordRecords[i].Key+' to size '+IntToStr(WordRecords[i].WordImage.Height)+'x'+IntToStr(WordRecords[i].WordImage.Width)+':File:'+FWordTarget);
-////    W.Selection.Find.Text := WordRecords[i].Key;
-////    W.Selection.Find.Replacement.Text := WordRecords[i].WordImage;
-////    end;
-//  if (WordRecords[i].WordType=[wtLink]) or (WordRecords[i].WordType=[wtEmail]) then
-//    begin
-////    WordApplication1.Selection.Find.Text := WordRecords[i].Key;
-////    WordApplication1.Selection.Find.Replacement.Text :=WordRecords[i].StringValue;
-////    WordApplication1.Selection.Find.Execute(Replace := wdReplaceOne);
-////    sel := W.Selection.Range;
-////    if WordRecords[i].WordType=[wtEmail] then
-////      WordApplication1.ActiveDocument.Hyperlinks.Add(Anchor := sel, Address :='mailto:'+WordRecords[i].StringValue,
-////            ScreenTip:= 'mailto:'+WordRecords[i].StringValue, TextToDisplay:='mailto:'+WordRecords[i].StringValue,
-////            Target:='Your%20CV%20delivered', Subaddress:='');
-////    if WordRecords[i].WordType=[wtLink] then
-////      WordApplication1.ActiveDocument.Hyperlinks.Add(Anchor := sel, Address :='http://'+WordRecords[i].StringValue,
-////            ScreenTip:= 'http://'+WordRecords[i].StringValue, TextToDisplay:='http://'+WordRecords[i].StringValue,
-////            Target:='', Subaddress:='');
-//    end;
-//  if (WordRecords[i].WordType=[wtEdit]) then
-//    begin
-//      WApp1.Selection.Find.Execute(Replace := wdReplaceOne);
-//      WApp1.Execute(Format:=True, Replace:=wdReplaceAll);
-//      WApp1.Selection.Find.Execute(  ReplacementText:=WordRecords[i].Key);
-//      WApp1.Selection.Find.Text := WordRecords[i].Key;
-//      WApp1.Selection.Find.Replacement.Text := WordRecords[i].StringValue;
-//      WApp1.Selection.Find.Execute(Replace := wdReplaceOne);
-//    end;
-//  if (WordRecords[i].WordType=[wtMemo]) and WordRecords[i].Active then
-//    begin
-//    MemoLog.Lines.Add('Replacetext = "'+WordRecords[i].ReplaceText[0]+'"');
-//    WApp1.Selection.Find.Text := WordRecords[i].Key;
-//    WApp1.Selection.Find.Replacement.Text :=WordRecords[i].ReplaceText[0];
-//    WApp1.Selection.Find.Execute(Replace := wdReplaceOne);
-//    MemoLog.Lines.Add('Key='+ WordRecords[i].Key+' Replace memo:' +IntToStr(length(WApp1.Selection.Range.Text))+' 2)'+IntToStr(WApp1.Selection.Range.End-WApp1.Selection.Range.Start));
-//    if ((length(WApp1.Selection.Range.Text)>0) or (WApp1.Selection.Range.End-WApp1.Selection.Range.Start>0)) then
-//      for J := 1 to WordRecords[i].ReplaceTextCount-1 do
-//          if length(WordRecords[i].ReplaceText[j])>0 then
-//            begin
-//            WApp1.Selection.InsertParagraphAfter;
-//            WApp1.Selection.InsertAfter(WordRecords[i].ReplaceText[j]);
-//            end;
-//      end;
-//  end;
-//  end;
-//WApp1.Documents.Save(NoPrompt:=True);
-//WApp1.Documents.Close(wdSaveChanges);
-//finally
-//    WApp1.Quit;
-//    WApp1:= Unassigned;
-//  end;
-//end;
-
-//procedure TFormListResumes.SetWordRecord(I: integer; Key: string; WordType: TWordRecType;
-//  const EditTxt:TEdit);
-//begin
-//if length(trim(EditTxt.Text))>0 then
-//  begin
-//  WordRecords[I].Key:=Key;
-//  WordRecords[I].WordType:=[wtEdit];
-//  WordRecords[I].StringValue:=trim(EditTxt.Text);
-//  WordRecords[I].Active:=length(trim(EditTxt.Text))>0;
-//  end
-//else WordRecords[I].Active:=false;
-//end;
-//
-//procedure TFormListResumes.SetWordRecord(I: integer; Key: string; WordType: TWordRecType;
-//  const MemoTx: TMemo);
-//var J:integer;
-//begin
-//if (MemoTx.Lines.Count>0) and (length(trim(MemoTx.Text))>0) then
-//  begin
-//  WordRecords[I].Active:=true;
-//  WordRecords[I].Key:=Key;
-//  WordRecords[I].WordType:=[wtMemo];
-//  WordRecords[I].ReplaceTextCount:=MemoTx.Lines.Count;
-//  SetLength(WordRecords[I].ReplaceText,MemoTx.Lines.Count);
-//  for J := 0 to MemoTx.Lines.Count-1 do
-//    WordRecords[I].ReplaceText[J]:=MemoTx.Lines[J];
-//  WordRecords[I].ReplaceTextCount:=MemoTx.Lines.Count;
-//  end
-//else WordRecords[I].Active:=false;
-//end;
-//
-//procedure TFormListResumes.SetWordRecord(I: integer; Key: string; WordType: TWordRecType;
-//  const STxt: string);
-//begin
-//if (WordType=[wtLink]) or (WordType=[wtEMAIL]) then
-//  begin
-//  WordRecords[I].Key:=Key;
-//  WordRecords[I].WordType:=WordType;
-//  WordRecords[I].StringValue:=trim(STxt);
-//  WordRecords[I].Active:=length(trim(STxt))>0;
-//  end
-//else WordRecords[I].Active:=false;
-//end;
-//procedure TFormListResumes.CreateWordDoc;
-//var
-//  section: TTMSFNCWXDocxSection;
-//  paragraph: TTMSFNCWXDocxParagraph;
-//  table: TTMSFNCWXDocxTable;
-//  tableCell: TTMSFNCWXDocxTableCell;
-//  TableRow: TTMSFNCWXDocxTableRow;
-//  parText: TTMSFNCWXDocxText;
-//  H1Font: TTMSFNCGraphicsFont;
-//  h2font: TTMSFNCGraphicsFont;
-//  i, j: Integer;
-//  parfont: TTMSFNCGraphicsFont;
-//begin
-//  H1Font := TTMSFNCGraphicsFont.Create;
-//  H1Font.Size := 14;
-//  H1Font.Style := H1Font.Style + [fsBold];
-//  H1Font.Name := 'calibri';
-//
-//  h2font := TTMSFNCGraphicsFont.Create;
-//  h2font.Size := 10;
-//  h2font.Style := H1Font.Style + [fsBold];
-//  h2font.Name := 'calibri';
-//
-//  parfont := TTMSFNCGraphicsFont.Create;
-//  parfont.Size := 10;
-//  parfont.Name := 'calibri';
-//
-//  TMSFNCWXDocx1.Document.Sections.Clear;
-//  section := TMSFNCWXDocx1.Document.AddSection;
-//  section.Page.Orientation := poPortrait;
-//
-//  section.Headers.EnableHeaders := [htDefault];
-//  paragraph := section.Headers.DefaultHeader.AddParagraph;
-//  paragraph.Alignment := taRight;
-//  paragraph.AddText('www.nutritional-software.at :: Online Rezept Rechner :: ' +
-//    FormatDateTime('dd.MM.yyyy hh:mm', now));
-//  // How to add a bottom line?
-//  paragraph.Border.Borders := [boBottom];
-//  paragraph.Border.Bottom.Value := bsSingle;
-//
-//  section.Footers.EnableFooters := [htDefault];
-//  paragraph := section.Footers.DefaultFooter.AddParagraph;
-//  paragraph.Alignment := taRight;
-//  paragraph.AddText('Seite ');
-//  paragraph.AddPageNumber();
-//  // How to add a top line?
-//  paragraph.Border.Borders := [boTop];
-//
-//  //
-//  paragraph := section.AddParagraph;
-//  SetH1Paragraph(paragraph);
-//  paragraph.AddText('Rezeptname').Font := H1Font;
-//
-//  //
-//  paragraph := section.AddParagraph;
-//  SetH2Paragraph(paragraph);
-//  paragraph.AddText('Über das Rezept:').Font := h2font;
-//  table := section.AddTable;
-//  table.Width.Size := 50;
-//  table.Width.WidthType := wtPercentage;
-//  for i := 0 to 3 do begin
-//      TableRow := table.AddRow;
-//      tableCell := TableRow.AddCell;
-//      // How to remove the lines?
-//      tableCell.Borders.Borders:=[];
-//      tableCell.Borders.Left.Size:=0;
-//      tableCell.Width.WidthType := wtPercentage;
-//      tableCell.Width.Size:=60;
-//      paragraph := tableCell.AddParagraph;
-//      paragraph.AddText('row ' + IntToStr(i) + ' cell ' + IntToStr(j));
-//
-//      tableCell := TableRow.AddCell;
-//      tableCell.Width.WidthType := wtPercentage;
-//      tableCell.Width.Size:=40;
-//      paragraph := tableCell.AddParagraph;
-//      paragraph.AddText('row ' + IntToStr(i) + ' cell ' + IntToStr(j));
-//  end;
-//
-//  //
-//  paragraph := section.AddParagraph;
-//  SetH2Paragraph(paragraph);
-//  paragraph.AddText('Zutaten:').Font := h2font;
-//
-//  //
-//  paragraph := section.AddParagraph;
-//  SetH2Paragraph(paragraph);
-//  paragraph.AddText('Anleitung:').Font := h2font;
-//  paragraph := section.AddParagraph;
-//  SetTextParagraph(paragraph);
-//  paragraph.AddText('lkifds vldkfj vlkedrf jvoef jvoefj voe').Font := parfont;
-//
-//  //
-//  paragraph := section.AddParagraph;
-//  SetH2Paragraph(paragraph);
-//  paragraph.AddText('Nährwerte:').Font := h2font;
-//
-//  paragraph := section.AddParagraph;
-//  paragraph.Heading := hlNone;
-//  paragraph.AddText('Text Text').Font := parfont;
-//  paragraph.AddText('Text1 Text1').Font := parfont;
-//  paragraph.AddText('Text2 Text2').Font := parfont;
-//
-//  paragraph := section.AddParagraph;
-//  paragraph.AddText('Text2 Text2').Font := parfont;
-//
-//  paragraph := section.AddParagraph;
-//  table := section.AddTable;
-//  table.Width.Size := 100;
-//  table.Width.WidthType := wtPercentage;
-//  for i := 0 to 3 do begin
-//    TableRow := table.AddRow;
-//    for j := 0 to 3 do begin
-//      tableCell := TableRow.AddCell;
-//      paragraph := tableCell.AddParagraph;
-//      paragraph.AddText('row ' + IntToStr(i) + ' cell ' + IntToStr(j));
-//    end;
-//  end;
-//
-//  TMSFNCWXDocx1.GetDocxAsFile(FileCVDOCX);
-//end;
 
 end.

@@ -10,6 +10,7 @@ object FormNewResume: TFormNewResume
   Font.Height = -16
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   DesignSize = (
@@ -17,16 +18,15 @@ object FormNewResume: TFormNewResume
     861)
   TextHeight = 21
   object BitBtnClose: TBitBtn
-    Left = 854
+    Left = 855
     Top = 823
     Width = 120
     Height = 38
     Anchors = [akRight, akBottom]
-    Kind = bkClose
+    Cancel = True
+    Caption = '&Close'
     NumGlyphs = 2
     TabOrder = 0
-    ExplicitLeft = 850
-    ExplicitTop = 822
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -176,7 +176,7 @@ object FormNewResume: TFormNewResume
     Top = 4
     Width = 980
     Height = 320
-    ActivePage = TabSheetJob1UA
+    ActivePage = TabSheetFooterUA
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -391,7 +391,7 @@ object FormNewResume: TFormNewResume
         Caption = #1053#1072#1074#1080#1095#1086#1082' 4'
         TabOrder = 7
       end
-      object RichEdit1ArticleUA: TRichEdit
+      object RichEditArticle1UA: TRichEdit
         Left = 3
         Top = 33
         Width = 480
@@ -402,12 +402,12 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit1ArticleUA')
+          'RichEditArticle1UA')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
       end
-      object RichEdit2ArticleUA: TRichEdit
+      object RichEditArticle2UA: TRichEdit
         Left = 489
         Top = 35
         Width = 480
@@ -418,12 +418,12 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit2ArticleUA')
+          'RichEditArticle2UA')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 9
       end
-      object RichEdit3ArticleUA: TRichEdit
+      object RichEditArticle3UA: TRichEdit
         Left = 3
         Top = 178
         Width = 483
@@ -434,11 +434,11 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit3ArticleUA')
+          'RichEditArticle3UA')
         ParentFont = False
         TabOrder = 10
       end
-      object RichEdit4ArticleUA: TRichEdit
+      object RichEditArticle4UA: TRichEdit
         Left = 492
         Top = 179
         Width = 477
@@ -449,7 +449,7 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit4ArticleUA')
+          'RichEditArticle4UA')
         ParentFont = False
         TabOrder = 11
       end
@@ -1783,7 +1783,7 @@ object FormNewResume: TFormNewResume
     Top = 326
     Width = 980
     Height = 491
-    ActivePage = TabSheetJob1TR
+    ActivePage = TabSheetFooterTR
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -2007,7 +2007,7 @@ object FormNewResume: TFormNewResume
         Caption = #1053#1072#1074#1080#1095#1086#1082' 2'
         TabOrder = 7
       end
-      object RichEdit1Article: TRichEdit
+      object RichEditArticle1: TRichEdit
         Left = 3
         Top = 35
         Width = 480
@@ -2018,12 +2018,12 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit1Article')
+          'RichEditArticle1')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
       end
-      object RichEdit2Article: TRichEdit
+      object RichEditArticle2: TRichEdit
         Left = 489
         Top = 34
         Width = 480
@@ -2034,12 +2034,12 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit2Article')
+          'RichEditArticle2')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 9
       end
-      object RichEdit3Article: TRichEdit
+      object RichEditArticle3: TRichEdit
         Left = 3
         Top = 230
         Width = 479
@@ -2050,12 +2050,12 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit3Article')
+          'RichEditArticle3')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 10
       end
-      object RichEdit4Article: TRichEdit
+      object RichEditArticle4: TRichEdit
         Left = 488
         Top = 230
         Width = 481
@@ -2066,7 +2066,7 @@ object FormNewResume: TFormNewResume
         Font.Name = 'Segoe UI'
         Font.Style = []
         Lines.Strings = (
-          'RichEdit4Article')
+          'RichEditArticle4')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 11
@@ -4472,7 +4472,7 @@ object FormNewResume: TFormNewResume
   object UniSPInsertSkillShow: TUniStoredProc
     StoredProcName = 'insert_skill_show'
     SQL.Strings = (
-      'CALL insert_skill_show(:p_experience_id, :p_skill_id, :p_skill)')
+      'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
     Left = 560
     Top = 488
@@ -4480,12 +4480,6 @@ object FormNewResume: TFormNewResume
       item
         DataType = ftInteger
         Name = 'p_experience_id'
-        ParamType = ptInput
-        Value = nil
-      end
-      item
-        DataType = ftInteger
-        Name = 'p_skill_id'
         ParamType = ptInput
         Value = nil
       end
