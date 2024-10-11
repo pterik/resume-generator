@@ -32,8 +32,6 @@ object FormTemplatesList: TFormTemplatesList
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 852
-    ExplicitTop = 612
   end
   object DBGrid1: TDBGrid
     Left = 8
@@ -386,14 +384,14 @@ object FormTemplatesList: TFormTemplatesList
       FieldName = 'template_introduction'
       BlobType = ftWideMemo
     end
-    object UniTemplatesarchived: TBooleanField
-      FieldName = 'archived'
-    end
     object UniTemplatescreated: TDateTimeField
       FieldName = 'created'
     end
     object UniTemplatesupdated: TDateTimeField
       FieldName = 'updated'
+    end
+    object UniTemplatesarchived: TShortintField
+      FieldName = 'archived'
     end
   end
   object UniDSTemplates: TUniDataSource

@@ -2,7 +2,7 @@ object FormUpdateResume: TFormUpdateResume
   Left = 0
   Top = 0
   Caption = #1060#1086#1088#1084#1072' '#1086#1085#1086#1074#1083#1077#1085#1085#1103' '#1088#1077#1079#1102#1084#1077
-  ClientHeight = 812
+  ClientHeight = 726
   ClientWidth = 988
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -15,35 +15,34 @@ object FormUpdateResume: TFormUpdateResume
   OnKeyUp = FormKeyUp
   DesignSize = (
     988
-    812)
+    726)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 832
-    Top = 764
+    Left = 860
+    Top = 678
     Width = 120
     Height = 40
     Anchors = [akRight, akBottom]
-    Cancel = True
-    Caption = '&Close'
+    Caption = #1042#1110#1076#1084#1110#1085#1072
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
+    Kind = bkCancel
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 828
-    ExplicitTop = 763
+    ExplicitTop = 764
   end
   object BitBtnSave: TBitBtn
     Left = 8
-    Top = 766
-    Width = 120
+    Top = 680
+    Width = 153
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'Save (F2)'
+    Caption = #1047#1073#1077#1088#1110#1075#1090#1080' (F2)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -184,14 +183,14 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 765
+    ExplicitTop = 766
   end
   object PageControlRU: TPageControl
     Left = 0
     Top = 2
     Width = 980
-    Height = 756
-    ActivePage = TabSheetFooterRU
+    Height = 663
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -216,8 +215,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label122: TLabel
-        Left = 61
-        Top = 34
+        Left = 421
+        Top = 3
         Width = 45
         Height = 21
         Caption = #1056#1077#1075#1110#1086#1085
@@ -229,8 +228,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label123: TLabel
-        Left = 3
-        Top = 212
+        Left = 38
+        Top = 179
         Width = 68
         Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
@@ -243,7 +242,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label124: TLabel
         Left = 54
-        Top = 71
+        Top = 44
         Width = 52
         Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
@@ -256,7 +255,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label125: TLabel
         Left = 7
-        Top = 141
+        Top = 109
         Width = 99
         Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
@@ -269,7 +268,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label126: TLabel
         Left = 38
-        Top = 106
+        Top = 74
         Width = 68
         Height = 21
         Caption = #1055#1086#1074#1085#1110#1089#1090#1102
@@ -281,8 +280,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label127: TLabel
-        Left = 22
-        Top = 177
+        Left = 37
+        Top = 145
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -294,8 +293,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object LabelResumeID: TLabel
-        Left = 792
-        Top = 16
+        Left = 821
+        Top = 3
         Width = 108
         Height = 21
         Caption = 'LabelResumeID'
@@ -306,9 +305,22 @@ object FormUpdateResume: TFormUpdateResume
         Font.Style = []
         ParentFont = False
       end
+      object Label8: TLabel
+        Left = 7
+        Top = 586
+        Width = 205
+        Height = 21
+        Caption = #1047#1085#1072#1093#1086#1076#1078#1077#1085#1085#1103' '#1092#1072#1081#1083#1072' '#1088#1077#1079#1102#1084#1077
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
       object EditName: TEdit
         Left = 112
-        Top = 68
+        Top = 36
         Width = 295
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -322,7 +334,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object EditOpportunity: TEdit
         Left = 112
-        Top = 103
+        Top = 71
         Width = 536
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -336,7 +348,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object EditPlace: TEdit
         Left = 112
-        Top = 138
+        Top = 106
         Width = 409
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -349,8 +361,8 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'EditPlace'
       end
       object EditPhones: TEdit
-        Left = 112
-        Top = 174
+        Left = 113
+        Top = 142
         Width = 536
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -371,24 +383,24 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'CBLang'
       end
       object CBRegion: TComboBox
-        Left = 112
-        Top = 34
+        Left = 472
+        Top = 3
         Width = 145
         Height = 29
         TabOrder = 6
         Text = 'CBRegion'
       end
       object CBPhones: TComboBox
-        Left = 654
-        Top = 174
+        Left = 655
+        Top = 142
         Width = 275
         Height = 29
         TabOrder = 7
         Text = 'CBPhones'
       end
       object BitBtn2: TBitBtn
-        Left = 935
-        Top = 176
+        Left = 936
+        Top = 144
         Width = 33
         Height = 25
         Caption = '+'
@@ -397,25 +409,26 @@ object FormUpdateResume: TFormUpdateResume
       end
       object RichEditor: TRichEdit
         Left = 112
-        Top = 209
+        Top = 177
         Width = 857
-        Height = 450
+        Height = 352
         EnableURLs = True
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
-        Font.Name = 'Segoe UI'
+        Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 4
+        StyleElements = [seClient, seBorder]
       end
       object CBWordWrap: TCheckBox
-        Left = 4
-        Top = 239
-        Width = 88
-        Height = 17
-        Caption = 'Word Wrap'
+        Left = 3
+        Top = 265
+        Width = 103
+        Height = 42
+        Caption = #1055#1077#1088#1077#1085#1077#1089#1077#1085#1085#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -13
@@ -424,6 +437,29 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
         TabOrder = 9
         OnClick = CBWordWrapClick
+      end
+      object StaticText2: TStaticText
+        Left = 38
+        Top = 296
+        Width = 27
+        Height = 21
+        Caption = #1089#1083#1110#1074
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 10
+      end
+      object EditResumePath: TEdit
+        Left = 218
+        Top = 583
+        Width = 751
+        Height = 29
+        ReadOnly = True
+        TabOrder = 11
+        Text = 'EditResumePath'
       end
     end
     object TabSheetFooterRU: TTabSheet
@@ -751,7 +787,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -848,7 +884,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1003,7 +1039,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1100,7 +1136,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1255,7 +1291,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1352,7 +1388,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1505,9 +1541,9 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Memo4Skills: TMemo
         Left = 540
-        Top = 470
+        Top = 469
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1604,7 +1640,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1759,7 +1795,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1856,7 +1892,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2011,7 +2047,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2108,7 +2144,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 474
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2234,7 +2270,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit7Name: TEdit
         Left = 90
         Top = 46
-        Width = 480
+        Width = 350
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2263,7 +2299,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2360,7 +2396,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2378,7 +2414,7 @@ object FormUpdateResume: TFormUpdateResume
       ImageIndex = 10
       object Label50: TLabel
         Left = 17
-        Top = 91
+        Top = 93
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -2403,8 +2439,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label52: TLabel
-        Left = 41
-        Top = 494
+        Left = 50
+        Top = 473
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -2417,7 +2453,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label53: TLabel
         Left = 26
-        Top = 451
+        Top = 435
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -2430,7 +2466,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label54: TLabel
         Left = 3
-        Top = 149
+        Top = 129
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
@@ -2486,7 +2522,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit8Name: TEdit
         Left = 90
         Top = 46
-        Width = 480
+        Width = 350
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2499,8 +2535,8 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Edit8Company: TEdit
         Left = 90
-        Top = 88
-        Width = 480
+        Top = 90
+        Width = 350
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2515,7 +2551,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2585,7 +2621,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object RichEdit8Resp: TRichEdit
         Left = 90
-        Top = 131
+        Top = 126
         Width = 879
         Height = 300
         Font.Charset = RUSSIAN_CHARSET
@@ -2612,7 +2648,7 @@ object FormUpdateResume: TFormUpdateResume
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2629,8 +2665,8 @@ object FormUpdateResume: TFormUpdateResume
       Caption = 'Job 9'
       ImageIndex = 11
       object Label56: TLabel
-        Left = 17
-        Top = 91
+        Left = 467
+        Top = 49
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -2643,7 +2679,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label57: TLabel
         Left = 540
-        Top = 443
+        Top = 400
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -2656,7 +2692,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label58: TLabel
         Left = 51
-        Top = 486
+        Top = 443
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -2668,8 +2704,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label59: TLabel
-        Left = 27
-        Top = 427
+        Left = 26
+        Top = 395
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -2681,8 +2717,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label60: TLabel
-        Left = 3
-        Top = 131
+        Left = 2
+        Top = 99
         Width = 74
         Height = 21
         Caption = #1054#1073#1086#1074#39#1103#1079#1082#1080
@@ -2707,8 +2743,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Edit9Benefits: TEdit
-        Left = 91
-        Top = 424
+        Left = 90
+        Top = 392
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2738,7 +2774,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit9Name: TEdit
         Left = 90
         Top = 46
-        Width = 480
+        Width = 350
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2750,9 +2786,9 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'Edit9Name'
       end
       object Edit9Company: TEdit
-        Left = 90
-        Top = 88
-        Width = 480
+        Left = 540
+        Top = 46
+        Width = 350
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -2765,9 +2801,9 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Memo9Skills: TMemo
         Left = 540
-        Top = 470
+        Top = 427
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2836,8 +2872,8 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object RichEdit9Resp: TRichEdit
-        Left = 91
-        Top = 123
+        Left = 90
+        Top = 91
         Width = 879
         Height = 295
         Font.Charset = RUSSIAN_CHARSET
@@ -2862,9 +2898,9 @@ object FormUpdateResume: TFormUpdateResume
       end
       object RichEdit9Other: TRichEdit
         Left = 90
-        Top = 470
+        Top = 427
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2894,8 +2930,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label69: TLabel
-        Left = 17
-        Top = 91
+        Left = 454
+        Top = 45
         Width = 67
         Height = 21
         Caption = #1050#1086#1084#1087#1072#1085#1110#1103
@@ -2920,8 +2956,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label71: TLabel
-        Left = 27
-        Top = 432
+        Left = 26
+        Top = 400
         Width = 58
         Height = 21
         Caption = #1050#1086#1088#1080#1089#1090#1100
@@ -2933,8 +2969,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label72: TLabel
-        Left = 50
-        Top = 500
+        Left = 49
+        Top = 468
         Width = 34
         Height = 21
         Caption = #1030#1085#1096#1077
@@ -2946,8 +2982,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Label73: TLabel
-        Left = 540
-        Top = 429
+        Left = 539
+        Top = 397
         Width = 39
         Height = 21
         Caption = #1057#1082#1110#1083#1080
@@ -2959,8 +2995,8 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
       end
       object Edit10Benefits: TEdit
-        Left = 91
-        Top = 429
+        Left = 90
+        Top = 397
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2990,7 +3026,7 @@ object FormUpdateResume: TFormUpdateResume
       object Edit10Name: TEdit
         Left = 90
         Top = 46
-        Width = 480
+        Width = 350
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -3002,9 +3038,9 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'Edit10Name'
       end
       object Edit10Company: TEdit
-        Left = 90
-        Top = 88
-        Width = 480
+        Left = 527
+        Top = 46
+        Width = 350
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -3016,10 +3052,10 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'Edit10Company'
       end
       object Memo10Skills: TMemo
-        Left = 540
-        Top = 470
+        Left = 538
+        Top = 432
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -3088,8 +3124,8 @@ object FormUpdateResume: TFormUpdateResume
         TextHint = 'select a date'
       end
       object RichEdit10Resp: TRichEdit
-        Left = 90
-        Top = 123
+        Left = 91
+        Top = 91
         Width = 879
         Height = 300
         Font.Charset = RUSSIAN_CHARSET
@@ -3113,10 +3149,10 @@ object FormUpdateResume: TFormUpdateResume
         OnClick = BitBtnClear10Click
       end
       object RichEdit10Other: TRichEdit
-        Left = 90
-        Top = 470
+        Left = 89
+        Top = 432
         Width = 430
-        Height = 240
+        Height = 150
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -3142,11 +3178,12 @@ object FormUpdateResume: TFormUpdateResume
       '   job_opportunity, '
       '   job_place, phone_numbers_text, '
       '   resume_introduction, '
+      '   resume_file_path,'
       '   archived, created, updated  '
       'from resumes'
       'where id = :P_ID')
-    Left = 400
-    Top = 64
+    Left = 368
+    Top = 224
     ParamData = <
       item
         DataType = ftUnknown
@@ -3154,6 +3191,7 @@ object FormUpdateResume: TFormUpdateResume
         Value = nil
       end>
     object UniResumeIDid: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
     object UniResumeIDname: TWideStringField
@@ -3190,7 +3228,11 @@ object FormUpdateResume: TFormUpdateResume
       FieldName = 'resume_introduction'
       BlobType = ftWideMemo
     end
-    object UniResumeIDarchived: TBooleanField
+    object UniResumeIDresume_file_path: TWideStringField
+      FieldName = 'resume_file_path'
+      Size = 512
+    end
+    object UniResumeIDarchived: TShortintField
       FieldName = 'archived'
     end
     object UniResumeIDcreated: TDateTimeField
@@ -3216,8 +3258,8 @@ object FormUpdateResume: TFormUpdateResume
       ' WHERE f.resume_id = :p_resume_id'
       'ORDER BY footer_order'
       '')
-    Left = 504
-    Top = 64
+    Left = 464
+    Top = 232
     ParamData = <
       item
         DataType = ftInteger
@@ -3273,8 +3315,8 @@ object FormUpdateResume: TFormUpdateResume
       ' FROM experiences e'
       'WHERE resume_id = :p_resume_id'
       'ORDER BY job_order')
-    Left = 608
-    Top = 64
+    Left = 576
+    Top = 240
     ParamData = <
       item
         DataType = ftInteger
@@ -3340,8 +3382,8 @@ object FormUpdateResume: TFormUpdateResume
       'FROM skill_show_lists l'
       'WHERE experience_id = :p_experience_id'
       'ORDER BY skill_id')
-    Left = 752
-    Top = 64
+    Left = 760
+    Top = 248
     ParamData = <
       item
         DataType = ftInteger
@@ -3364,11 +3406,11 @@ object FormUpdateResume: TFormUpdateResume
     SQL.Strings = (
       
         'CALL update_resume(:p_resume_id, :p_name, :p_job_opportunity, :p' +
-        '_job_place, :p_phone_numbers_text, :p_resume_introduction, :p_ar' +
-        'chived, :p_footer_1_header, :p_footer_1_text, :p_footer_2_header' +
-        ', :p_footer_2_text, :p_footer_3_header, :p_footer_3_text, :p_foo' +
-        'ter_4_header, :p_footer_4_text, @p_result); SELECT CAST(@p_resul' +
-        't AS SIGNED) AS '#39'@p_result'#39)
+        '_job_place, :p_phone_numbers_text, :p_resume_introduction, :p_re' +
+        'sume_file_path, :p_archived, :p_footer_1_header, :p_footer_1_tex' +
+        't, :p_footer_2_header, :p_footer_2_text, :p_footer_3_header, :p_' +
+        'footer_3_text, :p_footer_4_header, :p_footer_4_text, @p_result);' +
+        ' SELECT CAST(@p_result AS SIGNED) AS '#39'@p_result'#39)
     Connection = FormMain.UniConnection
     Left = 192
     Top = 376
@@ -3412,6 +3454,13 @@ object FormUpdateResume: TFormUpdateResume
         Name = 'p_resume_introduction'
         ParamType = ptInput
         Value = Null
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_resume_file_path'
+        ParamType = ptInput
+        Size = 512
+        Value = nil
       end
       item
         DataType = ftInteger
@@ -3484,9 +3533,9 @@ object FormUpdateResume: TFormUpdateResume
     SQL.Strings = (
       
         'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
-        '_job_position, :p_start_date, :p_end_date, :p_employer, :p_resp,' +
-        ' :p_benefits, :p_other, @p_experience_id); SELECT CAST(@p_experi' +
-        'ence_id AS SIGNED) AS '#39'@p_experience_id'#39)
+        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
+        'oyer, :p_resp, :p_benefits, :p_other, @p_experience_id); SELECT ' +
+        'CAST(@p_experience_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 368
     Top = 376
@@ -3507,6 +3556,12 @@ object FormUpdateResume: TFormUpdateResume
       item
         DataType = ftInteger
         Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_job_order'
         ParamType = ptInput
         Value = nil
       end
@@ -3568,7 +3623,7 @@ object FormUpdateResume: TFormUpdateResume
     SQL.Strings = (
       'CALL insert_skill_show(:p_experience_id, :p_skill)')
     Connection = FormMain.UniConnection
-    Left = 520
+    Left = 560
     Top = 376
     ParamData = <
       item
@@ -3586,28 +3641,14 @@ object FormUpdateResume: TFormUpdateResume
       end>
     CommandStoredProcName = 'insert_skill_show'
   end
-  object UniSPDeleteSkillsShow: TUniStoredProc
-    StoredProcName = 'delete_skill_show'
-    SQL.Strings = (
-      'CALL delete_skill_show(:p_experience_id)')
-    Connection = FormMain.UniConnection
-    Left = 656
-    Top = 376
-    ParamData = <
-      item
-        DataType = ftInteger
-        Name = 'p_experience_id'
-        ParamType = ptInput
-        Value = nil
-      end>
-    CommandStoredProcName = 'delete_skill_show'
-  end
   object UniSPDeleteExperiences: TUniStoredProc
-    StoredProcName = 'delete_experiences'
+    StoredProcName = 'delete_experiences_skills'
     SQL.Strings = (
-      'CALL delete_experiences(:p_flag, :p_template_id, :p_resume_id)')
+      
+        'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
+        'e_id)')
     Connection = FormMain.UniConnection
-    Left = 816
+    Left = 712
     Top = 376
     ParamData = <
       item
@@ -3629,6 +3670,6 @@ object FormUpdateResume: TFormUpdateResume
         ParamType = ptInput
         Value = nil
       end>
-    CommandStoredProcName = 'delete_experiences'
+    CommandStoredProcName = 'delete_experiences_skills'
   end
 end

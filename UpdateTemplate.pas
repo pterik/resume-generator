@@ -251,6 +251,7 @@ type
 		procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 		procedure BitBtn2Click(Sender: TObject);
 		procedure CBWordWrapClick(Sender: TObject);
+    procedure BitBtnCloseClick(Sender: TObject);
 	private
 		FTemplateID: integer;
 		IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
@@ -302,6 +303,11 @@ begin
 	EditPhones.Text := trim(EditPhones.Text + ' ' + CBPhones.Text);
 end;
 
+procedure TFormUpdateTemplate.BitBtnCloseClick(Sender: TObject);
+begin
+Close;
+end;
+
 procedure TFormUpdateTemplate.BitBtnSaveClick(Sender: TObject);
 begin
 	if isFormValuesGood then
@@ -342,8 +348,7 @@ end;
 procedure TFormUpdateTemplate.FormKeyUp(Sender: TObject; var Key: Word;
 	Shift: TShiftState);
 begin
-	if Key = VK_F2 then
-		BitBtnSave.Click();
+	if Key = VK_F2 then	BitBtnSave.Click();
 end;
 
 procedure TFormUpdateTemplate.SetID(TemplateID: integer);

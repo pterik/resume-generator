@@ -518,6 +518,7 @@ type
     procedure BitBtnClear7Click(Sender: TObject);
     procedure BitBtnClear8Click(Sender: TObject);
     procedure BitBtnClear9Click(Sender: TObject);
+    procedure BitBtnCloseClick(Sender: TObject);
 	private
 		CBLang_First_Value, CBRegion_First_Value: string;
 		CBRegionTR_ID:string;
@@ -998,6 +999,11 @@ end;
 procedure TFormNewResume.BitBtnClear9Click(Sender: TObject);
 begin
 Clear9;
+end;
+
+procedure TFormNewResume.BitBtnCloseClick(Sender: TObject);
+begin
+Close;
 end;
 
 procedure TFormNewResume.Clear1;

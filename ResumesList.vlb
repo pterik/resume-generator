@@ -73,9 +73,6 @@ Coordinates=1073,386,159,168
 [RadioGroup]
 Coordinates=1173,742,84,58
 
-[UniResumesarchived]
-Coordinates=1171,672,137,36
-
 [BitBtnEditResume]
 Coordinates=459,810,119,58
 
@@ -237,5 +234,5 @@ Coordinates=200,386,205,212
 Coordinates=1456,111,135,36
 
 []
-Coordinates=1456,166,91,36
+Coordinates=1171,672,137,36
 

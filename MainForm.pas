@@ -75,12 +75,6 @@ type
     UniTranslation: TUniQuery;
     UniLocalTranslate: TUniQuery;
     UniLocalTranslateid: TIntegerField;
-    UniLocalTranslateRU: TWideMemoField;
-    UniLocalTranslateUA: TWideMemoField;
-    UniLocalTranslateEN: TWideMemoField;
-    UniLocalTranslateHR: TWideMemoField;
-    UniLocalTranslatePL: TWideStringField;
-    UniLocalTranslateDE: TWideMemoField;
     UniTranslationid: TIntegerField;
     UniTranslationRU: TWideMemoField;
     UniTranslationUA: TWideMemoField;
@@ -88,6 +82,12 @@ type
     UniTranslationHR: TWideMemoField;
     UniTranslationPL: TWideStringField;
     UniTranslationDE: TWideMemoField;
+    UniLocalTranslateRU: TWideStringField;
+    UniLocalTranslateUA: TWideStringField;
+    UniLocalTranslateEN: TWideStringField;
+    UniLocalTranslateHR: TWideStringField;
+    UniLocalTranslatePL: TWideStringField;
+    UniLocalTranslateDE: TWideStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
@@ -104,6 +104,7 @@ type
     procedure BitBtnNewTemplateClick(Sender: TObject);
     procedure Skills1Click(Sender: TObject);
     procedure BitBtnResumeListClick(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
      WarningFired:boolean;
 	protected
@@ -233,10 +234,10 @@ procedure TFormMain.FormCreate(Sender: TObject);
 begin
 UniConnection.ProviderName := 'MySQL';
 UniConnection.Server := 'localhost';
-UniConnection.Port := 3306;
-UniConnection.Username := 'jobreport';
-UniConnection.Password := 'jobreport123';
-UniConnection.database := 'jobsearch';
+UniConnection.Port := 3308;
+UniConnection.Username := 'jobreportgit';
+UniConnection.Password := 'jobreportgit123';
+UniConnection.database := 'jobsearchgit';
 UniConnection.SpecificOptions.Values['UseUnicode'] := 'true';
 //UniConnection.SpecificOptions.Values['Schema'] := 'jobsearch';
 UniConnection.Open;
@@ -276,6 +277,15 @@ end;
 procedure TFormMain.FormDestroy(Sender: TObject);
 begin
 UniConnection.Destroy;
+end;
+
+procedure TFormMain.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+	if Key = VK_F3 then BitBtnNewTemplate.Click();
+	if Key = VK_F4 then BitBtnNewResume.Click();
+	if Key = VK_F5 then BitBtnTemplatesList.Click();
+	if Key = VK_F6 then BitBtnResumeList.Click();
 end;
 
 procedure TFormMain.MailboxClick(Sender: TObject);

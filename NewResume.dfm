@@ -23,18 +23,19 @@ object FormNewResume: TFormNewResume
     Width = 120
     Height = 38
     Anchors = [akRight, akBottom]
-    Cancel = True
-    Caption = '&Close'
+    Caption = #1042#1110#1076#1084#1110#1085#1072
+    Kind = bkCancel
     NumGlyphs = 2
     TabOrder = 0
+    OnClick = BitBtnCloseClick
   end
   object BitBtnSave: TBitBtn
     Left = 8
     Top = 822
-    Width = 120
+    Width = 161
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'Save'
+    Caption = #1047#1073#1077#1088#1110#1075#1090#1080' (F2)'
     Glyph.Data = {
       36100000424D3610000000000000360000002800000020000000200000000100
       2000000000000010000000000000000000000000000000000000000000019F9F
@@ -169,7 +170,6 @@ object FormNewResume: TFormNewResume
     ModalResult = 1
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 821
   end
   object PageControlUA: TPageControl
     Left = 2
@@ -3823,7 +3823,7 @@ object FormNewResume: TFormNewResume
     end
   end
   object BitBtnCopy: TBitBtn
-    Left = 230
+    Left = 342
     Top = 823
     Width = 201
     Height = 38
@@ -3894,7 +3894,6 @@ object FormNewResume: TFormNewResume
       3F501E3F6F3F6F3F6F0E68686868686868686868686868680000}
     TabOrder = 4
     OnClick = BitBtnCopyClick
-    ExplicitTop = 822
   end
   object UniGetResume: TUniQuery
     SQLUpdate.Strings = (

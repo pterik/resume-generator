@@ -71,7 +71,6 @@ type
     UniResumesjob_place: TWideStringField;
     UniResumesphone_numbers_text: TWideStringField;
     UniResumesresume_introduction: TWideMemoField;
-    UniResumesarchived: TBooleanField;
     UniResumescreated: TDateTimeField;
     UniResumesupdated: TDateTimeField;
     UniSkillsIDskill_id: TIntegerField;
@@ -95,6 +94,15 @@ type
     CBWordWrap: TCheckBox;
     BitBtn1: TBitBtn;
     TMSFNCWXDocx2: TTMSFNCWXDocx;
+    UniResumesarchived: TShortintField;
+    DBFilePath: TDBRichEdit;
+    UniSPUpdateFilepathes: TUniStoredProc;
+    UniResumesresume_pdf_filepath: TWideStringField;
+    UniResumescv_pdf_filepath: TWideStringField;
+    UniResumescl_pdf_filepath: TWideStringField;
+    UniResumesresume_doc_filepath: TWideStringField;
+    UniResumescv_doc_filepath: TWideStringField;
+    UniResumescl_doc_filepath: TWideStringField;
     procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnNewResumeClick(Sender: TObject);
 		procedure BitBtnDeleteResumeClick(Sender: TObject);
@@ -113,11 +121,18 @@ type
     procedure CBWordWrapClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure TMSFNCWXDocx2DownloadAsFile(Sender: TObject; FileName: string);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure DBRichEditorSaveClipboard(Sender: TObject; NumObjects,
+      NumChars: Integer; var SaveClipboard: Boolean);
   private
-    FileRDOCX, FileCVDOCX, FileCLDOCX,FileRPDF, FileCVPDF, FileCLPDF:string;
+    FileRDOC, FileCVDOC, FileCLDOC,FileRPDF, FileCVPDF, FileCLPDF:string;
 		WarningFired:boolean;
-		function WX_R_FileGenerate(const resume_id: integer; const FileName:string): boolean;
-		function WX_R_PDF_Generate(const resume_id: integer; const FileName:string): boolean;
+		procedure WX_R_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
+		procedure WX_R_PDF_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
+    procedure WX_CV_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
+		procedure WX_CV_PDF_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
+    procedure WX_CL_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
+		procedure WX_CL_PDF_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
 
 		procedure EditResume;
 		procedure R_DOC_AddTable(var section:TTMSFNCWXDocxSection);
@@ -127,6 +142,7 @@ type
 		procedure LocateTagA(const SourceText: string; var TagBegin, TagEnd:integer; var isFound:boolean);
 		procedure LocateTagB(const SourceText: string; var TagBegin, TagEnd: integer; var isFound: boolean);
 		procedure LocateTagU(const SourceText: string; var TagBegin, TagEnd: integer; var isFound: boolean);
+    procedure R_DOC_Add_CVJob(var section: TTMSFNCWXDocxSection);
 	public
 		procedure SetFormValues;
 		function LocalTranslate(Word:UnicodeString):UnicodeString;
@@ -198,7 +214,7 @@ end;
 procedure TFormListResumes.BitBtnCheckClick(Sender: TObject);
 begin
 TTMSFNCUtils.OpenFile(TPath.Combine(TPath.GetDocumentsPath,'AdvancedDocx.docx'));
-//if FileRDocX<>'' then ShellExecute(Handle, 'open', PWideChar(FileRDocX), nil, nil, SW_SHOWNORMAL)
+//if FileRDoc<>'' then ShellExecute(Handle, 'open', PWideChar(FileRDoc), nil, nil, SW_SHOWNORMAL)
 //else ShowMessage('R-DOCX файл не згенерований');
 end;
 
@@ -209,8 +225,8 @@ end;
 
 procedure TFormListResumes.BitBtnCVClick(Sender: TObject);
 begin
-if FileCVDocX<>'' then ShellExecute(Handle, 'open', PWideChar(FileCVDocX), nil, nil, SW_SHOWNORMAL)
-else ShowMessage('CV-DOCX файл не згенерований');
+if FileCVDoc<>'' then ShellExecute(Handle, 'open', PWideChar(FileCVDoc), nil, nil, SW_SHOWNORMAL)
+else ShowMessage('CV-Doc файл не згенерований');
 end;
 
 procedure TFormListResumes.BitBtnDeleteResumeClick(Sender: TObject);
@@ -253,6 +269,7 @@ end;
 
 procedure TFormListResumes.BitBtnSaveResumeClick(Sender: TObject);
 var
+IsErrorRDOC, IsErrorCVDOC, IsErrorCLDOC, IsErrorRPDF, IsErrorCVPDF, IsErrorCLPDF, IsDone:boolean;
 //TemplatesAreReady:boolean;
 FName:string;
 begin
@@ -264,45 +281,173 @@ if VarIsNull(UniResumes['id']) then
 WarningFired:=false;
 //TemplatesAreReady:=true;
 FName:=lowercase(ReplaceStr(UniResumes['name'],' ','-'))+'-'+lowercase(UniResumes['lang']);
-if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\r') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\r');
-if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv');
-if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl');
-FileRDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\r-'+FName+'.docx';
-FileCVDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.docx';
-FileCLDocX:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.docx';
-FileRPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\'+FName+'.pdf';
-FileCVPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.pdf';
-FileCLPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.pdf';
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\r') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\r');
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cv') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cv');
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cl') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cl');
+//======================  R DOC  ======================
+FileRDoc:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\r-'+FName+'.docx';
+IsErrorRDOC:=false;
 try
-	if FileExists(FileRDocx) then
-		DeleteFile(FileRDocx);
-if FileExists(FileCVDocx) then
-		DeleteFile(FileCVDocx);
-if FileExists(FileCLDocx) then
-		DeleteFile(FileCLDocx);
-
-if not WX_R_FileGenerate(UniResumes['id'],FileRDocx)
-then
+	if not IsErrorRDOC and FileExists(FileRDoc) then DeleteFile(FileRDoc);
+except
+  on E:EFCreateError do
 	begin
-		ShowMessage('Сбой при обработке DOCX Резюме "'+intToStr(UniResumes['id'])+'"');
-	exit;
+	FormMain.Warning('Збій при видаленні файла "'+ExtractFileName(FileRDoc)+'": '+E.Message);
+  IsErrorRDOC:=true;
 	end;
-if not WX_R_PDF_Generate(UniResumes['id'],FileRPDF)
-then
-	begin
-		ShowMessage('Сбой при обработке PDF Резюме "'+intToStr(UniResumes['id'])+'"');
-  exit;
+  on E:Exception do
+  begin
+  FormMain.Warning('Текст помилки: '+E.Message);
+  IsErrorRDOC:=true;
   end;
-//CreateWordDoc;
-ShowMessage('Шаблоны успешно обработаны, резюме готово: '+UniResumes['name']);
-except on E:EFCreateError do
-	begin
-	ShowMessage('Сбой при удалении файла "'+FileRDocx+'": '+E.Message);
-  exit;
-	end;
-on E:Exception do
-  FormMain.Warning('Error message: '+E.Message);
 end;
+if not IsErrorRDoc
+  then WX_R_DOC_Generate(UniResumes['id'],FileRDoc, IsDone)
+  else FormMain.Warning('Файл "'+ExtractFileName(FileRDoc)+'" не буде сформований через попередні помилки');
+if not IsDone then
+	begin
+  FormMain.Warning('Збій при обробці резюме DOCX "'+intToStr(UniResumes['id'])+'"');
+	IsErrorRDOC:=true;
+	end;
+//======================  R PDF  ======================
+FileRPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\'+FName+'.pdf';
+IsErrorRPDF:=IsErrorRDOC;
+try
+	if not IsErrorRPDF and FileExists(FileRPDF) then DeleteFile(FileRPDF);
+except
+  on E:EFCreateError do
+	begin
+	FormMain.Warning('Збый при видаленні файла "'+ExtractFileName(FileRPDF)+'" можливо він відкритий у програмі WORD ');
+  IsErrorRPDF:=true;
+	end;
+  on E:Exception do
+  begin
+  FormMain.Warning('Текст помилки: '+E.Message);
+  IsErrorRPDF:=true;
+  end;
+end;
+if not IsErrorRPDF
+  then WX_R_PDF_Generate(UniResumes['id'],FileRPDF, isDone)
+  else FormMain.Warning('Файл "'+ExtractFileName(FileRPDF)+'" не буде сформований через попередні помилки');
+if not isDone then
+	begin
+	FormMain.Warning('Збій при обробці Резюме PDF"'+intToStr(UniResumes['id'])+'"');
+  IsErrorRPDF:=true;
+  end;
+//======================  CV DOC  ======================
+FileCVDoc:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.docx';
+IsErrorCVDOC:=false;
+try
+if not IsErrorCVDOC and FileExists(FileCVDoc) then DeleteFile(FileCVDoc);
+except
+  on E:EFCreateError do
+	begin
+	FormMain.Warning('Збій при видаленні файла "'+FileCVDoc+'" можливо він відкритий у програмі Word');
+  IsErrorCVDOC:=true;
+	end;
+  on E:Exception do
+  begin
+  FormMain.Warning('Текст помилки: '+E.Message);
+  IsErrorCVDOC:=true;
+  end;
+end;
+if not IsErrorCVDOC
+  then WX_CV_DOC_Generate(UniResumes['id'],FileCVDoc,isDone)
+  else FormMain.Warning('Файл "'+ExtractFileName(FileCVDoc)+'" не буде сформований через попередні помилки');
+if not isDone then
+	begin
+	FormMain.Warning('Збій при обробці CV DOCX "'+intToStr(UniResumes['id'])+'"');
+  IsErrorCVDOC:=true;
+	end;
+//======================  CV PDF  ======================
+FileCVPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.pdf';
+IsErrorCVPDF:=IsErrorCVDOC;
+try
+if not IsErrorCVDOC and FileExists(FileCVPDF) then DeleteFile(FileCVPDF);
+except
+  on E:EFCreateError do
+	begin
+	FormMain.Warning('Збій при видаленні файла "'+FileCVPDF+'" можливо він відкритий у програмі Word');
+  IsErrorCVPDF:=false;
+	end;
+  on E:Exception do
+  begin
+  FormMain.Warning('Текст помилки: '+E.Message);
+  IsErrorCVPDF:=false;
+  end;
+end;
+if not IsErrorCVDOC
+  then WX_CV_PDF_Generate(UniResumes['id'],FileCVPDF, IsDone)
+  else FormMain.Warning('Файл "'+ExtractFileName(FileCVPDF)+'" не буде сформований через попередні помилки');
+if not isDone
+then
+	begin
+	FormMain.Warning('Збій при обробці CV PDF "'+intToStr(UniResumes['id'])+'"');
+  IsErrorCVPDF:=false;
+  end;
+//======================  CL DOC  ======================
+IsErrorCLDOC:=false;
+FileCLDoc:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.docx';
+try
+if not IsErrorCLDOC and FileExists(FileCLDoc) then DeleteFile(FileCLDoc);
+except
+  on E:EFCreateError do
+	begin
+	FormMain.Warning('Збій при видаленні файла "'+FileCLDoc+'", можливо він відкритий у програмі Word');
+  IsErrorCLDOC:=true;
+	end;
+  on E:Exception do
+  begin
+  FormMain.Warning('Текст помилки: '+E.Message);
+  IsErrorCLDOC:=true;
+  end;
+end;
+if not IsErrorCLDOC
+  then WX_CL_DOC_Generate(UniResumes['id'],FileCLDoc, IsDone)
+  else FormMain.Warning('Файл "'+ExtractFileName(FileCLDoc)+'" не буде сформований через попередні помилки');
+if not isDone then
+	begin
+	FormMain.Warning('Збій при обробці CoverLetter DOCX "'+intToStr(UniResumes['id'])+'"');
+  IsErrorCLDOC:=true;
+	end;
+//======================  CL PDF  ======================
+FileCLPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.pdf';
+IsErrorCLPDF:=IsErrorCLDOC;
+try
+if not IsErrorCLPDF and FileExists(FileCLPDF) then DeleteFile(FileCLPDF);
+except
+  on E:EFCreateError do
+	begin
+	FormMain.Warning('Збій при видаленні файла "'+FileCLPDF+'", можливо він відкритий у програмі Word');
+  IsErrorCLPDF:=true;
+	end;
+  on E:Exception do
+  begin
+  FormMain.Warning('Текст помилки: '+E.Message);
+  IsErrorCLPDF:=true;
+  end;
+end;
+if not IsErrorCLPDF
+  then WX_CL_PDF_Generate(UniResumes['id'],FileCLPDF, isDone)
+  else FormMain.Warning('Файл "'+ExtractFileName(FileCLPDF)+'" не буде сформований через попередні помилки');
+if not isDone then
+	begin
+	FormMain.Warning('Збій при обробці CoverLetter PDF "'+intToStr(UniResumes['id'])+'"');
+  IsErrorCLPDF:=true;
+  end;
+//=======================================================
+UniSPUpdateFilepathes.Prepare;
+UniSPUpdateFilepathes.ParamByName('p_name').AsString  := trim(UniResumes['name']);
+UniSPUpdateFilepathes.ParamByName('p_region_id').AsString := UniResumes['region_id'];
+UniSPUpdateFilepathes.ParamByName('p_resume_doc_filepath').AsString := FileRDoc;
+UniSPUpdateFilepathes.ParamByName('p_cv_doc_filepath').AsString := FileCVDoc;
+UniSPUpdateFilepathes.ParamByName('p_cl_doc_filepath').AsString := FileCLDoc;
+UniSPUpdateFilepathes.ParamByName('p_resume_pdf_filepath').AsString := FileRPDF;
+UniSPUpdateFilepathes.ParamByName('p_cv_pdf_filepath').AsString := FileCVPDF;
+UniSPUpdateFilepathes.ParamByName('p_cl_pdf_filepath').AsString := FileCLPDF;
+UniSPUpdateFilepathes.ExecSQL;
+
+ShowMessage('Шаблоны успешно обработаны, резюме готово: '+UniResumes['name']);
 end;
 
 procedure TFormListResumes.CBWordWrapClick(Sender: TObject);
@@ -325,11 +470,26 @@ begin
 EditResume;
 end;
 
+procedure TFormListResumes.DBRichEditorSaveClipboard(Sender: TObject;
+  NumObjects, NumChars: Integer; var SaveClipboard: Boolean);
+begin
+ShowMessage('Save Clipboard');
+end;
+
 procedure TFormListResumes.FormCreate(Sender: TObject);
 begin
 Radiogroup.ItemIndex:=0;
 DBRichEditor.ScrollBars:=ssVertical;
 DBRichEditor.WordWrap:=true;
+end;
+
+procedure TFormListResumes.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key = VK_F2 then BitBtnEditResume.Click();
+if Key = VK_F4 then BitBtnNewResume.Click();
+if Key = VK_F8 then BitBtnArchive.Click();
+if Key = VK_F8 then BitBtnSaveResume.Click();
 end;
 
 function TFormListResumes.LocalTranslate(Word:Unicodestring): UnicodeString;
@@ -409,7 +569,7 @@ end;
 
 procedure TFormListResumes.BitBtnLetterClick(Sender: TObject);
 begin
-if FileCLDocx<>'' then ShellExecute(Handle, 'open', PWideChar(FileCLDocx), nil, nil, SW_SHOWNORMAL) ;
+if FileCLDoc<>'' then ShellExecute(Handle, 'open', PWideChar(FileCLDoc), nil, nil, SW_SHOWNORMAL) ;
 end;
 
 procedure TFormListResumes.BitBtnNewResumeClick(Sender: TObject);
@@ -440,7 +600,7 @@ end;
 
 procedure TFormListResumes.BitBtnOpenResumeClick(Sender: TObject);
 begin
-// TODO: В начале документа отображается POsition - должно быть слово в зависимости от языка.
+ // TODO: В начале документа отображается POsition - должно быть слово в зависимости от языка.
 // TODO: Расположение ключевых слов, которые выводятся в DOCX. Вставлять их в текст или добавлять автоматически?
 // TODO: Указать размеры таблицы и ячеек таблицы, исправить цвет полей на белый или невидимый
 // TODO: Сделать отступ абзацев согласно стандартам языка.
@@ -453,17 +613,17 @@ begin
 // TODO: В поле "Компания" нужно выделять слово USA болдом.
 
 
-if (FIleRDocx='')  then
+if (FIleRDoc='')  then
    begin
    ShowMessage('Файл ещё не создан');
    exit;
    end;
 
-if (FIleRDocx<>'')
+if (FIleRDoc<>'')
    then
    begin
-   FormMain.Warning('Открываем файл '+FileRDocx);
-   ShellExecute(Handle, 'open', PWideChar(FileRDocx), nil, nil, SW_SHOWNORMAL);
+   FormMain.Warning('Открываем файл '+FileRDoc);
+   ShellExecute(Handle, 'open', PWideChar(FileRDoc), nil, nil, SW_SHOWNORMAL);
    end
 end;
 
@@ -529,7 +689,7 @@ if FileExists(FileRPDF) then
   end;
 try
 Word1 := CreateOLEObject('Word.Application');
-Doc1 := Word1.Documents.Open(FileCLDocx);
+Doc1 := Word1.Documents.Open(FileCLDoc);
 Doc1.ExportAsFixedFormat(FileCLPDF, wdExportFormatPDF);
 finally
   Doc1.Close;
@@ -538,7 +698,7 @@ finally
 end;
 try
 Word2 := CreateOLEObject('Word.Application');
-Doc2 := Word2.Documents.Open(FileCVDocx);
+Doc2 := Word2.Documents.Open(FileCVDoc);
 Doc2.ExportAsFixedFormat(FileCVPDF, wdExportFormatPDF);
 finally
   Doc2.Close;
@@ -547,7 +707,7 @@ finally
 end;
 try
 Word3 := CreateOLEObject('Word.Application');
-Doc3 := Word3.Documents.Open(FileRDocx);
+Doc3 := Word3.Documents.Open(FileRDoc);
 Doc3.ExportAsFixedFormat(FileRPDF, wdExportFormatPDF);
 finally
   Doc3.Close;
@@ -788,6 +948,140 @@ while not UniSkillsID.Eof do
 StringList3.Destroy();
 end;
 
+procedure TFormListResumes.R_DOC_Add_CVJob(var section: TTMSFNCWXDocxSection);
+var
+i:integer;
+paragraph: TTMSFNCWXDocxParagraph;
+JobText : TTMSFNCWXDocxText;
+Postn:integer;
+Res:string;
+StringList3:TStringList;
+Alignment:TTMSFNCWXDocxTextAlignment;
+begin
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+paragraph.Alignment := taLeft;
+JobText:=paragraph.AddText(UniExperiences['job_position']);
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
+JobText.Font.Style := [fsBold];
+
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+paragraph.Alignment := taLeft;
+Postn:=Pos('USA',UpperCase(UniExperiences['employer']));
+if Postn>0
+then
+	begin
+		JobText:=paragraph.AddText(Copy(UniExperiences['employer'],1,Postn-1));
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+		JobText:=paragraph.AddText('USA');
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+		JobText.Font.Style:=[fsBold];
+		JobText:=paragraph.AddText(Copy(UniExperiences['employer'],Postn+3,length(UniExperiences['employer'])));
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+	end
+else
+	begin
+		JobText:=paragraph.AddText(UniExperiences['employer']);
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+	end;
+
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+paragraph.Alignment := taLeft;
+JobText:=paragraph.AddText(FormMain.GetFullMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetFullMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
+
+//paragraph := section.AddParagraph;
+//Paragraph.Spacing.Line:=400;
+//Paragraph.Spacing.LineRule:=lrAuto;
+//R_DOC_Richtext(paragraph,UniExperiences['responsibilities'],Res);
+//paragraph.Alignment := taJustified;
+//Res не должна иметь 0 в начале - тогда содержит текст ошибки
+StringList3:=TStringList.Create();
+StringList3.Text := UniExperiences.FieldByName('responsibilities').AsString;
+	for i:=0 to StringList3.Count-1 do
+		begin
+			paragraph := section.AddParagraph;
+			paragraph.Alignment:=taJustified;
+			Paragraph.Spacing.Line:=400;
+			Paragraph.Spacing.LineRule:=lrAuto;
+			Alignment:=taJustified;
+			R_DOC_RichText(paragraph, StringList3[i],Alignment, Res);
+			if not (Copy(Res,1,1)='0') then
+				begin
+				FormMain.Warning(Res);
+				exit;
+				end;
+		end;
+if not FormMain.IsEmpty(UniExperiences['benefits']) then
+	begin
+		paragraph := section.AddParagraph;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		paragraph.Alignment := taLeft;
+		JobText:=paragraph.AddText(LocalTranslate('Преимущества'));
+		JobText.Font.Size := 12;
+		JobText.Font.Style := [fsUnderline];
+		JobText.Font.Name:='Times New Roman';
+		JobText:=paragraph.AddText(': '+UniExperiences['benefits']);
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+		JobText.Font.Style := [];
+	end;
+
+if not FormMain.IsEmpty(UniExperiences['other']) then
+	begin
+//		paragraph := section.AddParagraph;
+//		Paragraph.Spacing.Line:=400;
+//		Paragraph.Spacing.LineRule:=lrAuto;
+		Alignment := taJustified;
+		R_DOC_RichText(paragraph,UniExperiences['other'], Alignment,Res);
+		if not (Copy(Res,1,1)='0') then
+			begin
+			FormMain.Warning(Res);
+			exit;
+			end;
+	end;
+UniSkillsID.Close;
+UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperiences['id'];
+UniSkillsID.Open;
+if not VarIsNull(UniSkillsID['skill_id']) then
+	begin
+	paragraph := section.AddParagraph;
+	Paragraph.Spacing.Line:=400;
+	Paragraph.Spacing.LineRule:=lrAuto;
+	paragraph.Alignment := taJustified;
+	JobText:=paragraph.AddText(LocalTranslate('Навыки')+': ');
+	JobText.Font.Size := 12;
+	JobText.Font.Style := [fsBold];
+	JobText.Font.Name:='Times New Roman';
+	end;
+while not UniSkillsID.Eof do
+	begin
+	JobText:=paragraph.AddText(UniSkillsID['skill']);
+	JobText.Font.Size := 12;
+	JobText.Font.Name:='Times New Roman';
+	UniSkillsID.Next;
+	if not UniSkillsID.Eof then
+		begin
+		JobText:=paragraph.AddText(' · ');
+		JobText.Font.Size := 12;
+		JobText.Font.Name:='Times New Roman';
+		end;
+	end;
+StringList3.Destroy();
+end;
+
 procedure TFormListResumes.R_DOC_AddTable(var section:TTMSFNCWXDocxSection);
 var
 paragraph: TTMSFNCWXDocxParagraph;
@@ -807,6 +1101,11 @@ tableRow := Table.AddRow;
 tableCell := tableRow.AddCell;
 tableCell.Width.Size:=5;
 tableCell.Width.WidthType := wtPercentage;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
+
 
 // Перенести ячейку Віддалена робота в конец таблицы
 paragraph := TableCell.AddParagraph;
@@ -819,6 +1118,14 @@ Paragraph.Alignment:=taCenter;
 tableCell := tableRow.AddCell;
 tableCell.Width.Size:=95;
 tableCell.Width.WidthType := wtPercentage;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
+//tableCell.Borders.left.size:=0;
+//tableCell.Borders.left.Color:='0f0f0f';
+//tableCell.Borders.left.BorderStyle:=bsNil;
+
 
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=180;
@@ -835,7 +1142,10 @@ tableRow := Table.AddRow;
 
 tableCell := tableRow.AddCell;
 //  tableCell.Width.WidthType = (wtAuto, wtDxa, wtNil, wtPercentage);
-tableCell.Borders.Top.Value:=bsNone;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
 
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=180;
@@ -846,6 +1156,11 @@ paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[0],20,20);
 Paragraph.Alignment:=taCenter;
 // Добавляем телефонный номер
 tableCell := tableRow.AddCell;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
+
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=180;
 Paragraph.Spacing.Before:=180;
@@ -860,6 +1175,11 @@ DocText.Font.Name:='Times New Roman';
 
 tableRow := Table.AddRow;
 tableCell := tableRow.AddCell;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
+
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=180;
 Paragraph.Spacing.Before:=180;
@@ -870,6 +1190,11 @@ paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[2],20,20);
 Paragraph.Alignment:=taCenter;
 
 tableCell := tableRow.AddCell;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
+
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=180;
 Paragraph.Spacing.Before:=180;
@@ -884,6 +1209,11 @@ DocText.Font.Name:='Times New Roman';
 
 tableRow := Table.AddRow;
 tableCell := tableRow.AddCell;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
+
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=180;
 Paragraph.Spacing.Before:=180;
@@ -893,6 +1223,11 @@ paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[3],20,20);
 Paragraph.Alignment:=taCenter;
 
 tableCell := tableRow.AddCell;
+tableCell.Borders.Top.Value:=bsNil;
+tableCell.Borders.Bottom.Value:=bsNil;
+tableCell.Borders.Left.Value:=bsNil;
+tableCell.Borders.Right.Value:=bsNil;
+
 paragraph := TableCell.AddParagraph;
 Paragraph.Spacing.After:=180;
 Paragraph.Spacing.Before:=180;
@@ -1000,18 +1335,17 @@ TagEnd:=Pos('</u>',Lowercase(SourceText));
 if TagBegin+TagEnd>0 then isFound:=true;
 end;
 
-
-function TFormListResumes.WX_R_FileGenerate(const resume_id:integer; const FileName:string): boolean;
+procedure TFormListResumes.WX_R_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
 var
 section  : TTMSFNCWXDocxSection;
 paragraph: TTMSFNCWXDocxParagraph;
 DocXText     : TTMSFNCWXDocxText;
 externalHyperlink: TTMSFNCWXDocxExternalHyperlink;
-break:TTMSFNCWXDocxPageBreak;
+PageBreak:TTMSFNCWXDocxPageBreak;
 begin
 TMSFNCWXDocx1.Document.Sections.Clear;
 section := TMSFNCWXDocx1.Document.AddSection;
-section.Page.Orientation := poPortrait;
+//section.Page.Orientation := poPortrait;
 
 // Добавляем Фамилию имя
 paragraph := section.AddParagraph;
@@ -1041,7 +1375,7 @@ DocXText.Font.Name:='Times New Roman';
 R_DOC_AddTable(section);
 R_DOC_AddFooter(section, resume_id);
 paragraph := section.AddParagraph;
-Break:=Paragraph.AddBreak;
+PageBreak:=Paragraph.AddBreak;
 Paragraph.Spacing.Line:=400;
 Paragraph.Spacing.LineRule:=lrAuto;
 DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
@@ -1068,20 +1402,182 @@ while not UniExperiences.Eof do
 	end;
 try
 TMSFNCWXDocx1.GetDocxAsFile(FileName);
-Result:=true;
+isDone:=true;
 except on E:Exception do
 	begin
 	ShowMessage('Ошибка создания файла: '+E.Message);
-	Result:=false;
+	IsDone:=false;
 	end;
 end;
 end;
 
-
-function TFormListResumes.WX_R_PDF_Generate(const resume_id: integer;
-  const FileName: string): boolean;
+procedure TFormListResumes.WX_CL_DOC_Generate(const resume_id: integer; const FileName: string; var isDone: boolean);
+var
+section  : TTMSFNCWXDocxSection;
+paragraph: TTMSFNCWXDocxParagraph;
+DocXText     : TTMSFNCWXDocxText;
+//externalHyperlink: TTMSFNCWXDocxExternalHyperlink;
+PageBreak:TTMSFNCWXDocxPageBreak;
 begin
-Result:=true;
+TMSFNCWXDocx1.Document.Sections.Clear;
+section := TMSFNCWXDocx1.Document.AddSection;
+//section.Page.Orientation := poPortrait;
+
+// Добавляем Фамилию имя
+paragraph := section.AddParagraph;
+paragraph.Spacing.Before:=120;
+paragraph.Spacing.After:=120;
+Paragraph.Spacing.Line:=600;
+DocXText:=paragraph.AddText(FormMain.FullName);
+paragraph.Heading := hlHeading1;
+paragraph.Alignment := taLeft;
+DocXText.Font.Size := 22;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+
+// Добавляем должность
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+paragraph.Spacing.After:=480;
+DocXtext := paragraph.AddText(LocalTranslate('Должность')+' ');
+DocXtext.Font.Color := clBlack;
+DocXtext.Font.Size := 12;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+DocXtext := paragraph.AddText(UniResumes['name']);
+DocXtext.Font.Size := 12;
+DocXText.Font.Name:='Times New Roman';
+
+R_DOC_AddTable(section);
+R_DOC_AddFooter(section, resume_id);
+paragraph := section.AddParagraph;
+PageBreak:=Paragraph.AddBreak;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
+DocXText.Font.Size := 18;
+DocXText.Font.Name:='Times New Roman';
+DocXText.Font.Style := [fsBold];
+UniExperiences.Close;
+UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
+UniExperiences.Open;
+while not UniExperiences.Eof do
+	begin
+	R_DOC_AddJob(section);
+	UniExperiences.Next;
+	if not UniExperiences.Eof then
+		begin
+		paragraph := section.AddParagraph;
+		paragraph.Alignment := taJustified;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		DocXtext:=paragraph.AddText('========================================================');
+		DocXText.Font.Size := 12;
+		DocXText.Font.Name:='Times New Roman';
+		end;
+	end;
+try
+TMSFNCWXDocx1.GetDocxAsFile(FileName);
+IsDone:=true;
+except on E:Exception do
+	begin
+	ShowMessage('Ошибка создания файла: '+E.Message);
+	isDone:=false;
+	end;
+end;
+end;
+
+procedure TFormListResumes.WX_CV_DOC_Generate(const resume_id:integer; const FileName:string; var isDone: boolean);
+var
+section  : TTMSFNCWXDocxSection;
+paragraph: TTMSFNCWXDocxParagraph;
+DocXText     : TTMSFNCWXDocxText;
+//externalHyperlink: TTMSFNCWXDocxExternalHyperlink;
+PageBreak:TTMSFNCWXDocxPageBreak;
+begin
+TMSFNCWXDocx1.Document.Sections.Clear;
+section := TMSFNCWXDocx1.Document.AddSection;
+//section.Page.Orientation := poPortrait;
+// Добавляем Фамилию имя
+paragraph := section.AddParagraph;
+paragraph.Spacing.Before:=120;
+paragraph.Spacing.After:=120;
+Paragraph.Spacing.Line:=600;
+DocXText:=paragraph.AddText(FormMain.FullName);
+paragraph.Heading := hlHeading1;
+paragraph.Alignment := taLeft;
+DocXText.Font.Size := 22;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+
+// Добавляем должность
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+paragraph.Spacing.After:=480;
+DocXtext := paragraph.AddText(LocalTranslate('Должность')+' ');
+DocXtext.Font.Color := clBlack;
+DocXtext.Font.Size := 12;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+DocXtext := paragraph.AddText(UniResumes['name']);
+DocXtext.Font.Size := 12;
+DocXText.Font.Name:='Times New Roman';
+
+R_DOC_AddTable(section);
+R_DOC_AddFooter(section, resume_id);
+paragraph := section.AddParagraph;
+PageBreak:=Paragraph.AddBreak;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
+DocXText.Font.Size := 18;
+DocXText.Font.Name:='Times New Roman';
+DocXText.Font.Style := [fsBold];
+UniExperiences.Close;
+UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
+UniExperiences.Open;
+while not UniExperiences.Eof do
+	begin
+	R_DOC_Add_CVJob(section);
+	UniExperiences.Next;
+	if not UniExperiences.Eof then
+		begin
+		paragraph := section.AddParagraph;
+		paragraph.Alignment := taJustified;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		DocXtext:=paragraph.AddText('========================================================');
+		DocXText.Font.Size := 12;
+		DocXText.Font.Name:='Times New Roman';
+		end;
+	end;
+try
+TMSFNCWXDocx1.GetDocxAsFile(FileName);
+IsDone:=true;
+except on E:Exception do
+	begin
+	ShowMessage('Ошибка создания файла: '+E.Message);
+	IsDone:=false;
+	end;
+end;
+end;
+
+procedure TFormListResumes.WX_CV_PDF_Generate(const resume_id: integer;
+  const FileName: string; var isDone: boolean);
+begin
+IsDone:=true;
+end;
+
+procedure TFormListResumes.WX_R_PDF_Generate(const resume_id: integer;
+  const FileName: string; var isDone: boolean);
+begin
+IsDone:=true;
+end;
+
+procedure TFormListResumes.WX_CL_PDF_Generate(const resume_id: integer;
+  const FileName: string; var isDone: boolean);
+begin
+IsDone:=true;
 end;
 
 end.

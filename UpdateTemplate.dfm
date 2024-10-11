@@ -20,29 +20,30 @@ object FormUpdateTemplate: TFormUpdateTemplate
     813)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 887
+    Left = 864
     Top = 765
-    Width = 84
+    Width = 107
     Height = 40
     Anchors = [akRight, akBottom]
-    Cancel = True
-    Caption = '&Close'
+    Caption = #1042#1110#1076#1084#1110#1085#1072
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
+    Kind = bkCancel
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
+    OnClick = BitBtnCloseClick
   end
   object BitBtnSave: TBitBtn
     Left = 8
     Top = 767
-    Width = 113
+    Width = 145
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'Save(F2)'
+    Caption = #1047#1073#1077#1088#1110#1075#1090#1080' (F2)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -183,7 +184,6 @@ object FormUpdateTemplate: TFormUpdateTemplate
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 766
   end
   object PageControl: TPageControl
     Left = 0

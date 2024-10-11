@@ -18,14 +18,14 @@ type
     BitBtnDeleteSkill: TBitBtn;
     UniSPDeleteSkills: TUniStoredProc;
     UniSkillsid: TIntegerField;
-    UniSkillsskill: TStringField;
     UniSkillscategory_id: TIntegerField;
-    UniSkillscategory: TStringField;
     UniSkillscreated: TDateTimeField;
     UniSkillsupdated: TDateTimeField;
     EditSearch: TEdit;
     Label1: TLabel;
     BitBtnSearch: TBitBtn;
+    UniSkillsskill: TWideStringField;
+    UniSkillscategory: TWideStringField;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtnDeleteSkillClick(Sender: TObject);

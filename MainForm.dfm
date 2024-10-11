@@ -4639,6 +4639,7 @@ object FormMain: TFormMain
   OnClose = FormClose
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyUp = FormKeyUp
   DesignSize = (
     988
     626)
@@ -4659,15 +4660,13 @@ object FormMain: TFormMain
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 4
-    ExplicitLeft = 864
-    ExplicitTop = 580
   end
   object BitBtnTemplatesList: TBitBtn
-    Left = 372
+    Left = 430
     Top = 578
     Width = 160
     Height = 40
-    Caption = #1064#1072#1073#1083#1086#1085#1080
+    Caption = #1042#1089#1110' '#1096#1072#1073#1083#1086#1085#1080' (F5)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -4713,12 +4712,12 @@ object FormMain: TFormMain
     OnClick = BitBtnTemplatesListClick
   end
   object BitBtnNewResume: TBitBtn
-    Left = 190
+    Left = 220
     Top = 578
     Width = 160
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = #1053#1086#1074#1077' '#1088#1077#1079#1102#1084#1077
+    Caption = #1053#1086#1074#1077' '#1088#1077#1079#1102#1084#1077' (F4)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -4762,29 +4761,26 @@ object FormMain: TFormMain
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnNewResumeClick
-    ExplicitTop = 577
   end
   object MemoText: TMemo
     Left = 8
     Top = 8
     Width = 972
-    Height = 159
+    Height = 345
     Anchors = [akLeft, akRight, akBottom]
     Lines.Strings = (
       'MemoText')
     ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 5
-    ExplicitTop = 7
-    ExplicitWidth = 968
   end
   object BitBtnNewTemplate: TBitBtn
-    Left = 8
+    Left = 4
     Top = 578
-    Width = 161
+    Width = 169
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = #1053#1086#1074#1080#1081' '#1096#1072#1073#1083#1086#1085
+    Caption = #1053#1086#1074#1080#1081' '#1096#1072#1073#1083#1086#1085' (F3)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -4828,14 +4824,13 @@ object FormMain: TFormMain
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnNewTemplateClick
-    ExplicitTop = 577
   end
   object BitBtnResumeList: TBitBtn
-    Left = 552
+    Left = 650
     Top = 578
     Width = 160
     Height = 40
-    Caption = #1056#1077#1079#1102#1084#1077
+    Caption = #1042#1089#1110' '#1088#1077#1079#1102#1084#1077' (F6)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -4934,18 +4929,18 @@ object FormMain: TFormMain
   end
   object UniConnection: TUniConnection
     ProviderName = 'MySQL'
-    Port = 3306
-    Database = 'jobsearch'
+    Port = 3308
+    Database = 'jobsearchgit'
     SpecificOptions.Strings = (
       'MySQL.UseUnicode=True')
     DefaultTransaction = UniTransaction
-    Username = 'jobreport'
+    Username = 'jobreportgit'
     Server = 'localhost'
     Connected = True
     LoginPrompt = False
     Left = 216
     Top = 213
-    EncryptedPassword = '95FF90FF9DFF8DFF9AFF8FFF90FF8DFF8BFFCEFFCDFFCCFF'
+    EncryptedPassword = '95FF90FF9DFF8DFF9AFF8FFF90FF8DFF8BFF98FF96FF8BFFCEFFCDFFCCFF'
   end
   object MySQLUniProvider1: TMySQLUniProvider
     Left = 72
@@ -5158,31 +5153,32 @@ object FormMain: TFormMain
         Value = nil
       end>
     object UniLocalTranslateid: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
-    object UniLocalTranslateRU: TWideMemoField
+    object UniLocalTranslateRU: TWideStringField
       FieldName = 'RU'
-      BlobType = ftWideMemo
+      Size = 1000
     end
-    object UniLocalTranslateUA: TWideMemoField
+    object UniLocalTranslateUA: TWideStringField
       FieldName = 'UA'
-      BlobType = ftWideMemo
+      Size = 1000
     end
-    object UniLocalTranslateEN: TWideMemoField
+    object UniLocalTranslateEN: TWideStringField
       FieldName = 'EN'
-      BlobType = ftWideMemo
+      Size = 1000
     end
-    object UniLocalTranslateHR: TWideMemoField
+    object UniLocalTranslateHR: TWideStringField
       FieldName = 'HR'
-      BlobType = ftWideMemo
+      Size = 1000
     end
     object UniLocalTranslatePL: TWideStringField
       FieldName = 'PL'
-      Size = 1024
+      Size = 1000
     end
-    object UniLocalTranslateDE: TWideMemoField
+    object UniLocalTranslateDE: TWideStringField
       FieldName = 'DE'
-      BlobType = ftWideMemo
+      Size = 1000
     end
   end
 end

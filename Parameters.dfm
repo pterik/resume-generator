@@ -16,98 +16,104 @@ object FormParameters: TFormParameters
   TextHeight = 15
   object Label1: TLabel
     Left = 30
-    Top = 465
+    Top = 482
     Width = 117
     Height = 15
     Caption = 'English test - filename'
   end
   object Label6: TLabel
-    Left = 80
-    Top = 320
-    Width = 61
+    Left = 30
+    Top = 332
+    Width = 118
     Height = 15
-    Caption = 'Main folder'
+    Caption = #1055#1072#1087#1082#1072' '#1076#1083#1103' '#1079#1073#1077#1088#1110#1075#1072#1085#1085#1103
   end
   object Label7: TLabel
     Left = 70
-    Top = 532
-    Width = 79
+    Top = 542
+    Width = 78
     Height = 15
-    Caption = 'Telephone USA'
+    Caption = #1058#1077#1083#1077#1092#1086#1085' '#1057#1064#1040
   end
   object Label8: TLabel
     Left = 52
-    Top = 563
+    Top = 572
     Width = 97
     Height = 15
     Caption = 'Telephone Ukraine'
   end
   object Label9: TLabel
     Left = 52
-    Top = 593
-    Width = 95
+    Top = 602
+    Width = 98
     Height = 15
-    Caption = 'Telephone Croatia'
+    Caption = #1058#1077#1083#1077#1092#1086#1085' '#1061#1086#1088#1074#1072#1090#1110#1103
   end
   object Label10: TLabel
-    Left = 47
-    Top = 626
-    Width = 100
+    Left = 10
+    Top = 632
+    Width = 139
     Height = 15
-    Caption = 'Telephone England'
+    Caption = #1058#1077#1083#1077#1092#1086#1085' '#1042#1077#1083#1080#1082#1086#1073#1088#1080#1090#1072#1085#1110#1103
   end
   object Label11: TLabel
     Left = 113
-    Top = 495
+    Top = 512
     Width = 29
     Height = 15
     Caption = 'Email'
   end
   object Label12: TLabel
-    Left = 97
-    Top = 290
-    Width = 52
+    Left = 80
+    Top = 303
+    Width = 58
     Height = 15
-    Caption = 'Full name'
+    Caption = #1055#1088#1080#1079#1074#1080#1097#1077
   end
   object Label13: TLabel
     Left = 92
-    Top = 409
+    Top = 422
     Width = 42
     Height = 15
     Caption = 'Website'
   end
   object Label2: TLabel
     Left = 5
-    Top = 438
+    Top = 450
     Width = 144
     Height = 15
     Caption = 'Recommendation filename'
   end
   object Label3: TLabel
     Left = 2
-    Top = 352
-    Width = 147
+    Top = 362
+    Width = 136
     Height = 15
-    Caption = 'Main folder LAPTOP-PTERIK'
+    Caption = #1055#1072#1087#1082#1072' '#1085#1072' LAPTOP-PTERIK'
   end
   object EditRecommend: TEdit
     Left = 155
-    Top = 435
+    Top = 450
     Width = 473
     Height = 23
     ReadOnly = True
     TabOrder = 0
   end
   object BitBtnClose: TBitBtn
-    Left = 889
+    Left = 896
     Top = 614
-    Width = 75
+    Width = 84
     Height = 40
     Anchors = [akRight, akBottom]
-    Cancel = True
-    Caption = '&Close'
+    Caption = #1042#1110#1076#1084#1110#1085#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    Kind = bkCancel
     NumGlyphs = 2
+    ParentFont = False
     TabOrder = 1
     OnClick = BitBtnCloseClick
   end
@@ -115,7 +121,7 @@ object FormParameters: TFormParameters
     Left = 8
     Top = 8
     Width = 972
-    Height = 273
+    Height = 286
     DataSource = DataSource1
     TabOrder = 2
     TitleFont.Charset = DEFAULT_CHARSET
@@ -145,7 +151,7 @@ object FormParameters: TFormParameters
   end
   object EditEnglishTest: TEdit
     Left = 155
-    Top = 464
+    Top = 480
     Width = 473
     Height = 23
     ReadOnly = True
@@ -153,7 +159,7 @@ object FormParameters: TFormParameters
   end
   object Edit_main_folder_LAPTOP_PTERIK: TEdit
     Left = 155
-    Top = 347
+    Top = 360
     Width = 473
     Height = 23
     ReadOnly = True
@@ -161,7 +167,7 @@ object FormParameters: TFormParameters
   end
   object Edit_main_folder_VESTA: TEdit
     Left = 155
-    Top = 377
+    Top = 390
     Width = 473
     Height = 23
     ReadOnly = True
@@ -169,7 +175,7 @@ object FormParameters: TFormParameters
   end
   object Edit_main_folder: TEdit
     Left = 155
-    Top = 317
+    Top = 330
     Width = 473
     Height = 23
     ReadOnly = True
@@ -177,7 +183,7 @@ object FormParameters: TFormParameters
   end
   object Edit_telephone_usa: TEdit
     Left = 155
-    Top = 529
+    Top = 540
     Width = 244
     Height = 23
     ReadOnly = True
@@ -185,7 +191,7 @@ object FormParameters: TFormParameters
   end
   object Edit_telephone_ukrainian: TEdit
     Left = 155
-    Top = 559
+    Top = 570
     Width = 244
     Height = 23
     ReadOnly = True
@@ -193,7 +199,7 @@ object FormParameters: TFormParameters
   end
   object Edit_telephone_croatian: TEdit
     Left = 155
-    Top = 589
+    Top = 600
     Width = 244
     Height = 23
     ReadOnly = True
@@ -201,7 +207,7 @@ object FormParameters: TFormParameters
   end
   object Edit_Telephone_english: TEdit
     Left = 155
-    Top = 619
+    Top = 630
     Width = 244
     Height = 23
     ReadOnly = True
@@ -209,7 +215,7 @@ object FormParameters: TFormParameters
   end
   object EditEmail: TEdit
     Left = 155
-    Top = 493
+    Top = 510
     Width = 244
     Height = 23
     ReadOnly = True
@@ -217,7 +223,7 @@ object FormParameters: TFormParameters
   end
   object EditFullname: TEdit
     Left = 155
-    Top = 287
+    Top = 300
     Width = 473
     Height = 23
     ReadOnly = True
@@ -225,18 +231,18 @@ object FormParameters: TFormParameters
   end
   object EditWebsite: TEdit
     Left = 155
-    Top = 406
+    Top = 420
     Width = 473
     Height = 23
     ReadOnly = True
     TabOrder = 13
   end
   object StaticText2: TStaticText
-    Left = 41
-    Top = 379
-    Width = 101
+    Left = 20
+    Top = 392
+    Width = 128
     Height = 19
-    Caption = 'Main folder VESTA'
+    Caption = #1055#1072#1087#1082#1072' '#1085#1072' '#1082#1086#1084#1087#1077' VESTA'
     TabOrder = 14
   end
   object DataSource1: TDataSource

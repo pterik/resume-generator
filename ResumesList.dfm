@@ -3,7 +3,7 @@ object FormListResumes: TFormListResumes
   Top = 0
   Caption = #1057#1087#1080#1089#1086#1082' '#1091#1089#1110#1093' '#1088#1077#1079#1102#1084#1077
   ClientHeight = 659
-  ClientWidth = 976
+  ClientWidth = 988
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,16 +11,17 @@ object FormListResumes: TFormListResumes
   Font.Name = 'Segoe UI'
   Font.Style = []
   OnCreate = FormCreate
+  OnKeyUp = FormKeyUp
   DesignSize = (
-    976
+    988
     659)
   TextHeight = 15
   object Label4: TLabel
-    Left = 272
+    Left = 180
     Top = 522
-    Width = 247
+    Width = 352
     Height = 21
-    Caption = #1050#1086#1087#1110#1103' '#1079' '#1096#1072#1073#1083#1086#1085#1091' (t) '#1072#1073#1086' '#1088#1077#1079#1102#1084#1077' (r)'
+    Caption = #1042#1082#1072#1078#1110#1090#1100' '#1085#1086#1084#1077#1088' '#1082#1086#1087#1110#1111' '#1079' '#1096#1072#1073#1083#1086#1085#1091' (t) '#1072#1073#1086' '#1088#1077#1079#1102#1084#1077' (r)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -29,9 +30,9 @@ object FormListResumes: TFormListResumes
     ParentFont = False
   end
   object DBGrid1: TDBGrid
-    Left = 0
+    Left = 2
     Top = 8
-    Width = 980
+    Width = 985
     Height = 273
     DataSource = UniDSResumes
     Font.Charset = DEFAULT_CHARSET
@@ -39,6 +40,7 @@ object FormListResumes: TFormListResumes
     Font.Height = -12
     Font.Name = 'Segoe UI'
     Font.Style = []
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
     ParentFont = False
     ReadOnly = True
     TabOrder = 0
@@ -143,12 +145,12 @@ object FormListResumes: TFormListResumes
       end>
   end
   object BitBtnEditResume: TBitBtn
-    Left = 430
+    Left = 444
     Top = 559
-    Width = 120
+    Width = 134
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080
+    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080'(F2)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -192,15 +194,14 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnEditResumeClick
-    ExplicitTop = 558
   end
   object BitBtnDeleteResume: TBitBtn
-    Left = 570
+    Left = 584
     Top = 559
     Width = 120
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = #1042#1080#1076#1072#1083#1080#1090#1080
+    Caption = #1042#1080#1076#1072#1083#1080#1090#1080' (F8)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -244,15 +245,14 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 2
     OnClick = BitBtnDeleteResumeClick
-    ExplicitTop = 558
   end
   object BitBtnNewResume: TBitBtn
-    Left = 150
+    Left = 151
     Top = 559
-    Width = 120
+    Width = 154
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = #1053#1086#1074#1077' '
+    Caption = #1053#1086#1074#1077'  '#1088#1077#1079#1102#1084#1077' (F4)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -296,27 +296,25 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 3
     OnClick = BitBtnNewResumeClick
-    ExplicitTop = 558
   end
   object BitBtnClose: TBitBtn
-    Left = 844
+    Left = 856
     Top = 609
     Width = 120
     Height = 38
     Anchors = [akRight, akBottom]
-    Cancel = True
-    Caption = '&Close'
+    Caption = #1042#1110#1076#1084#1110#1085#1072
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
+    Kind = bkCancel
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 840
-    ExplicitTop = 608
+    ExplicitLeft = 844
   end
   object EditCopyNumber: TEdit
     Left = 536
@@ -334,10 +332,10 @@ object FormListResumes: TFormListResumes
   object BitBtnCheck: TBitBtn
     Left = 710
     Top = 609
-    Width = 120
+    Width = 128
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'R DOC online'
+    Caption = 'R DOC '#1085#1072' '#1089#1072#1081#1090#1110
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -346,15 +344,14 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 6
     OnClick = BitBtnCheckClick
-    ExplicitTop = 608
   end
   object BitBtnCV: TBitBtn
     Left = 710
     Top = 559
-    Width = 120
+    Width = 128
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'CV DOC online'
+    Caption = 'CV DOC '#1085#1072' '#1089#1072#1081#1090#1110
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -363,10 +360,9 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 7
     OnClick = BitBtnCVClick
-    ExplicitTop = 558
   end
   object BitBtnLetter: TBitBtn
-    Left = 570
+    Left = 584
     Top = 609
     Width = 120
     Height = 38
@@ -380,10 +376,9 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 8
     OnClick = BitBtnLetterClick
-    ExplicitTop = 608
   end
   object BitBtnPDF: TBitBtn
-    Left = 844
+    Left = 856
     Top = 559
     Width = 120
     Height = 38
@@ -397,13 +392,12 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 840
-    ExplicitTop = 558
+    ExplicitLeft = 844
   end
   object BitBtnOpenResume: TBitBtn
-    Left = 430
+    Left = 444
     Top = 609
-    Width = 120
+    Width = 134
     Height = 38
     Anchors = [akLeft, akBottom]
     Caption = 'R DOCX'
@@ -450,15 +444,14 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 10
     OnClick = BitBtnOpenResumeClick
-    ExplicitTop = 608
   end
   object BitBtnSaveResume: TBitBtn
-    Left = 150
-    Top = 609
-    Width = 120
+    Left = 151
+    Top = 613
+    Width = 154
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = #1047#1073#1077#1088#1077#1075#1090#1080
+    Caption = #1047#1073#1077#1088#1077#1075#1090#1080' (F9)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -502,11 +495,10 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 11
     OnClick = BitBtnSaveResumeClick
-    ExplicitTop = 608
   end
   object CheckBoxExtraComment: TCheckBox
     Left = 666
-    Top = 521
+    Top = 524
     Width = 169
     Height = 17
     Anchors = [akLeft, akBottom]
@@ -518,15 +510,14 @@ object FormListResumes: TFormListResumes
     Font.Style = []
     ParentFont = False
     TabOrder = 12
-    ExplicitTop = 520
   end
   object BitBtnArchive: TBitBtn
-    Left = 290
+    Left = 318
     Top = 559
     Width = 120
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = #1042' '#1072#1088#1093#1080#1074
+    Caption = #1042' '#1072#1088#1093#1080#1074' (F7)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -570,7 +561,6 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 13
     OnClick = BitBtnArchiveClick
-    ExplicitTop = 558
   end
   object RadioGroup: TRadioGroup
     Left = 1
@@ -1431,23 +1421,24 @@ object FormListResumes: TFormListResumes
   end
   object DBRichEditor: TDBRichEdit
     Left = 2
-    Top = 290
-    Width = 970
-    Height = 226
+    Top = 287
+    Width = 983
+    Height = 183
     DataField = 'resume_introduction'
     DataSource = UniDSResumes
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
-    Font.Name = 'Segoe UI'
+    Font.Name = 'Tahoma'
     Font.Style = []
     ScrollBars = ssBoth
     TabOrder = 17
     WantTabs = True
+    OnSaveClipboard = DBRichEditorSaveClipboard
   end
   object CBWordWrap: TCheckBox
     Left = 16
-    Top = 519
+    Top = 524
     Width = 97
     Height = 17
     Caption = 'WordWrap'
@@ -1463,12 +1454,12 @@ object FormListResumes: TFormListResumes
     OnClick = CBWordWrapClick
   end
   object BitBtn1: TBitBtn
-    Left = 290
-    Top = 610
+    Left = 318
+    Top = 609
     Width = 120
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'Test'
+    Caption = #1058#1077#1089#1090#1091#1074#1072#1085#1085#1103
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -1512,7 +1503,6 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 19
     OnClick = BitBtn1Click
-    ExplicitTop = 609
   end
   object TMSFNCWXDocx2: TTMSFNCWXDocx
     Left = 72
@@ -1524,6 +1514,23 @@ object FormListResumes: TFormListResumes
     TabOrder = 20
     Visible = True
     OnDownloadAsFile = TMSFNCWXDocx2DownloadAsFile
+  end
+  object DBFilePath: TDBRichEdit
+    Left = 2
+    Top = 474
+    Width = 980
+    Height = 41
+    DataField = 'resume_doc_filepath'
+    DataSource = UniDSResumes
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ScrollBars = ssBoth
+    TabOrder = 21
+    WantTabs = True
+    OnSaveClipboard = DBRichEditorSaveClipboard
   end
   object UniResumes: TUniQuery
     UpdatingTable = 'resumes'
@@ -1595,6 +1602,12 @@ object FormListResumes: TFormListResumes
       '  job_place ,'
       '  phone_numbers_text ,'
       '  resume_introduction, '
+      '  resume_doc_filepath,'
+      '  cv_doc_filepath,'
+      '  cl_doc_filepath,'
+      '  resume_pdf_filepath,'
+      '  cv_pdf_filepath,'
+      '  cl_pdf_filepath,'
       '  archived,'
       '  created ,'
       '  updated '
@@ -1660,7 +1673,31 @@ object FormListResumes: TFormListResumes
       FieldName = 'resume_introduction'
       BlobType = ftWideMemo
     end
-    object UniResumesarchived: TBooleanField
+    object UniResumesresume_doc_filepath: TWideStringField
+      FieldName = 'resume_doc_filepath'
+      Size = 510
+    end
+    object UniResumescv_doc_filepath: TWideStringField
+      FieldName = 'cv_doc_filepath'
+      Size = 510
+    end
+    object UniResumescl_doc_filepath: TWideStringField
+      FieldName = 'cl_doc_filepath'
+      Size = 510
+    end
+    object UniResumesresume_pdf_filepath: TWideStringField
+      FieldName = 'resume_pdf_filepath'
+      Size = 510
+    end
+    object UniResumescv_pdf_filepath: TWideStringField
+      FieldName = 'cv_pdf_filepath'
+      Size = 510
+    end
+    object UniResumescl_pdf_filepath: TWideStringField
+      FieldName = 'cl_pdf_filepath'
+      Size = 510
+    end
+    object UniResumesarchived: TShortintField
       FieldName = 'archived'
     end
     object UniResumescreated: TDateTimeField
@@ -1802,7 +1839,7 @@ object FormListResumes: TFormListResumes
       'order by start_date desc')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
     OnCalcFields = UniResumesCalcFields
-    Left = 800
+    Left = 768
     Top = 200
     ParamData = <
       item
@@ -1863,7 +1900,7 @@ object FormListResumes: TFormListResumes
       'FROM skill_show_lists l'
       'WHERE experience_id = :p_experience_id'
       'ORDER BY skill_id')
-    Left = 800
+    Left = 760
     Top = 128
     ParamData = <
       item
@@ -1881,5 +1918,74 @@ object FormListResumes: TFormListResumes
       ReadOnly = True
       Size = 255
     end
+  end
+  object UniSPUpdateFilepathes: TUniStoredProc
+    StoredProcName = 'update_filepathes'
+    SQL.Strings = (
+      
+        'CALL update_filepathes(:p_name, :p_region_id, :p_resume_doc_file' +
+        'path, :p_cv_doc_filepath, :p_cl_doc_filepath, :p_resume_pdf_file' +
+        'path, :p_cv_pdf_filepath, :p_cl_pdf_filepath)')
+    Connection = FormMain.UniConnection
+    Left = 896
+    Top = 200
+    ParamData = <
+      item
+        DataType = ftWideString
+        Name = 'p_name'
+        ParamType = ptInput
+        Size = 50
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_region_id'
+        ParamType = ptInput
+        Size = 2
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_resume_doc_filepath'
+        ParamType = ptInput
+        Size = 510
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_cv_doc_filepath'
+        ParamType = ptInput
+        Size = 510
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_cl_doc_filepath'
+        ParamType = ptInput
+        Size = 510
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_resume_pdf_filepath'
+        ParamType = ptInput
+        Size = 510
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_cv_pdf_filepath'
+        ParamType = ptInput
+        Size = 510
+        Value = nil
+      end
+      item
+        DataType = ftWideString
+        Name = 'p_cl_pdf_filepath'
+        ParamType = ptInput
+        Size = 510
+        Value = nil
+      end>
+    CommandStoredProcName = 'update_filepathes'
   end
 end

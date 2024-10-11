@@ -181,9 +181,7 @@ type
 		UniExperienceID: TUniQuery;
 		UniSkillsID: TUniQuery;
 		UniSPUpdateResume: TUniStoredProc;
-		UniSPInsertExperiences: TUniStoredProc;
-		UniSPInsertSkillShow: TUniStoredProc;
-		UniSPDeleteSkillsShow: TUniStoredProc;
+    UniSPInsertExperiences: TUniStoredProc;
 		CBPhones: TComboBox;
 		BitBtn2: TBitBtn;
 		RichEditor: TRichEdit;
@@ -211,7 +209,6 @@ type
     UniResumeIDjob_place: TWideStringField;
     UniResumeIDphone_numbers_text: TWideStringField;
     UniResumeIDresume_introduction: TWideMemoField;
-    UniResumeIDarchived: TBooleanField;
     UniResumeIDcreated: TDateTimeField;
     UniResumeIDupdated: TDateTimeField;
     UniFootersIDid: TIntegerField;
@@ -256,7 +253,13 @@ type
     RichEdit8Other: TRichEdit;
     RichEdit9Other: TRichEdit;
     RichEdit10Other: TRichEdit;
+    UniResumeIDarchived: TShortintField;
+    UniSPInsertSkillShow: TUniStoredProc;
+    StaticText2: TStaticText;
     UniSPDeleteExperiences: TUniStoredProc;
+    EditResumePath: TEdit;
+    Label8: TLabel;
+    UniResumeIDresume_file_path: TWideStringField;
 		procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnSaveClick(Sender: TObject);
 		procedure FormCreate(Sender: TObject);
@@ -313,6 +316,7 @@ type
     procedure BitBtnClear8Click(Sender: TObject);
     procedure BitBtnClear9Click(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure BitBtn1Click(Sender: TObject);
 	private
 		FResumeID:integer;
 		IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
@@ -338,10 +342,8 @@ type
 		function SaveResume(const ResumeID:integer): boolean;
 		function SaveValues(const ResumeID:integer): boolean;
 		function SaveJobs(const ResumeID:integer): boolean;
-    function DeleteJobs(const ResumeID: integer): boolean;
 		function isJobPeriodsValid: boolean;
 		function isJobDatesValid: boolean;
-		function DeleteSkillsShow(const ResumeID:integer):boolean;
 		procedure Clear10;
 		procedure Clear1;
 		procedure Clear2;
@@ -548,6 +550,11 @@ begin
 Clear9;
 end;
 
+procedure TFormUpdateResume.BitBtn1Click(Sender: TObject);
+begin
+RichEditor.Font.Name:='Tahoma';
+end;
+
 procedure TFormUpdateResume.BitBtn2Click(Sender: TObject);
 begin
 EditPhones.Text:=trim(EditPhones.Text+' '+CBPhones.Text);
@@ -732,6 +739,7 @@ begin
 	else
 	begin
 		ModalResult := mrNone;
+    FormMain.Warning('Update resume: isFormValuesGood=false');
 		exit;
 	end;
 	if SaveValues(FResumeID) then
@@ -751,8 +759,7 @@ end;
 procedure TFormUpdateResume.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-	if Key = VK_F2 then
-		BitBtnSave.Click();
+	if Key = VK_F2 then BitBtnSave.Click();
 end;
 
 procedure TFormUpdateResume.SetID(const ResumeID:integer);
@@ -769,7 +776,6 @@ begin
 UniFootersID.Close;
 UniFootersID.ParamByName('p_resume_id').AsInteger:=ResumeID;
 UniFootersID.Open;
-
 while not UniFootersID.EOF  do
 	begin
 	if UniFootersID['footer_order']=1 then
@@ -824,6 +830,7 @@ EditOpportunity.Text:=VarToStr(UniResumeID['job_opportunity']);
 EditPlace.Text:=VarToStr(UniResumeID['job_place']);
 EditPhones.Text:=VarToStr(UniResumeID['phone_numbers_text']);
 RichEditor.Text:=VarToStr(UniResumeID['resume_introduction']);
+EditResumePath.Text:=VarToStr(UniResumeID['resume_file_path']);
 end;
 
 procedure TFormUpdateResume.SetValuesJobs(const ResumeID:integer);
@@ -1325,29 +1332,6 @@ procedure TFormUpdateResume.ChangeDates9;
 begin
 Edit9Dates.Text := FormMain.GetFullMonthByRegion(CalendarPickerB9.Date, CBRegion.Text)
 					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE9.Date, CBRegion.Text);
-end;
-
-function TFormUpdateResume.DeleteSkillsShow(const ResumeID: integer): boolean;
-begin
-try
-UniExperienceID.Close;
-UniExperienceID.ParamByName('p_resume_id').Value:=ResumeID;
-UniExperienceID.Open;
-while not UniExperienceID.EOF do
-	begin
-		UniSPDeleteSkillsShow.Close;
-		UniSPDeleteSkillsShow.ParamByName('p_experience_id').Value:=UniExperienceID['experience_id'];
-		UniSPDeleteSkillsShow.ExecSQL;
-		UniExperienceID.Next;
-	end;
-Result:=true;
-except
-    on E: Exception do
-    begin
-      ShowMessage('Error: ' + E.Message);
-      Result := false;
-		end;
-	end;
 end;
 
 procedure TFormUpdateResume.ChangeDates10;
@@ -1896,18 +1880,6 @@ begin
 			Result := false;
 			exit;
 		end;
-		if not DeleteSkillsShow(ResumeID) then
-		begin
-			FormMain.Warning('—бой при удалении jobs-skills UpdateResume');
-			Result := false;
-			exit;
-		end;
-		if not DeleteJobs(ResumeID) then
-		begin
-			FormMain.Warning('—бой при удалении jobs (experiences) NewResume');
-			Result := false;
-			exit;
-		end;
 		if not SaveJobs(ResumeID) then
 		begin
 			FormMain.Warning('—бой при сохранении jobs (experiences) NewResume');
@@ -1934,6 +1906,7 @@ begin
 		UniSPUpdateResume.ParamByName('p_job_place').AsString := Trim(EditPlace.Text);
 		UniSPUpdateResume.ParamByName('p_phone_numbers_text').AsMemo := Trim(EditPhones.Text);
 		UniSPUpdateResume.ParamByName('p_resume_introduction').AsMemo := RichEditor.Text;
+		UniSPUpdateResume.ParamByName('p_resume_file_path').AsString :=EditResumePath.Text;
 		UniSPUpdateResume.ParamByName('p_archived').AsBoolean := False;
 		UniSPUpdateResume.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
 		UniSPUpdateResume.ParamByName('p_footer_1_text').AsMemo := Trim(RichEditArticle1.Text);
@@ -1954,30 +1927,22 @@ begin
 	end;
 end;
 
-function TFormUpdateResume.DeleteJobs(const ResumeID:integer): boolean;
+function TFormUpdateResume.SaveJobs(const ResumeID:integer): boolean;
+var i, LExperienceID:integer;
 begin
+try
 UniSPDeleteExperiences.Close;
 UniSPDeleteExperiences.ParamByName('p_flag').AsString := 'resume_id';
 UniSPDeleteExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+UniSPDeleteExperiences.ParamByName('p_template_id').AsInteger := 0;
 UniSPDeleteExperiences.ExecSQL;
-end;
-
-
-function TFormUpdateResume.SaveJobs(const ResumeID:integer): boolean;
-var i:integer;
-begin
-try
-if not DeleteSkillsShow(ResumeID) then
-	begin
-	ShowMessage('ќшибка во врем€ удалени€ skills_show: ');
-	Result := false;
-	exit;
-	end;
 if isJob1Active then
 		begin
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 1;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit1Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB1.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE1.Date;
@@ -1986,11 +1951,12 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit1Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit1Other.Text;
 			UniSPInsertExperiences.ExecSQL;
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
 			for i := 0 to Memo1Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LexperienceID;
 					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
@@ -2000,6 +1966,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 2;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit2Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB2.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE2.Date;
@@ -2008,12 +1976,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit2Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit2Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo2Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo2Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2022,6 +1991,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 3;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit3Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB3.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE3.Date;
@@ -2030,12 +2001,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit3Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit3Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo3Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo3Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2044,6 +2016,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 4;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit4Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB4.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE4.Date;
@@ -2052,12 +2026,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit4Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit4Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo4Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo4Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2066,6 +2041,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 5;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit5Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB5.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE5.Date;
@@ -2074,12 +2051,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit5Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit5Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo5Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo5Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2088,6 +2066,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 6;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit6Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB6.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE6.Date;
@@ -2096,12 +2076,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit6Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit6Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo6Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo6Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2110,6 +2091,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 7;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit7Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB7.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE7.Date;
@@ -2118,12 +2101,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit7Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit7Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo7Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo7Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2132,6 +2116,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 8;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit8Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB8.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE8.Date;
@@ -2140,12 +2126,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit8Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit8Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo8Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo8Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2154,6 +2141,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 9;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit9Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB9.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE9.Date;
@@ -2162,12 +2151,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit9Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit9Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo9Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo9Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;
@@ -2176,6 +2166,8 @@ if isJob1Active then
 			UniSPInsertExperiences.Close;
 			UniSPInsertExperiences.ParamByName('p_flag').AsString := 'resume_id';
 			UniSPInsertExperiences.ParamByName('p_resume_id').AsInteger := ResumeID;
+			UniSPInsertExperiences.ParamByName('p_template_id').AsInteger := 0;
+			UniSPInsertExperiences.ParamByName('p_job_order').AsInteger := 10;
 			UniSPInsertExperiences.ParamByName('p_job_position').AsString := Edit10Name.Text;
 			UniSPInsertExperiences.ParamByName('p_start_date').AsDateTime :=CalendarPickerB10.Date;
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE10.Date;
@@ -2184,12 +2176,13 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit10Benefits.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit10Other.Text;
 			UniSPInsertExperiences.ExecSQL;
-			for i := 0 to Memo1Skills.Lines.Count - 1 do
+      LExperienceID:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
+			for i := 0 to Memo10Skills.Lines.Count - 1 do
 				if not FormMain.IsEmpty(Memo1Skills.Lines[i]) then
 					begin
 					UniSPInsertSkillShow.Close;
-					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
+					UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=LExperienceID;
+					UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo10Skills.Lines[i];
 					UniSPInsertSkillShow.ExecSQL;
 					end;
 		end;

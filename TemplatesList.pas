@@ -27,9 +27,9 @@ type
     UniTemplatesjob_place: TWideStringField;
     UniTemplatesphone_numbers_text: TWideStringField;
     UniTemplatestemplate_introduction: TWideMemoField;
-    UniTemplatesarchived: TBooleanField;
     UniTemplatescreated: TDateTimeField;
     UniTemplatesupdated: TDateTimeField;
+    UniTemplatesarchived: TShortintField;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure BitBtnDeleteTemplateClick(Sender: TObject);

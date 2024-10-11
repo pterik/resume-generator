@@ -38,8 +38,6 @@ object FormSkills: TFormSkills
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 849
-    ExplicitTop = 613
   end
   object DBGrid1: TDBGrid
     Left = 8
@@ -313,6 +311,7 @@ object FormSkills: TFormSkills
       'on sc.id = s.category_id '
       'order by skill) R'
       'WHERE lower(skill) LIKE concat('#39'%'#39',lower(:p_filter),'#39'%'#39')')
+    Active = True
     Left = 496
     Top = 80
     ParamData = <
@@ -325,16 +324,15 @@ object FormSkills: TFormSkills
       AutoGenerateValue = arAutoInc
       FieldName = 'skill_id'
     end
-    object UniSkillsskill: TStringField
+    object UniSkillsskill: TWideStringField
       FieldName = 'skill'
       Size = 255
     end
     object UniSkillscategory_id: TIntegerField
       FieldName = 'category_id'
     end
-    object UniSkillscategory: TStringField
+    object UniSkillscategory: TWideStringField
       FieldName = 'category'
-      ReadOnly = True
       Size = 255
     end
     object UniSkillscreated: TDateTimeField
