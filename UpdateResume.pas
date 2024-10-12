@@ -259,7 +259,14 @@ type
     UniSPDeleteExperiences: TUniStoredProc;
     EditResumePath: TEdit;
     Label8: TLabel;
-    UniResumeIDresume_file_path: TWideStringField;
+    TabSheet1: TTabSheet;
+    RichEditCVIntroduction: TRichEdit;
+    Label11: TLabel;
+    UniResumeIDcv_introduction: TWideMemoField;
+    UniResumeIDresume_doc_filepath: TWideStringField;
+    UniResumeIDcv_doc_filepath: TWideStringField;
+    Label12: TLabel;
+    EditCVDocFilePath: TEdit;
 		procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnSaveClick(Sender: TObject);
 		procedure FormCreate(Sender: TObject);
@@ -830,7 +837,9 @@ EditOpportunity.Text:=VarToStr(UniResumeID['job_opportunity']);
 EditPlace.Text:=VarToStr(UniResumeID['job_place']);
 EditPhones.Text:=VarToStr(UniResumeID['phone_numbers_text']);
 RichEditor.Text:=VarToStr(UniResumeID['resume_introduction']);
-EditResumePath.Text:=VarToStr(UniResumeID['resume_file_path']);
+RichEditCVIntroduction.Text:=VarToStr(UniResumeID['cv_introduction']);
+EditResumePath.Text:=VarToStr(UniResumeID['resume_doc_filepath']);
+EditCVDocFilePath.Text:=VarToStr(UniResumeID['cv_doc_filepath']);
 end;
 
 procedure TFormUpdateResume.SetValuesJobs(const ResumeID:integer);
@@ -1906,7 +1915,7 @@ begin
 		UniSPUpdateResume.ParamByName('p_job_place').AsString := Trim(EditPlace.Text);
 		UniSPUpdateResume.ParamByName('p_phone_numbers_text').AsMemo := Trim(EditPhones.Text);
 		UniSPUpdateResume.ParamByName('p_resume_introduction').AsMemo := RichEditor.Text;
-		UniSPUpdateResume.ParamByName('p_resume_file_path').AsString :=EditResumePath.Text;
+		UniSPUpdateResume.ParamByName('p_cv_introduction').AsMemo := RichEditCVIntroduction.Text;
 		UniSPUpdateResume.ParamByName('p_archived').AsBoolean := False;
 		UniSPUpdateResume.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
 		UniSPUpdateResume.ParamByName('p_footer_1_text').AsMemo := Trim(RichEditArticle1.Text);

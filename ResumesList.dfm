@@ -330,8 +330,8 @@ object FormListResumes: TFormListResumes
     TabOrder = 5
   end
   object BitBtnCheck: TBitBtn
-    Left = 710
-    Top = 609
+    Left = 722
+    Top = 613
     Width = 128
     Height = 38
     Anchors = [akLeft, akBottom]
@@ -346,12 +346,12 @@ object FormListResumes: TFormListResumes
     OnClick = BitBtnCheckClick
   end
   object BitBtnCV: TBitBtn
-    Left = 710
-    Top = 559
-    Width = 128
+    Left = 444
+    Top = 613
+    Width = 134
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = 'CV DOC '#1085#1072' '#1089#1072#1081#1090#1110
+    Caption = 'CV DOC'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -363,8 +363,8 @@ object FormListResumes: TFormListResumes
   end
   object BitBtnLetter: TBitBtn
     Left = 584
-    Top = 609
-    Width = 120
+    Top = 613
+    Width = 122
     Height = 38
     Anchors = [akLeft, akBottom]
     Caption = 'CL DOCX'
@@ -395,9 +395,9 @@ object FormListResumes: TFormListResumes
     ExplicitLeft = 844
   end
   object BitBtnOpenResume: TBitBtn
-    Left = 444
-    Top = 609
-    Width = 134
+    Left = 318
+    Top = 613
+    Width = 120
     Height = 38
     Anchors = [akLeft, akBottom]
     Caption = 'R DOCX'
@@ -1454,9 +1454,9 @@ object FormListResumes: TFormListResumes
     OnClick = CBWordWrapClick
   end
   object BitBtn1: TBitBtn
-    Left = 318
-    Top = 609
-    Width = 120
+    Left = 722
+    Top = 559
+    Width = 128
     Height = 38
     Anchors = [akLeft, akBottom]
     Caption = #1058#1077#1089#1090#1091#1074#1072#1085#1085#1103

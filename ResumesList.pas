@@ -600,19 +600,6 @@ end;
 
 procedure TFormListResumes.BitBtnOpenResumeClick(Sender: TObject);
 begin
- // TODO: В начале документа отображается POsition - должно быть слово в зависимости от языка.
-// TODO: Расположение ключевых слов, которые выводятся в DOCX. Вставлять их в текст или добавлять автоматически?
-// TODO: Указать размеры таблицы и ячеек таблицы, исправить цвет полей на белый или невидимый
-// TODO: Сделать отступ абзацев согласно стандартам языка.
-// TODO: Сделать общую высоту строки 1.5 - не смог найти
-// TODO: Поставить текст по ширине
-// TODO: Досвід роботи другим шрифтом, надо Times
-// TODO: Полное название месяцев в R версии документа
-// TODO: Если в тексте указаны тег <a> то делаем URL
-// TODO: Если в тексте указаны тег <b> то выделяем болдом
-// TODO: В поле "Компания" нужно выделять слово USA болдом.
-
-
 if (FIleRDoc='')  then
    begin
    ShowMessage('Файл ещё не создан');
@@ -955,7 +942,6 @@ paragraph: TTMSFNCWXDocxParagraph;
 JobText : TTMSFNCWXDocxText;
 Postn:integer;
 Res:string;
-StringList3:TStringList;
 Alignment:TTMSFNCWXDocxTextAlignment;
 begin
 paragraph := section.AddParagraph;
@@ -966,22 +952,27 @@ JobText:=paragraph.AddText(UniExperiences['job_position']);
 JobText.Font.Size := 12;
 JobText.Font.Name:='Times New Roman';
 JobText.Font.Style := [fsBold];
-
-paragraph := section.AddParagraph;
-Paragraph.Spacing.Line:=400;
-Paragraph.Spacing.LineRule:=lrAuto;
-paragraph.Alignment := taLeft;
+JobText:=paragraph.AddText('        ');
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
+JobText:=paragraph.AddText(FormMain.GetFullMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetFullMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
+JobText:=paragraph.AddText('        ');
+JobText.Font.Size := 12;
+JobText.Font.Name:='Times New Roman';
 Postn:=Pos('USA',UpperCase(UniExperiences['employer']));
 if Postn>0
 then
 	begin
-		JobText:=paragraph.AddText(Copy(UniExperiences['employer'],1,Postn-1));
+		JobText:=paragraph.AddText('Company '+Copy(UniExperiences['employer'],1,Postn-1));
+//    JobText.Font.Style := [fsBold];
 		JobText.Font.Size := 12;
 		JobText.Font.Name:='Times New Roman';
 		JobText:=paragraph.AddText('USA');
 		JobText.Font.Size := 12;
 		JobText.Font.Name:='Times New Roman';
-		JobText.Font.Style:=[fsBold];
+//		JobText.Font.Style:=[fsBold];
 		JobText:=paragraph.AddText(Copy(UniExperiences['employer'],Postn+3,length(UniExperiences['employer'])));
 		JobText.Font.Size := 12;
 		JobText.Font.Name:='Times New Roman';
@@ -991,66 +982,6 @@ else
 		JobText:=paragraph.AddText(UniExperiences['employer']);
 		JobText.Font.Size := 12;
 		JobText.Font.Name:='Times New Roman';
-	end;
-
-paragraph := section.AddParagraph;
-Paragraph.Spacing.Line:=400;
-Paragraph.Spacing.LineRule:=lrAuto;
-paragraph.Alignment := taLeft;
-JobText:=paragraph.AddText(FormMain.GetFullMonthByRegion(UniExperiences['start_date'], UniResumes['region_id'])+	' - '+	FormMain.GetFullMonthByRegion(UniExperiences['end_date'], UniResumes['region_id']));
-JobText.Font.Size := 12;
-JobText.Font.Name:='Times New Roman';
-
-//paragraph := section.AddParagraph;
-//Paragraph.Spacing.Line:=400;
-//Paragraph.Spacing.LineRule:=lrAuto;
-//R_DOC_Richtext(paragraph,UniExperiences['responsibilities'],Res);
-//paragraph.Alignment := taJustified;
-//Res не должна иметь 0 в начале - тогда содержит текст ошибки
-StringList3:=TStringList.Create();
-StringList3.Text := UniExperiences.FieldByName('responsibilities').AsString;
-	for i:=0 to StringList3.Count-1 do
-		begin
-			paragraph := section.AddParagraph;
-			paragraph.Alignment:=taJustified;
-			Paragraph.Spacing.Line:=400;
-			Paragraph.Spacing.LineRule:=lrAuto;
-			Alignment:=taJustified;
-			R_DOC_RichText(paragraph, StringList3[i],Alignment, Res);
-			if not (Copy(Res,1,1)='0') then
-				begin
-				FormMain.Warning(Res);
-				exit;
-				end;
-		end;
-if not FormMain.IsEmpty(UniExperiences['benefits']) then
-	begin
-		paragraph := section.AddParagraph;
-		Paragraph.Spacing.Line:=400;
-		Paragraph.Spacing.LineRule:=lrAuto;
-		paragraph.Alignment := taLeft;
-		JobText:=paragraph.AddText(LocalTranslate('Преимущества'));
-		JobText.Font.Size := 12;
-		JobText.Font.Style := [fsUnderline];
-		JobText.Font.Name:='Times New Roman';
-		JobText:=paragraph.AddText(': '+UniExperiences['benefits']);
-		JobText.Font.Size := 12;
-		JobText.Font.Name:='Times New Roman';
-		JobText.Font.Style := [];
-	end;
-
-if not FormMain.IsEmpty(UniExperiences['other']) then
-	begin
-//		paragraph := section.AddParagraph;
-//		Paragraph.Spacing.Line:=400;
-//		Paragraph.Spacing.LineRule:=lrAuto;
-		Alignment := taJustified;
-		R_DOC_RichText(paragraph,UniExperiences['other'], Alignment,Res);
-		if not (Copy(Res,1,1)='0') then
-			begin
-			FormMain.Warning(Res);
-			exit;
-			end;
 	end;
 UniSkillsID.Close;
 UniSkillsID.ParamByName('p_experience_id').AsInteger:=UniExperiences['id'];
@@ -1063,7 +994,7 @@ if not VarIsNull(UniSkillsID['skill_id']) then
 	paragraph.Alignment := taJustified;
 	JobText:=paragraph.AddText(LocalTranslate('Навыки')+': ');
 	JobText.Font.Size := 12;
-	JobText.Font.Style := [fsBold];
+//	JobText.Font.Style := [fsBold];
 	JobText.Font.Name:='Times New Roman';
 	end;
 while not UniSkillsID.Eof do
@@ -1079,7 +1010,6 @@ while not UniSkillsID.Eof do
 		JobText.Font.Name:='Times New Roman';
 		end;
 	end;
-StringList3.Destroy();
 end;
 
 procedure TFormListResumes.R_DOC_AddTable(var section:TTMSFNCWXDocxSection);
@@ -1525,14 +1455,6 @@ DocXText.Font.Name:='Times New Roman';
 
 R_DOC_AddTable(section);
 R_DOC_AddFooter(section, resume_id);
-paragraph := section.AddParagraph;
-PageBreak:=Paragraph.AddBreak;
-Paragraph.Spacing.Line:=400;
-Paragraph.Spacing.LineRule:=lrAuto;
-DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
-DocXText.Font.Size := 18;
-DocXText.Font.Name:='Times New Roman';
-DocXText.Font.Style := [fsBold];
 UniExperiences.Close;
 UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
 UniExperiences.Open;

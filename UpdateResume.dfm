@@ -34,7 +34,6 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 0
     OnClick = BitBtnCloseClick
-    ExplicitTop = 764
   end
   object BitBtnSave: TBitBtn
     Left = 8
@@ -183,14 +182,13 @@ object FormUpdateResume: TFormUpdateResume
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 766
   end
   object PageControlRU: TPageControl
     Left = 0
     Top = 2
     Width = 980
     Height = 663
-    ActivePage = TabSheetMainRU
+    ActivePage = TabSheet1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -3165,6 +3163,61 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 9
       end
     end
+    object TabSheet1: TTabSheet
+      Caption = 'CV'
+      ImageIndex = 12
+      object Label11: TLabel
+        Left = 3
+        Top = 3
+        Width = 121
+        Height = 21
+        Caption = #1042#1074#1077#1076#1077#1085#1085#1103' '#1076#1083#1103' CV'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label12: TLabel
+        Left = 3
+        Top = 418
+        Width = 169
+        Height = 21
+        Caption = #1047#1085#1072#1093#1086#1076#1078#1077#1085#1085#1103' '#1092#1072#1081#1083#1072' CV'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+      end
+      object RichEditCVIntroduction: TRichEdit
+        Left = 3
+        Top = 41
+        Width = 966
+        Height = 352
+        EnableURLs = True
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 0
+        StyleElements = [seClient, seBorder]
+      end
+      object EditCVDocFilePath: TEdit
+        Left = 188
+        Top = 415
+        Width = 777
+        Height = 29
+        ReadOnly = True
+        TabOrder = 1
+        Text = 'EditCVDocFilePath'
+      end
+    end
   end
   object UniResumeID: TUniQuery
     Connection = FormMain.UniConnection
@@ -3178,7 +3231,9 @@ object FormUpdateResume: TFormUpdateResume
       '   job_opportunity, '
       '   job_place, phone_numbers_text, '
       '   resume_introduction, '
-      '   resume_file_path,'
+      '   cv_introduction,'
+      '   resume_doc_filepath,'
+      '   cv_doc_filepath,'
       '   archived, created, updated  '
       'from resumes'
       'where id = :P_ID')
@@ -3228,9 +3283,17 @@ object FormUpdateResume: TFormUpdateResume
       FieldName = 'resume_introduction'
       BlobType = ftWideMemo
     end
-    object UniResumeIDresume_file_path: TWideStringField
-      FieldName = 'resume_file_path'
-      Size = 512
+    object UniResumeIDcv_introduction: TWideMemoField
+      FieldName = 'cv_introduction'
+      BlobType = ftWideMemo
+    end
+    object UniResumeIDresume_doc_filepath: TWideStringField
+      FieldName = 'resume_doc_filepath'
+      Size = 510
+    end
+    object UniResumeIDcv_doc_filepath: TWideStringField
+      FieldName = 'cv_doc_filepath'
+      Size = 510
     end
     object UniResumeIDarchived: TShortintField
       FieldName = 'archived'
@@ -3406,11 +3469,11 @@ object FormUpdateResume: TFormUpdateResume
     SQL.Strings = (
       
         'CALL update_resume(:p_resume_id, :p_name, :p_job_opportunity, :p' +
-        '_job_place, :p_phone_numbers_text, :p_resume_introduction, :p_re' +
-        'sume_file_path, :p_archived, :p_footer_1_header, :p_footer_1_tex' +
-        't, :p_footer_2_header, :p_footer_2_text, :p_footer_3_header, :p_' +
-        'footer_3_text, :p_footer_4_header, :p_footer_4_text, @p_result);' +
-        ' SELECT CAST(@p_result AS SIGNED) AS '#39'@p_result'#39)
+        '_job_place, :p_phone_numbers_text, :p_resume_introduction, :p_cv' +
+        '_introduction, :p_archived, :p_footer_1_header, :p_footer_1_text' +
+        ', :p_footer_2_header, :p_footer_2_text, :p_footer_3_header, :p_f' +
+        'ooter_3_text, :p_footer_4_header, :p_footer_4_text, @p_result); ' +
+        'SELECT CAST(@p_result AS SIGNED) AS '#39'@p_result'#39)
     Connection = FormMain.UniConnection
     Left = 192
     Top = 376
@@ -3456,11 +3519,10 @@ object FormUpdateResume: TFormUpdateResume
         Value = Null
       end
       item
-        DataType = ftWideString
-        Name = 'p_resume_file_path'
+        DataType = ftWideMemo
+        Name = 'p_cv_introduction'
         ParamType = ptInput
-        Size = 512
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftInteger
