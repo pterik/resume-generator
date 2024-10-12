@@ -10,6 +10,7 @@ object FormNewSkill: TFormNewSkill
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   DesignSize = (
     294
     165)
@@ -56,16 +57,14 @@ object FormNewSkill: TFormNewSkill
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 186
-    ExplicitTop = 116
   end
   object BitBtnSave: TBitBtn
     Left = 16
     Top = 117
-    Width = 96
+    Width = 121
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = 'Save'
+    Caption = 'Save (F2)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -206,7 +205,7 @@ object FormNewSkill: TFormNewSkill
     ParentFont = False
     TabOrder = 1
     OnClick = BitBtnSaveClick
-    ExplicitTop = 116
+    OnKeyUp = BitBtnSaveKeyUp
   end
   object EditSkill: TEdit
     Left = 52

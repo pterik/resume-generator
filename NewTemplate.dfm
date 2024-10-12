@@ -188,7 +188,7 @@ object FormNewTemplate: TFormNewTemplate
     Top = 2
     Width = 980
     Height = 722
-    ActivePage = TabSheetMainRU
+    ActivePage = TabSheetJob1RU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

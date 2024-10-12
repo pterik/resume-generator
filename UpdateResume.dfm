@@ -187,8 +187,8 @@ object FormUpdateResume: TFormUpdateResume
     Left = 0
     Top = 2
     Width = 980
-    Height = 663
-    ActivePage = TabSheet1
+    Height = 672
+    ActivePage = TabSheetMainRU
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -471,7 +471,7 @@ object FormUpdateResume: TFormUpdateResume
       ParentFont = False
       object Label7: TLabel
         Left = 3
-        Top = 146
+        Top = 148
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 2'
@@ -484,7 +484,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label9: TLabel
         Left = 8
-        Top = 294
+        Top = 295
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 3'
@@ -497,7 +497,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object Label10: TLabel
         Left = 8
-        Top = 436
+        Top = 443
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 4'
@@ -523,9 +523,9 @@ object FormUpdateResume: TFormUpdateResume
         TabOrder = 1
       end
       object EditArticle1: TEdit
-        Left = 90
+        Left = 80
         Top = 0
-        Width = 881
+        Width = 717
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -537,9 +537,9 @@ object FormUpdateResume: TFormUpdateResume
         Text = 'EditArticle1'
       end
       object EditArticle2: TEdit
-        Left = 90
+        Left = 80
         Top = 147
-        Width = 881
+        Width = 717
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -552,8 +552,8 @@ object FormUpdateResume: TFormUpdateResume
       end
       object EditArticle3: TEdit
         Left = 90
-        Top = 294
-        Width = 881
+        Top = 293
+        Width = 717
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -566,8 +566,8 @@ object FormUpdateResume: TFormUpdateResume
       end
       object EditArticle4: TEdit
         Left = 90
-        Top = 432
-        Width = 881
+        Top = 439
+        Width = 717
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -612,7 +612,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object RichEditArticle3: TRichEdit
         Left = 3
-        Top = 325
+        Top = 328
         Width = 966
         Height = 105
         Font.Charset = RUSSIAN_CHARSET
@@ -628,7 +628,7 @@ object FormUpdateResume: TFormUpdateResume
       end
       object RichEditArticle4: TRichEdit
         Left = 3
-        Top = 467
+        Top = 474
         Width = 966
         Height = 105
         Font.Charset = RUSSIAN_CHARSET
@@ -641,6 +641,38 @@ object FormUpdateResume: TFormUpdateResume
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 8
+      end
+      object CBCV_footer2: TCheckBox
+        Left = 803
+        Top = 150
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 9
+      end
+      object CBCV_footer1: TCheckBox
+        Left = 803
+        Top = 3
+        Width = 166
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 10
+      end
+      object CBCV_footer3: TCheckBox
+        Left = 813
+        Top = 296
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 11
+      end
+      object CBCV_footer4: TCheckBox
+        Left = 813
+        Top = 444
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 12
       end
     end
     object TabSheetJob1RU: TTabSheet
@@ -3234,11 +3266,12 @@ object FormUpdateResume: TFormUpdateResume
       '   cv_introduction,'
       '   resume_doc_filepath,'
       '   cv_doc_filepath,'
-      '   archived, created, updated  '
+      '   created,'
+      '   updated  '
       'from resumes'
       'where id = :P_ID')
     Left = 368
-    Top = 224
+    Top = 232
     ParamData = <
       item
         DataType = ftUnknown
@@ -3295,9 +3328,6 @@ object FormUpdateResume: TFormUpdateResume
       FieldName = 'cv_doc_filepath'
       Size = 510
     end
-    object UniResumeIDarchived: TShortintField
-      FieldName = 'archived'
-    end
     object UniResumeIDcreated: TDateTimeField
       FieldName = 'created'
     end
@@ -3312,10 +3342,11 @@ object FormUpdateResume: TFormUpdateResume
       'SELECT '
       '  id,'
       '  resume_id,'
-      '  footer_header ,'
+      '  footer_header,'
       '  footer_text,'
       '  footer_order,'
-      '  created ,'
+      '  cv_include_footer,'
+      '  created,'
       '  updated'
       'from resume_footers f'
       ' WHERE f.resume_id = :p_resume_id'
@@ -3353,6 +3384,10 @@ object FormUpdateResume: TFormUpdateResume
     end
     object UniFootersIDupdated: TDateTimeField
       FieldName = 'updated'
+    end
+    object UniFootersIDcv_include_footer: TBooleanField
+      FieldName = 'cv_include_footer'
+      Required = True
     end
   end
   object UniExperienceID: TUniQuery
@@ -3472,8 +3507,10 @@ object FormUpdateResume: TFormUpdateResume
         '_job_place, :p_phone_numbers_text, :p_resume_introduction, :p_cv' +
         '_introduction, :p_archived, :p_footer_1_header, :p_footer_1_text' +
         ', :p_footer_2_header, :p_footer_2_text, :p_footer_3_header, :p_f' +
-        'ooter_3_text, :p_footer_4_header, :p_footer_4_text, @p_result); ' +
-        'SELECT CAST(@p_result AS SIGNED) AS '#39'@p_result'#39)
+        'ooter_3_text, :p_footer_4_header, :p_footer_4_text, :p_cv_includ' +
+        'e_footer1, :p_cv_include_footer2, :p_cv_include_footer3, :p_cv_i' +
+        'nclude_footer4, @p_result); SELECT CAST(@p_result AS SIGNED) AS ' +
+        #39'@p_result'#39)
     Connection = FormMain.UniConnection
     Left = 192
     Top = 376
@@ -3583,10 +3620,34 @@ object FormUpdateResume: TFormUpdateResume
         Value = Null
       end
       item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer1'
+        ParamType = ptInput
+        Value = False
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer2'
+        ParamType = ptInput
+        Value = False
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer3'
+        ParamType = ptInput
+        Value = False
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer4'
+        ParamType = ptInput
+        Value = False
+      end
+      item
         DataType = ftInteger
         Name = 'p_result'
         ParamType = ptOutput
-        Value = nil
+        Value = 0
       end>
     CommandStoredProcName = 'update_resume'
   end

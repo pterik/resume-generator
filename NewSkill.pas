@@ -24,6 +24,8 @@ type
     UniSkillCategoryupdated: TDateTimeField;
     procedure BitBtnSaveClick(Sender: TObject);
     procedure CBCategoryExit(Sender: TObject);
+    procedure BitBtnSaveKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private declarations }
     FCategoryID:integer;
@@ -55,6 +57,12 @@ except on E:Exception do
     ModalResult:=mrNone;
   end;
 end;
+end;
+
+procedure TFormNewSkill.BitBtnSaveKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+	if Key = VK_F2 then BitBtnSave.Click();
 end;
 
 procedure TFormNewSkill.CBCategoryExit(Sender: TObject);

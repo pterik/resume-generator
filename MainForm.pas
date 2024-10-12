@@ -76,18 +76,18 @@ type
     UniLocalTranslate: TUniQuery;
     UniLocalTranslateid: TIntegerField;
     UniTranslationid: TIntegerField;
-    UniTranslationRU: TWideMemoField;
-    UniTranslationUA: TWideMemoField;
-    UniTranslationEN: TWideMemoField;
-    UniTranslationHR: TWideMemoField;
-    UniTranslationPL: TWideStringField;
-    UniTranslationDE: TWideMemoField;
     UniLocalTranslateRU: TWideStringField;
     UniLocalTranslateUA: TWideStringField;
     UniLocalTranslateEN: TWideStringField;
     UniLocalTranslateHR: TWideStringField;
     UniLocalTranslatePL: TWideStringField;
     UniLocalTranslateDE: TWideStringField;
+    UniTranslationRU: TWideStringField;
+    UniTranslationUA: TWideStringField;
+    UniTranslationEN: TWideStringField;
+    UniTranslationHR: TWideStringField;
+    UniTranslationPL: TWideStringField;
+    UniTranslationDE: TWideStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormDestroy(Sender: TObject);
@@ -182,7 +182,7 @@ begin
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
 FormNewResume.SetEmptyUA;
-FormNewResume.SetEmpty;
+FormNewResume.SetEmptyTR;
 FormNewResume.ShowModal;
 end;
 
@@ -283,9 +283,9 @@ procedure TFormMain.FormKeyUp(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
 	if Key = VK_F3 then BitBtnNewTemplate.Click();
-	if Key = VK_F4 then BitBtnNewResume.Click();
-	if Key = VK_F5 then BitBtnTemplatesList.Click();
-	if Key = VK_F6 then BitBtnResumeList.Click();
+	if Key = VK_F5 then BitBtnNewResume.Click();
+	if Key = VK_F6 then BitBtnTemplatesList.Click();
+	if Key = VK_F7 then BitBtnResumeList.Click();
 end;
 
 procedure TFormMain.MailboxClick(Sender: TObject);
@@ -333,7 +333,7 @@ procedure TFormMain.NNewResumeClick(Sender: TObject);
 begin
 if FormNewResume=nil then Application.CreateForm(TFormNewResume, FormNewResume);
 FormNewResume.SetFormValues;
-FormNewResume.SetEmpty;
+FormNewResume.SetEmptyTR;
 FormNewResume.SetEmptyUA;
 FormNewResume.ShowModal;
 end;
@@ -997,7 +997,6 @@ end;
 function TFormMain.IsDateInvalid(const D: TDateTime): boolean;
 var Year, Month, Day: Word;
 begin
-Result:=false;
 DecodeDate(D, Year, Month, Day);
 Result:=(Year=0) or (D>Now()) or (Year<=2000);
 end;

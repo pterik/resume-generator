@@ -180,9 +180,9 @@ object FormSkills: TFormSkills
   object BitBtnEditSkill: TBitBtn
     Left = 177
     Top = 614
-    Width = 121
+    Width = 184
     Height = 40
-    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080
+    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080' (F4)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -228,7 +228,7 @@ object FormSkills: TFormSkills
     OnClick = BitBtnEditSkillClick
   end
   object BitBtnDeleteSkill: TBitBtn
-    Left = 329
+    Left = 449
     Top = 614
     Width = 121
     Height = 40

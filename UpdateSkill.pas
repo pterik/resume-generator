@@ -32,6 +32,7 @@ type
     procedure BitBtnSaveClick(Sender: TObject);
     procedure CBCategoryExit(Sender: TObject);
     procedure BitBtnCloseClick(Sender: TObject);
+    procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
     FCategoryID:integer;
@@ -83,6 +84,12 @@ while not UniSkillCategory.Eof do
     if UniSkillCategory['category'] = CBCategory.Text then FCategoryID:=UniSkillCategory['id'];
     UniSkillCategory.Next;
   end;
+end;
+
+procedure TFormUpdateSkill.FormKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key = VK_F2 then BitBtnSave.Click();
 end;
 
 procedure TFormUpdateSkill.SetFormValues;

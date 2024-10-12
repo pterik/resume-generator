@@ -4,12 +4,6 @@ Coordinates=954,810,124,58
 [BitBtnOpenResume]
 Coordinates=666,742,128,58
 
-[FormNewResume.UniGetTemplateFooters]
-Coordinates=1151,10,258,212
-
-[FormNewResume.UniGetResume]
-Coordinates=143,10,208,344
-
 [UniExperiencestemplate_id]
 Coordinates=1171,232,171,36
 
@@ -18,9 +12,6 @@ Coordinates=10,742,122,58
 
 [UniExperiencesresume_id]
 Coordinates=1171,287,165,36
-
-[FormNewResume.UniSPInsertExperiences]
-Coordinates=303,742,261,58
 
 [UniSkillsIDskill_id]
 Coordinates=64,1179,117,36
@@ -79,9 +70,6 @@ Coordinates=459,810,119,58
 [UniResumeFootersfooter_text]
 Coordinates=1171,727,186,36
 
-[FormNewResume.UniGetTemplate]
-Coordinates=926,10,215,256
-
 [UniDeleteResume]
 Coordinates=10,810,119,58
 
@@ -96,9 +84,6 @@ Coordinates=112,878,124,36
 
 [UniResumeslang]
 Coordinates=1171,892,112,36
-
-[FormNewResume.UniSPInsertSkillShow]
-Coordinates=744,608,246,58
 
 [UniSkillsID]
 Coordinates=224,608,77,102
@@ -117,12 +102,6 @@ Coordinates=10,608,204,124
 
 [UniExperiences]
 Coordinates=613,10,105,300
-
-[FormNewResume.UniGetTemplateJobs]
-Coordinates=361,10,242,300
-
-[FormNewResume.UniGetCopyResumeID]
-Coordinates=311,608,251,80
 
 [FormMain.UniQueryParameters]
 Coordinates=1242,386,196,124
@@ -152,9 +131,6 @@ Coordinates=1171,1222,98,36
 [BitBtnCV]
 Coordinates=142,742,67,58
 
-[FormNewResume.UniGetSkills]
-Coordinates=584,386,192,212
-
 [BitBtnCheck]
 Coordinates=1267,742,85,58
 
@@ -172,9 +148,6 @@ Coordinates=1171,1332,131,36
 
 [UniResumes]
 Coordinates=10,10,123,366
-
-[FormNewResume.UniGetJobs]
-Coordinates=728,10,188,300
 
 [UniExperiencesresponsibilities]
 Coordinates=1171,1387,190,36
@@ -209,9 +182,6 @@ Coordinates=10,878,92,36
 [UniExperiencesjob_order]
 Coordinates=417,1494,159,36
 
-[FormNewResume.UniSPInsertResume]
-Coordinates=804,742,237,58
-
 [UniResumeFootersfooter_order]
 Coordinates=218,1494,195,36
 
@@ -226,9 +196,6 @@ Coordinates=1456,1,134,36
 
 [UniExperiencesid]
 Coordinates=1456,56,115,36
-
-[FormNewResume.UniGetFooters]
-Coordinates=200,386,205,212
 
 [UniResumeFootersid]
 Coordinates=1456,111,135,36

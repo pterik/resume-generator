@@ -171,7 +171,7 @@ object FormTemplatesList: TFormTemplatesList
     Top = 614
     Width = 140
     Height = 40
-    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080
+    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080' (F4)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16

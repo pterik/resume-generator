@@ -10,6 +10,7 @@ object FormListResumes: TFormListResumes
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  KeyPreview = True
   OnCreate = FormCreate
   OnKeyUp = FormKeyUp
   DesignSize = (
@@ -150,7 +151,7 @@ object FormListResumes: TFormListResumes
     Width = 134
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080'(F2)'
+    Caption = #1056#1077#1076#1072#1075#1091#1074#1072#1090#1080' (F4)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -247,12 +248,12 @@ object FormListResumes: TFormListResumes
     OnClick = BitBtnDeleteResumeClick
   end
   object BitBtnNewResume: TBitBtn
-    Left = 151
+    Left = 144
     Top = 559
-    Width = 154
+    Width = 161
     Height = 38
     Anchors = [akLeft, akBottom]
-    Caption = #1053#1086#1074#1077'  '#1088#1077#1079#1102#1084#1077' (F4)'
+    Caption = #1053#1086#1074#1077'  '#1088#1077#1079#1102#1084#1077' (F3)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -296,6 +297,7 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 3
     OnClick = BitBtnNewResumeClick
+    OnKeyUp = BitBtnNewResumeKeyUp
   end
   object BitBtnClose: TBitBtn
     Left = 856
@@ -314,7 +316,6 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 4
     OnClick = BitBtnCloseClick
-    ExplicitLeft = 844
   end
   object EditCopyNumber: TEdit
     Left = 536
@@ -392,7 +393,6 @@ object FormListResumes: TFormListResumes
     ParentFont = False
     TabOrder = 9
     OnClick = BitBtnPDFClick
-    ExplicitLeft = 844
   end
   object BitBtnOpenResume: TBitBtn
     Left = 318
@@ -446,9 +446,9 @@ object FormListResumes: TFormListResumes
     OnClick = BitBtnOpenResumeClick
   end
   object BitBtnSaveResume: TBitBtn
-    Left = 151
+    Left = 144
     Top = 613
-    Width = 154
+    Width = 161
     Height = 38
     Anchors = [akLeft, akBottom]
     Caption = #1047#1073#1077#1088#1077#1075#1090#1080' (F9)'
@@ -1602,6 +1602,7 @@ object FormListResumes: TFormListResumes
       '  job_place ,'
       '  phone_numbers_text ,'
       '  resume_introduction, '
+      '  cv_introduction, '
       '  resume_doc_filepath,'
       '  cv_doc_filepath,'
       '  cl_doc_filepath,'
@@ -1673,6 +1674,10 @@ object FormListResumes: TFormListResumes
       FieldName = 'resume_introduction'
       BlobType = ftWideMemo
     end
+    object UniResumescv_introduction: TWideMemoField
+      FieldName = 'cv_introduction'
+      BlobType = ftWideMemo
+    end
     object UniResumesresume_doc_filepath: TWideStringField
       FieldName = 'resume_doc_filepath'
       Size = 510
@@ -1697,7 +1702,7 @@ object FormListResumes: TFormListResumes
       FieldName = 'cl_pdf_filepath'
       Size = 510
     end
-    object UniResumesarchived: TShortintField
+    object UniResumesarchived: TBooleanField
       FieldName = 'archived'
     end
     object UniResumescreated: TDateTimeField
@@ -1780,12 +1785,15 @@ object FormListResumes: TFormListResumes
     Transaction = FormMain.UniTransaction
     SQL.Strings = (
       'select '
-      'id, resume_id, footer_header, '
-      'footer_text, '
-      'footer_order '
+      '  id, '
+      '  resume_id, '
+      '  footer_header, '
+      '  footer_text, '
+      '  footer_order,'
+      '  cv_include_footer'
       'from resume_footers'
-      'where resume_id = :p_resume_id'
-      'order by footer_order')
+      '  where resume_id = :p_resume_id'
+      '  order by footer_order')
     RefreshOptions = [roAfterInsert, roAfterUpdate, roBeforeEdit]
     OnCalcFields = UniResumesCalcFields
     Left = 464
@@ -1814,6 +1822,10 @@ object FormListResumes: TFormListResumes
     end
     object UniResumeFootersfooter_order: TIntegerField
       FieldName = 'footer_order'
+    end
+    object UniResumeFooterscv_include_footer: TBooleanField
+      FieldName = 'cv_include_footer'
+      Required = True
     end
   end
   object UniExperiences: TUniQuery

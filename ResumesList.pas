@@ -94,7 +94,6 @@ type
     CBWordWrap: TCheckBox;
     BitBtn1: TBitBtn;
     TMSFNCWXDocx2: TTMSFNCWXDocx;
-    UniResumesarchived: TShortintField;
     DBFilePath: TDBRichEdit;
     UniSPUpdateFilepathes: TUniStoredProc;
     UniResumesresume_pdf_filepath: TWideStringField;
@@ -103,6 +102,9 @@ type
     UniResumesresume_doc_filepath: TWideStringField;
     UniResumescv_doc_filepath: TWideStringField;
     UniResumescl_doc_filepath: TWideStringField;
+    UniResumescv_introduction: TWideMemoField;
+    UniResumesarchived: TBooleanField;
+    UniResumeFooterscv_include_footer: TBooleanField;
     procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnNewResumeClick(Sender: TObject);
 		procedure BitBtnDeleteResumeClick(Sender: TObject);
@@ -124,6 +126,8 @@ type
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure DBRichEditorSaveClipboard(Sender: TObject; NumObjects,
       NumChars: Integer; var SaveClipboard: Boolean);
+    procedure BitBtnNewResumeKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     FileRDOC, FileCVDOC, FileCLDOC,FileRPDF, FileCVPDF, FileCLPDF:string;
 		WarningFired:boolean;
@@ -142,7 +146,10 @@ type
 		procedure LocateTagA(const SourceText: string; var TagBegin, TagEnd:integer; var isFound:boolean);
 		procedure LocateTagB(const SourceText: string; var TagBegin, TagEnd: integer; var isFound: boolean);
 		procedure LocateTagU(const SourceText: string; var TagBegin, TagEnd: integer; var isFound: boolean);
-    procedure R_DOC_Add_CVJob(var section: TTMSFNCWXDocxSection);
+    procedure R_CV_Add_Job(var section: TTMSFNCWXDocxSection);
+		procedure R_CV_AddHeader(var section:TTMSFNCWXDocxSection);
+    procedure R_CV_AddFooter(var section: TTMSFNCWXDocxSection;
+      resume_id: integer);
 	public
 		procedure SetFormValues;
 		function LocalTranslate(Word:UnicodeString):UnicodeString;
@@ -269,7 +276,7 @@ end;
 
 procedure TFormListResumes.BitBtnSaveResumeClick(Sender: TObject);
 var
-IsErrorRDOC, IsErrorCVDOC, IsErrorCLDOC, IsErrorRPDF, IsErrorCVPDF, IsErrorCLPDF, IsDone:boolean;
+IsErrorRDOC, IsErrorCVDOC, IsErrorCLDOC, IsErrorRPDF, IsErrorCVPDF, IsErrorCLPDF, IsDone, isErrorHappens:boolean;
 //TemplatesAreReady:boolean;
 FName:string;
 begin
@@ -278,12 +285,22 @@ if VarIsNull(UniResumes['id']) then
 	raise Exception.Create('Оберіть резюме із списка');
 	exit;
 	end;
+IsDone:=true;
+isErrorHappens:=false;
 WarningFired:=false;
 //TemplatesAreReady:=true;
 FName:=lowercase(ReplaceStr(UniResumes['name'],' ','-'))+'-'+lowercase(UniResumes['lang']);
-if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\r') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\r');
-if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cv') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cv');
-if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cl') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['region_id']+'\cl');
+try
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\r') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\r');
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cv');
+if not DirectoryExists(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl') then ForceDirectories(FormMain.Main_Folder+'\'+UniResumes['country']+'\cl');
+except on E:Exception do
+  begin
+  FormMain.Warning('Помилка під час створення папок');
+  isErrorHappens:=true;
+  exit;
+  end;
+end;
 //======================  R DOC  ======================
 FileRDoc:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\r-'+FName+'.docx';
 IsErrorRDOC:=false;
@@ -294,11 +311,13 @@ except
 	begin
 	FormMain.Warning('Збій при видаленні файла "'+ExtractFileName(FileRDoc)+'": '+E.Message);
   IsErrorRDOC:=true;
+  isErrorHappens:=false;
 	end;
   on E:Exception do
   begin
   FormMain.Warning('Текст помилки: '+E.Message);
   IsErrorRDOC:=true;
+  isErrorHappens:=true;
   end;
 end;
 if not IsErrorRDoc
@@ -308,6 +327,8 @@ if not IsDone then
 	begin
   FormMain.Warning('Збій при обробці резюме DOCX "'+intToStr(UniResumes['id'])+'"');
 	IsErrorRDOC:=true;
+  IsDone:=false;
+  isErrorHappens:=true;
 	end;
 //======================  R PDF  ======================
 FileRPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\r\'+FName+'.pdf';
@@ -319,11 +340,13 @@ except
 	begin
 	FormMain.Warning('Збый при видаленні файла "'+ExtractFileName(FileRPDF)+'" можливо він відкритий у програмі WORD ');
   IsErrorRPDF:=true;
+  IsErrorHappens:=true;
 	end;
   on E:Exception do
   begin
   FormMain.Warning('Текст помилки: '+E.Message);
   IsErrorRPDF:=true;
+  IsErrorHappens:=true;
   end;
 end;
 if not IsErrorRPDF
@@ -333,6 +356,7 @@ if not isDone then
 	begin
 	FormMain.Warning('Збій при обробці Резюме PDF"'+intToStr(UniResumes['id'])+'"');
   IsErrorRPDF:=true;
+  IsErrorHappens:=true;
   end;
 //======================  CV DOC  ======================
 FileCVDoc:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.docx';
@@ -344,11 +368,13 @@ except
 	begin
 	FormMain.Warning('Збій при видаленні файла "'+FileCVDoc+'" можливо він відкритий у програмі Word');
   IsErrorCVDOC:=true;
+  isErrorHappens:=true;
 	end;
   on E:Exception do
   begin
   FormMain.Warning('Текст помилки: '+E.Message);
   IsErrorCVDOC:=true;
+  isErrorHappens:=true;
   end;
 end;
 if not IsErrorCVDOC
@@ -358,6 +384,7 @@ if not isDone then
 	begin
 	FormMain.Warning('Збій при обробці CV DOCX "'+intToStr(UniResumes['id'])+'"');
   IsErrorCVDOC:=true;
+  isErrorHappens:=true;
 	end;
 //======================  CV PDF  ======================
 FileCVPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cv\'+FName+'.pdf';
@@ -369,11 +396,13 @@ except
 	begin
 	FormMain.Warning('Збій при видаленні файла "'+FileCVPDF+'" можливо він відкритий у програмі Word');
   IsErrorCVPDF:=false;
+  isErrorHappens:=true;
 	end;
   on E:Exception do
   begin
   FormMain.Warning('Текст помилки: '+E.Message);
   IsErrorCVPDF:=false;
+  isErrorHappens:=true;
   end;
 end;
 if not IsErrorCVDOC
@@ -384,6 +413,7 @@ then
 	begin
 	FormMain.Warning('Збій при обробці CV PDF "'+intToStr(UniResumes['id'])+'"');
   IsErrorCVPDF:=false;
+  isErrorHappens:=true;
   end;
 //======================  CL DOC  ======================
 IsErrorCLDOC:=false;
@@ -395,11 +425,13 @@ except
 	begin
 	FormMain.Warning('Збій при видаленні файла "'+FileCLDoc+'", можливо він відкритий у програмі Word');
   IsErrorCLDOC:=true;
+  isErrorHappens:=true;
 	end;
   on E:Exception do
   begin
   FormMain.Warning('Текст помилки: '+E.Message);
   IsErrorCLDOC:=true;
+  isErrorHappens:=true;
   end;
 end;
 if not IsErrorCLDOC
@@ -409,6 +441,7 @@ if not isDone then
 	begin
 	FormMain.Warning('Збій при обробці CoverLetter DOCX "'+intToStr(UniResumes['id'])+'"');
   IsErrorCLDOC:=true;
+  isErrorHappens:=true;
 	end;
 //======================  CL PDF  ======================
 FileCLPDF:=FormMain.Main_Folder+'\'+UniResumes['country']+'\cl\'+FName+'.pdf';
@@ -420,11 +453,13 @@ except
 	begin
 	FormMain.Warning('Збій при видаленні файла "'+FileCLPDF+'", можливо він відкритий у програмі Word');
   IsErrorCLPDF:=true;
+  isErrorHappens:=true;
 	end;
   on E:Exception do
   begin
   FormMain.Warning('Текст помилки: '+E.Message);
   IsErrorCLPDF:=true;
+  isErrorHappens:=true;
   end;
 end;
 if not IsErrorCLPDF
@@ -434,20 +469,24 @@ if not isDone then
 	begin
 	FormMain.Warning('Збій при обробці CoverLetter PDF "'+intToStr(UniResumes['id'])+'"');
   IsErrorCLPDF:=true;
+  isErrorHappens:=true;
   end;
 //=======================================================
-UniSPUpdateFilepathes.Prepare;
-UniSPUpdateFilepathes.ParamByName('p_name').AsString  := trim(UniResumes['name']);
-UniSPUpdateFilepathes.ParamByName('p_region_id').AsString := UniResumes['region_id'];
-UniSPUpdateFilepathes.ParamByName('p_resume_doc_filepath').AsString := FileRDoc;
-UniSPUpdateFilepathes.ParamByName('p_cv_doc_filepath').AsString := FileCVDoc;
-UniSPUpdateFilepathes.ParamByName('p_cl_doc_filepath').AsString := FileCLDoc;
-UniSPUpdateFilepathes.ParamByName('p_resume_pdf_filepath').AsString := FileRPDF;
-UniSPUpdateFilepathes.ParamByName('p_cv_pdf_filepath').AsString := FileCVPDF;
-UniSPUpdateFilepathes.ParamByName('p_cl_pdf_filepath').AsString := FileCLPDF;
-UniSPUpdateFilepathes.ExecSQL;
-
-ShowMessage('Шаблоны успешно обработаны, резюме готово: '+UniResumes['name']);
+if not IsErrorHappens then
+  begin
+  UniSPUpdateFilepathes.Prepare;
+  UniSPUpdateFilepathes.ParamByName('p_name').AsString  := trim(UniResumes['name']);
+  UniSPUpdateFilepathes.ParamByName('p_region_id').AsString := UniResumes['region_id'];
+  UniSPUpdateFilepathes.ParamByName('p_resume_doc_filepath').AsString := FileRDoc;
+  UniSPUpdateFilepathes.ParamByName('p_cv_doc_filepath').AsString := FileCVDoc;
+  UniSPUpdateFilepathes.ParamByName('p_cl_doc_filepath').AsString := FileCLDoc;
+  UniSPUpdateFilepathes.ParamByName('p_resume_pdf_filepath').AsString := FileRPDF;
+  UniSPUpdateFilepathes.ParamByName('p_cv_pdf_filepath').AsString := FileCVPDF;
+  UniSPUpdateFilepathes.ParamByName('p_cl_pdf_filepath').AsString := FileCLPDF;
+  UniSPUpdateFilepathes.ExecSQL;
+  ShowMessage('Шаблони успішно оброблені, резюме готове: '+UniResumes['name']);
+  end
+  else ShowMessage('Шаблони не оброблені до кінця, деякі файли не сформовані');
 end;
 
 procedure TFormListResumes.CBWordWrapClick(Sender: TObject);
@@ -598,6 +637,16 @@ FormNewResume.ShowModal;
 UniResumes.Refresh;
 end;
 
+procedure TFormListResumes.BitBtnNewResumeKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+	if Key = VK_F3 then BitBtnNewResume.Click();
+	if Key = VK_F4 then BitBtnEditResume.Click();
+	if Key = VK_F7 then BitBtnArchive.Click();
+	if Key = VK_F8 then BitBtnDeleteResume.Click();
+	if Key = VK_F9 then BitBtnSaveResume.Click();
+end;
+
 procedure TFormListResumes.BitBtnOpenResumeClick(Sender: TObject);
 begin
 if (FIleRDoc='')  then
@@ -609,7 +658,7 @@ if (FIleRDoc='')  then
 if (FIleRDoc<>'')
    then
    begin
-   FormMain.Warning('Открываем файл '+FileRDoc);
+//   FormMain.Warning('Открываем файл '+FileRDoc);
    ShellExecute(Handle, 'open', PWideChar(FileRDoc), nil, nil, SW_SHOWNORMAL);
    end
 end;
@@ -746,7 +795,7 @@ paragraph := section.AddParagraph;
 Paragraph.Spacing.Line:=400;
 Paragraph.Spacing.LineRule:=lrAuto;
 
-if not VarIsNull(UniResumes['resume_introduction']) then
+if  not VarIsNull(UniResumes['resume_introduction']) then
 	begin
 	StringList.Text := UniResumes.FieldByName('resume_introduction').AsString;
 	for i:=0 to StringList.Count-1 do
@@ -764,17 +813,91 @@ UniResumeFooters.ParamByName('p_resume_id').Value:=resume_id;
 UniResumeFooters.Open;
 while not UniResumeFooters.Eof do
 	begin
-	paragraph := section.AddParagraph;
-	Paragraph.Spacing.Line:=400;
-	Paragraph.Spacing.LineRule:=lrAuto;
-	FooterText:=paragraph.AddText(UniResumeFooters['footer_header']);
-	paragraph.Alignment := taLeft;
-	FooterText.Font.Size := 12;
-	FooterText.Font.Name:='Times New Roman';
-	FooterText.Font.Style := [fsBold];
+    if UniResumeFooters.FieldByName('cv_include_footer').AsBoolean then
+      begin
+      paragraph := section.AddParagraph;
+      Paragraph.Spacing.Line:=400;
+      Paragraph.Spacing.LineRule:=lrAuto;
+      FooterText:=paragraph.AddText(UniResumeFooters['footer_header']);
+      paragraph.Alignment := taLeft;
+      FooterText.Font.Size := 12;
+      FooterText.Font.Name:='Times New Roman';
+      FooterText.Font.Style := [fsBold];
+    //	paragraph := section.AddParagraph;
+    //	Paragraph.Spacing.Line:=400;
+    //	Paragraph.Spacing.LineRule:=lrAuto;
+    //Разложить footer_text на отдельные строки
+    //	FooterText:=paragraph.AddText(UniResumeFooters['footer_text']);
+      StringList2:=TStringList.Create();
+      StringList2.Text := UniResumeFooters.FieldByName('footer_text').AsString;
+      for i:=0 to StringList2.Count-1 do
+        if not FormMain.IsEmpty(StringList2[i]) then
+        begin
+          paragraph := section.AddParagraph;
+          Paragraph.Spacing.Line:=400;
+          Paragraph.Spacing.LineRule:=lrAuto;
+
+          FooterText.Font.Size := 12;
+          FooterText.Font.Name:='Times New Roman';
+          Alignment:=taJustified;
+          R_DOC_RichText(paragraph, StringList2[i], Alignment, Res);
+        end;
+      StringList2.Destroy();
+  //	FooterText:=paragraph.AddText(UniResumeFooters['footer_text']);
+  //	paragraph.Alignment := taLeft;
+  //	FooterText.Font.Size := 12;
+  //	FooterText.Font.Name:='Times New Roman';
+  end;
+	UniResumeFooters.Next;
+	end;
+StringList.Destroy();
+end;
+
+procedure TFormListResumes.R_CV_AddFooter(var section: TTMSFNCWXDocxSection; resume_id:integer);
+var paragraph: TTMSFNCWXDocxParagraph;
+StringList,StringList2:TStringList;
+i:integer;
+FooterText : TTMSFNCWXDocxText;
+Alignment:TTMSFNCWXDocxTextAlignment;
+Res:string;
+begin
+StringList:=TStringList.Create();
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+
+if not VarIsNull(UniResumes['cv_introduction']) then
+	begin
+	StringList.Text := UniResumes.FieldByName('cv_introduction').AsString;
+	for i:=0 to StringList.Count-1 do
+		begin
+			paragraph := section.AddParagraph;
+			paragraph.Alignment:=taJustified;
+			Paragraph.Spacing.Line:=400;
+			Paragraph.Spacing.LineRule:=lrAuto;
+			Alignment:=taJustified;
+			R_DOC_RichText(paragraph, StringList[i], Alignment, Res);
+		end;
+	end;
+UniResumeFooters.Close;
+UniResumeFooters.ParamByName('p_resume_id').Value:=resume_id;
+UniResumeFooters.Open;
+while not UniResumeFooters.Eof do
+	begin
+  if not FormMain.IsEmpty(UniResumeFooters['footer_header']) then
+    begin
+  	paragraph := section.AddParagraph;
+	  Paragraph.Spacing.Line:=400;
+  	Paragraph.Spacing.LineRule:=lrAuto;
+	  FooterText:=paragraph.AddText(UniResumeFooters['footer_header']);
+  	paragraph.Alignment := taLeft;
+	  FooterText.Font.Size := 12;
+  	FooterText.Font.Name:='Times New Roman';
+	  FooterText.Font.Style := [fsBold];
 //	paragraph := section.AddParagraph;
 //	Paragraph.Spacing.Line:=400;
 //	Paragraph.Spacing.LineRule:=lrAuto;
+  end;
 //Разложить footer_text на отдельные строки
 //	FooterText:=paragraph.AddText(UniResumeFooters['footer_text']);
 	StringList2:=TStringList.Create();
@@ -799,6 +922,63 @@ while not UniResumeFooters.Eof do
 	end;
 StringList.Destroy();
 StringList2.Destroy();
+end;
+
+procedure TFormListResumes.R_CV_AddHeader(var section: TTMSFNCWXDocxSection);
+var
+paragraph: TTMSFNCWXDocxParagraph;
+doctext     : TTMSFNCWXDocxText;
+externalHyperlink:TTMSFNCWXDocxExternalHyperlink;
+Alignment:TTMSFNCWXDocxTextAlignment;
+Res:string;
+begin
+paragraph := section.AddParagraph;
+//Paragraph.Spacing.After:=180;
+//Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+//Paragraph.Spacing.LineRule:=lrExactly;
+//Paragraph.Alignment:=taCenter;
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[1],20,20);
+doctext := paragraph.AddText('     '+UniResumes['phone_numbers_text']);
+Paragraph.Alignment:=taLeft;
+//Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
+paragraph := section.AddParagraph;
+//Paragraph.Spacing.After:=180;
+//Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+//Paragraph.Spacing.LineRule:=lrExactly;
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[0],20,20);
+Doctext := paragraph.AddText('     '+UniResumes['job_place']);
+//Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
+paragraph := section.AddParagraph;
+//Paragraph.Spacing.After:=180;
+//Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+//Paragraph.Spacing.LineRule:=lrExactly;
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[2],20,20);
+Doctext := paragraph.AddText('     '+FormMain.Email);
+//Paragraph.Alignment:=taLeft;
+Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
+paragraph := section.AddParagraph;
+//Paragraph.Spacing.After:=180;
+//Paragraph.Spacing.Before:=180;
+Paragraph.Spacing.Line:=180;
+//Paragraph.Spacing.LineRule:=lrExactly;
+paragraph.AddImage(TMSFNCBitmapContainer1.Bitmaps[3],20,20);
+Doctext := paragraph.AddText('     ');
+Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
+R_DOC_RichText(paragraph,LocalTranslate('Рекомендательное письмо')+' <a>'+FormMain.RecommendationLink+'</a>', Alignment,Res);
+Doctext.Font.Color := clBlack;
+Doctext.Font.Size := 12;
+DocText.Font.Name:='Times New Roman';
 end;
 
 procedure TFormListResumes.R_DOC_AddJob(var section: TTMSFNCWXDocxSection);
@@ -935,7 +1115,7 @@ while not UniSkillsID.Eof do
 StringList3.Destroy();
 end;
 
-procedure TFormListResumes.R_DOC_Add_CVJob(var section: TTMSFNCWXDocxSection);
+procedure TFormListResumes.R_CV_Add_Job(var section: TTMSFNCWXDocxSection);
 var
 i:integer;
 paragraph: TTMSFNCWXDocxParagraph;
@@ -1436,7 +1616,7 @@ Paragraph.Spacing.Line:=600;
 DocXText:=paragraph.AddText(FormMain.FullName);
 paragraph.Heading := hlHeading1;
 paragraph.Alignment := taLeft;
-DocXText.Font.Size := 22;
+DocXText.Font.Size := 16;
 DocXText.Font.Style := [fsBold];
 DocXText.Font.Name:='Times New Roman';
 
@@ -1452,15 +1632,17 @@ DocXText.Font.Name:='Times New Roman';
 DocXtext := paragraph.AddText(UniResumes['name']);
 DocXtext.Font.Size := 12;
 DocXText.Font.Name:='Times New Roman';
-
-R_DOC_AddTable(section);
-R_DOC_AddFooter(section, resume_id);
+//cv_introduction
+R_CV_AddHeader(section);
+R_CV_AddFooter(section, resume_id);
+paragraph := section.AddParagraph;
+PageBreak:=Paragraph.AddBreak;
 UniExperiences.Close;
 UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
 UniExperiences.Open;
 while not UniExperiences.Eof do
 	begin
-	R_DOC_Add_CVJob(section);
+	R_CV_Add_Job(section);
 	UniExperiences.Next;
 	if not UniExperiences.Eof then
 		begin
@@ -1468,7 +1650,7 @@ while not UniExperiences.Eof do
 		paragraph.Alignment := taJustified;
 		Paragraph.Spacing.Line:=400;
 		Paragraph.Spacing.LineRule:=lrAuto;
-		DocXtext:=paragraph.AddText('========================================================');
+		DocXtext:=paragraph.AddText('');
 		DocXText.Font.Size := 12;
 		DocXText.Font.Name:='Times New Roman';
 		end;

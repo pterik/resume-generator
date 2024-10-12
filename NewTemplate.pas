@@ -918,13 +918,6 @@ IsJob7Active := not(FormMain.IsEmpty(Edit7Name.Text) or FormMain.IsEmpty(Edit7Co
 IsJob8Active := not(FormMain.IsEmpty(Edit8Name.Text) or FormMain.IsEmpty(Edit8Company.Text) or FormMain.IsEmpty(RichEdit8Resp.Text));
 IsJob9Active := not(FormMain.IsEmpty(Edit9Name.Text) or FormMain.IsEmpty(Edit9Company.Text) or FormMain.IsEmpty(RichEdit9Resp.Text));
 IsJob10Active := not(FormMain.IsEmpty(Edit10Name.Text) or FormMain.IsEmpty(Edit10Company.Text) or FormMain.IsEmpty(RichEdit10Resp.Text));
-
-  if FormMain.IsEmpty(EditName.Text) then
-	begin
-    ShowMessage('Пусте поле "Назва резюме"');
-    Result := false;
-    exit;
-  end;
   if Length(Trim(EditName.Text))<5 then
   begin
     ShowMessage('Поле "Назва резюме" меньше за 5 символов, виправіть');
@@ -1395,7 +1388,16 @@ end;
 
 procedure TFormNewTemplate.SetFormValues;
 begin
-
+Clear1;
+Clear2;
+Clear3;
+Clear4;
+Clear5;
+Clear6;
+Clear7;
+Clear8;
+Clear9;
+Clear10;
 PageControl.ActivePageIndex:=0;
 SetEmptyTemplatesRU;
 SetEmptyFootersRU;
@@ -2017,7 +2019,6 @@ RichEdit1Resp.Text := '';
 Edit1Benefits.Text := '';
 RichEdit1Other.Text:='';
 Memo1Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear2;
@@ -2031,7 +2032,6 @@ RichEdit2Resp.Text := '';
 Edit2Benefits.Text := '';
 RichEdit2Other.Text:='';
 Memo2Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear3;
@@ -2045,7 +2045,6 @@ RichEdit3Resp.Text := '';
 Edit3Benefits.Text := '';
 RichEdit3Other.Text:='';
 Memo3Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear4;
@@ -2059,7 +2058,6 @@ RichEdit4Resp.Text := '';
 Edit4Benefits.Text := '';
 RichEdit4Other.Text:='';
 Memo4Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear5;
@@ -2073,7 +2071,6 @@ RichEdit5Resp.Text := '';
 Edit5Benefits.Text := '';
 RichEdit5Other.Text:='';
 Memo5Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear6;
@@ -2087,7 +2084,6 @@ Edit6Benefits.Text := '';
 RichEdit6Resp.Text := '';
 RichEdit6Other.Text:='';
 Memo6Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear7;
@@ -2101,7 +2097,6 @@ RichEdit7Resp.Text := '';
 Edit7Benefits.Text := '';
 RichEdit7Other.Text:='';
 Memo7Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear8;
@@ -2115,7 +2110,6 @@ RichEdit8Resp.Text := '';
 Edit8Benefits.Text := '';
 RichEdit8Other.Text:='';
 Memo8Skills.Clear;
-
 end;
 
 procedure TFormNewTemplate.Clear9;

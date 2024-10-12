@@ -253,7 +253,6 @@ type
     RichEdit8Other: TRichEdit;
     RichEdit9Other: TRichEdit;
     RichEdit10Other: TRichEdit;
-    UniResumeIDarchived: TShortintField;
     UniSPInsertSkillShow: TUniStoredProc;
     StaticText2: TStaticText;
     UniSPDeleteExperiences: TUniStoredProc;
@@ -267,6 +266,11 @@ type
     UniResumeIDcv_doc_filepath: TWideStringField;
     Label12: TLabel;
     EditCVDocFilePath: TEdit;
+    CBCV_footer2: TCheckBox;
+    CBCV_footer1: TCheckBox;
+    CBCV_footer3: TCheckBox;
+    CBCV_footer4: TCheckBox;
+    UniFootersIDcv_include_footer: TBooleanField;
 		procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnSaveClick(Sender: TObject);
 		procedure FormCreate(Sender: TObject);
@@ -793,6 +797,9 @@ while not UniFootersID.EOF  do
 		if VarIsNull(UniFootersID['footer_text'])
 			then RichEditArticle1.Text :=''
       else RichEditArticle1.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['cv_include_footer'])
+			then CBCV_footer1.Checked := false
+      else CBCV_footer1.Checked := not UniFootersID.FieldByName('cv_include_footer').AsBoolean;
 		end;
 	if UniFootersID['footer_order']=2 then
 		begin
@@ -802,6 +809,9 @@ while not UniFootersID.EOF  do
 		if VarIsNull(UniFootersID['footer_text'])
 			then RichEditArticle2.Text :=''
 			else RichEditArticle2.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['cv_include_footer'])
+			then CBCV_footer2.Checked :=false
+      else CBCV_footer2.Checked := not UniFootersID.FieldByName('cv_include_footer').AsBoolean;
 		end;
 	if UniFootersID['footer_order']=3 then
 		begin
@@ -811,6 +821,9 @@ while not UniFootersID.EOF  do
 		if VarIsNull(UniFootersID['footer_text'])
 			then RichEditArticle3.Text :=''
       else RichEditArticle3.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['cv_include_footer'])
+			then CBCV_footer3.Checked :=false
+      else CBCV_footer3.Checked := not UniFootersID.FieldByName('cv_include_footer').AsBoolean;
 		end;
 	if UniFootersID['footer_order']=4 then
 		begin
@@ -820,6 +833,9 @@ while not UniFootersID.EOF  do
 		if VarIsNull(UniFootersID['footer_text'])
 			then RichEditArticle4.Text :=''
       else RichEditArticle4.Text := UniFootersID['footer_text'];
+		if VarIsNull(UniFootersID['cv_include_footer'])
+			then CBCV_footer4.Checked :=false
+      else CBCV_footer4.Checked := not UniFootersID.FieldByName('cv_include_footer').AsBoolean;
 		end;
 	UniFootersID.Next;
 	end;
@@ -1925,6 +1941,10 @@ begin
 		UniSPUpdateResume.ParamByName('p_footer_3_text').AsMemo := Trim(RichEditArticle3.Text);
 		UniSPUpdateResume.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
 		UniSPUpdateResume.ParamByName('p_footer_4_text').AsMemo := Trim(RichEditArticle4.Text);
+		UniSPUpdateResume.ParamByName('p_cv_include_footer1').AsBoolean := not CBCV_footer1.Checked;
+		UniSPUpdateResume.ParamByName('p_cv_include_footer2').AsBoolean := not CBCV_footer2.Checked;
+		UniSPUpdateResume.ParamByName('p_cv_include_footer3').AsBoolean := not CBCV_footer3.Checked;
+		UniSPUpdateResume.ParamByName('p_cv_include_footer4').AsBoolean := not CBCV_footer4.Checked;
 		UniSPUpdateResume.ExecProc;
 		if UniSPUpdateResume.ParamByName('p_result').Value=0 then Result:=true else Result:=false;
 		except

@@ -4635,6 +4635,7 @@ object FormMain: TFormMain
     0000000000000000000000000000000000000000000000000000000000000000
     0000000000000000000000000000000000000000000000000000000000000000
     000000000000000000000000000000000000000000000000000000000000}
+  KeyPreview = True
   Menu = MainMenu1
   OnClose = FormClose
   OnCreate = FormCreate
@@ -4666,7 +4667,7 @@ object FormMain: TFormMain
     Top = 578
     Width = 160
     Height = 40
-    Caption = #1042#1089#1110' '#1096#1072#1073#1083#1086#1085#1080' (F5)'
+    Caption = #1042#1089#1110' '#1096#1072#1073#1083#1086#1085#1080' (F6)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -4717,7 +4718,7 @@ object FormMain: TFormMain
     Width = 160
     Height = 40
     Anchors = [akLeft, akBottom]
-    Caption = #1053#1086#1074#1077' '#1088#1077#1079#1102#1084#1077' (F4)'
+    Caption = #1053#1086#1074#1077' '#1088#1077#1079#1102#1084#1077' (F5)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -4830,7 +4831,7 @@ object FormMain: TFormMain
     Top = 578
     Width = 160
     Height = 40
-    Caption = #1042#1089#1110' '#1088#1077#1079#1102#1084#1077' (F6)'
+    Caption = #1042#1089#1110' '#1088#1077#1079#1102#1084#1077' (F7)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -5104,36 +5105,37 @@ object FormMain: TFormMain
     Top = 93
     ParamData = <
       item
-        DataType = ftUnknown
+        DataType = ftWideMemo
         Name = 'p_word'
-        Value = nil
+        Value = Null
       end>
     object UniTranslationid: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'id'
     end
-    object UniTranslationRU: TWideMemoField
+    object UniTranslationRU: TWideStringField
       FieldName = 'RU'
-      BlobType = ftWideMemo
+      Size = 1000
     end
-    object UniTranslationUA: TWideMemoField
+    object UniTranslationUA: TWideStringField
       FieldName = 'UA'
-      BlobType = ftWideMemo
+      Size = 1000
     end
-    object UniTranslationEN: TWideMemoField
+    object UniTranslationEN: TWideStringField
       FieldName = 'EN'
-      BlobType = ftWideMemo
+      Size = 1000
     end
-    object UniTranslationHR: TWideMemoField
+    object UniTranslationHR: TWideStringField
       FieldName = 'HR'
-      BlobType = ftWideMemo
+      Size = 1000
     end
     object UniTranslationPL: TWideStringField
       FieldName = 'PL'
-      Size = 1024
+      Size = 1000
     end
-    object UniTranslationDE: TWideMemoField
+    object UniTranslationDE: TWideStringField
       FieldName = 'DE'
-      BlobType = ftWideMemo
+      Size = 1000
     end
   end
   object UniLocalTranslate: TUniQuery
