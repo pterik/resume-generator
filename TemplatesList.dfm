@@ -21,13 +21,13 @@ object FormTemplatesList: TFormTemplatesList
     Width = 120
     Height = 40
     Anchors = [akRight, akBottom]
-    Cancel = True
-    Caption = '&Close'
+    Caption = #1042#1110#1076#1084#1110#1085#1072
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Segoe UI'
     Font.Style = []
+    Kind = bkCancel
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 0

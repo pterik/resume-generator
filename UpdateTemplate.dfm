@@ -3,7 +3,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
   Top = 0
   Anchors = [akLeft, akBottom]
   Caption = #1048#1089#1087#1088#1072#1074#1083#1077#1085#1080#1077' '#1096#1072#1073#1083#1086#1085#1072
-  ClientHeight = 813
+  ClientHeight = 761
   ClientWidth = 988
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,11 +17,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
   OnKeyUp = FormKeyUp
   DesignSize = (
     988
-    813)
+    761)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 864
-    Top = 765
+    Left = 873
+    Top = 713
     Width = 107
     Height = 40
     Anchors = [akRight, akBottom]
@@ -38,8 +38,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
     OnClick = BitBtnCloseClick
   end
   object BitBtnSave: TBitBtn
-    Left = 8
-    Top = 767
+    Left = 4
+    Top = 715
     Width = 145
     Height = 38
     Anchors = [akLeft, akBottom]
@@ -189,8 +189,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
     Left = 0
     Top = 8
     Width = 980
-    Height = 753
-    ActivePage = TabSheetFooterRU
+    Height = 699
+    ActivePage = TabSheet1
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -200,7 +200,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
     Style = tsButtons
     TabOrder = 2
     object TabSheetMainRU: TTabSheet
-      Caption = #1054#1089#1085#1086#1074#1085#1072
+      Caption = #1056#1077#1079#1102#1084#1077
+      DesignSize = (
+        972
+        660)
       object Label121: TLabel
         Left = 67
         Top = 4
@@ -228,8 +231,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label123: TLabel
-        Left = 7
-        Top = 248
+        Left = 36
+        Top = 178
         Width = 68
         Height = 21
         Caption = #1042#1074#1077#1076#1077#1085#1085#1103
@@ -242,7 +245,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label124: TLabel
         Left = 55
-        Top = 47
+        Top = 39
         Width = 52
         Height = 21
         Caption = #1055#1086#1089#1072#1076#1072
@@ -254,8 +257,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label125: TLabel
-        Left = 7
-        Top = 147
+        Left = 8
+        Top = 113
         Width = 99
         Height = 21
         Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
@@ -268,7 +271,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label126: TLabel
         Left = 39
-        Top = 98
+        Top = 74
         Width = 68
         Height = 21
         Caption = #1055#1086#1074#1085#1110#1089#1090#1102
@@ -280,8 +283,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label127: TLabel
-        Left = 25
-        Top = 197
+        Left = 36
+        Top = 151
         Width = 70
         Height = 21
         Caption = #1058#1077#1083#1077#1092#1086#1085#1080
@@ -307,7 +310,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object EditName: TEdit
         Left = 110
-        Top = 44
+        Top = 36
         Width = 500
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -321,7 +324,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object EditOpportunity: TEdit
         Left = 110
-        Top = 95
+        Top = 74
         Width = 500
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -335,7 +338,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object EditPlace: TEdit
         Left = 110
-        Top = 144
+        Top = 110
         Width = 500
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -349,7 +352,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object EditPhones: TEdit
         Left = 112
-        Top = 194
+        Top = 148
         Width = 537
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -395,7 +398,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object CBPhones: TComboBox
         Left = 655
-        Top = 194
+        Top = 148
         Width = 275
         Height = 29
         TabOrder = 6
@@ -403,7 +406,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object BitBtn2: TBitBtn
         Left = 936
-        Top = 196
+        Top = 150
         Width = 33
         Height = 25
         Caption = '+'
@@ -412,13 +415,14 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object CBWordWrap: TCheckBox
         Left = 3
-        Top = 299
-        Width = 102
+        Top = 640
+        Width = 151
         Height = 17
-        Caption = 'Word Wrap'
+        Anchors = [akLeft, akBottom]
+        Caption = #1055#1077#1088#1077#1085#1077#1089#1077#1085#1085#1103' '#1089#1083#1110#1074
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
@@ -426,10 +430,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         OnClick = CBWordWrapClick
       end
       object RichEditor: TRichEdit
-        Left = 110
-        Top = 245
-        Width = 859
-        Height = 450
+        Left = 3
+        Top = 205
+        Width = 966
+        Height = 429
+        Anchors = [akLeft, akTop, akRight, akBottom]
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -440,7 +445,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
     end
     object TabSheetFooterRU: TTabSheet
-      Caption = 'Footer'
+      Caption = #1044#1072#1083#1110
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -450,7 +455,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       ParentFont = False
       object Label7: TLabel
         Left = 1
-        Top = 202
+        Top = 176
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 2'
@@ -462,8 +467,8 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label9: TLabel
-        Left = 7
-        Top = 405
+        Left = 3
+        Top = 356
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 3'
@@ -476,7 +481,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object Label10: TLabel
         Left = 3
-        Top = 559
+        Top = 508
         Width = 75
         Height = 21
         Caption = #1053#1072#1074#1080#1095#1082#1080' 4'
@@ -502,9 +507,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 8
       end
       object EditArticle1: TEdit
-        Left = 90
+        Left = 82
         Top = 0
-        Width = 881
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -516,9 +521,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'EditArticle1'
       end
       object EditArticle2: TEdit
-        Left = 88
-        Top = 203
-        Width = 881
+        Left = 82
+        Top = 176
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -530,9 +535,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'EditArticle2'
       end
       object EditArticle3: TEdit
-        Left = 90
-        Top = 402
-        Width = 881
+        Left = 82
+        Top = 354
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -544,9 +549,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Text = 'EditArticle3'
       end
       object EditArticle4: TEdit
-        Left = 90
-        Top = 559
-        Width = 881
+        Left = 82
+        Top = 508
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -561,7 +566,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 3
         Top = 33
         Width = 966
-        Height = 163
+        Height = 140
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -574,10 +579,10 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TabOrder = 1
       end
       object RichEditArticle2: TRichEdit
-        Left = 1
-        Top = 241
+        Left = 3
+        Top = 210
         Width = 966
-        Height = 155
+        Height = 140
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -591,7 +596,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object RichEditArticle3: TRichEdit
         Left = 3
-        Top = 437
+        Top = 388
         Width = 966
         Height = 116
         Font.Charset = RUSSIAN_CHARSET
@@ -607,7 +612,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end
       object RichEditArticle4: TRichEdit
         Left = 3
-        Top = 594
+        Top = 540
         Width = 966
         Height = 117
         Font.Charset = RUSSIAN_CHARSET
@@ -621,16 +626,138 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ScrollBars = ssVertical
         TabOrder = 7
       end
+      object CBCV_footer1: TCheckBox
+        Left = 813
+        Top = 3
+        Width = 166
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 9
+      end
+      object CBCV_footer2: TCheckBox
+        Left = 813
+        Top = 179
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 10
+      end
+      object CBCV_footer3: TCheckBox
+        Left = 813
+        Top = 358
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 11
+      end
+      object CBCV_footer4: TCheckBox
+        Left = 813
+        Top = 514
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 12
+      end
+    end
+    object TabSheet1: TTabSheet
+      Caption = 'CV'
+      ImageIndex = 12
+      DesignSize = (
+        972
+        660)
+      object StaticText9: TStaticText
+        Left = 3
+        Top = 3
+        Width = 123
+        Height = 25
+        Caption = #1050#1086#1088#1086#1090#1082#1077' '#1088#1077#1079#1102#1084#1077
+        TabOrder = 0
+      end
+      object RichEditCVRU: TRichEdit
+        Left = 3
+        Top = 34
+        Width = 966
+        Height = 575
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+      object CheckBox1: TCheckBox
+        Left = 3
+        Top = 615
+        Width = 89
+        Height = 17
+        Anchors = [akLeft, akBottom]
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        OnClick = CBWordWrapClick
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = #1057'. '#1083#1080#1089#1090
+      ImageIndex = 13
+      DesignSize = (
+        972
+        660)
+      object StaticText3: TStaticText
+        Left = 8
+        Top = 3
+        Width = 170
+        Height = 25
+        Caption = #1057#1091#1087#1088#1086#1074#1086#1076#1078#1091#1102#1095#1080#1081' '#1083#1080#1089#1090
+        TabOrder = 0
+      end
+      object RichEditCLRU: TRichEdit
+        Left = 3
+        Top = 34
+        Width = 966
+        Height = 615
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 1
+      end
+      object CBCLWordWrapTR: TCheckBox
+        Left = 0
+        Top = 694
+        Width = 88
+        Height = 17
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
     end
     object TabSheetJob1RU: TTabSheet
       Caption = 'Job 1'
       ImageIndex = 3
       object Label1: TLabel
-        Left = 4
-        Top = 44
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -641,9 +768,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label2: TLabel
         Left = 12
         Top = 83
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -652,11 +779,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 32
-        Top = 433
-        Width = 52
+        Left = 24
+        Top = 434
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -665,11 +792,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 33
+        Left = 50
         Top = 473
-        Width = 51
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -751,7 +878,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 540
         Top = 470
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -820,9 +947,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
         TextHint = 'select a date'
       end
       object RichEdit1Resp: TRichEdit
-        Left = 90
+        Left = 3
         Top = 115
-        Width = 879
+        Width = 966
         Height = 309
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
@@ -839,7 +966,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         Left = 90
         Top = 470
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -856,11 +983,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 2'
       ImageIndex = 4
       object Label6: TLabel
-        Left = 4
-        Top = 48
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -871,9 +998,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label8: TLabel
         Left = 12
         Top = 83
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -882,11 +1009,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label11: TLabel
-        Left = 24
-        Top = 443
-        Width = 52
+        Left = 26
+        Top = 433
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -895,11 +1022,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label12: TLabel
-        Left = 22
+        Left = 50
         Top = 475
-        Width = 51
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1084,11 +1211,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 3'
       ImageIndex = 5
       object Label14: TLabel
-        Left = 4
-        Top = 46
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1099,9 +1226,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label15: TLabel
         Left = 12
         Top = 83
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1110,11 +1237,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label16: TLabel
-        Left = 32
-        Top = 433
-        Width = 52
+        Left = 23
+        Top = 440
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1125,9 +1252,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label17: TLabel
         Left = 30
         Top = 475
-        Width = 51
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1312,11 +1439,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 4'
       ImageIndex = 6
       object Label19: TLabel
-        Left = 4
-        Top = 38
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1327,9 +1454,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label20: TLabel
         Left = 12
         Top = 80
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1340,9 +1467,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label21: TLabel
         Left = 24
         Top = 430
-        Width = 52
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1351,11 +1478,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label22: TLabel
-        Left = 22
+        Left = 50
         Top = 462
-        Width = 51
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1540,11 +1667,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 5'
       ImageIndex = 7
       object Label36: TLabel
-        Left = 4
-        Top = 45
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1555,9 +1682,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label24: TLabel
         Left = 12
         Top = 80
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1566,11 +1693,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label25: TLabel
-        Left = 32
+        Left = 26
         Top = 430
-        Width = 52
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1768,11 +1895,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 6'
       ImageIndex = 8
       object Label28: TLabel
-        Left = 4
-        Top = 45
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1783,9 +1910,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label29: TLabel
         Left = 12
         Top = 83
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1794,11 +1921,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label30: TLabel
-        Left = 32
-        Top = 433
-        Width = 52
+        Left = 26
+        Top = 430
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1996,11 +2123,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 7'
       ImageIndex = 9
       object Label33: TLabel
-        Left = 4
-        Top = 38
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2011,9 +2138,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label34: TLabel
         Left = 12
         Top = 80
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2022,11 +2149,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label35: TLabel
-        Left = 32
+        Left = 26
         Top = 432
-        Width = 52
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2224,11 +2351,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 8'
       ImageIndex = 10
       object Label39: TLabel
-        Left = 4
-        Top = 37
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2239,9 +2366,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label53: TLabel
         Left = 12
         Top = 82
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2250,11 +2377,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label54: TLabel
-        Left = 32
+        Left = 26
         Top = 433
-        Width = 52
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2452,11 +2579,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 9'
       ImageIndex = 11
       object Label41: TLabel
-        Left = 3
+        Left = 32
         Top = 43
-        Width = 80
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2467,9 +2594,9 @@ object FormUpdateTemplate: TFormUpdateTemplate
       object Label42: TLabel
         Left = 12
         Top = 83
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2478,11 +2605,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label43: TLabel
-        Left = 32
+        Left = 26
         Top = 433
-        Width = 52
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2680,11 +2807,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       Caption = 'Job 10'
       ImageIndex = 12
       object Label45: TLabel
-        Left = 4
+        Left = 32
         Top = 43
-        Width = 80
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2693,11 +2820,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label46: TLabel
-        Left = 12
+        Left = 17
         Top = 83
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2706,11 +2833,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParentFont = False
       end
       object Label47: TLabel
-        Left = 32
+        Left = 26
         Top = 430
-        Width = 52
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2929,12 +3056,12 @@ object FormUpdateTemplate: TFormUpdateTemplate
     SQL.Strings = (
       
         'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
-        '_job_position, :p_start_date, :p_end_date, :p_employer, :p_resp,' +
-        ' :p_benefits, :p_other, @p_experience_id); SELECT CAST(@p_experi' +
-        'ence_id AS SIGNED) AS '#39'@p_experience_id'#39)
+        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
+        'oyer, :p_resp, :p_benefits, :p_other, @p_experience_id); SELECT ' +
+        'CAST(@p_experience_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
-    Left = 576
-    Top = 240
+    Left = 584
+    Top = 248
     ParamData = <
       item
         DataType = ftWideString
@@ -2952,6 +3079,12 @@ object FormUpdateTemplate: TFormUpdateTemplate
       item
         DataType = ftInteger
         Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_job_order'
         ParamType = ptInput
         Value = nil
       end
@@ -3234,9 +3367,11 @@ object FormUpdateTemplate: TFormUpdateTemplate
       end>
   end
   object UniSPDeleteExperiences: TUniStoredProc
-    StoredProcName = 'delete_experiences'
+    StoredProcName = 'delete_experiences_skills'
     SQL.Strings = (
-      'CALL delete_experiences(:p_flag, :p_template_id, :p_resume_id)')
+      
+        'CALL delete_experiences_skills(:p_flag, :p_template_id, :p_resum' +
+        'e_id)')
     Connection = FormMain.UniConnection
     Left = 424
     Top = 328
@@ -3260,23 +3395,7 @@ object FormUpdateTemplate: TFormUpdateTemplate
         ParamType = ptInput
         Value = nil
       end>
-    CommandStoredProcName = 'delete_experiences'
-  end
-  object UniSPDeleteSkillShows: TUniStoredProc
-    StoredProcName = 'delete_skill_show'
-    SQL.Strings = (
-      'CALL delete_skill_show(:p_experience_id)')
-    Connection = FormMain.UniConnection
-    Left = 584
-    Top = 328
-    ParamData = <
-      item
-        DataType = ftInteger
-        Name = 'p_experience_id'
-        ParamType = ptInput
-        Value = nil
-      end>
-    CommandStoredProcName = 'delete_skill_show'
+    CommandStoredProcName = 'delete_experiences_skills'
   end
   object UniSPInsertUpdSkill: TUniStoredProc
     StoredProcName = 'insert_update_skill'

@@ -2,8 +2,8 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = #1064#1072#1073#1083#1086#1085#1099' '#1088#1077#1079#1102#1084#1077
-  ClientHeight = 626
-  ClientWidth = 988
+  ClientHeight = 741
+  ClientWidth = 984
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -4642,12 +4642,12 @@ object FormMain: TFormMain
   OnDestroy = FormDestroy
   OnKeyUp = FormKeyUp
   DesignSize = (
-    988
-    626)
+    984
+    741)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 868
-    Top = 581
+    Left = 864
+    Top = 696
     Width = 112
     Height = 40
     Anchors = [akRight, akBottom]
@@ -4661,12 +4661,14 @@ object FormMain: TFormMain
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 4
+    ExplicitLeft = 868
   end
   object BitBtnTemplatesList: TBitBtn
     Left = 430
-    Top = 578
+    Top = 693
     Width = 160
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1042#1089#1110' '#1096#1072#1073#1083#1086#1085#1080' (F6)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -4714,7 +4716,7 @@ object FormMain: TFormMain
   end
   object BitBtnNewResume: TBitBtn
     Left = 220
-    Top = 578
+    Top = 693
     Width = 160
     Height = 40
     Anchors = [akLeft, akBottom]
@@ -4764,20 +4766,21 @@ object FormMain: TFormMain
     OnClick = BitBtnNewResumeClick
   end
   object MemoText: TMemo
-    Left = 8
+    Left = 4
     Top = 8
     Width = 972
-    Height = 345
+    Height = 305
     Anchors = [akLeft, akRight, akBottom]
     Lines.Strings = (
       'MemoText')
     ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 5
+    ExplicitWidth = 976
   end
   object BitBtnNewTemplate: TBitBtn
     Left = 4
-    Top = 578
+    Top = 693
     Width = 169
     Height = 40
     Anchors = [akLeft, akBottom]
@@ -4828,9 +4831,10 @@ object FormMain: TFormMain
   end
   object BitBtnResumeList: TBitBtn
     Left = 650
-    Top = 578
+    Top = 693
     Width = 160
     Height = 40
+    Anchors = [akLeft, akBottom]
     Caption = #1042#1089#1110' '#1088#1077#1079#1102#1084#1077' (F7)'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText

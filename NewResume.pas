@@ -29,147 +29,52 @@ type
     Edit1DatesUA: TEdit;
     Edit1NameUA: TEdit;
     Edit1CompanyUA: TEdit;
-    Edit1BenefitsUA: TEdit;
     Memo1SkillsUA: TMemo;
     TabSheetJob2UA: TTabSheet;
     Edit2DatesUA: TEdit;
     Edit2NameUA: TEdit;
     Edit2CompanyUA: TEdit;
-    Edit2BenefitsUA: TEdit;
     Memo2SkillsUA: TMemo;
     TabSheetJob3UA: TTabSheet;
     Edit3DatesUA: TEdit;
     Edit3NameUA: TEdit;
     Edit3CompanyUA: TEdit;
-    Edit3BenefitsUA: TEdit;
     Memo3SkillsUA: TMemo;
     TabSheetJob4UA: TTabSheet;
     Edit4DatesUA: TEdit;
     Edit4NameUA: TEdit;
     Edit4CompanyUA: TEdit;
-    Edit4BenefitsUA: TEdit;
     Memo4SkillsUA: TMemo;
     TabSheetJob5UA: TTabSheet;
     Edit5DatesUA: TEdit;
     Edit5NameUA: TEdit;
     Edit5CompanyUA: TEdit;
-    Edit5BenefitsUA: TEdit;
     Memo5SkillsUA: TMemo;
     TabSheetJob6UA: TTabSheet;
-    Edit6BenefitsUA: TEdit;
     Edit6DatesUA: TEdit;
     Edit6NameUA: TEdit;
     Edit6CompanyUA: TEdit;
     Memo6SkillsUA: TMemo;
     TabSheetJob7UA: TTabSheet;
-    Edit7BenefitsUA: TEdit;
     Edit7DatesUA: TEdit;
     Edit7NameUA: TEdit;
     Edit7CompanyUA: TEdit;
     Memo7SkillsUA: TMemo;
     TabSheetJob8UA: TTabSheet;
-    Edit8BenefitsUA: TEdit;
     Edit8DatesUA: TEdit;
     Edit8NameUA: TEdit;
     Edit8CompanyUA: TEdit;
     Memo8SkillsUA: TMemo;
     TabSheetJob9UA: TTabSheet;
-    Edit9BenefitsUA: TEdit;
     Edit9DatesUA: TEdit;
     Edit9NameUA: TEdit;
     Edit9CompanyUA: TEdit;
     Memo9SkillsUA: TMemo;
-    TabSheet10UA: TTabSheet;
-    Edit10BenefitsUA: TEdit;
+    TabSheetJob10UA: TTabSheet;
     Edit10DatesUA: TEdit;
     Edit10NameUA: TEdit;
     Edit10CompanyUA: TEdit;
     Memo10SkillsUA: TMemo;
-    PageControl: TPageControl;
-    TabSheetMainTR: TTabSheet;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label5: TLabel;
-    Label6: TLabel;
-    Label14: TLabel;
-    EditNameTR: TEdit;
-    EditOpportunityTR: TEdit;
-    EditPlaceTR: TEdit;
-    EditPhonesTR: TEdit;
-    CBRegionTR: TComboBox;
-    CBLangTR: TComboBox;
-    TabSheetJob1TR: TTabSheet;
-    Edit1DatesTR: TEdit;
-    Edit1NameTR: TEdit;
-    Edit1CompanyTR: TEdit;
-    CalendarPickerB1TR: TCalendarPicker;
-    CalendarPickerE1TR: TCalendarPicker;
-    Edit1BenefitsTR: TEdit;
-    TabSheetJob2TR: TTabSheet;
-    Edit2DatesTR: TEdit;
-    Edit2NameTR: TEdit;
-    Edit2CompanyTR: TEdit;
-    CalendarPickerB2TR: TCalendarPicker;
-    CalendarPickerE2TR: TCalendarPicker;
-    Edit2BenefitsTR: TEdit;
-    TabSheetJob3TR: TTabSheet;
-    Edit3DatesTR: TEdit;
-    Edit3NameTR: TEdit;
-    Edit3CompanyTR: TEdit;
-    CalendarPickerB3TR: TCalendarPicker;
-    CalendarPickerE3TR: TCalendarPicker;
-    Edit3BenefitsTR: TEdit;
-    TabSheetJob4TR: TTabSheet;
-    Edit4DatesTR: TEdit;
-    Edit4NameTR: TEdit;
-    Edit4CompanyTR: TEdit;
-    CalendarPickerB4TR: TCalendarPicker;
-    CalendarPickerE4TR: TCalendarPicker;
-    Edit4BenefitsTR: TEdit;
-    TabSheetJob5TR: TTabSheet;
-    Edit5DatesTR: TEdit;
-    Edit5NameTR: TEdit;
-    Edit5CompanyTR: TEdit;
-    CalendarPickerB5TR: TCalendarPicker;
-    CalendarPickerE5TR: TCalendarPicker;
-    Edit5BenefitsTR: TEdit;
-    TabSheetJob6TR: TTabSheet;
-    Edit6BenefitsTR: TEdit;
-    Edit6DatesTR: TEdit;
-    Edit6NameTR: TEdit;
-    Edit6CompanyTR: TEdit;
-    CalendarPickerB6TR: TCalendarPicker;
-    CalendarPickerE6TR: TCalendarPicker;
-    TabSheetJob7TR: TTabSheet;
-    Edit7BenefitsTR: TEdit;
-    CalendarPickerB7TR: TCalendarPicker;
-    CalendarPickerE7TR: TCalendarPicker;
-    Edit7DatesTR: TEdit;
-    Edit7NameTR: TEdit;
-    Edit7CompanyTR: TEdit;
-    TabSheetJob8TR: TTabSheet;
-    Edit8BenefitsTR: TEdit;
-    CalendarPickerB8TR: TCalendarPicker;
-    CalendarPickerE8TR: TCalendarPicker;
-    Edit8DatesTR: TEdit;
-    Edit8NameTR: TEdit;
-    Edit8CompanyTR: TEdit;
-    TabSheetJob9TR: TTabSheet;
-    Edit9BenefitsTR: TEdit;
-    Edit9DatesTR: TEdit;
-    CalendarPickerB9TR: TCalendarPicker;
-    CalendarPickerE9TR: TCalendarPicker;
-    Edit9NameTR: TEdit;
-    Edit9CompanyTR: TEdit;
-    TabSheetJob10TR: TTabSheet;
-    Edit10BenefitsTR: TEdit;
-    CalendarPickerB10TR: TCalendarPicker;
-    CalendarPickerE10TR: TCalendarPicker;
-    Edit10DatesTR: TEdit;
-    Edit10NameTR: TEdit;
-    Edit10CompanyTR: TEdit;
     UniGetFooters: TUniQuery;
     TabSheetFooterUA: TTabSheet;
     StaticText1: TStaticText;
@@ -177,21 +82,6 @@ type
     EditArticle2UA: TEdit;
     EditArticle3UA: TEdit;
     EditArticle4UA: TEdit;
-    EditArticle1TR: TEdit;
-    EditArticle2TR: TEdit;
-    EditArticle3TR: TEdit;
-    EditArticle4TR: TEdit;
-    StaticText3: TStaticText;
-    Memo1SkillsTR: TMemo;
-    Memo2SkillsTR: TMemo;
-    Memo3SkillsTR: TMemo;
-    Memo4SkillsTR: TMemo;
-    Memo5SkillsTR: TMemo;
-    Memo6SkillsTR: TMemo;
-    Memo7SkillsTR: TMemo;
-    Memo8SkillsTR: TMemo;
-    Memo9SkillsTR: TMemo;
-    Memo10SkillsTR: TMemo;
     UniGetTemplate: TUniQuery;
     UniGetSkills: TUniQuery;
     UniGetJobs: TUniQuery;
@@ -199,24 +89,15 @@ type
     BitBtnCopy: TBitBtn;
     UniSPInsertResume: TUniStoredProc;
     UniGetCopyResumeID: TUniQuery;
-    EditLangRU: TEdit;
-    EditRegionRU: TEdit;
+    EditLangUA: TEdit;
+    EditRegionUA: TEdit;
     UniSPInsertExperiences: TUniStoredProc;
     UniSPInsertSkillShow: TUniStoredProc;
-    StaticText2: TStaticText;
-    StaticText4: TStaticText;
-    StaticText5: TStaticText;
     StaticText6: TStaticText;
     StaticText7: TStaticText;
     StaticText8: TStaticText;
-    Label15: TLabel;
-    Label16: TLabel;
     Label17: TLabel;
     Label18: TLabel;
-    Label19: TLabel;
-    Label20: TLabel;
-    Label21: TLabel;
-    Label22: TLabel;
     Label23: TLabel;
     Label24: TLabel;
     Label25: TLabel;
@@ -230,24 +111,6 @@ type
     Label33: TLabel;
     Label34: TLabel;
     Label35: TLabel;
-    Label36: TLabel;
-    Label37: TLabel;
-    Label38: TLabel;
-    Label39: TLabel;
-    Label40: TLabel;
-    Label41: TLabel;
-    Label42: TLabel;
-    Label43: TLabel;
-    Label44: TLabel;
-    Label45: TLabel;
-    Label46: TLabel;
-    Label47: TLabel;
-    Label48: TLabel;
-    Label49: TLabel;
-    Label50: TLabel;
-    Label51: TLabel;
-    Label52: TLabel;
-    Label53: TLabel;
     Label54: TLabel;
     Label55: TLabel;
     Label56: TLabel;
@@ -268,42 +131,7 @@ type
     Label71: TLabel;
     Label72: TLabel;
     Label73: TLabel;
-    Label74: TLabel;
-    Label75: TLabel;
-    Label76: TLabel;
-    Label77: TLabel;
-    Label78: TLabel;
-    Label79: TLabel;
-    Label80: TLabel;
-    Label81: TLabel;
-    Label82: TLabel;
-    Label83: TLabel;
-    Label84: TLabel;
-    Label85: TLabel;
-    Label86: TLabel;
-    Label87: TLabel;
-    Label88: TLabel;
-    Label89: TLabel;
-    Label90: TLabel;
-    Label91: TLabel;
-    Label92: TLabel;
-    Label93: TLabel;
-    Label94: TLabel;
-    Label95: TLabel;
-    Label96: TLabel;
-    Label97: TLabel;
-    Label98: TLabel;
-    Label99: TLabel;
-    Label100: TLabel;
-    CBPhones: TComboBox;
-    BitBtn2: TBitBtn;
     UniGetTemplateFooters: TUniQuery;
-    RichEditorTR: TRichEdit;
-    CBWordWrap: TCheckBox;
-    RichEditArticle1TR: TRichEdit;
-    RichEditArticle2TR: TRichEdit;
-    RichEditArticle3TR: TRichEdit;
-    RichEditArticle4TR: TRichEdit;
     RichEditArticle1UA: TRichEdit;
     RichEditArticle2UA: TRichEdit;
     RichEditArticle3UA: TRichEdit;
@@ -318,27 +146,8 @@ type
     RichEdit8RespUA: TRichEdit;
     RichEdit9RespUA: TRichEdit;
     RichEdit10RespUA: TRichEdit;
-    RichEdit1RespTR: TRichEdit;
-    RichEdit2RespTR: TRichEdit;
-    RichEdit3RespTR: TRichEdit;
-    RichEdit4RespTR: TRichEdit;
-    RichEdit5RespTR: TRichEdit;
-    RichEdit6RespTR: TRichEdit;
-    RichEdit7RespTR: TRichEdit;
-    RichEdit8RespTR: TRichEdit;
-    RichEdit9RespTR: TRichEdit;
-    RichEdit10RespTR: TRichEdit;
     RichEditorUA: TRichEdit;
-    CBWordWrapUA: TCheckBox;
-    Label101: TLabel;
-    Label102: TLabel;
-    Label103: TLabel;
-    Label104: TLabel;
-    Label105: TLabel;
-    Label106: TLabel;
-    Label107: TLabel;
-    Label108: TLabel;
-    Label109: TLabel;
+    CBMainWordWrapUA: TCheckBox;
     Label110: TLabel;
     Label111: TLabel;
     Label112: TLabel;
@@ -347,16 +156,6 @@ type
     Label115: TLabel;
     Label116: TLabel;
     Label117: TLabel;
-    RichEdit1OtherTR: TRichEdit;
-    RichEdit2OtherTR: TRichEdit;
-    RichEdit3OtherTR: TRichEdit;
-    RichEdit4OtherTR: TRichEdit;
-    RichEdit5OtherTR: TRichEdit;
-    RichEdit6OtherTR: TRichEdit;
-    RichEdit7OtherTR: TRichEdit;
-    RichEdit8OtherTR: TRichEdit;
-    RichEdit9OtherTR: TRichEdit;
-    RichEdit10OtherTR: TRichEdit;
     RichEdit1OtherUA: TRichEdit;
     RichEdit2OtherUA: TRichEdit;
     RichEdit3OtherUA: TRichEdit;
@@ -429,17 +228,14 @@ type
     UniGetResumearchived: TBooleanField;
     UniGetResumecreated: TDateTimeField;
     UniGetResumeupdated: TDateTimeField;
-    UniGetJobsid: TIntegerField;
     UniGetJobsjob_position: TWideStringField;
     UniGetJobsstart_date: TDateField;
     UniGetJobsend_date: TDateField;
     UniGetJobsemployer: TWideStringField;
     UniGetJobsresponsibilities: TWideMemoField;
-    UniGetJobsbenefits: TWideStringField;
     UniGetJobsother: TWideMemoField;
     UniGetJobscreated: TDateTimeField;
     UniGetJobsupdated: TDateTimeField;
-    UniGetJobsorder_position: TLargeintField;
     UniGetTemplateJobsid: TIntegerField;
     UniGetTemplateJobsjob_position: TWideStringField;
     UniGetTemplateJobsstart_date: TDateField;
@@ -451,6 +247,238 @@ type
     UniGetTemplateJobscreated: TDateTimeField;
     UniGetTemplateJobsupdated: TDateTimeField;
     UniGetTemplateJobsorder_position: TLargeintField;
+    TabSheetCVUA: TTabSheet;
+    TabSheetCLUA: TTabSheet;
+    RichEditCLUA: TRichEdit;
+    StaticText11: TStaticText;
+    StaticText12: TStaticText;
+    RichEditCVUA: TRichEdit;
+    UniGetResumecv_introduction: TWideMemoField;
+    UniGetResumecl_text: TWideMemoField;
+    UniGetJobsexperience_id: TIntegerField;
+    RichEdit1BenefitsUA: TRichEdit;
+    UniGetJobsbenefits: TWideMemoField;
+    UniGetJobsjob_order: TIntegerField;
+    RichEdit2BenefitsUA: TRichEdit;
+    RichEdit3BenefitsUA: TRichEdit;
+    RichEdit4BenefitsUA: TRichEdit;
+    RichEdit5BenefitsUA: TRichEdit;
+    RichEdit6BenefitsUA: TRichEdit;
+    RichEdit7BenefitsUA: TRichEdit;
+    RichEdit8BenefitsUA: TRichEdit;
+    RichEdit9BenefitsUA: TRichEdit;
+    RichEdit10BenefitsUA: TRichEdit;
+    UniGetFooterscv_include_footer: TBooleanField;
+    CBCV_footer1UA: TCheckBox;
+    CBCV_footer2UA: TCheckBox;
+    CBCV_footer3UA: TCheckBox;
+    CBCV_footer4UA: TCheckBox;
+    PageControlTR: TPageControl;
+    TabSheetMainTR: TTabSheet;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label14: TLabel;
+    EditNameTR: TEdit;
+    EditOpportunityTR: TEdit;
+    EditPlaceTR: TEdit;
+    EditPhonesTR: TEdit;
+    CBRegionTR: TComboBox;
+    CBLangTR: TComboBox;
+    CBPhones: TComboBox;
+    BitBtn2: TBitBtn;
+    RichEditorTR: TRichEdit;
+    CBMainWordWrapTR: TCheckBox;
+    TabSheetFooterTR: TTabSheet;
+    StaticText3: TStaticText;
+    EditArticle1TR: TEdit;
+    StaticText5: TStaticText;
+    EditArticle2TR: TEdit;
+    CBCV_footer1TR: TCheckBox;
+    CBCV_footer2TR: TCheckBox;
+    RichEditArticle1TR: TRichEdit;
+    RichEditArticle2TR: TRichEdit;
+    StaticText2: TStaticText;
+    EditArticle3TR: TEdit;
+    StaticText4: TStaticText;
+    EditArticle4TR: TEdit;
+    CBCV_footer3TR: TCheckBox;
+    CBCV_footer4TR: TCheckBox;
+    RichEditArticle3TR: TRichEdit;
+    RichEditArticle4TR: TRichEdit;
+    TabSheetCVTR: TTabSheet;
+    RichEditCVTR: TRichEdit;
+    StaticText9: TStaticText;
+    TabSheetCLTR: TTabSheet;
+    RichEditCLTR: TRichEdit;
+    StaticText10: TStaticText;
+    TabSheetJob1TR: TTabSheet;
+    Label15: TLabel;
+    Label16: TLabel;
+    Label19: TLabel;
+    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Edit1DatesTR: TEdit;
+    Edit1NameTR: TEdit;
+    Edit1CompanyTR: TEdit;
+    CalendarPickerB1TR: TCalendarPicker;
+    CalendarPickerE1TR: TCalendarPicker;
+    Memo1SkillsTR: TMemo;
+    RichEdit1RespTR: TRichEdit;
+    RichEdit1OtherTR: TRichEdit;
+    RichEdit1BenefitsTR: TRichEdit;
+    TabSheetJob2TR: TTabSheet;
+    Label44: TLabel;
+    Label53: TLabel;
+    Label74: TLabel;
+    Label75: TLabel;
+    Label82: TLabel;
+    Label109: TLabel;
+    Edit2DatesTR: TEdit;
+    Edit2NameTR: TEdit;
+    Edit2CompanyTR: TEdit;
+    CalendarPickerB2TR: TCalendarPicker;
+    CalendarPickerE2TR: TCalendarPicker;
+    Edit2BenefitsTR: TEdit;
+    Memo2SkillsTR: TMemo;
+    RichEdit2RespTR: TRichEdit;
+    RichEdit2OtherTR: TRichEdit;
+    TabSheetJob3TR: TTabSheet;
+    Label43: TLabel;
+    Label52: TLabel;
+    Label76: TLabel;
+    Label77: TLabel;
+    Label83: TLabel;
+    Label108: TLabel;
+    Edit3DatesTR: TEdit;
+    Edit3NameTR: TEdit;
+    Edit3CompanyTR: TEdit;
+    CalendarPickerB3TR: TCalendarPicker;
+    CalendarPickerE3TR: TCalendarPicker;
+    Edit3BenefitsTR: TEdit;
+    Memo3SkillsTR: TMemo;
+    RichEdit3RespTR: TRichEdit;
+    RichEdit3OtherTR: TRichEdit;
+    TabSheetJob4TR: TTabSheet;
+    Label42: TLabel;
+    Label51: TLabel;
+    Label78: TLabel;
+    Label79: TLabel;
+    Label84: TLabel;
+    Label107: TLabel;
+    Edit4DatesTR: TEdit;
+    Edit4NameTR: TEdit;
+    Edit4CompanyTR: TEdit;
+    CalendarPickerB4TR: TCalendarPicker;
+    CalendarPickerE4TR: TCalendarPicker;
+    Edit4BenefitsTR: TEdit;
+    Memo4SkillsTR: TMemo;
+    RichEdit4RespTR: TRichEdit;
+    RichEdit4OtherTR: TRichEdit;
+    TabSheetJob5TR: TTabSheet;
+    Label41: TLabel;
+    Label50: TLabel;
+    Label80: TLabel;
+    Label81: TLabel;
+    Label85: TLabel;
+    Label106: TLabel;
+    Edit5DatesTR: TEdit;
+    Edit5NameTR: TEdit;
+    Edit5CompanyTR: TEdit;
+    CalendarPickerB5TR: TCalendarPicker;
+    CalendarPickerE5TR: TCalendarPicker;
+    Edit5BenefitsTR: TEdit;
+    Memo5SkillsTR: TMemo;
+    RichEdit5RespTR: TRichEdit;
+    RichEdit5OtherTR: TRichEdit;
+    TabSheetJob6TR: TTabSheet;
+    Label40: TLabel;
+    Label49: TLabel;
+    Label86: TLabel;
+    Label91: TLabel;
+    Label92: TLabel;
+    Label105: TLabel;
+    Edit6BenefitsTR: TEdit;
+    Edit6DatesTR: TEdit;
+    Edit6NameTR: TEdit;
+    Edit6CompanyTR: TEdit;
+    CalendarPickerB6TR: TCalendarPicker;
+    CalendarPickerE6TR: TCalendarPicker;
+    Memo6SkillsTR: TMemo;
+    RichEdit6RespTR: TRichEdit;
+    RichEdit6OtherTR: TRichEdit;
+    TabSheetJob7TR: TTabSheet;
+    Label39: TLabel;
+    Label48: TLabel;
+    Label87: TLabel;
+    Label93: TLabel;
+    Label94: TLabel;
+    Label104: TLabel;
+    Edit7BenefitsTR: TEdit;
+    CalendarPickerB7TR: TCalendarPicker;
+    CalendarPickerE7TR: TCalendarPicker;
+    Edit7DatesTR: TEdit;
+    Edit7NameTR: TEdit;
+    Edit7CompanyTR: TEdit;
+    Memo7SkillsTR: TMemo;
+    RichEdit7RespTR: TRichEdit;
+    RichEdit7OtherTR: TRichEdit;
+    TabSheetJob8TR: TTabSheet;
+    Label38: TLabel;
+    Label47: TLabel;
+    Label88: TLabel;
+    Label95: TLabel;
+    Label96: TLabel;
+    Label103: TLabel;
+    Edit8BenefitsTR: TEdit;
+    CalendarPickerB8TR: TCalendarPicker;
+    CalendarPickerE8TR: TCalendarPicker;
+    Edit8DatesTR: TEdit;
+    Edit8NameTR: TEdit;
+    Edit8CompanyTR: TEdit;
+    Memo8SkillsTR: TMemo;
+    RichEdit8RespTR: TRichEdit;
+    RichEdit8OtherTR: TRichEdit;
+    TabSheetJob9TR: TTabSheet;
+    Label37: TLabel;
+    Label46: TLabel;
+    Label89: TLabel;
+    Label97: TLabel;
+    Label98: TLabel;
+    Label102: TLabel;
+    Edit9BenefitsTR: TEdit;
+    Edit9DatesTR: TEdit;
+    CalendarPickerB9TR: TCalendarPicker;
+    CalendarPickerE9TR: TCalendarPicker;
+    Edit9NameTR: TEdit;
+    Edit9CompanyTR: TEdit;
+    Memo9SkillsTR: TMemo;
+    RichEdit9RespTR: TRichEdit;
+    RichEdit9OtherTR: TRichEdit;
+    TabSheetJob10TR: TTabSheet;
+    Label36: TLabel;
+    Label45: TLabel;
+    Label90: TLabel;
+    Label99: TLabel;
+    Label100: TLabel;
+    Label101: TLabel;
+    Edit10BenefitsTR: TEdit;
+    CalendarPickerB10TR: TCalendarPicker;
+    CalendarPickerE10TR: TCalendarPicker;
+    Edit10DatesTR: TEdit;
+    Edit10NameTR: TEdit;
+    Edit10CompanyTR: TEdit;
+    Memo10SkillsTR: TMemo;
+    RichEdit10RespTR: TRichEdit;
+    RichEdit10OtherTR: TRichEdit;
+    CBCVWordWrapUA: TCheckBox;
+    CBCVWordWrapTR: TCheckBox;
+    CBCLWordWrapTR: TCheckBox;
+    CBCLWordWrapUA: TCheckBox;
     BitBtnClear1: TBitBtn;
     BitBtnClear2: TBitBtn;
     BitBtnClear3: TBitBtn;
@@ -461,13 +489,8 @@ type
     BitBtnClear8: TBitBtn;
     BitBtnClear9: TBitBtn;
     BitBtnClear10: TBitBtn;
-    CBCV_footer3: TCheckBox;
-    CBCV_footer4: TCheckBox;
-    CBCV_footer1: TCheckBox;
-    CBCV_footer2: TCheckBox;
-    TabSheetCV: TTabSheet;
-    RichEditCV_Introduction: TRichEdit;
-		procedure PageControlChange(Sender: TObject);
+    BitBtn1: TBitBtn;
+		procedure PageControlTRChange(Sender: TObject);
     procedure PageControlUAChange(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -512,10 +535,9 @@ type
 		procedure CBLangTRChange(Sender: TObject);
 		procedure BitBtn2Click(Sender: TObject);
 		procedure CBRegionTRChange(Sender: TObject);
-		procedure CBWordWrapClick(Sender: TObject);
-		procedure CBWordWrapUAClick(Sender: TObject);
+		procedure CBMainWordWrapTRClick(Sender: TObject);
+		procedure CBMainWordWrapUAClick(Sender: TObject);
     procedure BitBtnClear10Click(Sender: TObject);
-    procedure BitBtnClear1Click(Sender: TObject);
     procedure BitBtnClear2Click(Sender: TObject);
     procedure BitBtnClear3Click(Sender: TObject);
     procedure BitBtnClear4Click(Sender: TObject);
@@ -525,6 +547,12 @@ type
     procedure BitBtnClear8Click(Sender: TObject);
     procedure BitBtnClear9Click(Sender: TObject);
     procedure BitBtnCloseClick(Sender: TObject);
+    procedure CBCVWordWrapUAClick(Sender: TObject);
+    procedure CBCVWordWrapTRClick(Sender: TObject);
+    procedure CBCLWordWrapUAClick(Sender: TObject);
+    procedure CBCLWordWrapTRClick(Sender: TObject);
+    procedure BitBtnClear1Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
 	private
 		CBLang_First_Value, CBRegion_First_Value: string;
 		CBRegionTR_ID:string;
@@ -556,7 +584,6 @@ type
 //    procedure GetResumefromID;       // Получить значения первого окна Resume указав ResumeID для копирования
 //    procedure GetResumeTRfromUA;
     procedure CopyTRfromUA;
-    procedure SynchroRegionLang;
     function isMainFormGood:boolean;
     function isJobGood:boolean;
     function isJobDatesGood:boolean;
@@ -573,13 +600,19 @@ type
     procedure Clear8;
     procedure Clear9;
   public
-    //TelephoneByName:string;
+    LCopyFromResumeID, LCopyFromTemplateID:integer;
+    Dates1BUA,Dates1EUA,Dates2BUA,Dates2EUA,Dates3BUA,Dates3EUA:TDate;
+    Dates4BUA,Dates4EUA,Dates5BUA,Dates5EUA,Dates6BUA,Dates6EUA:TDate;
+    Dates7BUA,Dates7EUA,Dates8BUA,Dates8EUA,Dates9BUA,Dates9EUA,Dates10BUA,Dates10EUA:TDate;
 		function NVL(Value:variant):string;
 		procedure SetEmptyTR;     // Очистить все поля для TR
     procedure SetEmptyUA;     // Очистить все поля для UA
     procedure SetFormValues;  // Установить все значения перед открытием окна
     procedure GetValuesFromTemplate(TemplateId: integer); //Получить значения из шаблона - вызов внутри модуля
     procedure GetValuesFromResume(const ResumeID:integer);
+    procedure SetDatesTRromVariables;
+    procedure UpdateUAMarkers;
+    procedure UpdateTRMarkers;
     function Translate(const S:string; const lang:string):string;
     function GoogleTranslate(const S:string; const lang:string):string;
   end;
@@ -600,14 +633,14 @@ begin
 SetEmptyUA;
 SetEmptyTR;
 PageControlUA.ActivePage := TabSheetMainUA;
-PageControl.ActivePage := TabSheetMainTR;
+PageControlTR.ActivePage := TabSheetMainTR;
 CBLangTR.Text := 'UA';
 CBRegionTR.Text := 'Ukraine';
 for i := 1 to 4 do
   FootersAreActive[i] := false;
 for i := 1 to 10 do
   JobsAreActive[i] := false;
-PageControl.ActivePageIndex:=0;
+PageControlTR.ActivePageIndex:=0;
 FormMain.UniParameterByName.Close;
 FormMain.UniParameterByName.ParamByName('p_name').AsString:=CBLangTR.Text;
 FormMain.UniParameterByName.Open;
@@ -620,11 +653,35 @@ while not FormMain.UniTelephones.Eof do
     FormMain.UniTelephones.Next;
   end;
 //TelephoneByName:=FormMain.UniParameterByName['value'];
-end;
+TabSheetMainUA.Highlighted:=false;
+TabSheetFooterUA.Highlighted:=false;
+TabSheetCVUA.Highlighted:=false;
+TabSheetCLUA.Highlighted:=false;
+TabSheetJob1UA.Highlighted:=false;
+TabSheetJob2UA.Highlighted:=false;
+TabSheetJob3UA.Highlighted:=false;
+TabSheetJob4UA.Highlighted:=false;
+TabSheetJob5UA.Highlighted:=false;
+TabSheetJob6UA.Highlighted:=false;
+TabSheetJob7UA.Highlighted:=false;
+TabSheetJob8UA.Highlighted:=false;
+TabSheetJob9UA.Highlighted:=false;
+TabSheetJob10UA.Highlighted:=false;
 
-procedure TFormNewResume.SynchroRegionLang;
-begin
-//
+TabSheetMainTR.Highlighted:=false;
+TabSheetFooterTR.Highlighted:=false;
+TabSheetCVTR.Highlighted:=false;
+TabSheetCLTR.Highlighted:=false;
+TabSheetJob1TR.Highlighted:=false;
+TabSheetJob2TR.Highlighted:=false;
+TabSheetJob3TR.Highlighted:=false;
+TabSheetJob4TR.Highlighted:=false;
+TabSheetJob5TR.Highlighted:=false;
+TabSheetJob6TR.Highlighted:=false;
+TabSheetJob7TR.Highlighted:=false;
+TabSheetJob8TR.Highlighted:=false;
+TabSheetJob9TR.Highlighted:=false;
+TabSheetJob10TR.Highlighted:=false;
 end;
 
 function TFormNewResume.Translate(const S: string; const Lang:string): string;
@@ -650,9 +707,152 @@ if FormMain.IsEmpty(S)
     end;
 end;
 
+procedure TFormNewResume.UpdateTRMarkers;
+begin
+if not FormMain.IsEmpty(EditNameTR.Text) or
+   not FormMain.IsEmpty(EditOpportunityTR.Text) or
+   not FormMain.IsEmpty(RichEditorTR.Text)
+then TabSheetMainTR.Highlighted:=true
+else TabSheetMainTR.Highlighted:=false;
+if not FormMain.IsEmpty(EditArticle1TR.Text) or
+   not FormMain.IsEmpty(EditArticle2TR.Text) or
+   not FormMain.IsEmpty(EditArticle3TR.Text) or
+   not FormMain.IsEmpty(EditArticle4TR.Text)
+then TabSheetFooterTR.Highlighted:=true
+else TabSheetFooterTR.Highlighted:=false;
+if not FormMain.IsEmpty(RichEditCVTR.Text)
+then TabSheetCVTR.Highlighted:=true
+else TabSheetCVTR.Highlighted:=false;
+if not FormMain.IsEmpty(RichEditCLTR.Text)
+then TabSheetCLTR.Highlighted:=true
+else TabSheetCLTR.Highlighted:=false;
+
+if not FormMain.IsEmpty(Edit1NameTR.Text) or
+   not FormMain.IsEmpty(Edit1CompanyTR.Text) or
+   not FormMain.IsEmpty(RichEdit1RespTR.Text)
+then TabSheetJob1TR.Highlighted:=true
+else TabSheetJob1TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit2NameTR.Text) or
+  not FormMain.IsEmpty(Edit2CompanyTR.Text) or
+  not FormMain.IsEmpty(RichEdit2RespTR.Text)
+then TabSheetJob2TR.Highlighted:=true
+else TabSheetJob2TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit3NameTR.Text) or
+  not FormMain.IsEmpty(Edit3CompanyTR.Text) or
+  not FormMain.IsEmpty(RichEdit3RespTR.Text)
+then TabSheetJob3TR.Highlighted:=true
+else TabSheetJob3TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit4NameTR.Text) or
+  not FormMain.IsEmpty(Edit4CompanyTR.Text) or
+  not FormMain.IsEmpty(RichEdit4RespTR.Text)
+then TabSheetJob4TR.Highlighted:=true
+else TabSheetJob4TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit5NameTR.Text) or
+  not FormMain.IsEmpty(Edit5CompanyTR.Text) or
+  not FormMain.IsEmpty(RichEdit5RespTR.Text)
+then TabSheetJob5TR.Highlighted:=true
+else TabSheetJob5TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit6NameTR.Text) or
+  not FormMain.IsEmpty(Edit6CompanyTR.Text) or
+  not FormMain.IsEmpty(RichEdit6RespTR.Text)
+then TabSheetJob6TR.Highlighted:=true
+else TabSheetJob6TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit7NameTR.Text) or
+  not FormMain.IsEmpty(Edit7CompanyTR.Text) or
+  not FormMain.IsEmpty(RichEdit7RespTR.Text)
+then TabSheetJob7TR.Highlighted:=true
+else TabSheetJob7TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit8NameTR.Text) or
+   not FormMain.IsEmpty(Edit8CompanyTR.Text) or
+   not FormMain.IsEmpty(RichEdit8RespTR.Text)
+then TabSheetJob8TR.Highlighted:=true
+else TabSheetJob8TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit9NameTR.Text) or
+   not FormMain.IsEmpty(Edit9CompanyTR.Text) or
+   not FormMain.IsEmpty(RichEdit9RespTR.Text)
+then TabSheetJob9TR.Highlighted:=true
+else TabSheetJob9TR.Highlighted:=false;
+if not FormMain.IsEmpty(Edit10NameTR.Text) or
+   not FormMain.IsEmpty(Edit10CompanyTR.Text) or
+   not FormMain.IsEmpty(RichEdit10RespTR.Text)
+then TabSheetJob10TR.Highlighted:=true
+else TabSheetJob10TR.Highlighted:=false;
+end;
+
+procedure TFormNewResume.UpdateUAMarkers;
+begin
+if not FormMain.IsEmpty(EditNameUA.Text) or
+   not FormMain.IsEmpty(EditOpportunityUA.Text) or
+   not FormMain.IsEmpty(RichEditorTR.Text)
+then TabSheetMainUA.Highlighted:=true
+else TabSheetMainUA.Highlighted:=false;
+if not FormMain.IsEmpty(EditNameUA.Text) or
+   not FormMain.IsEmpty(EditOpportunityUA.Text) or
+   not FormMain.IsEmpty(RichEditorTR.Text)
+then TabSheetFooterUA.Highlighted:=true
+else TabSheetFooterUA.Highlighted:=false;
+if not FormMain.IsEmpty(RichEditCVUA.Text)
+then TabSheetCVUA.Highlighted:=true
+else TabSheetCVUA.Highlighted:=false;
+if not FormMain.IsEmpty(RichEditCLUA.Text)
+then TabSheetCLUA.Highlighted:=true
+else TabSheetCLUA.Highlighted:=false;
+
+if not FormMain.IsEmpty(Edit1NameUA.Text) or
+   not FormMain.IsEmpty(Edit1CompanyUA.Text) or
+   not FormMain.IsEmpty(RichEdit1RespUA.Text)
+then TabSheetJob1UA.Highlighted:=true
+else TabSheetJob1UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit2NameUA.Text) or
+  not FormMain.IsEmpty(Edit2CompanyUA.Text) or
+  not FormMain.IsEmpty(RichEdit2RespUA.Text)
+then TabSheetJob2UA.Highlighted:=true
+else TabSheetJob2UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit3NameUA.Text) or
+  not FormMain.IsEmpty(Edit3CompanyUA.Text) or
+  not FormMain.IsEmpty(RichEdit3RespUA.Text)
+then TabSheetJob3UA.Highlighted:=true
+else TabSheetJob3UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit4NameUA.Text) or
+  not FormMain.IsEmpty(Edit4CompanyUA.Text) or
+  not FormMain.IsEmpty(RichEdit4RespUA.Text)
+then TabSheetJob4UA.Highlighted:=true
+else TabSheetJob4UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit5NameUA.Text) or
+  not FormMain.IsEmpty(Edit5CompanyUA.Text) or
+  not FormMain.IsEmpty(RichEdit5RespUA.Text)
+then TabSheetJob5UA.Highlighted:=true
+else TabSheetJob5UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit6NameUA.Text) or
+  not FormMain.IsEmpty(Edit6CompanyUA.Text) or
+  not FormMain.IsEmpty(RichEdit6RespUA.Text)
+then TabSheetJob6UA.Highlighted:=true
+else TabSheetJob6UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit7NameUA.Text) or
+  not FormMain.IsEmpty(Edit7CompanyUA.Text) or
+  not FormMain.IsEmpty(RichEdit7RespUA.Text)
+then TabSheetJob7UA.Highlighted:=true
+else TabSheetJob7UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit8NameUA.Text) or
+   not FormMain.IsEmpty(Edit8CompanyUA.Text) or
+   not FormMain.IsEmpty(RichEdit8RespUA.Text)
+then TabSheetJob8UA.Highlighted:=true
+else TabSheetJob8UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit9NameUA.Text) or
+   not FormMain.IsEmpty(Edit9CompanyUA.Text) or
+   not FormMain.IsEmpty(RichEdit9RespUA.Text)
+then TabSheetJob9UA.Highlighted:=true
+else TabSheetJob9UA.Highlighted:=false;
+if not FormMain.IsEmpty(Edit10NameUA.Text) or
+   not FormMain.IsEmpty(Edit10CompanyUA.Text) or
+   not FormMain.IsEmpty(RichEdit10RespUA.Text)
+then TabSheetJob10UA.Highlighted:=true
+else TabSheetJob10UA.Highlighted:=false;
+end;
+
 procedure TFormNewResume.FormCreate(Sender: TObject);
 begin
-  PageControl.ActivePage := TabSheetMainTR;
+  PageControlTR.ActivePage := TabSheetMainTR;
   InitCBLanguages;
   InitCBRegions;
 end;
@@ -665,14 +865,17 @@ begin
 end;
 
 
-procedure TFormNewResume.PageControlChange(Sender: TObject);
+procedure TFormNewResume.PageControlTRChange(Sender: TObject);
 begin
-  PageControlUA.ActivePageIndex := PageControl.ActivePageIndex;
+PageControlUA.ActivePageIndex := PageControlTR.ActivePageIndex;
+UpdateTRMarkers;
 end;
 
 procedure TFormNewResume.PageControlUAChange(Sender: TObject);
 begin
-  PageControl.ActivePageIndex := PageControlUA.ActivePageIndex;
+  PageControlTR.ActivePageIndex := PageControlUA.ActivePageIndex;
+  UpdateUAMarkers;
+
 end;
 
 procedure TFormNewResume.InitCBLanguages;
@@ -710,6 +913,30 @@ begin
 if VarIsNull(Value) then Result:='' else Result:=Value;
 end;
 
+procedure TFormNewResume.SetDatesTRromVariables;
+begin
+CalendarPickerB1TR.Date:=Dates1BUA;
+CalendarPickerE1TR.Date:=Dates1EUA;
+CalendarPickerB2TR.Date:=Dates2BUA;
+CalendarPickerE2TR.Date:=Dates2EUA;
+CalendarPickerB3TR.Date:=Dates3BUA;
+CalendarPickerE3TR.Date:=Dates3EUA;
+CalendarPickerB4TR.Date:=Dates4BUA;
+CalendarPickerE4TR.Date:=Dates4EUA;
+CalendarPickerB5TR.Date:=Dates5BUA;
+CalendarPickerE5TR.Date:=Dates5EUA;
+CalendarPickerB6TR.Date:=Dates6BUA;
+CalendarPickerE6TR.Date:=Dates6EUA;
+CalendarPickerB7TR.Date:=Dates7BUA;
+CalendarPickerE7TR.Date:=Dates7EUA;
+CalendarPickerB8TR.Date:=Dates8BUA;
+CalendarPickerE8TR.Date:=Dates8EUA;
+CalendarPickerB9TR.Date:=Dates9BUA;
+CalendarPickerE9TR.Date:=Dates9EUA;
+CalendarPickerB10TR.Date:=Dates10BUA;
+CalendarPickerE10TR.Date:=Dates10EUA;
+end;
+
 procedure TFormNewResume.SetEmptyTR;
 var AF: TFormatSettings;
 begin
@@ -720,8 +947,8 @@ begin
   EditPlaceTR.Text := '';
 	EditPhonesTR.Text := '';
 	RichEditorTR.Clear;
-  EditLangRU.Text := 'UA';
-  EditRegionRU.Text := 'Ukraine';
+  EditLangUA.Text := 'UA';
+  EditRegionUA.Text := 'Ukraine';
 
 	RichEditArticle1TR.Text := '';
 	RichEditArticle2TR.Text := '';
@@ -731,16 +958,19 @@ begin
 	EditArticle2TR.Text := '';
 	EditArticle3TR.Text := '';
 	EditArticle4TR.Text := '';
-  CBCV_footer1.Checked:=false;
-  CBCV_footer2.Checked:=false;
-  CBCV_footer3.Checked:=false;
-  CBCV_footer4.Checked:=false;
+  CBCV_footer1TR.Checked:=false;
+  CBCV_footer2TR.Checked:=false;
+  CBCV_footer3TR.Checked:=false;
+  CBCV_footer4TR.Checked:=false;
+
+  RichEditCVTR.Text:='';
+  RichEditCLTR.Text:='';
 
 	Edit1DatesTR.Text := '';
 	Edit1NameTR.Text := '';
 	Edit1CompanyTR.Text := '';
 	RichEdit1RespTR.Text := '';
-	Edit1BenefitsTR.Text := '';
+	RichEdit1BenefitsTR.Text := '';
 	Memo1SkillsTR.Text := '';
 	RichEdit1OtherTR.Text := '';
 
@@ -842,6 +1072,27 @@ end;
 procedure TFormNewResume.SetEmptyUA;
 var i:integer;
 begin
+  Dates1BUA:=-693594;
+  Dates1EUA:=-693594;
+  Dates2BUA:=-693594;
+  Dates2EUA:=-693594;
+  Dates3BUA:=-693594;
+  Dates3EUA:=-693594;
+  Dates4BUA:=-693594;
+  Dates4EUA:=-693594;
+  Dates5BUA:=-693594;
+  Dates5EUA:=-693594;
+  Dates6BUA:=-693594;
+  Dates6EUA:=-693594;
+  Dates7BUA:=-693594;
+  Dates7EUA:=-693594;
+  Dates8BUA:=-693594;
+  Dates8EUA:=-693594;
+  Dates9BUA:=-693594;
+  Dates9EUA:=-693594;
+  Dates10BUA:=-693594;
+  Dates10EUA:=-693594;
+
   EditNameUA.Text := '';
   EditOpportunityUA.Text := '';
   EditPlaceUA.Text := '';
@@ -856,55 +1107,60 @@ begin
   EditArticle2UA.Text := '';
 	EditArticle3UA.Text := '';
 	EditArticle4UA.Text := '';
+
+  CBCV_footer1UA.Checked:=false;
+  CBCV_footer2UA.Checked:=false;
+  CBCV_footer3UA.Checked:=false;
+  CBCV_footer4UA.Checked:=false;
+
 	for i:=1 to 10 do
 		begin
 		CalendarPickerB[i]:=0.0;
 		CalendarPickerE[i]:=0.0;
     end;
-	Edit1DatesUA.Text := '';
-	Edit1NameUA.Text := '';
-	Edit1CompanyUA.Text := '';
+	Edit1DatesUA.Text := '';	Edit1NameUA.Text := '';	Edit1CompanyUA.Text := '';
 	RichEdit1RespUA.Text := '';
-	Edit1BenefitsUA.Text := ''; Memo1SkillsUA.Text := '';
+	RichEdit1BenefitsUA.Text := '';
+  Memo1SkillsUA.Text := '';
 	RichEdit1OtherUA.Text := '';
 
 	Edit2DatesUA.Text := '';  Edit2NameUA.Text := '';  Edit2CompanyUA.Text := '';
 	RichEdit2RespUA.Text := '';
-	Edit2BenefitsUA.Text := '';  Memo2SkillsUA.Text := '';
+	RichEdit2BenefitsUA.Text := '';  Memo2SkillsUA.Text := '';
 	RichEdit2OtherUA.Text := '';
 
 	Edit3DatesUA.Text := '';  Edit3NameUA.Text := '';  Edit3CompanyUA.Text := '';
 	RichEdit3RespUA.Text := '';
-	Edit3BenefitsUA.Text := '';  Memo3SkillsUA.Text := '';
+	RichEdit3BenefitsUA.Text := '';  Memo3SkillsUA.Text := '';
 	RichEdit3OtherUA.Text := '';
 
 	Edit4DatesUA.Text := '';  Edit4NameUA.Text := '';  Edit4CompanyUA.Text := '';
 	RichEdit4RespUA.Text := '';
-  Edit4BenefitsUA.Text := '';  Memo4SkillsUA.Text := '';  RichEdit4OtherUA.Text := '';
+  RichEdit4BenefitsUA.Text := '';  Memo4SkillsUA.Text := '';  RichEdit4OtherUA.Text := '';
 
 	Edit5DatesUA.Text := '';  Edit5NameUA.Text := '';  Edit5CompanyUA.Text := '';
 	RichEdit5RespUA.Text := '';
-  Edit5BenefitsUA.Text := '';  Memo5SkillsUA.Text := '';  RichEdit5OtherUA.Text := '';
+  RichEdit5BenefitsUA.Text := '';  Memo5SkillsUA.Text := '';  RichEdit5OtherUA.Text := '';
 
 	Edit6DatesUA.Text := '';  Edit6NameUA.Text := '';  Edit6CompanyUA.Text := '';
 	RichEdit6RespUA.Text := '';
-  Edit6BenefitsUA.Text := '';  Memo6SkillsUA.Text := '';  RichEdit6OtherUA.Text := '';
+  RichEdit6BenefitsUA.Text := '';  Memo6SkillsUA.Text := '';  RichEdit6OtherUA.Text := '';
 
 	Edit7DatesUA.Text := '';  Edit7NameUA.Text := '';  Edit7CompanyUA.Text := '';
 	RichEdit7RespUA.Text := '';
-  Edit7BenefitsUA.Text := '';  Memo7SkillsUA.Text := '';  RichEdit7OtherUA.Text := '';
+  RichEdit7BenefitsUA.Text := '';  Memo7SkillsUA.Text := '';  RichEdit7OtherUA.Text := '';
 
 	Edit8DatesUA.Text := '';  Edit8NameUA.Text := '';  Edit8CompanyUA.Text := '';
 	RichEdit8RespUA.Text := '';
-  Edit8BenefitsUA.Text := '';  Memo8SkillsUA.Text := '';  RichEdit8OtherUA.Text := '';
+  RichEdit8BenefitsUA.Text := '';  Memo8SkillsUA.Text := '';  RichEdit8OtherUA.Text := '';
 
 	Edit9DatesUA.Text := '';  Edit9NameUA.Text := '';  Edit9CompanyUA.Text := '';
 	RichEdit9RespUA.Text := '';
-  Edit9BenefitsUA.Text := '';  Memo9SkillsUA.Text := '';  RichEdit9OtherUA.Text := '';
+  RichEdit9BenefitsUA.Text := '';  Memo9SkillsUA.Text := '';  RichEdit9OtherUA.Text := '';
 
 	Edit10DatesUA.Text := '';  Edit10NameUA.Text := '';  Edit10CompanyUA.Text := '';
 	RichEdit10RespUA.Text := '';
-  Edit10BenefitsUA.Text := '';  Memo10SkillsUA.Text := '';  RichEdit10OtherUA.Text := '';
+  RichEdit10BenefitsUA.Text := '';  Memo10SkillsUA.Text := '';  RichEdit10OtherUA.Text := '';
 end;
 
 
@@ -924,7 +1180,7 @@ end;
 //	EditArticle1TR.Text := '';  EditArticle2TR.Text := '';  EditArticle3TR.Text := '';  EditArticle4TR.Text := '';
 //
 //	Edit1DatesTR.Text := '';  Edit1NameTR.Text := '';  Edit1CompanyTR.Text := ''; RichEdit1RespTR.Text := '';
-//	Edit1BenefitsTR.Text := ''; Memo1SkillsTR.Text := ''; RichEdit1OtherTR.Text := '';
+//	RichEdit1BenefitsTR.Text := ''; Memo1SkillsTR.Text := ''; RichEdit1OtherTR.Text := '';
 //
 //	Edit2DatesTR.Text := '';  Edit2NameTR.Text := '';  Edit2CompanyTR.Text := '';  RichEdit2RespTR.Text := '';
 //  Edit2BenefitsTR.Text := '';  Memo2SkillsTR.Text := '';  RichEdit2OtherTR.Text := '';
@@ -955,6 +1211,11 @@ end;
 //end;
 
 
+
+procedure TFormNewResume.BitBtn1Click(Sender: TObject);
+begin
+ShowMessage(DateToStr(CalendarPickerB1TR.Date));
+end;
 
 procedure TFormNewResume.BitBtn2Click(Sender: TObject);
 begin
@@ -1024,17 +1285,16 @@ Edit1DatesTR.Text := '';
 Edit1NameTR.Text := '';
 Edit1CompanyTR.Text := '';
 RichEdit1RespTR.Text := '';
-Edit1BenefitsTR.Text := '';
+RichEdit1BenefitsTR.Text := '';
 RichEdit1OtherTR.Text:='';
 Memo1SkillsTR.Clear;
-
-Edit1DatesUA.Text := '';
-Edit1NameUA.Text := '';
-Edit1CompanyUA.Text := '';
-RichEdit1RespUA.Text := '';
-Edit1BenefitsUA.Text := '';
-RichEdit1OtherUA.Text:='';
-Memo1SkillsUA.Clear;
+//Edit1DatesUA.Text := '';
+//Edit1NameUA.Text := '';
+//Edit1CompanyUA.Text := '';
+//RichEdit1RespUA.Text := '';
+//RichEdit1BenefitsUA.Text := '';
+//RichEdit1OtherUA.Text:='';
+//Memo1SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear2;
@@ -1049,13 +1309,13 @@ Edit2BenefitsTR.Text := '';
 RichEdit2OtherTR.Text:='';
 Memo2SkillsTR.Clear;
 
-Edit2DatesUA.Text := '';
-Edit2NameUA.Text := '';
-Edit2CompanyUA.Text := '';
-RichEdit2RespUA.Text := '';
-Edit2BenefitsUA.Text := '';
-RichEdit2OtherUA.Text:='';
-Memo2SkillsUA.Clear;
+//Edit2DatesUA.Text := '';
+//Edit2NameUA.Text := '';
+//Edit2CompanyUA.Text := '';
+//RichEdit2RespUA.Text := '';
+//RichEdit2BenefitsUA.Text := '';
+//RichEdit2OtherUA.Text:='';
+//Memo2SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear3;
@@ -1070,13 +1330,13 @@ Edit3BenefitsTR.Text := '';
 RichEdit3OtherTR.Text:='';
 Memo3SkillsTR.Clear;
 
-Edit3DatesUA.Text := '';
-Edit3NameUA.Text := '';
-Edit3CompanyUA.Text := '';
-RichEdit3RespUA.Text := '';
-Edit3BenefitsUA.Text := '';
-RichEdit3OtherUA.Text:='';
-Memo3SkillsUA.Clear;
+//Edit3DatesUA.Text := '';
+//Edit3NameUA.Text := '';
+//Edit3CompanyUA.Text := '';
+//RichEdit3RespUA.Text := '';
+//RichEdit3BenefitsUA.Text := '';
+//RichEdit3OtherUA.Text:='';
+//Memo3SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear4;
@@ -1091,13 +1351,13 @@ Edit4BenefitsTR.Text := '';
 RichEdit4OtherTR.Text:='';
 Memo4SkillsTR.Clear;
 
-Edit4DatesUA.Text := '';
-Edit4NameUA.Text := '';
-Edit4CompanyUA.Text := '';
-RichEdit4RespUA.Text := '';
-Edit4BenefitsUA.Text := '';
-RichEdit4OtherUA.Text:='';
-Memo4SkillsUA.Clear;
+//Edit4DatesUA.Text := '';
+//Edit4NameUA.Text := '';
+//Edit4CompanyUA.Text := '';
+//RichEdit4RespUA.Text := '';
+//RichEdit4BenefitsUA.Text := '';
+//RichEdit4OtherUA.Text:='';
+//Memo4SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear5;
@@ -1112,13 +1372,13 @@ Edit5BenefitsTR.Text := '';
 RichEdit5OtherTR.Text:='';
 Memo5SkillsTR.Clear;
 
-Edit5DatesUA.Text := '';
-Edit5NameUA.Text := '';
-Edit5CompanyUA.Text := '';
-RichEdit5RespUA.Text := '';
-Edit5BenefitsUA.Text := '';
-RichEdit5OtherUA.Text:='';
-Memo5SkillsUA.Clear;
+//Edit5DatesUA.Text := '';
+//Edit5NameUA.Text := '';
+//Edit5CompanyUA.Text := '';
+//RichEdit5RespUA.Text := '';
+//RichEdit5BenefitsUA.Text := '';
+//RichEdit5OtherUA.Text:='';
+//Memo5SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear6;
@@ -1133,13 +1393,13 @@ RichEdit6RespTR.Text := '';
 RichEdit6OtherTR.Text:='';
 Memo6SkillsTR.Clear;
 
-Edit6DatesUA.Text := '';
-Edit6NameUA.Text := '';
-Edit6CompanyUA.Text := '';
-RichEdit6RespUA.Text := '';
-Edit6BenefitsUA.Text := '';
-RichEdit6OtherUA.Text:='';
-Memo6SkillsUA.Clear;
+//Edit6DatesUA.Text := '';
+//Edit6NameUA.Text := '';
+//Edit6CompanyUA.Text := '';
+//RichEdit6RespUA.Text := '';
+//RichEdit6BenefitsUA.Text := '';
+//RichEdit6OtherUA.Text:='';
+//Memo6SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear7;
@@ -1154,13 +1414,13 @@ Edit7BenefitsTR.Text := '';
 RichEdit7OtherTR.Text:='';
 Memo7SkillsTR.Clear;
 
-Edit7DatesUA.Text := '';
-Edit7NameUA.Text := '';
-Edit7CompanyUA.Text := '';
-RichEdit7RespUA.Text := '';
-Edit7BenefitsUA.Text := '';
-RichEdit7OtherUA.Text:='';
-Memo7SkillsUA.Clear;
+//Edit7DatesUA.Text := '';
+//Edit7NameUA.Text := '';
+//Edit7CompanyUA.Text := '';
+//RichEdit7RespUA.Text := '';
+//RichEdit7BenefitsUA.Text := '';
+//RichEdit7OtherUA.Text:='';
+//Memo7SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear8;
@@ -1175,13 +1435,13 @@ Edit8BenefitsTR.Text := '';
 RichEdit8OtherTR.Text:='';
 Memo8SkillsTR.Clear;
 
-Edit8DatesUA.Text := '';
-Edit8NameUA.Text := '';
-Edit8CompanyUA.Text := '';
-RichEdit8RespUA.Text := '';
-Edit8BenefitsUA.Text := '';
-RichEdit8OtherUA.Text:='';
-Memo8SkillsUA.Clear;
+//Edit8DatesUA.Text := '';
+//Edit8NameUA.Text := '';
+//Edit8CompanyUA.Text := '';
+//RichEdit8RespUA.Text := '';
+//RichEdit8BenefitsUA.Text := '';
+//RichEdit8OtherUA.Text:='';
+//Memo8SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear9;
@@ -1196,13 +1456,13 @@ Edit9BenefitsTR.Text := '';
 RichEdit9OtherTR.Text:='';
 Memo9SkillsTR.Clear;
 
-Edit9DatesUA.Text := '';
-Edit9NameUA.Text := '';
-Edit9CompanyUA.Text := '';
-RichEdit9RespUA.Text := '';
-Edit9BenefitsUA.Text := '';
-RichEdit9OtherUA.Text:='';
-Memo9SkillsUA.Clear;
+//Edit9DatesUA.Text := '';
+//Edit9NameUA.Text := '';
+//Edit9CompanyUA.Text := '';
+//RichEdit9RespUA.Text := '';
+//RichEdit9BenefitsUA.Text := '';
+//RichEdit9OtherUA.Text:='';
+//Memo9SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.Clear10;
@@ -1217,131 +1477,20 @@ Edit10BenefitsTR.Text := '';
 RichEdit10OtherTR.Text:='';
 Memo10SkillsTR.Clear;
 
-Edit10DatesUA.Text := '';
-Edit10NameUA.Text := '';
-Edit10CompanyUA.Text := '';
-RichEdit10RespUA.Text := '';
-Edit10BenefitsUA.Text := '';
-RichEdit10OtherUA.Text:='';
-Memo10SkillsUA.Clear;
+//Edit10DatesUA.Text := '';
+//Edit10NameUA.Text := '';
+//Edit10CompanyUA.Text := '';
+//RichEdit10RespUA.Text := '';
+//RichEdit10BenefitsUA.Text := '';
+//RichEdit10OtherUA.Text:='';
+//Memo10SkillsUA.Clear;
 end;
 
 procedure TFormNewResume.BitBtnCopyClick(Sender: TObject);
 begin
-EditNameTR.Text := Translate(EditNameUA.Text,CBLangTR.Text);
-EditOpportunityTR.Text := Translate(EditOpportunityUA.Text,CBLangTR.Text);
-EditPlaceTR.Text := Translate(EditPlaceUA.Text,CBLangTR.Text);
-EditPhonesTR.Text := Translate(EditPhonesUA.Text,CBLangTR.Text);
-RichEditorTR.Text := Translate(RichEditorUA.Text,CBLangTR.Text);
-
-EditArticle1TR.Text := Translate(EditArticle1UA.Text,CBLangTR.Text);
-RichEditArticle1TR.Text := Translate(RichEditArticle1UA.Text,CBLangTR.Text);
-EditArticle2TR.Text := Translate(EditArticle2UA.Text,CBLangTR.Text);
-RichEditArticle2TR.Text := Translate(RichEditArticle2UA.Text,CBLangTR.Text);
-EditArticle3TR.Text := Translate(EditArticle3UA.Text,CBLangTR.Text);
-RichEditArticle3TR.Text := Translate(RichEditArticle3UA.Text,CBLangTR.Text);
-EditArticle4TR.Text := Translate(EditArticle4UA.Text,CBLangTR.Text);
-RichEditArticle4TR.Text := Translate(RichEditArticle4UA.Text,CBLangTR.Text);
-
-Edit1DatesTR.Text  := Edit1DatesUA.Text;
-if not (CalendarPickerB[1]=0.0) then CalendarPickerB1TR.Date:=CalendarPickerB[1];
-if not (CalendarPickerE[1]=0.0) then CalendarPickerE1TR.Date:=CalendarPickerE[1];
-Edit1CompanyTR.Text  := Edit1CompanyUA.Text;
-Edit1NameTR.Text  := Edit1NameUA.Text;
-RichEdit1RespTR.Text  := Translate(RichEdit1RespUA.Text,CBLangTR.Text);
-Edit1BenefitsTR.Text := Translate(Edit1BenefitsUA.Text,CBLangTR.Text);
-RichEdit1OtherTR.Text := Translate(RichEdit1OtherUA.Text,CBLangTR.Text);
-Memo1SkillsTR.Text   :=Translate(Memo1SkillsUA.Text,CBLangTR.Text);
-
-Edit2DatesTR.Text  := Edit2DatesUA.Text;
-if not (CalendarPickerB[2]=0.0) then CalendarPickerB2TR.Date:=CalendarPickerB[2];
-if not (CalendarPickerE[2]=0.0) then CalendarPickerE2TR.Date:=CalendarPickerE[2];
-Edit2CompanyTR.Text  := Edit2CompanyUA.Text;
-Edit2NameTR.Text  := Edit2NameUA.Text;
-RichEdit2RespTR.Text    := Translate(RichEdit2RespUA.Text,CBLangTR.Text);
-Edit2BenefitsTR.Text:= Translate(Edit2BenefitsUA.Text,CBLangTR.Text);
-RichEdit2OtherTR.Text  := Translate(RichEdit2OtherUA.Text,CBLangTR.Text);
-Memo2SkillsTR.Text    :=Translate(Memo2SkillsUA.Text,CBLangTR.Text);
-
-Edit3DatesTR.Text  := Edit3DatesUA.Text;
-if not (CalendarPickerB[3]=0.0) then CalendarPickerB3TR.Date:=CalendarPickerB[3];
-if not (CalendarPickerE[3]=0.0) then CalendarPickerE3TR.Date:=CalendarPickerE[3];
-Edit3CompanyTR.Text  := Edit3CompanyUA.Text;
-Edit3NameTR.Text  := Edit3NameUA.Text;
-RichEdit3RespTR.Text    := Translate(RichEdit3RespUA.Text,CBLangTR.Text);
-Edit3BenefitsTR.Text:= Translate(Edit3BenefitsUA.Text,CBLangTR.Text);
-RichEdit3OtherTR.Text  := Translate(RichEdit3OtherUA.Text,CBLangTR.Text);
-Memo3SkillsTR.Text    :=Translate(Memo3SkillsUA.Text,CBLangTR.Text);
-
-Edit4DatesTR.Text  := Edit4DatesUA.Text;
-if not (CalendarPickerB[4]=0.0) then CalendarPickerB4TR.Date:=CalendarPickerB[4];
-if not (CalendarPickerE[4]=0.0) then CalendarPickerE4TR.Date:=CalendarPickerE[4];
-Edit4CompanyTR.Text  := Edit4CompanyUA.Text;
-Edit4NameTR.Text  := Edit4NameUA.Text;
-RichEdit4RespTR.Text    := Translate(RichEdit4RespUA.Text,CBLangTR.Text);
-Edit4BenefitsTR.Text:= Translate(Edit4BenefitsUA.Text,CBLangTR.Text);
-RichEdit4OtherTR.Text  := Translate(RichEdit4OtherUA.Text,CBLangTR.Text);
-Memo4SkillsTR.Text    :=Translate(Memo4SkillsUA.Text,CBLangTR.Text);
-
-Edit5DatesTR.Text  := Edit5DatesUA.Text;
-if not (CalendarPickerB[5]=0.0) then CalendarPickerB5TR.Date:=CalendarPickerB[5];
-if not (CalendarPickerE[5]=0.0) then CalendarPickerE5TR.Date:=CalendarPickerE[5];
-Edit5CompanyTR.Text  := Edit5CompanyUA.Text;
-Edit5NameTR.Text  := Edit5NameUA.Text;
-RichEdit5RespTR.Text    := Translate(RichEdit5RespUA.Text,CBLangTR.Text);
-Edit5BenefitsTR.Text:= Translate(Edit5BenefitsUA.Text,CBLangTR.Text);
-RichEdit5OtherTR.Text  := Translate(RichEdit5OtherUA.Text,CBLangTR.Text);
-Memo5SkillsTR.Text    :=Translate(Memo5SkillsUA.Text,CBLangTR.Text);
-
-Edit6DatesTR.Text  := Edit6DatesUA.Text;
-if not (CalendarPickerB[6]=0.0) then CalendarPickerB6TR.Date:=CalendarPickerB[6];
-if not (CalendarPickerE[6]=0.0) then CalendarPickerE6TR.Date:=CalendarPickerE[6];
-Edit6CompanyTR.Text  := Edit6CompanyUA.Text;
-Edit6NameUA.Text  := Edit6NameUA.Text;
-RichEdit6RespTR.Text    := Translate(RichEdit6RespUA.Text,CBLangTR.Text);
-Edit6BenefitsTR.Text:= Translate(Edit6BenefitsUA.Text,CBLangTR.Text);
-RichEdit6OtherTR.Text  := Translate(RichEdit6OtherUA.Text,CBLangTR.Text);
-Memo6SkillsTR.Text    :=Translate(Memo6SkillsUA.Text,CBLangTR.Text);
-
-Edit7DatesTR.Text  := Edit7DatesUA.Text;
-if not (CalendarPickerB[7]=0.0) then CalendarPickerB7TR.Date:=CalendarPickerB[7];
-if not (CalendarPickerE[7]=0.0) then CalendarPickerE7TR.Date:=CalendarPickerE[7];
-Edit7CompanyTR.Text  := Edit7CompanyUA.Text;
-Edit7NameTR.Text  := Edit7NameUA.Text;
-RichEdit7RespTR.Text    := Translate(RichEdit7RespUA.Text,CBLangTR.Text);
-Edit7BenefitsTR.Text:= Translate(Edit7BenefitsUA.Text,CBLangTR.Text);
-RichEdit7OtherTR.Text  := Translate(RichEdit7OtherUA.Text,CBLangTR.Text);
-Memo7SkillsTR.Text    :=Translate(Memo7SkillsUA.Text,CBLangTR.Text);
-
-Edit8DatesTR.Text  := Edit8DatesUA.Text;
-if not (CalendarPickerB[8]=0.0) then CalendarPickerB8TR.Date:=CalendarPickerB[8];
-if not (CalendarPickerE[8]=0.0) then CalendarPickerE8TR.Date:=CalendarPickerE[8];
-Edit8CompanyTR.Text  := Edit8CompanyUA.Text;
-Edit8NameTR.Text  := Edit8NameUA.Text;
-RichEdit8RespTR.Text    := Translate(RichEdit8RespUA.Text,CBLangTR.Text);
-Edit8BenefitsTR.Text:= Translate(Edit8BenefitsUA.Text,CBLangTR.Text);
-RichEdit8OtherTR.Text  := Translate(RichEdit8OtherUA.Text,CBLangTR.Text);
-Memo8SkillsTR.Text    :=Translate(Memo8SkillsUA.Text,CBLangTR.Text);
-
-Edit9DatesTR.Text  := Edit9DatesUA.Text;
-if not (CalendarPickerB[9]=0.0) then CalendarPickerB9TR.Date:=CalendarPickerB[9];
-if not (CalendarPickerE[9]=0.0) then CalendarPickerE9TR.Date:=CalendarPickerE[9];
-Edit9CompanyTR.Text  := Edit9CompanyUA.Text;
-Edit9NameTR.Text  := Edit9NameUA.Text;
-RichEdit9RespTR.Text    := Translate(RichEdit9RespUA.Text,CBLangTR.Text);
-Edit9BenefitsTR.Text:= Translate(Edit9BenefitsUA.Text,CBLangTR.Text);
-RichEdit9OtherTR.Text  := Translate(RichEdit9OtherUA.Text,CBLangTR.Text);
-Memo9SkillsTR.Text    :=Translate(Memo9SkillsUA.Text,CBLangTR.Text);
-
-Edit10DatesTR.Text  := Edit10DatesUA.Text;
-if not (CalendarPickerB[10]=0.0) then CalendarPickerB10TR.Date:=CalendarPickerB[10];
-if not (CalendarPickerE[10]=0.0) then CalendarPickerE10TR.Date:=CalendarPickerE[10];
-Edit10CompanyTR.Text  := Edit10CompanyUA.Text;
-Edit10NameTR.Text  := Edit10NameUA.Text;
-RichEdit10RespTR.Text    := Translate(RichEdit10RespUA.Text,CBLangTR.Text);
-Edit10BenefitsTR.Text:= Translate(Edit10BenefitsUA.Text,CBLangTR.Text);
-RichEdit10OtherTR.Text  := Translate(RichEdit10OtherUA.Text,CBLangTR.Text);
-Memo10SkillsTR.Text    :=Translate(Memo10SkillsUA.Text,CBLangTR.Text);
+CopyTRFromUA;
+SetDatesTRromVariables;
+UpdateTRMarkers;
 end;
 
 procedure TFormNewResume.BitBtnSaveClick(Sender: TObject);
@@ -1392,7 +1541,7 @@ while not FormMain.UniRegions.EOF do
   except
     on E: Exception do
     begin
-      ShowMessage('Error: ' + E.Message);
+      FormMain.Warning('Error: ' + E.Message);
       Result := false;
     end;
   end;
@@ -1410,11 +1559,12 @@ try
   UniSPInsertResume.ParamByName('p_job_place').AsString := Trim(EditPlaceTR.Text);
   UniSPInsertResume.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhonesTR.Text);
   UniSPInsertResume.ParamByName('p_resume_introduction').AsMemo := Trim(RichEditorTR.Text);
-  UniSPInsertResume.ParamByName('p_cv_introduction').AsMemo := Trim(RichEditCV_Introduction.Text);
-  UniSPInsertResume.ParamByName('p_cv_include_footer1').AsBoolean := not CBCV_footer1.Checked;
-  UniSPInsertResume.ParamByName('p_cv_include_footer2').AsBoolean := not CBCV_footer2.Checked;
-  UniSPInsertResume.ParamByName('p_cv_include_footer3').AsBoolean := not CBCV_footer3.Checked;
-  UniSPInsertResume.ParamByName('p_cv_include_footer4').AsBoolean := not CBCV_footer4.Checked;
+  UniSPInsertResume.ParamByName('p_cv_introduction').AsMemo := Trim(RichEditCVTR.Text);
+  UniSPInsertResume.ParamByName('p_cl_text').AsMemo := Trim(RichEditCLTR.Text);
+  UniSPInsertResume.ParamByName('p_cv_include_footer1').AsBoolean := not CBCV_footer1TR.Checked;
+  UniSPInsertResume.ParamByName('p_cv_include_footer2').AsBoolean := not CBCV_footer2TR.Checked;
+  UniSPInsertResume.ParamByName('p_cv_include_footer3').AsBoolean := not CBCV_footer3TR.Checked;
+  UniSPInsertResume.ParamByName('p_cv_include_footer4').AsBoolean := not CBCV_footer4TR.Checked;
   UniSPInsertResume.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1TR.Text);
 	UniSPInsertResume.ParamByName('p_footer_1_text').AsMemo := Trim(RichEditArticle1TR.Text);
 	UniSPInsertResume.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2TR.Text);
@@ -1430,7 +1580,7 @@ try
 	except
 	on E: Exception do
 		begin
-			ShowMessage('Ошибка во время вставки в Resumes: ' + E.Message);
+			FormMain.Warning('Помилка під час вставки до Resumes: ' + E.Message);
 			Res := false;
 		end;
 end;
@@ -1450,7 +1600,7 @@ if isJob1Active then
 			UniSPInsertExperiences.ParamByName('p_end_date').AsDateTime := CalendarPickerE1TR.Date;
 			UniSPInsertExperiences.ParamByName('p_employer').AsString := Edit1CompanyTR.Text;
 			UniSPInsertExperiences.ParamByName('p_resp').AsMemo := RichEdit1RespTR.Text;
-			UniSPInsertExperiences.ParamByName('p_benefits').AsString := Edit1BenefitsTR.Text;
+			UniSPInsertExperiences.ParamByName('p_benefits').AsString := RichEdit1BenefitsTR.Text;
 			UniSPInsertExperiences.ParamByName('p_other').AsMemo := RichEdit1OtherTR.Text;
 			UniSPInsertExperiences.ExecSQL;
 			for i := 0 to Memo1SkillsTR.Lines.Count - 1 do
@@ -1674,7 +1824,7 @@ if isJob10Active then
 	except
 		on E: Exception do
 		begin
-			ShowMessage('Ошибка во время вставки в процедуре SaveJobs: ' + E.Message);
+			FormMain.Warning('Помилка під час вставки у процедурі SaveJobs: ' + E.Message);
 			Result := false;
 		end;
   end;
@@ -1715,104 +1865,128 @@ end;
 
 procedure TFormNewResume.CopyTRfromUA;
 begin
-EditNameTR.Text := EditNameUA.Text;
-EditOpportunityTR.Text := EditOpportunityUA.Text;
-EditPlaceTR.Text := EditPlaceUA.Text;
-EditPhonesTR.Text := EditPhonesUA.Text;
-RichEditorTR.Text := RichEditorUA.Text;
+EditNameTR.Text := Translate(EditNameUA.Text,CBLangTR.Text);
+EditOpportunityTR.Text := Translate(EditOpportunityUA.Text,CBLangTR.Text);
+EditPlaceTR.Text := Translate(EditPlaceUA.Text,CBLangTR.Text);
+EditPhonesTR.Text := Translate(EditPhonesUA.Text,CBLangTR.Text);
+RichEditorTR.Text := Translate(RichEditorUA.Text,CBLangTR.Text);
 
-EditArticle1TR.Text := EditArticle1UA.Text;
-RichEditArticle1TR.Text := RichEditArticle1UA.Text;
-EditArticle2TR.Text := EditArticle2UA.Text;
-RichEditArticle2TR.Text := RichEditArticle2UA.Text;
-EditArticle3TR.Text := EditArticle3UA.Text;
-RichEditArticle3TR.Text := RichEditArticle3UA.Text;
-EditArticle4TR.Text := EditArticle4UA.Text;
-RichEditArticle4TR.Text := RichEditArticle4UA.Text;
+EditArticle1TR.Text := Translate(EditArticle1UA.Text,CBLangTR.Text);
+RichEditArticle1TR.Text := Translate(RichEditArticle1UA.Text,CBLangTR.Text);
+EditArticle2TR.Text := Translate(EditArticle2UA.Text,CBLangTR.Text);
+RichEditArticle2TR.Text := Translate(RichEditArticle2UA.Text,CBLangTR.Text);
+EditArticle3TR.Text := Translate(EditArticle3UA.Text,CBLangTR.Text);
+RichEditArticle3TR.Text := Translate(RichEditArticle3UA.Text,CBLangTR.Text);
+EditArticle4TR.Text := Translate(EditArticle4UA.Text,CBLangTR.Text);
+RichEditArticle4TR.Text := Translate(RichEditArticle4UA.Text,CBLangTR.Text);
 
-Edit1DatesTR.Text := Edit1DatesUA.Text;
-Edit1NameTR.Text := Edit1NameUA.Text;
-Edit1CompanyTR.Text := Edit1CompanyUA.Text;
-RichEdit1RespTR.Text := RichEdit1RespUA.Text;
-Edit1BenefitsTR.Text := Edit1BenefitsUA.Text;
-RichEdit1OtherTR.Text := RichEdit1OtherUA.Text;
-Memo1SkillsTR.Text:=Memo1SkillsUA.Text;
+RichEditCVTR.Text:=RichEditCVUA.Text;
+RichEditCLTR.Text:=RichEditCLUA.Text;
 
-Edit2DatesTR.Text := Edit2DatesUA.Text;
-Edit2NameTR.Text := Edit2NameUA.Text;
-Edit2CompanyTR.Text := Edit2CompanyUA.Text;
-RichEdit2RespTR.Text := RichEdit2RespUA.Text;
-Edit2BenefitsTR.Text := Edit2BenefitsUA.Text;
-RichEdit2OtherTR.Text := RichEdit2OtherUA.Text;
-Memo2SkillsTR.Text:=Memo2SkillsUA.Text;
+Edit1DatesTR.Text  := Edit1DatesUA.Text;
+if not (CalendarPickerB[1]=0.0) then CalendarPickerB1TR.Date:=CalendarPickerB[1];
+if not (CalendarPickerE[1]=0.0) then CalendarPickerE1TR.Date:=CalendarPickerE[1];
+Edit1CompanyTR.Text  := Edit1CompanyUA.Text;
+Edit1NameTR.Text  := Edit1NameUA.Text;
+RichEdit1RespTR.Text  := Translate(RichEdit1RespUA.Text,CBLangTR.Text);
+RichEdit1BenefitsTR.Text := Translate(RichEdit1BenefitsUA.Text,CBLangTR.Text);
+RichEdit1OtherTR.Text := Translate(RichEdit1OtherUA.Text,CBLangTR.Text);
+Memo1SkillsTR.Text   :=Translate(Memo1SkillsUA.Text,CBLangTR.Text);
 
-Edit3DatesTR.Text := Edit3DatesUA.Text;
-Edit3NameTR.Text := Edit3NameUA.Text;
-Edit3CompanyTR.Text := Edit3CompanyUA.Text;
-RichEdit3RespTR.Text := RichEdit3RespUA.Text;
-Edit3BenefitsTR.Text := Edit3BenefitsUA.Text;
-RichEdit3OtherTR.Text := RichEdit3OtherUA.Text;
-Memo3SkillsTR.Text:=Memo3SkillsUA.Text;
+Edit2DatesTR.Text  := Edit2DatesUA.Text;
+if not (CalendarPickerB[2]=0.0) then CalendarPickerB2TR.Date:=CalendarPickerB[2];
+if not (CalendarPickerE[2]=0.0) then CalendarPickerE2TR.Date:=CalendarPickerE[2];
+Edit2CompanyTR.Text  := Edit2CompanyUA.Text;
+Edit2NameTR.Text  := Edit2NameUA.Text;
+RichEdit2RespTR.Text    := Translate(RichEdit2RespUA.Text,CBLangTR.Text);
+Edit2BenefitsTR.Text:= Translate(RichEdit2BenefitsUA.Text,CBLangTR.Text);
+RichEdit2OtherTR.Text  := Translate(RichEdit2OtherUA.Text,CBLangTR.Text);
+Memo2SkillsTR.Text    :=Translate(Memo2SkillsUA.Text,CBLangTR.Text);
 
-Edit4DatesTR.Text := Edit4DatesUA.Text;
-Edit4NameTR.Text := Edit4NameUA.Text;
-Edit4CompanyTR.Text := Edit4CompanyUA.Text;
-RichEdit4RespTR.Text := RichEdit4RespUA.Text;
-Edit4BenefitsTR.Text := Edit4BenefitsUA.Text;
-RichEdit4OtherTR.Text := RichEdit4OtherUA.Text;
-Memo4SkillsTR.Text:=Memo4SkillsUA.Text;
+Edit3DatesTR.Text  := Edit3DatesUA.Text;
+if not (CalendarPickerB[3]=0.0) then CalendarPickerB3TR.Date:=CalendarPickerB[3];
+if not (CalendarPickerE[3]=0.0) then CalendarPickerE3TR.Date:=CalendarPickerE[3];
+Edit3CompanyTR.Text  := Edit3CompanyUA.Text;
+Edit3NameTR.Text  := Edit3NameUA.Text;
+RichEdit3RespTR.Text    := Translate(RichEdit3RespUA.Text,CBLangTR.Text);
+Edit3BenefitsTR.Text:= Translate(RichEdit3BenefitsUA.Text,CBLangTR.Text);
+RichEdit3OtherTR.Text  := Translate(RichEdit3OtherUA.Text,CBLangTR.Text);
+Memo3SkillsTR.Text    :=Translate(Memo3SkillsUA.Text,CBLangTR.Text);
 
-Edit5DatesTR.Text := Edit5DatesUA.Text;
-Edit5NameTR.Text := Edit5NameUA.Text;
-Edit5CompanyTR.Text := Edit5CompanyUA.Text;
-RichEdit5RespTR.Text := RichEdit5RespUA.Text;
-Edit5BenefitsTR.Text := Edit5BenefitsUA.Text;
-RichEdit5OtherTR.Text := RichEdit5OtherUA.Text;
-Memo5SkillsTR.Text:=Memo5SkillsUA.Text;
+Edit4DatesTR.Text  := Edit4DatesUA.Text;
+if not (CalendarPickerB[4]=0.0) then CalendarPickerB4TR.Date:=CalendarPickerB[4];
+if not (CalendarPickerE[4]=0.0) then CalendarPickerE4TR.Date:=CalendarPickerE[4];
+Edit4CompanyTR.Text  := Edit4CompanyUA.Text;
+Edit4NameTR.Text  := Edit4NameUA.Text;
+RichEdit4RespTR.Text    := Translate(RichEdit4RespUA.Text,CBLangTR.Text);
+Edit4BenefitsTR.Text:= Translate(RichEdit4BenefitsUA.Text,CBLangTR.Text);
+RichEdit4OtherTR.Text  := Translate(RichEdit4OtherUA.Text,CBLangTR.Text);
+Memo4SkillsTR.Text    :=Translate(Memo4SkillsUA.Text,CBLangTR.Text);
 
-Edit6DatesTR.Text := Edit6DatesUA.Text;
-Edit6NameTR.Text := Edit6NameUA.Text;
-Edit6CompanyTR.Text := Edit6CompanyUA.Text;
-RichEdit6RespTR.Text := RichEdit6RespUA.Text;
-Edit6BenefitsTR.Text := Edit6BenefitsUA.Text;
-RichEdit6OtherTR.Text := RichEdit6OtherUA.Text;
-Memo6SkillsTR.Text:=Memo6SkillsUA.Text;
+Edit5DatesTR.Text  := Edit5DatesUA.Text;
+if not (CalendarPickerB[5]=0.0) then CalendarPickerB5TR.Date:=CalendarPickerB[5];
+if not (CalendarPickerE[5]=0.0) then CalendarPickerE5TR.Date:=CalendarPickerE[5];
+Edit5CompanyTR.Text  := Edit5CompanyUA.Text;
+Edit5NameTR.Text  := Edit5NameUA.Text;
+RichEdit5RespTR.Text    := Translate(RichEdit5RespUA.Text,CBLangTR.Text);
+Edit5BenefitsTR.Text:= Translate(RichEdit5BenefitsUA.Text,CBLangTR.Text);
+RichEdit5OtherTR.Text  := Translate(RichEdit5OtherUA.Text,CBLangTR.Text);
+Memo5SkillsTR.Text    :=Translate(Memo5SkillsUA.Text,CBLangTR.Text);
 
-Edit7DatesTR.Text := Edit7DatesUA.Text;
-Edit7NameTR.Text := Edit7NameUA.Text;
-Edit7CompanyTR.Text := Edit7CompanyUA.Text;
-RichEdit7RespTR.Text := RichEdit7RespUA.Text;
-Edit7BenefitsTR.Text := Edit7BenefitsUA.Text;
-RichEdit7OtherTR.Text := RichEdit7OtherUA.Text;
-Memo7SkillsTR.Text:=Memo7SkillsUA.Text;
+Edit6DatesTR.Text  := Edit6DatesUA.Text;
+if not (CalendarPickerB[6]=0.0) then CalendarPickerB6TR.Date:=CalendarPickerB[6];
+if not (CalendarPickerE[6]=0.0) then CalendarPickerE6TR.Date:=CalendarPickerE[6];
+Edit6CompanyTR.Text  := Edit6CompanyUA.Text;
+Edit6NameUA.Text  := Edit6NameUA.Text;
+RichEdit6RespTR.Text    := Translate(RichEdit6RespUA.Text,CBLangTR.Text);
+Edit6BenefitsTR.Text:= Translate(RichEdit6BenefitsUA.Text,CBLangTR.Text);
+RichEdit6OtherTR.Text  := Translate(RichEdit6OtherUA.Text,CBLangTR.Text);
+Memo6SkillsTR.Text    :=Translate(Memo6SkillsUA.Text,CBLangTR.Text);
 
-Edit8DatesTR.Text := Edit8DatesUA.Text;
-Edit8NameTR.Text := Edit8NameUA.Text;
-Edit8CompanyTR.Text := Edit8CompanyUA.Text;
-RichEdit8RespTR.Text := RichEdit8RespUA.Text;
-Edit8BenefitsTR.Text := Edit8BenefitsUA.Text;
-RichEdit8OtherTR.Text := RichEdit8OtherUA.Text;
-Memo8SkillsTR.Text:=Memo8SkillsUA.Text;
+Edit7DatesTR.Text  := Edit7DatesUA.Text;
+if not (CalendarPickerB[7]=0.0) then CalendarPickerB7TR.Date:=CalendarPickerB[7];
+if not (CalendarPickerE[7]=0.0) then CalendarPickerE7TR.Date:=CalendarPickerE[7];
+Edit7CompanyTR.Text  := Edit7CompanyUA.Text;
+Edit7NameTR.Text  := Edit7NameUA.Text;
+RichEdit7RespTR.Text    := Translate(RichEdit7RespUA.Text,CBLangTR.Text);
+Edit7BenefitsTR.Text:= Translate(RichEdit7BenefitsUA.Text,CBLangTR.Text);
+RichEdit7OtherTR.Text  := Translate(RichEdit7OtherUA.Text,CBLangTR.Text);
+Memo7SkillsTR.Text    :=Translate(Memo7SkillsUA.Text,CBLangTR.Text);
 
-Edit9DatesTR.Text := Edit9DatesUA.Text;
-Edit9NameTR.Text := Edit9NameUA.Text;
-Edit9CompanyTR.Text := Edit9CompanyUA.Text;
-RichEdit9RespTR.Text := RichEdit9RespUA.Text;
-Edit9BenefitsTR.Text := Edit9BenefitsUA.Text;
-RichEdit9OtherTR.Text := RichEdit9OtherUA.Text;
-Memo9SkillsTR.Text:=Memo9SkillsUA.Text;
+Edit8DatesTR.Text  := Edit8DatesUA.Text;
+if not (CalendarPickerB[8]=0.0) then CalendarPickerB8TR.Date:=CalendarPickerB[8];
+if not (CalendarPickerE[8]=0.0) then CalendarPickerE8TR.Date:=CalendarPickerE[8];
+Edit8CompanyTR.Text  := Edit8CompanyUA.Text;
+Edit8NameTR.Text  := Edit8NameUA.Text;
+RichEdit8RespTR.Text    := Translate(RichEdit8RespUA.Text,CBLangTR.Text);
+Edit8BenefitsTR.Text:= Translate(RichEdit8BenefitsUA.Text,CBLangTR.Text);
+RichEdit8OtherTR.Text  := Translate(RichEdit8OtherUA.Text,CBLangTR.Text);
+Memo8SkillsTR.Text    :=Translate(Memo8SkillsUA.Text,CBLangTR.Text);
 
-Edit10DatesTR.Text := Edit10DatesUA.Text;
-Edit10NameTR.Text := Edit10NameUA.Text;
-Edit10CompanyTR.Text := Edit10CompanyUA.Text;
-RichEdit10RespTR.Text := RichEdit10RespUA.Text;
-Edit10BenefitsTR.Text := Edit10BenefitsUA.Text;
-RichEdit10OtherTR.Text := RichEdit10OtherUA.Text;
-Memo10SkillsTR.Text:=Memo10SkillsUA.Text;
+Edit9DatesTR.Text  := Edit9DatesUA.Text;
+if not (CalendarPickerB[9]=0.0) then CalendarPickerB9TR.Date:=CalendarPickerB[9];
+if not (CalendarPickerE[9]=0.0) then CalendarPickerE9TR.Date:=CalendarPickerE[9];
+Edit9CompanyTR.Text  := Edit9CompanyUA.Text;
+Edit9NameTR.Text  := Edit9NameUA.Text;
+RichEdit9RespTR.Text    := Translate(RichEdit9RespUA.Text,CBLangTR.Text);
+Edit9BenefitsTR.Text:= Translate(RichEdit9BenefitsUA.Text,CBLangTR.Text);
+RichEdit9OtherTR.Text  := Translate(RichEdit9OtherUA.Text,CBLangTR.Text);
+Memo9SkillsTR.Text    :=Translate(Memo9SkillsUA.Text,CBLangTR.Text);
+
+Edit10DatesTR.Text  := Edit10DatesUA.Text;
+if not (CalendarPickerB[10]=0.0) then CalendarPickerB10TR.Date:=CalendarPickerB[10];
+if not (CalendarPickerE[10]=0.0) then CalendarPickerE10TR.Date:=CalendarPickerE[10];
+Edit10CompanyTR.Text  := Edit10CompanyUA.Text;
+Edit10NameTR.Text  := Edit10NameUA.Text;
+RichEdit10RespTR.Text    := Translate(RichEdit10RespUA.Text,CBLangTR.Text);
+Edit10BenefitsTR.Text:= Translate(RichEdit10BenefitsUA.Text,CBLangTR.Text);
+RichEdit10OtherTR.Text  := Translate(RichEdit10OtherUA.Text,CBLangTR.Text);
+Memo10SkillsTR.Text    :=Translate(Memo10SkillsUA.Text,CBLangTR.Text);
 end;
 
 procedure TFormNewResume.GetValuesFromTemplate(TemplateId: integer);
 begin
+LCopyFromTemplateID:=TemplateID;
 UniGetTemplate.Close;
 UniGetTemplate.ParamByName('p_id').AsInteger := TemplateId;
 UniGetTemplate.Open;
@@ -1875,7 +2049,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit1DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 									+ '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit1RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit1BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit1BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit1OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -1896,7 +2070,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit2DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 									+ '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit2RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit2BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit2BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit2OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -1917,7 +2091,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit3DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								 + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit3RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit3BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit3BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit3OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -1938,7 +2112,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit4DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								 + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit4RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit4BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit4BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit4OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -1959,7 +2133,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit5DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								 + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit5RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit5BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit5BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit5OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -1980,7 +2154,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit6DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								 + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit6RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit6BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit6BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit6OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -2001,7 +2175,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit7DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								 + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit7RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit7BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit7BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit7OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -2022,7 +2196,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit8DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								 + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit8RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit8BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit8BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit8OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -2043,7 +2217,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit9DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								 + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit9RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit9BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit9BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit9OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -2064,7 +2238,7 @@ while not UniGetTemplateJobs.EOF do
 		Edit10DatesUA.Text := FormMain.GetFullMonthByRegion(UniGetTemplateJobs['start_date'], CBRegionTR.Text)
 								  + '-' + FormMain.GetFullMonthByRegion(UniGetTemplateJobs['end_date'], CBRegionTR.Text);
 		RichEdit10RespUA.Text:=UniGetTemplateJobs['responsibilities'];
-		Edit10BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
+		RichEdit10BenefitsUA.Text:=UniGetTemplateJobs['benefits'];
 		RichEdit10OtherUA.Text:=UniGetTemplateJobs['other'];
 		UniGetSkills.Close;
 		UniGetSkills.ParamByName('p_experience_id').AsInteger := UniGetTemplateJobs['id'];
@@ -2078,6 +2252,7 @@ while not UniGetTemplateJobs.EOF do
 		end;
 	UniGetTemplateJobs.Next;
 	end;
+UpdateUAMarkers;
 end;
 
 function TFormNewResume.GoogleTranslate(const S, lang: string): string;
@@ -2086,7 +2261,9 @@ Result:=S;
 end;
 
 procedure TFormNewResume.GetValuesFromResume(const ResumeID:integer);
+var i:integer;
 begin
+LCopyFromResumeID:=ResumeID;
 UniGetResume.Close;
 UniGetResume.ParamByName('p_id').AsInteger := ResumeID;
 UniGetResume.Open;
@@ -2095,6 +2272,8 @@ if VarIsNull(UniGetResume['job_opportunity']) then EditOpportunityUA.Text := '' 
 if VarIsNull(UniGetResume['job_place']) then EditPlaceUA.Text := '' else EditPlaceUA.Text := UniGetResume['job_place'];
 if VarIsNull(UniGetResume['phone_numbers_text']) then EditPhonesUA.Text := '' else EditPhonesUA.Text := UniGetResume['phone_numbers_text'];
 if VarIsNull(UniGetResume['resume_introduction']) then RichEditorUA.Text := '' else RichEditorUA.Text := UniGetResume['resume_introduction'];
+if VarIsNull(UniGetResume['cv_introduction']) then RichEditCVUA.Text := '' else RichEditCVUA.Text := UniGetResume['resume_introduction'];
+if VarIsNull(UniGetResume['cl_text']) then RichEditCLUA.Text := '' else RichEditCLUA.Text := UniGetResume['cl_text'];
 UniGetFooters.Close;
 UniGetFooters.ParamByName('p_resume_id').AsInteger := ResumeID;
 UniGetFooters.Open;
@@ -2102,30 +2281,249 @@ while not UniGetFooters.EOF do
   begin
   if UniGetFooters['footer_order']=1 then
     begin
-      EditArticle1TR.Text:=UniGetFooters['footer_header'];
-      RichEditArticle1TR.Text:=UniGetFooters['footer_text'];
-      CBCV_footer1.Checked:= not UniGetFooters.FieldByname('cv_include_folder').AsBoolean;
+      EditArticle1UA.Text:=UniGetFooters['footer_header'];
+      RichEditArticle1UA.Text:=UniGetFooters['footer_text'];
+      CBCV_footer1UA.Checked:= not UniGetFooters.FieldByname('cv_include_footer').AsBoolean;
     end;
   if UniGetFooters['footer_order']=2 then
     begin
-      EditArticle2TR.Text:=UniGetFooters['footer_header'];
-      RichEditArticle2TR.Text:=UniGetFooters['footer_text'];
-      CBCV_footer2.Checked:= not UniGetFooters.FieldByname('cv_include_folder').AsBoolean;
+      EditArticle2UA.Text:=UniGetFooters['footer_header'];
+      RichEditArticle2UA.Text:=UniGetFooters['footer_text'];
+      CBCV_footer2UA.Checked:= not UniGetFooters.FieldByname('cv_include_footer').AsBoolean;
     end;
   if UniGetFooters['footer_order']=3 then
     begin
-      EditArticle3TR.Text:=UniGetFooters['footer_header'];
-      RichEditArticle3TR.Text:=UniGetFooters['footer_text'];
-      CBCV_footer3.Checked:= not UniGetFooters.FieldByname('cv_include_folder').AsBoolean;
+      EditArticle3UA.Text:=UniGetFooters['footer_header'];
+      RichEditArticle3UA.Text:=UniGetFooters['footer_text'];
+      CBCV_footer3UA.Checked:= not UniGetFooters.FieldByname('cv_include_footer').AsBoolean;
     end;
   if UniGetFooters['footer_order']=4 then
     begin
-      EditArticle4TR.Text:=UniGetFooters['footer_header'];
-      RichEditArticle4TR.Text:=UniGetFooters['footer_text'];
-      CBCV_footer4.Checked:= not UniGetFooters.FieldByname('cv_include_folder').AsBoolean;
+      EditArticle4UA.Text:=UniGetFooters['footer_header'];
+      RichEditArticle4UA.Text:=UniGetFooters['footer_text'];
+      CBCV_footer4UA.Checked:= not UniGetFooters.FieldByname('cv_include_footer').AsBoolean;
     end;
   UniGetFooters.Next;
   end;
+
+UniGetJobs.Close;
+UniGetJobs.ParamByName('p_resume_id').AsInteger := ResumeID;
+UniGetJobs.Open;
+while not UniGetJobs.EOF do
+  begin
+  if UniGetJobs['job_order']=1 then
+    begin
+    Edit1NameUA.Text:=UniGetJobs['job_position'];
+    Dates1BUA:=UniGetJobs['start_date'];
+    Dates1EUA:=UniGetJobs['end_date'];
+    Edit1DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit1CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit1RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit1BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit1OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo1SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo1SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=2 then
+    begin
+    Edit2NameUA.Text:=UniGetJobs['job_position'];
+    Dates2BUA:=UniGetJobs['start_date'];
+    Dates2EUA:=UniGetJobs['end_date'];
+    Edit2DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit2CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit2RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit2BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit2OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo2SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo2SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=3 then
+    begin
+    Edit3NameUA.Text:=UniGetJobs['job_position'];
+    Dates3BUA:=UniGetJobs['start_date'];
+    Dates3EUA:=UniGetJobs['end_date'];
+    Edit3DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit3CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit3RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit3BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit3OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo3SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo3SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=4 then
+    begin
+    Edit4NameUA.Text:=UniGetJobs['job_position'];
+    Dates4BUA:=UniGetJobs['start_date'];
+    Dates4EUA:=UniGetJobs['end_date'];
+    Edit4DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit4CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit4RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit4BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit4OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo4SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo4SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=5 then
+    begin
+    Edit5NameUA.Text:=UniGetJobs['job_position'];
+    Dates5BUA:=UniGetJobs['start_date'];
+    Dates5EUA:=UniGetJobs['end_date'];
+    Edit5DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit5CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit5RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit5BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit5OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo5SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo5SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=6 then
+    begin
+    Edit6NameUA.Text:=UniGetJobs['job_position'];
+    Dates6BUA:=UniGetJobs['start_date'];
+    Dates6EUA:=UniGetJobs['end_date'];
+    Edit6DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit6CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit6RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit6BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit6OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo6SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo6SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=7 then
+    begin
+    Edit7NameUA.Text:=UniGetJobs['job_position'];
+    Dates7BUA:=UniGetJobs['start_date'];
+    Dates7EUA:=UniGetJobs['end_date'];
+    Edit7DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit7CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit7RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit7BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit7OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo7SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo7SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=8 then
+    begin
+    Edit8NameUA.Text:=UniGetJobs['job_position'];
+    Dates8BUA:=UniGetJobs['start_date'];
+    Dates8EUA:=UniGetJobs['end_date'];
+    Edit8DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit8CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit8RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit8BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit8OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo8SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo8SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=9 then
+    begin
+    Edit9NameUA.Text:=UniGetJobs['job_position'];
+    Dates9BUA:=UniGetJobs['start_date'];
+    Dates9EUA:=UniGetJobs['end_date'];
+    Edit9DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit9CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit9RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit9BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit9OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo9SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo9SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+  if UniGetJobs['job_order']=10 then
+    begin
+    Edit10NameUA.Text:=UniGetJobs['job_position'];
+    Dates10BUA:=UniGetJobs['start_date'];
+    Dates10EUA:=UniGetJobs['end_date'];
+    Edit10DatesUA.Text:=FormMain.GetFullMonthByRegion(UniGetJobs['start_date'], EditRegionUA.Text)
+             + '-' + FormMain.GetFullMonthByRegion(UniGetJobs['end_date'], EditRegionUA.Text);
+    Edit10CompanyUA.Text:=UniGetJobs['employer'];
+    RichEdit10RespUA.Text:=UniGetJobs['responsibilities'];
+    RichEdit10BenefitsUA.Text:=UniGetJobs['benefits'];
+    RichEdit10OtherUA.Text:=UniGetJobs['other'];
+    UniGetSkills.Close;
+    UniGetSkills.ParamByName('p_experience_id').AsInteger:=UniGetJobs['experience_id'];
+    UniGetSkills.Open;
+    Memo10SkillsUA.Clear;
+    while not UniGetSkills.EOF do
+      begin
+        Memo10SkillsUA.Lines.Add(UniGetSkills['skill']);
+        UniGetSkills.Next;
+      end;
+    end;
+    UniGetJobs.Next;
+  end;
+UpdateUAMarkers;
 end;
 
 procedure TFormNewResume.ChangeDates1;
@@ -2182,15 +2580,75 @@ Edit9DatesTR.Text := FormMain.GetFullMonthByRegion(CalendarPickerB9TR.Date, CBRe
 					 + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE9TR.Date, CBRegionTR.Text);
 end;
 
+procedure TFormNewResume.CBCLWordWrapTRClick(Sender: TObject);
+begin
+if CBCLWordWrapTR.Checked
+then
+	begin
+	RichEditCLTR.ScrollBars:=ssVertical;
+	RichEditCLTR.WordWrap:=true;
+	end
+else
+	begin
+	RichEditCLTR.ScrollBars:=ssBoth;
+	RichEditCLTR.WordWrap:=false;
+	end;
+end;
+
+procedure TFormNewResume.CBCLWordWrapUAClick(Sender: TObject);
+begin
+if CBCLWordWrapUA.Checked
+then
+	begin
+	RichEditCLUA.ScrollBars:=ssVertical;
+	RichEditCLUA.WordWrap:=true;
+	end
+else
+	begin
+	RichEditCLUA.ScrollBars:=ssBoth;
+	RichEditCLUA.WordWrap:=false;
+	end;
+end;
+
+procedure TFormNewResume.CBCVWordWrapTRClick(Sender: TObject);
+begin
+if CBCVWordWrapTR.Checked
+then
+	begin
+	RichEditCVTR.ScrollBars:=ssVertical;
+	RichEditCVTR.WordWrap:=true;
+	end
+else
+	begin
+	RichEditCVTR.ScrollBars:=ssBoth;
+	RichEditCVTR.WordWrap:=false;
+	end;
+end;
+
+procedure TFormNewResume.CBCVWordWrapUAClick(Sender: TObject);
+begin
+if CBCVWordWrapUA.Checked
+then
+	begin
+	RichEditCVUA.ScrollBars:=ssVertical;
+	RichEditCVUA.WordWrap:=true;
+	end
+else
+	begin
+	RichEditCVUA.ScrollBars:=ssBoth;
+	RichEditCVUA.WordWrap:=false;
+	end;
+end;
+
 procedure TFormNewResume.ChangeDates10;
 begin
 Edit10DatesTR.Text := FormMain.GetFullMonthByRegion(CalendarPickerB10TR.Date, CBRegionTR.Text)
 					  + '-' + FormMain.GetFullMonthByRegion(CalendarPickerE10TR.Date, CBRegionTR.Text);
 end;
 
-procedure TFormNewResume.CBWordWrapUAClick(Sender: TObject);
+procedure TFormNewResume.CBMainWordWrapUAClick(Sender: TObject);
 begin
-if CBWordWrapUA.Checked
+if CBMainWordWrapUA.Checked
 then
 	begin
 	RichEditorUA.ScrollBars:=ssVertical;
@@ -2404,9 +2862,9 @@ while not FormMain.UniRegions.Eof do
   end;
 end;
 
-procedure TFormNewResume.CBWordWrapClick(Sender: TObject);
+procedure TFormNewResume.CBMainWordWrapTRClick(Sender: TObject);
 begin
-if CBWordWrap.Checked
+if CBMainWordWrapTR.Checked
 then
 	begin
 	RichEditorTR.ScrollBars:=ssVertical;

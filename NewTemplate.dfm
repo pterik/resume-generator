@@ -2,8 +2,8 @@ object FormNewTemplate: TFormNewTemplate
   Left = 0
   Top = 0
   Caption = #1053#1086#1074#1099#1081' '#1096#1072#1073#1083#1086#1085
-  ClientHeight = 776
-  ClientWidth = 988
+  ClientHeight = 761
+  ClientWidth = 984
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,12 +13,12 @@ object FormNewTemplate: TFormNewTemplate
   KeyPreview = True
   OnKeyUp = FormKeyUp
   DesignSize = (
-    988
-    776)
+    984
+    761)
   TextHeight = 15
   object BitBtnClose: TBitBtn
-    Left = 885
-    Top = 730
+    Left = 881
+    Top = 724
     Width = 95
     Height = 38
     Anchors = [akRight, akBottom]
@@ -36,7 +36,7 @@ object FormNewTemplate: TFormNewTemplate
   end
   object BitBtnSave: TBitBtn
     Left = 8
-    Top = 734
+    Top = 724
     Width = 161
     Height = 38
     Anchors = [akLeft, akBottom]
@@ -187,8 +187,8 @@ object FormNewTemplate: TFormNewTemplate
     Left = 0
     Top = 2
     Width = 980
-    Height = 722
-    ActivePage = TabSheetJob1RU
+    Height = 718
+    ActivePage = TabSheetFooter
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -197,14 +197,18 @@ object FormNewTemplate: TFormNewTemplate
     ParentFont = False
     Style = tsButtons
     TabOrder = 2
-    object TabSheetMainRU: TTabSheet
-      Caption = #1054#1089#1085#1086#1074#1085#1072#1103
+    OnChange = PageControlChange
+    object TabSheetMain: TTabSheet
+      Caption = #1056#1077#1079#1102#1084#1077
+      DesignSize = (
+        972
+        679)
       object Label7: TLabel
-        Left = 24
-        Top = 54
-        Width = 80
+        Left = 52
+        Top = 36
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -214,10 +218,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label9: TLabel
         Left = 2
-        Top = 142
-        Width = 102
+        Top = 102
+        Width = 99
         Height = 21
-        Caption = #1052#1077#1089#1090#1086' '#1088#1072#1073#1086#1090#1099
+        Caption = #1052#1110#1089#1094#1077' '#1088#1086#1073#1086#1090#1080
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -226,11 +230,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label10: TLabel
-        Left = 21
-        Top = 185
-        Width = 72
+        Left = 32
+        Top = 141
+        Width = 70
         Height = 21
-        Caption = #1058#1077#1083#1077#1092#1086#1085#1099
+        Caption = #1058#1077#1083#1077#1092#1086#1085#1080
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -241,16 +245,16 @@ object FormNewTemplate: TFormNewTemplate
       object Label12: TLabel
         Left = 64
         Top = 5
-        Width = 35
+        Width = 39
         Height = 21
-        Caption = #1071#1079#1099#1082
+        Caption = #1052#1086#1074#1072
       end
       object Label13: TLabel
         Left = 218
         Top = 3
-        Width = 50
+        Width = 45
         Height = 21
-        Caption = #1056#1077#1075#1080#1086#1085
+        Caption = #1056#1077#1075#1110#1086#1085
       end
       object LabelFooterID: TLabel
         Left = 744
@@ -266,11 +270,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label11: TLabel
-        Left = 24
-        Top = 253
+        Left = 36
+        Top = 168
         Width = 68
         Height = 21
-        Caption = #1042#1074#1077#1076#1077#1085#1080#1077
+        Caption = #1042#1074#1077#1076#1077#1085#1085#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -280,7 +284,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object EditName: TEdit
         Left = 110
-        Top = 51
+        Top = 36
         Width = 539
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -294,7 +298,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object EditOpportunity: TEdit
         Left = 108
-        Top = 94
+        Top = 70
         Width = 541
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -308,7 +312,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object EditPlace: TEdit
         Left = 110
-        Top = 142
+        Top = 104
         Width = 539
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -322,7 +326,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object EditPhones: TEdit
         Left = 110
-        Top = 184
+        Top = 138
         Width = 539
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -334,7 +338,7 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 3
         Text = 'EditPhones'
       end
-      object EditLangTR: TEdit
+      object EditLang: TEdit
         Left = 110
         Top = 3
         Width = 72
@@ -344,7 +348,7 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 5
         Text = 'RU'
       end
-      object EditRegionTR: TEdit
+      object EditRegion: TEdit
         Left = 270
         Top = 3
         Width = 72
@@ -355,35 +359,36 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Template'
       end
       object StaticText2: TStaticText
-        Left = 17
-        Top = 94
-        Width = 85
+        Left = 32
+        Top = 71
+        Width = 72
         Height = 25
-        Caption = #1055#1086#1083#1085#1086#1089#1090#1100#1102
+        Caption = #1055#1086#1074#1085#1110#1089#1090#1102
         TabOrder = 7
       end
       object CBPhones: TComboBox
         Left = 655
-        Top = 184
+        Top = 139
         Width = 275
         Height = 29
         TabOrder = 8
         Text = 'CBPhones'
       end
-      object BitBtn2: TBitBtn
+      object BitBtnPhones: TBitBtn
         Left = 936
-        Top = 184
+        Top = 139
         Width = 33
         Height = 25
         Caption = '+'
         TabOrder = 9
-        OnClick = BitBtn2Click
+        OnClick = BitBtnPhonesClick
       end
       object RichEditor: TRichEdit
-        Left = 110
-        Top = 219
-        Width = 847
-        Height = 450
+        Left = 3
+        Top = 195
+        Width = 966
+        Height = 458
+        Anchors = [akLeft, akTop, akRight, akBottom]
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -394,9 +399,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object CBWordWrap: TCheckBox
         Left = 3
-        Top = 299
+        Top = 659
         Width = 89
         Height = 17
+        Anchors = [akLeft, akBottom]
         Caption = 'Word Wrap'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -406,10 +412,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
         TabOrder = 10
         OnClick = CBWordWrapClick
+        ExplicitTop = 620
       end
     end
-    object TabSheetFooterRU: TTabSheet
-      Caption = 'Footer'
+    object TabSheetFooter: TTabSheet
+      Caption = #1044#1072#1083#1110
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
@@ -417,23 +424,26 @@ object FormNewTemplate: TFormNewTemplate
       Font.Style = []
       ImageIndex = 11
       ParentFont = False
+      DesignSize = (
+        972
+        679)
       object Label74: TLabel
-        Left = 8
-        Top = 194
+        Left = 3
+        Top = 172
         Width = 59
         Height = 21
         Caption = #1053#1072#1074#1099#1082' 2'
       end
       object Label75: TLabel
-        Left = 9
-        Top = 390
+        Left = 3
+        Top = 342
         Width = 59
         Height = 21
         Caption = #1053#1072#1074#1099#1082' 3'
       end
       object Label76: TLabel
-        Left = 9
-        Top = 537
+        Left = 3
+        Top = 512
         Width = 59
         Height = 21
         Caption = #1053#1072#1074#1099#1082' 4'
@@ -453,9 +463,9 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
       object EditArticle1: TEdit
-        Left = 90
+        Left = 70
         Top = 0
-        Width = 879
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -467,9 +477,9 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditArticle1'
       end
       object EditArticle2: TEdit
-        Left = 90
-        Top = 191
-        Width = 879
+        Left = 70
+        Top = 168
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -481,9 +491,9 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditArticle2'
       end
       object EditArticle3: TEdit
-        Left = 90
-        Top = 388
-        Width = 879
+        Left = 70
+        Top = 338
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -495,9 +505,9 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'EditArticle3'
       end
       object EditArticle4: TEdit
-        Left = 90
-        Top = 532
-        Width = 879
+        Left = 70
+        Top = 508
+        Width = 720
         Height = 29
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -510,9 +520,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEditArticle1: TRichEdit
         Left = 3
-        Top = 33
+        Top = 30
         Width = 966
-        Height = 152
+        Height = 136
+        Anchors = [akLeft, akTop, akRight]
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -526,9 +537,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEditArticle2: TRichEdit
         Left = 3
-        Top = 226
+        Top = 200
         Width = 966
-        Height = 158
+        Height = 136
+        Anchors = [akLeft, akTop, akRight]
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -542,9 +554,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEditArticle3: TRichEdit
         Left = 3
-        Top = 423
+        Top = 370
         Width = 966
-        Height = 110
+        Height = 136
+        Anchors = [akLeft, akTop, akRight]
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -557,9 +570,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEditArticle4: TRichEdit
         Left = 3
-        Top = 567
+        Top = 540
         Width = 966
-        Height = 110
+        Height = 136
+        Anchors = [akLeft, akTop, akRight]
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -570,16 +584,136 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
         TabOrder = 7
       end
+      object CBCV_footer1: TCheckBox
+        Left = 803
+        Top = 3
+        Width = 166
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 9
+      end
+      object CBCV_footer2: TCheckBox
+        Left = 803
+        Top = 172
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 10
+      end
+      object CBCV_footer3: TCheckBox
+        Left = 813
+        Top = 342
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 11
+      end
+      object CBCV_footer4: TCheckBox
+        Left = 813
+        Top = 512
+        Width = 158
+        Height = 17
+        Caption = #1053#1077' '#1076#1086#1073#1072#1074#1083#1103#1090#1080' '#1074' CV'
+        TabOrder = 12
+      end
     end
-    object TabSheetJob1RU: TTabSheet
+    object TabSheetCV: TTabSheet
+      Caption = 'CV'
+      ImageIndex = 12
+      DesignSize = (
+        972
+        679)
+      object RichEditCV: TRichEdit
+        Left = 3
+        Top = 34
+        Width = 958
+        Height = 619
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+      object StaticText9: TStaticText
+        Left = 3
+        Top = 3
+        Width = 125
+        Height = 25
+        Caption = #1042#1074#1077#1076#1077#1085#1085#1103' '#1076#1083#1103' CV'
+        TabOrder = 1
+      end
+      object CBCVWordWrap: TCheckBox
+        Left = 0
+        Top = 659
+        Width = 88
+        Height = 17
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+    end
+    object TabSheetCL: TTabSheet
+      Caption = 'C. '#1083#1080#1089#1090
+      ImageIndex = 13
+      DesignSize = (
+        972
+        679)
+      object RichEditCL: TRichEdit
+        Left = 3
+        Top = 34
+        Width = 966
+        Height = 619
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        Font.Charset = RUSSIAN_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 0
+      end
+      object StaticText3: TStaticText
+        Left = 3
+        Top = 3
+        Width = 170
+        Height = 25
+        Caption = #1057#1091#1087#1088#1086#1074#1086#1076#1078#1091#1102#1095#1080#1081' '#1083#1080#1089#1090
+        TabOrder = 1
+      end
+      object CBCLWordWrap: TCheckBox
+        Left = 3
+        Top = 659
+        Width = 88
+        Height = 17
+        Caption = 'Word Wrap'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+      end
+    end
+    object TabSheetJob1: TTabSheet
       Caption = 'Job 1'
       ImageIndex = 3
       object Label1: TLabel
-        Left = 4
-        Top = 37
-        Width = 80
+        Left = 32
+        Top = 39
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -588,11 +722,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label2: TLabel
-        Left = 3
-        Top = 75
-        Width = 72
+        Left = 17
+        Top = 76
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -601,11 +735,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 32
-        Top = 415
-        Width = 52
+        Left = 26
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -614,11 +748,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 30
-        Top = 447
-        Width = 51
+        Left = 50
+        Top = 494
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -627,11 +761,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label5: TLabel
-        Left = 529
-        Top = 411
-        Width = 46
+        Left = 526
+        Top = 462
+        Width = 39
         Height = 21
-        Caption = #1057#1082#1080#1083#1099
+        Caption = #1057#1082#1110#1083#1080
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -656,7 +790,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit1Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -670,7 +804,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit1Company: TEdit
         Left = 90
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -684,7 +818,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit1Benefits: TEdit
         Left = 90
-        Top = 412
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -697,10 +831,10 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit1Benefits'
       end
       object Memo1Skills: TMemo
-        Left = 529
-        Top = 440
+        Left = 526
+        Top = 498
         Width = 430
-        Height = 230
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -741,7 +875,7 @@ object FormNewTemplate: TFormNewTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE1: TCalendarPicker
-        Left = 430
+        Left = 420
         Top = 0
         Width = 120
         Height = 32
@@ -770,9 +904,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit1Resp: TRichEdit
         Left = 90
-        Top = 111
+        Top = 106
         Width = 879
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -786,9 +920,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit1Other: TRichEdit
         Left = 90
-        Top = 447
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -801,15 +935,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob2RU: TTabSheet
+    object TabSheetJob2: TTabSheet
       Caption = 'Job 2'
       ImageIndex = 4
       object Label6: TLabel
-        Left = 4
+        Left = 32
         Top = 35
-        Width = 80
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -818,11 +952,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label8: TLabel
-        Left = 3
+        Left = 16
         Top = 73
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -831,11 +965,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label14: TLabel
-        Left = 35
-        Top = 415
-        Width = 52
+        Left = 26
+        Top = 465
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -845,10 +979,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label15: TLabel
         Left = 33
-        Top = 447
-        Width = 51
+        Top = 496
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -858,7 +992,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label16: TLabel
         Left = 536
-        Top = 417
+        Top = 466
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -886,7 +1020,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit2Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -900,7 +1034,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit2Company: TEdit
         Left = 90
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -914,7 +1048,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit2Benefits: TEdit
         Left = 90
-        Top = 412
+        Top = 461
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -928,9 +1062,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo2Skills: TMemo
         Left = 536
-        Top = 447
+        Top = 498
         Width = 433
-        Height = 230
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1000,23 +1134,25 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit2Resp: TRichEdit
         Left = 90
-        Top = 111
+        Top = 106
         Width = 882
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit2Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 7
       end
       object RichEdit2Other: TRichEdit
         Left = 90
-        Top = 447
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1029,15 +1165,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob3RU: TTabSheet
+    object TabSheetJob3: TTabSheet
       Caption = 'Job 3'
       ImageIndex = 5
       object Label17: TLabel
-        Left = 3
-        Top = 44
-        Width = 80
+        Left = 32
+        Top = 36
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1046,11 +1182,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label18: TLabel
-        Left = 11
-        Top = 83
-        Width = 72
+        Left = 17
+        Top = 79
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1059,11 +1195,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label19: TLabel
-        Left = 32
-        Top = 418
-        Width = 52
+        Left = 28
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1072,11 +1208,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label20: TLabel
-        Left = 33
-        Top = 450
-        Width = 51
+        Left = 32
+        Top = 501
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1086,7 +1222,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label21: TLabel
         Left = 539
-        Top = 423
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1114,7 +1250,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit3Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1128,7 +1264,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit3Company: TEdit
         Left = 90
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1142,7 +1278,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit3Benefits: TEdit
         Left = 90
-        Top = 415
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1156,9 +1292,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo3Skills: TMemo
         Left = 539
-        Top = 450
+        Top = 498
         Width = 430
-        Height = 230
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1228,23 +1364,25 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit3Resp: TRichEdit
         Left = 90
-        Top = 111
+        Top = 106
         Width = 879
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit3Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 7
       end
       object RichEdit3Other: TRichEdit
         Left = 90
-        Top = 450
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1257,15 +1395,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob4RU: TTabSheet
+    object TabSheetJob4: TTabSheet
       Caption = 'Job 4'
       ImageIndex = 6
       object Label22: TLabel
-        Left = 4
-        Top = 44
-        Width = 80
+        Left = 32
+        Top = 36
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1274,11 +1412,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label23: TLabel
-        Left = 3
-        Top = 82
-        Width = 72
+        Left = 17
+        Top = 79
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1287,11 +1425,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label24: TLabel
-        Left = 32
-        Top = 414
-        Width = 52
+        Left = 28
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1300,11 +1438,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label25: TLabel
-        Left = 24
-        Top = 441
-        Width = 51
+        Left = 50
+        Top = 498
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1314,7 +1452,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label26: TLabel
         Left = 539
-        Top = 411
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1342,7 +1480,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit4Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1356,7 +1494,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit4Company: TEdit
         Left = 90
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1370,7 +1508,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit4Benefits: TEdit
         Left = 90
-        Top = 411
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1384,9 +1522,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo4Skills: TMemo
         Left = 540
-        Top = 440
+        Top = 498
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1456,23 +1594,25 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit4Resp: TRichEdit
         Left = 90
-        Top = 111
+        Top = 106
         Width = 879
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit4Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 7
       end
       object RichEdit4Other: TRichEdit
         Left = 90
-        Top = 446
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1485,15 +1625,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob5RU: TTabSheet
+    object TabSheetJob5: TTabSheet
       Caption = 'Job 5'
       ImageIndex = 7
       object Label27: TLabel
-        Left = 4
-        Top = 44
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1502,11 +1642,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label28: TLabel
-        Left = 3
-        Top = 89
-        Width = 72
+        Left = 20
+        Top = 79
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1515,11 +1655,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label29: TLabel
-        Left = 35
-        Top = 414
-        Width = 52
+        Left = 28
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1528,11 +1668,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label30: TLabel
-        Left = 36
-        Top = 449
-        Width = 51
+        Left = 50
+        Top = 501
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1542,7 +1682,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label31: TLabel
         Left = 538
-        Top = 411
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1570,7 +1710,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit5Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 403
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1584,7 +1724,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit5Company: TEdit
         Left = 93
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1598,7 +1738,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit5Benefits: TEdit
         Left = 93
-        Top = 411
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1612,9 +1752,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo5Skills: TMemo
         Left = 540
-        Top = 440
+        Top = 498
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1628,7 +1768,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object CalendarPickerB5: TCalendarPicker
         Left = 296
-        Top = 0
+        Top = 2
         Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -1655,8 +1795,8 @@ object FormNewTemplate: TFormNewTemplate
         TextHint = 'select a date'
       end
       object CalendarPickerE5: TCalendarPicker
-        Left = 430
-        Top = 0
+        Left = 422
+        Top = 2
         Width = 120
         Height = 32
         CalendarHeaderInfo.DaysOfWeekFont.Charset = DEFAULT_CHARSET
@@ -1684,23 +1824,25 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit5Resp: TRichEdit
         Left = 93
-        Top = 111
+        Top = 106
         Width = 879
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
         Font.Name = 'Segoe UI'
         Font.Style = []
+        Lines.Strings = (
+          'RichEdit5Resp')
         ParentFont = False
         ScrollBars = ssVertical
         TabOrder = 7
       end
       object RichEdit5Other: TRichEdit
         Left = 93
-        Top = 446
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1713,15 +1855,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob6RU: TTabSheet
+    object TabSheetJob6: TTabSheet
       Caption = 'Job 6'
       ImageIndex = 8
       object Label32: TLabel
-        Left = 4
-        Top = 44
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1730,11 +1872,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label33: TLabel
-        Left = 3
-        Top = 89
-        Width = 72
+        Left = 16
+        Top = 79
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1743,11 +1885,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label34: TLabel
-        Left = 32
-        Top = 414
-        Width = 52
+        Left = 28
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1757,10 +1899,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label35: TLabel
         Left = 32
-        Top = 449
-        Width = 51
+        Top = 498
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1770,7 +1912,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label37: TLabel
         Left = 540
-        Top = 413
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -1783,7 +1925,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit6Benefits: TEdit
         Left = 90
-        Top = 411
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1812,7 +1954,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit6Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 399
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1826,7 +1968,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit6Company: TEdit
         Left = 89
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -1840,9 +1982,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Memo6Skills: TMemo
         Left = 540
-        Top = 440
+        Top = 498
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1912,9 +2054,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit6Resp: TRichEdit
         Left = 90
-        Top = 111
+        Top = 106
         Width = 879
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1926,9 +2068,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit6Other: TRichEdit
         Left = 89
-        Top = 446
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1941,15 +2083,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob7RU: TTabSheet
+    object TabSheetJob7: TTabSheet
       Caption = 'Job 7'
       ImageIndex = 9
       object Label38: TLabel
         Left = 4
         Top = 44
-        Width = 80
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1960,9 +2102,9 @@ object FormNewTemplate: TFormNewTemplate
       object Label39: TLabel
         Left = 3
         Top = 82
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1971,11 +2113,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label40: TLabel
-        Left = 32
-        Top = 415
-        Width = 52
+        Left = 28
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1985,10 +2127,10 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label41: TLabel
         Left = 33
-        Top = 447
-        Width = 51
+        Top = 498
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -1998,7 +2140,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label42: TLabel
         Left = 539
-        Top = 411
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2011,7 +2153,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit7Benefits: TEdit
         Left = 90
-        Top = 412
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2040,7 +2182,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit7Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 399
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2054,7 +2196,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit7Company: TEdit
         Left = 89
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2067,10 +2209,10 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit7Company'
       end
       object Memo7Skills: TMemo
-        Left = 540
-        Top = 440
+        Left = 539
+        Top = 498
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2140,9 +2282,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit7Resp: TRichEdit
         Left = 90
-        Top = 111
+        Top = 106
         Width = 879
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2154,9 +2296,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit7Other: TRichEdit
         Left = 90
-        Top = 447
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2169,15 +2311,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob8RU: TTabSheet
+    object TabSheetJob8: TTabSheet
       Caption = 'Job 8'
       ImageIndex = 10
       object Label43: TLabel
         Left = 4
         Top = 44
-        Width = 80
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2188,9 +2330,9 @@ object FormNewTemplate: TFormNewTemplate
       object Label44: TLabel
         Left = 3
         Top = 82
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2199,11 +2341,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label45: TLabel
-        Left = 32
-        Top = 423
-        Width = 52
+        Left = 28
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2212,11 +2354,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label46: TLabel
-        Left = 33
-        Top = 477
-        Width = 51
+        Left = 50
+        Top = 501
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2226,7 +2368,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label47: TLabel
         Left = 539
-        Top = 412
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2239,7 +2381,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit8Benefits: TEdit
         Left = 90
-        Top = 412
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2268,7 +2410,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit8Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2282,7 +2424,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit8Company: TEdit
         Left = 90
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2295,10 +2437,10 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit8Company'
       end
       object Memo8Skills: TMemo
-        Left = 540
-        Top = 440
+        Left = 539
+        Top = 498
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2368,9 +2510,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit8Resp: TRichEdit
         Left = 90
-        Top = 120
+        Top = 106
         Width = 879
-        Height = 286
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2382,9 +2524,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit8Other: TRichEdit
         Left = 90
-        Top = 447
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2397,15 +2539,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheetJob9RU: TTabSheet
+    object TabSheetJob9: TTabSheet
       Caption = 'Job 9'
       ImageIndex = 11
       object Label48: TLabel
         Left = 3
         Top = 41
-        Width = 80
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2416,9 +2558,9 @@ object FormNewTemplate: TFormNewTemplate
       object Label49: TLabel
         Left = 2
         Top = 79
-        Width = 72
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2427,11 +2569,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label50: TLabel
-        Left = 21
-        Top = 446
-        Width = 52
+        Left = 26
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2440,11 +2582,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label51: TLabel
-        Left = 22
-        Top = 501
-        Width = 51
+        Left = 50
+        Top = 498
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2454,7 +2596,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label52: TLabel
         Left = 539
-        Top = 407
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2467,7 +2609,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit9Benefits: TEdit
         Left = 90
-        Top = 407
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2496,7 +2638,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit9Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 399
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2510,7 +2652,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit9Company: TEdit
         Left = 89
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2523,10 +2665,10 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit9Company'
       end
       object Memo9Skills: TMemo
-        Left = 540
-        Top = 440
+        Left = 539
+        Top = 498
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2596,9 +2738,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit9Resp: TRichEdit
         Left = 90
-        Top = 120
+        Top = 106
         Width = 879
-        Height = 281
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2610,9 +2752,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit9Other: TRichEdit
         Left = 90
-        Top = 447
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2625,15 +2767,15 @@ object FormNewTemplate: TFormNewTemplate
         TabOrder = 8
       end
     end
-    object TabSheet10RU: TTabSheet
+    object TabSheetJob10: TTabSheet
       Caption = 'Job 10'
       ImageIndex = 12
       object Label36: TLabel
-        Left = 4
-        Top = 44
-        Width = 80
+        Left = 32
+        Top = 43
+        Width = 52
         Height = 21
-        Caption = #1044#1086#1083#1078#1085#1086#1089#1090#1100
+        Caption = #1055#1086#1089#1072#1076#1072
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2642,11 +2784,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label53: TLabel
-        Left = 12
-        Top = 76
-        Width = 72
+        Left = 17
+        Top = 75
+        Width = 67
         Height = 21
-        Caption = #1050#1086#1084#1087#1072#1085#1080#1103
+        Caption = #1050#1086#1084#1087#1072#1085#1110#1103
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2655,11 +2797,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label54: TLabel
-        Left = 32
-        Top = 418
-        Width = 52
+        Left = 26
+        Top = 463
+        Width = 58
         Height = 21
-        Caption = #1042#1099#1075#1086#1076#1072
+        Caption = #1050#1086#1088#1080#1089#1090#1100
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2668,11 +2810,11 @@ object FormNewTemplate: TFormNewTemplate
         ParentFont = False
       end
       object Label55: TLabel
-        Left = 33
-        Top = 457
-        Width = 51
+        Left = 50
+        Top = 501
+        Width = 34
         Height = 21
-        Caption = #1044#1088#1091#1075#1086#1077
+        Caption = #1030#1085#1096#1077
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2682,7 +2824,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Label56: TLabel
         Left = 539
-        Top = 415
+        Top = 463
         Width = 46
         Height = 21
         Caption = #1057#1082#1080#1083#1099
@@ -2695,7 +2837,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit10Benefits: TEdit
         Left = 90
-        Top = 415
+        Top = 463
         Width = 430
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2724,7 +2866,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit10Name: TEdit
         Left = 90
-        Top = 40
+        Top = 36
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2738,7 +2880,7 @@ object FormNewTemplate: TFormNewTemplate
       end
       object Edit10Company: TEdit
         Left = 90
-        Top = 76
+        Top = 72
         Width = 400
         Height = 29
         Font.Charset = DEFAULT_CHARSET
@@ -2751,10 +2893,10 @@ object FormNewTemplate: TFormNewTemplate
         Text = 'Edit10Company'
       end
       object Memo10Skills: TMemo
-        Left = 540
-        Top = 440
+        Left = 539
+        Top = 498
         Width = 430
-        Height = 240
+        Height = 180
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2824,9 +2966,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit10Resp: TRichEdit
         Left = 90
-        Top = 115
+        Top = 106
         Width = 879
-        Height = 294
+        Height = 350
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2838,9 +2980,9 @@ object FormNewTemplate: TFormNewTemplate
       end
       object RichEdit10Other: TRichEdit
         Left = 90
-        Top = 450
+        Top = 498
         Width = 430
-        Height = 233
+        Height = 180
         Font.Charset = RUSSIAN_CHARSET
         Font.Color = clWindowText
         Font.Height = -16
@@ -2859,12 +3001,13 @@ object FormNewTemplate: TFormNewTemplate
     SQL.Strings = (
       
         'CALL insert_template(:p_name, :p_job_opportunity, :p_job_place, ' +
-        ':p_phone_numbers_text, :p_template_introduction, :p_footer_1_hea' +
-        'der, :p_footer_1_text, :p_footer_2_header, :p_footer_2_text, :p_' +
-        'footer_3_header, :p_footer_3_text, :p_footer_4_header, :p_footer' +
-        '_4_text, @p_template_id, @p_result); SELECT CAST(@p_template_id ' +
-        'AS SIGNED) AS '#39'@p_template_id'#39', CAST(@p_result AS SIGNED) AS '#39'@p' +
-        '_result'#39)
+        ':p_phone_numbers_text, :p_template_introduction, :p_cv_introduct' +
+        'ion, :p_footer_1_header, :p_footer_1_text, :p_footer_2_header, :' +
+        'p_footer_2_text, :p_footer_3_header, :p_footer_3_text, :p_footer' +
+        '_4_header, :p_footer_4_text, :p_cv_include_footer1, :p_cv_includ' +
+        'e_footer2, :p_cv_include_footer3, :p_cv_include_footer4, @p_temp' +
+        'late_id, @p_result); SELECT CAST(@p_template_id AS SIGNED) AS '#39'@' +
+        'p_template_id'#39', CAST(@p_result AS SIGNED) AS '#39'@p_result'#39)
     Connection = FormMain.UniConnection
     Debug = True
     Left = 302
@@ -2905,6 +3048,12 @@ object FormNewTemplate: TFormNewTemplate
         Value = Null
       end
       item
+        DataType = ftWideMemo
+        Name = 'p_cv_introduction'
+        ParamType = ptInput
+        Value = Null
+      end
+      item
         DataType = ftWideString
         Name = 'p_footer_1_header'
         ParamType = ptInput
@@ -2912,11 +3061,10 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftWideString
+        DataType = ftWideMemo
         Name = 'p_footer_1_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftWideString
@@ -2926,11 +3074,10 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftWideString
+        DataType = ftWideMemo
         Name = 'p_footer_2_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftWideString
@@ -2940,11 +3087,10 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftWideString
+        DataType = ftWideMemo
         Name = 'p_footer_3_text'
         ParamType = ptInput
-        Size = 2000
-        Value = nil
+        Value = Null
       end
       item
         DataType = ftWideString
@@ -2954,23 +3100,46 @@ object FormNewTemplate: TFormNewTemplate
         Value = nil
       end
       item
-        DataType = ftWideString
+        DataType = ftWideMemo
         Name = 'p_footer_4_text'
         ParamType = ptInput
-        Size = 2000
+        Value = Null
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer1'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer2'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer3'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftBoolean
+        Name = 'p_cv_include_footer4'
+        ParamType = ptInput
         Value = nil
       end
       item
         DataType = ftInteger
         Name = 'p_template_id'
         ParamType = ptOutput
-        Value = nil
+        Value = 101
       end
       item
         DataType = ftInteger
         Name = 'p_result'
         ParamType = ptOutput
-        Value = nil
+        Value = 0
       end>
     CommandStoredProcName = 'insert_template'
   end
@@ -2979,9 +3148,9 @@ object FormNewTemplate: TFormNewTemplate
     SQL.Strings = (
       
         'CALL insert_experience(:p_flag, :p_resume_id, :p_template_id, :p' +
-        '_job_position, :p_start_date, :p_end_date, :p_employer, :p_resp,' +
-        ' :p_benefits, :p_other, @p_experience_id); SELECT CAST(@p_experi' +
-        'ence_id AS SIGNED) AS '#39'@p_experience_id'#39)
+        '_job_order, :p_job_position, :p_start_date, :p_end_date, :p_empl' +
+        'oyer, :p_resp, :p_benefits, :p_other, @p_experience_id); SELECT ' +
+        'CAST(@p_experience_id AS SIGNED) AS '#39'@p_experience_id'#39)
     Connection = FormMain.UniConnection
     Left = 464
     Top = 312
@@ -3002,6 +3171,12 @@ object FormNewTemplate: TFormNewTemplate
       item
         DataType = ftInteger
         Name = 'p_template_id'
+        ParamType = ptInput
+        Value = nil
+      end
+      item
+        DataType = ftInteger
+        Name = 'p_job_order'
         ParamType = ptInput
         Value = nil
       end

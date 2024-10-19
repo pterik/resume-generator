@@ -22,9 +22,6 @@ Coordinates=690,810,162,58
 [UniDeleteExperiences]
 Coordinates=307,810,142,58
 
-[UniExperiencesbenefits]
-Coordinates=1171,342,150,36
-
 [UniExperiencesjob_position]
 Coordinates=1171,397,174,36
 
@@ -87,9 +84,6 @@ Coordinates=1171,892,112,36
 
 [UniSkillsID]
 Coordinates=224,608,77,102
-
-[CheckBoxExtraComment]
-Coordinates=139,810,158,58
 
 [UniResumesresume_introduction]
 Coordinates=1171,947,205,36
@@ -201,5 +195,5 @@ Coordinates=1456,56,115,36
 Coordinates=1456,111,135,36
 
 []
-Coordinates=1171,672,137,36
+Coordinates=139,810,158,58
 

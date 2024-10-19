@@ -143,7 +143,6 @@ type
 		RichEdit10Resp: TRichEdit;
     RichEditArticle1: TRichEdit;
     UniSPDeleteExperiences: TUniStoredProc;
-    UniSPDeleteSkillShows: TUniStoredProc;
     UniSPInsertUpdSkill: TUniStoredProc;
     Label1: TLabel;
     Label2: TLabel;
@@ -205,6 +204,18 @@ type
     RichEdit8Other: TRichEdit;
     RichEdit9Other: TRichEdit;
     RichEdit10Other: TRichEdit;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    StaticText9: TStaticText;
+    RichEditCVRU: TRichEdit;
+    StaticText3: TStaticText;
+    RichEditCLRU: TRichEdit;
+    CBCLWordWrapTR: TCheckBox;
+    CheckBox1: TCheckBox;
+    CBCV_footer1: TCheckBox;
+    CBCV_footer2: TCheckBox;
+    CBCV_footer3: TCheckBox;
+    CBCV_footer4: TCheckBox;
 		procedure FormClose(Sender: TObject; var Action: TCloseAction);
 		procedure FormDestroy(Sender: TObject);
 		procedure BitBtnSaveClick(Sender: TObject);
@@ -361,19 +372,20 @@ end;
 function TFormUpdateTemplate.DeleteJobs(const TemplateID:integer): boolean;
 begin
 try
-UniExperienceID.Close;
-UniExperienceID.ParamByName('p_template_id').AsInteger := TemplateID;
-UniExperienceID.Open;
-while not UniExperienceID.EOF do
-	begin
-	UniSPDeleteSkillShows.Close;
-	UniSPDeleteSkillShows.ParamByName('p_experience_id').AsInteger := UniExperienceID['experience_id'];
-	UniSPDeleteSkillShows.ExecSQL;
-	UniExperienceID.Next;
-	end;
+//UniExperienceID.Close;
+//UniExperienceID.ParamByName('p_template_id').AsInteger := TemplateID;
+//UniExperienceID.Open;
+//while not UniExperienceID.EOF do
+//	begin
+//	UniSPDeleteSkillShows.Close;
+//	UniSPDeleteSkillShows.ParamByName('p_experience_id').AsInteger := UniExperienceID['experience_id'];
+//	UniSPDeleteSkillShows.ExecSQL;
+//	UniExperienceID.Next;
+//	end;
 UniSPDeleteExperiences.Close;
 UniSPDeleteExperiences.ParamByName('p_flag').AsString := 'template_id';
 UniSPDeleteExperiences.ParamByName('p_template_id').AsInteger := TemplateID;
+UniSPDeleteExperiences.ParamByName('p_resume_id').AsInteger := 0;
 UniSPDeleteExperiences.ExecSQL;
 Result := true;
 	except
@@ -413,10 +425,8 @@ if IsJob1Active then
 			UniSPInsertUpdSkill.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
 			UniSPInsertUpdSkill.ParamByName('p_category').AsString:='';
 			UniSPInsertUpdSkill.ExecSQL;
-//			SkillID:=UniSPInsertUpdSkill.ParamByName('p_skill_id').Value;
 			UniSPInsertSkillShow.Close;
 			UniSPInsertSkillShow.ParamByName('p_experience_id').AsInteger:=UniSPInsertExperiences.ParamByName('p_experience_id').Value;
-//			UniSPInsertSkillShow.ParamByName('p_skill_id').AsInteger:=SkillID;
 			UniSPInsertSkillShow.ParamByName('p_skill').AsString:=Memo1Skills.Lines[i];
 			UniSPInsertSkillShow.ExecSQL;
 			end;
@@ -1441,7 +1451,7 @@ UniSPUpdateTemplate.ExecProc;
 if UniSPUpdateTemplate.ParamByName('p_result').Value = 0
 	then Result := true
 	else Result := false;
-		FormMain.Warning(' Result='+BoolToStr(Result)+' template_id = '+IntTostr(FTemplateID));
+//		FormMain.Warning(' Result='+BoolToStr(Result)+' template_id = '+IntTostr(FTemplateID));
 except
 	on E: Exception do
 	begin

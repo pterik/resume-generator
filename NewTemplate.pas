@@ -12,7 +12,7 @@ type
     BitBtnClose: TBitBtn;
     BitBtnSave: TBitBtn;
     PageControl: TPageControl;
-    TabSheetMainRU: TTabSheet;
+    TabSheetMain: TTabSheet;
     Label7: TLabel;
     Label9: TLabel;
     Label10: TLabel;
@@ -24,69 +24,69 @@ type
     EditOpportunity: TEdit;
     EditPlace: TEdit;
     EditPhones: TEdit;
-    EditLangTR: TEdit;
-    EditRegionTR: TEdit;
-    TabSheetFooterRU: TTabSheet;
+    EditLang: TEdit;
+    EditRegion: TEdit;
+    TabSheetFooter: TTabSheet;
     StaticText1: TStaticText;
     EditArticle1: TEdit;
     EditArticle2: TEdit;
     EditArticle3: TEdit;
     EditArticle4: TEdit;
-    TabSheetJob1RU: TTabSheet;
+    TabSheetJob1: TTabSheet;
     Edit1Dates: TEdit;
     Edit1Name: TEdit;
     Edit1Company: TEdit;
     Edit1Benefits: TEdit;
     Memo1Skills: TMemo;
-    TabSheetJob2RU: TTabSheet;
+    TabSheetJob2: TTabSheet;
     Edit2Dates: TEdit;
     Edit2Name: TEdit;
     Edit2Company: TEdit;
     Edit2Benefits: TEdit;
     Memo2Skills: TMemo;
-    TabSheetJob3RU: TTabSheet;
+    TabSheetJob3: TTabSheet;
     Edit3Dates: TEdit;
     Edit3Name: TEdit;
     Edit3Company: TEdit;
     Edit3Benefits: TEdit;
     Memo3Skills: TMemo;
-    TabSheetJob4RU: TTabSheet;
+    TabSheetJob4: TTabSheet;
     Edit4Dates: TEdit;
     Edit4Name: TEdit;
     Edit4Company: TEdit;
     Edit4Benefits: TEdit;
     Memo4Skills: TMemo;
-    TabSheetJob5RU: TTabSheet;
+    TabSheetJob5: TTabSheet;
     Edit5Dates: TEdit;
     Edit5Name: TEdit;
     Edit5Company: TEdit;
     Edit5Benefits: TEdit;
     Memo5Skills: TMemo;
-    TabSheetJob6RU: TTabSheet;
+    TabSheetJob6: TTabSheet;
     Edit6Benefits: TEdit;
     Edit6Dates: TEdit;
     Edit6Name: TEdit;
     Edit6Company: TEdit;
     Memo6Skills: TMemo;
-    TabSheetJob7RU: TTabSheet;
+    TabSheetJob7: TTabSheet;
     Edit7Benefits: TEdit;
     Edit7Dates: TEdit;
     Edit7Name: TEdit;
     Edit7Company: TEdit;
     Memo7Skills: TMemo;
-    TabSheetJob8RU: TTabSheet;
+    TabSheetJob8: TTabSheet;
     Edit8Benefits: TEdit;
     Edit8Dates: TEdit;
     Edit8Name: TEdit;
     Edit8Company: TEdit;
     Memo8Skills: TMemo;
-    TabSheetJob9RU: TTabSheet;
+    TabSheetJob9: TTabSheet;
     Edit9Benefits: TEdit;
     Edit9Dates: TEdit;
     Edit9Name: TEdit;
     Edit9Company: TEdit;
     Memo9Skills: TMemo;
-    TabSheet10RU: TTabSheet;
+    TabSheetJob10: TTabSheet;
     Edit10Benefits: TEdit;
     Edit10Dates: TEdit;
     Edit10Name: TEdit;
@@ -125,7 +125,7 @@ type
     Label76: TLabel;
     StaticText2: TStaticText;
     CBPhones: TComboBox;
-    BitBtn2: TBitBtn;
+    BitBtnPhones: TBitBtn;
     RichEditor: TRichEdit;
     CBWordWrap: TCheckBox;
     RichEditArticle1: TRichEdit;
@@ -198,6 +198,18 @@ type
     RichEdit8Other: TRichEdit;
     RichEdit9Other: TRichEdit;
     RichEdit10Other: TRichEdit;
+    TabSheetCV: TTabSheet;
+    TabSheetCL: TTabSheet;
+    RichEditCV: TRichEdit;
+    RichEditCL: TRichEdit;
+    StaticText9: TStaticText;
+    StaticText3: TStaticText;
+    CBCLWordWrap: TCheckBox;
+    CBCVWordWrap: TCheckBox;
+    CBCV_footer1: TCheckBox;
+    CBCV_footer2: TCheckBox;
+    CBCV_footer3: TCheckBox;
+    CBCV_footer4: TCheckBox;
     procedure BitBtnCloseClick(Sender: TObject);
     procedure BitBtnSaveClick(Sender: TObject);
     procedure CalendarPickerB2CloseUp(Sender: TObject);
@@ -241,10 +253,11 @@ type
     procedure CalendarPickerB10Change(Sender: TObject);
     procedure CalendarPickerE10Change(Sender: TObject);
     procedure FormKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtnPhonesClick(Sender: TObject);
     procedure CBWordWrapClick(Sender: TObject);
     procedure BitBtnSaveKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure PageControlChange(Sender: TObject);
   private
     FTemplateID: integer;
     IsJob1Active, IsJob2Active, IsJob3Active, IsJob4Active, IsJob5Active,
@@ -254,10 +267,10 @@ type
     function SaveTemplate:boolean;
     function SaveValues: boolean;
     function SaveJobs: boolean;
-    procedure SetEmptySkillsRU;
-    procedure SetEmptyJobsRU;
-    procedure SetEmptyTemplatesRU;
-    procedure SetEmptyFootersRU;
+    procedure SetEmptySkills;
+    procedure SetEmptyJobs;
+    procedure SetEmptyTemplates;
+    procedure SetEmptyFooters;
     procedure ChangeDates1;
     procedure ChangeDates10;
     procedure ChangeDates2;
@@ -282,6 +295,7 @@ type
     procedure Clear7;
     procedure Clear8;
     procedure Clear9;
+    procedure UpdateMarkers;
     { Private declarations }
   public
     procedure SetFormValues;
@@ -296,7 +310,7 @@ implementation
 
 uses MainForm;
 
-procedure TFormNewTemplate.BitBtn2Click(Sender: TObject);
+procedure TFormNewTemplate.BitBtnPhonesClick(Sender: TObject);
 begin
 EditPhones.Text:=Trim(EditPhones.Text+' '+CBPhones.Text);
 end;
@@ -670,6 +684,10 @@ begin
     UniSPInsertTemplate.ParamByName('p_job_place').AsString := Trim(EditPlace.Text);
 		UniSPInsertTemplate.ParamByName('p_phone_numbers_text').AsString := Trim(EditPhones.Text);
 		UniSPInsertTemplate.ParamByName('p_template_introduction').AsMemo := Trim(RichEditor.Text);
+    UniSPInsertTemplate.ParamByName('p_cv_include_footer1').AsBoolean := not CBCV_footer1.Checked;
+    UniSPInsertTemplate.ParamByName('p_cv_include_footer2').AsBoolean := not CBCV_footer2.Checked;
+    UniSPInsertTemplate.ParamByName('p_cv_include_footer3').AsBoolean := not CBCV_footer3.Checked;
+    UniSPInsertTemplate.ParamByName('p_cv_include_footer4').AsBoolean := not CBCV_footer4.Checked;
 		UniSPInsertTemplate.ParamByName('p_footer_1_header').AsString := Trim(EditArticle1.Text);
 		UniSPInsertTemplate.ParamByName('p_footer_1_text').AsMemo := Trim(RichEditArticle1.Text);
 		UniSPInsertTemplate.ParamByName('p_footer_2_header').AsString := Trim(EditArticle2.Text);
@@ -679,9 +697,9 @@ begin
 		UniSPInsertTemplate.ParamByName('p_footer_4_header').AsString := Trim(EditArticle4.Text);
 		UniSPInsertTemplate.ParamByName('p_footer_4_text').AsMemo := Trim(RichEditArticle4.Text);
 		UniSPInsertTemplate.ExecProc;
-		FTemplateID:=UniSPInsertTemplate.ParamByName('p_template_id').Value;
 		if UniSPInsertTemplate.ParamByName('p_result').Value=0 then Result:=true else Result:=false;
-		//FormMain.Warning(' Result='+BoolToStr(Result)+' template_id = '+IntTostr(FTemplateID));
+		If Result then FTemplateID:=UniSPInsertTemplate.ParamByName('p_template_id').Value;
+		FormMain.Warning(' Result='+BoolToStr(Result)+' template_id = '+IntTostr(FTemplateID));
     except
     on E: Exception do
     begin
@@ -904,6 +922,8 @@ else
 	RichEditor.ScrollBars:=ssBoth;
 	RichEditor.WordWrap:=false;
 	end;
+
+
 end;
 
 function TFormNewTemplate.isFormValuesGood: boolean;
@@ -1388,6 +1408,20 @@ end;
 
 procedure TFormNewTemplate.SetFormValues;
 begin
+TabSheetMain.Highlighted:=false;
+TabSheetFooter.Highlighted:=false;
+TabSheetCV.Highlighted:=false;
+TabSheetCL.Highlighted:=false;
+TabSheetJob1.Highlighted:=false;
+TabSheetJob2.Highlighted:=false;
+TabSheetJob3.Highlighted:=false;
+TabSheetJob4.Highlighted:=false;
+TabSheetJob5.Highlighted:=false;
+TabSheetJob6.Highlighted:=false;
+TabSheetJob7.Highlighted:=false;
+TabSheetJob8.Highlighted:=false;
+TabSheetJob9.Highlighted:=false;
+TabSheetJob10.Highlighted:=false;
 Clear1;
 Clear2;
 Clear3;
@@ -1399,10 +1433,10 @@ Clear8;
 Clear9;
 Clear10;
 PageControl.ActivePageIndex:=0;
-SetEmptyTemplatesRU;
-SetEmptyFootersRU;
-SetEmptyJobsRU;
-SetEmptySkillsRU;
+SetEmptyTemplates;
+SetEmptyFooters;
+SetEmptyJobs;
+SetEmptySkills;
 CBPhones.Clear;
 FormMain.UniTelephones.Close;
 FormMain.UniTelephones.Open;
@@ -1413,7 +1447,7 @@ while not FormMain.UniTelephones.Eof do
   end;
 end;
 
-procedure TFormNewTemplate.SetEmptyFootersRU;
+procedure TFormNewTemplate.SetEmptyFooters;
 begin
 	RichEditArticle1.Text := '';
 	EditArticle1.Text := '';
@@ -1423,9 +1457,13 @@ begin
 	EditArticle3.Text := '';
 	RichEditArticle4.Text := '';
 	EditArticle4.Text := '';
+  CBCV_footer1.Checked:=false;
+  CBCV_footer2.Checked:=false;
+  CBCV_footer3.Checked:=false;
+  CBCV_footer4.Checked:=false;
 end;
 
-procedure TFormNewTemplate.SetEmptyTemplatesRU;
+procedure TFormNewTemplate.SetEmptyTemplates;
 begin
 	EditName.Text:='';
 	EditOpportunity.Text:='';
@@ -1434,7 +1472,7 @@ begin
 	RichEditor.Clear;
 end;
 
-procedure TFormNewTemplate.SetEmptySkillsRU;
+procedure TFormNewTemplate.SetEmptySkills;
 begin
 	Memo1Skills.Text := '';
 	Memo2Skills.Text := '';
@@ -1448,7 +1486,7 @@ begin
 	Memo10Skills.Text := '';
 end;
 
-procedure TFormNewTemplate.SetEmptyJobsRU;
+procedure TFormNewTemplate.SetEmptyJobs;
 begin
   Edit1Dates.Text := '';
   Edit1Name.Text := '';
@@ -1608,6 +1646,11 @@ end;
 function TFormNewTemplate.isJobPeriodsValid: boolean;
 begin
 Result:=true;
+end;
+
+procedure TFormNewTemplate.PageControlChange(Sender: TObject);
+begin
+UpdateMarkers;
 end;
 
 function TFormNewTemplate.isJobDatesGood: boolean;
@@ -2137,5 +2180,77 @@ Edit10Benefits.Text := '';
 RichEdit10Other.Text:='';
 Memo10Skills.Clear;
 end;
+
+procedure TFormNewTemplate.UpdateMarkers;
+begin
+if not FormMain.IsEmpty(EditName.Text) or
+   not FormMain.IsEmpty(EditPlace.Text) or
+   not FormMain.IsEmpty(RichEditor.Text)
+then TabSheetMain.Highlighted:=true
+else TabSheetMain.Highlighted:=false;
+if not FormMain.IsEmpty(RichEditArticle1.Text) or
+   not FormMain.IsEmpty(RichEditArticle2.Text) or
+   not FormMain.IsEmpty(RichEditArticle3.Text) or
+   not FormMain.IsEmpty(RichEditArticle4.Text)
+then TabSheetFooter.Highlighted:=true
+else TabSheetFooter.Highlighted:=false;
+if not FormMain.IsEmpty(RichEditCV.Text)
+then TabSheetCV.Highlighted:=true
+else TabSheetCV.Highlighted:=false;
+if not FormMain.IsEmpty(RichEditCL.Text)
+then TabSheetCL.Highlighted:=true
+else TabSheetCL.Highlighted:=false;
+if not FormMain.IsEmpty(Edit1Name.Text) or
+   not FormMain.IsEmpty(Edit1Company.Text) or
+   not FormMain.IsEmpty(RichEdit1Resp.Text)
+then TabSheetJob1.Highlighted:=true
+else TabSheetJob1.Highlighted:=false;
+if not FormMain.IsEmpty(Edit2Name.Text) or
+  not FormMain.IsEmpty(Edit2Company.Text) or
+  not FormMain.IsEmpty(RichEdit2Resp.Text)
+then TabSheetJob2.Highlighted:=true
+else TabSheetJob2.Highlighted:=false;
+if not FormMain.IsEmpty(Edit3Name.Text) or
+  not FormMain.IsEmpty(Edit3Company.Text) or
+  not FormMain.IsEmpty(RichEdit3Resp.Text)
+then TabSheetJob3.Highlighted:=true
+else TabSheetJob3.Highlighted:=false;
+if not FormMain.IsEmpty(Edit4Name.Text) or
+  not FormMain.IsEmpty(Edit4Company.Text) or
+  not FormMain.IsEmpty(RichEdit4Resp.Text)
+then TabSheetJob4.Highlighted:=true
+else TabSheetJob4.Highlighted:=false;
+if not FormMain.IsEmpty(Edit5Name.Text) or
+  not FormMain.IsEmpty(Edit5Company.Text) or
+  not FormMain.IsEmpty(RichEdit5Resp.Text)
+then TabSheetJob5.Highlighted:=true
+else TabSheetJob5.Highlighted:=false;
+if not FormMain.IsEmpty(Edit6Name.Text) or
+  not FormMain.IsEmpty(Edit6Company.Text) or
+  not FormMain.IsEmpty(RichEdit6Resp.Text)
+then TabSheetJob6.Highlighted:=true
+else TabSheetJob6.Highlighted:=false;
+if not FormMain.IsEmpty(Edit7Name.Text) or
+  not FormMain.IsEmpty(Edit7Company.Text) or
+  not FormMain.IsEmpty(RichEdit7Resp.Text)
+then TabSheetJob7.Highlighted:=true
+else TabSheetJob7.Highlighted:=false;
+if not FormMain.IsEmpty(Edit8Name.Text) or
+   not FormMain.IsEmpty(Edit8Company.Text) or
+   not FormMain.IsEmpty(RichEdit8Resp.Text)
+then TabSheetJob8.Highlighted:=true
+else TabSheetJob8.Highlighted:=false;
+if not FormMain.IsEmpty(Edit9Name.Text) or
+   not FormMain.IsEmpty(Edit9Company.Text) or
+   not FormMain.IsEmpty(RichEdit9Resp.Text)
+then TabSheetJob9.Highlighted:=true
+else TabSheetJob9.Highlighted:=false;
+if not FormMain.IsEmpty(Edit10Name.Text) or
+   not FormMain.IsEmpty(Edit10Company.Text) or
+   not FormMain.IsEmpty(RichEdit10Resp.Text)
+then TabSheetJob10.Highlighted:=true
+else TabSheetJob10.Highlighted:=false;
+end;
+
 
 end.
