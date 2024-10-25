@@ -5,7 +5,8 @@ interface
 uses
 	Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
 	Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, Uni,
-	Vcl.WinXCalendars, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons, VCL.TMSFNCTypes;
+	Vcl.WinXCalendars, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Buttons;
+//  VCL.TMSFNCTypes;
 
 type
 	TFormUpdateResume = class(TForm)
