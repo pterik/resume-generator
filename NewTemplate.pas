@@ -5,8 +5,8 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons,
-  Vcl.WinXCalendars, Vcl.DBCtrls, Vcl.ComCtrls, Data.DB, MemDS, DBAccess, Uni;
-
+  Vcl.WinXCalendars, Vcl.DBCtrls, Vcl.ComCtrls, Data.DB, DBAccess, MemDS, Uni;
+// MemDS, Uni,
 type
   TFormNewTemplate = class(TForm)
     BitBtnClose: TBitBtn;
