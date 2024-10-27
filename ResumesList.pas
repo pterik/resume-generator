@@ -7,12 +7,8 @@ uses
 	System.Classes, Vcl.Graphics,
 	Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
 	DBAccess, Uni, MemDS, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.DBCtrls;
-//	VCL.TMSFNCWXDocx.Models, VCL.TMSFNCCustomWEBControl,
-//	Vcl.ComCtrls, Vcl.DBCtrls, VCL.TMSFNCTypes, VCL.TMSFNCUtils,
-//	VCL.TMSFNCGraphics, VCL.TMSFNCGraphicsTypes, VCL.TMSFNCCustomControl,
-//	VCL.TMSFNCWXDocx, VCL.TMSFNCBitmapContainer, VCL.TMSFNCWebBrowser,
-//	VCL.TMSFNCCustomWEBComponent, VCL.TMSFNCCustomComponent;
+  Vcl.DBCtrls, VCL.TMSFNCWXDocx, VCL.TMSFNCCustomControl, VCL.TMSFNCWebBrowser,
+  VCL.TMSFNCCustomWEBControl, VCL.TMSFNCCustomWEBComponent;
 
 type
 	TWordReplaceFlags = set of (wrfReplaceAll, wrfMatchCase, wrfMatchWildcards);
@@ -57,8 +53,8 @@ type
 //    TMSFNCBitmapContainer1: TTMSFNCBitmapContainer;
 		UniResumeFooters: TUniQuery;
     UniExperiences: TUniQuery;
-//    TMSFNCWXDocx1: TTMSFNCWXDocx;
-//    DBRichEditor: TDBRichEdit;
+    TMSFNCWXDocx1: TTMSFNCWXDocx;
+    DBRichEditor: TDBRichEdit;
     UniSkillsID: TUniQuery;
     UniResumesid: TIntegerField;
     UniResumeslang: TWideStringField;
@@ -92,8 +88,6 @@ type
     UniExperiencesother: TWideMemoField;
     CBWordWrap: TCheckBox;
     BitBtn1: TBitBtn;
-//    TMSFNCWXDocx2: TTMSFNCWXDocx;
-//    DBFilePath: TDBRichEdit;
     UniSPUpdateFilepathes: TUniStoredProc;
     UniResumesresume_pdf_filepath: TWideStringField;
     UniResumescv_pdf_filepath: TWideStringField;
@@ -106,6 +100,7 @@ type
     UniResumeFooterscv_include_footer: TBooleanField;
     UniResumescl_text: TWideMemoField;
     UniExperiencesbenefits: TWideMemoField;
+    DBFilePath: TDBRichEdit;
     procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnNewResumeClick(Sender: TObject);
 		procedure BitBtnDeleteResumeClick(Sender: TObject);
@@ -129,6 +124,7 @@ type
       NumChars: Integer; var SaveClipboard: Boolean);
     procedure BitBtnNewResumeKeyUp(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure TMSFNCWXDocx1DownloadAsFile(Sender: TObject; FileName: string);
   private
     FileRDOC, FileCVDOC, FileCLDOC,FileRPDF, FileCVPDF, FileCLPDF:string;
 		WarningFired:boolean;
@@ -138,7 +134,7 @@ type
 		procedure File_R_PDF_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
 		procedure File_CL_PDF_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
 		procedure File_CV_PDF_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
-//		procedure WX_R_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
+		procedure WX_R_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
 //    procedure WX_CV_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
 //    procedure WX_CL_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
 
@@ -847,11 +843,12 @@ UniResumes.ParamByName('p_rg').AsInteger:=RadioGroup.ItemIndex;
 UniResumes.Open;
 end;
 
-//procedure TFormListResumes.TMSFNCWXDocx2DownloadAsFile(Sender: TObject;
-//  FileName: string);
-//begin
-//    TTMSFNCUtils.OpenFile(FileName);
-//end;
+procedure TFormListResumes.TMSFNCWXDocx1DownloadAsFile(Sender: TObject;
+  FileName: string);
+begin
+//TTMSFNCUtils.OpenFile(FileName);
+end;
+
 
 procedure TFormListResumes.UniResumesCalcFields(DataSet: TDataSet);
 begin
@@ -1472,78 +1469,78 @@ TagEnd:=Pos('</u>',Lowercase(SourceText));
 if TagBegin+TagEnd>0 then isFound:=true;
 end;
 
-//procedure TFormListResumes.WX_R_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
-//var
-//section  : TTMSFNCWXDocxSection;
-//paragraph: TTMSFNCWXDocxParagraph;
-//DocXText     : TTMSFNCWXDocxText;
-//PageBreak:TTMSFNCWXDocxPageBreak;
-//begin
-//TMSFNCWXDocx1.Document.Sections.Clear;
-//section := TMSFNCWXDocx1.Document.AddSection;
-//// Добавляем Фамилию имя
-//paragraph := section.AddParagraph;
-//paragraph.Spacing.Before:=120;
-//paragraph.Spacing.After:=120;
-//Paragraph.Spacing.Line:=600;
-//DocXText:=paragraph.AddText(FormMain.FullName);
-//paragraph.Heading := hlHeading1;
-//paragraph.Alignment := taLeft;
-//DocXText.Font.Size := 22;
-//DocXText.Font.Style := [fsBold];
-//DocXText.Font.Name:='Times New Roman';
-//
-//// Добавляем должность
-//paragraph := section.AddParagraph;
-//Paragraph.Spacing.Line:=400;
-//paragraph.Spacing.After:=480;
-//DocXtext := paragraph.AddText(LocalTranslate('Должность')+' ');
-//DocXtext.Font.Color := clBlack;
-//DocXtext.Font.Size := 12;
-//DocXText.Font.Style := [fsBold];
-//DocXText.Font.Name:='Times New Roman';
-//DocXtext := paragraph.AddText(UniResumes['job_opportunity']);
-//DocXtext.Font.Size := 12;
-//DocXText.Font.Name:='Times New Roman';
-//
-//R_DOC_AddTable(section);
-//R_DOC_AddFooter(section, resume_id);
-//paragraph := section.AddParagraph;
-//PageBreak:=Paragraph.AddBreak;
-//Paragraph.Spacing.Line:=400;
-//Paragraph.Spacing.LineRule:=lrAuto;
-//DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
-//DocXText.Font.Size := 18;
-//DocXText.Font.Name:='Times New Roman';
-//DocXText.Font.Style := [fsBold];
-//UniExperiences.Close;
-//UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
-//UniExperiences.Open;
-//while not UniExperiences.Eof do
-//	begin
-//	R_DOC_AddJob(section);
-//	UniExperiences.Next;
-//	if not UniExperiences.Eof then
-//		begin
-//		paragraph := section.AddParagraph;
-//		paragraph.Alignment := taJustified;
-//		Paragraph.Spacing.Line:=400;
-//		Paragraph.Spacing.LineRule:=lrAuto;
-//		DocXtext:=paragraph.AddText('========================================================');
-//		DocXText.Font.Size := 12;
-//		DocXText.Font.Name:='Times New Roman';
-//		end;
-//	end;
-//try
-//TMSFNCWXDocx1.GetDocxAsFile(FileName);
-//isDone:=true;
-//except on E:Exception do
-//	begin
-//	ShowMessage('Ошибка создания файла: '+E.Message);
-//	IsDone:=false;
-//	end;
-//end;
-//end;
+procedure TFormListResumes.WX_R_DOC_Generate(const resume_id: integer; const FileName:string; var isDone: boolean);
+var
+section  : TTMSFNCWXDocxSection;
+paragraph: TTMSFNCWXDocxParagraph;
+DocXText     : TTMSFNCWXDocxText;
+PageBreak:TTMSFNCWXDocxPageBreak;
+begin
+TMSFNCWXDocx1.Document.Sections.Clear;
+section := TMSFNCWXDocx1.Document.AddSection;
+// Добавляем Фамилию имя
+paragraph := section.AddParagraph;
+paragraph.Spacing.Before:=120;
+paragraph.Spacing.After:=120;
+Paragraph.Spacing.Line:=600;
+DocXText:=paragraph.AddText(FormMain.FullName);
+paragraph.Heading := hlHeading1;
+paragraph.Alignment := taLeft;
+DocXText.Font.Size := 22;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+
+// Добавляем должность
+paragraph := section.AddParagraph;
+Paragraph.Spacing.Line:=400;
+paragraph.Spacing.After:=480;
+DocXtext := paragraph.AddText(LocalTranslate('Должность')+' ');
+DocXtext.Font.Color := clBlack;
+DocXtext.Font.Size := 12;
+DocXText.Font.Style := [fsBold];
+DocXText.Font.Name:='Times New Roman';
+DocXtext := paragraph.AddText(UniResumes['job_opportunity']);
+DocXtext.Font.Size := 12;
+DocXText.Font.Name:='Times New Roman';
+
+R_DOC_AddTable(section);
+R_DOC_AddFooter(section, resume_id);
+paragraph := section.AddParagraph;
+PageBreak:=Paragraph.AddBreak;
+Paragraph.Spacing.Line:=400;
+Paragraph.Spacing.LineRule:=lrAuto;
+DocXtext := paragraph.AddText(LocalTranslate('Опыт работы'));
+DocXText.Font.Size := 18;
+DocXText.Font.Name:='Times New Roman';
+DocXText.Font.Style := [fsBold];
+UniExperiences.Close;
+UniExperiences.ParamByName('p_resume_id').Value:=resume_id;
+UniExperiences.Open;
+while not UniExperiences.Eof do
+	begin
+	R_DOC_AddJob(section);
+	UniExperiences.Next;
+	if not UniExperiences.Eof then
+		begin
+		paragraph := section.AddParagraph;
+		paragraph.Alignment := taJustified;
+		Paragraph.Spacing.Line:=400;
+		Paragraph.Spacing.LineRule:=lrAuto;
+		DocXtext:=paragraph.AddText('========================================================');
+		DocXText.Font.Size := 12;
+		DocXText.Font.Name:='Times New Roman';
+		end;
+	end;
+try
+TMSFNCWXDocx1.GetDocxAsFile(FileName);
+isDone:=true;
+except on E:Exception do
+	begin
+	ShowMessage('Ошибка создания файла: '+E.Message);
+	IsDone:=false;
+	end;
+end;
+end;
 //
 //procedure TFormListResumes.WX_CL_DOC_Generate(const resume_id: integer; const FileName: string; var isDone: boolean);
 //var

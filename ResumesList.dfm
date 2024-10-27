@@ -606,7 +606,7 @@ object FormListResumes: TFormListResumes
     Font.Style = []
     ParentFont = False
     State = cbChecked
-    TabOrder = 17
+    TabOrder = 16
     OnClick = CBWordWrapClick
   end
   object BitBtn1: TBitBtn
@@ -661,22 +661,34 @@ object FormListResumes: TFormListResumes
     OnClick = BitBtn1Click
   end
   object DBFilePath: TDBRichEdit
+    Tag = 4
     Left = 2
-    Top = 474
-    Width = 980
-    Height = 41
+    Top = 476
+    Width = 983
+    Height = 37
     Anchors = [akLeft, akRight, akBottom]
-    DataField = 'resume_doc_filepath'
+    DataField = 'cv_doc_filepath'
     DataSource = UniDSResumes
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
     Font.Name = 'Tahoma'
     Font.Style = []
-    ScrollBars = ssBoth
-    TabOrder = 16
+    TabOrder = 17
     WantTabs = True
+    WordWrap = False
     OnSaveClipboard = DBRichEditorSaveClipboard
+  end
+  object TMSFNCWXDocx1: TTMSFNCWXDocx
+    Left = 104
+    Top = 160
+    Width = 26
+    Height = 26
+    ParentDoubleBuffered = False
+    DoubleBuffered = True
+    TabOrder = 18
+    Visible = True
+    OnDownloadAsFile = TMSFNCWXDocx1DownloadAsFile
   end
   object UniResumes: TUniQuery
     UpdatingTable = 'resumes'

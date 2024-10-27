@@ -4661,7 +4661,6 @@ object FormMain: TFormMain
     NumGlyphs = 2
     ParentFont = False
     TabOrder = 4
-    ExplicitLeft = 868
   end
   object BitBtnTemplatesList: TBitBtn
     Left = 430
@@ -4776,7 +4775,6 @@ object FormMain: TFormMain
     ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 5
-    ExplicitWidth = 976
   end
   object BitBtnNewTemplate: TBitBtn
     Left = 4
