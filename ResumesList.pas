@@ -101,6 +101,7 @@ type
     UniResumescl_text: TWideMemoField;
     UniExperiencesbenefits: TWideMemoField;
     DBFilePath: TDBRichEdit;
+    TMSFNCWXDocx2: TTMSFNCWXDocx;
     procedure BitBtnCloseClick(Sender: TObject);
 		procedure BitBtnNewResumeClick(Sender: TObject);
 		procedure BitBtnDeleteResumeClick(Sender: TObject);

@@ -680,7 +680,7 @@ object FormListResumes: TFormListResumes
     OnSaveClipboard = DBRichEditorSaveClipboard
   end
   object TMSFNCWXDocx1: TTMSFNCWXDocx
-    Left = 104
+    Left = 144
     Top = 160
     Width = 26
     Height = 26
@@ -689,6 +689,16 @@ object FormListResumes: TFormListResumes
     TabOrder = 18
     Visible = True
     OnDownloadAsFile = TMSFNCWXDocx1DownloadAsFile
+    object TMSFNCWXDocx2: TTMSFNCWXDocx
+      Left = 16
+      Top = 8
+      Width = 26
+      Height = 26
+      ParentDoubleBuffered = False
+      DoubleBuffered = True
+      TabOrder = 0
+      Visible = True
+    end
   end
   object UniResumes: TUniQuery
     UpdatingTable = 'resumes'
